@@ -1,0 +1,1 @@
+# stm32H723_workspace
