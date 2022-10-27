@@ -134,26 +134,7 @@ typedef enum
   * @}
   */
 
-uint8_t USBD_AUDIO_Init(USBD_HandleTypeDef *pdev, uint8_t cfgidx);
-uint8_t USBD_AUDIO_DeInit(USBD_HandleTypeDef *pdev, uint8_t cfgidx);
 
-uint8_t USBD_AUDIO_Setup(USBD_HandleTypeDef *pdev,
-                               USBD_SetupReqTypedef *req);
-#ifndef USE_USBD_COMPOSITE
-uint8_t *USBD_AUDIO_GetCfgDesc(uint16_t *length);
-uint8_t *USBD_AUDIO_GetDeviceQualifierDesc(uint16_t *length);
-#endif /* USE_USBD_COMPOSITE  */
-uint8_t USBD_AUDIO_DataIn(USBD_HandleTypeDef *pdev, uint8_t epnum);
-uint8_t USBD_AUDIO_DataOut(USBD_HandleTypeDef *pdev, uint8_t epnum);
-uint8_t USBD_AUDIO_EP0_RxReady(USBD_HandleTypeDef *pdev);
-uint8_t USBD_AUDIO_EP0_TxReady(USBD_HandleTypeDef *pdev);
-uint8_t USBD_AUDIO_SOF(USBD_HandleTypeDef *pdev);
-
-uint8_t USBD_AUDIO_IsoINIncomplete(USBD_HandleTypeDef *pdev, uint8_t epnum);
-uint8_t USBD_AUDIO_IsoOutIncomplete(USBD_HandleTypeDef *pdev, uint8_t epnum);
-void AUDIO_REQ_GetCurrent(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req);
-void AUDIO_REQ_SetCurrent(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req);
-void *USBD_AUDIO_GetAudioHeaderDesc(uint8_t *pConfDesc);
 /** @defgroup USBD_CORE_Exported_TypesDefinitions
   * @{
   */

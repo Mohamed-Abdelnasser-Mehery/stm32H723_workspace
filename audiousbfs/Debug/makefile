@@ -64,8 +64,8 @@ all: main-build
 main-build: audiousbfs.elf secondary-outputs
 
 # Tool invocations
-audiousbfs.elf audiousbfs.map: $(OBJS) $(USER_OBJS) C:\Users\User_4\STM32CubeIDE\workspace_1.10.1\audiousbfs\STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "audiousbfs.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\User_4\STM32CubeIDE\workspace_1.10.1\audiousbfs\STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="audiousbfs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+audiousbfs.elf audiousbfs.map: $(OBJS) $(USER_OBJS) C:\Users\User_4\STM32CubeIDE\workspace_1.10.1\stm32H723_workspace\audiousbfs\STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "audiousbfs.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\User_4\STM32CubeIDE\workspace_1.10.1\stm32H723_workspace\audiousbfs\STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="audiousbfs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

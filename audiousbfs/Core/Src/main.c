@@ -92,15 +92,14 @@ int main(void)
   MX_GPIO_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t data[2048] = "QUANTTRONIX\n";
+  uint8_t data[512] = "QUANTTRONIX\n";
 
-  memset(data+14, 1 , 2048-14);
-  USBD_AUDIO_Init(&hUsbDeviceHS,1);
+  memset(data+14, 1 , 512-14);
+//  USBD_AUDIO_Init(&hUsbDeviceHS,1);
 #define OTG_HS_DIEPINT1 (*(volatile uint32_t*)0x40040928)
 #define OTG_HS_DIEPINT0 (*(volatile uint32_t*)0x40040908)
 
 #define OTG_HS_DAINT (*(volatile uint32_t*)0x40040818)
-  USBD_AUDIO_DataIn(&hUsbDeviceHS , 1);
 
 //  USBD_AUDIO_ItfTypeDef fops;
   /* USER CODE END 2 */
@@ -114,8 +113,13 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, 0);
 //	  USBD_AUDIO_RegisterInterface(&hUsbDeviceHS, &fops);
-	  USBD_AUDIO_DataIn(&hUsbDeviceHS , 1);
-	  while(!(OTG_HS_DIEPINT0 & (1<<7)));
+//	  USBD_AUDIO_DataIn(&hUsbDeviceHS , 1);
+	  if(USBD_CtlSendData(&hUsbDeviceHS,  data,  64) != USBD_OK)
+	  {
+		  while(USBD_CtlSendStatus(&hUsbDeviceHS) != USBD_OK);
+	  }
+//	  while((*(hUsbDeviceHS.pClass))->Setup(&hUsbDeviceHS , &req));
+//	  while(!(OTG_HS_DIEPINT0 & (1<<7)));
 //	  HAL_Delay(1000);
 
 	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, 1);
