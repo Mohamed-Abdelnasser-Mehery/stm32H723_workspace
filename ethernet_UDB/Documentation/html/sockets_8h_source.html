@@ -655,10 +655,10 @@ $(function() {
 <div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span> <span class="keywordtype">int</span> lwip_close(<span class="keywordtype">int</span> s);</div>
 <div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span><span class="keywordtype">int</span> lwip_connect(<span class="keywordtype">int</span> s, <span class="keyword">const</span> <span class="keyword">struct</span> sockaddr *name, socklen_t namelen);</div>
 <div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span><span class="keywordtype">int</span> lwip_listen(<span class="keywordtype">int</span> s, <span class="keywordtype">int</span> backlog);</div>
-<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>ssize_t lwip_recv(<span class="keywordtype">int</span> s, <span class="keywordtype">void</span> *<a class="code hl_struct" href="structmem.html">mem</a>, <span class="keywordtype">size_t</span> len, <span class="keywordtype">int</span> flags);</div>
-<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>ssize_t lwip_read(<span class="keywordtype">int</span> s, <span class="keywordtype">void</span> *<a class="code hl_struct" href="structmem.html">mem</a>, <span class="keywordtype">size_t</span> len);</div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>ssize_t lwip_recv(<span class="keywordtype">int</span> s, <span class="keywordtype">void</span> *mem, <span class="keywordtype">size_t</span> len, <span class="keywordtype">int</span> flags);</div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>ssize_t lwip_read(<span class="keywordtype">int</span> s, <span class="keywordtype">void</span> *mem, <span class="keywordtype">size_t</span> len);</div>
 <div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>ssize_t lwip_readv(<span class="keywordtype">int</span> s, <span class="keyword">const</span> <span class="keyword">struct</span> iovec *iov, <span class="keywordtype">int</span> iovcnt);</div>
-<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>ssize_t lwip_recvfrom(<span class="keywordtype">int</span> s, <span class="keywordtype">void</span> *<a class="code hl_struct" href="structmem.html">mem</a>, <span class="keywordtype">size_t</span> len, <span class="keywordtype">int</span> flags,</div>
+<div class="line"><a id="l00589" name="l00589"></a><span class="lineno">  589</span>ssize_t lwip_recvfrom(<span class="keywordtype">int</span> s, <span class="keywordtype">void</span> *mem, <span class="keywordtype">size_t</span> len, <span class="keywordtype">int</span> flags,</div>
 <div class="line"><a id="l00590" name="l00590"></a><span class="lineno">  590</span>      <span class="keyword">struct</span> sockaddr *from, socklen_t *fromlen);</div>
 <div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>ssize_t lwip_recvmsg(<span class="keywordtype">int</span> s, <span class="keyword">struct</span> msghdr *message, <span class="keywordtype">int</span> flags);</div>
 <div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span>ssize_t lwip_send(<span class="keywordtype">int</span> s, <span class="keyword">const</span> <span class="keywordtype">void</span> *dataptr, <span class="keywordtype">size_t</span> size, <span class="keywordtype">int</span> flags);</div>
@@ -737,7 +737,6 @@ $(function() {
 <div class="ttc" id="aopt_8h_html"><div class="ttname"><a href="opt_8h.html">opt.h</a></div></div>
 <div class="ttc" id="astructin6__addr_html"><div class="ttname"><a href="structin6__addr.html">in6_addr</a></div><div class="ttdef"><b>Definition:</b> inet.h:62</div></div>
 <div class="ttc" id="astructin__addr_html"><div class="ttname"><a href="structin__addr.html">in_addr</a></div><div class="ttdef"><b>Definition:</b> inet.h:58</div></div>
-<div class="ttc" id="astructmem_html"><div class="ttname"><a href="structmem.html">mem</a></div><div class="ttdef"><b>Definition:</b> mem.c:349</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

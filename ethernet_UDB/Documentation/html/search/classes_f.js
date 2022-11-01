@@ -18,6 +18,5 @@ var searchData=
   ['rng_5ftypedef_15',['RNG_TypeDef',['../struct_r_n_g___type_def.html',1,'']]],
   ['route_5foption_16',['route_option',['../structroute__option.html',1,'']]],
   ['rs_5fheader_17',['rs_header',['../structrs__header.html',1,'']]],
-  ['rtc_5ftypedef_18',['RTC_TypeDef',['../struct_r_t_c___type_def.html',1,'']]],
-  ['rxbuff_5ft_19',['RxBuff_t',['../struct_rx_buff__t.html',1,'']]]
+  ['rtc_5ftypedef_18',['RTC_TypeDef',['../struct_r_t_c___type_def.html',1,'']]]
 ];

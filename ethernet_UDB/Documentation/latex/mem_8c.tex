@@ -7,11 +7,6 @@
 {\ttfamily \#include \char`\"{}lwip/stats.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
-\doxysubsection*{Data Structures}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{structmem}{mem}}
-\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,7 +34,7 @@ struct \mbox{\hyperlink{structmem}{mem}}
 \#define {\bfseries MIN\+\_\+\+SIZE\+\_\+\+ALIGNED}~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(\mbox{\hyperlink{mem_8c_a278694c2333c9826f21ddd2c2d220f66}{MIN\+\_\+\+SIZE}})
 \item 
 \mbox{\Hypertarget{mem_8c_ade9cedd48e9a482120e29c010352ee5c}\label{mem_8c_ade9cedd48e9a482120e29c010352ee5c}} 
-\#define {\bfseries SIZEOF\+\_\+\+STRUCT\+\_\+\+MEM}~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(sizeof(struct \mbox{\hyperlink{structmem}{mem}}))
+\#define {\bfseries SIZEOF\+\_\+\+STRUCT\+\_\+\+MEM}~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(sizeof(struct mem))
 \item 
 \mbox{\Hypertarget{mem_8c_a78ed2097d5d3e2ca4599b2ca3d91493a}\label{mem_8c_a78ed2097d5d3e2ca4599b2ca3d91493a}} 
 \#define {\bfseries MEM\+\_\+\+SIZE\+\_\+\+ALIGNED}~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(MEM\+\_\+\+SIZE)
@@ -72,10 +67,10 @@ struct \mbox{\hyperlink{structmem}{mem}}
 \#define {\bfseries MEM\+\_\+\+SANITY}()
 \item 
 \mbox{\Hypertarget{mem_8c_a89d767420435e5edc309c6d32aa6c3eb}\label{mem_8c_a89d767420435e5edc309c6d32aa6c3eb}} 
-\#define {\bfseries mem\+\_\+overflow\+\_\+init\+\_\+element}(\mbox{\hyperlink{structmem}{mem}},  size)
+\#define {\bfseries mem\+\_\+overflow\+\_\+init\+\_\+element}(mem,  size)
 \item 
 \mbox{\Hypertarget{mem_8c_a3b979ea9bc7806a8e5fb2e94b3be3121}\label{mem_8c_a3b979ea9bc7806a8e5fb2e94b3be3121}} 
-\#define {\bfseries mem\+\_\+overflow\+\_\+check\+\_\+element}(\mbox{\hyperlink{structmem}{mem}})
+\#define {\bfseries mem\+\_\+overflow\+\_\+check\+\_\+element}(mem)
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}

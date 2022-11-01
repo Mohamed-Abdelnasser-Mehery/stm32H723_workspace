@@ -74,7 +74,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">mem.c File Reference</div></div>
@@ -88,11 +87,6 @@ $(function() {
 <code>#include &quot;<a class="el" href="err_8h_source.html">lwip/err.h</a>&quot;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmem.html">mem</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a6e206b9300fb087168cf4afd58848583"><td class="memItemLeft" align="right" valign="top"><a id="a6e206b9300fb087168cf4afd58848583" name="a6e206b9300fb087168cf4afd58848583"></a>
@@ -119,7 +113,7 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MIN_SIZE_ALIGNED</b>&#160;&#160;&#160;<a class="el" href="group__compiler__abstraction.html#gaef204be511fd32f681b55abc08e9ae18">LWIP_MEM_ALIGN_SIZE</a>(<a class="el" href="mem_8c.html#a278694c2333c9826f21ddd2c2d220f66">MIN_SIZE</a>)</td></tr>
 <tr class="separator:a97c704b85f71b6e61b0098b4a0a743cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade9cedd48e9a482120e29c010352ee5c"><td class="memItemLeft" align="right" valign="top"><a id="ade9cedd48e9a482120e29c010352ee5c" name="ade9cedd48e9a482120e29c010352ee5c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>SIZEOF_STRUCT_MEM</b>&#160;&#160;&#160;<a class="el" href="group__compiler__abstraction.html#gaef204be511fd32f681b55abc08e9ae18">LWIP_MEM_ALIGN_SIZE</a>(sizeof(struct <a class="el" href="structmem.html">mem</a>))</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SIZEOF_STRUCT_MEM</b>&#160;&#160;&#160;<a class="el" href="group__compiler__abstraction.html#gaef204be511fd32f681b55abc08e9ae18">LWIP_MEM_ALIGN_SIZE</a>(sizeof(struct mem))</td></tr>
 <tr class="separator:ade9cedd48e9a482120e29c010352ee5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78ed2097d5d3e2ca4599b2ca3d91493a"><td class="memItemLeft" align="right" valign="top"><a id="a78ed2097d5d3e2ca4599b2ca3d91493a" name="a78ed2097d5d3e2ca4599b2ca3d91493a"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MEM_SIZE_ALIGNED</b>&#160;&#160;&#160;<a class="el" href="group__compiler__abstraction.html#gaef204be511fd32f681b55abc08e9ae18">LWIP_MEM_ALIGN_SIZE</a>(MEM_SIZE)</td></tr>
@@ -152,10 +146,10 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MEM_SANITY</b>()</td></tr>
 <tr class="separator:a66729ed567ed8f74812d100915d3bd0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89d767420435e5edc309c6d32aa6c3eb"><td class="memItemLeft" align="right" valign="top"><a id="a89d767420435e5edc309c6d32aa6c3eb" name="a89d767420435e5edc309c6d32aa6c3eb"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>mem_overflow_init_element</b>(<a class="el" href="structmem.html">mem</a>,  size)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>mem_overflow_init_element</b>(mem,  size)</td></tr>
 <tr class="separator:a89d767420435e5edc309c6d32aa6c3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b979ea9bc7806a8e5fb2e94b3be3121"><td class="memItemLeft" align="right" valign="top"><a id="a3b979ea9bc7806a8e5fb2e94b3be3121" name="a3b979ea9bc7806a8e5fb2e94b3be3121"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>mem_overflow_check_element</b>(<a class="el" href="structmem.html">mem</a>)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>mem_overflow_check_element</b>(mem)</td></tr>
 <tr class="separator:a3b979ea9bc7806a8e5fb2e94b3be3121"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>

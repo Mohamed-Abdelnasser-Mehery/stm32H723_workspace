@@ -213,7 +213,7 @@
 \DoxyCodeLine{263   \textcolor{keyword}{struct }stats\_proto tcp;}
 \DoxyCodeLine{264 \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{265 \textcolor{preprocessor}{\#if MEM\_STATS}}
-\DoxyCodeLine{267   \textcolor{keyword}{struct }stats\_mem \mbox{\hyperlink{structmem}{mem}};}
+\DoxyCodeLine{267   \textcolor{keyword}{struct }stats\_mem mem;}
 \DoxyCodeLine{268 \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{269 \textcolor{preprocessor}{\#if MEMP\_STATS}}
 \DoxyCodeLine{271   \textcolor{keyword}{struct }stats\_mem *\mbox{\hyperlink{structmemp}{memp}}[MEMP\_MAX];}
@@ -411,8 +411,8 @@
 \DoxyCodeLine{472 \textcolor{keywordtype}{void} stats\_display(\textcolor{keywordtype}{void});}
 \DoxyCodeLine{473 \textcolor{keywordtype}{void} stats\_display\_proto(\textcolor{keyword}{struct} stats\_proto *proto, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name);}
 \DoxyCodeLine{474 \textcolor{keywordtype}{void} stats\_display\_igmp(\textcolor{keyword}{struct} stats\_igmp *igmp, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name);}
-\DoxyCodeLine{475 \textcolor{keywordtype}{void} stats\_display\_mem(\textcolor{keyword}{struct} stats\_mem *\mbox{\hyperlink{structmem}{mem}}, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name);}
-\DoxyCodeLine{476 \textcolor{keywordtype}{void} stats\_display\_memp(\textcolor{keyword}{struct} stats\_mem *\mbox{\hyperlink{structmem}{mem}}, \textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{475 \textcolor{keywordtype}{void} stats\_display\_mem(\textcolor{keyword}{struct} stats\_mem *mem, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name);}
+\DoxyCodeLine{476 \textcolor{keywordtype}{void} stats\_display\_memp(\textcolor{keyword}{struct} stats\_mem *mem, \textcolor{keywordtype}{int} index);}
 \DoxyCodeLine{477 \textcolor{keywordtype}{void} stats\_display\_sys(\textcolor{keyword}{struct} stats\_sys *sys);}
 \DoxyCodeLine{478 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_STATS\_DISPLAY */}\textcolor{preprocessor}{}}
 \DoxyCodeLine{479 \textcolor{preprocessor}{\#define stats\_display()}}

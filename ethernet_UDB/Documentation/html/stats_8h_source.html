@@ -287,7 +287,7 @@ $(function() {
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>  <span class="keyword">struct </span>stats_proto tcp;</div>
 <div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="preprocessor">#if MEM_STATS</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>  <span class="keyword">struct </span>stats_mem <a class="code hl_struct" href="structmem.html">mem</a>;</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>  <span class="keyword">struct </span>stats_mem mem;</div>
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="preprocessor">#if MEMP_STATS</span></div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>  <span class="keyword">struct </span>stats_mem *<a class="code hl_struct" href="structmemp.html">memp</a>[MEMP_MAX];</div>
@@ -485,8 +485,8 @@ $(function() {
 <div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span><span class="keywordtype">void</span> stats_display(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span><span class="keywordtype">void</span> stats_display_proto(<span class="keyword">struct</span> stats_proto *proto, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);</div>
 <div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span><span class="keywordtype">void</span> stats_display_igmp(<span class="keyword">struct</span> stats_igmp *igmp, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);</div>
-<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span><span class="keywordtype">void</span> stats_display_mem(<span class="keyword">struct</span> stats_mem *<a class="code hl_struct" href="structmem.html">mem</a>, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);</div>
-<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span><span class="keywordtype">void</span> stats_display_memp(<span class="keyword">struct</span> stats_mem *<a class="code hl_struct" href="structmem.html">mem</a>, <span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span><span class="keywordtype">void</span> stats_display_mem(<span class="keyword">struct</span> stats_mem *mem, <span class="keyword">const</span> <span class="keywordtype">char</span> *name);</div>
+<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span><span class="keywordtype">void</span> stats_display_memp(<span class="keyword">struct</span> stats_mem *mem, <span class="keywordtype">int</span> index);</div>
 <div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span><span class="keywordtype">void</span> stats_display_sys(<span class="keyword">struct</span> stats_sys *sys);</div>
 <div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span><span class="preprocessor">#else </span><span class="comment">/* LWIP_STATS_DISPLAY */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span><span class="preprocessor">#define stats_display()</span></div>
@@ -505,7 +505,6 @@ $(function() {
 <div class="ttc" id="amem_8h_html"><div class="ttname"><a href="mem_8h.html">mem.h</a></div></div>
 <div class="ttc" id="amemp_8h_html"><div class="ttname"><a href="memp_8h.html">memp.h</a></div></div>
 <div class="ttc" id="aopt_8h_html"><div class="ttname"><a href="opt_8h.html">opt.h</a></div></div>
-<div class="ttc" id="astructmem_html"><div class="ttname"><a href="structmem.html">mem</a></div><div class="ttdef"><b>Definition:</b> mem.c:349</div></div>
 <div class="ttc" id="astructmemp_html"><div class="ttname"><a href="structmemp.html">memp</a></div><div class="ttdef"><b>Definition:</b> memp_priv.h:69</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

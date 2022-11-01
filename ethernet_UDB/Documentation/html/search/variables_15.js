@@ -23,7 +23,6 @@ var searchData=
   ['usart16clockselection_20',['Usart16ClockSelection',['../struct_r_c_c___periph_c_l_k_init_type_def.html#aa45c8166ee733dd26bd9278edbb23d23',1,'RCC_PeriphCLKInitTypeDef']]],
   ['usart234578clockselection_21',['Usart234578ClockSelection',['../struct_r_c_c___periph_c_l_k_init_type_def.html#aedaf6244b914e772dbd8fb5726952c30',1,'RCC_PeriphCLKInitTypeDef']]],
   ['usbclockselection_22',['UsbClockSelection',['../struct_r_c_c___periph_c_l_k_init_type_def.html#a4fc582af08e1d5123cb69df41a412777',1,'RCC_PeriphCLKInitTypeDef']]],
-  ['used_23',['used',['../structmem.html#a8029b57d367ecfe34e8c1691bb6333fe',1,'mem']]],
-  ['userconfig_24',['USERConfig',['../struct_f_l_a_s_h___o_b_program_init_type_def.html#aefa4621be119ce8af715a2271b53168c',1,'FLASH_OBProgramInitTypeDef']]],
-  ['usertype_25',['USERType',['../struct_f_l_a_s_h___o_b_program_init_type_def.html#a84b990aa673c75ca04bd361e8157953d',1,'FLASH_OBProgramInitTypeDef']]]
+  ['userconfig_23',['USERConfig',['../struct_f_l_a_s_h___o_b_program_init_type_def.html#aefa4621be119ce8af715a2271b53168c',1,'FLASH_OBProgramInitTypeDef']]],
+  ['usertype_24',['USERType',['../struct_f_l_a_s_h___o_b_program_init_type_def.html#a84b990aa673c75ca04bd361e8157953d',1,'FLASH_OBProgramInitTypeDef']]]
 ];

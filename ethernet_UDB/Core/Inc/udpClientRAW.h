@@ -4,11 +4,9 @@
   ***************************************************************************************************************
 
   File:		  udpClientRAW.h
-  Author:     ControllersTech.com
-  Updated:    Jul 23, 2021
+  @brief	  this header file include the function prototype of udp interfaces
 
   ***************************************************************************************************************
-  Copyright (C) 2017 ControllersTech.com
 
   This is a free software under the GNU license, you can redistribute it and/or modify it under the terms
   of the GNU General Public License version 3 as published by the Free Software Foundation.

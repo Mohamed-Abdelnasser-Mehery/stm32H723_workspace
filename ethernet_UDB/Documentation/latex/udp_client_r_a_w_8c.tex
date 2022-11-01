@@ -1,0 +1,67 @@
+\hypertarget{udp_client_r_a_w_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Core/\+Src/udp\+Client\+RAW.c File Reference}
+\label{udp_client_r_a_w_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Core/Src/udpClientRAW.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Core/Src/udpClientRAW.c}}
+
+
+\+: This file hold all UDP interface function  
+
+
+{\ttfamily \#include \char`\"{}lwip/pbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/udp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/tcp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stdio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}string.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}udp\+Client\+RAW.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{udp_client_r_a_w_8c_a5b44c65aa41e79871a46aeed1bb4751b}\label{udp_client_r_a_w_8c_a5b44c65aa41e79871a46aeed1bb4751b}} 
+void {\bfseries udp\+\_\+receive\+\_\+callback} (void $\ast$arg, struct udp\+\_\+pcb $\ast$upcb, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, const ip\+\_\+addr\+\_\+t $\ast$addr, u16\+\_\+t port)
+\begin{DoxyCompactList}\small\item\em This function handle the input data from UDB server. \end{DoxyCompactList}\item 
+void {\bfseries HAL\+\_\+\+TIM\+\_\+\+Period\+Elapsed\+Callback} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+void \mbox{\hyperlink{udp_client_r_a_w_8c_a441d5d19d676357c434f0b9765ebb0f7}{udp\+Client\+\_\+connect}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{udp_client_r_a_w_8c_acc09b1c00e34470313d20fadc5d0dee2}\label{udp_client_r_a_w_8c_acc09b1c00e34470313d20fadc5d0dee2}} 
+struct udp\+\_\+pcb $\ast$ {\bfseries upcb}
+\item 
+\mbox{\Hypertarget{udp_client_r_a_w_8c_a542df3d5bbe8c96a672476931ec18220}\label{udp_client_r_a_w_8c_a542df3d5bbe8c96a672476931ec18220}} 
+char {\bfseries buffer} \mbox{[}100\mbox{]}
+\item 
+\mbox{\Hypertarget{udp_client_r_a_w_8c_a617a47c70795bcff659815ad0efd2266}\label{udp_client_r_a_w_8c_a617a47c70795bcff659815ad0efd2266}} 
+int {\bfseries counter} = 0
+\item 
+\mbox{\Hypertarget{udp_client_r_a_w_8c_a25fc663547539bc49fecc0011bd76ab5}\label{udp_client_r_a_w_8c_a25fc663547539bc49fecc0011bd76ab5}} 
+\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} {\bfseries htim1}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: This file hold all UDP interface function 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2022 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{udp_client_r_a_w_8c_a441d5d19d676357c434f0b9765ebb0f7}\label{udp_client_r_a_w_8c_a441d5d19d676357c434f0b9765ebb0f7}} 
+\index{udpClientRAW.c@{udpClientRAW.c}!udpClient\_connect@{udpClient\_connect}}
+\index{udpClient\_connect@{udpClient\_connect}!udpClientRAW.c@{udpClientRAW.c}}
+\doxysubsubsection{\texorpdfstring{udpClient\_connect()}{udpClient\_connect()}}
+{\footnotesize\ttfamily void udp\+Client\+\_\+connect (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+IMPLEMENTATION FOR UDP CLIENT \+: source\+:https\+://www.geeksforgeeks.\+org/udp-\/server-\/client-\/implementation-\/c/
+
+
+\begin{DoxyEnumerate}
+\item Create UDP socket.
+\item Send message to server.
+\item Wait until response from server is received.
+\item Process reply and go back to step 2, if necessary.
+\item Close socket descriptor and exit. 
+\end{DoxyEnumerate}
