@@ -10648,7 +10648,7 @@ err_t ethernetif_init(struct netif *netif)
  800411a:	2b00      	cmp	r3, #0
  800411c:	d106      	bne.n	800412c <ethernetif_init+0x1c>
  800411e:	4b0e      	ldr	r3, [pc, #56]	; (8004158 <ethernetif_init+0x48>)
- 8004120:	f240 1283 	movw	r2, #387	; 0x183
+ 8004120:	f44f 72c2 	mov.w	r2, #388	; 0x184
  8004124:	490d      	ldr	r1, [pc, #52]	; (800415c <ethernetif_init+0x4c>)
  8004126:	480e      	ldr	r0, [pc, #56]	; (8004160 <ethernetif_init+0x50>)
  8004128:	f00a f8bc 	bl	800e2a4 <iprintf>

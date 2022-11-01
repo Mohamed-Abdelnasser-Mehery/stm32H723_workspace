@@ -115,14 +115,15 @@ ETH_DMADescTypeDef DMATxDscrTab[ETH_TX_DESC_CNT] __attribute__((section(".TxDecr
 
 /* USER CODE BEGIN 2 */
 //uint8_t  RX_Buff[ETH_RX_DESC_CNT][ETH_RX_BUFFER_SIZE] __attribute__((section(".RxArraySection")));   /* Ethernet Rx Array Descriptors */
-//__attribute__ ((section(".RxArraySection"), used))
-//. = ABSOLUTE(0x30000100);
-//*(.RxArraySection)
+
 
 __attribute__ ((section(".RxDecripSection"), used)) ETH_DMADescTypeDef  DMARxDscrTab[ETH_RX_DESC_CNT];
 __attribute__ ((section(".TxDecripSection"), used)) ETH_DMADescTypeDef  DMATxDscrTab[ETH_TX_DESC_CNT];
+
+#if defined ( __GNUC__ ) /* GNU Compiler */
 __attribute__((section(".Rx_PoolSection"))) extern u8_t memp_memory_RX_POOL_base[];
 
+#endif
 /* USER CODE END 2 */
 
 /* Global Ethernet handle */
