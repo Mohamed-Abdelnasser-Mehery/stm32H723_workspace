@@ -1,0 +1,241 @@
+\hypertarget{pbuf_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/core/pbuf.c File Reference}
+\label{pbuf_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/core/pbuf.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/core/pbuf.c}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/pbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/stats.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/def.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/mem.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/memp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/netif.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{pbuf_8c_a8357a994e45ff94c9494aa55b6c3ecb3}\label{pbuf_8c_a8357a994e45ff94c9494aa55b6c3ecb3}} 
+\#define {\bfseries SIZEOF\+\_\+\+STRUCT\+\_\+\+PBUF}~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(sizeof(struct \mbox{\hyperlink{structpbuf}{pbuf}}))
+\item 
+\mbox{\Hypertarget{pbuf_8c_a3dad81a8286ee8e9a7c70a74f9f4bb0f}\label{pbuf_8c_a3dad81a8286ee8e9a7c70a74f9f4bb0f}} 
+\#define {\bfseries PBUF\+\_\+\+POOL\+\_\+\+BUFSIZE\+\_\+\+ALIGNED}~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(\mbox{\hyperlink{group__lwip__opts__pbuf_gae61f4491d56e805e79b79eb5d35a00e5}{PBUF\+\_\+\+POOL\+\_\+\+BUFSIZE}})
+\item 
+\mbox{\Hypertarget{pbuf_8c_aed70c61e971683736c569a1a99b76569}\label{pbuf_8c_aed70c61e971683736c569a1a99b76569}} 
+\#define {\bfseries PBUF\+\_\+\+POOL\+\_\+\+IS\+\_\+\+EMPTY}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{group__pbuf_ga8bb9c5d54a06995b1c67ce695ead9969}{pbuf\+\_\+alloc}} (\mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}} layer, u16\+\_\+t length, \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}} type)
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{group__pbuf_ga6cff29c18a60a7f2828457fa61e3accb}{pbuf\+\_\+alloc\+\_\+reference}} (void $\ast$payload, u16\+\_\+t length, \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}} type)
+\item 
+void \mbox{\hyperlink{group__pbuf_ga50abfe830a33a1a47a562febee66015d}{pbuf\+\_\+realloc}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u16\+\_\+t new\+\_\+len)
+\item 
+u8\+\_\+t \mbox{\hyperlink{pbuf_8c_a32dc14bd88dcafa25e627ab18e801815}{pbuf\+\_\+add\+\_\+header}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, size\+\_\+t header\+\_\+size\+\_\+increment)
+\item 
+u8\+\_\+t \mbox{\hyperlink{pbuf_8c_ad4ef8c5fbbd1447db04f8f73923e7dee}{pbuf\+\_\+add\+\_\+header\+\_\+force}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, size\+\_\+t header\+\_\+size\+\_\+increment)
+\item 
+u8\+\_\+t \mbox{\hyperlink{pbuf_8c_aca0cd8b3f08fbb5e35bc91a663083cc1}{pbuf\+\_\+remove\+\_\+header}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, size\+\_\+t header\+\_\+size\+\_\+decrement)
+\item 
+u8\+\_\+t \mbox{\hyperlink{pbuf_8c_a0f81deff4a0e6e8e0ff161a7b9871449}{pbuf\+\_\+header}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, s16\+\_\+t header\+\_\+size\+\_\+increment)
+\item 
+u8\+\_\+t \mbox{\hyperlink{pbuf_8c_ad0e64d6fbc423593461063da97da9ce6}{pbuf\+\_\+header\+\_\+force}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, s16\+\_\+t header\+\_\+size\+\_\+increment)
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{pbuf_8c_ab0a834127db093fcb6ffc48d966de318}{pbuf\+\_\+free\+\_\+header}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$q, u16\+\_\+t size)
+\item 
+u8\+\_\+t \mbox{\hyperlink{group__pbuf_gab0dd696fb4b6bc65e548944584f1738b}{pbuf\+\_\+free}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+u16\+\_\+t \mbox{\hyperlink{pbuf_8c_a5df7ac5ae59012fe9aeddba375a72190}{pbuf\+\_\+clen}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+void \mbox{\hyperlink{group__pbuf_ga77f6bbd69e45e542014d9c547c7da74e}{pbuf\+\_\+ref}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+void \mbox{\hyperlink{group__pbuf_ga82429084fe29015509c9b4a072707cd4}{pbuf\+\_\+cat}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$h, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$t)
+\item 
+void \mbox{\hyperlink{group__pbuf_ga831c9a72bda1d3bd4c7b96f5a0e3b891}{pbuf\+\_\+chain}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$h, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$t)
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{pbuf_8c_ace8aac12c3ebe16262c2202bd5eb02ab}{pbuf\+\_\+dechain}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__pbuf_gaba88511dee3df4b631fde691f421320d}{pbuf\+\_\+copy}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p\+\_\+to, const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p\+\_\+from)
+\item 
+u16\+\_\+t \mbox{\hyperlink{group__pbuf_gac2f1f58fd36042e82af46f5015720899}{pbuf\+\_\+copy\+\_\+partial}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$buf, void $\ast$dataptr, u16\+\_\+t len, u16\+\_\+t offset)
+\item 
+void $\ast$ \mbox{\hyperlink{group__pbuf_ga6da6c83929df1b736b107e89faa8a8a2}{pbuf\+\_\+get\+\_\+contiguous}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, void $\ast$buffer, size\+\_\+t bufsize, u16\+\_\+t len, u16\+\_\+t offset)
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{group__pbuf_gabe4dfb2409c87a7c52c9a22a779f92e9}{pbuf\+\_\+skip}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$in, u16\+\_\+t in\+\_\+offset, u16\+\_\+t $\ast$out\+\_\+offset)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__pbuf_gad1e31e370271335b197272af2724ca85}{pbuf\+\_\+take}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$buf, const void $\ast$dataptr, u16\+\_\+t len)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__pbuf_gae1cf2bf7454ff87ff377b0b2262f9b44}{pbuf\+\_\+take\+\_\+at}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$buf, const void $\ast$dataptr, u16\+\_\+t len, u16\+\_\+t offset)
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{group__pbuf_ga031469589fa95ece3bf1c136d1509eac}{pbuf\+\_\+coalesce}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, \mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}} layer)
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{group__pbuf_gac6842a5d8268606f9608bae15d652a22}{pbuf\+\_\+clone}} (\mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}} layer, \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}} type, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+u8\+\_\+t \mbox{\hyperlink{group__pbuf_ga6d803d9945bffb7ad97743f2fa503da6}{pbuf\+\_\+get\+\_\+at}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u16\+\_\+t offset)
+\item 
+int \mbox{\hyperlink{group__pbuf_ga839f342803b0cf89049744124c5a98ad}{pbuf\+\_\+try\+\_\+get\+\_\+at}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u16\+\_\+t offset)
+\item 
+void \mbox{\hyperlink{group__pbuf_gaf76863707dc02993eae116574b1ea03f}{pbuf\+\_\+put\+\_\+at}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u16\+\_\+t offset, u8\+\_\+t data)
+\item 
+u16\+\_\+t \mbox{\hyperlink{group__pbuf_ga2170ccbbb13238380dbb203ee1b85974}{pbuf\+\_\+memcmp}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u16\+\_\+t offset, const void $\ast$s2, u16\+\_\+t n)
+\item 
+u16\+\_\+t \mbox{\hyperlink{group__pbuf_ga18c164a6e4a24d89ea9eb7571a886448}{pbuf\+\_\+memfind}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, const void $\ast$\mbox{\hyperlink{structmem}{mem}}, u16\+\_\+t mem\+\_\+len, u16\+\_\+t start\+\_\+offset)
+\item 
+u16\+\_\+t \mbox{\hyperlink{pbuf_8c_a9ba3f7b705309ceadb147692fd5a1c7d}{pbuf\+\_\+strstr}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, const char $\ast$substr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Packet buffer management 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pbuf_8c_a32dc14bd88dcafa25e627ab18e801815}\label{pbuf_8c_a32dc14bd88dcafa25e627ab18e801815}} 
+\index{pbuf.c@{pbuf.c}!pbuf\_add\_header@{pbuf\_add\_header}}
+\index{pbuf\_add\_header@{pbuf\_add\_header}!pbuf.c@{pbuf.c}}
+\doxysubsubsection{\texorpdfstring{pbuf\_add\_header()}{pbuf\_add\_header()}}
+{\footnotesize\ttfamily u8\+\_\+t pbuf\+\_\+add\+\_\+header (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{size\+\_\+t}]{header\+\_\+size\+\_\+increment }\end{DoxyParamCaption})}
+
+Adjusts the payload pointer to reveal headers in the payload.
+
+Adjusts the -\/\texorpdfstring{$>$}{>}payload pointer so that space for a header appears in the pbuf payload.
+
+The -\/\texorpdfstring{$>$}{>}payload, -\/\texorpdfstring{$>$}{>}tot\+\_\+len and -\/\texorpdfstring{$>$}{>}len fields are adjusted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to change the header size. \\
+\hline
+{\em header\+\_\+size\+\_\+increment} & Number of bytes to increment header size which increases the size of the pbuf. New space is on the front. If header\+\_\+size\+\_\+increment is 0, this function does nothing and returns successful.\\
+\hline
+\end{DoxyParams}
+PBUF\+\_\+\+ROM and PBUF\+\_\+\+REF type buffers cannot have their sizes increased, so the call will fail. A check is made that the increase in header size does not move the payload pointer in front of the start of the buffer.
+
+\begin{DoxyReturn}{Returns}
+non-\/zero on failure, zero on success. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pbuf_8c_ad4ef8c5fbbd1447db04f8f73923e7dee}\label{pbuf_8c_ad4ef8c5fbbd1447db04f8f73923e7dee}} 
+\index{pbuf.c@{pbuf.c}!pbuf\_add\_header\_force@{pbuf\_add\_header\_force}}
+\index{pbuf\_add\_header\_force@{pbuf\_add\_header\_force}!pbuf.c@{pbuf.c}}
+\doxysubsubsection{\texorpdfstring{pbuf\_add\_header\_force()}{pbuf\_add\_header\_force()}}
+{\footnotesize\ttfamily u8\+\_\+t pbuf\+\_\+add\+\_\+header\+\_\+force (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{size\+\_\+t}]{header\+\_\+size\+\_\+increment }\end{DoxyParamCaption})}
+
+Same as \mbox{\hyperlink{pbuf_8c_a32dc14bd88dcafa25e627ab18e801815}{pbuf\+\_\+add\+\_\+header}} but does not check if \textquotesingle{}header\+\_\+size \texorpdfstring{$>$}{>} 0\textquotesingle{} is allowed. This is used internally only, to allow PBUF\+\_\+\+REF for RX. \mbox{\Hypertarget{pbuf_8c_a5df7ac5ae59012fe9aeddba375a72190}\label{pbuf_8c_a5df7ac5ae59012fe9aeddba375a72190}} 
+\index{pbuf.c@{pbuf.c}!pbuf\_clen@{pbuf\_clen}}
+\index{pbuf\_clen@{pbuf\_clen}!pbuf.c@{pbuf.c}}
+\doxysubsubsection{\texorpdfstring{pbuf\_clen()}{pbuf\_clen()}}
+{\footnotesize\ttfamily u16\+\_\+t pbuf\+\_\+clen (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+Count number of pbufs in a chain
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & first pbuf of chain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of pbufs in a chain 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pbuf_8c_ace8aac12c3ebe16262c2202bd5eb02ab}\label{pbuf_8c_ace8aac12c3ebe16262c2202bd5eb02ab}} 
+\index{pbuf.c@{pbuf.c}!pbuf\_dechain@{pbuf\_dechain}}
+\index{pbuf\_dechain@{pbuf\_dechain}!pbuf.c@{pbuf.c}}
+\doxysubsubsection{\texorpdfstring{pbuf\_dechain()}{pbuf\_dechain()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ pbuf\+\_\+dechain (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+Dechains the first pbuf from its succeeding pbufs in the chain.
+
+Makes p-\/\texorpdfstring{$>$}{>}tot\+\_\+len field equal to p-\/\texorpdfstring{$>$}{>}len. 
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to dechain \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+remainder of the pbuf chain, or NULL if it was de-\/allocated. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+May not be called on a packet queue. 
+\end{DoxyNote}
+\mbox{\Hypertarget{pbuf_8c_ab0a834127db093fcb6ffc48d966de318}\label{pbuf_8c_ab0a834127db093fcb6ffc48d966de318}} 
+\index{pbuf.c@{pbuf.c}!pbuf\_free\_header@{pbuf\_free\_header}}
+\index{pbuf\_free\_header@{pbuf\_free\_header}!pbuf.c@{pbuf.c}}
+\doxysubsubsection{\texorpdfstring{pbuf\_free\_header()}{pbuf\_free\_header()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ pbuf\+\_\+free\+\_\+header (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{q,  }\item[{u16\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Similar to pbuf\+\_\+header(-\/size) but de-\/refs header pbufs for (size \texorpdfstring{$>$}{>}= p-\/\texorpdfstring{$>$}{>}len)
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & pbufs to operate on \\
+\hline
+{\em size} & The number of bytes to remove from the beginning of the pbuf list. While size \texorpdfstring{$>$}{>}= p-\/\texorpdfstring{$>$}{>}len, pbufs are freed. ATTENTION\+: this is the opposite direction as \mbox{\hyperlink{pbuf_8c_a0f81deff4a0e6e8e0ff161a7b9871449}{pbuf\+\_\+header}}, but takes an u16\+\_\+t not s16\+\_\+t! \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new head pbuf 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pbuf_8c_a0f81deff4a0e6e8e0ff161a7b9871449}\label{pbuf_8c_a0f81deff4a0e6e8e0ff161a7b9871449}} 
+\index{pbuf.c@{pbuf.c}!pbuf\_header@{pbuf\_header}}
+\index{pbuf\_header@{pbuf\_header}!pbuf.c@{pbuf.c}}
+\doxysubsubsection{\texorpdfstring{pbuf\_header()}{pbuf\_header()}}
+{\footnotesize\ttfamily u8\+\_\+t pbuf\+\_\+header (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{s16\+\_\+t}]{header\+\_\+size\+\_\+increment }\end{DoxyParamCaption})}
+
+Adjusts the payload pointer to hide or reveal headers in the payload.
+
+Adjusts the -\/\texorpdfstring{$>$}{>}payload pointer so that space for a header (dis)appears in the pbuf payload.
+
+The -\/\texorpdfstring{$>$}{>}payload, -\/\texorpdfstring{$>$}{>}tot\+\_\+len and -\/\texorpdfstring{$>$}{>}len fields are adjusted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to change the header size. \\
+\hline
+{\em header\+\_\+size\+\_\+increment} & Number of bytes to increment header size which increases the size of the pbuf. New space is on the front. (Using a negative value decreases the header size.) If header\+\_\+size\+\_\+increment is 0, this function does nothing and returns successful.\\
+\hline
+\end{DoxyParams}
+PBUF\+\_\+\+ROM and PBUF\+\_\+\+REF type buffers cannot have their sizes increased, so the call will fail. A check is made that the increase in header size does not move the payload pointer in front of the start of the buffer. \begin{DoxyReturn}{Returns}
+non-\/zero on failure, zero on success. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pbuf_8c_ad0e64d6fbc423593461063da97da9ce6}\label{pbuf_8c_ad0e64d6fbc423593461063da97da9ce6}} 
+\index{pbuf.c@{pbuf.c}!pbuf\_header\_force@{pbuf\_header\_force}}
+\index{pbuf\_header\_force@{pbuf\_header\_force}!pbuf.c@{pbuf.c}}
+\doxysubsubsection{\texorpdfstring{pbuf\_header\_force()}{pbuf\_header\_force()}}
+{\footnotesize\ttfamily u8\+\_\+t pbuf\+\_\+header\+\_\+force (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{s16\+\_\+t}]{header\+\_\+size\+\_\+increment }\end{DoxyParamCaption})}
+
+Same as pbuf\+\_\+header but does not check if \textquotesingle{}header\+\_\+size \texorpdfstring{$>$}{>} 0\textquotesingle{} is allowed. This is used internally only, to allow PBUF\+\_\+\+REF for RX. \mbox{\Hypertarget{pbuf_8c_aca0cd8b3f08fbb5e35bc91a663083cc1}\label{pbuf_8c_aca0cd8b3f08fbb5e35bc91a663083cc1}} 
+\index{pbuf.c@{pbuf.c}!pbuf\_remove\_header@{pbuf\_remove\_header}}
+\index{pbuf\_remove\_header@{pbuf\_remove\_header}!pbuf.c@{pbuf.c}}
+\doxysubsubsection{\texorpdfstring{pbuf\_remove\_header()}{pbuf\_remove\_header()}}
+{\footnotesize\ttfamily u8\+\_\+t pbuf\+\_\+remove\+\_\+header (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{size\+\_\+t}]{header\+\_\+size\+\_\+decrement }\end{DoxyParamCaption})}
+
+Adjusts the payload pointer to hide headers in the payload.
+
+Adjusts the -\/\texorpdfstring{$>$}{>}payload pointer so that space for a header disappears in the pbuf payload.
+
+The -\/\texorpdfstring{$>$}{>}payload, -\/\texorpdfstring{$>$}{>}tot\+\_\+len and -\/\texorpdfstring{$>$}{>}len fields are adjusted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to change the header size. \\
+\hline
+{\em header\+\_\+size\+\_\+decrement} & Number of bytes to decrement header size which decreases the size of the pbuf. If header\+\_\+size\+\_\+decrement is 0, this function does nothing and returns successful. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+non-\/zero on failure, zero on success. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pbuf_8c_a9ba3f7b705309ceadb147692fd5a1c7d}\label{pbuf_8c_a9ba3f7b705309ceadb147692fd5a1c7d}} 
+\index{pbuf.c@{pbuf.c}!pbuf\_strstr@{pbuf\_strstr}}
+\index{pbuf\_strstr@{pbuf\_strstr}!pbuf.c@{pbuf.c}}
+\doxysubsubsection{\texorpdfstring{pbuf\_strstr()}{pbuf\_strstr()}}
+{\footnotesize\ttfamily u16\+\_\+t pbuf\+\_\+strstr (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{const char $\ast$}]{substr }\end{DoxyParamCaption})}
+
+Find occurrence of substr with length substr\+\_\+len in pbuf p, start at offset start\+\_\+offset WARNING\+: in contrast to strstr(), this one does not stop at the first \textbackslash{}0 in the pbuf/source string!
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to search, maximum length is 0x\+FFFE since 0x\+FFFF is used as return value \textquotesingle{}not found\textquotesingle{} \\
+\hline
+{\em substr} & string to search for in p, maximum length is 0x\+FFFE \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0x\+FFFF if substr was not found in p or the index where it was found 
+\end{DoxyReturn}

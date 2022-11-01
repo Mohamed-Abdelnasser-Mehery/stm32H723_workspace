@@ -1,0 +1,116 @@
+\hypertarget{structmqtt__client__s}{}\doxysection{mqtt\+\_\+client\+\_\+s Struct Reference}
+\label{structmqtt__client__s}\index{mqtt\_client\_s@{mqtt\_client\_s}}
+
+
+{\ttfamily \#include $<$mqtt\+\_\+priv.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+u16\+\_\+t \mbox{\hyperlink{structmqtt__client__s_af4fff42812fad5345aa4aa5e7fe1e20f}{cyclic\+\_\+tick}}
+\item 
+\mbox{\Hypertarget{structmqtt__client__s_a534bc4a0e00ca796c626891194c26d2f}\label{structmqtt__client__s_a534bc4a0e00ca796c626891194c26d2f}} 
+u16\+\_\+t {\bfseries keep\+\_\+alive}
+\item 
+\mbox{\Hypertarget{structmqtt__client__s_a79527b02f1b35607c58dd4911deb8aa1}\label{structmqtt__client__s_a79527b02f1b35607c58dd4911deb8aa1}} 
+u16\+\_\+t {\bfseries server\+\_\+watchdog}
+\item 
+u16\+\_\+t \mbox{\hyperlink{structmqtt__client__s_af9f4387901e503337d03a6f4c7c984b9}{pkt\+\_\+id\+\_\+seq}}
+\item 
+u16\+\_\+t \mbox{\hyperlink{structmqtt__client__s_a41341f8208bcb7edd60f09c8750e1410}{inpub\+\_\+pkt\+\_\+id}}
+\item 
+u8\+\_\+t \mbox{\hyperlink{structmqtt__client__s_a519a47c0271b0c01480c317c2ceb1a5e}{conn\+\_\+state}}
+\item 
+\mbox{\Hypertarget{structmqtt__client__s_a823cd07fe21b3dbf5312fc07d57712a0}\label{structmqtt__client__s_a823cd07fe21b3dbf5312fc07d57712a0}} 
+struct altcp\+\_\+pcb $\ast$ {\bfseries conn}
+\item 
+void $\ast$ \mbox{\hyperlink{structmqtt__client__s_a527fa5dc423fcb91cdf9a02ff6de26d7}{connect\+\_\+arg}}
+\item 
+\mbox{\Hypertarget{structmqtt__client__s_a67da9d86e094fcaa2c38f1ff9d122cdc}\label{structmqtt__client__s_a67da9d86e094fcaa2c38f1ff9d122cdc}} 
+\mbox{\hyperlink{group__mqtt_ga8558743bdb7d599a93844fbc56c9029f}{mqtt\+\_\+connection\+\_\+cb\+\_\+t}} {\bfseries connect\+\_\+cb}
+\item 
+struct \mbox{\hyperlink{structmqtt__request__t}{mqtt\+\_\+request\+\_\+t}} $\ast$ \mbox{\hyperlink{structmqtt__client__s_a6d2a5349b1e66530f348424fdc77a7e8}{pend\+\_\+req\+\_\+queue}}
+\item 
+\mbox{\Hypertarget{structmqtt__client__s_ae063609ec00db0741f552fe8a45bdce9}\label{structmqtt__client__s_ae063609ec00db0741f552fe8a45bdce9}} 
+struct \mbox{\hyperlink{structmqtt__request__t}{mqtt\+\_\+request\+\_\+t}} {\bfseries req\+\_\+list} \mbox{[}\mbox{\hyperlink{group__mqtt__opts_gae82460b35de2291e9661e440c3458e8f}{MQTT\+\_\+\+REQ\+\_\+\+MAX\+\_\+\+IN\+\_\+\+FLIGHT}}\mbox{]}
+\item 
+\mbox{\Hypertarget{structmqtt__client__s_a309022a04aa03b67210d5785a005daf7}\label{structmqtt__client__s_a309022a04aa03b67210d5785a005daf7}} 
+void $\ast$ {\bfseries inpub\+\_\+arg}
+\item 
+\mbox{\hyperlink{group__mqtt_gafec7e75fe6a746eef9ca411463446c81}{mqtt\+\_\+incoming\+\_\+data\+\_\+cb\+\_\+t}} \mbox{\hyperlink{structmqtt__client__s_a2c6215fc032cdd9a410d4a117b04c13b}{data\+\_\+cb}}
+\item 
+\mbox{\Hypertarget{structmqtt__client__s_a355484ad2cc96aa081b9e00d8b6016e2}\label{structmqtt__client__s_a355484ad2cc96aa081b9e00d8b6016e2}} 
+\mbox{\hyperlink{group__mqtt_ga7116bb85255394cec4b1d9fa38842c29}{mqtt\+\_\+incoming\+\_\+publish\+\_\+cb\+\_\+t}} {\bfseries pub\+\_\+cb}
+\item 
+u32\+\_\+t \mbox{\hyperlink{structmqtt__client__s_a027107d33cebcbc9215dda1c5a091183}{msg\+\_\+idx}}
+\item 
+\mbox{\Hypertarget{structmqtt__client__s_ac2875f41e655fac5f1e732b5feab3745}\label{structmqtt__client__s_ac2875f41e655fac5f1e732b5feab3745}} 
+u8\+\_\+t {\bfseries rx\+\_\+buffer} \mbox{[}\mbox{\hyperlink{group__mqtt__opts_ga8275ef78a85fb14c3ac1423c70e45805}{MQTT\+\_\+\+VAR\+\_\+\+HEADER\+\_\+\+BUFFER\+\_\+\+LEN}}\mbox{]}
+\item 
+struct \mbox{\hyperlink{structmqtt__ringbuf__t}{mqtt\+\_\+ringbuf\+\_\+t}} \mbox{\hyperlink{structmqtt__client__s_a3e567b3827366b1361b9e348cdc610ad}{output}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MQTT client 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structmqtt__client__s_a519a47c0271b0c01480c317c2ceb1a5e}\label{structmqtt__client__s_a519a47c0271b0c01480c317c2ceb1a5e}} 
+\index{mqtt\_client\_s@{mqtt\_client\_s}!conn\_state@{conn\_state}}
+\index{conn\_state@{conn\_state}!mqtt\_client\_s@{mqtt\_client\_s}}
+\doxysubsubsection{\texorpdfstring{conn\_state}{conn\_state}}
+{\footnotesize\ttfamily u8\+\_\+t conn\+\_\+state}
+
+Connection state \mbox{\Hypertarget{structmqtt__client__s_a527fa5dc423fcb91cdf9a02ff6de26d7}\label{structmqtt__client__s_a527fa5dc423fcb91cdf9a02ff6de26d7}} 
+\index{mqtt\_client\_s@{mqtt\_client\_s}!connect\_arg@{connect\_arg}}
+\index{connect\_arg@{connect\_arg}!mqtt\_client\_s@{mqtt\_client\_s}}
+\doxysubsubsection{\texorpdfstring{connect\_arg}{connect\_arg}}
+{\footnotesize\ttfamily void$\ast$ connect\+\_\+arg}
+
+Connection callback \mbox{\Hypertarget{structmqtt__client__s_af4fff42812fad5345aa4aa5e7fe1e20f}\label{structmqtt__client__s_af4fff42812fad5345aa4aa5e7fe1e20f}} 
+\index{mqtt\_client\_s@{mqtt\_client\_s}!cyclic\_tick@{cyclic\_tick}}
+\index{cyclic\_tick@{cyclic\_tick}!mqtt\_client\_s@{mqtt\_client\_s}}
+\doxysubsubsection{\texorpdfstring{cyclic\_tick}{cyclic\_tick}}
+{\footnotesize\ttfamily u16\+\_\+t cyclic\+\_\+tick}
+
+Timers and timeouts \mbox{\Hypertarget{structmqtt__client__s_a2c6215fc032cdd9a410d4a117b04c13b}\label{structmqtt__client__s_a2c6215fc032cdd9a410d4a117b04c13b}} 
+\index{mqtt\_client\_s@{mqtt\_client\_s}!data\_cb@{data\_cb}}
+\index{data\_cb@{data\_cb}!mqtt\_client\_s@{mqtt\_client\_s}}
+\doxysubsubsection{\texorpdfstring{data\_cb}{data\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__mqtt_gafec7e75fe6a746eef9ca411463446c81}{mqtt\+\_\+incoming\+\_\+data\+\_\+cb\+\_\+t}} data\+\_\+cb}
+
+Incoming data callback \mbox{\Hypertarget{structmqtt__client__s_a41341f8208bcb7edd60f09c8750e1410}\label{structmqtt__client__s_a41341f8208bcb7edd60f09c8750e1410}} 
+\index{mqtt\_client\_s@{mqtt\_client\_s}!inpub\_pkt\_id@{inpub\_pkt\_id}}
+\index{inpub\_pkt\_id@{inpub\_pkt\_id}!mqtt\_client\_s@{mqtt\_client\_s}}
+\doxysubsubsection{\texorpdfstring{inpub\_pkt\_id}{inpub\_pkt\_id}}
+{\footnotesize\ttfamily u16\+\_\+t inpub\+\_\+pkt\+\_\+id}
+
+Packet identifier of pending incoming publish \mbox{\Hypertarget{structmqtt__client__s_a027107d33cebcbc9215dda1c5a091183}\label{structmqtt__client__s_a027107d33cebcbc9215dda1c5a091183}} 
+\index{mqtt\_client\_s@{mqtt\_client\_s}!msg\_idx@{msg\_idx}}
+\index{msg\_idx@{msg\_idx}!mqtt\_client\_s@{mqtt\_client\_s}}
+\doxysubsubsection{\texorpdfstring{msg\_idx}{msg\_idx}}
+{\footnotesize\ttfamily u32\+\_\+t msg\+\_\+idx}
+
+Input \mbox{\Hypertarget{structmqtt__client__s_a3e567b3827366b1361b9e348cdc610ad}\label{structmqtt__client__s_a3e567b3827366b1361b9e348cdc610ad}} 
+\index{mqtt\_client\_s@{mqtt\_client\_s}!output@{output}}
+\index{output@{output}!mqtt\_client\_s@{mqtt\_client\_s}}
+\doxysubsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structmqtt__ringbuf__t}{mqtt\+\_\+ringbuf\+\_\+t}} output}
+
+Output ring-\/buffer \mbox{\Hypertarget{structmqtt__client__s_a6d2a5349b1e66530f348424fdc77a7e8}\label{structmqtt__client__s_a6d2a5349b1e66530f348424fdc77a7e8}} 
+\index{mqtt\_client\_s@{mqtt\_client\_s}!pend\_req\_queue@{pend\_req\_queue}}
+\index{pend\_req\_queue@{pend\_req\_queue}!mqtt\_client\_s@{mqtt\_client\_s}}
+\doxysubsubsection{\texorpdfstring{pend\_req\_queue}{pend\_req\_queue}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structmqtt__request__t}{mqtt\+\_\+request\+\_\+t}}$\ast$ pend\+\_\+req\+\_\+queue}
+
+Pending requests to server \mbox{\Hypertarget{structmqtt__client__s_af9f4387901e503337d03a6f4c7c984b9}\label{structmqtt__client__s_af9f4387901e503337d03a6f4c7c984b9}} 
+\index{mqtt\_client\_s@{mqtt\_client\_s}!pkt\_id\_seq@{pkt\_id\_seq}}
+\index{pkt\_id\_seq@{pkt\_id\_seq}!mqtt\_client\_s@{mqtt\_client\_s}}
+\doxysubsubsection{\texorpdfstring{pkt\_id\_seq}{pkt\_id\_seq}}
+{\footnotesize\ttfamily u16\+\_\+t pkt\+\_\+id\+\_\+seq}
+
+Packet identifier generator 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/apps/\mbox{\hyperlink{mqtt__priv_8h}{mqtt\+\_\+priv.\+h}}\end{DoxyCompactItemize}

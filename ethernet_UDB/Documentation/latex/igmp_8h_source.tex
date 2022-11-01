@@ -1,0 +1,95 @@
+\hypertarget{igmp_8h_source}{}\doxysection{igmp.\+h}
+\label{igmp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/igmp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/igmp.h}}
+\mbox{\hyperlink{igmp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2002 CITEL Technologies Ltd.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{11 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{12 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in the}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    documentation and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. Neither the name of CITEL Technologies Ltd nor the names of its contributors}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    may be used to endorse or promote products derived from this software}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    without specific prior written permission.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY CITEL TECHNOLOGIES AND CONTRIBUTORS ``AS IS''}}
+\DoxyCodeLine{23 \textcolor{comment}{ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{24 \textcolor{comment}{ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{25 \textcolor{comment}{ * ARE DISCLAIMED.  IN NO EVENT SHALL CITEL TECHNOLOGIES OR CONTRIBUTORS BE LIABLE}}
+\DoxyCodeLine{26 \textcolor{comment}{ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL}}
+\DoxyCodeLine{27 \textcolor{comment}{ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS}}
+\DoxyCodeLine{28 \textcolor{comment}{ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)}}
+\DoxyCodeLine{29 \textcolor{comment}{ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT}}
+\DoxyCodeLine{30 \textcolor{comment}{ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY}}
+\DoxyCodeLine{31 \textcolor{comment}{ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF}}
+\DoxyCodeLine{32 \textcolor{comment}{ * SUCH DAMAGE.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * This file is a contribution to the lwIP TCP/IP stack.}}
+\DoxyCodeLine{35 \textcolor{comment}{ * The Swedish Institute of Computer Science and Adam Dunkels}}
+\DoxyCodeLine{36 \textcolor{comment}{ * are specifically granted permission to redistribute this}}
+\DoxyCodeLine{37 \textcolor{comment}{ * source code.}}
+\DoxyCodeLine{38 \textcolor{comment}{*/}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_IGMP\_H}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define LWIP\_HDR\_IGMP\_H}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pbuf_8h}{lwip/pbuf.h}}"{}}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_IGMP }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{51 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{comment}{/* IGMP timer */}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define IGMP\_TMR\_INTERVAL              100 }\textcolor{comment}{/* Milliseconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define IGMP\_V1\_DELAYING\_MEMBER\_TMR   (1000/IGMP\_TMR\_INTERVAL)}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define IGMP\_JOIN\_DELAYING\_MEMBER\_TMR (500 /IGMP\_TMR\_INTERVAL)}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{comment}{/* Compatibility defines (don't use for new code) */}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define IGMP\_DEL\_MAC\_FILTER            NETIF\_DEL\_MAC\_FILTER}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define IGMP\_ADD\_MAC\_FILTER            NETIF\_ADD\_MAC\_FILTER}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{74 \textcolor{keyword}{struct }igmp\_group \{}
+\DoxyCodeLine{76   \textcolor{keyword}{struct }igmp\_group *next;}
+\DoxyCodeLine{78   ip4\_addr\_t         group\_address;}
+\DoxyCodeLine{80   u8\_t               last\_reporter\_flag;}
+\DoxyCodeLine{82   u8\_t               group\_state;}
+\DoxyCodeLine{84   u16\_t              timer;}
+\DoxyCodeLine{86   u8\_t               use;}
+\DoxyCodeLine{87 \};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{comment}{/*  Prototypes */}}
+\DoxyCodeLine{90 \textcolor{keywordtype}{void}   igmp\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{91 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  igmp\_start(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{92 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  igmp\_stop(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{93 \textcolor{keywordtype}{void}   igmp\_report\_groups(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{94 \textcolor{keyword}{struct }igmp\_group *igmp\_lookfor\_group(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ifp, \textcolor{keyword}{const} ip4\_addr\_t *addr);}
+\DoxyCodeLine{95 \textcolor{keywordtype}{void}   igmp\_input(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *inp, \textcolor{keyword}{const} ip4\_addr\_t *dest);}
+\DoxyCodeLine{96 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  igmp\_joingroup(\textcolor{keyword}{const} ip4\_addr\_t *ifaddr, \textcolor{keyword}{const} ip4\_addr\_t *groupaddr);}
+\DoxyCodeLine{97 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  igmp\_joingroup\_netif(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip4\_addr\_t *groupaddr);}
+\DoxyCodeLine{98 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  igmp\_leavegroup(\textcolor{keyword}{const} ip4\_addr\_t *ifaddr, \textcolor{keyword}{const} ip4\_addr\_t *groupaddr);}
+\DoxyCodeLine{99 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  igmp\_leavegroup\_netif(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip4\_addr\_t *groupaddr);}
+\DoxyCodeLine{100 \textcolor{keywordtype}{void}   igmp\_tmr(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define netif\_igmp\_data(netif) ((struct igmp\_group *)netif\_get\_client\_data(netif, LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_IGMP))}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{110 \}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IGMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_IGMP\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

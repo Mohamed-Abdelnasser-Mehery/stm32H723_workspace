@@ -1,0 +1,36 @@
+\hypertarget{group__lwip__opts__autoip}{}\doxysection{AUTOIP}
+\label{group__lwip__opts__autoip}\index{AUTOIP@{AUTOIP}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__autoip_gaaf1b3a089827223589baf1b7f4f57069}{LWIP\+\_\+\+AUTOIP}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__autoip_ga1a91e18dbb9777bc6e3963f52cb5f9fe}{LWIP\+\_\+\+DHCP\+\_\+\+AUTOIP\+\_\+\+COOP}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__autoip_ga4ff3f941b4c71a04b0c30fbee5b198c2}{LWIP\+\_\+\+DHCP\+\_\+\+AUTOIP\+\_\+\+COOP\+\_\+\+TRIES}}~9
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__autoip_gaaf1b3a089827223589baf1b7f4f57069}\label{group__lwip__opts__autoip_gaaf1b3a089827223589baf1b7f4f57069}} 
+\index{AUTOIP@{AUTOIP}!LWIP\_AUTOIP@{LWIP\_AUTOIP}}
+\index{LWIP\_AUTOIP@{LWIP\_AUTOIP}!AUTOIP@{AUTOIP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_AUTOIP}{LWIP\_AUTOIP}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+AUTOIP~0}
+
+LWIP\+\_\+\+AUTOIP==1\+: Enable AUTOIP module. \mbox{\Hypertarget{group__lwip__opts__autoip_ga1a91e18dbb9777bc6e3963f52cb5f9fe}\label{group__lwip__opts__autoip_ga1a91e18dbb9777bc6e3963f52cb5f9fe}} 
+\index{AUTOIP@{AUTOIP}!LWIP\_DHCP\_AUTOIP\_COOP@{LWIP\_DHCP\_AUTOIP\_COOP}}
+\index{LWIP\_DHCP\_AUTOIP\_COOP@{LWIP\_DHCP\_AUTOIP\_COOP}!AUTOIP@{AUTOIP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DHCP\_AUTOIP\_COOP}{LWIP\_DHCP\_AUTOIP\_COOP}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DHCP\+\_\+\+AUTOIP\+\_\+\+COOP~0}
+
+LWIP\+\_\+\+DHCP\+\_\+\+AUTOIP\+\_\+\+COOP==1\+: Allow DHCP and AUTOIP to be both enabled on the same interface at the same time. \mbox{\Hypertarget{group__lwip__opts__autoip_ga4ff3f941b4c71a04b0c30fbee5b198c2}\label{group__lwip__opts__autoip_ga4ff3f941b4c71a04b0c30fbee5b198c2}} 
+\index{AUTOIP@{AUTOIP}!LWIP\_DHCP\_AUTOIP\_COOP\_TRIES@{LWIP\_DHCP\_AUTOIP\_COOP\_TRIES}}
+\index{LWIP\_DHCP\_AUTOIP\_COOP\_TRIES@{LWIP\_DHCP\_AUTOIP\_COOP\_TRIES}!AUTOIP@{AUTOIP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DHCP\_AUTOIP\_COOP\_TRIES}{LWIP\_DHCP\_AUTOIP\_COOP\_TRIES}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DHCP\+\_\+\+AUTOIP\+\_\+\+COOP\+\_\+\+TRIES~9}
+
+LWIP\+\_\+\+DHCP\+\_\+\+AUTOIP\+\_\+\+COOP\+\_\+\+TRIES\+: Set to the number of DHCP DISCOVER probes that should be sent before falling back on AUTOIP (the DHCP client keeps running in this case). This can be set as low as 1 to get an Auto\+IP address very quickly, but you should be prepared to handle a changing IP address when DHCP overrides Auto\+IP. 

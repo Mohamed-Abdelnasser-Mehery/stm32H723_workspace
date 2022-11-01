@@ -1,0 +1,54 @@
+\hypertarget{group___m_d_m_a___transfer___trigger_mode}{}\doxysection{MDMA Transfer Trigger Mode}
+\label{group___m_d_m_a___transfer___trigger_mode}\index{MDMA Transfer Trigger  Mode@{MDMA Transfer Trigger  Mode}}
+
+
+MDMA Transfer Trigger Mode.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___transfer___trigger_mode_ga4fbad0d3d5d3ae406176ee930b634f6d}{MDMA\+\_\+\+BUFFER\+\_\+\+TRANSFER}}~((uint32\+\_\+t)0x00000000U)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___transfer___trigger_mode_gaf25ce24f3a14177b6e8f60327b69b05d}{MDMA\+\_\+\+BLOCK\+\_\+\+TRANSFER}}~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_gab064a0f20c08cae3a8db99bcfa02bf24}{MDMA\+\_\+\+CTCR\+\_\+\+TRGM\+\_\+0}})
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___transfer___trigger_mode_gadbb115ccb0e375988cb7b98d48c6cb5a}{MDMA\+\_\+\+REPEAT\+\_\+\+BLOCK\+\_\+\+TRANSFER}}~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga20fb3ebc46555eabcfbcbf5f06646202}{MDMA\+\_\+\+CTCR\+\_\+\+TRGM\+\_\+1}})
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___transfer___trigger_mode_ga626e450a5ee0b0e8910f6600b809e400}{MDMA\+\_\+\+FULL\+\_\+\+TRANSFER}}~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_gae8f4e73c8657e7be9ca4275236dd79e8}{MDMA\+\_\+\+CTCR\+\_\+\+TRGM}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MDMA Transfer Trigger Mode. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___m_d_m_a___transfer___trigger_mode_gaf25ce24f3a14177b6e8f60327b69b05d}\label{group___m_d_m_a___transfer___trigger_mode_gaf25ce24f3a14177b6e8f60327b69b05d}} 
+\index{MDMA Transfer Trigger  Mode@{MDMA Transfer Trigger  Mode}!MDMA\_BLOCK\_TRANSFER@{MDMA\_BLOCK\_TRANSFER}}
+\index{MDMA\_BLOCK\_TRANSFER@{MDMA\_BLOCK\_TRANSFER}!MDMA Transfer Trigger  Mode@{MDMA Transfer Trigger  Mode}}
+\doxysubsubsection{\texorpdfstring{MDMA\_BLOCK\_TRANSFER}{MDMA\_BLOCK\_TRANSFER}}
+{\footnotesize\ttfamily \#define MDMA\+\_\+\+BLOCK\+\_\+\+TRANSFER~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_gab064a0f20c08cae3a8db99bcfa02bf24}{MDMA\+\_\+\+CTCR\+\_\+\+TRGM\+\_\+0}})}
+
+Each MDMA request (SW or HW) triggers a block transfer ~\newline
+ \mbox{\Hypertarget{group___m_d_m_a___transfer___trigger_mode_ga4fbad0d3d5d3ae406176ee930b634f6d}\label{group___m_d_m_a___transfer___trigger_mode_ga4fbad0d3d5d3ae406176ee930b634f6d}} 
+\index{MDMA Transfer Trigger  Mode@{MDMA Transfer Trigger  Mode}!MDMA\_BUFFER\_TRANSFER@{MDMA\_BUFFER\_TRANSFER}}
+\index{MDMA\_BUFFER\_TRANSFER@{MDMA\_BUFFER\_TRANSFER}!MDMA Transfer Trigger  Mode@{MDMA Transfer Trigger  Mode}}
+\doxysubsubsection{\texorpdfstring{MDMA\_BUFFER\_TRANSFER}{MDMA\_BUFFER\_TRANSFER}}
+{\footnotesize\ttfamily \#define MDMA\+\_\+\+BUFFER\+\_\+\+TRANSFER~((uint32\+\_\+t)0x00000000U)}
+
+Each MDMA request (SW or HW) triggers a buffer transfer ~\newline
+ \mbox{\Hypertarget{group___m_d_m_a___transfer___trigger_mode_ga626e450a5ee0b0e8910f6600b809e400}\label{group___m_d_m_a___transfer___trigger_mode_ga626e450a5ee0b0e8910f6600b809e400}} 
+\index{MDMA Transfer Trigger  Mode@{MDMA Transfer Trigger  Mode}!MDMA\_FULL\_TRANSFER@{MDMA\_FULL\_TRANSFER}}
+\index{MDMA\_FULL\_TRANSFER@{MDMA\_FULL\_TRANSFER}!MDMA Transfer Trigger  Mode@{MDMA Transfer Trigger  Mode}}
+\doxysubsubsection{\texorpdfstring{MDMA\_FULL\_TRANSFER}{MDMA\_FULL\_TRANSFER}}
+{\footnotesize\ttfamily \#define MDMA\+\_\+\+FULL\+\_\+\+TRANSFER~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_gae8f4e73c8657e7be9ca4275236dd79e8}{MDMA\+\_\+\+CTCR\+\_\+\+TRGM}})}
+
+Each MDMA request (SW or HW) triggers a Full transfer or a linked list transfer if any \mbox{\Hypertarget{group___m_d_m_a___transfer___trigger_mode_gadbb115ccb0e375988cb7b98d48c6cb5a}\label{group___m_d_m_a___transfer___trigger_mode_gadbb115ccb0e375988cb7b98d48c6cb5a}} 
+\index{MDMA Transfer Trigger  Mode@{MDMA Transfer Trigger  Mode}!MDMA\_REPEAT\_BLOCK\_TRANSFER@{MDMA\_REPEAT\_BLOCK\_TRANSFER}}
+\index{MDMA\_REPEAT\_BLOCK\_TRANSFER@{MDMA\_REPEAT\_BLOCK\_TRANSFER}!MDMA Transfer Trigger  Mode@{MDMA Transfer Trigger  Mode}}
+\doxysubsubsection{\texorpdfstring{MDMA\_REPEAT\_BLOCK\_TRANSFER}{MDMA\_REPEAT\_BLOCK\_TRANSFER}}
+{\footnotesize\ttfamily \#define MDMA\+\_\+\+REPEAT\+\_\+\+BLOCK\+\_\+\+TRANSFER~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga20fb3ebc46555eabcfbcbf5f06646202}{MDMA\+\_\+\+CTCR\+\_\+\+TRGM\+\_\+1}})}
+
+Each MDMA request (SW or HW) triggers a repeated block transfer ~\newline
+ 

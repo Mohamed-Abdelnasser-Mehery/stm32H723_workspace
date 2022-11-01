@@ -1,0 +1,94 @@
+\hypertarget{mdns_8h_source}{}\doxysection{mdns.\+h}
+\label{mdns_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/mdns.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/mdns.h}}
+\mbox{\hyperlink{mdns_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6  \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2015 Verisure Innovation AB}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Erik Ekman <erik@kryo.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_MDNS\_H}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_MDNS\_H}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mdns__opts_8h}{lwip/apps/mdns\_opts.h}}"{}}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{45 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#if LWIP\_MDNS\_RESPONDER}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{enum} mdns\_sd\_proto \{}
+\DoxyCodeLine{51   DNSSD\_PROTO\_UDP = 0,}
+\DoxyCodeLine{52   DNSSD\_PROTO\_TCP = 1}
+\DoxyCodeLine{53 \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define MDNS\_PROBING\_CONFLICT   0}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define MDNS\_PROBING\_SUCCESSFUL 1}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define MDNS\_LABEL\_MAXLEN  63}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{struct }mdns\_host;}
+\DoxyCodeLine{61 \textcolor{keyword}{struct }mdns\_service;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{64 \textcolor{keyword}{typedef} void (*service\_get\_txt\_fn\_t)(\textcolor{keyword}{struct }mdns\_service *service, \textcolor{keywordtype}{void} *txt\_userdata);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{70 \textcolor{keyword}{typedef} void (*mdns\_name\_result\_cb\_t)(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}}* \mbox{\hyperlink{structnetif}{netif}}, u8\_t result);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keywordtype}{void} mdns\_resp\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{keywordtype}{void} mdns\_resp\_register\_name\_result\_cb(mdns\_name\_result\_cb\_t cb);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} mdns\_resp\_add\_netif(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *hostname, u32\_t dns\_ttl);}
+\DoxyCodeLine{77 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} mdns\_resp\_remove\_netif(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{78 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} mdns\_resp\_rename\_netif(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *hostname);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 s8\_t  mdns\_resp\_add\_service(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{structnetif_ab2726dd451e7676f553e96d5620bdfe3}{name}}, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *service, \textcolor{keyword}{enum} mdns\_sd\_proto proto, u16\_t port, u32\_t dns\_ttl, service\_get\_txt\_fn\_t txt\_fn, \textcolor{keywordtype}{void} *txt\_userdata);}
+\DoxyCodeLine{81 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} mdns\_resp\_del\_service(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, s8\_t slot);}
+\DoxyCodeLine{82 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} mdns\_resp\_rename\_service(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, s8\_t slot, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{structnetif_ab2726dd451e7676f553e96d5620bdfe3}{name}});}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} mdns\_resp\_add\_service\_txtitem(\textcolor{keyword}{struct} mdns\_service *service, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *txt, u8\_t txt\_len);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keywordtype}{void} mdns\_resp\_restart(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{87 \textcolor{keywordtype}{void} mdns\_resp\_announce(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define mdns\_resp\_netif\_settings\_changed(netif) mdns\_resp\_announce(netif)}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MDNS\_RESPONDER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{102 \}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_MDNS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

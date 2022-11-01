@@ -1,0 +1,53 @@
+\hypertarget{group__lwip__opts__netconn}{}\doxysection{Netconn}
+\label{group__lwip__opts__netconn}\index{Netconn@{Netconn}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netconn_ga478041b8544461258f6961bf0f3c1a77}{LWIP\+\_\+\+NETCONN}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netconn_ga1cd8d15a42262a0defaedabed126ea99}{LWIP\+\_\+\+TCPIP\+\_\+\+TIMEOUT}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netconn_ga2543345adf7d2c307df78a54ac2ba8c4}{LWIP\+\_\+\+NETCONN\+\_\+\+SEM\+\_\+\+PER\+\_\+\+THREAD}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netconn_ga7bfe8487a3abffdd9d6730977d22c406}{LWIP\+\_\+\+NETCONN\+\_\+\+FULLDUPLEX}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__netconn_ga478041b8544461258f6961bf0f3c1a77}\label{group__lwip__opts__netconn_ga478041b8544461258f6961bf0f3c1a77}} 
+\index{Netconn@{Netconn}!LWIP\_NETCONN@{LWIP\_NETCONN}}
+\index{LWIP\_NETCONN@{LWIP\_NETCONN}!Netconn@{Netconn}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETCONN}{LWIP\_NETCONN}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETCONN~1}
+
+LWIP\+\_\+\+NETCONN==1\+: Enable Netconn API (require to use \mbox{\hyperlink{api__lib_8c}{api\+\_\+lib.\+c}}) \mbox{\Hypertarget{group__lwip__opts__netconn_ga7bfe8487a3abffdd9d6730977d22c406}\label{group__lwip__opts__netconn_ga7bfe8487a3abffdd9d6730977d22c406}} 
+\index{Netconn@{Netconn}!LWIP\_NETCONN\_FULLDUPLEX@{LWIP\_NETCONN\_FULLDUPLEX}}
+\index{LWIP\_NETCONN\_FULLDUPLEX@{LWIP\_NETCONN\_FULLDUPLEX}!Netconn@{Netconn}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETCONN\_FULLDUPLEX}{LWIP\_NETCONN\_FULLDUPLEX}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETCONN\+\_\+\+FULLDUPLEX~0}
+
+LWIP\+\_\+\+NETCONN\+\_\+\+FULLDUPLEX==1\+: Enable code that allows reading from one thread, writing from a 2nd thread and closing from a 3rd thread at the same time. ATTENTION\+: This is currently really alpha! Some requirements\+:
+\begin{DoxyItemize}
+\item LWIP\+\_\+\+NETCONN\+\_\+\+SEM\+\_\+\+PER\+\_\+\+THREAD==1 is required to use one socket/netconn from multiple threads at once
+\item \mbox{\hyperlink{group__sys__mbox_gac641a45812155d2234ef80dd6412882f}{sys\+\_\+mbox\+\_\+free()}} has to unblock receive tasks waiting on recvmbox/acceptmbox and prevent a task pending on this during/after deletion 
+\end{DoxyItemize}\mbox{\Hypertarget{group__lwip__opts__netconn_ga2543345adf7d2c307df78a54ac2ba8c4}\label{group__lwip__opts__netconn_ga2543345adf7d2c307df78a54ac2ba8c4}} 
+\index{Netconn@{Netconn}!LWIP\_NETCONN\_SEM\_PER\_THREAD@{LWIP\_NETCONN\_SEM\_PER\_THREAD}}
+\index{LWIP\_NETCONN\_SEM\_PER\_THREAD@{LWIP\_NETCONN\_SEM\_PER\_THREAD}!Netconn@{Netconn}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETCONN\_SEM\_PER\_THREAD}{LWIP\_NETCONN\_SEM\_PER\_THREAD}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETCONN\+\_\+\+SEM\+\_\+\+PER\+\_\+\+THREAD~0}
+
+LWIP\+\_\+\+NETCONN\+\_\+\+SEM\+\_\+\+PER\+\_\+\+THREAD==1\+: Use one (thread-\/local) semaphore per thread calling socket/netconn functions instead of allocating one semaphore per netconn (and per select etc.) ATTENTION\+: a thread-\/local semaphore for API calls is needed\+:
+\begin{DoxyItemize}
+\item LWIP\+\_\+\+NETCONN\+\_\+\+THREAD\+\_\+\+SEM\+\_\+\+GET() returning a sys\+\_\+sem\+\_\+t$\ast$
+\item LWIP\+\_\+\+NETCONN\+\_\+\+THREAD\+\_\+\+SEM\+\_\+\+ALLOC() creating the semaphore
+\item LWIP\+\_\+\+NETCONN\+\_\+\+THREAD\+\_\+\+SEM\+\_\+\+FREE() freeing the semaphore The latter 2 can be invoked up by calling netconn\+\_\+thread\+\_\+init()/netconn\+\_\+thread\+\_\+cleanup(). Ports may call these for threads created with \mbox{\hyperlink{group__sys__misc_ga0d596afdd8dbcfad320172d39b0f607a}{sys\+\_\+thread\+\_\+new()}}. 
+\end{DoxyItemize}\mbox{\Hypertarget{group__lwip__opts__netconn_ga1cd8d15a42262a0defaedabed126ea99}\label{group__lwip__opts__netconn_ga1cd8d15a42262a0defaedabed126ea99}} 
+\index{Netconn@{Netconn}!LWIP\_TCPIP\_TIMEOUT@{LWIP\_TCPIP\_TIMEOUT}}
+\index{LWIP\_TCPIP\_TIMEOUT@{LWIP\_TCPIP\_TIMEOUT}!Netconn@{Netconn}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCPIP\_TIMEOUT}{LWIP\_TCPIP\_TIMEOUT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TCPIP\+\_\+\+TIMEOUT~0}
+
+LWIP\+\_\+\+TCPIP\+\_\+\+TIMEOUT==1\+: Enable tcpip\+\_\+timeout/tcpip\+\_\+untimeout to create timers running in tcpip\+\_\+thread from another thread. 

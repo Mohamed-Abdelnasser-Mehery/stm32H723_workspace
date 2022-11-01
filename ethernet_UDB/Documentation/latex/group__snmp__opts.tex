@@ -1,0 +1,212 @@
+\hypertarget{group__snmp__opts}{}\doxysection{Options}
+\label{group__snmp__opts}\index{Options@{Options}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gaf4900859dc53f19f5f67cc34e48ad68c}{LWIP\+\_\+\+SNMP}}~0
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gaf02e8b4b69e99df784e9953401477078}{SNMP\+\_\+\+USE\+\_\+\+NETCONN}}~0
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga8c93f4260af2eb3c50d4bc603f716f1f}{SNMP\+\_\+\+USE\+\_\+\+RAW}}~1
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga692343b0cc555c302fd713003d4f8a08}{SNMP\+\_\+\+TRAP\+\_\+\+DESTINATIONS}}~1
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga95e39047b9bcb385780b06b35af49261}{SNMP\+\_\+\+SAFE\+\_\+\+REQUESTS}}~1
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gae50cdd09697aa54a8b9f26432ac55ac2}{SNMP\+\_\+\+MAX\+\_\+\+OCTET\+\_\+\+STRING\+\_\+\+LEN}}~127
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga3ad9d293f90e3c885c4e3263a9064a41}{SNMP\+\_\+\+MAX\+\_\+\+OBJ\+\_\+\+ID\+\_\+\+LEN}}~50
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gac815d0dbe576299546ac612e7eaf3f90}{SNMP\+\_\+\+MIN\+\_\+\+VALUE\+\_\+\+SIZE}}~(2 $\ast$ sizeof(u32\+\_\+t$\ast$)) /$\ast$ size required to store the basic types (8 bytes for counter64) $\ast$/
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gafb4362575bc50476a7401a1ed14787f0}{SNMP\+\_\+\+MAX\+\_\+\+VALUE\+\_\+\+SIZE}}~LWIP\+\_\+\+MAX(LWIP\+\_\+\+MAX((\mbox{\hyperlink{group__snmp__opts_gae50cdd09697aa54a8b9f26432ac55ac2}{SNMP\+\_\+\+MAX\+\_\+\+OCTET\+\_\+\+STRING\+\_\+\+LEN}}), sizeof(u32\+\_\+t)$\ast$(\mbox{\hyperlink{group__snmp__opts_ga3ad9d293f90e3c885c4e3263a9064a41}{SNMP\+\_\+\+MAX\+\_\+\+OBJ\+\_\+\+ID\+\_\+\+LEN}})), \mbox{\hyperlink{group__snmp__opts_gac815d0dbe576299546ac612e7eaf3f90}{SNMP\+\_\+\+MIN\+\_\+\+VALUE\+\_\+\+SIZE}})
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga316c1e1f06f0c7ca56589563809e64db}{SNMP\+\_\+\+COMMUNITY}}~\char`\"{}public\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gafb9414dc7a33978b62a3a9838b659464}{SNMP\+\_\+\+COMMUNITY\+\_\+\+WRITE}}~\char`\"{}private\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gaaefc9dda5f8e5c296018a463cdbac39b}{SNMP\+\_\+\+COMMUNITY\+\_\+\+TRAP}}~\char`\"{}public\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga0e98b58159a77688f87f9f50479177fd}{SNMP\+\_\+\+MAX\+\_\+\+COMMUNITY\+\_\+\+STR\+\_\+\+LEN}}~LWIP\+\_\+\+MAX(LWIP\+\_\+\+MAX(sizeof(\mbox{\hyperlink{group__snmp__opts_ga316c1e1f06f0c7ca56589563809e64db}{SNMP\+\_\+\+COMMUNITY}}), sizeof(\mbox{\hyperlink{group__snmp__opts_gafb9414dc7a33978b62a3a9838b659464}{SNMP\+\_\+\+COMMUNITY\+\_\+\+WRITE}})), sizeof(\mbox{\hyperlink{group__snmp__opts_gaaefc9dda5f8e5c296018a463cdbac39b}{SNMP\+\_\+\+COMMUNITY\+\_\+\+TRAP}}))
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga868bfef6efe05515c86291137a633479}{SNMP\+\_\+\+LWIP\+\_\+\+ENTERPRISE\+\_\+\+OID}}~26381
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga09118b734e85df152af098744e888b34}{SNMP\+\_\+\+DEVICE\+\_\+\+ENTERPRISE\+\_\+\+OID}}~\{1, 3, 6, 1, 4, 1, \mbox{\hyperlink{group__snmp__opts_ga868bfef6efe05515c86291137a633479}{SNMP\+\_\+\+LWIP\+\_\+\+ENTERPRISE\+\_\+\+OID}}\}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga9e39ba5308f5c7ac5296c7d05fdfa97f}{SNMP\+\_\+\+DEVICE\+\_\+\+ENTERPRISE\+\_\+\+OID\+\_\+\+LEN}}~7
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gac041000361342f51ad5ee5d8f6254e02}{SNMP\+\_\+\+DEBUG}}~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gac12240265db443eaf9d31d187e586c16}{SNMP\+\_\+\+MIB\+\_\+\+DEBUG}}~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gaab667d48f48ee89f8bdbc7f134e6037d}{SNMP\+\_\+\+LWIP\+\_\+\+MIB2}}~\mbox{\hyperlink{group__snmp__opts_gaf4900859dc53f19f5f67cc34e48ad68c}{LWIP\+\_\+\+SNMP}}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gae93a105b421a2ca91e862da5087cec73}{SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSDESC}}~\char`\"{}lw\+IP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga80ba46f9517a51b5477f13082b2bcf98}{SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSNAME}}~\char`\"{}FQDN-\/unk\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga1a57501c615b630d363e0af1a504e683}{SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSCONTACT}}~\char`\"{}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga311cec98c8f7e4851d325fffe96cf8d9}{SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSLOCATION}}~\char`\"{}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga5a24152aa5f3c2837b9a3145aa3c59f3}{SNMP\+\_\+\+LWIP\+\_\+\+GETBULK\+\_\+\+MAX\+\_\+\+REPETITIONS}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__snmp__opts_gaf4900859dc53f19f5f67cc34e48ad68c}\label{group__snmp__opts_gaf4900859dc53f19f5f67cc34e48ad68c}} 
+\index{Options@{Options}!LWIP\_SNMP@{LWIP\_SNMP}}
+\index{LWIP\_SNMP@{LWIP\_SNMP}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{LWIP\_SNMP}{LWIP\_SNMP}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+SNMP~0}
+
+LWIP\+\_\+\+SNMP==1\+: This enables the lw\+IP SNMP agent. UDP must be available for SNMP transport. If you want to use your own SNMP agent, leave this disabled. To integrate MIB2 of an external agent, you need to enable LWIP\+\_\+\+MIB2\+\_\+\+CALLBACKS and MIB2\+\_\+\+STATS. This will give you the callbacks and statistics counters you need to get MIB2 working. \mbox{\Hypertarget{group__snmp__opts_ga316c1e1f06f0c7ca56589563809e64db}\label{group__snmp__opts_ga316c1e1f06f0c7ca56589563809e64db}} 
+\index{Options@{Options}!SNMP\_COMMUNITY@{SNMP\_COMMUNITY}}
+\index{SNMP\_COMMUNITY@{SNMP\_COMMUNITY}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_COMMUNITY}{SNMP\_COMMUNITY}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+COMMUNITY~\char`\"{}public\char`\"{}}
+
+The snmp read-\/access community. Used for write-\/access and traps, too unless SNMP\+\_\+\+COMMUNITY\+\_\+\+WRITE or SNMP\+\_\+\+COMMUNITY\+\_\+\+TRAP are enabled, respectively. \mbox{\Hypertarget{group__snmp__opts_gaaefc9dda5f8e5c296018a463cdbac39b}\label{group__snmp__opts_gaaefc9dda5f8e5c296018a463cdbac39b}} 
+\index{Options@{Options}!SNMP\_COMMUNITY\_TRAP@{SNMP\_COMMUNITY\_TRAP}}
+\index{SNMP\_COMMUNITY\_TRAP@{SNMP\_COMMUNITY\_TRAP}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_COMMUNITY\_TRAP}{SNMP\_COMMUNITY\_TRAP}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+COMMUNITY\+\_\+\+TRAP~\char`\"{}public\char`\"{}}
+
+The snmp community used for sending traps. \mbox{\Hypertarget{group__snmp__opts_gafb9414dc7a33978b62a3a9838b659464}\label{group__snmp__opts_gafb9414dc7a33978b62a3a9838b659464}} 
+\index{Options@{Options}!SNMP\_COMMUNITY\_WRITE@{SNMP\_COMMUNITY\_WRITE}}
+\index{SNMP\_COMMUNITY\_WRITE@{SNMP\_COMMUNITY\_WRITE}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_COMMUNITY\_WRITE}{SNMP\_COMMUNITY\_WRITE}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+COMMUNITY\+\_\+\+WRITE~\char`\"{}private\char`\"{}}
+
+The snmp write-\/access community. Set this community to \char`\"{}\char`\"{} in order to disallow any write access. \mbox{\Hypertarget{group__snmp__opts_gac041000361342f51ad5ee5d8f6254e02}\label{group__snmp__opts_gac041000361342f51ad5ee5d8f6254e02}} 
+\index{Options@{Options}!SNMP\_DEBUG@{SNMP\_DEBUG}}
+\index{SNMP\_DEBUG@{SNMP\_DEBUG}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_DEBUG}{SNMP\_DEBUG}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+DEBUG~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}}
+
+SNMP\+\_\+\+DEBUG\+: Enable debugging for SNMP messages. \mbox{\Hypertarget{group__snmp__opts_ga09118b734e85df152af098744e888b34}\label{group__snmp__opts_ga09118b734e85df152af098744e888b34}} 
+\index{Options@{Options}!SNMP\_DEVICE\_ENTERPRISE\_OID@{SNMP\_DEVICE\_ENTERPRISE\_OID}}
+\index{SNMP\_DEVICE\_ENTERPRISE\_OID@{SNMP\_DEVICE\_ENTERPRISE\_OID}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_DEVICE\_ENTERPRISE\_OID}{SNMP\_DEVICE\_ENTERPRISE\_OID}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+DEVICE\+\_\+\+ENTERPRISE\+\_\+\+OID~\{1, 3, 6, 1, 4, 1, \mbox{\hyperlink{group__snmp__opts_ga868bfef6efe05515c86291137a633479}{SNMP\+\_\+\+LWIP\+\_\+\+ENTERPRISE\+\_\+\+OID}}\}}
+
+IANA assigned enterprise ID for lw\+IP is 26381 \begin{DoxySeeAlso}{See also}
+\href{http://www.iana.org/assignments/enterprise-numbers}{\texttt{ http\+://www.\+iana.\+org/assignments/enterprise-\/numbers}}
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+this enterprise ID is assigned to the lw\+IP project, all object identifiers living under this ID are assigned by the lw\+IP maintainers! 
+
+don\textquotesingle{}t change this define, use snmp\+\_\+set\+\_\+device\+\_\+enterprise\+\_\+oid()
+\end{DoxyNote}
+If you need to create your own private MIB you\textquotesingle{}ll need to apply for your own enterprise ID with IANA\+: \href{http://www.iana.org/numbers.html}{\texttt{ http\+://www.\+iana.\+org/numbers.\+html}} \mbox{\Hypertarget{group__snmp__opts_ga9e39ba5308f5c7ac5296c7d05fdfa97f}\label{group__snmp__opts_ga9e39ba5308f5c7ac5296c7d05fdfa97f}} 
+\index{Options@{Options}!SNMP\_DEVICE\_ENTERPRISE\_OID\_LEN@{SNMP\_DEVICE\_ENTERPRISE\_OID\_LEN}}
+\index{SNMP\_DEVICE\_ENTERPRISE\_OID\_LEN@{SNMP\_DEVICE\_ENTERPRISE\_OID\_LEN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_DEVICE\_ENTERPRISE\_OID\_LEN}{SNMP\_DEVICE\_ENTERPRISE\_OID\_LEN}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+DEVICE\+\_\+\+ENTERPRISE\+\_\+\+OID\+\_\+\+LEN~7}
+
+Length of SNMP\+\_\+\+DEVICE\+\_\+\+ENTERPRISE\+\_\+\+OID \mbox{\Hypertarget{group__snmp__opts_ga868bfef6efe05515c86291137a633479}\label{group__snmp__opts_ga868bfef6efe05515c86291137a633479}} 
+\index{Options@{Options}!SNMP\_LWIP\_ENTERPRISE\_OID@{SNMP\_LWIP\_ENTERPRISE\_OID}}
+\index{SNMP\_LWIP\_ENTERPRISE\_OID@{SNMP\_LWIP\_ENTERPRISE\_OID}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_LWIP\_ENTERPRISE\_OID}{SNMP\_LWIP\_ENTERPRISE\_OID}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+LWIP\+\_\+\+ENTERPRISE\+\_\+\+OID~26381}
+
+The OID identifiying the device. This may be the enterprise OID itself or any OID located below it in tree. \mbox{\Hypertarget{group__snmp__opts_ga5a24152aa5f3c2837b9a3145aa3c59f3}\label{group__snmp__opts_ga5a24152aa5f3c2837b9a3145aa3c59f3}} 
+\index{Options@{Options}!SNMP\_LWIP\_GETBULK\_MAX\_REPETITIONS@{SNMP\_LWIP\_GETBULK\_MAX\_REPETITIONS}}
+\index{SNMP\_LWIP\_GETBULK\_MAX\_REPETITIONS@{SNMP\_LWIP\_GETBULK\_MAX\_REPETITIONS}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_LWIP\_GETBULK\_MAX\_REPETITIONS}{SNMP\_LWIP\_GETBULK\_MAX\_REPETITIONS}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+LWIP\+\_\+\+GETBULK\+\_\+\+MAX\+\_\+\+REPETITIONS~0}
+
+This value is used to limit the repetitions processed in Get\+Bulk requests (value == 0 means no limitation). This may be useful to limit the load for a single request. According to SNMP RFC 1905 it is allowed to not return all requested variables from a Get\+Bulk request if system load would be too high. so the effect is that the client will do more requests to gather all data. For the stack this could be useful in case that SNMP processing is done in TCP/\+IP thread. In this situation a request with many repetitions could block the thread for a longer time. Setting limit here will keep the stack more responsive. \mbox{\Hypertarget{group__snmp__opts_gaab667d48f48ee89f8bdbc7f134e6037d}\label{group__snmp__opts_gaab667d48f48ee89f8bdbc7f134e6037d}} 
+\index{Options@{Options}!SNMP\_LWIP\_MIB2@{SNMP\_LWIP\_MIB2}}
+\index{SNMP\_LWIP\_MIB2@{SNMP\_LWIP\_MIB2}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_LWIP\_MIB2}{SNMP\_LWIP\_MIB2}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+LWIP\+\_\+\+MIB2~\mbox{\hyperlink{group__snmp__opts_gaf4900859dc53f19f5f67cc34e48ad68c}{LWIP\+\_\+\+SNMP}}}
+
+Indicates if the MIB2 implementation of LWIP SNMP stack is used. \mbox{\Hypertarget{group__snmp__opts_ga1a57501c615b630d363e0af1a504e683}\label{group__snmp__opts_ga1a57501c615b630d363e0af1a504e683}} 
+\index{Options@{Options}!SNMP\_LWIP\_MIB2\_SYSCONTACT@{SNMP\_LWIP\_MIB2\_SYSCONTACT}}
+\index{SNMP\_LWIP\_MIB2\_SYSCONTACT@{SNMP\_LWIP\_MIB2\_SYSCONTACT}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_LWIP\_MIB2\_SYSCONTACT}{SNMP\_LWIP\_MIB2\_SYSCONTACT}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSCONTACT~\char`\"{}\char`\"{}}
+
+Value return for sys\+Contact field of MIB2. To make sys\+Contact field settable, call snmp\+\_\+mib2\+\_\+set\+\_\+syscontact() to provide the necessary buffers. \mbox{\Hypertarget{group__snmp__opts_gae93a105b421a2ca91e862da5087cec73}\label{group__snmp__opts_gae93a105b421a2ca91e862da5087cec73}} 
+\index{Options@{Options}!SNMP\_LWIP\_MIB2\_SYSDESC@{SNMP\_LWIP\_MIB2\_SYSDESC}}
+\index{SNMP\_LWIP\_MIB2\_SYSDESC@{SNMP\_LWIP\_MIB2\_SYSDESC}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_LWIP\_MIB2\_SYSDESC}{SNMP\_LWIP\_MIB2\_SYSDESC}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSDESC~\char`\"{}lw\+IP\char`\"{}}
+
+Value return for sys\+Desc field of MIB2. \mbox{\Hypertarget{group__snmp__opts_ga311cec98c8f7e4851d325fffe96cf8d9}\label{group__snmp__opts_ga311cec98c8f7e4851d325fffe96cf8d9}} 
+\index{Options@{Options}!SNMP\_LWIP\_MIB2\_SYSLOCATION@{SNMP\_LWIP\_MIB2\_SYSLOCATION}}
+\index{SNMP\_LWIP\_MIB2\_SYSLOCATION@{SNMP\_LWIP\_MIB2\_SYSLOCATION}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_LWIP\_MIB2\_SYSLOCATION}{SNMP\_LWIP\_MIB2\_SYSLOCATION}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSLOCATION~\char`\"{}\char`\"{}}
+
+Value return for sys\+Location field of MIB2. To make sys\+Location field settable, call snmp\+\_\+mib2\+\_\+set\+\_\+syslocation() to provide the necessary buffers. \mbox{\Hypertarget{group__snmp__opts_ga80ba46f9517a51b5477f13082b2bcf98}\label{group__snmp__opts_ga80ba46f9517a51b5477f13082b2bcf98}} 
+\index{Options@{Options}!SNMP\_LWIP\_MIB2\_SYSNAME@{SNMP\_LWIP\_MIB2\_SYSNAME}}
+\index{SNMP\_LWIP\_MIB2\_SYSNAME@{SNMP\_LWIP\_MIB2\_SYSNAME}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_LWIP\_MIB2\_SYSNAME}{SNMP\_LWIP\_MIB2\_SYSNAME}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSNAME~\char`\"{}FQDN-\/unk\char`\"{}}
+
+Value return for sys\+Name field of MIB2. To make sys\+Name field settable, call snmp\+\_\+mib2\+\_\+set\+\_\+sysname() to provide the necessary buffers. \mbox{\Hypertarget{group__snmp__opts_ga0e98b58159a77688f87f9f50479177fd}\label{group__snmp__opts_ga0e98b58159a77688f87f9f50479177fd}} 
+\index{Options@{Options}!SNMP\_MAX\_COMMUNITY\_STR\_LEN@{SNMP\_MAX\_COMMUNITY\_STR\_LEN}}
+\index{SNMP\_MAX\_COMMUNITY\_STR\_LEN@{SNMP\_MAX\_COMMUNITY\_STR\_LEN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_MAX\_COMMUNITY\_STR\_LEN}{SNMP\_MAX\_COMMUNITY\_STR\_LEN}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+MAX\+\_\+\+COMMUNITY\+\_\+\+STR\+\_\+\+LEN~LWIP\+\_\+\+MAX(LWIP\+\_\+\+MAX(sizeof(\mbox{\hyperlink{group__snmp__opts_ga316c1e1f06f0c7ca56589563809e64db}{SNMP\+\_\+\+COMMUNITY}}), sizeof(\mbox{\hyperlink{group__snmp__opts_gafb9414dc7a33978b62a3a9838b659464}{SNMP\+\_\+\+COMMUNITY\+\_\+\+WRITE}})), sizeof(\mbox{\hyperlink{group__snmp__opts_gaaefc9dda5f8e5c296018a463cdbac39b}{SNMP\+\_\+\+COMMUNITY\+\_\+\+TRAP}}))}
+
+The maximum length of community string. If community names shall be adjusted at runtime via snmp\+\_\+set\+\_\+community() calls, enter here the possible maximum length (+1 for terminating null character). \mbox{\Hypertarget{group__snmp__opts_ga3ad9d293f90e3c885c4e3263a9064a41}\label{group__snmp__opts_ga3ad9d293f90e3c885c4e3263a9064a41}} 
+\index{Options@{Options}!SNMP\_MAX\_OBJ\_ID\_LEN@{SNMP\_MAX\_OBJ\_ID\_LEN}}
+\index{SNMP\_MAX\_OBJ\_ID\_LEN@{SNMP\_MAX\_OBJ\_ID\_LEN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_MAX\_OBJ\_ID\_LEN}{SNMP\_MAX\_OBJ\_ID\_LEN}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+MAX\+\_\+\+OBJ\+\_\+\+ID\+\_\+\+LEN~50}
+
+The maximum number of Sub ID\textquotesingle{}s inside an object identifier. Indirectly this also limits the maximum depth of SNMP tree. \mbox{\Hypertarget{group__snmp__opts_gae50cdd09697aa54a8b9f26432ac55ac2}\label{group__snmp__opts_gae50cdd09697aa54a8b9f26432ac55ac2}} 
+\index{Options@{Options}!SNMP\_MAX\_OCTET\_STRING\_LEN@{SNMP\_MAX\_OCTET\_STRING\_LEN}}
+\index{SNMP\_MAX\_OCTET\_STRING\_LEN@{SNMP\_MAX\_OCTET\_STRING\_LEN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_MAX\_OCTET\_STRING\_LEN}{SNMP\_MAX\_OCTET\_STRING\_LEN}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+MAX\+\_\+\+OCTET\+\_\+\+STRING\+\_\+\+LEN~127}
+
+The maximum length of strings used. \mbox{\Hypertarget{group__snmp__opts_gafb4362575bc50476a7401a1ed14787f0}\label{group__snmp__opts_gafb4362575bc50476a7401a1ed14787f0}} 
+\index{Options@{Options}!SNMP\_MAX\_VALUE\_SIZE@{SNMP\_MAX\_VALUE\_SIZE}}
+\index{SNMP\_MAX\_VALUE\_SIZE@{SNMP\_MAX\_VALUE\_SIZE}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_MAX\_VALUE\_SIZE}{SNMP\_MAX\_VALUE\_SIZE}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+MAX\+\_\+\+VALUE\+\_\+\+SIZE~LWIP\+\_\+\+MAX(LWIP\+\_\+\+MAX((\mbox{\hyperlink{group__snmp__opts_gae50cdd09697aa54a8b9f26432ac55ac2}{SNMP\+\_\+\+MAX\+\_\+\+OCTET\+\_\+\+STRING\+\_\+\+LEN}}), sizeof(u32\+\_\+t)$\ast$(\mbox{\hyperlink{group__snmp__opts_ga3ad9d293f90e3c885c4e3263a9064a41}{SNMP\+\_\+\+MAX\+\_\+\+OBJ\+\_\+\+ID\+\_\+\+LEN}})), \mbox{\hyperlink{group__snmp__opts_gac815d0dbe576299546ac612e7eaf3f90}{SNMP\+\_\+\+MIN\+\_\+\+VALUE\+\_\+\+SIZE}})}
+
+The maximum size of a value. \mbox{\Hypertarget{group__snmp__opts_gac12240265db443eaf9d31d187e586c16}\label{group__snmp__opts_gac12240265db443eaf9d31d187e586c16}} 
+\index{Options@{Options}!SNMP\_MIB\_DEBUG@{SNMP\_MIB\_DEBUG}}
+\index{SNMP\_MIB\_DEBUG@{SNMP\_MIB\_DEBUG}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_MIB\_DEBUG}{SNMP\_MIB\_DEBUG}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+MIB\+\_\+\+DEBUG~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}}
+
+SNMP\+\_\+\+MIB\+\_\+\+DEBUG\+: Enable debugging for SNMP MIBs. \mbox{\Hypertarget{group__snmp__opts_gac815d0dbe576299546ac612e7eaf3f90}\label{group__snmp__opts_gac815d0dbe576299546ac612e7eaf3f90}} 
+\index{Options@{Options}!SNMP\_MIN\_VALUE\_SIZE@{SNMP\_MIN\_VALUE\_SIZE}}
+\index{SNMP\_MIN\_VALUE\_SIZE@{SNMP\_MIN\_VALUE\_SIZE}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_MIN\_VALUE\_SIZE}{SNMP\_MIN\_VALUE\_SIZE}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+MIN\+\_\+\+VALUE\+\_\+\+SIZE~(2 $\ast$ sizeof(u32\+\_\+t$\ast$)) /$\ast$ size required to store the basic types (8 bytes for counter64) $\ast$/}
+
+The minimum size of a value. \mbox{\Hypertarget{group__snmp__opts_ga95e39047b9bcb385780b06b35af49261}\label{group__snmp__opts_ga95e39047b9bcb385780b06b35af49261}} 
+\index{Options@{Options}!SNMP\_SAFE\_REQUESTS@{SNMP\_SAFE\_REQUESTS}}
+\index{SNMP\_SAFE\_REQUESTS@{SNMP\_SAFE\_REQUESTS}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_SAFE\_REQUESTS}{SNMP\_SAFE\_REQUESTS}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+SAFE\+\_\+\+REQUESTS~1}
+
+Only allow SNMP write actions that are \textquotesingle{}safe\textquotesingle{} (e.\+g. disabling netifs is not a safe action and disabled when SNMP\+\_\+\+SAFE\+\_\+\+REQUESTS = 1). Unsafe requests are disabled by default! \mbox{\Hypertarget{group__snmp__opts_ga692343b0cc555c302fd713003d4f8a08}\label{group__snmp__opts_ga692343b0cc555c302fd713003d4f8a08}} 
+\index{Options@{Options}!SNMP\_TRAP\_DESTINATIONS@{SNMP\_TRAP\_DESTINATIONS}}
+\index{SNMP\_TRAP\_DESTINATIONS@{SNMP\_TRAP\_DESTINATIONS}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_TRAP\_DESTINATIONS}{SNMP\_TRAP\_DESTINATIONS}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+TRAP\+\_\+\+DESTINATIONS~1}
+
+SNMP\+\_\+\+TRAP\+\_\+\+DESTINATIONS\+: Number of trap destinations. At least one trap destination is required \mbox{\Hypertarget{group__snmp__opts_gaf02e8b4b69e99df784e9953401477078}\label{group__snmp__opts_gaf02e8b4b69e99df784e9953401477078}} 
+\index{Options@{Options}!SNMP\_USE\_NETCONN@{SNMP\_USE\_NETCONN}}
+\index{SNMP\_USE\_NETCONN@{SNMP\_USE\_NETCONN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_USE\_NETCONN}{SNMP\_USE\_NETCONN}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+USE\+\_\+\+NETCONN~0}
+
+SNMP\+\_\+\+USE\+\_\+\+NETCONN\+: Use netconn API instead of raw API. Makes SNMP agent run in a worker thread, so blocking operations can be done in MIB calls. \mbox{\Hypertarget{group__snmp__opts_ga8c93f4260af2eb3c50d4bc603f716f1f}\label{group__snmp__opts_ga8c93f4260af2eb3c50d4bc603f716f1f}} 
+\index{Options@{Options}!SNMP\_USE\_RAW@{SNMP\_USE\_RAW}}
+\index{SNMP\_USE\_RAW@{SNMP\_USE\_RAW}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SNMP\_USE\_RAW}{SNMP\_USE\_RAW}}
+{\footnotesize\ttfamily \#define SNMP\+\_\+\+USE\+\_\+\+RAW~1}
+
+SNMP\+\_\+\+USE\+\_\+\+RAW\+: Use raw API. SNMP agent does not run in a worker thread, so blocking operations should not be done in MIB calls. 

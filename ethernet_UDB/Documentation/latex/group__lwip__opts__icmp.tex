@@ -1,0 +1,44 @@
+\hypertarget{group__lwip__opts__icmp}{}\doxysection{ICMP}
+\label{group__lwip__opts__icmp}\index{ICMP@{ICMP}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__icmp_gae4d45345c3ab8e5a355fda1d8d24fca6}{LWIP\+\_\+\+ICMP}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__icmp_gae1533f2bc39a5843989909555f6ce0cf}{ICMP\+\_\+\+TTL}}~\mbox{\hyperlink{group__lwip__opts__ipv4_ga556b9b58fd02c0fdd126791baef77411}{IP\+\_\+\+DEFAULT\+\_\+\+TTL}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__icmp_ga8088cb56d1a84fe554b11bc15d84b2b9}{LWIP\+\_\+\+BROADCAST\+\_\+\+PING}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__icmp_gaf77baf0a83b04312eab4c006ef229661}{LWIP\+\_\+\+MULTICAST\+\_\+\+PING}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__icmp_gae1533f2bc39a5843989909555f6ce0cf}\label{group__lwip__opts__icmp_gae1533f2bc39a5843989909555f6ce0cf}} 
+\index{ICMP@{ICMP}!ICMP\_TTL@{ICMP\_TTL}}
+\index{ICMP\_TTL@{ICMP\_TTL}!ICMP@{ICMP}}
+\doxysubsubsection{\texorpdfstring{ICMP\_TTL}{ICMP\_TTL}}
+{\footnotesize\ttfamily \#define ICMP\+\_\+\+TTL~\mbox{\hyperlink{group__lwip__opts__ipv4_ga556b9b58fd02c0fdd126791baef77411}{IP\+\_\+\+DEFAULT\+\_\+\+TTL}}}
+
+ICMP\+\_\+\+TTL\+: Default value for Time-\/\+To-\/\+Live used by ICMP packets. \mbox{\Hypertarget{group__lwip__opts__icmp_ga8088cb56d1a84fe554b11bc15d84b2b9}\label{group__lwip__opts__icmp_ga8088cb56d1a84fe554b11bc15d84b2b9}} 
+\index{ICMP@{ICMP}!LWIP\_BROADCAST\_PING@{LWIP\_BROADCAST\_PING}}
+\index{LWIP\_BROADCAST\_PING@{LWIP\_BROADCAST\_PING}!ICMP@{ICMP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_BROADCAST\_PING}{LWIP\_BROADCAST\_PING}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+BROADCAST\+\_\+\+PING~0}
+
+LWIP\+\_\+\+BROADCAST\+\_\+\+PING==1\+: respond to broadcast pings (default is unicast only) \mbox{\Hypertarget{group__lwip__opts__icmp_gae4d45345c3ab8e5a355fda1d8d24fca6}\label{group__lwip__opts__icmp_gae4d45345c3ab8e5a355fda1d8d24fca6}} 
+\index{ICMP@{ICMP}!LWIP\_ICMP@{LWIP\_ICMP}}
+\index{LWIP\_ICMP@{LWIP\_ICMP}!ICMP@{ICMP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ICMP}{LWIP\_ICMP}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ICMP~1}
+
+LWIP\+\_\+\+ICMP==1\+: Enable ICMP module inside the IP stack. Be careful, disable that make your product non-\/compliant to RFC1122 \mbox{\Hypertarget{group__lwip__opts__icmp_gaf77baf0a83b04312eab4c006ef229661}\label{group__lwip__opts__icmp_gaf77baf0a83b04312eab4c006ef229661}} 
+\index{ICMP@{ICMP}!LWIP\_MULTICAST\_PING@{LWIP\_MULTICAST\_PING}}
+\index{LWIP\_MULTICAST\_PING@{LWIP\_MULTICAST\_PING}!ICMP@{ICMP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MULTICAST\_PING}{LWIP\_MULTICAST\_PING}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+MULTICAST\+\_\+\+PING~0}
+
+LWIP\+\_\+\+MULTICAST\+\_\+\+PING==1\+: respond to multicast pings (default is unicast only) 

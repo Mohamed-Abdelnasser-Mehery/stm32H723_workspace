@@ -1,0 +1,60 @@
+\hypertarget{inet__chksum_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/core/inet\+\_\+chksum.c File Reference}
+\label{inet__chksum_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/core/inet\_chksum.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/core/inet\_chksum.c}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/inet\+\_\+chksum.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/def.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip\+\_\+addr.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{inet__chksum_8c_adaaa51e3290b80f8f8f8b1d080f54c1e}\label{inet__chksum_8c_adaaa51e3290b80f8f8f8b1d080f54c1e}} 
+\#define {\bfseries LWIP\+\_\+\+CHKSUM}~lwip\+\_\+standard\+\_\+chksum
+\item 
+\mbox{\Hypertarget{inet__chksum_8c_aa0865f14286191bd72fc1a9d9cbe25d4}\label{inet__chksum_8c_aa0865f14286191bd72fc1a9d9cbe25d4}} 
+\#define {\bfseries LWIP\+\_\+\+CHKSUM\+\_\+\+ALGORITHM}~2
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{inet__chksum_8c_a4c8d40559878aa9bf6bfce8d8ab8a72b}\label{inet__chksum_8c_a4c8d40559878aa9bf6bfce8d8ab8a72b}} 
+u16\+\_\+t {\bfseries lwip\+\_\+standard\+\_\+chksum} (const void $\ast$dataptr, int len)
+\item 
+\mbox{\Hypertarget{inet__chksum_8c_aa13cda42e7c262f5dee243ff6c28422f}\label{inet__chksum_8c_aa13cda42e7c262f5dee243ff6c28422f}} 
+u16\+\_\+t {\bfseries ip\+\_\+chksum\+\_\+pseudo} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u8\+\_\+t proto, u16\+\_\+t proto\+\_\+len, const ip\+\_\+addr\+\_\+t $\ast$src, const ip\+\_\+addr\+\_\+t $\ast$dest)
+\item 
+\mbox{\Hypertarget{inet__chksum_8c_acfe7ab6c63ef998210c66bb4822b03b2}\label{inet__chksum_8c_acfe7ab6c63ef998210c66bb4822b03b2}} 
+u16\+\_\+t {\bfseries ip\+\_\+chksum\+\_\+pseudo\+\_\+partial} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u8\+\_\+t proto, u16\+\_\+t proto\+\_\+len, u16\+\_\+t chksum\+\_\+len, const ip\+\_\+addr\+\_\+t $\ast$src, const ip\+\_\+addr\+\_\+t $\ast$dest)
+\item 
+\mbox{\Hypertarget{inet__chksum_8c_a34f1aa1587562a09e11b704b51bab043}\label{inet__chksum_8c_a34f1aa1587562a09e11b704b51bab043}} 
+u16\+\_\+t {\bfseries inet\+\_\+chksum} (const void $\ast$dataptr, u16\+\_\+t len)
+\item 
+u16\+\_\+t \mbox{\hyperlink{inet__chksum_8c_ab35967a50418358e194e8f80fdc3c865}{inet\+\_\+chksum\+\_\+pbuf}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Internet checksum functions.~\newline
+ These are some reference implementations of the checksum algorithm, with the aim of being simple, correct and fully portable. Checksumming is the first thing you would want to optimize for your platform. If you create your own version, link it in and in your \mbox{\hyperlink{cc_8h_source}{cc.\+h}} put\+:
+
+\#define LWIP\+\_\+\+CHKSUM your\+\_\+checksum\+\_\+routine
+
+Or you can select from the implementations below by defining LWIP\+\_\+\+CHKSUM\+\_\+\+ALGORITHM to 1, 2 or 3. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{inet__chksum_8c_ab35967a50418358e194e8f80fdc3c865}\label{inet__chksum_8c_ab35967a50418358e194e8f80fdc3c865}} 
+\index{inet\_chksum.c@{inet\_chksum.c}!inet\_chksum\_pbuf@{inet\_chksum\_pbuf}}
+\index{inet\_chksum\_pbuf@{inet\_chksum\_pbuf}!inet\_chksum.c@{inet\_chksum.c}}
+\doxysubsubsection{\texorpdfstring{inet\_chksum\_pbuf()}{inet\_chksum\_pbuf()}}
+{\footnotesize\ttfamily u16\+\_\+t inet\+\_\+chksum\+\_\+pbuf (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+Calculate a checksum over a chain of pbufs (without pseudo-\/header, much like inet\+\_\+chksum only pbufs are used).
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf chain over that the checksum should be calculated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+checksum (as u16\+\_\+t) to be saved directly in the protocol header 
+\end{DoxyReturn}

@@ -1,0 +1,227 @@
+\hypertarget{prot_2ip6_8h_source}{}\doxysection{ip6.\+h}
+\label{prot_2ip6_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/ip6.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/ip6.h}}
+\mbox{\hyperlink{prot_2ip6_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_PROT\_IP6\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_PROT\_IP6\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{arch_8h}{lwip/arch.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip6__addr_8h}{lwip/ip6\_addr.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{52 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{53 \textcolor{keyword}{struct }\mbox{\hyperlink{structip6__addr__packed}{ip6\_addr\_packed}} \{}
+\DoxyCodeLine{54   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u32\_t addr[4]);}
+\DoxyCodeLine{55 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{56 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{60 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structip6__addr__packed}{ip6\_addr\_packed}} ip6\_addr\_p\_t;}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define IP6\_HLEN 40}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define IP6\_NEXTH\_HOPBYHOP  0}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define IP6\_NEXTH\_TCP       6}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define IP6\_NEXTH\_UDP       17}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define IP6\_NEXTH\_ENCAPS    41}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define IP6\_NEXTH\_ROUTING   43}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define IP6\_NEXTH\_FRAGMENT  44}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define IP6\_NEXTH\_ICMP6     58}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define IP6\_NEXTH\_NONE      59}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define IP6\_NEXTH\_DESTOPTS  60}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define IP6\_NEXTH\_UDPLITE   136}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{79 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{80 \textcolor{keyword}{struct }\mbox{\hyperlink{structip6__hdr}{ip6\_hdr}} \{}
+\DoxyCodeLine{82   \mbox{\hyperlink{structip6__hdr_a9ce33129145ab38f7cd5afe1f80b1558}{PACK\_STRUCT\_FIELD}}(u32\_t \_v\_tc\_fl);}
+\DoxyCodeLine{84   \mbox{\hyperlink{structip6__hdr_a75f0285819c75eaac72b6f55a5f4c134}{PACK\_STRUCT\_FIELD}}(u16\_t \_plen);}
+\DoxyCodeLine{86   \mbox{\hyperlink{structip6__hdr_a983c9ee95fdd3c1cfa261a5862b35590}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_nexth);}
+\DoxyCodeLine{88   \mbox{\hyperlink{structip6__hdr_a4b598d0970a7c2b6888c883a0df2227a}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_hoplim);}
+\DoxyCodeLine{90   \mbox{\hyperlink{structip6__hdr_ab2fa10c7ae24073639afc3b26d1c2b44}{PACK\_STRUCT\_FLD\_S}}(ip6\_addr\_p\_t src);}
+\DoxyCodeLine{91   \mbox{\hyperlink{group__compiler__abstraction_gacc89e224363eb0ebca24b64d925c3cb7}{PACK\_STRUCT\_FLD\_S}}(ip6\_addr\_p\_t dest);}
+\DoxyCodeLine{92 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{93 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define IP6H\_V(hdr)  ((lwip\_ntohl((hdr)-\/>\_v\_tc\_fl) >> 28) \& 0x0f)}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define IP6H\_TC(hdr) ((lwip\_ntohl((hdr)-\/>\_v\_tc\_fl) >> 20) \& 0xff)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define IP6H\_FL(hdr) (lwip\_ntohl((hdr)-\/>\_v\_tc\_fl) \& 0x000fffff)}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define IP6H\_PLEN(hdr) (lwip\_ntohs((hdr)-\/>\_plen))}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define IP6H\_NEXTH(hdr) ((hdr)-\/>\_nexth)}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define IP6H\_NEXTH\_P(hdr) ((u8\_t *)(hdr) + 6)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define IP6H\_HOPLIM(hdr) ((hdr)-\/>\_hoplim)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define IP6H\_VTCFL\_SET(hdr, v, tc, fl) (hdr)-\/>\_v\_tc\_fl = (lwip\_htonl((((u32\_t)(v)) << 28) | (((u32\_t)(tc)) << 20) | (fl)))}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define IP6H\_PLEN\_SET(hdr, plen) (hdr)-\/>\_plen = lwip\_htons(plen)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define IP6H\_NEXTH\_SET(hdr, nexth) (hdr)-\/>\_nexth = (nexth)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define IP6H\_HOPLIM\_SET(hdr, hl) (hdr)-\/>\_hoplim = (u8\_t)(hl)}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{comment}{/* ipv6 extended options header */}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define IP6\_PAD1\_OPTION             0}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define IP6\_PADN\_OPTION             1}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define IP6\_ROUTER\_ALERT\_OPTION     5}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define IP6\_JUMBO\_OPTION            194}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define IP6\_HOME\_ADDRESS\_OPTION     201}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define IP6\_ROUTER\_ALERT\_DLEN       2}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define IP6\_ROUTER\_ALERT\_VALUE\_MLD  0}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{121 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{122 \textcolor{keyword}{struct }\mbox{\hyperlink{structip6__opt__hdr}{ip6\_opt\_hdr}} \{}
+\DoxyCodeLine{123   \textcolor{comment}{/* router alert option type */}}
+\DoxyCodeLine{124   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_opt\_type);}
+\DoxyCodeLine{125   \textcolor{comment}{/* router alert option data len */}}
+\DoxyCodeLine{126   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_opt\_dlen);}
+\DoxyCodeLine{127 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{128 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define IP6\_OPT\_HLEN 2}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define IP6\_OPT\_TYPE\_ACTION(hdr) ((((hdr)-\/>\_opt\_type) >> 6) \& 0x3)}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define IP6\_OPT\_TYPE\_CHANGE(hdr) ((((hdr)-\/>\_opt\_type) >> 5) \& 0x1)}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define IP6\_OPT\_TYPE(hdr) ((hdr)-\/>\_opt\_type)}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define IP6\_OPT\_DLEN(hdr) ((hdr)-\/>\_opt\_dlen)}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{comment}{/* Hop-\/by-\/Hop header. */}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define IP6\_HBH\_HLEN    2}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{144 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{145 \textcolor{keyword}{struct }\mbox{\hyperlink{structip6__hbh__hdr}{ip6\_hbh\_hdr}} \{}
+\DoxyCodeLine{146   \textcolor{comment}{/* next header */}}
+\DoxyCodeLine{147   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_nexth);}
+\DoxyCodeLine{148   \textcolor{comment}{/* header length in 8-\/octet units */}}
+\DoxyCodeLine{149   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_hlen);}
+\DoxyCodeLine{150 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{151 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define IP6\_HBH\_NEXTH(hdr) ((hdr)-\/>\_nexth)}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{comment}{/* Destination header. */}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define IP6\_DEST\_HLEN   2}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{163 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{164 \textcolor{keyword}{struct }\mbox{\hyperlink{structip6__dest__hdr}{ip6\_dest\_hdr}} \{}
+\DoxyCodeLine{165   \textcolor{comment}{/* next header */}}
+\DoxyCodeLine{166   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_nexth);}
+\DoxyCodeLine{167   \textcolor{comment}{/* header length in 8-\/octet units */}}
+\DoxyCodeLine{168   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_hlen);}
+\DoxyCodeLine{169 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{170 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define IP6\_DEST\_NEXTH(hdr) ((hdr)-\/>\_nexth)}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{comment}{/* Routing header */}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define IP6\_ROUT\_TYPE2  2}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define IP6\_ROUT\_RPL    3}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{183 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{184 \textcolor{keyword}{struct }\mbox{\hyperlink{structip6__rout__hdr}{ip6\_rout\_hdr}} \{}
+\DoxyCodeLine{185   \textcolor{comment}{/* next header */}}
+\DoxyCodeLine{186   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_nexth);}
+\DoxyCodeLine{187   \textcolor{comment}{/* reserved */}}
+\DoxyCodeLine{188   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_hlen);}
+\DoxyCodeLine{189   \textcolor{comment}{/* fragment offset */}}
+\DoxyCodeLine{190   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u8\_t \_routing\_type);}
+\DoxyCodeLine{191   \textcolor{comment}{/* fragmented packet identification */}}
+\DoxyCodeLine{192   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u8\_t \_segments\_left);}
+\DoxyCodeLine{193 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{194 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#define IP6\_ROUT\_NEXTH(hdr) ((hdr)-\/>\_nexth)}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define IP6\_ROUT\_TYPE(hdr) ((hdr)-\/>\_routing\_type)}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#define IP6\_ROUT\_SEG\_LEFT(hdr) ((hdr)-\/>\_segments\_left)}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202 \textcolor{comment}{/* Fragment header. */}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define IP6\_FRAG\_HLEN    8}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#define IP6\_FRAG\_OFFSET\_MASK    0xfff8}}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#define IP6\_FRAG\_MORE\_FLAG      0x0001}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{210 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{211 \textcolor{keyword}{struct }\mbox{\hyperlink{structip6__frag__hdr}{ip6\_frag\_hdr}} \{}
+\DoxyCodeLine{212   \textcolor{comment}{/* next header */}}
+\DoxyCodeLine{213   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t \_nexth);}
+\DoxyCodeLine{214   \textcolor{comment}{/* reserved */}}
+\DoxyCodeLine{215   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t reserved);}
+\DoxyCodeLine{216   \textcolor{comment}{/* fragment offset */}}
+\DoxyCodeLine{217   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t \_fragment\_offset);}
+\DoxyCodeLine{218   \textcolor{comment}{/* fragmented packet identification */}}
+\DoxyCodeLine{219   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u32\_t \_identification);}
+\DoxyCodeLine{220 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{221 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{223 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{225 \textcolor{preprocessor}{\#define IP6\_FRAG\_NEXTH(hdr) ((hdr)-\/>\_nexth)}}
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#define IP6\_FRAG\_MBIT(hdr) (lwip\_ntohs((hdr)-\/>\_fragment\_offset) \& 0x1)}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#define IP6\_FRAG\_ID(hdr) (lwip\_ntohl((hdr)-\/>\_identification))}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{230 \}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_PROT\_IP6\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

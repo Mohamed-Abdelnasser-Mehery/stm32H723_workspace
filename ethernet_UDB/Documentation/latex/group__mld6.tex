@@ -1,0 +1,6 @@
+\hypertarget{group__mld6}{}\doxysection{MLD6}
+\label{group__mld6}\index{MLD6@{MLD6}}
+Multicast listener discovery for IPv6. Aims to be compliant with RFC 2710. No support for MLDv2.~\newline
+Note\+: The allnodes (ff01\+:\+:1, ff02\+:\+:1) group is assumed be received by your netif since it must always be received for correct IPv6 operation (e.\+g. SLAAC). Ensure the netif filters are configured accordingly!~\newline
+The netif flags also need NETIF\+\_\+\+FLAG\+\_\+\+MLD6 flag set to enable MLD6 on a netif (\char`\"{}netif-\/$>$flags $\vert$= NETIF\+\_\+\+FLAG\+\_\+\+MLD6;\char`\"{}).~\newline
+To be called from TCPIP thread. 

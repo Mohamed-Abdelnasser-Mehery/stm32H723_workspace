@@ -1,0 +1,136 @@
+\hypertarget{magic_8h_source}{}\doxysection{magic.\+h}
+\label{magic_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/magic.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/magic.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * magic.h -\/ PPP Magic Number definitions.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 1984-\/2000 Carnegie Mellon University. All rights reserved.}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{7 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{8 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    the documentation and/or other materials provided with the}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    distribution.}}
+\DoxyCodeLine{17 \textcolor{comment}{ *}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name "{}Carnegie Mellon University"{} must not be used to}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    prior written permission. For permission or any legal}}
+\DoxyCodeLine{21 \textcolor{comment}{ *    details, please contact}}
+\DoxyCodeLine{22 \textcolor{comment}{ *      Office of Technology Transfer}}
+\DoxyCodeLine{23 \textcolor{comment}{ *      Carnegie Mellon University}}
+\DoxyCodeLine{24 \textcolor{comment}{ *      5000 Forbes Avenue}}
+\DoxyCodeLine{25 \textcolor{comment}{ *      Pittsburgh, PA  15213-\/3890}}
+\DoxyCodeLine{26 \textcolor{comment}{ *      (412) 268-\/4387, fax: (412) 268-\/7395}}
+\DoxyCodeLine{27 \textcolor{comment}{ *      tech-\/transfer@andrew.cmu.edu}}
+\DoxyCodeLine{28 \textcolor{comment}{ *}}
+\DoxyCodeLine{29 \textcolor{comment}{ * 4. Redistributions of any form whatsoever must retain the following}}
+\DoxyCodeLine{30 \textcolor{comment}{ *    acknowledgment:}}
+\DoxyCodeLine{31 \textcolor{comment}{ *    "{}This product includes software developed by Computing Services}}
+\DoxyCodeLine{32 \textcolor{comment}{ *     at Carnegie Mellon University (http://www.cmu.edu/computing/)."{}}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * CARNEGIE MELLON UNIVERSITY DISCLAIMS ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{35 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{36 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL CARNEGIE MELLON UNIVERSITY BE LIABLE}}
+\DoxyCodeLine{37 \textcolor{comment}{ * FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{38 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{39 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{40 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{41 \textcolor{comment}{ *}}
+\DoxyCodeLine{42 \textcolor{comment}{ * \$Id: magic.h,v 1.5 2003/06/11 23:56:26 paulus Exp \$}}
+\DoxyCodeLine{43 \textcolor{comment}{ */}}
+\DoxyCodeLine{44 \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{45 \textcolor{comment}{* randm.h -\/ Random number generator header file.}}
+\DoxyCodeLine{46 \textcolor{comment}{*}}
+\DoxyCodeLine{47 \textcolor{comment}{* Copyright (c) 2003 by Marc Boucher, Services Informatiques (MBSI) inc.}}
+\DoxyCodeLine{48 \textcolor{comment}{* Copyright (c) 1998 Global Election Systems Inc.}}
+\DoxyCodeLine{49 \textcolor{comment}{*}}
+\DoxyCodeLine{50 \textcolor{comment}{* The authors hereby grant permission to use, copy, modify, distribute,}}
+\DoxyCodeLine{51 \textcolor{comment}{* and license this software and its documentation for any purpose, provided}}
+\DoxyCodeLine{52 \textcolor{comment}{* that existing copyright notices are retained in all copies and that this}}
+\DoxyCodeLine{53 \textcolor{comment}{* notice and the following disclaimer are included verbatim in any}}
+\DoxyCodeLine{54 \textcolor{comment}{* distributions. No written agreement, license, or royalty fee is required}}
+\DoxyCodeLine{55 \textcolor{comment}{* for any of the authorized uses.}}
+\DoxyCodeLine{56 \textcolor{comment}{*}}
+\DoxyCodeLine{57 \textcolor{comment}{* THIS SOFTWARE IS PROVIDED BY THE CONTRIBUTORS *AS IS* AND ANY EXPRESS OR}}
+\DoxyCodeLine{58 \textcolor{comment}{* IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES}}
+\DoxyCodeLine{59 \textcolor{comment}{* OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.}}
+\DoxyCodeLine{60 \textcolor{comment}{* IN NO EVENT SHALL THE CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,}}
+\DoxyCodeLine{61 \textcolor{comment}{* INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT}}
+\DoxyCodeLine{62 \textcolor{comment}{* NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,}}
+\DoxyCodeLine{63 \textcolor{comment}{* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY}}
+\DoxyCodeLine{64 \textcolor{comment}{* THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT}}
+\DoxyCodeLine{65 \textcolor{comment}{* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF}}
+\DoxyCodeLine{66 \textcolor{comment}{* THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{67 \textcolor{comment}{*}}
+\DoxyCodeLine{68 \textcolor{comment}{******************************************************************************}}
+\DoxyCodeLine{69 \textcolor{comment}{* REVISION HISTORY}}
+\DoxyCodeLine{70 \textcolor{comment}{*}}
+\DoxyCodeLine{71 \textcolor{comment}{* 03-\/01-\/01 Marc Boucher <marc@mbsi.ca>}}
+\DoxyCodeLine{72 \textcolor{comment}{*   Ported to lwIP.}}
+\DoxyCodeLine{73 \textcolor{comment}{* 98-\/05-\/29 Guy Lancaster <glanca@gesn.com>, Global Election Systems Inc.}}
+\DoxyCodeLine{74 \textcolor{comment}{*   Extracted from avos.}}
+\DoxyCodeLine{75 \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#if PPP\_SUPPORT }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#ifndef MAGIC\_H}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define MAGIC\_H}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{84 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{comment}{/***********************}}
+\DoxyCodeLine{88 \textcolor{comment}{*** PUBLIC FUNCTIONS ***}}
+\DoxyCodeLine{89 \textcolor{comment}{***********************/}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{comment}{/*}}
+\DoxyCodeLine{92 \textcolor{comment}{ * Initialize the random number generator.}}
+\DoxyCodeLine{93 \textcolor{comment}{ */}}
+\DoxyCodeLine{94 \textcolor{keywordtype}{void} magic\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{comment}{/*}}
+\DoxyCodeLine{97 \textcolor{comment}{ * Randomize our random seed value.  To be called for truely random events}}
+\DoxyCodeLine{98 \textcolor{comment}{ * such as user operations and network traffic.}}
+\DoxyCodeLine{99 \textcolor{comment}{ */}}
+\DoxyCodeLine{100 \textcolor{keywordtype}{void} magic\_randomize(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{comment}{/*}}
+\DoxyCodeLine{103 \textcolor{comment}{ * Return a new random number.}}
+\DoxyCodeLine{104 \textcolor{comment}{ */}}
+\DoxyCodeLine{105 u32\_t magic(\textcolor{keywordtype}{void});  \textcolor{comment}{/* Returns the next magic number */}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{comment}{/*}}
+\DoxyCodeLine{108 \textcolor{comment}{ * Fill buffer with random bytes}}
+\DoxyCodeLine{109 \textcolor{comment}{ *}}
+\DoxyCodeLine{110 \textcolor{comment}{ * Use the random pool to generate random data.  This degrades to pseudo}}
+\DoxyCodeLine{111 \textcolor{comment}{ * random when used faster than randomness is supplied using magic\_churnrand().}}
+\DoxyCodeLine{112 \textcolor{comment}{ * Thus it's important to make sure that the results of this are not}}
+\DoxyCodeLine{113 \textcolor{comment}{ * published directly because one could predict the next result to at}}
+\DoxyCodeLine{114 \textcolor{comment}{ * least some degree.  Also, it's important to get a good seed before}}
+\DoxyCodeLine{115 \textcolor{comment}{ * the first use.}}
+\DoxyCodeLine{116 \textcolor{comment}{ */}}
+\DoxyCodeLine{117 \textcolor{keywordtype}{void} magic\_random\_bytes(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *buf, u32\_t buf\_len);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{comment}{/*}}
+\DoxyCodeLine{120 \textcolor{comment}{ * Return a new random number between 0 and (2\string^pow)-\/1 included.}}
+\DoxyCodeLine{121 \textcolor{comment}{ */}}
+\DoxyCodeLine{122 u32\_t magic\_pow(u8\_t pow);}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{125 \}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MAGIC\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

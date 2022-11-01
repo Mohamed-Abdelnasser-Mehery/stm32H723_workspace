@@ -1,0 +1,44 @@
+\hypertarget{group__mdns__opts}{}\doxysection{Options}
+\label{group__mdns__opts}\index{Options@{Options}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__mdns__opts_gac94cc7a48fb5352f49a9e00594e89ea8}{LWIP\+\_\+\+MDNS\+\_\+\+RESPONDER}}~0
+\item 
+\#define \mbox{\hyperlink{group__mdns__opts_ga82749ee08be21967b6daf577b9710ac6}{MDNS\+\_\+\+MAX\+\_\+\+SERVICES}}~1
+\item 
+\#define \mbox{\hyperlink{group__mdns__opts_ga172e579cd09a1db51cf224319c012396}{MDNS\+\_\+\+RESP\+\_\+\+USENETIF\+\_\+\+EXTCALLBACK}}~\mbox{\hyperlink{group__lwip__opts__netif_ga090482867ba04d442ab5b8ad745c0e1e}{LWIP\+\_\+\+NETIF\+\_\+\+EXT\+\_\+\+STATUS\+\_\+\+CALLBACK}}
+\item 
+\#define \mbox{\hyperlink{group__mdns__opts_ga53a97502efdcf1214cab4078f93a6dc9}{MDNS\+\_\+\+DEBUG}}~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__mdns__opts_gac94cc7a48fb5352f49a9e00594e89ea8}\label{group__mdns__opts_gac94cc7a48fb5352f49a9e00594e89ea8}} 
+\index{Options@{Options}!LWIP\_MDNS\_RESPONDER@{LWIP\_MDNS\_RESPONDER}}
+\index{LWIP\_MDNS\_RESPONDER@{LWIP\_MDNS\_RESPONDER}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MDNS\_RESPONDER}{LWIP\_MDNS\_RESPONDER}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+MDNS\+\_\+\+RESPONDER~0}
+
+LWIP\+\_\+\+MDNS\+\_\+\+RESPONDER==1\+: Turn on multicast DNS module. UDP must be available for MDNS transport. IGMP is needed for IPv4 multicast. \mbox{\Hypertarget{group__mdns__opts_ga53a97502efdcf1214cab4078f93a6dc9}\label{group__mdns__opts_ga53a97502efdcf1214cab4078f93a6dc9}} 
+\index{Options@{Options}!MDNS\_DEBUG@{MDNS\_DEBUG}}
+\index{MDNS\_DEBUG@{MDNS\_DEBUG}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{MDNS\_DEBUG}{MDNS\_DEBUG}}
+{\footnotesize\ttfamily \#define MDNS\+\_\+\+DEBUG~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}}
+
+MDNS\+\_\+\+DEBUG\+: Enable debugging for multicast DNS. \mbox{\Hypertarget{group__mdns__opts_ga82749ee08be21967b6daf577b9710ac6}\label{group__mdns__opts_ga82749ee08be21967b6daf577b9710ac6}} 
+\index{Options@{Options}!MDNS\_MAX\_SERVICES@{MDNS\_MAX\_SERVICES}}
+\index{MDNS\_MAX\_SERVICES@{MDNS\_MAX\_SERVICES}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{MDNS\_MAX\_SERVICES}{MDNS\_MAX\_SERVICES}}
+{\footnotesize\ttfamily \#define MDNS\+\_\+\+MAX\+\_\+\+SERVICES~1}
+
+The maximum number of services per netif \mbox{\Hypertarget{group__mdns__opts_ga172e579cd09a1db51cf224319c012396}\label{group__mdns__opts_ga172e579cd09a1db51cf224319c012396}} 
+\index{Options@{Options}!MDNS\_RESP\_USENETIF\_EXTCALLBACK@{MDNS\_RESP\_USENETIF\_EXTCALLBACK}}
+\index{MDNS\_RESP\_USENETIF\_EXTCALLBACK@{MDNS\_RESP\_USENETIF\_EXTCALLBACK}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{MDNS\_RESP\_USENETIF\_EXTCALLBACK}{MDNS\_RESP\_USENETIF\_EXTCALLBACK}}
+{\footnotesize\ttfamily \#define MDNS\+\_\+\+RESP\+\_\+\+USENETIF\+\_\+\+EXTCALLBACK~\mbox{\hyperlink{group__lwip__opts__netif_ga090482867ba04d442ab5b8ad745c0e1e}{LWIP\+\_\+\+NETIF\+\_\+\+EXT\+\_\+\+STATUS\+\_\+\+CALLBACK}}}
+
+MDNS\+\_\+\+RESP\+\_\+\+USENETIF\+\_\+\+EXTCALLBACK==1\+: register an ext\+\_\+callback on the netif to automatically restart probing/announcing on status or address change. 

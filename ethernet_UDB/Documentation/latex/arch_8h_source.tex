@@ -1,0 +1,272 @@
+\hypertarget{arch_8h_source}{}\doxysection{arch.\+h}
+\label{arch_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/arch.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/arch.h}}
+\mbox{\hyperlink{arch_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_ARCH\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_ARCH\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifndef LITTLE\_ENDIAN}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define LITTLE\_ENDIAN 1234}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifndef BIG\_ENDIAN}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define BIG\_ENDIAN 4321}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}arch/cc.h"{}}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#ifndef BYTE\_ORDER}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define BYTE\_ORDER LITTLE\_ENDIAN}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define LWIP\_RAND() ((u32\_t)rand())}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#ifndef LWIP\_PLATFORM\_DIAG}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define LWIP\_PLATFORM\_DIAG(x) do \{printf x;\} while(0)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#ifndef LWIP\_PLATFORM\_ASSERT}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define LWIP\_PLATFORM\_ASSERT(x) do \{printf("{}Assertion \(\backslash\)"{}\%s\(\backslash\)"{} failed at line \%d in \%s\(\backslash\)n"{}}, \(\backslash\)}
+\DoxyCodeLine{93                                      x, \_\_LINE\_\_, \_\_FILE\_\_); fflush(NULL); abort();\} while(0)}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#ifndef LWIP\_NO\_STDDEF\_H}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define LWIP\_NO\_STDDEF\_H 0}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#if !LWIP\_NO\_STDDEF\_H}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#include <stddef.h>} \textcolor{comment}{/* for size\_t */}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#ifndef LWIP\_NO\_STDINT\_H}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define LWIP\_NO\_STDINT\_H 0}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{comment}{/* Define generic types used in lwIP */}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#if !LWIP\_NO\_STDINT\_H}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{121 \textcolor{comment}{/* stdint.h is C99 which should also provide support for 64-\/bit integers */}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#if !defined(LWIP\_HAVE\_INT64) \&\& defined(UINT64\_MAX)}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define LWIP\_HAVE\_INT64 1}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{125 \textcolor{keyword}{typedef} uint8\_t   u8\_t;}
+\DoxyCodeLine{126 \textcolor{keyword}{typedef} int8\_t    s8\_t;}
+\DoxyCodeLine{127 \textcolor{keyword}{typedef} uint16\_t  u16\_t;}
+\DoxyCodeLine{128 \textcolor{keyword}{typedef} int16\_t   s16\_t;}
+\DoxyCodeLine{129 \textcolor{keyword}{typedef} uint32\_t  u32\_t;}
+\DoxyCodeLine{130 \textcolor{keyword}{typedef} int32\_t   s32\_t;}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#if LWIP\_HAVE\_INT64}}
+\DoxyCodeLine{132 \textcolor{keyword}{typedef} uint64\_t  u64\_t;}
+\DoxyCodeLine{133 \textcolor{keyword}{typedef} int64\_t   s64\_t;}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{135 \textcolor{keyword}{typedef} uintptr\_t mem\_ptr\_t;}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#ifndef LWIP\_NO\_INTTYPES\_H}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#define LWIP\_NO\_INTTYPES\_H 0}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{comment}{/* Define (sn)printf formatters for these lwIP types */}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#if !LWIP\_NO\_INTTYPES\_H}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#include <inttypes.h>}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#ifndef X8\_F}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define X8\_F  "{}02"{}} PRIx8}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#ifndef U16\_F}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define U16\_F PRIu16}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#ifndef S16\_F}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define S16\_F PRId16}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#ifndef X16\_F}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define X16\_F PRIx16}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#ifndef U32\_F}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define U32\_F PRIu32}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#ifndef S32\_F}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define S32\_F PRId32}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#ifndef X32\_F}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define X32\_F PRIx32}}
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#ifndef SZT\_F}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define SZT\_F PRIuPTR}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#ifndef LWIP\_NO\_LIMITS\_H}}
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#define LWIP\_NO\_LIMITS\_H 0}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 \textcolor{comment}{/* Include limits.h? */}}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#if !LWIP\_NO\_LIMITS\_H}}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#include <limits.h>}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 \textcolor{comment}{/* Do we need to define ssize\_t? This is a compatibility hack:}}
+\DoxyCodeLine{189 \textcolor{comment}{ * Unfortunately, this type seems to be unavailable on some systems (even if}}
+\DoxyCodeLine{190 \textcolor{comment}{ * sys/types or unistd.h are available).}}
+\DoxyCodeLine{191 \textcolor{comment}{ * Being like that, we define it to 'int' if SSIZE\_MAX is not defined.}}
+\DoxyCodeLine{192 \textcolor{comment}{ */}}
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#ifdef SSIZE\_MAX}}
+\DoxyCodeLine{194 \textcolor{comment}{/* If SSIZE\_MAX is defined, unistd.h should provide the type as well */}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#ifndef LWIP\_NO\_UNISTD\_H}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#define LWIP\_NO\_UNISTD\_H 0}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#if !LWIP\_NO\_UNISTD\_H}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#include <unistd.h>}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* SSIZE\_MAX */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{202 \textcolor{keyword}{typedef} \textcolor{keywordtype}{int} ssize\_t;}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define SSIZE\_MAX INT\_MAX}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SSIZE\_MAX */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{comment}{/* some maximum values needed in lwip code */}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#define LWIP\_UINT32\_MAX 0xffffffff}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#ifndef LWIP\_NO\_CTYPE\_H}}
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#define LWIP\_NO\_CTYPE\_H 0}}
+\DoxyCodeLine{216 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218 \textcolor{preprocessor}{\#if LWIP\_NO\_CTYPE\_H}}
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#define lwip\_in\_range(c, lo, up)  ((u8\_t)(c) >= (lo) \&\& (u8\_t)(c) <= (up))}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#define lwip\_isdigit(c)           lwip\_in\_range((c), '0', '9')}}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#define lwip\_isxdigit(c)          (lwip\_isdigit(c) || lwip\_in\_range((c), 'a', 'f') || lwip\_in\_range((c), 'A', 'F'))}}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#define lwip\_islower(c)           lwip\_in\_range((c), 'a', 'z')}}
+\DoxyCodeLine{223 \textcolor{preprocessor}{\#define lwip\_isspace(c)           ((c) == ' ' || (c) == '\(\backslash\)f' || (c) == '\(\backslash\)n' || (c) == '\(\backslash\)r' || (c) == '\(\backslash\)t' || (c) == '\(\backslash\)v')}}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#define lwip\_isupper(c)           lwip\_in\_range((c), 'A', 'Z')}}
+\DoxyCodeLine{225 \textcolor{preprocessor}{\#define lwip\_tolower(c)           (lwip\_isupper(c) ? (c) -\/ 'A' + 'a' : c)}}
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#define lwip\_toupper(c)           (lwip\_islower(c) ? (c) -\/ 'a' + 'A' : c)}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#include <ctype.h>}}
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#define lwip\_isdigit(c)           isdigit((unsigned char)(c))}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#define lwip\_isxdigit(c)          isxdigit((unsigned char)(c))}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#define lwip\_islower(c)           islower((unsigned char)(c))}}
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#define lwip\_isspace(c)           isspace((unsigned char)(c))}}
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#define lwip\_isupper(c)           isupper((unsigned char)(c))}}
+\DoxyCodeLine{234 \textcolor{preprocessor}{\#define lwip\_tolower(c)           tolower((unsigned char)(c))}}
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#define lwip\_toupper(c)           toupper((unsigned char)(c))}}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{239 \textcolor{preprocessor}{\#ifndef LWIP\_CONST\_CAST}}
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#define LWIP\_CONST\_CAST(target\_type, val) ((target\_type)((ptrdiff\_t)val))}}
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#ifndef LWIP\_ALIGNMENT\_CAST}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#define LWIP\_ALIGNMENT\_CAST(target\_type, val) LWIP\_CONST\_CAST(target\_type, val)}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{251 \textcolor{preprocessor}{\#ifndef LWIP\_PTR\_NUMERIC\_CAST}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#define LWIP\_PTR\_NUMERIC\_CAST(target\_type, val) LWIP\_CONST\_CAST(target\_type, val)}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#ifndef LWIP\_PACKED\_CAST}}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#define LWIP\_PACKED\_CAST(target\_type, val) LWIP\_CONST\_CAST(target\_type, val)}}
+\DoxyCodeLine{258 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#ifndef LWIP\_DECLARE\_MEMORY\_ALIGNED}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define LWIP\_DECLARE\_MEMORY\_ALIGNED(variable\_name, size) u8\_t variable\_name[LWIP\_MEM\_ALIGN\_BUFFER(size)]}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#ifndef LWIP\_MEM\_ALIGN\_SIZE}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#define LWIP\_MEM\_ALIGN\_SIZE(size) (((size) + MEM\_ALIGNMENT -\/ 1U) \& \string~(MEM\_ALIGNMENT-\/1U))}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#ifndef LWIP\_MEM\_ALIGN\_BUFFER}}
+\DoxyCodeLine{287 \textcolor{preprocessor}{\#define LWIP\_MEM\_ALIGN\_BUFFER(size) (((size) + MEM\_ALIGNMENT -\/ 1U))}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#ifndef LWIP\_MEM\_ALIGN}}
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#define LWIP\_MEM\_ALIGN(addr) ((void *)(((mem\_ptr\_t)(addr) + MEM\_ALIGNMENT -\/ 1) \& \string~(mem\_ptr\_t)(MEM\_ALIGNMENT-\/1)))}}
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{298 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{299 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{306 \textcolor{preprocessor}{\#ifndef PACK\_STRUCT\_BEGIN}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#define PACK\_STRUCT\_BEGIN}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PACK\_STRUCT\_BEGIN */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{315 \textcolor{preprocessor}{\#ifndef PACK\_STRUCT\_END}}
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#define PACK\_STRUCT\_END}}
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PACK\_STRUCT\_END */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#ifndef PACK\_STRUCT\_STRUCT}}
+\DoxyCodeLine{325 \textcolor{preprocessor}{\#if defined(\_\_GNUC\_\_) || defined(\_\_clang\_\_)}}
+\DoxyCodeLine{326 \textcolor{preprocessor}{\#define PACK\_STRUCT\_STRUCT \_\_attribute\_\_((packed))}}
+\DoxyCodeLine{327 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{328 \textcolor{preprocessor}{\#define PACK\_STRUCT\_STRUCT}}
+\DoxyCodeLine{329 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PACK\_STRUCT\_STRUCT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{337 \textcolor{preprocessor}{\#ifndef PACK\_STRUCT\_FIELD}}
+\DoxyCodeLine{338 \textcolor{preprocessor}{\#define PACK\_STRUCT\_FIELD(x) x}}
+\DoxyCodeLine{339 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PACK\_STRUCT\_FIELD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{346 \textcolor{preprocessor}{\#ifndef PACK\_STRUCT\_FLD\_8}}
+\DoxyCodeLine{347 \textcolor{preprocessor}{\#define PACK\_STRUCT\_FLD\_8(x) PACK\_STRUCT\_FIELD(x)}}
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PACK\_STRUCT\_FLD\_8 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{355 \textcolor{preprocessor}{\#ifndef PACK\_STRUCT\_FLD\_S}}
+\DoxyCodeLine{356 \textcolor{preprocessor}{\#define PACK\_STRUCT\_FLD\_S(x) PACK\_STRUCT\_FIELD(x)}}
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PACK\_STRUCT\_FLD\_S */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{358 }
+\DoxyCodeLine{367 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{368 \textcolor{preprocessor}{\#define PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{369 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{372 \textcolor{preprocessor}{\#ifndef LWIP\_UNUSED\_ARG}}
+\DoxyCodeLine{373 \textcolor{preprocessor}{\#define LWIP\_UNUSED\_ARG(x) (void)x}}
+\DoxyCodeLine{374 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_UNUSED\_ARG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{381 \textcolor{preprocessor}{\#if defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{382 \textcolor{preprocessor}{\#define LWIP\_PROVIDE\_ERRNO}}
+\DoxyCodeLine{383 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{390 \}}
+\DoxyCodeLine{391 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_ARCH\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

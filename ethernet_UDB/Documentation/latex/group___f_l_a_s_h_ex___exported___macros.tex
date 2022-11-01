@@ -1,0 +1,36 @@
+\hypertarget{group___f_l_a_s_h_ex___exported___macros}{}\doxysection{FLASH Exported Macros}
+\label{group___f_l_a_s_h_ex___exported___macros}\index{FLASH Exported Macros@{FLASH Exported Macros}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___f_l_a_s_h_ex___exported___macros_gab7c736ccacb9f3eb5dd1f0c4d79e9a33}{\+\_\+\+\_\+\+HAL\+\_\+\+FLASH\+\_\+\+CALC\+\_\+\+BOOT\+\_\+\+BASE\+\_\+\+ADR}}(\+\_\+\+\_\+\+ADDRESS\+\_\+\+\_\+)~((\+\_\+\+\_\+\+ADDRESS\+\_\+\+\_\+) $>$$>$ 14U)
+\begin{DoxyCompactList}\small\item\em Calculate the FLASH Boot Base Address (BOOT\+\_\+\+ADD0 or BOOT\+\_\+\+ADD1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___f_l_a_s_h_ex___exported___macros_gab7c736ccacb9f3eb5dd1f0c4d79e9a33}\label{group___f_l_a_s_h_ex___exported___macros_gab7c736ccacb9f3eb5dd1f0c4d79e9a33}} 
+\index{FLASH Exported Macros@{FLASH Exported Macros}!\_\_HAL\_FLASH\_CALC\_BOOT\_BASE\_ADR@{\_\_HAL\_FLASH\_CALC\_BOOT\_BASE\_ADR}}
+\index{\_\_HAL\_FLASH\_CALC\_BOOT\_BASE\_ADR@{\_\_HAL\_FLASH\_CALC\_BOOT\_BASE\_ADR}!FLASH Exported Macros@{FLASH Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_FLASH\_CALC\_BOOT\_BASE\_ADR}{\_\_HAL\_FLASH\_CALC\_BOOT\_BASE\_ADR}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+FLASH\+\_\+\+CALC\+\_\+\+BOOT\+\_\+\+BASE\+\_\+\+ADR(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+ADDRESS\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+ADDRESS\+\_\+\+\_\+) $>$$>$ 14U)}
+
+
+
+Calculate the FLASH Boot Base Address (BOOT\+\_\+\+ADD0 or BOOT\+\_\+\+ADD1) 
+
+\begin{DoxyNote}{Note}
+Returned value BOOT\+\_\+\+ADDx\mbox{[}15\+:0\mbox{]} corresponds to boot address \mbox{[}29\+:14\mbox{]}. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+ADDRESS\+\_\+\+\_\+} & FLASH Boot Address (in the range 0x0000 0000 to 0x2004 FFFF with a granularity of 16KB) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & FLASH Boot Base Address \\
+\hline
+\end{DoxyRetVals}

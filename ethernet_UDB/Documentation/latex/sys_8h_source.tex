@@ -1,0 +1,273 @@
+\hypertarget{sys_8h_source}{}\doxysection{sys.\+h}
+\label{sys_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/sys.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/sys.h}}
+\mbox{\hyperlink{sys_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ */}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_SYS\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_SYS\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{43 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#if NO\_SYS}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{comment}{/* For a totally minimal and standalone system, we provide null}}
+\DoxyCodeLine{49 \textcolor{comment}{   definitions of the sys\_ functions. */}}
+\DoxyCodeLine{50 \textcolor{keyword}{typedef} u8\_t sys\_sem\_t;}
+\DoxyCodeLine{51 \textcolor{keyword}{typedef} u8\_t sys\_mutex\_t;}
+\DoxyCodeLine{52 \textcolor{keyword}{typedef} u8\_t sys\_mbox\_t;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define sys\_sem\_new(s, c) ERR\_OK}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define sys\_sem\_signal(s)}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define sys\_sem\_wait(s)}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define sys\_arch\_sem\_wait(s,t)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define sys\_sem\_free(s)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define sys\_sem\_valid(s) 0}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define sys\_sem\_valid\_val(s) 0}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define sys\_sem\_set\_invalid(s)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define sys\_sem\_set\_invalid\_val(s)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define sys\_mutex\_new(mu) ERR\_OK}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define sys\_mutex\_lock(mu)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define sys\_mutex\_unlock(mu)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define sys\_mutex\_free(mu)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define sys\_mutex\_valid(mu) 0}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define sys\_mutex\_set\_invalid(mu)}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define sys\_mbox\_new(m, s) ERR\_OK}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define sys\_mbox\_fetch(m,d)}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define sys\_mbox\_tryfetch(m,d)}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define sys\_mbox\_post(m,d)}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define sys\_mbox\_trypost(m,d)}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define sys\_mbox\_free(m)}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define sys\_mbox\_valid(m)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define sys\_mbox\_valid\_val(m)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define sys\_mbox\_set\_invalid(m)}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define sys\_mbox\_set\_invalid\_val(m)}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define sys\_thread\_new(n,t,a,s,p)}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define sys\_msleep(t)}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* NO\_SYS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define SYS\_ARCH\_TIMEOUT 0xffffffffUL}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define SYS\_MBOX\_EMPTY SYS\_ARCH\_TIMEOUT}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#include "{}arch/sys\_arch.h"{}}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{98 \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}{lwip\_thread\_fn}})(\textcolor{keywordtype}{void} *arg);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{comment}{/* Function prototypes for functions to be implemented by platform ports}}
+\DoxyCodeLine{101 \textcolor{comment}{   (in sys\_arch.c) */}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{comment}{/* Mutex functions: */}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#ifndef LWIP\_COMPAT\_MUTEX}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define LWIP\_COMPAT\_MUTEX 0}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#if LWIP\_COMPAT\_MUTEX}}
+\DoxyCodeLine{112 \textcolor{comment}{/* for old ports that don't have mutexes: define them to binary semaphores */}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define sys\_mutex\_t                   sys\_sem\_t}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define sys\_mutex\_new(mutex)          sys\_sem\_new(mutex, 1)}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define sys\_mutex\_lock(mutex)         sys\_sem\_wait(mutex)}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define sys\_mutex\_unlock(mutex)       sys\_sem\_signal(mutex)}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define sys\_mutex\_free(mutex)         sys\_sem\_free(mutex)}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define sys\_mutex\_valid(mutex)        sys\_sem\_valid(mutex)}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define sys\_mutex\_set\_invalid(mutex)  sys\_sem\_set\_invalid(mutex)}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_COMPAT\_MUTEX */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{137 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{group__sys__mutex_ga38e7dae1fd88b338eb1cd97f110f3897}{sys\_mutex\_new}}(sys\_mutex\_t *mutex);}
+\DoxyCodeLine{143 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__mutex_ga4d4eb9afe5965fa2661dd54ff55d616a}{sys\_mutex\_lock}}(sys\_mutex\_t *mutex);}
+\DoxyCodeLine{149 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__mutex_ga5568f68898fe9d5735f9ce2f665624fb}{sys\_mutex\_unlock}}(sys\_mutex\_t *mutex);}
+\DoxyCodeLine{155 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__mutex_ga16336ce68b741e98204102ca4bc84dd9}{sys\_mutex\_free}}(sys\_mutex\_t *mutex);}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#ifndef sys\_mutex\_valid}}
+\DoxyCodeLine{164 \textcolor{keywordtype}{int} \mbox{\hyperlink{group__sys__mutex_gaebe83ba90a6d9c23cdb3eb5d49562c4a}{sys\_mutex\_valid}}(sys\_mutex\_t *mutex);}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#ifndef sys\_mutex\_set\_invalid}}
+\DoxyCodeLine{174 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__mutex_ga3f392725971dc837aa56dd7e45fa7ca8}{sys\_mutex\_set\_invalid}}(sys\_mutex\_t *mutex);}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_COMPAT\_MUTEX */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 \textcolor{comment}{/* Semaphore functions: */}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{195 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{group__sys__sem_gaf99da9e34a71855285c535183133dfde}{sys\_sem\_new}}(sys\_sem\_t *sem, u8\_t count);}
+\DoxyCodeLine{201 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__sem_gaaf800273061fcc3f8200fd4e1b9ca875}{sys\_sem\_signal}}(sys\_sem\_t *sem);}
+\DoxyCodeLine{219 u32\_t \mbox{\hyperlink{group__sys__sem_ga8d364c5037778acb21c3df675db81b4f}{sys\_arch\_sem\_wait}}(sys\_sem\_t *sem, u32\_t timeout);}
+\DoxyCodeLine{225 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__sem_ga83b781f96c30e915c752065a757da283}{sys\_sem\_free}}(sys\_sem\_t *sem);}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#define sys\_sem\_wait(sem)                  sys\_arch\_sem\_wait(sem, 0)}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#ifndef sys\_sem\_valid}}
+\DoxyCodeLine{236 \textcolor{keywordtype}{int} \mbox{\hyperlink{group__sys__sem_ga09a6c052ddaf799139efc56adfa087e4}{sys\_sem\_valid}}(sys\_sem\_t *sem);}
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#ifndef sys\_sem\_set\_invalid}}
+\DoxyCodeLine{246 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__sem_ga42a2ab32afbf41a4146a9d135224ef33}{sys\_sem\_set\_invalid}}(sys\_sem\_t *sem);}
+\DoxyCodeLine{247 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#ifndef sys\_sem\_valid\_val}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#define sys\_sem\_valid\_val(sem)       sys\_sem\_valid(\&(sem))}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#ifndef sys\_sem\_set\_invalid\_val}}
+\DoxyCodeLine{258 \textcolor{preprocessor}{\#define sys\_sem\_set\_invalid\_val(sem) sys\_sem\_set\_invalid(\&(sem))}}
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#ifndef sys\_msleep}}
+\DoxyCodeLine{266 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__misc_ga6b8786f43e779953e8b74e983c88682e}{sys\_msleep}}(u32\_t ms); \textcolor{comment}{/* only has a (close to) 1 ms resolution. */}}
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269 \textcolor{comment}{/* Mailbox functions. */}}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{285 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}{sys\_mbox\_new}}(sys\_mbox\_t *mbox, \textcolor{keywordtype}{int} size);}
+\DoxyCodeLine{294 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__mbox_ga9d068386a3c53dd01b8af99c3ef77555}{sys\_mbox\_post}}(sys\_mbox\_t *mbox, \textcolor{keywordtype}{void} *msg);}
+\DoxyCodeLine{304 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{group__sys__mbox_gaa36345e48a49d67cbb0878cd4cbd2195}{sys\_mbox\_trypost}}(sys\_mbox\_t *mbox, \textcolor{keywordtype}{void} *msg);}
+\DoxyCodeLine{314 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{group__sys__mbox_gaf677a6e76adb7650a3020fdb3cb8429a}{sys\_mbox\_trypost\_fromisr}}(sys\_mbox\_t *mbox, \textcolor{keywordtype}{void} *msg);}
+\DoxyCodeLine{336 u32\_t \mbox{\hyperlink{group__sys__mbox_ga6464cd77cf6799bd8b3d6c840166a2e8}{sys\_arch\_mbox\_fetch}}(sys\_mbox\_t *mbox, \textcolor{keywordtype}{void} **msg, u32\_t timeout);}
+\DoxyCodeLine{337 \textcolor{comment}{/* Allow port to override with a macro, e.g. special timeout for sys\_arch\_mbox\_fetch() */}}
+\DoxyCodeLine{338 \textcolor{preprocessor}{\#ifndef sys\_arch\_mbox\_tryfetch}}
+\DoxyCodeLine{355 u32\_t \mbox{\hyperlink{group__sys__mbox_gafab441b130b4ec417012835dbe1e497c}{sys\_arch\_mbox\_tryfetch}}(sys\_mbox\_t *mbox, \textcolor{keywordtype}{void} **msg);}
+\DoxyCodeLine{356 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{360 \textcolor{preprocessor}{\#define sys\_mbox\_tryfetch(mbox, msg) sys\_arch\_mbox\_tryfetch(mbox, msg)}}
+\DoxyCodeLine{369 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__mbox_gac641a45812155d2234ef80dd6412882f}{sys\_mbox\_free}}(sys\_mbox\_t *mbox);}
+\DoxyCodeLine{370 \textcolor{preprocessor}{\#define sys\_mbox\_fetch(mbox, msg) sys\_arch\_mbox\_fetch(mbox, msg, 0)}}
+\DoxyCodeLine{371 \textcolor{preprocessor}{\#ifndef sys\_mbox\_valid}}
+\DoxyCodeLine{379 \textcolor{keywordtype}{int} \mbox{\hyperlink{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}{sys\_mbox\_valid}}(sys\_mbox\_t *mbox);}
+\DoxyCodeLine{380 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{381 \textcolor{preprocessor}{\#ifndef sys\_mbox\_set\_invalid}}
+\DoxyCodeLine{389 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}{sys\_mbox\_set\_invalid}}(sys\_mbox\_t *mbox);}
+\DoxyCodeLine{390 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{391 \textcolor{preprocessor}{\#ifndef sys\_mbox\_valid\_val}}
+\DoxyCodeLine{395 \textcolor{preprocessor}{\#define sys\_mbox\_valid\_val(mbox)       sys\_mbox\_valid(\&(mbox))}}
+\DoxyCodeLine{396 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{397 \textcolor{preprocessor}{\#ifndef sys\_mbox\_set\_invalid\_val}}
+\DoxyCodeLine{401 \textcolor{preprocessor}{\#define sys\_mbox\_set\_invalid\_val(mbox) sys\_mbox\_set\_invalid(\&(mbox))}}
+\DoxyCodeLine{402 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{404 }
+\DoxyCodeLine{420 sys\_thread\_t \mbox{\hyperlink{group__sys__misc_ga0d596afdd8dbcfad320172d39b0f607a}{sys\_thread\_new}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name, \mbox{\hyperlink{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}{lwip\_thread\_fn}} thread, \textcolor{keywordtype}{void} *arg, \textcolor{keywordtype}{int} stacksize, \textcolor{keywordtype}{int} prio);}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{422 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* NO\_SYS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{429 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__sys__misc_gaf411a8bc6b7ed4b0af9114e10c959448}{sys\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{430 }
+\DoxyCodeLine{431 \textcolor{preprocessor}{\#ifndef sys\_jiffies}}
+\DoxyCodeLine{435 u32\_t \mbox{\hyperlink{sys_8h_ac89f307e8b360eaf821b461a4f26753a}{sys\_jiffies}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{436 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{446 u32\_t \mbox{\hyperlink{group__sys__time_ga11316ac1e77418c6fa4ab8869e3fa199}{sys\_now}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448 \textcolor{comment}{/* Critical Region Protection */}}
+\DoxyCodeLine{449 \textcolor{comment}{/* These functions must be implemented in the sys\_arch.c file.}}
+\DoxyCodeLine{450 \textcolor{comment}{   In some implementations they can provide a more light-\/weight protection}}
+\DoxyCodeLine{451 \textcolor{comment}{   mechanism than using semaphores. Otherwise semaphores can be used for}}
+\DoxyCodeLine{452 \textcolor{comment}{   implementation */}}
+\DoxyCodeLine{453 \textcolor{preprocessor}{\#ifndef SYS\_ARCH\_PROTECT}}
+\DoxyCodeLine{459 \textcolor{preprocessor}{\#if SYS\_LIGHTWEIGHT\_PROT}}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{468 \textcolor{preprocessor}{\#define SYS\_ARCH\_DECL\_PROTECT(lev) sys\_prot\_t lev}}
+\DoxyCodeLine{480 \textcolor{preprocessor}{\#define SYS\_ARCH\_PROTECT(lev) lev = sys\_arch\_protect()}}
+\DoxyCodeLine{491 \textcolor{preprocessor}{\#define SYS\_ARCH\_UNPROTECT(lev) sys\_arch\_unprotect(lev)}}
+\DoxyCodeLine{492 sys\_prot\_t sys\_arch\_protect(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{493 \textcolor{keywordtype}{void} sys\_arch\_unprotect(sys\_prot\_t pval);}
+\DoxyCodeLine{494 }
+\DoxyCodeLine{495 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{496 }
+\DoxyCodeLine{497 \textcolor{preprocessor}{\#define SYS\_ARCH\_DECL\_PROTECT(lev)}}
+\DoxyCodeLine{498 \textcolor{preprocessor}{\#define SYS\_ARCH\_PROTECT(lev)}}
+\DoxyCodeLine{499 \textcolor{preprocessor}{\#define SYS\_ARCH\_UNPROTECT(lev)}}
+\DoxyCodeLine{500 }
+\DoxyCodeLine{501 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYS\_LIGHTWEIGHT\_PROT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{503 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYS\_ARCH\_PROTECT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{505 \textcolor{comment}{/*}}
+\DoxyCodeLine{506 \textcolor{comment}{ * Macros to set/get and increase/decrease variables in a thread-\/safe way.}}
+\DoxyCodeLine{507 \textcolor{comment}{ * Use these for accessing variable that are used from more than one thread.}}
+\DoxyCodeLine{508 \textcolor{comment}{ */}}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510 \textcolor{preprocessor}{\#ifndef SYS\_ARCH\_INC}}
+\DoxyCodeLine{511 \textcolor{preprocessor}{\#define SYS\_ARCH\_INC(var, val) do \{ \(\backslash\)}}
+\DoxyCodeLine{512 \textcolor{preprocessor}{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{513 \textcolor{preprocessor}{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{514 \textcolor{preprocessor}{                                var += val; \(\backslash\)}}
+\DoxyCodeLine{515 \textcolor{preprocessor}{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{516 \textcolor{preprocessor}{                              \} while(0)}}
+\DoxyCodeLine{517 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYS\_ARCH\_INC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{519 \textcolor{preprocessor}{\#ifndef SYS\_ARCH\_DEC}}
+\DoxyCodeLine{520 \textcolor{preprocessor}{\#define SYS\_ARCH\_DEC(var, val) do \{ \(\backslash\)}}
+\DoxyCodeLine{521 \textcolor{preprocessor}{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{522 \textcolor{preprocessor}{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{523 \textcolor{preprocessor}{                                var -\/= val; \(\backslash\)}}
+\DoxyCodeLine{524 \textcolor{preprocessor}{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{525 \textcolor{preprocessor}{                              \} while(0)}}
+\DoxyCodeLine{526 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYS\_ARCH\_DEC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{528 \textcolor{preprocessor}{\#ifndef SYS\_ARCH\_GET}}
+\DoxyCodeLine{529 \textcolor{preprocessor}{\#define SYS\_ARCH\_GET(var, ret) do \{ \(\backslash\)}}
+\DoxyCodeLine{530 \textcolor{preprocessor}{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{531 \textcolor{preprocessor}{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{532 \textcolor{preprocessor}{                                ret = var; \(\backslash\)}}
+\DoxyCodeLine{533 \textcolor{preprocessor}{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{534 \textcolor{preprocessor}{                              \} while(0)}}
+\DoxyCodeLine{535 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYS\_ARCH\_GET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{537 \textcolor{preprocessor}{\#ifndef SYS\_ARCH\_SET}}
+\DoxyCodeLine{538 \textcolor{preprocessor}{\#define SYS\_ARCH\_SET(var, val) do \{ \(\backslash\)}}
+\DoxyCodeLine{539 \textcolor{preprocessor}{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{540 \textcolor{preprocessor}{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{541 \textcolor{preprocessor}{                                var = val; \(\backslash\)}}
+\DoxyCodeLine{542 \textcolor{preprocessor}{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{543 \textcolor{preprocessor}{                              \} while(0)}}
+\DoxyCodeLine{544 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYS\_ARCH\_SET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{546 \textcolor{preprocessor}{\#ifndef SYS\_ARCH\_LOCKED}}
+\DoxyCodeLine{547 \textcolor{preprocessor}{\#define SYS\_ARCH\_LOCKED(code) do \{ \(\backslash\)}}
+\DoxyCodeLine{548 \textcolor{preprocessor}{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{549 \textcolor{preprocessor}{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{550 \textcolor{preprocessor}{                                code; \(\backslash\)}}
+\DoxyCodeLine{551 \textcolor{preprocessor}{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}}
+\DoxyCodeLine{552 \textcolor{preprocessor}{                              \} while(0)}}
+\DoxyCodeLine{553 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYS\_ARCH\_LOCKED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{555 }
+\DoxyCodeLine{556 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{557 \}}
+\DoxyCodeLine{558 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{559 }
+\DoxyCodeLine{560 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_SYS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

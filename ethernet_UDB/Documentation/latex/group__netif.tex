@@ -1,0 +1,243 @@
+\hypertarget{group__netif}{}\doxysection{Network interface (NETIF)}
+\label{group__netif}\index{Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__netif__ip4}{IPv4 address handling}}
+\item 
+\mbox{\hyperlink{group__netif__ip6}{IPv6 address handling}}
+\item 
+\mbox{\hyperlink{group__netif__cd}{Client data handling}}
+\item 
+\mbox{\hyperlink{group__netif__flags}{Flags}}
+\item 
+\mbox{\hyperlink{group__netif__mib2}{MIB2 statistics}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionnetif__ext__callback__args__t}{netif\+\_\+ext\+\_\+callback\+\_\+args\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__netif_ga94a4c24c988afc0a577387730f303b19}{netif\+\_\+is\+\_\+up}}(\mbox{\hyperlink{structnetif}{netif}})~(((\mbox{\hyperlink{structnetif}{netif}})-\/$>$flags \& \mbox{\hyperlink{group__netif__flags_gab47d7d130693dc155f480a5bf447725e}{NETIF\+\_\+\+FLAG\+\_\+\+UP}}) ? (u8\+\_\+t)1 \+: (u8\+\_\+t)0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef u16\+\_\+t \mbox{\hyperlink{group__netif_gab2b9387389513a02027c62e246723808}{netif\+\_\+nsc\+\_\+reason\+\_\+t}}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{group__netif_ga5ee213cea065424c89c66f138c008da1}{netif\+\_\+ext\+\_\+callback\+\_\+fn}}) (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}}, \mbox{\hyperlink{group__netif_gab2b9387389513a02027c62e246723808}{netif\+\_\+nsc\+\_\+reason\+\_\+t}} reason, const \mbox{\hyperlink{unionnetif__ext__callback__args__t}{netif\+\_\+ext\+\_\+callback\+\_\+args\+\_\+t}} $\ast$args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{group__netif_gafcb3925fb117375739abf97f3a856bcd}{netif\+\_\+add\+\_\+noaddr}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}}, void $\ast$state, \mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\+\_\+init\+\_\+fn}} init, \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}} input)
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}{netif\+\_\+add}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}}, void $\ast$state, \mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\+\_\+init\+\_\+fn}} init, \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}} input)
+\item 
+void \mbox{\hyperlink{group__netif_ga9c6e541f0c184e1ea61a5cd8afe3e979}{netif\+\_\+remove}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__netif_gac90f290edd005238d62aa94c4ac9dea3}{netif\+\_\+set\+\_\+default}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__netif_gaf19693be401a265a52d2a56c65753121}{netif\+\_\+set\+\_\+up}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__netif_ga641d07ed8c31fe5306bc01605a6790cf}{netif\+\_\+set\+\_\+down}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__netif_gae0d2975f189277990e9d5276fdd9e9ea}{netif\+\_\+set\+\_\+link\+\_\+up}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__netif_ga34e37a1e8e358760dc1c43887922c7db}{netif\+\_\+set\+\_\+link\+\_\+down}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+u8\+\_\+t \mbox{\hyperlink{group__netif_gac763a1f647fb9e8af4254418e813a6ae}{netif\+\_\+name\+\_\+to\+\_\+index}} (const char $\ast$name)
+\item 
+char $\ast$ \mbox{\hyperlink{group__netif_ga0e755cb6624d3365551eeed5430fa226}{netif\+\_\+index\+\_\+to\+\_\+name}} (u8\+\_\+t idx, char $\ast$name)
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{group__netif_gaa934434420c0dea7b5cfe6df67f8c77a}{netif\+\_\+get\+\_\+by\+\_\+index}} (u8\+\_\+t idx)
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{group__netif_ga3c82d1c742338828b2f4349a75bb84de}{netif\+\_\+find}} (const char $\ast$name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__netif_ga94a4c24c988afc0a577387730f303b19}\label{group__netif_ga94a4c24c988afc0a577387730f303b19}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_is\_up@{netif\_is\_up}}
+\index{netif\_is\_up@{netif\_is\_up}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_is\_up}{netif\_is\_up}}
+{\footnotesize\ttfamily \#define netif\+\_\+is\+\_\+up(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{structnetif}{netif}} }\end{DoxyParamCaption})~(((\mbox{\hyperlink{structnetif}{netif}})-\/$>$flags \& \mbox{\hyperlink{group__netif__flags_gab47d7d130693dc155f480a5bf447725e}{NETIF\+\_\+\+FLAG\+\_\+\+UP}}) ? (u8\+\_\+t)1 \+: (u8\+\_\+t)0)}
+
+Ask if an interface is up 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__netif_ga5ee213cea065424c89c66f138c008da1}\label{group__netif_ga5ee213cea065424c89c66f138c008da1}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_ext\_callback\_fn@{netif\_ext\_callback\_fn}}
+\index{netif\_ext\_callback\_fn@{netif\_ext\_callback\_fn}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_ext\_callback\_fn}{netif\_ext\_callback\_fn}}
+{\footnotesize\ttfamily typedef void($\ast$ netif\+\_\+ext\+\_\+callback\+\_\+fn) (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}}, \mbox{\hyperlink{group__netif_gab2b9387389513a02027c62e246723808}{netif\+\_\+nsc\+\_\+reason\+\_\+t}} reason, const \mbox{\hyperlink{unionnetif__ext__callback__args__t}{netif\+\_\+ext\+\_\+callback\+\_\+args\+\_\+t}} $\ast$args)}
+
+Function used for extended netif status callbacks Note\+: When parsing reason argument, keep in mind that more reasons may be added in the future! 
+\begin{DoxyParams}{Parameters}
+{\em netif} & netif that is affected by change \\
+\hline
+{\em reason} & change reason \\
+\hline
+{\em args} & depends on reason, see reason description \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__netif_gab2b9387389513a02027c62e246723808}\label{group__netif_gab2b9387389513a02027c62e246723808}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_nsc\_reason\_t@{netif\_nsc\_reason\_t}}
+\index{netif\_nsc\_reason\_t@{netif\_nsc\_reason\_t}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_nsc\_reason\_t}{netif\_nsc\_reason\_t}}
+{\footnotesize\ttfamily typedef u16\+\_\+t \mbox{\hyperlink{group__netif_gab2b9387389513a02027c62e246723808}{netif\+\_\+nsc\+\_\+reason\+\_\+t}}}
+
+Extended netif status callback (NSC) reasons flags. May be extended in the future! 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}\label{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_add@{netif\_add}}
+\index{netif\_add@{netif\_add}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_add()}{netif\_add()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ netif\+\_\+add (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{netif,  }\item[{void $\ast$}]{state,  }\item[{\mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\+\_\+init\+\_\+fn}}}]{init,  }\item[{\mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}}}]{input }\end{DoxyParamCaption})}
+
+Add a network interface to the list of lw\+IP netifs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em netif} & a pre-\/allocated netif structure \\
+\hline
+{\em ipaddr} & IP address for the new netif \\
+\hline
+{\em netmask} & network mask for the new netif \\
+\hline
+{\em gw} & default gateway IP address for the new netif \\
+\hline
+{\em state} & opaque data passed to the new netif \\
+\hline
+{\em init} & callback function that initializes the interface \\
+\hline
+{\em input} & callback function that is called to pass ingress packets up in the protocol layer stack.~\newline
+It is recommended to use a function that passes the input directly to the stack (\mbox{\hyperlink{netif_8c_a5532f93d68c874fb99c681bff2165385}{netif\+\_\+input()}}, NO\+\_\+\+SYS=1 mode) or via sending a message to TCPIP thread (\mbox{\hyperlink{tcpip_8c_ae510f195171bed8499ae94e264a92717}{tcpip\+\_\+input()}}, NO\+\_\+\+SYS=0 mode).~\newline
+These functions use netif flags NETIF\+\_\+\+FLAG\+\_\+\+ETHARP and NETIF\+\_\+\+FLAG\+\_\+\+ETHERNET to decide whether to forward to ethernet\+\_\+input() or ip\+\_\+input(). In other words, the functions only work when the netif driver is implemented correctly!~\newline
+Most members of struct netif should be be initialized by the netif init function = netif driver (init parameter of this function).~\newline
+IPv6\+: Don\textquotesingle{}t forget to call netif\+\_\+create\+\_\+ip6\+\_\+linklocal\+\_\+address() after setting the MAC address in struct \mbox{\hyperlink{structnetif_a51fe41429f305697adfd9d07f56107b9}{netif.\+hwaddr}} (IPv6 requires a link-\/local address).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+netif, or NULL if failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__netif_gafcb3925fb117375739abf97f3a856bcd}\label{group__netif_gafcb3925fb117375739abf97f3a856bcd}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_add\_noaddr@{netif\_add\_noaddr}}
+\index{netif\_add\_noaddr@{netif\_add\_noaddr}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_add\_noaddr()}{netif\_add\_noaddr()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ netif\+\_\+add\+\_\+noaddr (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{netif,  }\item[{void $\ast$}]{state,  }\item[{\mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\+\_\+init\+\_\+fn}}}]{init,  }\item[{\mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}}}]{input }\end{DoxyParamCaption})}
+
+Add a network interface to the list of lw\+IP netifs.
+
+Same as \mbox{\hyperlink{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}{netif\+\_\+add}} but without IPv4 addresses \mbox{\Hypertarget{group__netif_ga3c82d1c742338828b2f4349a75bb84de}\label{group__netif_ga3c82d1c742338828b2f4349a75bb84de}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_find@{netif\_find}}
+\index{netif\_find@{netif\_find}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_find()}{netif\_find()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ netif\+\_\+find (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Find a network interface by searching for its name
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the netif (like netif-\/\texorpdfstring{$>$}{>}name) plus concatenated number in ascii representation (e.\+g. \textquotesingle{}en0\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__netif_gaa934434420c0dea7b5cfe6df67f8c77a}\label{group__netif_gaa934434420c0dea7b5cfe6df67f8c77a}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_get\_by\_index@{netif\_get\_by\_index}}
+\index{netif\_get\_by\_index@{netif\_get\_by\_index}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_get\_by\_index()}{netif\_get\_by\_index()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ netif\+\_\+get\+\_\+by\+\_\+index (\begin{DoxyParamCaption}\item[{u8\+\_\+t}]{idx }\end{DoxyParamCaption})}
+
+Return the interface for the netif index
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & index of netif to find \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__netif_ga0e755cb6624d3365551eeed5430fa226}\label{group__netif_ga0e755cb6624d3365551eeed5430fa226}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_index\_to\_name@{netif\_index\_to\_name}}
+\index{netif\_index\_to\_name@{netif\_index\_to\_name}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_index\_to\_name()}{netif\_index\_to\_name()}}
+{\footnotesize\ttfamily char $\ast$ netif\+\_\+index\+\_\+to\+\_\+name (\begin{DoxyParamCaption}\item[{u8\+\_\+t}]{idx,  }\item[{char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Return the interface name for the netif matching index or NULL if not found/on error
+
+
+\begin{DoxyParams}{Parameters}
+{\em idx} & the interface index of the netif \\
+\hline
+{\em name} & char buffer of at least NETIF\+\_\+\+NAMESIZE bytes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__netif_gac763a1f647fb9e8af4254418e813a6ae}\label{group__netif_gac763a1f647fb9e8af4254418e813a6ae}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_name\_to\_index@{netif\_name\_to\_index}}
+\index{netif\_name\_to\_index@{netif\_name\_to\_index}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_name\_to\_index()}{netif\_name\_to\_index()}}
+{\footnotesize\ttfamily u8\+\_\+t netif\+\_\+name\+\_\+to\+\_\+index (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+Return the interface index for the netif with name or NETIF\+\_\+\+NO\+\_\+\+INDEX if not found/on error
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the netif \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__netif_ga9c6e541f0c184e1ea61a5cd8afe3e979}\label{group__netif_ga9c6e541f0c184e1ea61a5cd8afe3e979}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_remove@{netif\_remove}}
+\index{netif\_remove@{netif\_remove}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_remove()}{netif\_remove()}}
+{\footnotesize\ttfamily void netif\+\_\+remove (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{netif }\end{DoxyParamCaption})}
+
+Remove a network interface from the list of lw\+IP netifs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em netif} & the network interface to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__netif_gac90f290edd005238d62aa94c4ac9dea3}\label{group__netif_gac90f290edd005238d62aa94c4ac9dea3}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_set\_default@{netif\_set\_default}}
+\index{netif\_set\_default@{netif\_set\_default}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_set\_default()}{netif\_set\_default()}}
+{\footnotesize\ttfamily void netif\+\_\+set\+\_\+default (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{netif }\end{DoxyParamCaption})}
+
+Set a network interface as the default network interface (used to output all packets for which no specific route is found)
+
+
+\begin{DoxyParams}{Parameters}
+{\em netif} & the default network interface \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__netif_ga641d07ed8c31fe5306bc01605a6790cf}\label{group__netif_ga641d07ed8c31fe5306bc01605a6790cf}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_set\_down@{netif\_set\_down}}
+\index{netif\_set\_down@{netif\_set\_down}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_set\_down()}{netif\_set\_down()}}
+{\footnotesize\ttfamily void netif\+\_\+set\+\_\+down (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{netif }\end{DoxyParamCaption})}
+
+Bring an interface down, disabling any traffic processing. \mbox{\Hypertarget{group__netif_ga34e37a1e8e358760dc1c43887922c7db}\label{group__netif_ga34e37a1e8e358760dc1c43887922c7db}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_set\_link\_down@{netif\_set\_link\_down}}
+\index{netif\_set\_link\_down@{netif\_set\_link\_down}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_set\_link\_down()}{netif\_set\_link\_down()}}
+{\footnotesize\ttfamily void netif\+\_\+set\+\_\+link\+\_\+down (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{netif }\end{DoxyParamCaption})}
+
+Called by a driver when its link goes down \mbox{\Hypertarget{group__netif_gae0d2975f189277990e9d5276fdd9e9ea}\label{group__netif_gae0d2975f189277990e9d5276fdd9e9ea}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_set\_link\_up@{netif\_set\_link\_up}}
+\index{netif\_set\_link\_up@{netif\_set\_link\_up}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_set\_link\_up()}{netif\_set\_link\_up()}}
+{\footnotesize\ttfamily void netif\+\_\+set\+\_\+link\+\_\+up (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{netif }\end{DoxyParamCaption})}
+
+Called by a driver when its link goes up \mbox{\Hypertarget{group__netif_gaf19693be401a265a52d2a56c65753121}\label{group__netif_gaf19693be401a265a52d2a56c65753121}} 
+\index{Network interface (NETIF)@{Network interface (NETIF)}!netif\_set\_up@{netif\_set\_up}}
+\index{netif\_set\_up@{netif\_set\_up}!Network interface (NETIF)@{Network interface (NETIF)}}
+\doxysubsubsection{\texorpdfstring{netif\_set\_up()}{netif\_set\_up()}}
+{\footnotesize\ttfamily void netif\+\_\+set\+\_\+up (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{netif }\end{DoxyParamCaption})}
+
+Bring an interface up, available for processing traffic. 

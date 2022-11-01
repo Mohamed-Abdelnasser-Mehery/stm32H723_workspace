@@ -1,0 +1,44 @@
+\hypertarget{sntp_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/apps/sntp.h File Reference}
+\label{sntp_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/sntp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/sntp.h}}
+{\ttfamily \#include \char`\"{}lwip/apps/sntp\+\_\+opts.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip\+\_\+addr.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sntp_8h_a3fb5749307bfe9d99a97f80fc49c2720}\label{sntp_8h_a3fb5749307bfe9d99a97f80fc49c2720}} 
+\#define {\bfseries SNTP\+\_\+\+OPMODE\+\_\+\+POLL}~0
+\item 
+\mbox{\Hypertarget{sntp_8h_a55c14213293bd91ff0a55760bd77bb06}\label{sntp_8h_a55c14213293bd91ff0a55760bd77bb06}} 
+\#define {\bfseries SNTP\+\_\+\+OPMODE\+\_\+\+LISTENONLY}~1
+\item 
+\mbox{\Hypertarget{sntp_8h_afe7b6eae76f608a87fadc3940c5ee4f9}\label{sntp_8h_afe7b6eae76f608a87fadc3940c5ee4f9}} 
+\#define {\bfseries sntp\+\_\+servermode\+\_\+dhcp}(x)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sntp_8h_aae94fb2adadbf9667e9597f8a45bf120}\label{sntp_8h_aae94fb2adadbf9667e9597f8a45bf120}} 
+void {\bfseries sntp\+\_\+setoperatingmode} (u8\+\_\+t operating\+\_\+mode)
+\item 
+\mbox{\Hypertarget{sntp_8h_ae66404a551d5cef420cf844a71356fae}\label{sntp_8h_ae66404a551d5cef420cf844a71356fae}} 
+u8\+\_\+t {\bfseries sntp\+\_\+getoperatingmode} (void)
+\item 
+\mbox{\Hypertarget{sntp_8h_a9b300c6616de60524c85ea40bf70e2ba}\label{sntp_8h_a9b300c6616de60524c85ea40bf70e2ba}} 
+void {\bfseries sntp\+\_\+init} (void)
+\item 
+\mbox{\Hypertarget{sntp_8h_a8119fc2d1ff7ff6eba511cc9c7167488}\label{sntp_8h_a8119fc2d1ff7ff6eba511cc9c7167488}} 
+void {\bfseries sntp\+\_\+stop} (void)
+\item 
+\mbox{\Hypertarget{sntp_8h_a3fe5254e5a056fca80802d9f26b9c3c5}\label{sntp_8h_a3fe5254e5a056fca80802d9f26b9c3c5}} 
+u8\+\_\+t {\bfseries sntp\+\_\+enabled} (void)
+\item 
+\mbox{\Hypertarget{sntp_8h_ab653cfecd7e9826634fbea1b839c6554}\label{sntp_8h_ab653cfecd7e9826634fbea1b839c6554}} 
+void {\bfseries sntp\+\_\+setserver} (u8\+\_\+t idx, const ip\+\_\+addr\+\_\+t $\ast$addr)
+\item 
+\mbox{\Hypertarget{sntp_8h_ab114c12154cf2c3e3a733724c6a77429}\label{sntp_8h_ab114c12154cf2c3e3a733724c6a77429}} 
+const ip\+\_\+addr\+\_\+t $\ast$ {\bfseries sntp\+\_\+getserver} (u8\+\_\+t idx)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SNTP client API 

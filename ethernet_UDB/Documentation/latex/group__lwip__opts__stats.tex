@@ -1,0 +1,164 @@
+\hypertarget{group__lwip__opts__stats}{}\doxysection{Statistics}
+\label{group__lwip__opts__stats}\index{Statistics@{Statistics}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga542b58734cc01902c5e099f6efdc5f1b}{LWIP\+\_\+\+STATS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gacdc38ed58d1900b5d3d109a65be1c3d1}{LWIP\+\_\+\+STATS\+\_\+\+DISPLAY}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gae58b452782d0327ae728192686c5a84a}{LINK\+\_\+\+STATS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga3a8359abf4fff8ffdc449e5007f93275}{ETHARP\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__arp_ga9609a014bba4638cc191d6a8f9556c87}{LWIP\+\_\+\+ARP}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gaf50575a4895e26ea2c01d1f2269487be}{IP\+\_\+\+STATS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gac9a4fbb46df3c0f479a334d0e34fb74f}{IPFRAG\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__ipv4_ga1a31ab0e0f37b17d40fa7c35bc2c4f69}{IP\+\_\+\+REASSEMBLY}} $\vert$$\vert$ \mbox{\hyperlink{group__lwip__opts__ipv4_gaf85c8bdd5035b6cada790b4cc2a209a4}{IP\+\_\+\+FRAG}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga472ad3f6da741f5b287d66ad3051242b}{ICMP\+\_\+\+STATS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga4d12af1356b9fd60717984be51e27740}{IGMP\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__igmp_gadaf25915ae1fd69c0943ef68cbb38923}{LWIP\+\_\+\+IGMP}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gaef64b11bf71f0d6d5bafaf6092462276}{UDP\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__udp_gab6030e96e72df649d2650fd32d7a67b3}{LWIP\+\_\+\+UDP}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gaa02ec5c5bc0edebe418680c54d044f58}{TCP\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__tcp_gaa4ed98deb97b77c633cb8870f34c71e9}{LWIP\+\_\+\+TCP}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga61ec04a08c4fde690d10819e582656a7}{MEM\+\_\+\+STATS}}~((\mbox{\hyperlink{group__lwip__opts__mem_ga4ef345cc270912bd2230b1c5ec51dfc8}{MEM\+\_\+\+LIBC\+\_\+\+MALLOC}} == 0) \&\& (\mbox{\hyperlink{group__lwip__opts__mem_gaddca3141bc7037241769eb152b6f89ba}{MEM\+\_\+\+USE\+\_\+\+POOLS}} == 0))
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gab8c2430be0e567a7499a95454aaa6041}{MEMP\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__mem_gae93af697d27bbcefa6a28052d90f2f38}{MEMP\+\_\+\+MEM\+\_\+\+MALLOC}} == 0)
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga0173549afa76553583e5a02c6a791218}{SYS\+\_\+\+STATS}}~(NO\+\_\+\+SYS == 0)
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga6a211b787c97bce3af4273b29c95d9c2}{IP6\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga714006cd5c5b0eb333159d0f677616a0}{ICMP6\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}} \&\& \mbox{\hyperlink{group__lwip__opts__icmp6_ga65ac8bcbad242cba3a2b557e1574b21f}{LWIP\+\_\+\+ICMP6}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gaaa08a181c11ff8b471549e8f52c9939b}{IP6\+\_\+\+FRAG\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}} \&\& (\mbox{\hyperlink{group__lwip__opts__ipv6_ga9ab6269f3087f6d9f7b2c7181ef043c3}{LWIP\+\_\+\+IPV6\+\_\+\+FRAG}} $\vert$$\vert$ \mbox{\hyperlink{group__lwip__opts__ipv6_gad0ef160d72e63b02c5e875b06ec53864}{LWIP\+\_\+\+IPV6\+\_\+\+REASS}}))
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_gaf263df10b63b38201cae3d2dd5fb0b9e}{MLD6\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}} \&\& \mbox{\hyperlink{group__lwip__opts__mld6_ga44d8f24eaebbc50221ac1336212a3528}{LWIP\+\_\+\+IPV6\+\_\+\+MLD}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga753161114df60299a28d51c092c756cf}{ND6\+\_\+\+STATS}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__stats_ga5b01047eeb149a0b0ffe33d760d8370f}{MIB2\+\_\+\+STATS}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__stats_ga3a8359abf4fff8ffdc449e5007f93275}\label{group__lwip__opts__stats_ga3a8359abf4fff8ffdc449e5007f93275}} 
+\index{Statistics@{Statistics}!ETHARP\_STATS@{ETHARP\_STATS}}
+\index{ETHARP\_STATS@{ETHARP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{ETHARP\_STATS}{ETHARP\_STATS}}
+{\footnotesize\ttfamily \#define ETHARP\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__arp_ga9609a014bba4638cc191d6a8f9556c87}{LWIP\+\_\+\+ARP}})}
+
+ETHARP\+\_\+\+STATS==1\+: Enable etharp stats. \mbox{\Hypertarget{group__lwip__opts__stats_ga714006cd5c5b0eb333159d0f677616a0}\label{group__lwip__opts__stats_ga714006cd5c5b0eb333159d0f677616a0}} 
+\index{Statistics@{Statistics}!ICMP6\_STATS@{ICMP6\_STATS}}
+\index{ICMP6\_STATS@{ICMP6\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{ICMP6\_STATS}{ICMP6\_STATS}}
+{\footnotesize\ttfamily \#define ICMP6\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}} \&\& \mbox{\hyperlink{group__lwip__opts__icmp6_ga65ac8bcbad242cba3a2b557e1574b21f}{LWIP\+\_\+\+ICMP6}})}
+
+ICMP6\+\_\+\+STATS==1\+: Enable ICMP for IPv6 stats. \mbox{\Hypertarget{group__lwip__opts__stats_ga472ad3f6da741f5b287d66ad3051242b}\label{group__lwip__opts__stats_ga472ad3f6da741f5b287d66ad3051242b}} 
+\index{Statistics@{Statistics}!ICMP\_STATS@{ICMP\_STATS}}
+\index{ICMP\_STATS@{ICMP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{ICMP\_STATS}{ICMP\_STATS}}
+{\footnotesize\ttfamily \#define ICMP\+\_\+\+STATS~1}
+
+ICMP\+\_\+\+STATS==1\+: Enable ICMP stats. \mbox{\Hypertarget{group__lwip__opts__stats_ga4d12af1356b9fd60717984be51e27740}\label{group__lwip__opts__stats_ga4d12af1356b9fd60717984be51e27740}} 
+\index{Statistics@{Statistics}!IGMP\_STATS@{IGMP\_STATS}}
+\index{IGMP\_STATS@{IGMP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{IGMP\_STATS}{IGMP\_STATS}}
+{\footnotesize\ttfamily \#define IGMP\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__igmp_gadaf25915ae1fd69c0943ef68cbb38923}{LWIP\+\_\+\+IGMP}})}
+
+IGMP\+\_\+\+STATS==1\+: Enable IGMP stats. \mbox{\Hypertarget{group__lwip__opts__stats_gaaa08a181c11ff8b471549e8f52c9939b}\label{group__lwip__opts__stats_gaaa08a181c11ff8b471549e8f52c9939b}} 
+\index{Statistics@{Statistics}!IP6\_FRAG\_STATS@{IP6\_FRAG\_STATS}}
+\index{IP6\_FRAG\_STATS@{IP6\_FRAG\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{IP6\_FRAG\_STATS}{IP6\_FRAG\_STATS}}
+{\footnotesize\ttfamily \#define IP6\+\_\+\+FRAG\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}} \&\& (\mbox{\hyperlink{group__lwip__opts__ipv6_ga9ab6269f3087f6d9f7b2c7181ef043c3}{LWIP\+\_\+\+IPV6\+\_\+\+FRAG}} $\vert$$\vert$ \mbox{\hyperlink{group__lwip__opts__ipv6_gad0ef160d72e63b02c5e875b06ec53864}{LWIP\+\_\+\+IPV6\+\_\+\+REASS}}))}
+
+IP6\+\_\+\+FRAG\+\_\+\+STATS==1\+: Enable IPv6 fragmentation stats. \mbox{\Hypertarget{group__lwip__opts__stats_ga6a211b787c97bce3af4273b29c95d9c2}\label{group__lwip__opts__stats_ga6a211b787c97bce3af4273b29c95d9c2}} 
+\index{Statistics@{Statistics}!IP6\_STATS@{IP6\_STATS}}
+\index{IP6\_STATS@{IP6\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{IP6\_STATS}{IP6\_STATS}}
+{\footnotesize\ttfamily \#define IP6\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}})}
+
+IP6\+\_\+\+STATS==1\+: Enable IPv6 stats. \mbox{\Hypertarget{group__lwip__opts__stats_gaf50575a4895e26ea2c01d1f2269487be}\label{group__lwip__opts__stats_gaf50575a4895e26ea2c01d1f2269487be}} 
+\index{Statistics@{Statistics}!IP\_STATS@{IP\_STATS}}
+\index{IP\_STATS@{IP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{IP\_STATS}{IP\_STATS}}
+{\footnotesize\ttfamily \#define IP\+\_\+\+STATS~1}
+
+IP\+\_\+\+STATS==1\+: Enable IP stats. \mbox{\Hypertarget{group__lwip__opts__stats_gac9a4fbb46df3c0f479a334d0e34fb74f}\label{group__lwip__opts__stats_gac9a4fbb46df3c0f479a334d0e34fb74f}} 
+\index{Statistics@{Statistics}!IPFRAG\_STATS@{IPFRAG\_STATS}}
+\index{IPFRAG\_STATS@{IPFRAG\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{IPFRAG\_STATS}{IPFRAG\_STATS}}
+{\footnotesize\ttfamily \#define IPFRAG\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__ipv4_ga1a31ab0e0f37b17d40fa7c35bc2c4f69}{IP\+\_\+\+REASSEMBLY}} $\vert$$\vert$ \mbox{\hyperlink{group__lwip__opts__ipv4_gaf85c8bdd5035b6cada790b4cc2a209a4}{IP\+\_\+\+FRAG}})}
+
+IPFRAG\+\_\+\+STATS==1\+: Enable IP fragmentation stats. Default is on if using either frag or reass. \mbox{\Hypertarget{group__lwip__opts__stats_gae58b452782d0327ae728192686c5a84a}\label{group__lwip__opts__stats_gae58b452782d0327ae728192686c5a84a}} 
+\index{Statistics@{Statistics}!LINK\_STATS@{LINK\_STATS}}
+\index{LINK\_STATS@{LINK\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{LINK\_STATS}{LINK\_STATS}}
+{\footnotesize\ttfamily \#define LINK\+\_\+\+STATS~1}
+
+LINK\+\_\+\+STATS==1\+: Enable link stats. \mbox{\Hypertarget{group__lwip__opts__stats_ga542b58734cc01902c5e099f6efdc5f1b}\label{group__lwip__opts__stats_ga542b58734cc01902c5e099f6efdc5f1b}} 
+\index{Statistics@{Statistics}!LWIP\_STATS@{LWIP\_STATS}}
+\index{LWIP\_STATS@{LWIP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{LWIP\_STATS}{LWIP\_STATS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+STATS~1}
+
+LWIP\+\_\+\+STATS==1\+: Enable statistics collection in lwip\+\_\+stats. \mbox{\Hypertarget{group__lwip__opts__stats_gacdc38ed58d1900b5d3d109a65be1c3d1}\label{group__lwip__opts__stats_gacdc38ed58d1900b5d3d109a65be1c3d1}} 
+\index{Statistics@{Statistics}!LWIP\_STATS\_DISPLAY@{LWIP\_STATS\_DISPLAY}}
+\index{LWIP\_STATS\_DISPLAY@{LWIP\_STATS\_DISPLAY}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{LWIP\_STATS\_DISPLAY}{LWIP\_STATS\_DISPLAY}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+STATS\+\_\+\+DISPLAY~0}
+
+LWIP\+\_\+\+STATS\+\_\+\+DISPLAY==1\+: Compile in the statistics output functions. \mbox{\Hypertarget{group__lwip__opts__stats_ga61ec04a08c4fde690d10819e582656a7}\label{group__lwip__opts__stats_ga61ec04a08c4fde690d10819e582656a7}} 
+\index{Statistics@{Statistics}!MEM\_STATS@{MEM\_STATS}}
+\index{MEM\_STATS@{MEM\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{MEM\_STATS}{MEM\_STATS}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+STATS~((\mbox{\hyperlink{group__lwip__opts__mem_ga4ef345cc270912bd2230b1c5ec51dfc8}{MEM\+\_\+\+LIBC\+\_\+\+MALLOC}} == 0) \&\& (\mbox{\hyperlink{group__lwip__opts__mem_gaddca3141bc7037241769eb152b6f89ba}{MEM\+\_\+\+USE\+\_\+\+POOLS}} == 0))}
+
+MEM\+\_\+\+STATS==1\+: Enable \mbox{\hyperlink{mem_8c}{mem.\+c}} stats. \mbox{\Hypertarget{group__lwip__opts__stats_gab8c2430be0e567a7499a95454aaa6041}\label{group__lwip__opts__stats_gab8c2430be0e567a7499a95454aaa6041}} 
+\index{Statistics@{Statistics}!MEMP\_STATS@{MEMP\_STATS}}
+\index{MEMP\_STATS@{MEMP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{MEMP\_STATS}{MEMP\_STATS}}
+{\footnotesize\ttfamily \#define MEMP\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__mem_gae93af697d27bbcefa6a28052d90f2f38}{MEMP\+\_\+\+MEM\+\_\+\+MALLOC}} == 0)}
+
+MEMP\+\_\+\+STATS==1\+: Enable \mbox{\hyperlink{memp_8c}{memp.\+c}} pool stats. \mbox{\Hypertarget{group__lwip__opts__stats_ga5b01047eeb149a0b0ffe33d760d8370f}\label{group__lwip__opts__stats_ga5b01047eeb149a0b0ffe33d760d8370f}} 
+\index{Statistics@{Statistics}!MIB2\_STATS@{MIB2\_STATS}}
+\index{MIB2\_STATS@{MIB2\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{MIB2\_STATS}{MIB2\_STATS}}
+{\footnotesize\ttfamily \#define MIB2\+\_\+\+STATS~0}
+
+MIB2\+\_\+\+STATS==1\+: Stats for SNMP MIB2. \mbox{\Hypertarget{group__lwip__opts__stats_gaf263df10b63b38201cae3d2dd5fb0b9e}\label{group__lwip__opts__stats_gaf263df10b63b38201cae3d2dd5fb0b9e}} 
+\index{Statistics@{Statistics}!MLD6\_STATS@{MLD6\_STATS}}
+\index{MLD6\_STATS@{MLD6\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{MLD6\_STATS}{MLD6\_STATS}}
+{\footnotesize\ttfamily \#define MLD6\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}} \&\& \mbox{\hyperlink{group__lwip__opts__mld6_ga44d8f24eaebbc50221ac1336212a3528}{LWIP\+\_\+\+IPV6\+\_\+\+MLD}})}
+
+MLD6\+\_\+\+STATS==1\+: Enable MLD for IPv6 stats. \mbox{\Hypertarget{group__lwip__opts__stats_ga753161114df60299a28d51c092c756cf}\label{group__lwip__opts__stats_ga753161114df60299a28d51c092c756cf}} 
+\index{Statistics@{Statistics}!ND6\_STATS@{ND6\_STATS}}
+\index{ND6\_STATS@{ND6\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{ND6\_STATS}{ND6\_STATS}}
+{\footnotesize\ttfamily \#define ND6\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}})}
+
+ND6\+\_\+\+STATS==1\+: Enable Neighbor discovery for IPv6 stats. \mbox{\Hypertarget{group__lwip__opts__stats_ga0173549afa76553583e5a02c6a791218}\label{group__lwip__opts__stats_ga0173549afa76553583e5a02c6a791218}} 
+\index{Statistics@{Statistics}!SYS\_STATS@{SYS\_STATS}}
+\index{SYS\_STATS@{SYS\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{SYS\_STATS}{SYS\_STATS}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+STATS~(NO\+\_\+\+SYS == 0)}
+
+SYS\+\_\+\+STATS==1\+: Enable system stats (sem and mbox counts, etc). \mbox{\Hypertarget{group__lwip__opts__stats_gaa02ec5c5bc0edebe418680c54d044f58}\label{group__lwip__opts__stats_gaa02ec5c5bc0edebe418680c54d044f58}} 
+\index{Statistics@{Statistics}!TCP\_STATS@{TCP\_STATS}}
+\index{TCP\_STATS@{TCP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{TCP\_STATS}{TCP\_STATS}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__tcp_gaa4ed98deb97b77c633cb8870f34c71e9}{LWIP\+\_\+\+TCP}})}
+
+TCP\+\_\+\+STATS==1\+: Enable TCP stats. Default is on if TCP enabled, otherwise off. \mbox{\Hypertarget{group__lwip__opts__stats_gaef64b11bf71f0d6d5bafaf6092462276}\label{group__lwip__opts__stats_gaef64b11bf71f0d6d5bafaf6092462276}} 
+\index{Statistics@{Statistics}!UDP\_STATS@{UDP\_STATS}}
+\index{UDP\_STATS@{UDP\_STATS}!Statistics@{Statistics}}
+\doxysubsubsection{\texorpdfstring{UDP\_STATS}{UDP\_STATS}}
+{\footnotesize\ttfamily \#define UDP\+\_\+\+STATS~(\mbox{\hyperlink{group__lwip__opts__udp_gab6030e96e72df649d2650fd32d7a67b3}{LWIP\+\_\+\+UDP}})}
+
+UDP\+\_\+\+STATS==1\+: Enable UDP stats. Default is on if UDP enabled, otherwise off. 

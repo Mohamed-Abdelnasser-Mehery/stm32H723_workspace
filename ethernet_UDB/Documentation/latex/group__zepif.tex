@@ -1,0 +1,13 @@
+\hypertarget{group__zepif}{}\doxysection{ZEP -\/ Zig\+Bee Encapsulation Protocol}
+\label{group__zepif}\index{ZEP -\/ ZigBee Encapsulation Protocol@{ZEP -\/ ZigBee Encapsulation Protocol}}
+A netif implementing the Zig\+Bee Encapsulation Protocol (ZEP). This is used to tunnel 6Low\+PAN over UDP.
+
+Usage (there must be a default netif before!)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}{netif\_add}}(\&zep\_netif, NULL, NULL, NULL, NULL, zepif\_init, tcpip\_6lowpan\_input);}
+\DoxyCodeLine{netif\_create\_ip6\_linklocal\_address(\&zep\_netif, 1);}
+\DoxyCodeLine{\mbox{\hyperlink{group__netif_gaf19693be401a265a52d2a56c65753121}{netif\_set\_up}}(\&zep\_netif);}
+\DoxyCodeLine{\mbox{\hyperlink{group__netif_gae0d2975f189277990e9d5276fdd9e9ea}{netif\_set\_link\_up}}(\&zep\_netif);}
+
+\end{DoxyCode}
+ 

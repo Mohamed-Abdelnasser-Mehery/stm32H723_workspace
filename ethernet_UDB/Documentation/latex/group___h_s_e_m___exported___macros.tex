@@ -1,0 +1,143 @@
+\hypertarget{group___h_s_e_m___exported___macros}{}\doxysection{HSEM Exported Macros}
+\label{group___h_s_e_m___exported___macros}\index{HSEM Exported Macros@{HSEM Exported Macros}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_gabadef2e6fddb0bb11e9e9c6930b12ffa}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+SEMID\+\_\+\+TO\+\_\+\+MASK}}(\+\_\+\+\_\+\+SEMID\+\_\+\+\_\+)~(1 $<$$<$ (\+\_\+\+\_\+\+SEMID\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Sem\+ID to mask helper Macro. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_gaa21d53e6c4d6d35e9047b5c74fb78c8f}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+ENABLE\+\_\+\+IT}}(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+)~(HSEM-\/$>$IER $\vert$= (\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Enables the specified HSEM interrupts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_ga36496851508be9cace265482a7d18e53}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+DISABLE\+\_\+\+IT}}(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+)~(HSEM-\/$>$IER \&= $\sim$(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Disables the specified HSEM interrupts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_gacba979398283173d1ee412b5edbdd108}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+GET\+\_\+\+IT}}(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+)~((\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+) \& HSEM-\/$>$MISR)
+\begin{DoxyCompactList}\small\item\em Checks whether interrupt has occurred or not for semaphores specified by a mask. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_gadb48c4b1d695a3dc4f3b72fdfc11d807}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+GET\+\_\+\+FLAG}}(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+)~((\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+) \& HSEM-\/$>$ISR)
+\begin{DoxyCompactList}\small\item\em Get the semaphores release status flags. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_ga0b123be50de8a360f3eb103b56cf3c39}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+CLEAR\+\_\+\+FLAG}}(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+)~(HSEM-\/$>$ICR $\vert$= (\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Clears the HSEM Interrupt flags. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___h_s_e_m___exported___macros_ga0b123be50de8a360f3eb103b56cf3c39}\label{group___h_s_e_m___exported___macros_ga0b123be50de8a360f3eb103b56cf3c39}} 
+\index{HSEM Exported Macros@{HSEM Exported Macros}!\_\_HAL\_HSEM\_CLEAR\_FLAG@{\_\_HAL\_HSEM\_CLEAR\_FLAG}}
+\index{\_\_HAL\_HSEM\_CLEAR\_FLAG@{\_\_HAL\_HSEM\_CLEAR\_FLAG}!HSEM Exported Macros@{HSEM Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_HSEM\_CLEAR\_FLAG}{\_\_HAL\_HSEM\_CLEAR\_FLAG}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+CLEAR\+\_\+\+FLAG(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+ }\end{DoxyParamCaption})~(HSEM-\/$>$ICR $\vert$= (\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+))}
+
+
+
+Clears the HSEM Interrupt flags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+} & semaphores Mask \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None.} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_s_e_m___exported___macros_ga36496851508be9cace265482a7d18e53}\label{group___h_s_e_m___exported___macros_ga36496851508be9cace265482a7d18e53}} 
+\index{HSEM Exported Macros@{HSEM Exported Macros}!\_\_HAL\_HSEM\_DISABLE\_IT@{\_\_HAL\_HSEM\_DISABLE\_IT}}
+\index{\_\_HAL\_HSEM\_DISABLE\_IT@{\_\_HAL\_HSEM\_DISABLE\_IT}!HSEM Exported Macros@{HSEM Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_HSEM\_DISABLE\_IT}{\_\_HAL\_HSEM\_DISABLE\_IT}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+DISABLE\+\_\+\+IT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+ }\end{DoxyParamCaption})~(HSEM-\/$>$IER \&= $\sim$(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+))}
+
+
+
+Disables the specified HSEM interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+} & semaphores Mask \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None.} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_s_e_m___exported___macros_gaa21d53e6c4d6d35e9047b5c74fb78c8f}\label{group___h_s_e_m___exported___macros_gaa21d53e6c4d6d35e9047b5c74fb78c8f}} 
+\index{HSEM Exported Macros@{HSEM Exported Macros}!\_\_HAL\_HSEM\_ENABLE\_IT@{\_\_HAL\_HSEM\_ENABLE\_IT}}
+\index{\_\_HAL\_HSEM\_ENABLE\_IT@{\_\_HAL\_HSEM\_ENABLE\_IT}!HSEM Exported Macros@{HSEM Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_HSEM\_ENABLE\_IT}{\_\_HAL\_HSEM\_ENABLE\_IT}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+ENABLE\+\_\+\+IT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+ }\end{DoxyParamCaption})~(HSEM-\/$>$IER $\vert$= (\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+))}
+
+
+
+Enables the specified HSEM interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+} & semaphores Mask \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None.} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_s_e_m___exported___macros_gadb48c4b1d695a3dc4f3b72fdfc11d807}\label{group___h_s_e_m___exported___macros_gadb48c4b1d695a3dc4f3b72fdfc11d807}} 
+\index{HSEM Exported Macros@{HSEM Exported Macros}!\_\_HAL\_HSEM\_GET\_FLAG@{\_\_HAL\_HSEM\_GET\_FLAG}}
+\index{\_\_HAL\_HSEM\_GET\_FLAG@{\_\_HAL\_HSEM\_GET\_FLAG}!HSEM Exported Macros@{HSEM Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_HSEM\_GET\_FLAG}{\_\_HAL\_HSEM\_GET\_FLAG}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+GET\+\_\+\+FLAG(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+) \& HSEM-\/$>$ISR)}
+
+
+
+Get the semaphores release status flags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+} & semaphores Mask \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em semaphores} & Mask \+: Semaphores where Release flags rise. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_s_e_m___exported___macros_gacba979398283173d1ee412b5edbdd108}\label{group___h_s_e_m___exported___macros_gacba979398283173d1ee412b5edbdd108}} 
+\index{HSEM Exported Macros@{HSEM Exported Macros}!\_\_HAL\_HSEM\_GET\_IT@{\_\_HAL\_HSEM\_GET\_IT}}
+\index{\_\_HAL\_HSEM\_GET\_IT@{\_\_HAL\_HSEM\_GET\_IT}!HSEM Exported Macros@{HSEM Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_HSEM\_GET\_IT}{\_\_HAL\_HSEM\_GET\_IT}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+GET\+\_\+\+IT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+) \& HSEM-\/$>$MISR)}
+
+
+
+Checks whether interrupt has occurred or not for semaphores specified by a mask. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+} & semaphores Mask \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em semaphores} & Mask \+: Semaphores where an interrupt occurred. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_s_e_m___exported___macros_gabadef2e6fddb0bb11e9e9c6930b12ffa}\label{group___h_s_e_m___exported___macros_gabadef2e6fddb0bb11e9e9c6930b12ffa}} 
+\index{HSEM Exported Macros@{HSEM Exported Macros}!\_\_HAL\_HSEM\_SEMID\_TO\_MASK@{\_\_HAL\_HSEM\_SEMID\_TO\_MASK}}
+\index{\_\_HAL\_HSEM\_SEMID\_TO\_MASK@{\_\_HAL\_HSEM\_SEMID\_TO\_MASK}!HSEM Exported Macros@{HSEM Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_HSEM\_SEMID\_TO\_MASK}{\_\_HAL\_HSEM\_SEMID\_TO\_MASK}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+SEMID\+\_\+\+TO\+\_\+\+MASK(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+SEMID\+\_\+\+\_\+ }\end{DoxyParamCaption})~(1 $<$$<$ (\+\_\+\+\_\+\+SEMID\+\_\+\+\_\+))}
+
+
+
+Sem\+ID to mask helper Macro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+SEMID\+\_\+\+\_\+} & semaphore ID from 0 to 31 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Semaphore} & Mask. \\
+\hline
+\end{DoxyRetVals}

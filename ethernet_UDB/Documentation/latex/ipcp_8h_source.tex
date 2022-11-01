@@ -1,0 +1,140 @@
+\hypertarget{ipcp_8h_source}{}\doxysection{ipcp.\+h}
+\label{ipcp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ipcp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ipcp.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * ipcp.h -\/ IP Control Protocol definitions.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 1984-\/2000 Carnegie Mellon University. All rights reserved.}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{7 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{8 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    the documentation and/or other materials provided with the}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    distribution.}}
+\DoxyCodeLine{17 \textcolor{comment}{ *}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name "{}Carnegie Mellon University"{} must not be used to}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    prior written permission. For permission or any legal}}
+\DoxyCodeLine{21 \textcolor{comment}{ *    details, please contact}}
+\DoxyCodeLine{22 \textcolor{comment}{ *      Office of Technology Transfer}}
+\DoxyCodeLine{23 \textcolor{comment}{ *      Carnegie Mellon University}}
+\DoxyCodeLine{24 \textcolor{comment}{ *      5000 Forbes Avenue}}
+\DoxyCodeLine{25 \textcolor{comment}{ *      Pittsburgh, PA  15213-\/3890}}
+\DoxyCodeLine{26 \textcolor{comment}{ *      (412) 268-\/4387, fax: (412) 268-\/7395}}
+\DoxyCodeLine{27 \textcolor{comment}{ *      tech-\/transfer@andrew.cmu.edu}}
+\DoxyCodeLine{28 \textcolor{comment}{ *}}
+\DoxyCodeLine{29 \textcolor{comment}{ * 4. Redistributions of any form whatsoever must retain the following}}
+\DoxyCodeLine{30 \textcolor{comment}{ *    acknowledgment:}}
+\DoxyCodeLine{31 \textcolor{comment}{ *    "{}This product includes software developed by Computing Services}}
+\DoxyCodeLine{32 \textcolor{comment}{ *     at Carnegie Mellon University (http://www.cmu.edu/computing/)."{}}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * CARNEGIE MELLON UNIVERSITY DISCLAIMS ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{35 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{36 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL CARNEGIE MELLON UNIVERSITY BE LIABLE}}
+\DoxyCodeLine{37 \textcolor{comment}{ * FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{38 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{39 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{40 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{41 \textcolor{comment}{ *}}
+\DoxyCodeLine{42 \textcolor{comment}{ * \$Id: ipcp.h,v 1.14 2002/12/04 23:03:32 paulus Exp \$}}
+\DoxyCodeLine{43 \textcolor{comment}{ */}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& PPP\_IPV4\_SUPPORT }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifndef IPCP\_H}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define IPCP\_H}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{52 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{comment}{/*}}
+\DoxyCodeLine{56 \textcolor{comment}{ * Options.}}
+\DoxyCodeLine{57 \textcolor{comment}{ */}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define CI\_ADDRS    1   }\textcolor{comment}{/* IP Addresses */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#if VJ\_SUPPORT}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define CI\_COMPRESSTYPE 2   }\textcolor{comment}{/* Compression Type */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VJ\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define CI\_ADDR     3}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#if LWIP\_DNS}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define CI\_MS\_DNS1      129 }\textcolor{comment}{/* Primary DNS value */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define CI\_MS\_DNS2      131     }\textcolor{comment}{/* Secondary DNS value */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* UNUSED -\/ WINS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define CI\_MS\_WINS1     130     }\textcolor{comment}{/* Primary WINS value */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define CI\_MS\_WINS2     132 }\textcolor{comment}{/* Secondary WINS value */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UNUSED -\/ WINS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#if VJ\_SUPPORT}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define MAX\_STATES 16       }\textcolor{comment}{/* from slcompress.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define IPCP\_VJMODE\_OLD 1   }\textcolor{comment}{/* "{}old"{} mode (option \# = 0x0037) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define IPCP\_VJMODE\_RFC1172 2   }\textcolor{comment}{/* "{}old-\/rfc"{}mode (option \# = 0x002d) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define IPCP\_VJMODE\_RFC1332 3   }\textcolor{comment}{/* "{}new-\/rfc"{}mode (option \# = 0x002d, */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{79                                 \textcolor{comment}{/*  maxslot and slot number compression) */}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define IPCP\_VJ\_COMP 0x002d }\textcolor{comment}{/* current value for VJ compression option*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define IPCP\_VJ\_COMP\_OLD 0x0037 }\textcolor{comment}{/* "{}old"{} (i.e, broken) value for VJ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{83                 \textcolor{comment}{/* compression option*/} }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VJ\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ipcp\_options \{}
+\DoxyCodeLine{87     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_addr               :1; \textcolor{comment}{/* Negotiate IP Address? */}}
+\DoxyCodeLine{88     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} old\_addrs              :1; \textcolor{comment}{/* Use old (IP-\/Addresses) option? */}}
+\DoxyCodeLine{89     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} req\_addr               :1; \textcolor{comment}{/* Ask peer to send IP address? */}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* UNUSED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{91     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} default\_route          :1; \textcolor{comment}{/* Assign default route through interface? */}}
+\DoxyCodeLine{92     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} replace\_default\_route  :1; \textcolor{comment}{/* Replace default route through interface? */}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UNUSED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* UNUSED -\/ PROXY ARP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{95     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} proxy\_arp              :1; \textcolor{comment}{/* Make proxy ARP entry for peer? */}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UNUSED -\/ PROXY ARP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#if VJ\_SUPPORT}}
+\DoxyCodeLine{98     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_vj                 :1; \textcolor{comment}{/* Van Jacobson Compression? */}}
+\DoxyCodeLine{99     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} old\_vj                 :1; \textcolor{comment}{/* use old (short) form of VJ option? */}}
+\DoxyCodeLine{100     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} cflag                  :1;}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VJ\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{102     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} accept\_local           :1; \textcolor{comment}{/* accept peer's value for ouraddr */}}
+\DoxyCodeLine{103     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} accept\_remote          :1; \textcolor{comment}{/* accept peer's value for hisaddr */}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#if LWIP\_DNS}}
+\DoxyCodeLine{105     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} req\_dns1               :1; \textcolor{comment}{/* Ask peer to send primary DNS address? */}}
+\DoxyCodeLine{106     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} req\_dns2               :1; \textcolor{comment}{/* Ask peer to send secondary DNS address? */}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     u32\_t ouraddr, hisaddr; \textcolor{comment}{/* Addresses in NETWORK BYTE ORDER */}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#if LWIP\_DNS}}
+\DoxyCodeLine{111     u32\_t dnsaddr[2];   \textcolor{comment}{/* Primary and secondary MS DNS entries */}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* UNUSED -\/ WINS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{114     u32\_t winsaddr[2];  \textcolor{comment}{/* Primary and secondary MS WINS entries */}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UNUSED -\/ WINS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#if VJ\_SUPPORT}}
+\DoxyCodeLine{118     u16\_t vj\_protocol;      \textcolor{comment}{/* protocol value to use in VJ option */}}
+\DoxyCodeLine{119     u8\_t  maxslotindex;     \textcolor{comment}{/* values for RFC1332 VJ compression neg. */}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VJ\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{121 \} ipcp\_options;}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* UNUSED, already defined by lwIP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{124 \textcolor{keywordtype}{char} *ip\_ntoa (u32\_t);}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UNUSED, already defined by lwIP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }protent ipcp\_protent;}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{130 \}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* IPCP\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& PPP\_IPV4\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

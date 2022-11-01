@@ -1,0 +1,144 @@
+\hypertarget{sockets__priv_8h_source}{}\doxysection{sockets\+\_\+priv.\+h}
+\label{sockets__priv_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/sockets\_priv.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/sockets\_priv.h}}
+\mbox{\hyperlink{sockets__priv_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2017 Joel Cunningham, Garmin International, Inc. <joel.cunningham@garmin.com>}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Joel Cunningham <joel.cunningham@me.com>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_SOCKETS\_PRIV\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_SOCKETS\_PRIV\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#if LWIP\_SOCKET }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{sockets_8h}{lwip/sockets.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{sys_8h}{lwip/sys.h}}"{}}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{49 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define NUM\_SOCKETS MEMP\_NUM\_NETCONN}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#ifndef SELWAIT\_T}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define SELWAIT\_T u8\_t}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{union }lwip\_sock\_lastdata \{}
+\DoxyCodeLine{62   \textcolor{keyword}{struct }netbuf *netbuf;}
+\DoxyCodeLine{63   \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *\mbox{\hyperlink{structpbuf}{pbuf}};}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{67 \textcolor{keyword}{struct }lwip\_sock \{}
+\DoxyCodeLine{69   \textcolor{keyword}{struct }netconn *conn;}
+\DoxyCodeLine{71   \textcolor{keyword}{union }lwip\_sock\_lastdata lastdata;}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#if LWIP\_SOCKET\_SELECT || LWIP\_SOCKET\_POLL}}
+\DoxyCodeLine{75   s16\_t rcvevent;}
+\DoxyCodeLine{78   u16\_t sendevent;}
+\DoxyCodeLine{80   u16\_t errevent;}
+\DoxyCodeLine{82   SELWAIT\_T select\_waiting;}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SOCKET\_SELECT || LWIP\_SOCKET\_POLL */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#if LWIP\_NETCONN\_FULLDUPLEX}}
+\DoxyCodeLine{85   \textcolor{comment}{/* counter of how many threads are using a struct lwip\_sock (not the 'int') */}}
+\DoxyCodeLine{86   u8\_t fd\_used;}
+\DoxyCodeLine{87   \textcolor{comment}{/* status of pending close/delete actions */}}
+\DoxyCodeLine{88   u8\_t fd\_free\_pending;}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define LWIP\_SOCK\_FD\_FREE\_TCP  1}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define LWIP\_SOCK\_FD\_FREE\_FREE 2}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{92 \};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#ifndef set\_errno}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define set\_errno(err) do \{ if (err) \{ errno = (err); \} \} while(0)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#if !LWIP\_TCPIP\_CORE\_LOCKING}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define LWIP\_SETGETSOCKOPT\_MAXOPTLEN LWIP\_MAX(16, sizeof(struct ifreq))}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{104 \textcolor{keyword}{struct }lwip\_setgetsockopt\_data \{}
+\DoxyCodeLine{106   \textcolor{keywordtype}{int} s;}
+\DoxyCodeLine{108   \textcolor{keywordtype}{int} level;}
+\DoxyCodeLine{110   \textcolor{keywordtype}{int} optname;}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#if LWIP\_MPU\_COMPATIBLE}}
+\DoxyCodeLine{114   u8\_t optval[LWIP\_SETGETSOCKOPT\_MAXOPTLEN];}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{116   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{117     \textcolor{keywordtype}{void} *p;}
+\DoxyCodeLine{118     \textcolor{keyword}{const} \textcolor{keywordtype}{void} *pc;}
+\DoxyCodeLine{119   \} optval;}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{122   socklen\_t optlen;}
+\DoxyCodeLine{124   \textcolor{keywordtype}{int} err;}
+\DoxyCodeLine{126   \textcolor{keywordtype}{void}* completed\_sem;}
+\DoxyCodeLine{127 \};}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_TCPIP\_CORE\_LOCKING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{131 \}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{keyword}{struct }lwip\_sock* lwip\_socket\_dbg\_get\_socket(\textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#if LWIP\_SOCKET\_SELECT || LWIP\_SOCKET\_POLL}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#if LWIP\_NETCONN\_SEM\_PER\_THREAD}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define SELECT\_SEM\_T        sys\_sem\_t*}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define SELECT\_SEM\_PTR(sem) (sem)}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_NETCONN\_SEM\_PER\_THREAD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define SELECT\_SEM\_T        sys\_sem\_t}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#define SELECT\_SEM\_PTR(sem) (\&(sem))}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETCONN\_SEM\_PER\_THREAD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{147 \textcolor{keyword}{struct }lwip\_select\_cb \{}
+\DoxyCodeLine{149   \textcolor{keyword}{struct }lwip\_select\_cb *next;}
+\DoxyCodeLine{151   \textcolor{keyword}{struct }lwip\_select\_cb *prev;}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#if LWIP\_SOCKET\_SELECT}}
+\DoxyCodeLine{154   fd\_set *readset;}
+\DoxyCodeLine{156   fd\_set *writeset;}
+\DoxyCodeLine{158   fd\_set *exceptset;}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SOCKET\_SELECT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#if LWIP\_SOCKET\_POLL}}
+\DoxyCodeLine{162   \textcolor{keyword}{struct }pollfd *poll\_fds;}
+\DoxyCodeLine{164   nfds\_t poll\_nfds;}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SOCKET\_POLL */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{167   \textcolor{keywordtype}{int} sem\_signalled;}
+\DoxyCodeLine{169   SELECT\_SEM\_T sem;}
+\DoxyCodeLine{170 \};}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SOCKET\_SELECT || LWIP\_SOCKET\_POLL */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SOCKET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_SOCKETS\_PRIV\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

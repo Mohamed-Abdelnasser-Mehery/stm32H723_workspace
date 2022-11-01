@@ -1,0 +1,57 @@
+\hypertarget{lwip_2prot_2etharp_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/prot/etharp.h File Reference}
+\label{lwip_2prot_2etharp_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/etharp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/etharp.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/prot/ethernet.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structip4__addr__wordaligned}{ip4\+\_\+addr\+\_\+wordaligned}}
+\item 
+struct \mbox{\hyperlink{structetharp__hdr}{etharp\+\_\+hdr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lwip_2prot_2etharp_8h_a2c9ac5fe1c9f387f0df94d90cdc9c5c8}\label{lwip_2prot_2etharp_8h_a2c9ac5fe1c9f387f0df94d90cdc9c5c8}} 
+\#define {\bfseries ETHARP\+\_\+\+HWADDR\+\_\+\+LEN}~ETH\+\_\+\+HWADDR\+\_\+\+LEN
+\item 
+\#define \mbox{\hyperlink{lwip_2prot_2etharp_8h_a94f1c2a6ad7cecdfe759c0490ba7f030}{IPADDR\+\_\+\+WORDALIGNED\+\_\+\+COPY\+\_\+\+TO\+\_\+\+IP4\+\_\+\+ADDR\+\_\+T}}(dest,  src)~\mbox{\hyperlink{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}{SMEMCPY}}(dest, src, sizeof(ip4\+\_\+addr\+\_\+t))
+\item 
+\#define \mbox{\hyperlink{lwip_2prot_2etharp_8h_a7dff02ff186f844b731cecbe614b7419}{IPADDR\+\_\+\+WORDALIGNED\+\_\+\+COPY\+\_\+\+FROM\+\_\+\+IP4\+\_\+\+ADDR\+\_\+T}}(dest,  src)~\mbox{\hyperlink{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}{SMEMCPY}}(dest, src, sizeof(ip4\+\_\+addr\+\_\+t))
+\item 
+\mbox{\Hypertarget{lwip_2prot_2etharp_8h_a58f300020d1e3a91cad207410a2a82ab}\label{lwip_2prot_2etharp_8h_a58f300020d1e3a91cad207410a2a82ab}} 
+\#define {\bfseries SIZEOF\+\_\+\+ETHARP\+\_\+\+HDR}~28
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lwip_2prot_2etharp_8h_af8a1068cba34f11d56afb73cdd879cab}\label{lwip_2prot_2etharp_8h_af8a1068cba34f11d56afb73cdd879cab}} 
+enum {\bfseries etharp\+\_\+opcode} \{ {\bfseries ARP\+\_\+\+REQUEST} = 1
+, {\bfseries ARP\+\_\+\+REPLY} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lwip_2prot_2etharp_8h_a421562ab5ea9c1ad7f6e3b7fdc7a9c3e}\label{lwip_2prot_2etharp_8h_a421562ab5ea9c1ad7f6e3b7fdc7a9c3e}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\+\_\+\+STRUCT\+\_\+\+BEGIN}} struct \mbox{\hyperlink{structip4__addr__wordaligned}{ip4\+\_\+addr\+\_\+wordaligned}} {\bfseries PACK\+\_\+\+STRUCT\+\_\+\+STRUCT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+ARP protocol definitions 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lwip_2prot_2etharp_8h_a7dff02ff186f844b731cecbe614b7419}\label{lwip_2prot_2etharp_8h_a7dff02ff186f844b731cecbe614b7419}} 
+\index{etharp.h@{etharp.h}!IPADDR\_WORDALIGNED\_COPY\_FROM\_IP4\_ADDR\_T@{IPADDR\_WORDALIGNED\_COPY\_FROM\_IP4\_ADDR\_T}}
+\index{IPADDR\_WORDALIGNED\_COPY\_FROM\_IP4\_ADDR\_T@{IPADDR\_WORDALIGNED\_COPY\_FROM\_IP4\_ADDR\_T}!etharp.h@{etharp.h}}
+\doxysubsubsection{\texorpdfstring{IPADDR\_WORDALIGNED\_COPY\_FROM\_IP4\_ADDR\_T}{IPADDR\_WORDALIGNED\_COPY\_FROM\_IP4\_ADDR\_T}}
+{\footnotesize\ttfamily \#define IPADDR\+\_\+\+WORDALIGNED\+\_\+\+COPY\+\_\+\+FROM\+\_\+\+IP4\+\_\+\+ADDR\+\_\+T(\begin{DoxyParamCaption}\item[{}]{dest,  }\item[{}]{src }\end{DoxyParamCaption})~\mbox{\hyperlink{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}{SMEMCPY}}(dest, src, sizeof(ip4\+\_\+addr\+\_\+t))}
+
+MEMCPY-\/like copying of IP addresses where addresses are known to be 16-\/bit-\/aligned if the port is correctly configured (so a port could define this to copying 2 u16\+\_\+t\textquotesingle{}s) -\/ no NULL-\/pointer-\/checking needed. \mbox{\Hypertarget{lwip_2prot_2etharp_8h_a94f1c2a6ad7cecdfe759c0490ba7f030}\label{lwip_2prot_2etharp_8h_a94f1c2a6ad7cecdfe759c0490ba7f030}} 
+\index{etharp.h@{etharp.h}!IPADDR\_WORDALIGNED\_COPY\_TO\_IP4\_ADDR\_T@{IPADDR\_WORDALIGNED\_COPY\_TO\_IP4\_ADDR\_T}}
+\index{IPADDR\_WORDALIGNED\_COPY\_TO\_IP4\_ADDR\_T@{IPADDR\_WORDALIGNED\_COPY\_TO\_IP4\_ADDR\_T}!etharp.h@{etharp.h}}
+\doxysubsubsection{\texorpdfstring{IPADDR\_WORDALIGNED\_COPY\_TO\_IP4\_ADDR\_T}{IPADDR\_WORDALIGNED\_COPY\_TO\_IP4\_ADDR\_T}}
+{\footnotesize\ttfamily \#define IPADDR\+\_\+\+WORDALIGNED\+\_\+\+COPY\+\_\+\+TO\+\_\+\+IP4\+\_\+\+ADDR\+\_\+T(\begin{DoxyParamCaption}\item[{}]{dest,  }\item[{}]{src }\end{DoxyParamCaption})~\mbox{\hyperlink{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}{SMEMCPY}}(dest, src, sizeof(ip4\+\_\+addr\+\_\+t))}
+
+MEMCPY-\/like copying of IP addresses where addresses are known to be 16-\/bit-\/aligned if the port is correctly configured (so a port could define this to copying 2 u16\+\_\+t\textquotesingle{}s) -\/ no NULL-\/pointer-\/checking needed. 

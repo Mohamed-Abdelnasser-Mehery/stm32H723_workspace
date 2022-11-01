@@ -1,0 +1,132 @@
+\hypertarget{group__lwip__opts__thread}{}\doxysection{Threading}
+\label{group__lwip__opts__thread}\index{Threading@{Threading}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_ga405e604e4328e1feb878c6fe1798a587}{TCPIP\+\_\+\+THREAD\+\_\+\+NAME}}~\char`\"{}tcpip\+\_\+thread\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_gaa02b84eafa0c8b09b158b97c96d79db0}{TCPIP\+\_\+\+THREAD\+\_\+\+STACKSIZE}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_ga42b2c7a3042d7c3efd00f367f5837435}{TCPIP\+\_\+\+THREAD\+\_\+\+PRIO}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_ga8cf210ad4e4bf616860a45fbd140fd06}{TCPIP\+\_\+\+MBOX\+\_\+\+SIZE}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_ga8b99d75d9e0a0868567d10c8522915bb}{LWIP\+\_\+\+TCPIP\+\_\+\+THREAD\+\_\+\+ALIVE}}()
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_gae9cd260c56472324a2f0ee5f9597a675}{SLIPIF\+\_\+\+THREAD\+\_\+\+NAME}}~\char`\"{}slipif\+\_\+loop\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_gae8ab54a25007ce997bbab6289815e258}{SLIPIF\+\_\+\+THREAD\+\_\+\+STACKSIZE}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_gab1b9fc2efcbf1f804bfd0191bc019c4e}{SLIPIF\+\_\+\+THREAD\+\_\+\+PRIO}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_gaca13123a5c8271558353e04123957616}{DEFAULT\+\_\+\+THREAD\+\_\+\+NAME}}~\char`\"{}lw\+IP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_ga7f93dfeaed4021061959f822def602cb}{DEFAULT\+\_\+\+THREAD\+\_\+\+STACKSIZE}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_ga3d8715b1fdd0449d6c214e4a40108456}{DEFAULT\+\_\+\+THREAD\+\_\+\+PRIO}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_ga4ef8f046c957750056131310a1580df7}{DEFAULT\+\_\+\+RAW\+\_\+\+RECVMBOX\+\_\+\+SIZE}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_ga09fe785559b3f0cf108da4440489e335}{DEFAULT\+\_\+\+UDP\+\_\+\+RECVMBOX\+\_\+\+SIZE}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_ga1bd172938b9c8ba63156fcafc87e83c7}{DEFAULT\+\_\+\+TCP\+\_\+\+RECVMBOX\+\_\+\+SIZE}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__thread_ga5d5a6e04abe2ec233c7acdb09f992461}{DEFAULT\+\_\+\+ACCEPTMBOX\+\_\+\+SIZE}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__thread_ga5d5a6e04abe2ec233c7acdb09f992461}\label{group__lwip__opts__thread_ga5d5a6e04abe2ec233c7acdb09f992461}} 
+\index{Threading@{Threading}!DEFAULT\_ACCEPTMBOX\_SIZE@{DEFAULT\_ACCEPTMBOX\_SIZE}}
+\index{DEFAULT\_ACCEPTMBOX\_SIZE@{DEFAULT\_ACCEPTMBOX\_SIZE}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_ACCEPTMBOX\_SIZE}{DEFAULT\_ACCEPTMBOX\_SIZE}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+ACCEPTMBOX\+\_\+\+SIZE~0}
+
+DEFAULT\+\_\+\+ACCEPTMBOX\+\_\+\+SIZE\+: The mailbox size for the incoming connections. The queue size value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}{sys\+\_\+mbox\+\_\+new()}} when the acceptmbox is created. \mbox{\Hypertarget{group__lwip__opts__thread_ga4ef8f046c957750056131310a1580df7}\label{group__lwip__opts__thread_ga4ef8f046c957750056131310a1580df7}} 
+\index{Threading@{Threading}!DEFAULT\_RAW\_RECVMBOX\_SIZE@{DEFAULT\_RAW\_RECVMBOX\_SIZE}}
+\index{DEFAULT\_RAW\_RECVMBOX\_SIZE@{DEFAULT\_RAW\_RECVMBOX\_SIZE}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_RAW\_RECVMBOX\_SIZE}{DEFAULT\_RAW\_RECVMBOX\_SIZE}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+RAW\+\_\+\+RECVMBOX\+\_\+\+SIZE~0}
+
+DEFAULT\+\_\+\+RAW\+\_\+\+RECVMBOX\+\_\+\+SIZE\+: The mailbox size for the incoming packets on a NETCONN\+\_\+\+RAW. The queue size value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}{sys\+\_\+mbox\+\_\+new()}} when the recvmbox is created. \mbox{\Hypertarget{group__lwip__opts__thread_ga1bd172938b9c8ba63156fcafc87e83c7}\label{group__lwip__opts__thread_ga1bd172938b9c8ba63156fcafc87e83c7}} 
+\index{Threading@{Threading}!DEFAULT\_TCP\_RECVMBOX\_SIZE@{DEFAULT\_TCP\_RECVMBOX\_SIZE}}
+\index{DEFAULT\_TCP\_RECVMBOX\_SIZE@{DEFAULT\_TCP\_RECVMBOX\_SIZE}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_TCP\_RECVMBOX\_SIZE}{DEFAULT\_TCP\_RECVMBOX\_SIZE}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+TCP\+\_\+\+RECVMBOX\+\_\+\+SIZE~0}
+
+DEFAULT\+\_\+\+TCP\+\_\+\+RECVMBOX\+\_\+\+SIZE\+: The mailbox size for the incoming packets on a NETCONN\+\_\+\+TCP. The queue size value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}{sys\+\_\+mbox\+\_\+new()}} when the recvmbox is created. \mbox{\Hypertarget{group__lwip__opts__thread_gaca13123a5c8271558353e04123957616}\label{group__lwip__opts__thread_gaca13123a5c8271558353e04123957616}} 
+\index{Threading@{Threading}!DEFAULT\_THREAD\_NAME@{DEFAULT\_THREAD\_NAME}}
+\index{DEFAULT\_THREAD\_NAME@{DEFAULT\_THREAD\_NAME}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_THREAD\_NAME}{DEFAULT\_THREAD\_NAME}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+THREAD\+\_\+\+NAME~\char`\"{}lw\+IP\char`\"{}}
+
+DEFAULT\+\_\+\+THREAD\+\_\+\+NAME\+: The name assigned to any other lw\+IP thread. \mbox{\Hypertarget{group__lwip__opts__thread_ga3d8715b1fdd0449d6c214e4a40108456}\label{group__lwip__opts__thread_ga3d8715b1fdd0449d6c214e4a40108456}} 
+\index{Threading@{Threading}!DEFAULT\_THREAD\_PRIO@{DEFAULT\_THREAD\_PRIO}}
+\index{DEFAULT\_THREAD\_PRIO@{DEFAULT\_THREAD\_PRIO}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_THREAD\_PRIO}{DEFAULT\_THREAD\_PRIO}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+THREAD\+\_\+\+PRIO~1}
+
+DEFAULT\+\_\+\+THREAD\+\_\+\+PRIO\+: The priority assigned to any other lw\+IP thread. The priority value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__misc_ga0d596afdd8dbcfad320172d39b0f607a}{sys\+\_\+thread\+\_\+new()}} when the thread is created. \mbox{\Hypertarget{group__lwip__opts__thread_ga7f93dfeaed4021061959f822def602cb}\label{group__lwip__opts__thread_ga7f93dfeaed4021061959f822def602cb}} 
+\index{Threading@{Threading}!DEFAULT\_THREAD\_STACKSIZE@{DEFAULT\_THREAD\_STACKSIZE}}
+\index{DEFAULT\_THREAD\_STACKSIZE@{DEFAULT\_THREAD\_STACKSIZE}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_THREAD\_STACKSIZE}{DEFAULT\_THREAD\_STACKSIZE}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+THREAD\+\_\+\+STACKSIZE~0}
+
+DEFAULT\+\_\+\+THREAD\+\_\+\+STACKSIZE\+: The stack size used by any other lw\+IP thread. The stack size value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__misc_ga0d596afdd8dbcfad320172d39b0f607a}{sys\+\_\+thread\+\_\+new()}} when the thread is created. \mbox{\Hypertarget{group__lwip__opts__thread_ga09fe785559b3f0cf108da4440489e335}\label{group__lwip__opts__thread_ga09fe785559b3f0cf108da4440489e335}} 
+\index{Threading@{Threading}!DEFAULT\_UDP\_RECVMBOX\_SIZE@{DEFAULT\_UDP\_RECVMBOX\_SIZE}}
+\index{DEFAULT\_UDP\_RECVMBOX\_SIZE@{DEFAULT\_UDP\_RECVMBOX\_SIZE}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_UDP\_RECVMBOX\_SIZE}{DEFAULT\_UDP\_RECVMBOX\_SIZE}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+UDP\+\_\+\+RECVMBOX\+\_\+\+SIZE~0}
+
+DEFAULT\+\_\+\+UDP\+\_\+\+RECVMBOX\+\_\+\+SIZE\+: The mailbox size for the incoming packets on a NETCONN\+\_\+\+UDP. The queue size value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}{sys\+\_\+mbox\+\_\+new()}} when the recvmbox is created. \mbox{\Hypertarget{group__lwip__opts__thread_ga8b99d75d9e0a0868567d10c8522915bb}\label{group__lwip__opts__thread_ga8b99d75d9e0a0868567d10c8522915bb}} 
+\index{Threading@{Threading}!LWIP\_TCPIP\_THREAD\_ALIVE@{LWIP\_TCPIP\_THREAD\_ALIVE}}
+\index{LWIP\_TCPIP\_THREAD\_ALIVE@{LWIP\_TCPIP\_THREAD\_ALIVE}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCPIP\_THREAD\_ALIVE}{LWIP\_TCPIP\_THREAD\_ALIVE}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TCPIP\+\_\+\+THREAD\+\_\+\+ALIVE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Define this to something that triggers a watchdog. This is called from tcpip\+\_\+thread after processing a message. \mbox{\Hypertarget{group__lwip__opts__thread_gae9cd260c56472324a2f0ee5f9597a675}\label{group__lwip__opts__thread_gae9cd260c56472324a2f0ee5f9597a675}} 
+\index{Threading@{Threading}!SLIPIF\_THREAD\_NAME@{SLIPIF\_THREAD\_NAME}}
+\index{SLIPIF\_THREAD\_NAME@{SLIPIF\_THREAD\_NAME}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{SLIPIF\_THREAD\_NAME}{SLIPIF\_THREAD\_NAME}}
+{\footnotesize\ttfamily \#define SLIPIF\+\_\+\+THREAD\+\_\+\+NAME~\char`\"{}slipif\+\_\+loop\char`\"{}}
+
+SLIPIF\+\_\+\+THREAD\+\_\+\+NAME\+: The name assigned to the slipif\+\_\+loop thread. \mbox{\Hypertarget{group__lwip__opts__thread_gab1b9fc2efcbf1f804bfd0191bc019c4e}\label{group__lwip__opts__thread_gab1b9fc2efcbf1f804bfd0191bc019c4e}} 
+\index{Threading@{Threading}!SLIPIF\_THREAD\_PRIO@{SLIPIF\_THREAD\_PRIO}}
+\index{SLIPIF\_THREAD\_PRIO@{SLIPIF\_THREAD\_PRIO}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{SLIPIF\_THREAD\_PRIO}{SLIPIF\_THREAD\_PRIO}}
+{\footnotesize\ttfamily \#define SLIPIF\+\_\+\+THREAD\+\_\+\+PRIO~1}
+
+SLIPIF\+\_\+\+THREAD\+\_\+\+PRIO\+: The priority assigned to the slipif\+\_\+loop thread. The priority value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__misc_ga0d596afdd8dbcfad320172d39b0f607a}{sys\+\_\+thread\+\_\+new()}} when the thread is created. \mbox{\Hypertarget{group__lwip__opts__thread_gae8ab54a25007ce997bbab6289815e258}\label{group__lwip__opts__thread_gae8ab54a25007ce997bbab6289815e258}} 
+\index{Threading@{Threading}!SLIPIF\_THREAD\_STACKSIZE@{SLIPIF\_THREAD\_STACKSIZE}}
+\index{SLIPIF\_THREAD\_STACKSIZE@{SLIPIF\_THREAD\_STACKSIZE}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{SLIPIF\_THREAD\_STACKSIZE}{SLIPIF\_THREAD\_STACKSIZE}}
+{\footnotesize\ttfamily \#define SLIPIF\+\_\+\+THREAD\+\_\+\+STACKSIZE~0}
+
+SLIP\+\_\+\+THREAD\+\_\+\+STACKSIZE\+: The stack size used by the slipif\+\_\+loop thread. The stack size value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__misc_ga0d596afdd8dbcfad320172d39b0f607a}{sys\+\_\+thread\+\_\+new()}} when the thread is created. \mbox{\Hypertarget{group__lwip__opts__thread_ga8cf210ad4e4bf616860a45fbd140fd06}\label{group__lwip__opts__thread_ga8cf210ad4e4bf616860a45fbd140fd06}} 
+\index{Threading@{Threading}!TCPIP\_MBOX\_SIZE@{TCPIP\_MBOX\_SIZE}}
+\index{TCPIP\_MBOX\_SIZE@{TCPIP\_MBOX\_SIZE}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{TCPIP\_MBOX\_SIZE}{TCPIP\_MBOX\_SIZE}}
+{\footnotesize\ttfamily \#define TCPIP\+\_\+\+MBOX\+\_\+\+SIZE~0}
+
+TCPIP\+\_\+\+MBOX\+\_\+\+SIZE\+: The mailbox size for the tcpip thread messages The queue size value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}{sys\+\_\+mbox\+\_\+new()}} when tcpip\+\_\+init is called. \mbox{\Hypertarget{group__lwip__opts__thread_ga405e604e4328e1feb878c6fe1798a587}\label{group__lwip__opts__thread_ga405e604e4328e1feb878c6fe1798a587}} 
+\index{Threading@{Threading}!TCPIP\_THREAD\_NAME@{TCPIP\_THREAD\_NAME}}
+\index{TCPIP\_THREAD\_NAME@{TCPIP\_THREAD\_NAME}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{TCPIP\_THREAD\_NAME}{TCPIP\_THREAD\_NAME}}
+{\footnotesize\ttfamily \#define TCPIP\+\_\+\+THREAD\+\_\+\+NAME~\char`\"{}tcpip\+\_\+thread\char`\"{}}
+
+TCPIP\+\_\+\+THREAD\+\_\+\+NAME\+: The name assigned to the main tcpip thread. \mbox{\Hypertarget{group__lwip__opts__thread_ga42b2c7a3042d7c3efd00f367f5837435}\label{group__lwip__opts__thread_ga42b2c7a3042d7c3efd00f367f5837435}} 
+\index{Threading@{Threading}!TCPIP\_THREAD\_PRIO@{TCPIP\_THREAD\_PRIO}}
+\index{TCPIP\_THREAD\_PRIO@{TCPIP\_THREAD\_PRIO}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{TCPIP\_THREAD\_PRIO}{TCPIP\_THREAD\_PRIO}}
+{\footnotesize\ttfamily \#define TCPIP\+\_\+\+THREAD\+\_\+\+PRIO~1}
+
+TCPIP\+\_\+\+THREAD\+\_\+\+PRIO\+: The priority assigned to the main tcpip thread. The priority value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__misc_ga0d596afdd8dbcfad320172d39b0f607a}{sys\+\_\+thread\+\_\+new()}} when the thread is created. \mbox{\Hypertarget{group__lwip__opts__thread_gaa02b84eafa0c8b09b158b97c96d79db0}\label{group__lwip__opts__thread_gaa02b84eafa0c8b09b158b97c96d79db0}} 
+\index{Threading@{Threading}!TCPIP\_THREAD\_STACKSIZE@{TCPIP\_THREAD\_STACKSIZE}}
+\index{TCPIP\_THREAD\_STACKSIZE@{TCPIP\_THREAD\_STACKSIZE}!Threading@{Threading}}
+\doxysubsubsection{\texorpdfstring{TCPIP\_THREAD\_STACKSIZE}{TCPIP\_THREAD\_STACKSIZE}}
+{\footnotesize\ttfamily \#define TCPIP\+\_\+\+THREAD\+\_\+\+STACKSIZE~0}
+
+TCPIP\+\_\+\+THREAD\+\_\+\+STACKSIZE\+: The stack size used by the main tcpip thread. The stack size value itself is platform-\/dependent, but is passed to \mbox{\hyperlink{group__sys__misc_ga0d596afdd8dbcfad320172d39b0f607a}{sys\+\_\+thread\+\_\+new()}} when the thread is created. 

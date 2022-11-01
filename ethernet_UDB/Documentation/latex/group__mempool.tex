@@ -1,0 +1,78 @@
+\hypertarget{group__mempool}{}\doxysection{Memory pools}
+\label{group__mempool}\index{Memory pools@{Memory pools}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__mempool_ga92fc8c29d0e2654f2a2ecc43b2b7fb13}{LWIP\+\_\+\+MEMPOOL\+\_\+\+PROTOTYPE}}(name)~extern const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} memp\+\_\+ \#\# name
+\item 
+\#define \mbox{\hyperlink{group__mempool_ga5b1fb3ce7942432d87cc948b1c5ed6cb}{LWIP\+\_\+\+MEMPOOL\+\_\+\+DECLARE}}(name,  num,  size,  desc)
+\item 
+\#define \mbox{\hyperlink{group__mempool_ga60b51c06d276f525b35d8b7abd4dcb41}{LWIP\+\_\+\+MEMPOOL\+\_\+\+INIT}}(name)~\mbox{\hyperlink{memp_8c_a6416303426d05526bed33f241fa6ecd7}{memp\+\_\+init\+\_\+pool}}(\&memp\+\_\+ \#\# name)
+\item 
+\#define \mbox{\hyperlink{group__mempool_ga5e2498f6c17746c1fe7153de5f7f275a}{LWIP\+\_\+\+MEMPOOL\+\_\+\+ALLOC}}(name)~\mbox{\hyperlink{memp_8c_ab6bfb9562c3a77e329a888e59ef0ace3}{memp\+\_\+malloc\+\_\+pool}}(\&memp\+\_\+ \#\# name)
+\item 
+\#define \mbox{\hyperlink{group__mempool_gaa43d114dd702fbd8f1db18474ea93a04}{LWIP\+\_\+\+MEMPOOL\+\_\+\+FREE}}(name,  x)~\mbox{\hyperlink{memp_8c_a62f8c3c907743e34eee3cdac7fa1eaa5}{memp\+\_\+free\+\_\+pool}}(\&memp\+\_\+ \#\# name, (x))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Custom memory pools 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__mempool_ga5e2498f6c17746c1fe7153de5f7f275a}\label{group__mempool_ga5e2498f6c17746c1fe7153de5f7f275a}} 
+\index{Memory pools@{Memory pools}!LWIP\_MEMPOOL\_ALLOC@{LWIP\_MEMPOOL\_ALLOC}}
+\index{LWIP\_MEMPOOL\_ALLOC@{LWIP\_MEMPOOL\_ALLOC}!Memory pools@{Memory pools}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MEMPOOL\_ALLOC}{LWIP\_MEMPOOL\_ALLOC}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+MEMPOOL\+\_\+\+ALLOC(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~\mbox{\hyperlink{memp_8c_ab6bfb9562c3a77e329a888e59ef0ace3}{memp\+\_\+malloc\+\_\+pool}}(\&memp\+\_\+ \#\# name)}
+
+Allocate from a private memory pool \mbox{\Hypertarget{group__mempool_ga5b1fb3ce7942432d87cc948b1c5ed6cb}\label{group__mempool_ga5b1fb3ce7942432d87cc948b1c5ed6cb}} 
+\index{Memory pools@{Memory pools}!LWIP\_MEMPOOL\_DECLARE@{LWIP\_MEMPOOL\_DECLARE}}
+\index{LWIP\_MEMPOOL\_DECLARE@{LWIP\_MEMPOOL\_DECLARE}!Memory pools@{Memory pools}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MEMPOOL\_DECLARE}{LWIP\_MEMPOOL\_DECLARE}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+MEMPOOL\+\_\+\+DECLARE(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{num,  }\item[{}]{size,  }\item[{}]{desc }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \mbox{\hyperlink{group__compiler__abstraction_ga651bb349041669fe717b19f127ef16c0}{LWIP\_DECLARE\_MEMORY\_ALIGNED}}(memp\_memory\_ \#\# name \#\# \_base, ((num) * (MEMP\_SIZE + MEMP\_ALIGN\_SIZE(size)))); \(\backslash\)}
+\DoxyCodeLine{    \(\backslash\)}
+\DoxyCodeLine{  LWIP\_MEMPOOL\_DECLARE\_STATS\_INSTANCE(memp\_stats\_ \#\# name) \(\backslash\)}
+\DoxyCodeLine{    \(\backslash\)}
+\DoxyCodeLine{  \textcolor{keyword}{static} \textcolor{keyword}{struct }\mbox{\hyperlink{structmemp}{memp}} *memp\_tab\_ \#\# name; \(\backslash\)}
+\DoxyCodeLine{    \(\backslash\)}
+\DoxyCodeLine{  \textcolor{keyword}{const} \textcolor{keyword}{struct }\mbox{\hyperlink{structmemp__desc}{memp\_desc}} memp\_ \#\# name = \{ \(\backslash\)}
+\DoxyCodeLine{    DECLARE\_LWIP\_MEMPOOL\_DESC(desc) \(\backslash\)}
+\DoxyCodeLine{    LWIP\_MEMPOOL\_DECLARE\_STATS\_REFERENCE(memp\_stats\_ \#\# name) \(\backslash\)}
+\DoxyCodeLine{    LWIP\_MEM\_ALIGN\_SIZE(\mbox{\hyperlink{structmemp__desc_af3c5e245bf61a395e5dcdfd3bcfcda49}{size}}), \(\backslash\)}
+\DoxyCodeLine{    (\mbox{\hyperlink{structmemp__desc_aadcaebf71818621d23d7abe8891a9807}{num}}), \(\backslash\)}
+\DoxyCodeLine{    memp\_memory\_ \#\# name \#\# \_base, \(\backslash\)}
+\DoxyCodeLine{    \&memp\_tab\_ \#\# name \(\backslash\)}
+\DoxyCodeLine{  \};}
+
+\end{DoxyCode}
+Declare a private memory pool Private mempools example\+: .h\+: only when pool is used in multiple .c files\+: \mbox{\hyperlink{group__mempool_ga92fc8c29d0e2654f2a2ecc43b2b7fb13}{LWIP\+\_\+\+MEMPOOL\+\_\+\+PROTOTYPE(my\+\_\+private\+\_\+pool)}}; .c\+:
+\begin{DoxyItemize}
+\item in global variables section\+: LWIP\+\_\+\+MEMPOOL\+\_\+\+DECLARE(my\+\_\+private\+\_\+pool, 10, sizeof(foo), \char`\"{}\+Some description\char`\"{})
+\item call ONCE before using pool (e.\+g. in some init() function)\+: \mbox{\hyperlink{group__mempool_ga60b51c06d276f525b35d8b7abd4dcb41}{LWIP\+\_\+\+MEMPOOL\+\_\+\+INIT(my\+\_\+private\+\_\+pool)}};
+\item allocate\+: void$\ast$ my\+\_\+new\+\_\+mem = \mbox{\hyperlink{group__mempool_ga5e2498f6c17746c1fe7153de5f7f275a}{LWIP\+\_\+\+MEMPOOL\+\_\+\+ALLOC(my\+\_\+private\+\_\+pool)}};
+\item free\+: \mbox{\hyperlink{group__mempool_gaa43d114dd702fbd8f1db18474ea93a04}{LWIP\+\_\+\+MEMPOOL\+\_\+\+FREE(my\+\_\+private\+\_\+pool, my\+\_\+new\+\_\+mem)}};
+\end{DoxyItemize}
+
+To relocate a pool, declare it as extern in \mbox{\hyperlink{cc_8h_source}{cc.\+h}}. Example for GCC\+: extern u8\+\_\+t \+\_\+\+\_\+attribute\+\_\+\+\_\+((section(\char`\"{}.\+onchip\+\_\+mem\char`\"{}))) memp\+\_\+memory\+\_\+my\+\_\+private\+\_\+pool\+\_\+base\mbox{[}\mbox{]}; \mbox{\Hypertarget{group__mempool_gaa43d114dd702fbd8f1db18474ea93a04}\label{group__mempool_gaa43d114dd702fbd8f1db18474ea93a04}} 
+\index{Memory pools@{Memory pools}!LWIP\_MEMPOOL\_FREE@{LWIP\_MEMPOOL\_FREE}}
+\index{LWIP\_MEMPOOL\_FREE@{LWIP\_MEMPOOL\_FREE}!Memory pools@{Memory pools}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MEMPOOL\_FREE}{LWIP\_MEMPOOL\_FREE}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+MEMPOOL\+\_\+\+FREE(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{memp_8c_a62f8c3c907743e34eee3cdac7fa1eaa5}{memp\+\_\+free\+\_\+pool}}(\&memp\+\_\+ \#\# name, (x))}
+
+Free element from a private memory pool \mbox{\Hypertarget{group__mempool_ga60b51c06d276f525b35d8b7abd4dcb41}\label{group__mempool_ga60b51c06d276f525b35d8b7abd4dcb41}} 
+\index{Memory pools@{Memory pools}!LWIP\_MEMPOOL\_INIT@{LWIP\_MEMPOOL\_INIT}}
+\index{LWIP\_MEMPOOL\_INIT@{LWIP\_MEMPOOL\_INIT}!Memory pools@{Memory pools}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MEMPOOL\_INIT}{LWIP\_MEMPOOL\_INIT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+MEMPOOL\+\_\+\+INIT(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~\mbox{\hyperlink{memp_8c_a6416303426d05526bed33f241fa6ecd7}{memp\+\_\+init\+\_\+pool}}(\&memp\+\_\+ \#\# name)}
+
+Initialize a private memory pool \mbox{\Hypertarget{group__mempool_ga92fc8c29d0e2654f2a2ecc43b2b7fb13}\label{group__mempool_ga92fc8c29d0e2654f2a2ecc43b2b7fb13}} 
+\index{Memory pools@{Memory pools}!LWIP\_MEMPOOL\_PROTOTYPE@{LWIP\_MEMPOOL\_PROTOTYPE}}
+\index{LWIP\_MEMPOOL\_PROTOTYPE@{LWIP\_MEMPOOL\_PROTOTYPE}!Memory pools@{Memory pools}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MEMPOOL\_PROTOTYPE}{LWIP\_MEMPOOL\_PROTOTYPE}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+MEMPOOL\+\_\+\+PROTOTYPE(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})~extern const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} memp\+\_\+ \#\# name}
+
+Declare prototype for private memory pool if it is used in multiple files 

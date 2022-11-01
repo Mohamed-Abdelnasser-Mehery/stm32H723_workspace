@@ -1,0 +1,120 @@
+\hypertarget{tcpip__priv_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/priv/tcpip\+\_\+priv.h File Reference}
+\label{tcpip__priv_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/tcpip\_priv.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/tcpip\_priv.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/tcpip.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/timeouts.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtcpip__api__call__data}{tcpip\+\_\+api\+\_\+call\+\_\+data}}
+\item 
+struct \mbox{\hyperlink{structtcpip__msg}{tcpip\+\_\+msg}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a3518256af0d1a422755a899b13c2b563}\label{tcpip__priv_8h_a3518256af0d1a422755a899b13c2b563}} 
+\#define {\bfseries API\+\_\+\+VAR\+\_\+\+REF}(name)~name
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_ab5d4a4fa91c4c144bedabf593a68b4dd}\label{tcpip__priv_8h_ab5d4a4fa91c4c144bedabf593a68b4dd}} 
+\#define {\bfseries API\+\_\+\+VAR\+\_\+\+DECLARE}(type,  name)~type name
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_ac6352d894972abb8d0778c3d4f8ec169}\label{tcpip__priv_8h_ac6352d894972abb8d0778c3d4f8ec169}} 
+\#define {\bfseries API\+\_\+\+VAR\+\_\+\+ALLOC\+\_\+\+EXT}(type,  pool,  name,  errorblock)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a8ff9b936b16d91844c0e32424e97f493}\label{tcpip__priv_8h_a8ff9b936b16d91844c0e32424e97f493}} 
+\#define {\bfseries API\+\_\+\+VAR\+\_\+\+ALLOC}(type,  pool,  name,  errorval)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a0b826b1ea2ee54ebb94ab354578a1ffe}\label{tcpip__priv_8h_a0b826b1ea2ee54ebb94ab354578a1ffe}} 
+\#define {\bfseries API\+\_\+\+VAR\+\_\+\+ALLOC\+\_\+\+POOL}(type,  pool,  name,  errorval)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a30caebb5334f52d49ac938a507094094}\label{tcpip__priv_8h_a30caebb5334f52d49ac938a507094094}} 
+\#define {\bfseries API\+\_\+\+VAR\+\_\+\+FREE}(pool,  name)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a803c2dd81f7e69515115b78759be0d76}\label{tcpip__priv_8h_a803c2dd81f7e69515115b78759be0d76}} 
+\#define {\bfseries API\+\_\+\+VAR\+\_\+\+FREE\+\_\+\+POOL}(pool,  name)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a1f3c3ae0938b5510978cbd31560a5797}\label{tcpip__priv_8h_a1f3c3ae0938b5510978cbd31560a5797}} 
+\#define {\bfseries API\+\_\+\+EXPR\+\_\+\+REF}(expr)~expr
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a91e803b3c3f0ab89b20d7a85e3e92624}\label{tcpip__priv_8h_a91e803b3c3f0ab89b20d7a85e3e92624}} 
+\#define {\bfseries API\+\_\+\+EXPR\+\_\+\+REF\+\_\+\+SEM}(expr)~API\+\_\+\+EXPR\+\_\+\+REF(expr)
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a4b2322aa0c1906f84f16acf359f06a92}\label{tcpip__priv_8h_a4b2322aa0c1906f84f16acf359f06a92}} 
+\#define {\bfseries API\+\_\+\+EXPR\+\_\+\+DEREF}(expr)~($\ast$(expr))
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_ad299ce8f259fb9f1f6c5c5a812f1bc58}\label{tcpip__priv_8h_ad299ce8f259fb9f1f6c5c5a812f1bc58}} 
+\#define {\bfseries API\+\_\+\+MSG\+\_\+\+M\+\_\+\+DEF}(m)~$\ast$m
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a3a9d654eb42f26b409d1386d162f1e31}\label{tcpip__priv_8h_a3a9d654eb42f26b409d1386d162f1e31}} 
+\#define {\bfseries API\+\_\+\+MSG\+\_\+\+M\+\_\+\+DEF\+\_\+C}(t,  m)~const t $\ast$ m
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_aa7ecde8c8d8012fe5c498f7ee58f9458}\label{tcpip__priv_8h_aa7ecde8c8d8012fe5c498f7ee58f9458}} 
+typedef \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}}($\ast$ {\bfseries tcpip\+\_\+api\+\_\+call\+\_\+fn}) (struct \mbox{\hyperlink{structtcpip__api__call__data}{tcpip\+\_\+api\+\_\+call\+\_\+data}} $\ast$call)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcpip__priv_8h_a1e0cb5032a61055e3f4a3426ed548937}\label{tcpip__priv_8h_a1e0cb5032a61055e3f4a3426ed548937}} 
+enum {\bfseries tcpip\+\_\+msg\+\_\+type} \{ \newline
+{\bfseries TCPIP\+\_\+\+MSG\+\_\+\+API}
+, {\bfseries TCPIP\+\_\+\+MSG\+\_\+\+API\+\_\+\+CALL}
+, {\bfseries TCPIP\+\_\+\+MSG\+\_\+\+INPKT}
+, {\bfseries TCPIP\+\_\+\+MSG\+\_\+\+CALLBACK}
+, \newline
+{\bfseries TCPIP\+\_\+\+MSG\+\_\+\+CALLBACK\+\_\+\+STATIC}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{tcpip__priv_8h_a12bdf37eddcd72c4178e3ea7d370395d}{tcpip\+\_\+send\+\_\+msg\+\_\+wait\+\_\+sem}} (\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\+\_\+callback\+\_\+fn}} fn, void $\ast$apimsg, sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{tcpip__priv_8h_a3d42b0c46607f91aedcc7745ed466b08}{tcpip\+\_\+api\+\_\+call}} (tcpip\+\_\+api\+\_\+call\+\_\+fn fn, struct \mbox{\hyperlink{structtcpip__api__call__data}{tcpip\+\_\+api\+\_\+call\+\_\+data}} $\ast$call)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+TCPIP API internal implementations (do not use in application code) 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tcpip__priv_8h_a3d42b0c46607f91aedcc7745ed466b08}\label{tcpip__priv_8h_a3d42b0c46607f91aedcc7745ed466b08}} 
+\index{tcpip\_priv.h@{tcpip\_priv.h}!tcpip\_api\_call@{tcpip\_api\_call}}
+\index{tcpip\_api\_call@{tcpip\_api\_call}!tcpip\_priv.h@{tcpip\_priv.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_api\_call()}{tcpip\_api\_call()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} tcpip\+\_\+api\+\_\+call (\begin{DoxyParamCaption}\item[{tcpip\+\_\+api\+\_\+call\+\_\+fn}]{fn,  }\item[{struct \mbox{\hyperlink{structtcpip__api__call__data}{tcpip\+\_\+api\+\_\+call\+\_\+data}} $\ast$}]{call }\end{DoxyParamCaption})}
+
+Synchronously calls function in TCPIP thread and waits for its completion. It is recommended to use LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING (preferred) or LWIP\+\_\+\+NETCONN\+\_\+\+SEM\+\_\+\+PER\+\_\+\+THREAD. If not, a semaphore is created and destroyed on every call which is usually an expensive/slow operation. 
+\begin{DoxyParams}{Parameters}
+{\em fn} & Function to call \\
+\hline
+{\em call} & Call parameters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return value from tcpip\+\_\+api\+\_\+call\+\_\+fn 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tcpip__priv_8h_a12bdf37eddcd72c4178e3ea7d370395d}\label{tcpip__priv_8h_a12bdf37eddcd72c4178e3ea7d370395d}} 
+\index{tcpip\_priv.h@{tcpip\_priv.h}!tcpip\_send\_msg\_wait\_sem@{tcpip\_send\_msg\_wait\_sem}}
+\index{tcpip\_send\_msg\_wait\_sem@{tcpip\_send\_msg\_wait\_sem}!tcpip\_priv.h@{tcpip\_priv.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_send\_msg\_wait\_sem()}{tcpip\_send\_msg\_wait\_sem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} tcpip\+\_\+send\+\_\+msg\+\_\+wait\+\_\+sem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\+\_\+callback\+\_\+fn}}}]{fn,  }\item[{void $\ast$}]{apimsg,  }\item[{sys\+\_\+sem\+\_\+t $\ast$}]{sem }\end{DoxyParamCaption})}
+
+Sends a message to TCPIP thread to call a function. Caller thread blocks on on a provided semaphore, which ist NOT automatically signalled by TCPIP thread, this has to be done by the user. It is recommended to use LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING since this is the way with least runtime overhead.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & function to be called from TCPIP thread \\
+\hline
+{\em apimsg} & argument to API function \\
+\hline
+{\em sem} & semaphore to wait on \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if the function was called, another err\+\_\+t if not 
+\end{DoxyReturn}

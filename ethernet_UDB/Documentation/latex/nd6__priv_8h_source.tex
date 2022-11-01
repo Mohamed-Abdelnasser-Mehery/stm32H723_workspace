@@ -1,0 +1,135 @@
+\hypertarget{nd6__priv_8h_source}{}\doxysection{nd6\+\_\+priv.\+h}
+\label{nd6__priv_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/nd6\_priv.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/nd6\_priv.h}}
+\mbox{\hyperlink{nd6__priv_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (c) 2010 Inico Technologies Ltd.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{14 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{21 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{22 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{23 \textcolor{comment}{ *}}
+\DoxyCodeLine{24 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{25 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{26 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{27 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{28 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{29 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{30 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{31 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{32 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{33 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ * Author: Ivan Delamer <delamer@inicotech.com>}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ *}}
+\DoxyCodeLine{40 \textcolor{comment}{ * Please coordinate changes and requests with Ivan Delamer}}
+\DoxyCodeLine{41 \textcolor{comment}{ * <delamer@inicotech.com>}}
+\DoxyCodeLine{42 \textcolor{comment}{ */}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_ND6\_PRIV\_H}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define LWIP\_HDR\_ND6\_PRIV\_H}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#if LWIP\_IPV6  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pbuf_8h}{lwip/pbuf.h}}"{}}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip6__addr_8h}{lwip/ip6\_addr.h}}"{}}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{57 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#if LWIP\_ND6\_QUEUEING}}
+\DoxyCodeLine{64 \textcolor{keyword}{struct }nd6\_q\_entry \{}
+\DoxyCodeLine{65   \textcolor{keyword}{struct }nd6\_q\_entry *next;}
+\DoxyCodeLine{66   \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p;}
+\DoxyCodeLine{67 \};}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_ND6\_QUEUEING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71 \textcolor{keyword}{struct }nd6\_neighbor\_cache\_entry \{}
+\DoxyCodeLine{72   ip6\_addr\_t next\_hop\_address;}
+\DoxyCodeLine{73   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}};}
+\DoxyCodeLine{74   u8\_t lladdr[\mbox{\hyperlink{netif_8h_ab887a8ec553de1be1d04cf2961c63c41}{NETIF\_MAX\_HWADDR\_LEN}}];}
+\DoxyCodeLine{75   \textcolor{comment}{/*u32\_t pmtu;*/}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#if LWIP\_ND6\_QUEUEING}}
+\DoxyCodeLine{78   \textcolor{keyword}{struct }nd6\_q\_entry *q;}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_ND6\_QUEUEING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{81   \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *q;}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_ND6\_QUEUEING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{83   u8\_t state;}
+\DoxyCodeLine{84   u8\_t isrouter;}
+\DoxyCodeLine{85   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{86     u32\_t reachable\_time; \textcolor{comment}{/* in seconds */}}
+\DoxyCodeLine{87     u32\_t delay\_time;     \textcolor{comment}{/* ticks (ND6\_TMR\_INTERVAL) */}}
+\DoxyCodeLine{88     u32\_t probes\_sent;}
+\DoxyCodeLine{89     u32\_t stale\_time;     \textcolor{comment}{/* ticks (ND6\_TMR\_INTERVAL) */}}
+\DoxyCodeLine{90   \} counter;}
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{keyword}{struct }nd6\_destination\_cache\_entry \{}
+\DoxyCodeLine{94   ip6\_addr\_t destination\_addr;}
+\DoxyCodeLine{95   ip6\_addr\_t next\_hop\_addr;}
+\DoxyCodeLine{96   u16\_t pmtu;}
+\DoxyCodeLine{97   u32\_t age;}
+\DoxyCodeLine{98 \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{keyword}{struct }nd6\_prefix\_list\_entry \{}
+\DoxyCodeLine{101   ip6\_addr\_t prefix;}
+\DoxyCodeLine{102   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}};}
+\DoxyCodeLine{103   u32\_t invalidation\_timer; \textcolor{comment}{/* in seconds */}}
+\DoxyCodeLine{104 \};}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keyword}{struct }nd6\_router\_list\_entry \{}
+\DoxyCodeLine{107   \textcolor{keyword}{struct }nd6\_neighbor\_cache\_entry *neighbor\_entry;}
+\DoxyCodeLine{108   u32\_t invalidation\_timer; \textcolor{comment}{/* in seconds */}}
+\DoxyCodeLine{109   u8\_t flags;}
+\DoxyCodeLine{110 \};}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{keyword}{enum} nd6\_neighbor\_cache\_entry\_state \{}
+\DoxyCodeLine{113   ND6\_NO\_ENTRY = 0,}
+\DoxyCodeLine{114   ND6\_INCOMPLETE,}
+\DoxyCodeLine{115   ND6\_REACHABLE,}
+\DoxyCodeLine{116   ND6\_STALE,}
+\DoxyCodeLine{117   ND6\_DELAY,}
+\DoxyCodeLine{118   ND6\_PROBE}
+\DoxyCodeLine{119 \};}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define ND6\_HOPLIM 255 }\textcolor{comment}{/* maximum hop limit, required in all ND packets */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define ND6\_2HRS 7200 }\textcolor{comment}{/* two hours, expressed in number of seconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{comment}{/* Router tables. */}}
+\DoxyCodeLine{126 \textcolor{comment}{/* @todo make these static? and entries accessible through API? */}}
+\DoxyCodeLine{127 \textcolor{keyword}{extern} \textcolor{keyword}{struct }nd6\_neighbor\_cache\_entry neighbor\_cache[];}
+\DoxyCodeLine{128 \textcolor{keyword}{extern} \textcolor{keyword}{struct }nd6\_destination\_cache\_entry destination\_cache[];}
+\DoxyCodeLine{129 \textcolor{keyword}{extern} \textcolor{keyword}{struct }nd6\_prefix\_list\_entry prefix\_list[];}
+\DoxyCodeLine{130 \textcolor{keyword}{extern} \textcolor{keyword}{struct }nd6\_router\_list\_entry default\_router\_list[];}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 \textcolor{comment}{/* Default values, can be updated by a RA message. */}}
+\DoxyCodeLine{133 \textcolor{keyword}{extern} u32\_t reachable\_time;}
+\DoxyCodeLine{134 \textcolor{keyword}{extern} u32\_t retrans\_timer;}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{137 \}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_ND6\_PRIV\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

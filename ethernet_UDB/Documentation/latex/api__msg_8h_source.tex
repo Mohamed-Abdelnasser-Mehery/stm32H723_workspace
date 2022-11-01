@@ -1,0 +1,244 @@
+\hypertarget{api__msg_8h_source}{}\doxysection{api\+\_\+msg.\+h}
+\label{api__msg_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/api\_msg.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/api\_msg.h}}
+\mbox{\hyperlink{api__msg_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_API\_MSG\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_API\_MSG\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{arch_8h}{lwip/arch.h}}"{}}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{sys_8h}{lwip/sys.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{igmp_8h}{lwip/igmp.h}}"{}}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{api_8h}{lwip/api.h}}"{}}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{tcpip__priv_8h}{lwip/priv/tcpip\_priv.h}}"{}}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{51 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#if LWIP\_NETCONN || LWIP\_SOCKET }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{55 \textcolor{comment}{/* Note: Netconn API is always available when sockets are enabled -\/}}
+\DoxyCodeLine{56 \textcolor{comment}{ * sockets are implemented on top of them */}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#if LWIP\_MPU\_COMPATIBLE}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#if LWIP\_NETCONN\_SEM\_PER\_THREAD}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define API\_MSG\_M\_DEF\_SEM(m)  *m}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define API\_MSG\_M\_DEF\_SEM(m)  API\_MSG\_M\_DEF(m)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define API\_MSG\_M\_DEF\_SEM(m)  API\_MSG\_M\_DEF(m)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{comment}{/* For the netconn API, these values are use as a bitmask! */}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define NETCONN\_SHUT\_RD   1}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define NETCONN\_SHUT\_WR   2}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define NETCONN\_SHUT\_RDWR (NETCONN\_SHUT\_RD | NETCONN\_SHUT\_WR)}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{comment}{/* IP addresses and port numbers are expected to be in}}
+\DoxyCodeLine{74 \textcolor{comment}{ * the same byte order as in the corresponding pcb.}}
+\DoxyCodeLine{75 \textcolor{comment}{ */}}
+\DoxyCodeLine{79 \textcolor{keyword}{struct }api\_msg \{}
+\DoxyCodeLine{82   \textcolor{keyword}{struct }netconn *conn;}
+\DoxyCodeLine{84   \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err;}
+\DoxyCodeLine{86   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{88     \textcolor{keyword}{struct }netbuf *b;}
+\DoxyCodeLine{90     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{91       u8\_t proto;}
+\DoxyCodeLine{92     \} n;}
+\DoxyCodeLine{94     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{95       API\_MSG\_M\_DEF\_C(ip\_addr\_t, ipaddr);}
+\DoxyCodeLine{96       u16\_t port;}
+\DoxyCodeLine{97       u8\_t if\_idx;}
+\DoxyCodeLine{98     \} bc;}
+\DoxyCodeLine{100     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{101       ip\_addr\_t API\_MSG\_M\_DEF(ipaddr);}
+\DoxyCodeLine{102       u16\_t API\_MSG\_M\_DEF(port);}
+\DoxyCodeLine{103       u8\_t local;}
+\DoxyCodeLine{104     \} ad;}
+\DoxyCodeLine{106     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{108       \textcolor{keyword}{const} \textcolor{keyword}{struct }netvector *vector;}
+\DoxyCodeLine{110       u16\_t vector\_cnt;}
+\DoxyCodeLine{112       \textcolor{keywordtype}{size\_t} vector\_off;}
+\DoxyCodeLine{114       \textcolor{keywordtype}{size\_t} len;}
+\DoxyCodeLine{116       \textcolor{keywordtype}{size\_t} offset;}
+\DoxyCodeLine{117       u8\_t apiflags;}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#if LWIP\_SO\_SNDTIMEO}}
+\DoxyCodeLine{119       u32\_t time\_started;}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SO\_SNDTIMEO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{121     \} w;}
+\DoxyCodeLine{123     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{124       \textcolor{keywordtype}{size\_t} len;}
+\DoxyCodeLine{125     \} r;}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#if LWIP\_TCP}}
+\DoxyCodeLine{128     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{129       u8\_t shut;}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#if LWIP\_SO\_SNDTIMEO || LWIP\_SO\_LINGER}}
+\DoxyCodeLine{131       u32\_t time\_started;}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_SO\_SNDTIMEO || LWIP\_SO\_LINGER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{133       u8\_t polls\_left;}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SO\_SNDTIMEO || LWIP\_SO\_LINGER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{135     \} sd;}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#if LWIP\_IGMP || (LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD)}}
+\DoxyCodeLine{139     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{140       API\_MSG\_M\_DEF\_C(ip\_addr\_t, multiaddr);}
+\DoxyCodeLine{141       API\_MSG\_M\_DEF\_C(ip\_addr\_t, netif\_addr);}
+\DoxyCodeLine{142       u8\_t if\_idx;}
+\DoxyCodeLine{143       \textcolor{keyword}{enum} netconn\_igmp join\_or\_leave;}
+\DoxyCodeLine{144     \} jl;}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IGMP || (LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#if TCP\_LISTEN\_BACKLOG}}
+\DoxyCodeLine{147     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{148       u8\_t backlog;}
+\DoxyCodeLine{149     \} lb;}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TCP\_LISTEN\_BACKLOG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{151   \} msg;}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#if LWIP\_NETCONN\_SEM\_PER\_THREAD}}
+\DoxyCodeLine{153   sys\_sem\_t* op\_completed\_sem;}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETCONN\_SEM\_PER\_THREAD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{155 \};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#if LWIP\_NETCONN\_SEM\_PER\_THREAD}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define LWIP\_API\_MSG\_SEM(msg)          ((msg)-\/>op\_completed\_sem)}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_NETCONN\_SEM\_PER\_THREAD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define LWIP\_API\_MSG\_SEM(msg)          (\&(msg)-\/>conn-\/>op\_completed)}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETCONN\_SEM\_PER\_THREAD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#if LWIP\_DNS}}
+\DoxyCodeLine{169 \textcolor{keyword}{struct }dns\_api\_msg \{}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#if LWIP\_MPU\_COMPATIBLE}}
+\DoxyCodeLine{172   \textcolor{keywordtype}{char} name[\mbox{\hyperlink{group__lwip__opts__dns_ga3b01c79902063c170ef57deb72f56124}{DNS\_MAX\_NAME\_LENGTH}}];}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{174   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name;}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{177   ip\_addr\_t API\_MSG\_M\_DEF(addr);}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_IPV6}}
+\DoxyCodeLine{180   u8\_t dns\_addrtype;}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{184   sys\_sem\_t API\_MSG\_M\_DEF\_SEM(sem);}
+\DoxyCodeLine{186   \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} API\_MSG\_M\_DEF(err);}
+\DoxyCodeLine{187 \};}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#if LWIP\_NETCONN\_FULLDUPLEX}}
+\DoxyCodeLine{191 \textcolor{keywordtype}{int} lwip\_netconn\_is\_deallocated\_msg(\textcolor{keywordtype}{void} *msg);}
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{193 \textcolor{keywordtype}{int} lwip\_netconn\_is\_err\_msg(\textcolor{keywordtype}{void} *msg, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} *err);}
+\DoxyCodeLine{194 \textcolor{keywordtype}{void} lwip\_netconn\_do\_newconn         (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{195 \textcolor{keywordtype}{void} lwip\_netconn\_do\_delconn         (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{196 \textcolor{keywordtype}{void} lwip\_netconn\_do\_bind            (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{197 \textcolor{keywordtype}{void} lwip\_netconn\_do\_bind\_if         (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{198 \textcolor{keywordtype}{void} lwip\_netconn\_do\_connect         (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{199 \textcolor{keywordtype}{void} lwip\_netconn\_do\_disconnect      (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{200 \textcolor{keywordtype}{void} lwip\_netconn\_do\_listen          (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{201 \textcolor{keywordtype}{void} lwip\_netconn\_do\_send            (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{202 \textcolor{keywordtype}{void} lwip\_netconn\_do\_recv            (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#if TCP\_LISTEN\_BACKLOG}}
+\DoxyCodeLine{204 \textcolor{keywordtype}{void} lwip\_netconn\_do\_accepted        (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TCP\_LISTEN\_BACKLOG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{206 \textcolor{keywordtype}{void} lwip\_netconn\_do\_write           (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{207 \textcolor{keywordtype}{void} lwip\_netconn\_do\_getaddr         (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{208 \textcolor{keywordtype}{void} lwip\_netconn\_do\_close           (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{209 \textcolor{keywordtype}{void} lwip\_netconn\_do\_shutdown        (\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#if LWIP\_IGMP || (LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD)}}
+\DoxyCodeLine{211 \textcolor{keywordtype}{void} lwip\_netconn\_do\_join\_leave\_group(\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{212 \textcolor{keywordtype}{void} lwip\_netconn\_do\_join\_leave\_group\_netif(\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IGMP || (LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#if LWIP\_DNS}}
+\DoxyCodeLine{216 \textcolor{keywordtype}{void} lwip\_netconn\_do\_gethostbyname(\textcolor{keywordtype}{void} *arg);}
+\DoxyCodeLine{217 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219 \textcolor{keyword}{struct }netconn* netconn\_alloc(\textcolor{keyword}{enum} netconn\_type t, netconn\_callback callback);}
+\DoxyCodeLine{220 \textcolor{keywordtype}{void} netconn\_free(\textcolor{keyword}{struct} netconn *conn);}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETCONN || LWIP\_SOCKET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#if LWIP\_NETIF\_API }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226 \textcolor{comment}{/* netifapi related lwIP internal definitions */}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#if LWIP\_MPU\_COMPATIBLE}}
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#define NETIFAPI\_IPADDR\_DEF(type, m)  type m}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#define NETIFAPI\_IPADDR\_DEF(type, m)  const type * m}}
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234 \textcolor{keyword}{typedef} void (*netifapi\_void\_fn)(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{235 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*netifapi\_errt\_fn)(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 \textcolor{keyword}{struct }netifapi\_msg \{}
+\DoxyCodeLine{238   \textcolor{keyword}{struct }\mbox{\hyperlink{structtcpip__api__call__data}{tcpip\_api\_call\_data}} call;}
+\DoxyCodeLine{239   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}};}
+\DoxyCodeLine{240   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{241     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{243       NETIFAPI\_IPADDR\_DEF(ip4\_addr\_t, ipaddr);}
+\DoxyCodeLine{244       NETIFAPI\_IPADDR\_DEF(ip4\_addr\_t, netmask);}
+\DoxyCodeLine{245       NETIFAPI\_IPADDR\_DEF(ip4\_addr\_t, gw);}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{247       \textcolor{keywordtype}{void} *state;}
+\DoxyCodeLine{248       \mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\_init\_fn}} init;}
+\DoxyCodeLine{249       \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\_input\_fn}} input;}
+\DoxyCodeLine{250     \} add;}
+\DoxyCodeLine{251     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{252       netifapi\_void\_fn voidfunc;}
+\DoxyCodeLine{253       netifapi\_errt\_fn errtfunc;}
+\DoxyCodeLine{254     \} common;}
+\DoxyCodeLine{255     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#if LWIP\_MPU\_COMPATIBLE}}
+\DoxyCodeLine{257       \textcolor{keywordtype}{char} name[\mbox{\hyperlink{netif_8h_a302f24fbfe883ee4840ffc71f267ae2a}{NETIF\_NAMESIZE}}];}
+\DoxyCodeLine{258 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{259       \textcolor{keywordtype}{char} *name;}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{261       u8\_t index;}
+\DoxyCodeLine{262     \} ifs;}
+\DoxyCodeLine{263   \} msg;}
+\DoxyCodeLine{264 \};}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_API */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{269 \}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_API\_MSG\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

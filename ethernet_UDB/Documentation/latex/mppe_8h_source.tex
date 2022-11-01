@@ -1,0 +1,187 @@
+\hypertarget{mppe_8h_source}{}\doxysection{mppe.\+h}
+\label{mppe_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/mppe.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/mppe.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * mppe.h -\/ Definitions for MPPE}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 2008 Paul Mackerras. All rights reserved.}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{7 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{8 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    the documentation and/or other materials provided with the}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    distribution.}}
+\DoxyCodeLine{17 \textcolor{comment}{ *}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name(s) of the authors of this software must not be used to}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    prior written permission.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * 4. Redistributions of any form whatsoever must retain the following}}
+\DoxyCodeLine{23 \textcolor{comment}{ *    acknowledgment:}}
+\DoxyCodeLine{24 \textcolor{comment}{ *    "{}This product includes software developed by Paul Mackerras}}
+\DoxyCodeLine{25 \textcolor{comment}{ *     <paulus@samba.org>"{}.}}
+\DoxyCodeLine{26 \textcolor{comment}{ *}}
+\DoxyCodeLine{27 \textcolor{comment}{ * THE AUTHORS OF THIS SOFTWARE DISCLAIM ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{28 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{29 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{31 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{32 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{33 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{34 \textcolor{comment}{ */}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& MPPE\_SUPPORT  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#ifndef MPPE\_H}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define MPPE\_H}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}netif/ppp/pppcrypt.h"{}}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{45 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define MPPE\_PAD        4   }\textcolor{comment}{/* MPPE growth per frame */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define MPPE\_MAX\_KEY\_LEN    16  }\textcolor{comment}{/* largest key length (128-\/bit) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{comment}{/* option bits for ccp\_options.mppe */}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define MPPE\_OPT\_40     0x01    }\textcolor{comment}{/* 40 bit */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define MPPE\_OPT\_128        0x02    }\textcolor{comment}{/* 128 bit */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define MPPE\_OPT\_STATEFUL   0x04    }\textcolor{comment}{/* stateful mode */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{55 \textcolor{comment}{/* unsupported opts */}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define MPPE\_OPT\_56     0x08    }\textcolor{comment}{/* 56 bit */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define MPPE\_OPT\_MPPC       0x10    }\textcolor{comment}{/* MPPC compression */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define MPPE\_OPT\_D      0x20    }\textcolor{comment}{/* Unknown */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define MPPE\_OPT\_UNSUPPORTED (MPPE\_OPT\_56|MPPE\_OPT\_MPPC|MPPE\_OPT\_D)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define MPPE\_OPT\_UNKNOWN    0x40    }\textcolor{comment}{/* Bits !defined in RFC 3078 were set */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{comment}{/*}}
+\DoxyCodeLine{63 \textcolor{comment}{ * This is not nice ... the alternative is a bitfield struct though.}}
+\DoxyCodeLine{64 \textcolor{comment}{ * And unfortunately, we cannot share the same bits for the option}}
+\DoxyCodeLine{65 \textcolor{comment}{ * names above since C and H are the same bit.  We could do a u\_int32}}
+\DoxyCodeLine{66 \textcolor{comment}{ * but then we have to do a lwip\_htonl() all the time and/or we still need}}
+\DoxyCodeLine{67 \textcolor{comment}{ * to know which octet is which.}}
+\DoxyCodeLine{68 \textcolor{comment}{ */}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define MPPE\_C\_BIT      0x01    }\textcolor{comment}{/* MPPC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define MPPE\_D\_BIT      0x10    }\textcolor{comment}{/* Obsolete, usage unknown */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define MPPE\_L\_BIT      0x20    }\textcolor{comment}{/* 40-\/bit */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define MPPE\_S\_BIT      0x40    }\textcolor{comment}{/* 128-\/bit */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define MPPE\_M\_BIT      0x80    }\textcolor{comment}{/* 56-\/bit, not supported */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define MPPE\_H\_BIT      0x01    }\textcolor{comment}{/* Stateless (in a different byte) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{comment}{/* Does not include H bit; used for least significant octet only. */}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define MPPE\_ALL\_BITS (MPPE\_D\_BIT|MPPE\_L\_BIT|MPPE\_S\_BIT|MPPE\_M\_BIT|MPPE\_H\_BIT)}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{comment}{/* Build a CI from mppe opts (see RFC 3078) */}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define MPPE\_OPTS\_TO\_CI(opts, ci)       \(\backslash\)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{    do \{                    \(\backslash\)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{    u\_char *ptr = ci; }\textcolor{comment}{/* u\_char[4] */}\textcolor{preprocessor}{   \(\backslash\)}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{                        \(\backslash\)}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{    }\textcolor{comment}{/* H bit */}\textcolor{preprocessor}{             \(\backslash\)}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{    if (opts \& MPPE\_OPT\_STATEFUL)       \(\backslash\)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{        *ptr++ = 0x0;           \(\backslash\)}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{    else                    \(\backslash\)}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{        *ptr++ = MPPE\_H\_BIT;        \(\backslash\)}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{    *ptr++ = 0;             \(\backslash\)}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{    *ptr++ = 0;             \(\backslash\)}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{                        \(\backslash\)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{    }\textcolor{comment}{/* S,L bits */}\textcolor{preprocessor}{              \(\backslash\)}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{    *ptr = 0;               \(\backslash\)}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{    if (opts \& MPPE\_OPT\_128)        \(\backslash\)}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{        *ptr |= MPPE\_S\_BIT;         \(\backslash\)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{    if (opts \& MPPE\_OPT\_40)         \(\backslash\)}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{        *ptr |= MPPE\_L\_BIT;         \(\backslash\)}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{    }\textcolor{comment}{/* M,D,C bits not supported */}\textcolor{preprocessor}{      \(\backslash\)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{    \} while (}\textcolor{comment}{/* CONSTCOND */}\textcolor{preprocessor}{ 0)}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{comment}{/* The reverse of the above */}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define MPPE\_CI\_TO\_OPTS(ci, opts)       \(\backslash\)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{    do \{                    \(\backslash\)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{    const u\_char *ptr = ci; }\textcolor{comment}{/* u\_char[4] */}\textcolor{preprocessor}{ \(\backslash\)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{                        \(\backslash\)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{    opts = 0;               \(\backslash\)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{                        \(\backslash\)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{    }\textcolor{comment}{/* H bit */}\textcolor{preprocessor}{             \(\backslash\)}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{    if (!(ptr[0] \& MPPE\_H\_BIT))     \(\backslash\)}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{        opts |= MPPE\_OPT\_STATEFUL;      \(\backslash\)}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{                        \(\backslash\)}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{    }\textcolor{comment}{/* S,L bits */}\textcolor{preprocessor}{              \(\backslash\)}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{    if (ptr[3] \& MPPE\_S\_BIT)        \(\backslash\)}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{        opts |= MPPE\_OPT\_128;       \(\backslash\)}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{    if (ptr[3] \& MPPE\_L\_BIT)        \(\backslash\)}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{        opts |= MPPE\_OPT\_40;        \(\backslash\)}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{                        \(\backslash\)}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{    }\textcolor{comment}{/* M,D,C bits */}\textcolor{preprocessor}{            \(\backslash\)}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{    if (ptr[3] \& MPPE\_M\_BIT)        \(\backslash\)}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{        opts |= MPPE\_OPT\_56;        \(\backslash\)}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{    if (ptr[3] \& MPPE\_D\_BIT)        \(\backslash\)}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{        opts |= MPPE\_OPT\_D;         \(\backslash\)}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{    if (ptr[3] \& MPPE\_C\_BIT)        \(\backslash\)}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{        opts |= MPPE\_OPT\_MPPC;      \(\backslash\)}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{                        \(\backslash\)}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{    }\textcolor{comment}{/* Other bits */}\textcolor{preprocessor}{            \(\backslash\)}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{    if (ptr[0] \& \string~MPPE\_H\_BIT)       \(\backslash\)}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{        opts |= MPPE\_OPT\_UNKNOWN;       \(\backslash\)}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{    if (ptr[1] || ptr[2])           \(\backslash\)}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{        opts |= MPPE\_OPT\_UNKNOWN;       \(\backslash\)}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{    if (ptr[3] \& \string~MPPE\_ALL\_BITS)        \(\backslash\)}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{        opts |= MPPE\_OPT\_UNKNOWN;       \(\backslash\)}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{    \} while (}\textcolor{comment}{/* CONSTCOND */}\textcolor{preprocessor}{ 0)}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{comment}{/* Shared MPPE padding between MSCHAP and MPPE */}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define SHA1\_PAD\_SIZE 40}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{keyword}{static} \textcolor{keyword}{const} u8\_t mppe\_sha1\_pad1[SHA1\_PAD\_SIZE] = \{}
+\DoxyCodeLine{139   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,}
+\DoxyCodeLine{140   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,}
+\DoxyCodeLine{141   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,}
+\DoxyCodeLine{142   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}
+\DoxyCodeLine{143 \};}
+\DoxyCodeLine{144 \textcolor{keyword}{static} \textcolor{keyword}{const} u8\_t mppe\_sha1\_pad2[SHA1\_PAD\_SIZE] = \{}
+\DoxyCodeLine{145   0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2,}
+\DoxyCodeLine{146   0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2,}
+\DoxyCodeLine{147   0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2,}
+\DoxyCodeLine{148   0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2, 0xf2}
+\DoxyCodeLine{149 \};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{comment}{/*}}
+\DoxyCodeLine{152 \textcolor{comment}{ * State for an MPPE (de)compressor.}}
+\DoxyCodeLine{153 \textcolor{comment}{ */}}
+\DoxyCodeLine{154 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ppp\_mppe\_state \{}
+\DoxyCodeLine{155     lwip\_arc4\_context arc4;}
+\DoxyCodeLine{156     u8\_t master\_key[MPPE\_MAX\_KEY\_LEN];}
+\DoxyCodeLine{157     u8\_t session\_key[MPPE\_MAX\_KEY\_LEN];}
+\DoxyCodeLine{158     u8\_t keylen;                \textcolor{comment}{/* key length in bytes */}}
+\DoxyCodeLine{159     \textcolor{comment}{/* NB: 128-\/bit == 16, 40-\/bit == 8!}}
+\DoxyCodeLine{160 \textcolor{comment}{     * If we want to support 56-\/bit, the unit has to change to bits}}
+\DoxyCodeLine{161 \textcolor{comment}{     */}}
+\DoxyCodeLine{162     u8\_t bits;                  \textcolor{comment}{/* MPPE control bits */}}
+\DoxyCodeLine{163     u16\_t ccount;               \textcolor{comment}{/* 12-\/bit coherency count (seqno)  */}}
+\DoxyCodeLine{164     u16\_t sanity\_errors;        \textcolor{comment}{/* take down LCP if too many */}}
+\DoxyCodeLine{165     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} stateful  :1;  \textcolor{comment}{/* stateful mode flag */}}
+\DoxyCodeLine{166     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} discard   :1;  \textcolor{comment}{/* stateful mode packet loss flag */}}
+\DoxyCodeLine{167 \} ppp\_mppe\_state;}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{keywordtype}{void} mppe\_set\_key(ppp\_pcb *pcb, ppp\_mppe\_state *state, u8\_t *key);}
+\DoxyCodeLine{170 \textcolor{keywordtype}{void} mppe\_init(ppp\_pcb *pcb, ppp\_mppe\_state *state, u8\_t options);}
+\DoxyCodeLine{171 \textcolor{keywordtype}{void} mppe\_comp\_reset(ppp\_pcb *pcb, ppp\_mppe\_state *state);}
+\DoxyCodeLine{172 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} mppe\_compress(ppp\_pcb *pcb, ppp\_mppe\_state *state, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} **pb, u16\_t protocol);}
+\DoxyCodeLine{173 \textcolor{keywordtype}{void} mppe\_decomp\_reset(ppp\_pcb *pcb, ppp\_mppe\_state *state);}
+\DoxyCodeLine{174 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} mppe\_decompress(ppp\_pcb *pcb, ppp\_mppe\_state *state, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} **pb);}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{177 \}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MPPE\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& MPPE\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

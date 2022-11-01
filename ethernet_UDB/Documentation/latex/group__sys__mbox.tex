@@ -1,0 +1,158 @@
+\hypertarget{group__sys__mbox}{}\doxysection{Mailboxes}
+\label{group__sys__mbox}\index{Mailboxes@{Mailboxes}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}{sys\+\_\+mbox\+\_\+new}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, int size)
+\item 
+void \mbox{\hyperlink{group__sys__mbox_ga9d068386a3c53dd01b8af99c3ef77555}{sys\+\_\+mbox\+\_\+post}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$msg)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__mbox_gaa36345e48a49d67cbb0878cd4cbd2195}{sys\+\_\+mbox\+\_\+trypost}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$msg)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__mbox_gaf677a6e76adb7650a3020fdb3cb8429a}{sys\+\_\+mbox\+\_\+trypost\+\_\+fromisr}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$msg)
+\item 
+u32\+\_\+t \mbox{\hyperlink{group__sys__mbox_ga6464cd77cf6799bd8b3d6c840166a2e8}{sys\+\_\+arch\+\_\+mbox\+\_\+fetch}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$$\ast$msg, u32\+\_\+t timeout)
+\item 
+u32\+\_\+t \mbox{\hyperlink{group__sys__mbox_gafab441b130b4ec417012835dbe1e497c}{sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$$\ast$msg)
+\item 
+void \mbox{\hyperlink{group__sys__mbox_gac641a45812155d2234ef80dd6412882f}{sys\+\_\+mbox\+\_\+free}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\item 
+int \mbox{\hyperlink{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\item 
+void \mbox{\hyperlink{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}{sys\+\_\+mbox\+\_\+set\+\_\+invalid}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Mailboxes should be implemented as a queue which allows multiple messages to be posted (implementing as a rendez-\/vous point where only one message can be posted at a time can have a highly negative impact on performance). A message in a mailbox is just a pointer, nothing more. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__sys__mbox_ga6464cd77cf6799bd8b3d6c840166a2e8}\label{group__sys__mbox_ga6464cd77cf6799bd8b3d6c840166a2e8}} 
+\index{Mailboxes@{Mailboxes}!sys\_arch\_mbox\_fetch@{sys\_arch\_mbox\_fetch}}
+\index{sys\_arch\_mbox\_fetch@{sys\_arch\_mbox\_fetch}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_arch\_mbox\_fetch()}{sys\_arch\_mbox\_fetch()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+arch\+\_\+mbox\+\_\+fetch (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$$\ast$}]{msg,  }\item[{u32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+Blocks the thread until a message arrives in the mailbox, but does not block the thread longer than \char`\"{}timeout\char`\"{} milliseconds (similar to the \mbox{\hyperlink{group__sys__sem_ga8d364c5037778acb21c3df675db81b4f}{sys\+\_\+arch\+\_\+sem\+\_\+wait()}} function). If \char`\"{}timeout\char`\"{} is 0, the thread should be blocked until a message arrives. The \char`\"{}msg\char`\"{} argument is a result parameter that is set by the function (i.\+e., by doing \char`\"{}$\ast$msg = ptr\char`\"{}). The \char`\"{}msg\char`\"{} parameter maybe NULL to indicate that the message should be dropped. The return values are the same as for the \mbox{\hyperlink{group__sys__sem_ga8d364c5037778acb21c3df675db81b4f}{sys\+\_\+arch\+\_\+sem\+\_\+wait()}} function\+: SYS\+\_\+\+ARCH\+\_\+\+TIMEOUT if there was a timeout, any other value if a messages is received.
+
+Note that a function with a similar name, sys\+\_\+mbox\+\_\+fetch(), is implemented by lw\+IP.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to get a message from \\
+\hline
+{\em msg} & pointer where the message is stored \\
+\hline
+{\em timeout} & maximum time (in milliseconds) to wait for a message (0 = wait forever) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+SYS\+\_\+\+ARCH\+\_\+\+TIMEOUT on timeout, any other value if a message has been received 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__sys__mbox_gafab441b130b4ec417012835dbe1e497c}\label{group__sys__mbox_gafab441b130b4ec417012835dbe1e497c}} 
+\index{Mailboxes@{Mailboxes}!sys\_arch\_mbox\_tryfetch@{sys\_arch\_mbox\_tryfetch}}
+\index{sys\_arch\_mbox\_tryfetch@{sys\_arch\_mbox\_tryfetch}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_arch\_mbox\_tryfetch()}{sys\_arch\_mbox\_tryfetch()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$$\ast$}]{msg }\end{DoxyParamCaption})}
+
+This is similar to sys\+\_\+arch\+\_\+mbox\+\_\+fetch, however if a message is not present in the mailbox, it immediately returns with the code SYS\+\_\+\+MBOX\+\_\+\+EMPTY. On success 0 is returned. To allow for efficient implementations, this can be defined as a function-\/like macro in \mbox{\hyperlink{sys__arch_8h_source}{sys\+\_\+arch.\+h}} instead of a normal function. For example, a naive implementation could be\+: \#define sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch(mbox,msg) sys\+\_\+arch\+\_\+mbox\+\_\+fetch(mbox,msg,1) although this would introduce unnecessary delays.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to get a message from \\
+\hline
+{\em msg} & pointer where the message is stored \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 (milliseconds) if a message has been received or SYS\+\_\+\+MBOX\+\_\+\+EMPTY if the mailbox is empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__sys__mbox_gac641a45812155d2234ef80dd6412882f}\label{group__sys__mbox_gac641a45812155d2234ef80dd6412882f}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_free@{sys\_mbox\_free}}
+\index{sys\_mbox\_free@{sys\_mbox\_free}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_free()}{sys\_mbox\_free()}}
+{\footnotesize\ttfamily void sys\+\_\+mbox\+\_\+free (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox }\end{DoxyParamCaption})}
+
+Deallocates a mailbox. If there are messages still present in the mailbox when the mailbox is deallocated, it is an indication of a programming error in lw\+IP and the developer should be notified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to delete \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}\label{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_new@{sys\_mbox\_new}}
+\index{sys\_mbox\_new@{sys\_mbox\_new}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_new()}{sys\_mbox\_new()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+mbox\+\_\+new (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+Creates an empty mailbox for maximum \char`\"{}size\char`\"{} elements. Elements stored in mailboxes are pointers. You have to define macros \char`\"{}\+\_\+\+MBOX\+\_\+\+SIZE\char`\"{} in your \mbox{\hyperlink{lwipopts_8h_source}{lwipopts.\+h}}, or ignore this parameter in your implementation and use a default size. If the mailbox has been created, ERR\+\_\+\+OK should be returned. Returning any other error will provide a hint what went wrong, but except for assertions, no real error handling is implemented.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mbox} & pointer to the mbox to create \\
+\hline
+{\em size} & (minimum) number of messages in this mbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if successful, another err\+\_\+t otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__sys__mbox_ga9d068386a3c53dd01b8af99c3ef77555}\label{group__sys__mbox_ga9d068386a3c53dd01b8af99c3ef77555}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_post@{sys\_mbox\_post}}
+\index{sys\_mbox\_post@{sys\_mbox\_post}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_post()}{sys\_mbox\_post()}}
+{\footnotesize\ttfamily void sys\+\_\+mbox\+\_\+post (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Post a message to an mbox -\/ may not fail -\/\texorpdfstring{$>$}{>} blocks if full, only to be used from tasks NOT from ISR!
+
+
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to posts the message \\
+\hline
+{\em msg} & message to post (ATTENTION\+: can be NULL) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}\label{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_set\_invalid@{sys\_mbox\_set\_invalid}}
+\index{sys\_mbox\_set\_invalid@{sys\_mbox\_set\_invalid}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_set\_invalid()}{sys\_mbox\_set\_invalid()}}
+{\footnotesize\ttfamily void sys\+\_\+mbox\+\_\+set\+\_\+invalid (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox }\end{DoxyParamCaption})}
+
+Invalidate a mailbox so that \mbox{\hyperlink{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid()}} returns 0. ATTENTION\+: This does NOT mean that the mailbox shall be deallocated\+: \mbox{\hyperlink{group__sys__mbox_gac641a45812155d2234ef80dd6412882f}{sys\+\_\+mbox\+\_\+free()}} is always called before calling this function! This may also be a define, in which case the function is not prototyped. \mbox{\Hypertarget{group__sys__mbox_gaa36345e48a49d67cbb0878cd4cbd2195}\label{group__sys__mbox_gaa36345e48a49d67cbb0878cd4cbd2195}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_trypost@{sys\_mbox\_trypost}}
+\index{sys\_mbox\_trypost@{sys\_mbox\_trypost}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_trypost()}{sys\_mbox\_trypost()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+mbox\+\_\+trypost (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Try to post a message to an mbox -\/ may fail if full. Can be used from ISR (if the sys arch layer allows this). Returns ERR\+\_\+\+MEM if it is full, else, ERR\+\_\+\+OK if the \char`\"{}msg\char`\"{} is posted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to posts the message \\
+\hline
+{\em msg} & message to post (ATTENTION\+: can be NULL) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__sys__mbox_gaf677a6e76adb7650a3020fdb3cb8429a}\label{group__sys__mbox_gaf677a6e76adb7650a3020fdb3cb8429a}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_trypost\_fromisr@{sys\_mbox\_trypost\_fromisr}}
+\index{sys\_mbox\_trypost\_fromisr@{sys\_mbox\_trypost\_fromisr}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_trypost\_fromisr()}{sys\_mbox\_trypost\_fromisr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} sys\+\_\+mbox\+\_\+trypost\+\_\+fromisr (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox,  }\item[{void $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Try to post a message to an mbox -\/ may fail if full. To be be used from ISR. Returns ERR\+\_\+\+MEM if it is full, else, ERR\+\_\+\+OK if the \char`\"{}msg\char`\"{} is posted.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mbox} & mbox to posts the message \\
+\hline
+{\em msg} & message to post (ATTENTION\+: can be NULL) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}\label{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}} 
+\index{Mailboxes@{Mailboxes}!sys\_mbox\_valid@{sys\_mbox\_valid}}
+\index{sys\_mbox\_valid@{sys\_mbox\_valid}!Mailboxes@{Mailboxes}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_valid()}{sys\_mbox\_valid()}}
+{\footnotesize\ttfamily int sys\+\_\+mbox\+\_\+valid (\begin{DoxyParamCaption}\item[{sys\+\_\+mbox\+\_\+t $\ast$}]{mbox }\end{DoxyParamCaption})}
+
+Returns 1 if the mailbox is valid, 0 if it is not valid. When using pointers, a simple way is to check the pointer for != NULL. When directly using OS structures, implementing this may be more complex. This may also be a define, in which case the function is not prototyped. 

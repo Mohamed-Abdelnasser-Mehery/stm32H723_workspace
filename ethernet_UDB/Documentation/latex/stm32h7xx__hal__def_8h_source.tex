@@ -1,0 +1,181 @@
+\hypertarget{stm32h7xx__hal__def_8h_source}{}\doxysection{stm32h7xx\+\_\+hal\+\_\+def.\+h}
+\label{stm32h7xx__hal__def_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_def.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_def.h}}
+\mbox{\hyperlink{stm32h7xx__hal__def_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{20 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef STM32H7xx\_HAL\_DEF}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define STM32H7xx\_HAL\_DEF}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{25  \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32h7xx_8h}{stm32h7xx.h}}"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32__hal__legacy_8h}{Legacy/stm32\_hal\_legacy.h}}"{}}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include <stddef.h>}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include <math.h>}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{comment}{/* Exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{39 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{40 \{}
+\DoxyCodeLine{41   HAL\_OK       = 0x00,}
+\DoxyCodeLine{42   HAL\_ERROR    = 0x01,}
+\DoxyCodeLine{43   HAL\_BUSY     = 0x02,}
+\DoxyCodeLine{44   HAL\_TIMEOUT  = 0x03}
+\DoxyCodeLine{45 \} \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52   HAL\_UNLOCKED = 0x00,}
+\DoxyCodeLine{53   HAL\_LOCKED   = 0x01}
+\DoxyCodeLine{54 \} \mbox{\hyperlink{stm32h7xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\_LockTypeDef}};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{comment}{/* Exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define HAL\_MAX\_DELAY      0xFFFFFFFFU}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define HAL\_IS\_BIT\_SET(REG, BIT)         (((REG) \& (BIT)) == (BIT))}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define HAL\_IS\_BIT\_CLR(REG, BIT)         (((REG) \& (BIT)) == 0U)}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define \_\_HAL\_LINKDMA(\_\_HANDLE\_\_, \_\_PPP\_DMA\_FIELD\_\_, \_\_DMA\_HANDLE\_\_)               \(\backslash\)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{                        do\{                                                      \(\backslash\)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{                              (\_\_HANDLE\_\_)-\/>\_\_PPP\_DMA\_FIELD\_\_ = \&(\_\_DMA\_HANDLE\_\_); \(\backslash\)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{                              (\_\_DMA\_HANDLE\_\_).Parent = (\_\_HANDLE\_\_);             \(\backslash\)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{                          \} while(0)}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define UNUSED(x) ((void)(x))}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define \_\_HAL\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_) ((\_\_HANDLE\_\_)-\/>State = 0)}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#if (USE\_RTOS == 1)}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{  \#error "{} USE\_RTOS should be 0 in the current HAL release "{}}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{  \#define \_\_HAL\_LOCK(\_\_HANDLE\_\_)                                           \(\backslash\)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{                                do\{                                        \(\backslash\)}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{                                    if((\_\_HANDLE\_\_)-\/>Lock == HAL\_LOCKED)   \(\backslash\)}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{                                    \{                                      \(\backslash\)}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{                                       return HAL\_BUSY;                    \(\backslash\)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{                                    \}                                      \(\backslash\)}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{                                    else                                   \(\backslash\)}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{                                    \{                                      \(\backslash\)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{                                       (\_\_HANDLE\_\_)-\/>Lock = HAL\_LOCKED;    \(\backslash\)}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{                                    \}                                      \(\backslash\)}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{                                  \}while (0)}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{  \#define \_\_HAL\_UNLOCK(\_\_HANDLE\_\_)                                          \(\backslash\)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{                                  do\{                                       \(\backslash\)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{                                      (\_\_HANDLE\_\_)-\/>Lock = HAL\_UNLOCKED;    \(\backslash\)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{                                    \}while (0)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* USE\_RTOS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#if defined (\_\_ARMCC\_VERSION) \&\& (\_\_ARMCC\_VERSION >= 6010050) }\textcolor{comment}{/* ARM Compiler V6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{  \#ifndef \_\_weak}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{    \#define \_\_weak  \_\_attribute\_\_((weak))}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{  \#ifndef \_\_packed}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{    \#define \_\_packed  \_\_attribute\_\_((packed))}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#elif defined ( \_\_GNUC\_\_ ) \&\& !defined (\_\_CC\_ARM) }\textcolor{comment}{/* GNU Compiler */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{  \#ifndef \_\_weak}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{    \#define \_\_weak   \_\_attribute\_\_((weak))}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{/* \_\_weak */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{  \#ifndef \_\_packed}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{    \#define \_\_packed \_\_attribute\_\_((\_\_packed\_\_))}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{/* \_\_packed */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_GNUC\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{comment}{/* Macro to get variable aligned on 4-\/bytes, for \_\_ICCARM\_\_ the directive "{}\#pragma data\_alignment=4"{} must be used instead */}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#if defined (\_\_ARMCC\_VERSION) \&\& (\_\_ARMCC\_VERSION >= 6010050) }\textcolor{comment}{/* ARM Compiler V6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{  \#ifndef \_\_ALIGN\_BEGIN}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{    \#define \_\_ALIGN\_BEGIN}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{  \#ifndef \_\_ALIGN\_END}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{    \#define \_\_ALIGN\_END      \_\_attribute\_\_ ((aligned (4)))}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#elif defined ( \_\_GNUC\_\_ ) \&\& !defined (\_\_CC\_ARM) }\textcolor{comment}{/* GNU Compiler */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{  \#ifndef \_\_ALIGN\_END}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{    \#define \_\_ALIGN\_END    \_\_attribute\_\_ ((aligned (4)))}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{/* \_\_ALIGN\_END */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{  \#ifndef \_\_ALIGN\_BEGIN}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{    \#define \_\_ALIGN\_BEGIN}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{/* \_\_ALIGN\_BEGIN */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{  \#ifndef \_\_ALIGN\_END}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{    \#define \_\_ALIGN\_END}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{/* \_\_ALIGN\_END */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{  \#ifndef \_\_ALIGN\_BEGIN}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{    \#if defined   (\_\_CC\_ARM)      }\textcolor{comment}{/* ARM Compiler V5 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{      \#define \_\_ALIGN\_BEGIN    \_\_align(4)}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{    \#elif defined (\_\_ICCARM\_\_)    }\textcolor{comment}{/* IAR Compiler */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{      \#define \_\_ALIGN\_BEGIN}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{    \#endif }\textcolor{comment}{/* \_\_CC\_ARM */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{  \#endif }\textcolor{comment}{/* \_\_ALIGN\_BEGIN */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_GNUC\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{comment}{/* Macro to get variable aligned on 32-\/bytes,needed for cache maintenance purpose */}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#if defined   (\_\_GNUC\_\_)        }\textcolor{comment}{/* GNU Compiler */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{  \#define ALIGN\_32BYTES(buf)  buf \_\_attribute\_\_ ((aligned (32)))                                    }}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#elif defined (\_\_ICCARM\_\_)    }\textcolor{comment}{/* IAR Compiler */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{  \#define ALIGN\_32BYTES(buf) \_Pragma("{}data\_alignment=32"{}}) buf  }
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#elif defined   (\_\_CC\_ARM)      }\textcolor{comment}{/* ARM Compiler */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{  \#define ALIGN\_32BYTES(buf) \_\_align(32) buf  }}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#if defined ( \_\_CC\_ARM   ) || (defined (\_\_ARMCC\_VERSION) \&\& (\_\_ARMCC\_VERSION >= 6010050))}}
+\DoxyCodeLine{168 \textcolor{comment}{/* ARM Compiler V4/V5 and V6}}
+\DoxyCodeLine{169 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{170 \textcolor{comment}{   RAM functions are defined using the toolchain options.}}
+\DoxyCodeLine{171 \textcolor{comment}{   Functions that are executed in RAM should reside in a separate source module.}}
+\DoxyCodeLine{172 \textcolor{comment}{   Using the 'Options for File' dialog you can simply change the 'Code / Const'}}
+\DoxyCodeLine{173 \textcolor{comment}{   area of a module to a memory space in physical RAM.}}
+\DoxyCodeLine{174 \textcolor{comment}{   Available memory areas are declared in the 'Target' tab of the 'Options for Target'}}
+\DoxyCodeLine{175 \textcolor{comment}{   dialog.}}
+\DoxyCodeLine{176 \textcolor{comment}{*/}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define \_\_RAM\_FUNC}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#elif defined ( \_\_ICCARM\_\_ )}}
+\DoxyCodeLine{180 \textcolor{comment}{/* ICCARM Compiler}}
+\DoxyCodeLine{181 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{182 \textcolor{comment}{   RAM functions are defined using a specific toolchain keyword "{}\_\_ramfunc"{}.}}
+\DoxyCodeLine{183 \textcolor{comment}{*/}}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#define \_\_RAM\_FUNC \_\_ramfunc}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#elif defined   (  \_\_GNUC\_\_  )}}
+\DoxyCodeLine{187 \textcolor{comment}{/* GNU Compiler}}
+\DoxyCodeLine{188 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{189 \textcolor{comment}{  RAM functions are defined using a specific toolchain attribute}}
+\DoxyCodeLine{190 \textcolor{comment}{   "{}\_\_attribute\_\_((section("{}.RamFunc"{})))"{}.}}
+\DoxyCodeLine{191 \textcolor{comment}{*/}}
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#define \_\_RAM\_FUNC \_\_attribute\_\_((section("{}.RamFunc"{}})))}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#if defined ( \_\_CC\_ARM   ) || (defined (\_\_ARMCC\_VERSION) \&\& (\_\_ARMCC\_VERSION >= 6010050)) || defined   (  \_\_GNUC\_\_  )}}
+\DoxyCodeLine{200 \textcolor{comment}{/* ARM V4/V5 and V6 \& GNU Compiler}}
+\DoxyCodeLine{201 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{202 \textcolor{comment}{*/}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define \_\_NOINLINE \_\_attribute\_\_ ( (noinline) )}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#elif defined ( \_\_ICCARM\_\_ )}}
+\DoxyCodeLine{206 \textcolor{comment}{/* ICCARM Compiler}}
+\DoxyCodeLine{207 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{208 \textcolor{comment}{*/}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#define \_\_NOINLINE \_Pragma("{}optimize = no\_inline"{}})}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{215 \}}
+\DoxyCodeLine{216 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STM32H7xx\_HAL\_DEF */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220 }
+
+\end{DoxyCode}

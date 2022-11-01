@@ -27,7 +27,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 }
 
 
-/* IMPLEMENTATION FOR UDP CLIENT :   source:https://www.geeksforgeeks.org/udp-server-client-implementation-c/
+/** IMPLEMENTATION FOR UDP CLIENT :   source:https://www.geeksforgeeks.org/udp-server-client-implementation-c/
 
 1. Create UDP socket.
 2. Send message to server.
@@ -65,6 +65,10 @@ void udpClient_connect(void)
 	}
 }
 
+
+///This function send data to USB server
+
+
 static void udpClient_send(void)
 {
   struct pbuf *txBuf;
@@ -88,7 +92,7 @@ static void udpClient_send(void)
   }
 }
 
-
+/// This function handle the input data from UDB server
 void udp_receive_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 {
 	/* Copy the data from the pbuf */

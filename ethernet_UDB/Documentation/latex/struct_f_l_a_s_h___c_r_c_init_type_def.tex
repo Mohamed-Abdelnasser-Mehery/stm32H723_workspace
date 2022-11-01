@@ -1,0 +1,81 @@
+\hypertarget{struct_f_l_a_s_h___c_r_c_init_type_def}{}\doxysection{FLASH\+\_\+\+CRCInit\+Type\+Def Struct Reference}
+\label{struct_f_l_a_s_h___c_r_c_init_type_def}\index{FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}}
+
+
+FLASH Erase structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32h7xx\+\_\+hal\+\_\+flash\+\_\+ex.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___c_r_c_init_type_def_a21d13cb180d509543a26d33c810b7223}{Type\+CRC}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___c_r_c_init_type_def_a8ecab88c1b05f9de46724c9d823d5f90}{Burst\+Size}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___c_r_c_init_type_def_a206671e9ccc56c6da37eea942acb12a7}{Bank}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___c_r_c_init_type_def_a6c86f87bb12212ce21da3aec61759a52}{Sector}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___c_r_c_init_type_def_a0511632174dfb4c07e218a857e6a6406}{Nb\+Sectors}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___c_r_c_init_type_def_a1f219c3986491745c63c12353910372a}{CRCStart\+Addr}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___c_r_c_init_type_def_ab45ad25f6b808b704580598ed8547350}{CRCEnd\+Addr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+FLASH Erase structure definition. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_f_l_a_s_h___c_r_c_init_type_def_a206671e9ccc56c6da37eea942acb12a7}\label{struct_f_l_a_s_h___c_r_c_init_type_def_a206671e9ccc56c6da37eea942acb12a7}} 
+\index{FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}!Bank@{Bank}}
+\index{Bank@{Bank}!FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{Bank}{Bank}}
+{\footnotesize\ttfamily uint32\+\_\+t Bank}
+
+Select bank where CRC computation is enabled. This parameter must be FLASH\+\_\+\+BANK\+\_\+1 or FLASH\+\_\+\+BANK\+\_\+2 \mbox{\Hypertarget{struct_f_l_a_s_h___c_r_c_init_type_def_a8ecab88c1b05f9de46724c9d823d5f90}\label{struct_f_l_a_s_h___c_r_c_init_type_def_a8ecab88c1b05f9de46724c9d823d5f90}} 
+\index{FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}!BurstSize@{BurstSize}}
+\index{BurstSize@{BurstSize}!FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{BurstSize}{BurstSize}}
+{\footnotesize\ttfamily uint32\+\_\+t Burst\+Size}
+
+CRC Burst Size. This parameter can be a value of \mbox{\hyperlink{group___f_l_a_s_h_ex___c_r_c___burst___size}{FLASH CRC Burst Size}} \mbox{\Hypertarget{struct_f_l_a_s_h___c_r_c_init_type_def_ab45ad25f6b808b704580598ed8547350}\label{struct_f_l_a_s_h___c_r_c_init_type_def_ab45ad25f6b808b704580598ed8547350}} 
+\index{FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}!CRCEndAddr@{CRCEndAddr}}
+\index{CRCEndAddr@{CRCEndAddr}!FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{CRCEndAddr}{CRCEndAddr}}
+{\footnotesize\ttfamily uint32\+\_\+t CRCEnd\+Addr}
+
+CRC End address. This parameter must be a value between CRC Start address and end address of a bank \mbox{\Hypertarget{struct_f_l_a_s_h___c_r_c_init_type_def_a1f219c3986491745c63c12353910372a}\label{struct_f_l_a_s_h___c_r_c_init_type_def_a1f219c3986491745c63c12353910372a}} 
+\index{FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}!CRCStartAddr@{CRCStartAddr}}
+\index{CRCStartAddr@{CRCStartAddr}!FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{CRCStartAddr}{CRCStartAddr}}
+{\footnotesize\ttfamily uint32\+\_\+t CRCStart\+Addr}
+
+CRC Start address. This parameter must be a value between begin address and end address of a bank \mbox{\Hypertarget{struct_f_l_a_s_h___c_r_c_init_type_def_a0511632174dfb4c07e218a857e6a6406}\label{struct_f_l_a_s_h___c_r_c_init_type_def_a0511632174dfb4c07e218a857e6a6406}} 
+\index{FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}!NbSectors@{NbSectors}}
+\index{NbSectors@{NbSectors}!FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{NbSectors}{NbSectors}}
+{\footnotesize\ttfamily uint32\+\_\+t Nb\+Sectors}
+
+Number of sectors to be computed. This parameter must be a value between 1 and (max number of sectors -\/ value of Initial sector) \mbox{\Hypertarget{struct_f_l_a_s_h___c_r_c_init_type_def_a6c86f87bb12212ce21da3aec61759a52}\label{struct_f_l_a_s_h___c_r_c_init_type_def_a6c86f87bb12212ce21da3aec61759a52}} 
+\index{FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}!Sector@{Sector}}
+\index{Sector@{Sector}!FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{Sector}{Sector}}
+{\footnotesize\ttfamily uint32\+\_\+t Sector}
+
+Initial FLASH sector from which starts the CRC computation This parameter must be a value of \mbox{\hyperlink{group___f_l_a_s_h___sectors}{FLASH Sectors}} \mbox{\Hypertarget{struct_f_l_a_s_h___c_r_c_init_type_def_a21d13cb180d509543a26d33c810b7223}\label{struct_f_l_a_s_h___c_r_c_init_type_def_a21d13cb180d509543a26d33c810b7223}} 
+\index{FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}!TypeCRC@{TypeCRC}}
+\index{TypeCRC@{TypeCRC}!FLASH\_CRCInitTypeDef@{FLASH\_CRCInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{TypeCRC}{TypeCRC}}
+{\footnotesize\ttfamily uint32\+\_\+t Type\+CRC}
+
+CRC Selection Type. This parameter can be a value of \mbox{\hyperlink{group___f_l_a_s_h_ex___c_r_c___selection___type}{FLASH CRC Selection Type}} 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32h7xx__hal__flash__ex_8h}{stm32h7xx\+\_\+hal\+\_\+flash\+\_\+ex.\+h}}\end{DoxyCompactItemize}

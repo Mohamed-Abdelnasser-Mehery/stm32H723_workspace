@@ -1,0 +1,140 @@
+\hypertarget{group__lwip__opts__nd6}{}\doxysection{Neighbor discovery}
+\label{group__lwip__opts__nd6}\index{Neighbor discovery@{Neighbor discovery}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_ga0757a3c1b5d1563ad2d77228e1d8a60f}{LWIP\+\_\+\+ND6\+\_\+\+QUEUEING}}~\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_gabfaf3d92d51e2a9d70c8360af2611fb2}{MEMP\+\_\+\+NUM\+\_\+\+ND6\+\_\+\+QUEUE}}~20
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_gab2fe15bdb4e0a41f295eb5577b11ad16}{LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+NEIGHBORS}}~10
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_gacad118b1ae886e80137a1d4f0fb19672}{LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+DESTINATIONS}}~10
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_gad9cc576b5951f1b5e1c2b0d0bb831d9a}{LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+PREFIXES}}~5
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_ga75e81a96148f266c8fad8c0bcab2f36a}{LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+ROUTERS}}~3
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_ga980909018aed54adc10dd68be3572b30}{LWIP\+\_\+\+ND6\+\_\+\+MAX\+\_\+\+MULTICAST\+\_\+\+SOLICIT}}~3
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_gafa6f4c2d2c259ab0895fa03a6f08c691}{LWIP\+\_\+\+ND6\+\_\+\+MAX\+\_\+\+UNICAST\+\_\+\+SOLICIT}}~3
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_ga960b8973df083fad53ae0eaa79f8c4df}{LWIP\+\_\+\+ND6\+\_\+\+MAX\+\_\+\+ANYCAST\+\_\+\+DELAY\+\_\+\+TIME}}~1000
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_ga86ab0cac87cdc7aeff09384ddbaaba2a}{LWIP\+\_\+\+ND6\+\_\+\+MAX\+\_\+\+NEIGHBOR\+\_\+\+ADVERTISEMENT}}~3
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_ga269db9d61cdfc2fd3bc7b12c56261c74}{LWIP\+\_\+\+ND6\+\_\+\+REACHABLE\+\_\+\+TIME}}~30000
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_ga461abcbeef1d236d1f3201827dd28ad9}{LWIP\+\_\+\+ND6\+\_\+\+RETRANS\+\_\+\+TIMER}}~1000
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_ga315bd6d4a9d185766dfc3253cd9d7715}{LWIP\+\_\+\+ND6\+\_\+\+DELAY\+\_\+\+FIRST\+\_\+\+PROBE\+\_\+\+TIME}}~5000
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_gad35d10353ac7c7d2c8d4b83788cdc6d9}{LWIP\+\_\+\+ND6\+\_\+\+ALLOW\+\_\+\+RA\+\_\+\+UPDATES}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_ga9d7cb6fd447ef0f6726f565e2c7509c4}{LWIP\+\_\+\+ND6\+\_\+\+TCP\+\_\+\+REACHABILITY\+\_\+\+HINTS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__nd6_gaea4d829c0b52cc6cc28925eee89a7429}{LWIP\+\_\+\+ND6\+\_\+\+RDNSS\+\_\+\+MAX\+\_\+\+DNS\+\_\+\+SERVERS}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__nd6_gad35d10353ac7c7d2c8d4b83788cdc6d9}\label{group__lwip__opts__nd6_gad35d10353ac7c7d2c8d4b83788cdc6d9}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_ALLOW\_RA\_UPDATES@{LWIP\_ND6\_ALLOW\_RA\_UPDATES}}
+\index{LWIP\_ND6\_ALLOW\_RA\_UPDATES@{LWIP\_ND6\_ALLOW\_RA\_UPDATES}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_ALLOW\_RA\_UPDATES}{LWIP\_ND6\_ALLOW\_RA\_UPDATES}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+ALLOW\+\_\+\+RA\+\_\+\+UPDATES~1}
+
+LWIP\+\_\+\+ND6\+\_\+\+ALLOW\+\_\+\+RA\+\_\+\+UPDATES==1\+: Allow Router Advertisement messages to update Reachable time and retransmission timers, and netif MTU. \mbox{\Hypertarget{group__lwip__opts__nd6_ga315bd6d4a9d185766dfc3253cd9d7715}\label{group__lwip__opts__nd6_ga315bd6d4a9d185766dfc3253cd9d7715}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_DELAY\_FIRST\_PROBE\_TIME@{LWIP\_ND6\_DELAY\_FIRST\_PROBE\_TIME}}
+\index{LWIP\_ND6\_DELAY\_FIRST\_PROBE\_TIME@{LWIP\_ND6\_DELAY\_FIRST\_PROBE\_TIME}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_DELAY\_FIRST\_PROBE\_TIME}{LWIP\_ND6\_DELAY\_FIRST\_PROBE\_TIME}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+DELAY\+\_\+\+FIRST\+\_\+\+PROBE\+\_\+\+TIME~5000}
+
+LWIP\+\_\+\+ND6\+\_\+\+DELAY\+\_\+\+FIRST\+\_\+\+PROBE\+\_\+\+TIME\+: Delay before first unicast neighbor solicitation message is sent, during neighbor reachability detection. \mbox{\Hypertarget{group__lwip__opts__nd6_ga960b8973df083fad53ae0eaa79f8c4df}\label{group__lwip__opts__nd6_ga960b8973df083fad53ae0eaa79f8c4df}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_MAX\_ANYCAST\_DELAY\_TIME@{LWIP\_ND6\_MAX\_ANYCAST\_DELAY\_TIME}}
+\index{LWIP\_ND6\_MAX\_ANYCAST\_DELAY\_TIME@{LWIP\_ND6\_MAX\_ANYCAST\_DELAY\_TIME}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_MAX\_ANYCAST\_DELAY\_TIME}{LWIP\_ND6\_MAX\_ANYCAST\_DELAY\_TIME}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+MAX\+\_\+\+ANYCAST\+\_\+\+DELAY\+\_\+\+TIME~1000}
+
+Unused\+: See ND RFC (time in milliseconds). \mbox{\Hypertarget{group__lwip__opts__nd6_ga980909018aed54adc10dd68be3572b30}\label{group__lwip__opts__nd6_ga980909018aed54adc10dd68be3572b30}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_MAX\_MULTICAST\_SOLICIT@{LWIP\_ND6\_MAX\_MULTICAST\_SOLICIT}}
+\index{LWIP\_ND6\_MAX\_MULTICAST\_SOLICIT@{LWIP\_ND6\_MAX\_MULTICAST\_SOLICIT}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_MAX\_MULTICAST\_SOLICIT}{LWIP\_ND6\_MAX\_MULTICAST\_SOLICIT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+MAX\+\_\+\+MULTICAST\+\_\+\+SOLICIT~3}
+
+LWIP\+\_\+\+ND6\+\_\+\+MAX\+\_\+\+MULTICAST\+\_\+\+SOLICIT\+: max number of multicast solicit messages to send (neighbor solicit and router solicit) \mbox{\Hypertarget{group__lwip__opts__nd6_ga86ab0cac87cdc7aeff09384ddbaaba2a}\label{group__lwip__opts__nd6_ga86ab0cac87cdc7aeff09384ddbaaba2a}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_MAX\_NEIGHBOR\_ADVERTISEMENT@{LWIP\_ND6\_MAX\_NEIGHBOR\_ADVERTISEMENT}}
+\index{LWIP\_ND6\_MAX\_NEIGHBOR\_ADVERTISEMENT@{LWIP\_ND6\_MAX\_NEIGHBOR\_ADVERTISEMENT}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_MAX\_NEIGHBOR\_ADVERTISEMENT}{LWIP\_ND6\_MAX\_NEIGHBOR\_ADVERTISEMENT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+MAX\+\_\+\+NEIGHBOR\+\_\+\+ADVERTISEMENT~3}
+
+Unused\+: See ND RFC \mbox{\Hypertarget{group__lwip__opts__nd6_gafa6f4c2d2c259ab0895fa03a6f08c691}\label{group__lwip__opts__nd6_gafa6f4c2d2c259ab0895fa03a6f08c691}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_MAX\_UNICAST\_SOLICIT@{LWIP\_ND6\_MAX\_UNICAST\_SOLICIT}}
+\index{LWIP\_ND6\_MAX\_UNICAST\_SOLICIT@{LWIP\_ND6\_MAX\_UNICAST\_SOLICIT}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_MAX\_UNICAST\_SOLICIT}{LWIP\_ND6\_MAX\_UNICAST\_SOLICIT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+MAX\+\_\+\+UNICAST\+\_\+\+SOLICIT~3}
+
+LWIP\+\_\+\+ND6\+\_\+\+MAX\+\_\+\+UNICAST\+\_\+\+SOLICIT\+: max number of unicast neighbor solicitation messages to send during neighbor reachability detection. \mbox{\Hypertarget{group__lwip__opts__nd6_gacad118b1ae886e80137a1d4f0fb19672}\label{group__lwip__opts__nd6_gacad118b1ae886e80137a1d4f0fb19672}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_NUM\_DESTINATIONS@{LWIP\_ND6\_NUM\_DESTINATIONS}}
+\index{LWIP\_ND6\_NUM\_DESTINATIONS@{LWIP\_ND6\_NUM\_DESTINATIONS}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_NUM\_DESTINATIONS}{LWIP\_ND6\_NUM\_DESTINATIONS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+DESTINATIONS~10}
+
+LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+DESTINATIONS\+: number of entries in IPv6 destination cache \mbox{\Hypertarget{group__lwip__opts__nd6_gab2fe15bdb4e0a41f295eb5577b11ad16}\label{group__lwip__opts__nd6_gab2fe15bdb4e0a41f295eb5577b11ad16}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_NUM\_NEIGHBORS@{LWIP\_ND6\_NUM\_NEIGHBORS}}
+\index{LWIP\_ND6\_NUM\_NEIGHBORS@{LWIP\_ND6\_NUM\_NEIGHBORS}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_NUM\_NEIGHBORS}{LWIP\_ND6\_NUM\_NEIGHBORS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+NEIGHBORS~10}
+
+LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+NEIGHBORS\+: Number of entries in IPv6 neighbor cache \mbox{\Hypertarget{group__lwip__opts__nd6_gad9cc576b5951f1b5e1c2b0d0bb831d9a}\label{group__lwip__opts__nd6_gad9cc576b5951f1b5e1c2b0d0bb831d9a}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_NUM\_PREFIXES@{LWIP\_ND6\_NUM\_PREFIXES}}
+\index{LWIP\_ND6\_NUM\_PREFIXES@{LWIP\_ND6\_NUM\_PREFIXES}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_NUM\_PREFIXES}{LWIP\_ND6\_NUM\_PREFIXES}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+PREFIXES~5}
+
+LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+PREFIXES\+: number of entries in IPv6 on-\/link prefixes cache \mbox{\Hypertarget{group__lwip__opts__nd6_ga75e81a96148f266c8fad8c0bcab2f36a}\label{group__lwip__opts__nd6_ga75e81a96148f266c8fad8c0bcab2f36a}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_NUM\_ROUTERS@{LWIP\_ND6\_NUM\_ROUTERS}}
+\index{LWIP\_ND6\_NUM\_ROUTERS@{LWIP\_ND6\_NUM\_ROUTERS}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_NUM\_ROUTERS}{LWIP\_ND6\_NUM\_ROUTERS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+ROUTERS~3}
+
+LWIP\+\_\+\+ND6\+\_\+\+NUM\+\_\+\+ROUTERS\+: number of entries in IPv6 default router cache \mbox{\Hypertarget{group__lwip__opts__nd6_ga0757a3c1b5d1563ad2d77228e1d8a60f}\label{group__lwip__opts__nd6_ga0757a3c1b5d1563ad2d77228e1d8a60f}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_QUEUEING@{LWIP\_ND6\_QUEUEING}}
+\index{LWIP\_ND6\_QUEUEING@{LWIP\_ND6\_QUEUEING}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_QUEUEING}{LWIP\_ND6\_QUEUEING}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+QUEUEING~\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}}}
+
+LWIP\+\_\+\+ND6\+\_\+\+QUEUEING==1\+: queue outgoing IPv6 packets while MAC address is being resolved. \mbox{\Hypertarget{group__lwip__opts__nd6_gaea4d829c0b52cc6cc28925eee89a7429}\label{group__lwip__opts__nd6_gaea4d829c0b52cc6cc28925eee89a7429}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_RDNSS\_MAX\_DNS\_SERVERS@{LWIP\_ND6\_RDNSS\_MAX\_DNS\_SERVERS}}
+\index{LWIP\_ND6\_RDNSS\_MAX\_DNS\_SERVERS@{LWIP\_ND6\_RDNSS\_MAX\_DNS\_SERVERS}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_RDNSS\_MAX\_DNS\_SERVERS}{LWIP\_ND6\_RDNSS\_MAX\_DNS\_SERVERS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+RDNSS\+\_\+\+MAX\+\_\+\+DNS\+\_\+\+SERVERS~0}
+
+LWIP\+\_\+\+ND6\+\_\+\+RDNSS\+\_\+\+MAX\+\_\+\+DNS\+\_\+\+SERVERS \texorpdfstring{$>$}{>} 0\+: Use IPv6 Router Advertisement Recursive DNS Server Option (as per RFC 6106) to copy a defined maximum number of DNS servers to the DNS module. \mbox{\Hypertarget{group__lwip__opts__nd6_ga269db9d61cdfc2fd3bc7b12c56261c74}\label{group__lwip__opts__nd6_ga269db9d61cdfc2fd3bc7b12c56261c74}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_REACHABLE\_TIME@{LWIP\_ND6\_REACHABLE\_TIME}}
+\index{LWIP\_ND6\_REACHABLE\_TIME@{LWIP\_ND6\_REACHABLE\_TIME}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_REACHABLE\_TIME}{LWIP\_ND6\_REACHABLE\_TIME}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+REACHABLE\+\_\+\+TIME~30000}
+
+LWIP\+\_\+\+ND6\+\_\+\+REACHABLE\+\_\+\+TIME\+: default neighbor reachable time (in milliseconds). May be updated by router advertisement messages. \mbox{\Hypertarget{group__lwip__opts__nd6_ga461abcbeef1d236d1f3201827dd28ad9}\label{group__lwip__opts__nd6_ga461abcbeef1d236d1f3201827dd28ad9}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_RETRANS\_TIMER@{LWIP\_ND6\_RETRANS\_TIMER}}
+\index{LWIP\_ND6\_RETRANS\_TIMER@{LWIP\_ND6\_RETRANS\_TIMER}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_RETRANS\_TIMER}{LWIP\_ND6\_RETRANS\_TIMER}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+RETRANS\+\_\+\+TIMER~1000}
+
+LWIP\+\_\+\+ND6\+\_\+\+RETRANS\+\_\+\+TIMER\+: default retransmission timer for solicitation messages \mbox{\Hypertarget{group__lwip__opts__nd6_ga9d7cb6fd447ef0f6726f565e2c7509c4}\label{group__lwip__opts__nd6_ga9d7cb6fd447ef0f6726f565e2c7509c4}} 
+\index{Neighbor discovery@{Neighbor discovery}!LWIP\_ND6\_TCP\_REACHABILITY\_HINTS@{LWIP\_ND6\_TCP\_REACHABILITY\_HINTS}}
+\index{LWIP\_ND6\_TCP\_REACHABILITY\_HINTS@{LWIP\_ND6\_TCP\_REACHABILITY\_HINTS}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ND6\_TCP\_REACHABILITY\_HINTS}{LWIP\_ND6\_TCP\_REACHABILITY\_HINTS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ND6\+\_\+\+TCP\+\_\+\+REACHABILITY\+\_\+\+HINTS~1}
+
+LWIP\+\_\+\+ND6\+\_\+\+TCP\+\_\+\+REACHABILITY\+\_\+\+HINTS==1\+: Allow TCP to provide Neighbor Discovery with reachability hints for connected destinations. This helps avoid sending unicast neighbor solicitation messages. \mbox{\Hypertarget{group__lwip__opts__nd6_gabfaf3d92d51e2a9d70c8360af2611fb2}\label{group__lwip__opts__nd6_gabfaf3d92d51e2a9d70c8360af2611fb2}} 
+\index{Neighbor discovery@{Neighbor discovery}!MEMP\_NUM\_ND6\_QUEUE@{MEMP\_NUM\_ND6\_QUEUE}}
+\index{MEMP\_NUM\_ND6\_QUEUE@{MEMP\_NUM\_ND6\_QUEUE}!Neighbor discovery@{Neighbor discovery}}
+\doxysubsubsection{\texorpdfstring{MEMP\_NUM\_ND6\_QUEUE}{MEMP\_NUM\_ND6\_QUEUE}}
+{\footnotesize\ttfamily \#define MEMP\+\_\+\+NUM\+\_\+\+ND6\+\_\+\+QUEUE~20}
+
+MEMP\+\_\+\+NUM\+\_\+\+ND6\+\_\+\+QUEUE\+: Max number of IPv6 packets to queue during MAC resolution. 

@@ -1,0 +1,295 @@
+\hypertarget{stm32h7xx__hal__tim__ex_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/stm32h7xx\+\_\+hal\+\_\+tim\+\_\+ex.h File Reference}
+\label{stm32h7xx__hal__tim__ex_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_tim\_ex.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_tim\_ex.h}}
+
+
+Header file of TIM HAL Extended module.  
+
+
+{\ttfamily \#include \char`\"{}stm32h7xx\+\_\+hal\+\_\+def.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def}{TIM\+\_\+\+Hall\+Sensor\+\_\+\+Init\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em TIM Hall sensor Configuration Structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+ETR\+\_\+\+GPIO}~0x00000000U                                                 /$\ast$ !$<$ TIM1\+\_\+\+ETR is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+ETR\+\_\+\+COMP1}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1e5c447a1de2571985f74ca5ee201c56}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}}                                           /$\ast$ !$<$ TIM1\+\_\+\+ETR is connected to COMP1 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+ETR\+\_\+\+COMP2}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga269809ebc603562522c733f7b518bcc3}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}}                                           /$\ast$ !$<$ TIM1\+\_\+\+ETR is connected to COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+ETR\+\_\+\+ADC1\+\_\+\+AWD1}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga269809ebc603562522c733f7b518bcc3}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1e5c447a1de2571985f74ca5ee201c56}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}})                     /$\ast$ !$<$ TIM1\+\_\+\+ETR is connected to ADC1 AWD1 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+ETR\+\_\+\+ADC1\+\_\+\+AWD2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga891aa4abfb026ec12d7e78366c57861c}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}})                                         /$\ast$ !$<$ TIM1\+\_\+\+ETR is connected to ADC1 AWD2 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+ETR\+\_\+\+ADC1\+\_\+\+AWD3}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga891aa4abfb026ec12d7e78366c57861c}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1e5c447a1de2571985f74ca5ee201c56}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}})                     /$\ast$ !$<$ TIM1\+\_\+\+ETR is connected to ADC1 AWD3 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+ETR\+\_\+\+ADC3\+\_\+\+AWD1}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga891aa4abfb026ec12d7e78366c57861c}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga269809ebc603562522c733f7b518bcc3}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}})                     /$\ast$ !$<$ TIM1\+\_\+\+ETR is connected to ADC3 AWD1 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+ETR\+\_\+\+ADC3\+\_\+\+AWD2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga891aa4abfb026ec12d7e78366c57861c}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga269809ebc603562522c733f7b518bcc3}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1e5c447a1de2571985f74ca5ee201c56}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}}) /$\ast$ !$<$ TIM1\+\_\+\+ETR is connected to ADC3 AWD2 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+ETR\+\_\+\+ADC3\+\_\+\+AWD3}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4b00c39efe4c62ef0c7391da38f4d93e}{TIM1\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+3}}                                           /$\ast$ !$<$ TIM1\+\_\+\+ETR is connected to ADC3 AWD3 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+ETR\+\_\+\+GPIO}~0x00000000U                                                 /$\ast$ !$<$ TIM8\+\_\+\+ETR is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+ETR\+\_\+\+COMP1}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0ff3eda56bcb98d020fa1b1573c4f912}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}}                                           /$\ast$ !$<$ TIM8\+\_\+\+ETR is connected to COMP1 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+ETR\+\_\+\+COMP2}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8115191f924a8817c45e04078725f242}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}}                                           /$\ast$ !$<$ TIM8\+\_\+\+ETR is connected to COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+ETR\+\_\+\+ADC2\+\_\+\+AWD1}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8115191f924a8817c45e04078725f242}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0ff3eda56bcb98d020fa1b1573c4f912}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}})                     /$\ast$ !$<$ TIM8\+\_\+\+ETR is connected to ADC2 AWD1 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+ETR\+\_\+\+ADC2\+\_\+\+AWD2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7dc91956b73a05f0ab3465a124e27e97}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}})                                         /$\ast$ !$<$ TIM8\+\_\+\+ETR is connected to ADC2 AWD2 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+ETR\+\_\+\+ADC2\+\_\+\+AWD3}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7dc91956b73a05f0ab3465a124e27e97}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0ff3eda56bcb98d020fa1b1573c4f912}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}})                     /$\ast$ !$<$ TIM8\+\_\+\+ETR is connected to ADC2 AWD3 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+ETR\+\_\+\+ADC3\+\_\+\+AWD1}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7dc91956b73a05f0ab3465a124e27e97}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8115191f924a8817c45e04078725f242}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}})                     /$\ast$ !$<$ TIM8\+\_\+\+ETR is connected to ADC3 AWD1 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+ETR\+\_\+\+ADC3\+\_\+\+AWD2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7dc91956b73a05f0ab3465a124e27e97}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga8115191f924a8817c45e04078725f242}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0ff3eda56bcb98d020fa1b1573c4f912}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}}) /$\ast$ !$<$ TIM8\+\_\+\+ETR is connected to ADC3 AWD2 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+ETR\+\_\+\+ADC3\+\_\+\+AWD3}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga97fe71b195c1bbc5175e3db42d09c062}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+3}}                                           /$\ast$ !$<$ TIM8\+\_\+\+ETR is connected to ADC3 AWD3 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM2\+\_\+\+ETR\+\_\+\+GPIO}~0x00000000U                             /$\ast$ !$<$ TIM2\+\_\+\+ETR is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM2\+\_\+\+ETR\+\_\+\+COMP1}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaaa7a4ed17a8432d8c81e31e32dd87e20}{TIM2\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}})                     /$\ast$ !$<$ TIM2\+\_\+\+ETR is connected to COMP1 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM2\+\_\+\+ETR\+\_\+\+COMP2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6a1413b9834ebc2b96c8eb27b74b0fdc}{TIM2\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}})                     /$\ast$ !$<$ TIM2\+\_\+\+ETR is connected to COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM2\+\_\+\+ETR\+\_\+\+RCC\+\_\+\+LSE}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6a1413b9834ebc2b96c8eb27b74b0fdc}{TIM2\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0ff3eda56bcb98d020fa1b1573c4f912}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}}) /$\ast$ !$<$ TIM2\+\_\+\+ETR is connected to RCC LSE $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM2\+\_\+\+ETR\+\_\+\+SAI1\+\_\+\+FSA}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga38cf3fbfe20afba58f315ace95c88016}{TIM2\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}}                       /$\ast$ !$<$ TIM2\+\_\+\+ETR is connected to SAI1 FS\+\_\+A $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM2\+\_\+\+ETR\+\_\+\+SAI1\+\_\+\+FSB}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga38cf3fbfe20afba58f315ace95c88016}{TIM2\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0ff3eda56bcb98d020fa1b1573c4f912}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}}) /$\ast$ !$<$ TIM2\+\_\+\+ETR is connected to SAI1 FS\+\_\+B $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM3\+\_\+\+ETR\+\_\+\+GPIO}~0x00000000U          /$\ast$ !$<$ TIM3\+\_\+\+ETR is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM3\+\_\+\+ETR\+\_\+\+COMP1}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaaf25073af3e775f18278b711d3719957}{TIM3\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}}    /$\ast$ !$<$ TIM3\+\_\+\+ETR is connected to COMP1 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM5\+\_\+\+ETR\+\_\+\+GPIO}~0x00000000U          /$\ast$ !$<$ TIM5\+\_\+\+ETR is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM5\+\_\+\+ETR\+\_\+\+SAI2\+\_\+\+FSA}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabaeb0ecb379e37e51722902144404520}{TIM5\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}}    /$\ast$ !$<$ TIM5\+\_\+\+ETR is connected to SAI2 FS\+\_\+A $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM5\+\_\+\+ETR\+\_\+\+SAI2\+\_\+\+FSB}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga92b38d638ecda48a0da085cfd8ce86bf}{TIM5\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}}    /$\ast$ !$<$ TIM5\+\_\+\+ETR is connected to SAI2 FS\+\_\+B $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM5\+\_\+\+ETR\+\_\+\+SAI4\+\_\+\+FSA}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabaeb0ecb379e37e51722902144404520}{TIM5\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}}    /$\ast$ !$<$ TIM5\+\_\+\+ETR is connected to SAI4 FS\+\_\+A $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM5\+\_\+\+ETR\+\_\+\+SAI4\+\_\+\+FSB}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga92b38d638ecda48a0da085cfd8ce86bf}{TIM5\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}}    /$\ast$ !$<$ TIM5\+\_\+\+ETR is connected to SAI4 FS\+\_\+B $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM23\+\_\+\+ETR\+\_\+\+GPIO}~0x00000000U          /$\ast$ !$<$ TIM23\+\_\+\+ETR is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM23\+\_\+\+ETR\+\_\+\+COMP1}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaaa7a4ed17a8432d8c81e31e32dd87e20}{TIM2\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}})  /$\ast$ !$<$ TIM23\+\_\+\+ETR is connected to COMP1 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM23\+\_\+\+ETR\+\_\+\+COMP2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6a1413b9834ebc2b96c8eb27b74b0fdc}{TIM2\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}})  /$\ast$ !$<$ TIM23\+\_\+\+ETR is connected to COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM24\+\_\+\+ETR\+\_\+\+GPIO}~0x00000000U                                /$\ast$ !$<$ TIM24\+\_\+\+ETR is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM24\+\_\+\+ETR\+\_\+\+SAI4\+\_\+\+FSA}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabaeb0ecb379e37e51722902144404520}{TIM5\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}}                          /$\ast$ !$<$ TIM24\+\_\+\+ETR is connected to SAI4 FS\+\_\+A $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM24\+\_\+\+ETR\+\_\+\+SAI4\+\_\+\+FSB}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga92b38d638ecda48a0da085cfd8ce86bf}{TIM5\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}}                          /$\ast$ !$<$ TIM24\+\_\+\+ETR is connected to SAI4 FS\+\_\+B $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM24\+\_\+\+ETR\+\_\+\+SAI1\+\_\+\+FSA}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6a1413b9834ebc2b96c8eb27b74b0fdc}{TIM2\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+1}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0ff3eda56bcb98d020fa1b1573c4f912}{TIM8\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+0}})    /$\ast$ !$<$ TIM24\+\_\+\+ETR is connected to SAI1 FS\+\_\+A $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM24\+\_\+\+ETR\+\_\+\+SAI1\+\_\+\+FSB}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga38cf3fbfe20afba58f315ace95c88016}{TIM2\+\_\+\+AF1\+\_\+\+ETRSEL\+\_\+2}}                          /$\ast$ !$<$ TIM24\+\_\+\+ETR is connected to SAI1 FS\+\_\+B $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+TI1\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM1\+\_\+\+TI1 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM1\+\_\+\+TI1\+\_\+\+COMP1}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM1\+\_\+\+TI1 is connected to COMP1 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+TI1\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM8\+\_\+\+TI1 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM8\+\_\+\+TI1\+\_\+\+COMP2}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM8\+\_\+\+TI1 is connected to COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM2\+\_\+\+TI4\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM2\+\_\+\+TI4 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM2\+\_\+\+TI4\+\_\+\+COMP1}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabe0b9c7718f9609776afdbb0ebcc3832}{TIM\+\_\+\+TISEL\+\_\+\+TI4\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM2\+\_\+\+TI4 is connected to COMP1 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM2\+\_\+\+TI4\+\_\+\+COMP2}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf6106b6c27078a60113e888b0142ccb8}{TIM\+\_\+\+TISEL\+\_\+\+TI4\+SEL\+\_\+1}}                        /$\ast$ !$<$ TIM2\+\_\+\+TI4 is connected to COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM2\+\_\+\+TI4\+\_\+\+COMP1\+\_\+\+COMP2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabe0b9c7718f9609776afdbb0ebcc3832}{TIM\+\_\+\+TISEL\+\_\+\+TI4\+SEL\+\_\+0}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf6106b6c27078a60113e888b0142ccb8}{TIM\+\_\+\+TISEL\+\_\+\+TI4\+SEL\+\_\+1}}) /$\ast$ !$<$ TIM2\+\_\+\+TI4 is connected to COMP2 OUT OR COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM3\+\_\+\+TI1\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM3\+\_\+\+TI1 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM3\+\_\+\+TI1\+\_\+\+COMP1}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM3\+\_\+\+TI1 is connected to COMP1 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM3\+\_\+\+TI1\+\_\+\+COMP2}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}                        /$\ast$ !$<$ TIM3\+\_\+\+TI1 is connected to COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM3\+\_\+\+TI1\+\_\+\+COMP1\+\_\+\+COMP2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}) /$\ast$ !$<$ TIM3\+\_\+\+TI1 is connected to COMP1 OUT or COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM5\+\_\+\+TI1\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM5\+\_\+\+TI1 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM5\+\_\+\+TI1\+\_\+\+CAN\+\_\+\+TMP}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM5\+\_\+\+TI1 is connected to CAN TMP $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM5\+\_\+\+TI1\+\_\+\+CAN\+\_\+\+RTP}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}                        /$\ast$ !$<$ TIM5\+\_\+\+TI1 is connected to CAN RTP $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM12\+\_\+\+TI1\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM12 TI1 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM12\+\_\+\+TI1\+\_\+\+SPDIF\+\_\+\+FS}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM12 TI1 is connected to SPDIF FS $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI1\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM15\+\_\+\+TI1 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI1\+\_\+\+TIM2\+\_\+\+CH1}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM15\+\_\+\+TI1 is connected to TIM2 CH1 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI1\+\_\+\+TIM3\+\_\+\+CH1}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}                        /$\ast$ !$<$ TIM15\+\_\+\+TI1 is connected to TIM3 CH1 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI1\+\_\+\+TIM4\+\_\+\+CH1}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}) /$\ast$ !$<$ TIM15\+\_\+\+TI1 is connected to TIM4 CH1 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI1\+\_\+\+RCC\+\_\+\+LSE}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1bcab70466ce0c2bf5b052ef9963d0c7}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+2}})                      /$\ast$ !$<$ TIM15\+\_\+\+TI1 is connected to RCC LSE  $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI1\+\_\+\+RCC\+\_\+\+CSI}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1bcab70466ce0c2bf5b052ef9963d0c7}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+2}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}}) /$\ast$ !$<$ TIM15\+\_\+\+TI1 is connected to RCC CSI  $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI1\+\_\+\+RCC\+\_\+\+MCO2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga1bcab70466ce0c2bf5b052ef9963d0c7}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+2}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}) /$\ast$ !$<$ TIM15\+\_\+\+TI1 is connected to RCC MCO2 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI2\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM15\+\_\+\+TI2 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI2\+\_\+\+TIM2\+\_\+\+CH2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga18532138f0c7423e6acb642933937cbb}{TIM\+\_\+\+TISEL\+\_\+\+TI2\+SEL\+\_\+0}})                      /$\ast$ !$<$ TIM15\+\_\+\+TI2 is connected to TIM2 CH2 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI2\+\_\+\+TIM3\+\_\+\+CH2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac432d94cbea0fec68e3cf56c8b25a532}{TIM\+\_\+\+TISEL\+\_\+\+TI2\+SEL\+\_\+1}})                      /$\ast$ !$<$ TIM15\+\_\+\+TI2 is connected to TIM3 CH2 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM15\+\_\+\+TI2\+\_\+\+TIM4\+\_\+\+CH2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga18532138f0c7423e6acb642933937cbb}{TIM\+\_\+\+TISEL\+\_\+\+TI2\+SEL\+\_\+0}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac432d94cbea0fec68e3cf56c8b25a532}{TIM\+\_\+\+TISEL\+\_\+\+TI2\+SEL\+\_\+1}}) /$\ast$ !$<$ TIM15\+\_\+\+TI2 is connected to TIM4 CH2 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM16\+\_\+\+TI1\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM16 TI1 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM16\+\_\+\+TI1\+\_\+\+RCC\+\_\+\+LSI}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM16 TI1 is connected to RCC LSI $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM16\+\_\+\+TI1\+\_\+\+RCC\+\_\+\+LSE}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}                        /$\ast$ !$<$ TIM16 TI1 is connected to RCC LSE $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM16\+\_\+\+TI1\+\_\+\+WKUP\+\_\+\+IT}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}) /$\ast$ !$<$ TIM16 TI1 is connected to WKUP\+\_\+\+IT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM17\+\_\+\+TI1\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM17 TI1 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM17\+\_\+\+TI1\+\_\+\+SPDIF\+\_\+\+FS}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM17 TI1 is connected to SPDIF FS $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM17\+\_\+\+TI1\+\_\+\+RCC\+\_\+\+HSE1\+MHZ}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}                        /$\ast$ !$<$ TIM17 TI1 is connected to RCC HSE 1Mhz $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM17\+\_\+\+TI1\+\_\+\+RCC\+\_\+\+MCO1}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}) /$\ast$ !$<$ TIM17 TI1 is connected to RCC MCO1 $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM23\+\_\+\+TI4\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM23\+\_\+\+TI4 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM23\+\_\+\+TI4\+\_\+\+COMP1}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabe0b9c7718f9609776afdbb0ebcc3832}{TIM\+\_\+\+TISEL\+\_\+\+TI4\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM23\+\_\+\+TI4 is connected to COMP1 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM23\+\_\+\+TI4\+\_\+\+COMP2}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf6106b6c27078a60113e888b0142ccb8}{TIM\+\_\+\+TISEL\+\_\+\+TI4\+SEL\+\_\+1}}                        /$\ast$ !$<$ TIM23\+\_\+\+TI4 is connected to COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM23\+\_\+\+TI4\+\_\+\+COMP1\+\_\+\+COMP2}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabe0b9c7718f9609776afdbb0ebcc3832}{TIM\+\_\+\+TISEL\+\_\+\+TI4\+SEL\+\_\+0}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf6106b6c27078a60113e888b0142ccb8}{TIM\+\_\+\+TISEL\+\_\+\+TI4\+SEL\+\_\+1}}) /$\ast$ !$<$ TIM23\+\_\+\+TI4 is connected to COMP1 OUT or COMP2 OUT $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM24\+\_\+\+TI1\+\_\+\+GPIO}~0x00000000U                               /$\ast$ !$<$ TIM24\+\_\+\+TI1 is connected to GPIO $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM24\+\_\+\+TI1\+\_\+\+CAN\+\_\+\+TMP}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac8352e91e70524bf299ae524b17fc4b2}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+0}}                        /$\ast$ !$<$ TIM24\+\_\+\+TI1 is connected to CAN TMP  $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM24\+\_\+\+TI1\+\_\+\+CAN\+\_\+\+RTP}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad452efbdd8b96c975f09b1c10eb43c90}{TIM\+\_\+\+TISEL\+\_\+\+TI1\+SEL\+\_\+1}}                        /$\ast$ !$<$ TIM24\+\_\+\+TI1 is connected to CAN RTP  $\ast$/
+\item 
+\#define {\bfseries TIM\+\_\+\+TIM24\+\_\+\+TI1\+\_\+\+CAN\+\_\+\+SOC}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabe0b9c7718f9609776afdbb0ebcc3832}{TIM\+\_\+\+TISEL\+\_\+\+TI4\+SEL\+\_\+0}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf6106b6c27078a60113e888b0142ccb8}{TIM\+\_\+\+TISEL\+\_\+\+TI4\+SEL\+\_\+1}}) /$\ast$ !$<$ TIM24\+\_\+\+TI1 is connected to CAN SOC $\ast$/
+\item 
+\#define \mbox{\hyperlink{group___t_i_m_ex___private___macros_gac11038f927b530ed9ff66cbf88b5fe48}{IS\+\_\+\+TIM\+\_\+\+BREAKINPUT}}(\+\_\+\+\_\+\+BREAKINPUT\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___t_i_m_ex___private___macros_ga8206e59b599377ce8abb3d806ffcf5a1}{IS\+\_\+\+TIM\+\_\+\+BREAKINPUTSOURCE}}(\+\_\+\+\_\+\+SOURCE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___t_i_m_ex___private___macros_gafea36303ed2332cea12b392d987649e3}{IS\+\_\+\+TIM\+\_\+\+BREAKINPUTSOURCE\+\_\+\+STATE}}(\+\_\+\+\_\+\+STATE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___t_i_m_ex___private___macros_ga350bdeccbe405fde9ab61b83a53321ea}{IS\+\_\+\+TIM\+\_\+\+BREAKINPUTSOURCE\+\_\+\+POLARITY}}(\+\_\+\+\_\+\+POLARITY\+\_\+\+\_\+)
+\item 
+\#define {\bfseries IS\+\_\+\+TIM\+\_\+\+TISEL}(\+\_\+\+\_\+\+TISEL\+\_\+\+\_\+)
+\item 
+\#define {\bfseries IS\+\_\+\+TIM\+\_\+\+REMAP}(\+\_\+\+\_\+\+RREMAP\+\_\+\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+Init} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def}{TIM\+\_\+\+Hall\+Sensor\+\_\+\+Init\+Type\+Def}} $\ast$s\+Config)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+De\+Init} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+void {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+Msp\+Init} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+void {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+Msp\+De\+Init} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+Start} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+Stop} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+Start\+\_\+\+IT} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+Stop\+\_\+\+IT} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+Start\+\_\+\+DMA} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t $\ast$p\+Data, uint16\+\_\+t Length)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+Stop\+\_\+\+DMA} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+OCN\+\_\+\+Start} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+OCN\+\_\+\+Stop} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+OCN\+\_\+\+Start\+\_\+\+IT} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+OCN\+\_\+\+Stop\+\_\+\+IT} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+OCN\+\_\+\+Start\+\_\+\+DMA} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel, uint32\+\_\+t $\ast$p\+Data, uint16\+\_\+t Length)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+OCN\+\_\+\+Stop\+\_\+\+DMA} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+PWMN\+\_\+\+Start} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+PWMN\+\_\+\+Stop} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+PWMN\+\_\+\+Start\+\_\+\+IT} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+PWMN\+\_\+\+Stop\+\_\+\+IT} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+PWMN\+\_\+\+Start\+\_\+\+DMA} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel, uint32\+\_\+t $\ast$p\+Data, uint16\+\_\+t Length)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+PWMN\+\_\+\+Stop\+\_\+\+DMA} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+One\+Pulse\+N\+\_\+\+Start} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Output\+Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+One\+Pulse\+N\+\_\+\+Stop} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Output\+Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+One\+Pulse\+N\+\_\+\+Start\+\_\+\+IT} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Output\+Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+One\+Pulse\+N\+\_\+\+Stop\+\_\+\+IT} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Output\+Channel)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Config\+Commut\+Event} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Input\+Trigger, uint32\+\_\+t Commutation\+Source)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Config\+Commut\+Event\+\_\+\+IT} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Input\+Trigger, uint32\+\_\+t Commutation\+Source)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Config\+Commut\+Event\+\_\+\+DMA} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Input\+Trigger, uint32\+\_\+t Commutation\+Source)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Master\+Config\+Synchronization} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, \mbox{\hyperlink{struct_t_i_m___master_config_type_def}{TIM\+\_\+\+Master\+Config\+Type\+Def}} $\ast$s\+Master\+Config)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Config\+Break\+Dead\+Time} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, \mbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def}{TIM\+\_\+\+Break\+Dead\+Time\+Config\+Type\+Def}} $\ast$s\+Break\+Dead\+Time\+Config)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Group\+Channel5} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Channels)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Remap\+Config} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t Remap)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+TISelection} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t TISelection, uint32\+\_\+t Channel)
+\item 
+void {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Commut\+Callback} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+void {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Commut\+Half\+Cplt\+Callback} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+void {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Break\+Callback} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+void {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Break2\+Callback} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+\mbox{\hyperlink{group___t_i_m___exported___types_gae0994cf5970e56ca4903e9151f40010c}{HAL\+\_\+\+TIM\+\_\+\+State\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Hall\+Sensor\+\_\+\+Get\+State} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim)
+\item 
+\mbox{\hyperlink{group___t_i_m___exported___types_ga1a70fcbe9952e18af5c890e216a15f34}{HAL\+\_\+\+TIM\+\_\+\+Channel\+State\+Type\+Def}} {\bfseries HAL\+\_\+\+TIMEx\+\_\+\+Get\+Channel\+NState} (\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\+\_\+\+Handle\+Type\+Def}} $\ast$htim, uint32\+\_\+t ChannelN)
+\item 
+void {\bfseries TIMEx\+\_\+\+DMACommutation\+Cplt} (\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} $\ast$hdma)
+\item 
+void {\bfseries TIMEx\+\_\+\+DMACommutation\+Half\+Cplt} (\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\+\_\+\+Handle\+Type\+Def}} $\ast$hdma)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of TIM HAL Extended module. 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2017 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 

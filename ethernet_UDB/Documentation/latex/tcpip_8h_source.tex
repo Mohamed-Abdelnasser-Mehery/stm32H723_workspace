@@ -1,0 +1,107 @@
+\hypertarget{tcpip_8h_source}{}\doxysection{tcpip.\+h}
+\label{tcpip_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/tcpip.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/tcpip.h}}
+\mbox{\hyperlink{tcpip_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_TCPIP\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_TCPIP\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#if !NO\_SYS }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{timeouts_8h}{lwip/timeouts.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{49 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#if LWIP\_TCPIP\_CORE\_LOCKING}}
+\DoxyCodeLine{54 \textcolor{keyword}{extern} sys\_mutex\_t lock\_tcpip\_core;}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#if !defined LOCK\_TCPIP\_CORE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define LOCK\_TCPIP\_CORE()     sys\_mutex\_lock(\&lock\_tcpip\_core)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define UNLOCK\_TCPIP\_CORE()   sys\_mutex\_unlock(\&lock\_tcpip\_core)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LOCK\_TCPIP\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_TCPIP\_CORE\_LOCKING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define LOCK\_TCPIP\_CORE()}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define UNLOCK\_TCPIP\_CORE()}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCPIP\_CORE\_LOCKING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}};}
+\DoxyCodeLine{67 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{70 \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{tcpip_8h_a5fe07216c441e27c3028bcac60fa0992}{tcpip\_init\_done\_fn}})(\textcolor{keywordtype}{void} *arg);}
+\DoxyCodeLine{72 \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\_callback\_fn}})(\textcolor{keywordtype}{void} *ctx);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{comment}{/* Forward declarations */}}
+\DoxyCodeLine{75 \textcolor{keyword}{struct }tcpip\_callback\_msg;}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{keywordtype}{void}   \mbox{\hyperlink{tcpip_8h_ac104b53faf0e3905ad0e970866835661}{tcpip\_init}}(\mbox{\hyperlink{tcpip_8h_a5fe07216c441e27c3028bcac60fa0992}{tcpip\_init\_done\_fn}} tcpip\_init\_done, \textcolor{keywordtype}{void} *arg);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  \mbox{\hyperlink{tcpip_8h_a93043b3c66dbe4a15a60299c6199d102}{tcpip\_inpkt}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *inp, \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\_input\_fn}} input\_fn);}
+\DoxyCodeLine{80 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  \mbox{\hyperlink{tcpip_8h_ae510f195171bed8499ae94e264a92717}{tcpip\_input}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *inp);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  \mbox{\hyperlink{tcpip_8h_aeb7b3c7414c76ad8dde14d2fba6cb020}{tcpip\_try\_callback}}(\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\_callback\_fn}} function, \textcolor{keywordtype}{void} *ctx);}
+\DoxyCodeLine{83 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  \mbox{\hyperlink{tcpip_8h_aab838fe3417ab3a1f61f0728009a0c2a}{tcpip\_callback}}(\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\_callback\_fn}} function, \textcolor{keywordtype}{void} *ctx);}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define tcpip\_callback\_with\_block(function, ctx, block) ((block != 0)? tcpip\_callback(function, ctx) : tcpip\_try\_callback(function, ctx))}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{keyword}{struct }tcpip\_callback\_msg* \mbox{\hyperlink{tcpip_8h_a07de8751452a8886de85849f79fe23a1}{tcpip\_callbackmsg\_new}}(\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\_callback\_fn}} function, \textcolor{keywordtype}{void} *ctx);}
+\DoxyCodeLine{90 \textcolor{keywordtype}{void}   \mbox{\hyperlink{tcpip_8h_ac5b7a59f4c3f5f721ab9ee81f231c9fd}{tcpip\_callbackmsg\_delete}}(\textcolor{keyword}{struct} tcpip\_callback\_msg* msg);}
+\DoxyCodeLine{91 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  \mbox{\hyperlink{tcpip_8h_a83fe5fb2ea33e8c262567ac46f4db3f8}{tcpip\_callbackmsg\_trycallback}}(\textcolor{keyword}{struct} tcpip\_callback\_msg* msg);}
+\DoxyCodeLine{92 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  \mbox{\hyperlink{tcpip_8h_a56a234f3d895791225c3c850bfadb666}{tcpip\_callbackmsg\_trycallback\_fromisr}}(\textcolor{keyword}{struct} tcpip\_callback\_msg* msg);}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{comment}{/* free pbufs or heap memory from another context without blocking */}}
+\DoxyCodeLine{95 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  \mbox{\hyperlink{tcpip_8h_a5cdcb6b784fe0e8736a5b31a5cfbed6c}{pbuf\_free\_callback}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{96 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  \mbox{\hyperlink{tcpip_8h_a55b4de3765c6a37b3f2b26a11603771c}{mem\_free\_callback}}(\textcolor{keywordtype}{void} *m);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#if LWIP\_TCPIP\_TIMEOUT \&\& LWIP\_TIMERS}}
+\DoxyCodeLine{99 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  tcpip\_timeout(u32\_t msecs, sys\_timeout\_handler h, \textcolor{keywordtype}{void} *arg);}
+\DoxyCodeLine{100 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  tcpip\_untimeout(sys\_timeout\_handler h, \textcolor{keywordtype}{void} *arg);}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCPIP\_TIMEOUT \&\& LWIP\_TIMERS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#ifdef TCPIP\_THREAD\_TEST}}
+\DoxyCodeLine{104 \textcolor{keywordtype}{int} tcpip\_thread\_poll\_one(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{108 \}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !NO\_SYS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_TCPIP\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

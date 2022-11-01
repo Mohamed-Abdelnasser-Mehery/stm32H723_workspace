@@ -1950,6 +1950,9 @@ void udpClient_connect(void)
 
 08000d2c <udpClient_send>:
 
+///This function send data to USB server
+
+
 static void udpClient_send(void)
 {
  8000d2c:	b580      	push	{r7, lr}
@@ -2016,7 +2019,7 @@ static void udpClient_send(void)
 
 08000d90 <udp_receive_callback>:
 
-
+/// This function handle the input data from UDB server
 void udp_receive_callback(void *arg, struct udp_pcb *upcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 {
  8000d90:	b580      	push	{r7, lr}

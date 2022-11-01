@@ -1,0 +1,86 @@
+\hypertarget{stm32h7xx__hal__hsem_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Src/stm32h7xx\+\_\+hal\+\_\+hsem.c File Reference}
+\label{stm32h7xx__hal__hsem_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Src/stm32h7xx\_hal\_hsem.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Src/stm32h7xx\_hal\_hsem.c}}
+
+
+HSEM HAL module driver. This file provides firmware functions to manage the following functionalities of the semaphore peripheral\+:  
+
+
+{\ttfamily \#include \char`\"{}stm32h7xx\+\_\+hal.\+h\char`\"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+HSEM HAL module driver. This file provides firmware functions to manage the following functionalities of the semaphore peripheral\+: 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team
+\begin{DoxyItemize}
+\item Semaphore Take function (2-\/Step Procedure) , non blocking
+\item Semaphore Fast\+Take function (1-\/Step Procedure) , non blocking
+\item Semaphore Status check
+\item Semaphore Clear Key Set and Get
+\item Release and release all functions
+\item Semaphore notification enabling and disabling and callnack functions
+\item IRQ handler management
+\end{DoxyItemize}
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2017 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS.
+
+\begin{DoxyVerb}==============================================================================
+                   ##### How to use this driver #####
+==============================================================================
+[..]
+    (#)Take a semaphore In 2-Step mode Using function HAL_HSEM_Take. This function takes as parameters :
+         (++) the semaphore ID from 0 to 31
+         (++) the process ID from 0 to 255
+    (#) Fast Take semaphore In 1-Step mode Using function HAL_HSEM_FastTake. This function takes as parameter :
+         (++) the semaphore ID from 0_ID to 31. Note that the process ID value is implicitly assumed as zero
+    (#) Check if a semaphore is Taken using function HAL_HSEM_IsSemTaken. This function takes as parameter :
+        (++) the semaphore ID from 0_ID to 31
+        (++) It returns 1 if the given semaphore is taken otherwise (Free) zero
+    (#)Release a semaphore using function with HAL_HSEM_Release. This function takes as parameters :
+         (++) the semaphore ID from 0 to 31
+         (++) the process ID from 0 to 255:
+         (++) Note: If ProcessID and MasterID match, semaphore is freed, and an interrupt
+       may be generated when enabled (notification activated). If ProcessID or MasterID does not match,
+       semaphore remains taken (locked)
+
+    (#)Release all semaphores at once taken by a given Master using function HAL_HSEM_Release_All
+        This function takes as parameters :
+         (++) the Release Key (value from 0 to 0xFFFF) can be Set or Get respectively by
+            HAL_HSEM_SetClearKey() or HAL_HSEM_GetClearKey functions
+         (++) the Master ID:
+         (++) Note: If the Key and MasterID match, all semaphores taken by the given CPU that corresponds
+         to MasterID  will be freed, and an interrupt may be generated when enabled (notification activated). If the
+         Key or the MasterID doesn't match, semaphores remains taken (locked)
+
+    (#)Semaphores Release all key functions:
+       (++)  HAL_HSEM_SetClearKey() to set semaphore release all Key
+       (++)  HAL_HSEM_GetClearKey() to get release all Key
+    (#)Semaphores notification functions :
+       (++)  HAL_HSEM_ActivateNotification to activate a notification callback on
+             a given semaphores Mask (bitfield). When one or more semaphores defined by the mask are released
+             the callback HAL_HSEM_FreeCallback will be asserted giving as parameters a mask of the released
+             semaphores (bitfield).
+
+       (++)  HAL_HSEM_DeactivateNotification to deactivate the notification of a given semaphores Mask (bitfield).
+       (++) See the description of the macro __HAL_HSEM_SEMID_TO_MASK to check how to calculate a semaphore mask
+              Used by the notification functions
+   *** HSEM HAL driver macros list ***
+   =============================================
+   [..] Below the list of most used macros in HSEM HAL driver.
+
+    (+) __HAL_HSEM_SEMID_TO_MASK: Helper macro to convert a Semaphore ID to a Mask.
+    [..] Example of use :
+    [..] mask = __HAL_HSEM_SEMID_TO_MASK(8)  |  __HAL_HSEM_SEMID_TO_MASK(21) | __HAL_HSEM_SEMID_TO_MASK(25).
+    [..] All next macros take as parameter a semaphore Mask (bitfiled) that can be constructed using  __HAL_HSEM_SEMID_TO_MASK as the above example.
+    (+) __HAL_HSEM_ENABLE_IT: Enable the specified semaphores Mask interrupts.
+    (+) __HAL_HSEM_DISABLE_IT: Disable the specified semaphores Mask interrupts.
+    (+) __HAL_HSEM_GET_IT: Checks whether the specified semaphore interrupt has occurred or not.
+    (+) __HAL_HSEM_GET_FLAG: Get the semaphores status release flags.
+    (+) __HAL_HSEM_CLEAR_FLAG: Clear the semaphores status release flags.\end{DoxyVerb}
+ 

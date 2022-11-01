@@ -1,0 +1,86 @@
+\hypertarget{mld6_8h_source}{}\doxysection{mld6.\+h}
+\label{mld6_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/mld6.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/mld6.h}}
+\mbox{\hyperlink{mld6_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{comment}{/*}}
+\DoxyCodeLine{9 \textcolor{comment}{ * Copyright (c) 2010 Inico Technologies Ltd.}}
+\DoxyCodeLine{10 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{13 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{14 \textcolor{comment}{ *}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{17 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{20 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{21 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{22 \textcolor{comment}{ *}}
+\DoxyCodeLine{23 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{24 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{25 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{27 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{28 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{29 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{30 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{31 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{32 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ * Author: Ivan Delamer <delamer@inicotech.com>}}
+\DoxyCodeLine{37 \textcolor{comment}{ *}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ * Please coordinate changes and requests with Ivan Delamer}}
+\DoxyCodeLine{40 \textcolor{comment}{ * <delamer@inicotech.com>}}
+\DoxyCodeLine{41 \textcolor{comment}{ */}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_MLD6\_H}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define LWIP\_HDR\_MLD6\_H}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#if LWIP\_IPV6\_MLD \&\& LWIP\_IPV6  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pbuf_8h}{lwip/pbuf.h}}"{}}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{54 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{58 \textcolor{keyword}{struct }mld\_group \{}
+\DoxyCodeLine{60   \textcolor{keyword}{struct }mld\_group *next;}
+\DoxyCodeLine{62   ip6\_addr\_t         group\_address;}
+\DoxyCodeLine{64   u8\_t               last\_reporter\_flag;}
+\DoxyCodeLine{66   u8\_t               group\_state;}
+\DoxyCodeLine{68   u16\_t              timer;}
+\DoxyCodeLine{70   u8\_t               use;}
+\DoxyCodeLine{71 \};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define MLD6\_TMR\_INTERVAL              100 }\textcolor{comment}{/* Milliseconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  mld6\_stop(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{76 \textcolor{keywordtype}{void}   mld6\_report\_groups(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{77 \textcolor{keywordtype}{void}   mld6\_tmr(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{78 \textcolor{keyword}{struct }mld\_group *mld6\_lookfor\_group(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ifp, \textcolor{keyword}{const} ip6\_addr\_t *addr);}
+\DoxyCodeLine{79 \textcolor{keywordtype}{void}   mld6\_input(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *inp);}
+\DoxyCodeLine{80 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  mld6\_joingroup(\textcolor{keyword}{const} ip6\_addr\_t *srcaddr, \textcolor{keyword}{const} ip6\_addr\_t *groupaddr);}
+\DoxyCodeLine{81 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  mld6\_joingroup\_netif(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip6\_addr\_t *groupaddr);}
+\DoxyCodeLine{82 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  mld6\_leavegroup(\textcolor{keyword}{const} ip6\_addr\_t *srcaddr, \textcolor{keyword}{const} ip6\_addr\_t *groupaddr);}
+\DoxyCodeLine{83 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}  mld6\_leavegroup\_netif(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip6\_addr\_t *groupaddr);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define netif\_mld6\_data(netif) ((struct mld\_group *)netif\_get\_client\_data(netif, LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_MLD6))}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{94 \}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_MLD \&\& LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_MLD6\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

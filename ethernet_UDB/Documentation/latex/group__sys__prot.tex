@@ -1,0 +1,8 @@
+\hypertarget{group__sys__prot}{}\doxysection{Critical sections}
+\label{group__sys__prot}\index{Critical sections@{Critical sections}}
+Used to protect short regions of code against concurrent access.
+\begin{DoxyItemize}
+\item Your system is a bare-\/metal system (probably with an RTOS) and interrupts are under your control\+: Implement this as Lock\+Interrupts() / Unlock\+Interrupts()
+\item Your system uses an RTOS with deferred interrupt handling from a worker thread\+: Implement as a global mutex or lock/unlock scheduler
+\item Your system uses a high-\/level OS with e.\+g. POSIX signals\+: Implement as a global mutex 
+\end{DoxyItemize}

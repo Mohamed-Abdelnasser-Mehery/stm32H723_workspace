@@ -1,0 +1,91 @@
+\hypertarget{smtp_8h_source}{}\doxysection{smtp.\+h}
+\label{smtp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/smtp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/smtp.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_SMTP\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_SMTP\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{5 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}lwip/apps/smtp\_opts.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{iana_8h}{lwip/prot/iana.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define SMTP\_DEFAULT\_PORT         LWIP\_IANA\_PORT\_SMTP}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define SMTPS\_DEFAULT\_PORT        LWIP\_IANA\_PORT\_SMTPS}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define SMTP\_RESULT\_OK            0}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define SMTP\_RESULT\_ERR\_UNKNOWN   1}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define SMTP\_RESULT\_ERR\_CONNECT   2}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define SMTP\_RESULT\_ERR\_HOSTNAME  3}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define SMTP\_RESULT\_ERR\_CLOSED    4}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define SMTP\_RESULT\_ERR\_TIMEOUT   5}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define SMTP\_RESULT\_ERR\_SVR\_RESP  6}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define SMTP\_RESULT\_ERR\_MEM       7}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{42 \textcolor{keyword}{typedef} void (*smtp\_result\_fn)(\textcolor{keywordtype}{void} *arg, u8\_t smtp\_result, u16\_t srv\_err, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{54 \textcolor{keyword}{struct }\mbox{\hyperlink{structsmtp__send__request}{smtp\_send\_request}} \{}
+\DoxyCodeLine{55   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *from;}
+\DoxyCodeLine{56   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* to;}
+\DoxyCodeLine{57   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* subject;}
+\DoxyCodeLine{58   \textcolor{keyword}{const} \textcolor{keywordtype}{char}* body;}
+\DoxyCodeLine{59   smtp\_result\_fn callback\_fn;}
+\DoxyCodeLine{60   \textcolor{keywordtype}{void}* callback\_arg;}
+\DoxyCodeLine{65   u8\_t \mbox{\hyperlink{structsmtp__send__request_a30a20123291fcf62371572c15ffbe3a5}{static\_data}};}
+\DoxyCodeLine{66 \};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#if SMTP\_BODYDH}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#ifndef SMTP\_BODYDH\_BUFFER\_SIZE}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define SMTP\_BODYDH\_BUFFER\_SIZE 256}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SMTP\_BODYDH\_BUFFER\_SIZE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{keyword}{struct }smtp\_bodydh \{}
+\DoxyCodeLine{76   u16\_t state;}
+\DoxyCodeLine{77   u16\_t length; \textcolor{comment}{/* Length of content in buffer */}}
+\DoxyCodeLine{78   \textcolor{keywordtype}{char} buffer[SMTP\_BODYDH\_BUFFER\_SIZE]; \textcolor{comment}{/* buffer for generated content */}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#ifdef SMTP\_BODYDH\_USER\_SIZE}}
+\DoxyCodeLine{80   u8\_t user[SMTP\_BODYDH\_USER\_SIZE];}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SMTP\_BODYDH\_USER\_SIZE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{enum} bdh\_retvals\_e \{}
+\DoxyCodeLine{85   BDH\_DONE = 0,}
+\DoxyCodeLine{86   BDH\_WORKING}
+\DoxyCodeLine{87 \};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{100 \textcolor{keyword}{typedef} int (*smtp\_bodycback\_fn)(\textcolor{keywordtype}{void} *arg, \textcolor{keyword}{struct }smtp\_bodydh *bodydh);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} smtp\_send\_mail\_bodycback(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *from, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* to, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* subject,}
+\DoxyCodeLine{103                      smtp\_bodycback\_fn bodycback\_fn, smtp\_result\_fn callback\_fn, \textcolor{keywordtype}{void}* callback\_arg);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SMTP\_BODYDH */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} smtp\_set\_server\_addr(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* server);}
+\DoxyCodeLine{109 \textcolor{keywordtype}{void} smtp\_set\_server\_port(u16\_t port);}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#if LWIP\_ALTCP \&\& LWIP\_ALTCP\_TLS}}
+\DoxyCodeLine{111 \textcolor{keyword}{struct }altcp\_tls\_config;}
+\DoxyCodeLine{112 \textcolor{keywordtype}{void} smtp\_set\_tls\_config(\textcolor{keyword}{struct} altcp\_tls\_config *tls\_config);}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{114 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} smtp\_set\_auth(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* username, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* pass);}
+\DoxyCodeLine{115 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} smtp\_send\_mail(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *from, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* to, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* subject, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* body,}
+\DoxyCodeLine{116                      smtp\_result\_fn callback\_fn, \textcolor{keywordtype}{void}* callback\_arg);}
+\DoxyCodeLine{117 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} smtp\_send\_mail\_static(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *from, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* to, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* subject, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* body,}
+\DoxyCodeLine{118                      smtp\_result\_fn callback\_fn, \textcolor{keywordtype}{void}* callback\_arg);}
+\DoxyCodeLine{119 \textcolor{keywordtype}{void} smtp\_send\_mail\_int(\textcolor{keywordtype}{void} *arg);}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#ifdef LWIP\_DEBUG}}
+\DoxyCodeLine{121 \textcolor{keyword}{const} \textcolor{keywordtype}{char}* smtp\_result\_str(u8\_t smtp\_result);}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{125 \}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_SMTP\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

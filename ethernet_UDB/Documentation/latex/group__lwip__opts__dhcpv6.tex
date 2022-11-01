@@ -1,0 +1,60 @@
+\hypertarget{group__lwip__opts__dhcpv6}{}\doxysection{DHCPv6}
+\label{group__lwip__opts__dhcpv6}\index{DHCPv6@{DHCPv6}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__dhcpv6_ga1ba67b6665026ec0c688dc4b0df047a6}{LWIP\+\_\+\+IPV6\+\_\+\+DHCP6}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__dhcpv6_ga3fc9dbe8feae61621cac4952ac28e155}{LWIP\+\_\+\+IPV6\+\_\+\+DHCP6\+\_\+\+STATEFUL}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__dhcpv6_ga8d6bab14d580d2136430319aab6d7930}{LWIP\+\_\+\+IPV6\+\_\+\+DHCP6\+\_\+\+STATELESS}}~\mbox{\hyperlink{group__lwip__opts__dhcpv6_ga1ba67b6665026ec0c688dc4b0df047a6}{LWIP\+\_\+\+IPV6\+\_\+\+DHCP6}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__dhcpv6_ga5d08f76a7472daa7bcfe17343243bd77}{LWIP\+\_\+\+DHCP6\+\_\+\+GET\+\_\+\+NTP\+\_\+\+SRV}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__dhcpv6_gaf3ac8e15d7a67429a02bc2317e16bcfe}{LWIP\+\_\+\+DHCP6\+\_\+\+MAX\+\_\+\+NTP\+\_\+\+SERVERS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__dhcpv6_ga92c3bc242ad20a5f398c45d332864a29}{LWIP\+\_\+\+DHCP6\+\_\+\+MAX\+\_\+\+DNS\+\_\+\+SERVERS}}~\mbox{\hyperlink{group__lwip__opts__dns_ga9f9881c887a8aceb9765820c2dbdf292}{DNS\+\_\+\+MAX\+\_\+\+SERVERS}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__dhcpv6_ga5d08f76a7472daa7bcfe17343243bd77}\label{group__lwip__opts__dhcpv6_ga5d08f76a7472daa7bcfe17343243bd77}} 
+\index{DHCPv6@{DHCPv6}!LWIP\_DHCP6\_GET\_NTP\_SRV@{LWIP\_DHCP6\_GET\_NTP\_SRV}}
+\index{LWIP\_DHCP6\_GET\_NTP\_SRV@{LWIP\_DHCP6\_GET\_NTP\_SRV}!DHCPv6@{DHCPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DHCP6\_GET\_NTP\_SRV}{LWIP\_DHCP6\_GET\_NTP\_SRV}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DHCP6\+\_\+\+GET\+\_\+\+NTP\+\_\+\+SRV~0}
+
+LWIP\+\_\+\+DHCP6\+\_\+\+GETS\+\_\+\+NTP==1\+: Request NTP servers via DHCPv6. For each response packet, a callback is called, which has to be provided by the port\+: void dhcp6\+\_\+set\+\_\+ntp\+\_\+servers(u8\+\_\+t num\+\_\+ntp\+\_\+servers, ip\+\_\+addr\+\_\+t$\ast$ ntp\+\_\+server\+\_\+addrs); \mbox{\Hypertarget{group__lwip__opts__dhcpv6_ga92c3bc242ad20a5f398c45d332864a29}\label{group__lwip__opts__dhcpv6_ga92c3bc242ad20a5f398c45d332864a29}} 
+\index{DHCPv6@{DHCPv6}!LWIP\_DHCP6\_MAX\_DNS\_SERVERS@{LWIP\_DHCP6\_MAX\_DNS\_SERVERS}}
+\index{LWIP\_DHCP6\_MAX\_DNS\_SERVERS@{LWIP\_DHCP6\_MAX\_DNS\_SERVERS}!DHCPv6@{DHCPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DHCP6\_MAX\_DNS\_SERVERS}{LWIP\_DHCP6\_MAX\_DNS\_SERVERS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DHCP6\+\_\+\+MAX\+\_\+\+DNS\+\_\+\+SERVERS~\mbox{\hyperlink{group__lwip__opts__dns_ga9f9881c887a8aceb9765820c2dbdf292}{DNS\+\_\+\+MAX\+\_\+\+SERVERS}}}
+
+LWIP\+\_\+\+DHCP6\+\_\+\+MAX\+\_\+\+DNS\+\_\+\+SERVERS \texorpdfstring{$>$}{>} 0\+: Request DNS servers via DHCPv6. DNS servers received in the response are passed to DNS via dns\+\_\+setserver() (up to the maximum limit defined here). \mbox{\Hypertarget{group__lwip__opts__dhcpv6_gaf3ac8e15d7a67429a02bc2317e16bcfe}\label{group__lwip__opts__dhcpv6_gaf3ac8e15d7a67429a02bc2317e16bcfe}} 
+\index{DHCPv6@{DHCPv6}!LWIP\_DHCP6\_MAX\_NTP\_SERVERS@{LWIP\_DHCP6\_MAX\_NTP\_SERVERS}}
+\index{LWIP\_DHCP6\_MAX\_NTP\_SERVERS@{LWIP\_DHCP6\_MAX\_NTP\_SERVERS}!DHCPv6@{DHCPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DHCP6\_MAX\_NTP\_SERVERS}{LWIP\_DHCP6\_MAX\_NTP\_SERVERS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DHCP6\+\_\+\+MAX\+\_\+\+NTP\+\_\+\+SERVERS~1}
+
+The maximum of NTP servers requested \mbox{\Hypertarget{group__lwip__opts__dhcpv6_ga1ba67b6665026ec0c688dc4b0df047a6}\label{group__lwip__opts__dhcpv6_ga1ba67b6665026ec0c688dc4b0df047a6}} 
+\index{DHCPv6@{DHCPv6}!LWIP\_IPV6\_DHCP6@{LWIP\_IPV6\_DHCP6}}
+\index{LWIP\_IPV6\_DHCP6@{LWIP\_IPV6\_DHCP6}!DHCPv6@{DHCPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_DHCP6}{LWIP\_IPV6\_DHCP6}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+DHCP6~0}
+
+LWIP\+\_\+\+IPV6\+\_\+\+DHCP6==1\+: enable DHCPv6 stateful/stateless address autoconfiguration. \mbox{\Hypertarget{group__lwip__opts__dhcpv6_ga3fc9dbe8feae61621cac4952ac28e155}\label{group__lwip__opts__dhcpv6_ga3fc9dbe8feae61621cac4952ac28e155}} 
+\index{DHCPv6@{DHCPv6}!LWIP\_IPV6\_DHCP6\_STATEFUL@{LWIP\_IPV6\_DHCP6\_STATEFUL}}
+\index{LWIP\_IPV6\_DHCP6\_STATEFUL@{LWIP\_IPV6\_DHCP6\_STATEFUL}!DHCPv6@{DHCPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_DHCP6\_STATEFUL}{LWIP\_IPV6\_DHCP6\_STATEFUL}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+DHCP6\+\_\+\+STATEFUL~0}
+
+LWIP\+\_\+\+IPV6\+\_\+\+DHCP6\+\_\+\+STATEFUL==1\+: enable DHCPv6 stateful address autoconfiguration. (not supported, yet!) \mbox{\Hypertarget{group__lwip__opts__dhcpv6_ga8d6bab14d580d2136430319aab6d7930}\label{group__lwip__opts__dhcpv6_ga8d6bab14d580d2136430319aab6d7930}} 
+\index{DHCPv6@{DHCPv6}!LWIP\_IPV6\_DHCP6\_STATELESS@{LWIP\_IPV6\_DHCP6\_STATELESS}}
+\index{LWIP\_IPV6\_DHCP6\_STATELESS@{LWIP\_IPV6\_DHCP6\_STATELESS}!DHCPv6@{DHCPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_DHCP6\_STATELESS}{LWIP\_IPV6\_DHCP6\_STATELESS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+DHCP6\+\_\+\+STATELESS~\mbox{\hyperlink{group__lwip__opts__dhcpv6_ga1ba67b6665026ec0c688dc4b0df047a6}{LWIP\+\_\+\+IPV6\+\_\+\+DHCP6}}}
+
+LWIP\+\_\+\+IPV6\+\_\+\+DHCP6\+\_\+\+STATELESS==1\+: enable DHCPv6 stateless address autoconfiguration. 

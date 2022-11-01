@@ -1,0 +1,54 @@
+\hypertarget{group__slipif}{}\doxysection{SLIP}
+\label{group__slipif}\index{SLIP@{SLIP}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__slipif_ga687973ba82dab13a5b9d38d7399aeee3}{slipif\+\_\+init}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__slipif_ga7b036fd1cde9b299139cac62f52d15a6}{slipif\+\_\+poll}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is an arch independent SLIP netif. The specific serial hooks must be provided by another file. They are sio\+\_\+open, sio\+\_\+read/sio\+\_\+tryread and sio\+\_\+send
+
+Usage\+: This netif can be used in three ways\+:~\newline
+ 1) For NO\+\_\+\+SYS==0, an RX thread can be used which blocks on sio\+\_\+read() until data is received.~\newline
+ 2) In your main loop, call \mbox{\hyperlink{group__slipif_ga7b036fd1cde9b299139cac62f52d15a6}{slipif\+\_\+poll()}} to check for new RX bytes, completed packets are fed into netif-\/\texorpdfstring{$>$}{>}input().~\newline
+ 3) Call slipif\+\_\+received\+\_\+byte\mbox{[}s\mbox{]}() from your serial RX ISR and slipif\+\_\+process\+\_\+rxqueue() from your main loop. ISR level decodes packets and puts completed packets on a queue which is fed into the stack from the main loop (needs SYS\+\_\+\+LIGHTWEIGHT\+\_\+\+PROT for pbuf\+\_\+alloc to work on ISR level!). 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__slipif_ga687973ba82dab13a5b9d38d7399aeee3}\label{group__slipif_ga687973ba82dab13a5b9d38d7399aeee3}} 
+\index{SLIP@{SLIP}!slipif\_init@{slipif\_init}}
+\index{slipif\_init@{slipif\_init}!SLIP@{SLIP}}
+\doxysubsubsection{\texorpdfstring{slipif\_init()}{slipif\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} slipif\+\_\+init (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{netif }\end{DoxyParamCaption})}
+
+SLIP netif initialization
+
+Call the arch specific sio\+\_\+open and remember the opened device in the state field of the netif.
+
+
+\begin{DoxyParams}{Parameters}
+{\em netif} & the lwip network interface structure for this slipif \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if serial line could be opened, ERR\+\_\+\+MEM if no memory could be allocated, ERR\+\_\+\+IF is serial line couldn\textquotesingle{}t be opened
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If netif-\/\texorpdfstring{$>$}{>}state is interpreted as an u8\+\_\+t serial port number. 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__slipif_ga7b036fd1cde9b299139cac62f52d15a6}\label{group__slipif_ga7b036fd1cde9b299139cac62f52d15a6}} 
+\index{SLIP@{SLIP}!slipif\_poll@{slipif\_poll}}
+\index{slipif\_poll@{slipif\_poll}!SLIP@{SLIP}}
+\doxysubsubsection{\texorpdfstring{slipif\_poll()}{slipif\_poll()}}
+{\footnotesize\ttfamily void slipif\+\_\+poll (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{netif }\end{DoxyParamCaption})}
+
+Polls the serial device and feeds the IP layer with incoming packets.
+
+
+\begin{DoxyParams}{Parameters}
+{\em netif} & The lwip network interface structure for this slipif \\
+\hline
+\end{DoxyParams}

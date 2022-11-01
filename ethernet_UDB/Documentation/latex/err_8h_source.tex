@@ -1,0 +1,90 @@
+\hypertarget{err_8h_source}{}\doxysection{err.\+h}
+\label{err_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/err.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/err.h}}
+\mbox{\hyperlink{err_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 \textcolor{comment}{/*}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{7 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{10 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{13 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{14 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{17 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{19 \textcolor{comment}{ *}}
+\DoxyCodeLine{20 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{21 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{22 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{23 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{24 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{25 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{26 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{27 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{28 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{29 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{30 \textcolor{comment}{ *}}
+\DoxyCodeLine{31 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{32 \textcolor{comment}{ *}}
+\DoxyCodeLine{33 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ */}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_ERR\_H}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define LWIP\_HDR\_ERR\_H}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{arch_8h}{lwip/arch.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{43 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{53 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{55   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadcaa26c163b80b1f6786ca81dadc14b00fb}{ERR\_OK}}         = 0,}
+\DoxyCodeLine{57   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadcaaaeafdbf3aecc46864daa3cd829c7e05}{ERR\_MEM}}        = -\/1,}
+\DoxyCodeLine{59   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadca05c91366f1b5203a5db9a241b415cd63}{ERR\_BUF}}        = -\/2,}
+\DoxyCodeLine{61   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadcac568baeb6407ef5e2630084ccbc34be8}{ERR\_TIMEOUT}}    = -\/3,}
+\DoxyCodeLine{63   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadca9448893187313c0c5a502ca9a9ad1c2a}{ERR\_RTE}}        = -\/4,}
+\DoxyCodeLine{65   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadca13e1dd0edca8a27b6abdf1524bde7929}{ERR\_INPROGRESS}} = -\/5,}
+\DoxyCodeLine{67   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadcaa9a1c5a6fdeed0aad7fe41d538482bbd}{ERR\_VAL}}        = -\/6,}
+\DoxyCodeLine{69   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadcab9dcf89d46668b072192278fb907b7ad}{ERR\_WOULDBLOCK}} = -\/7,}
+\DoxyCodeLine{71   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadca4ebdc2aa1dbd75f927845733a3fb1f8b}{ERR\_USE}}        = -\/8,}
+\DoxyCodeLine{73   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadcae6f9c1e4c18ca844f7934307d4cc30e5}{ERR\_ALREADY}}    = -\/9,}
+\DoxyCodeLine{75   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadca8543e1d6422fed7b318d97e08dcbaa33}{ERR\_ISCONN}}     = -\/10,}
+\DoxyCodeLine{77   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadcab0036c51817b5200bfe8157cc4115b27}{ERR\_CONN}}       = -\/11,}
+\DoxyCodeLine{79   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadca7d61d90449ae6788575e8e46d5d3bbc6}{ERR\_IF}}         = -\/12,}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{82   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadcaf316b2c5eee4079820f7100849115142}{ERR\_ABRT}}       = -\/13,}
+\DoxyCodeLine{84   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadca759030525f1768a23dc086a5fd45b4e5}{ERR\_RST}}        = -\/14,}
+\DoxyCodeLine{86   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadcaa5176d9fecf8ec43d3bc49f4e6c3f7f5}{ERR\_CLSD}}       = -\/15,}
+\DoxyCodeLine{88   \mbox{\hyperlink{group__infrastructure__errors_ggae2e66c7d13afc90ffecd6151680fbadcab508ce0ebdf3ca735208b00a80a45c91}{ERR\_ARG}}        = -\/16}
+\DoxyCodeLine{89 \} \mbox{\hyperlink{group__infrastructure__errors_gae2e66c7d13afc90ffecd6151680fbadc}{err\_enum\_t}};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#ifdef LWIP\_ERR\_T}}
+\DoxyCodeLine{94 \textcolor{keyword}{typedef} LWIP\_ERR\_T \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}};}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_ERR\_T */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{96 \textcolor{keyword}{typedef} s8\_t \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}};}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_ERR\_T*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#ifdef LWIP\_DEBUG}}
+\DoxyCodeLine{104 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keywordtype}{char} *lwip\_strerr(\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err);}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define lwip\_strerr(x) "{}"{}}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DEBUG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#if !NO\_SYS}}
+\DoxyCodeLine{110 \textcolor{keywordtype}{int} err\_to\_errno(\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err);}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !NO\_SYS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{114 \}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_ERR\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

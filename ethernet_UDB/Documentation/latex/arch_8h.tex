@@ -1,0 +1,122 @@
+\hypertarget{arch_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/arch.h File Reference}
+\label{arch_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/arch.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/arch.h}}
+{\ttfamily \#include \char`\"{}arch/cc.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{arch_8h_a8782a401fbf55261460863fc2f8df1ce}\label{arch_8h_a8782a401fbf55261460863fc2f8df1ce}} 
+\#define {\bfseries LITTLE\+\_\+\+ENDIAN}~1234
+\item 
+\mbox{\Hypertarget{arch_8h_a23eb5e058a210efdde3d64e69679fafa}\label{arch_8h_a23eb5e058a210efdde3d64e69679fafa}} 
+\#define {\bfseries BIG\+\_\+\+ENDIAN}~4321
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga1771b7fb65ee640524d0052f229768c3}{BYTE\+\_\+\+ORDER}}~LITTLE\+\_\+\+ENDIAN
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_gaccef167be13a500ce30036030a9b142b}{LWIP\+\_\+\+PLATFORM\+\_\+\+DIAG}}(x)~do \{printf x;\} while(0)
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga7e8bcd0282525704d6dd596bdd1b47d0}{LWIP\+\_\+\+PLATFORM\+\_\+\+ASSERT}}(x)
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga53954d507c09e521ec0d44a2450bb89d}{LWIP\+\_\+\+NO\+\_\+\+STDDEF\+\_\+H}}~0
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga122c754db96ecad23bc6f4541d6360c1}{LWIP\+\_\+\+NO\+\_\+\+STDINT\+\_\+H}}~0
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga5bf52d6f2729d0c8afd365f69d7d4373}{LWIP\+\_\+\+NO\+\_\+\+INTTYPES\+\_\+H}}~0
+\item 
+\#define {\bfseries X8\+\_\+F}~\char`\"{}02\char`\"{} PRIx8
+\item 
+\#define {\bfseries U16\+\_\+F}~PRIu16
+\item 
+\#define {\bfseries S16\+\_\+F}~PRId16
+\item 
+\#define {\bfseries X16\+\_\+F}~PRIx16
+\item 
+\#define {\bfseries U32\+\_\+F}~PRIu32
+\item 
+\#define {\bfseries S32\+\_\+F}~PRId32
+\item 
+\#define {\bfseries X32\+\_\+F}~PRIx32
+\item 
+\#define {\bfseries SZT\+\_\+F}~PRIu\+PTR
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_gade9c8513419a799cd78a07ae894bb805}{LWIP\+\_\+\+NO\+\_\+\+LIMITS\+\_\+H}}~0
+\item 
+\#define {\bfseries SSIZE\+\_\+\+MAX}~INT\+\_\+\+MAX
+\item 
+\#define {\bfseries LWIP\+\_\+\+UINT32\+\_\+\+MAX}~0xffffffff
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga6871ce1e92ae09cdad39a9b230a3a800}{LWIP\+\_\+\+NO\+\_\+\+CTYPE\+\_\+H}}~0
+\item 
+\#define {\bfseries lwip\+\_\+isdigit}(c)~isdigit((unsigned char)(c))
+\item 
+\#define {\bfseries lwip\+\_\+isxdigit}(c)~isxdigit((unsigned char)(c))
+\item 
+\#define {\bfseries lwip\+\_\+islower}(c)~islower((unsigned char)(c))
+\item 
+\#define {\bfseries lwip\+\_\+isspace}(c)~isspace((unsigned char)(c))
+\item 
+\#define {\bfseries lwip\+\_\+isupper}(c)~isupper((unsigned char)(c))
+\item 
+\#define {\bfseries lwip\+\_\+tolower}(c)~tolower((unsigned char)(c))
+\item 
+\#define {\bfseries lwip\+\_\+toupper}(c)~toupper((unsigned char)(c))
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_gaa0dd3f76dd9a837feaac61fedc0dbe72}{LWIP\+\_\+\+CONST\+\_\+\+CAST}}(target\+\_\+type,  val)~((target\+\_\+type)((ptrdiff\+\_\+t)val))
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_gaade87973d72135b0b3afccfff4f62eb8}{LWIP\+\_\+\+ALIGNMENT\+\_\+\+CAST}}(target\+\_\+type,  val)~\mbox{\hyperlink{group__compiler__abstraction_gaa0dd3f76dd9a837feaac61fedc0dbe72}{LWIP\+\_\+\+CONST\+\_\+\+CAST}}(target\+\_\+type, val)
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga683e5c35d3263fe3145e6a6bc546604a}{LWIP\+\_\+\+PTR\+\_\+\+NUMERIC\+\_\+\+CAST}}(target\+\_\+type,  val)~\mbox{\hyperlink{group__compiler__abstraction_gaa0dd3f76dd9a837feaac61fedc0dbe72}{LWIP\+\_\+\+CONST\+\_\+\+CAST}}(target\+\_\+type, val)
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga4488578f18ad1a76e4fa8bc288c51446}{LWIP\+\_\+\+PACKED\+\_\+\+CAST}}(target\+\_\+type,  val)~\mbox{\hyperlink{group__compiler__abstraction_gaa0dd3f76dd9a837feaac61fedc0dbe72}{LWIP\+\_\+\+CONST\+\_\+\+CAST}}(target\+\_\+type, val)
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga651bb349041669fe717b19f127ef16c0}{LWIP\+\_\+\+DECLARE\+\_\+\+MEMORY\+\_\+\+ALIGNED}}(variable\+\_\+name,  size)~u8\+\_\+t variable\+\_\+name\mbox{[}\mbox{\hyperlink{group__compiler__abstraction_ga25591dcb72fccc7b5dc46fbc1959694e}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+BUFFER}}(size)\mbox{]}
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(size)~(((size) + MEM\+\_\+\+ALIGNMENT -\/ 1U) \& $\sim$(MEM\+\_\+\+ALIGNMENT-\/1U))
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga25591dcb72fccc7b5dc46fbc1959694e}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+BUFFER}}(size)~(((size) + MEM\+\_\+\+ALIGNMENT -\/ 1U))
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_gaa8e8724eb1c220cbbb90de9e175ce1dc}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN}}(addr)~((void $\ast$)(((mem\+\_\+ptr\+\_\+t)(addr) + MEM\+\_\+\+ALIGNMENT -\/ 1) \& $\sim$(mem\+\_\+ptr\+\_\+t)(MEM\+\_\+\+ALIGNMENT-\/1)))
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\+\_\+\+STRUCT\+\_\+\+BEGIN}}
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\+\_\+\+STRUCT\+\_\+\+END}}
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\+\_\+\+STRUCT\+\_\+\+STRUCT}}
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\+\_\+\+STRUCT\+\_\+\+FIELD}}(x)~x
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\+\_\+\+STRUCT\+\_\+\+FLD\+\_\+8}}(x)~\mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\+\_\+\+STRUCT\+\_\+\+FIELD}}(x)
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_gacc89e224363eb0ebca24b64d925c3cb7}{PACK\+\_\+\+STRUCT\+\_\+\+FLD\+\_\+S}}(x)~\mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\+\_\+\+STRUCT\+\_\+\+FIELD}}(x)
+\item 
+\#define \mbox{\hyperlink{group__compiler__abstraction_ga70624a5deb8b9199406372a7f3603ecf}{LWIP\+\_\+\+UNUSED\+\_\+\+ARG}}(x)~(void)x
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\+\_\+t {\bfseries u8\+\_\+t}
+\item 
+typedef int8\+\_\+t {\bfseries s8\+\_\+t}
+\item 
+typedef uint16\+\_\+t {\bfseries u16\+\_\+t}
+\item 
+typedef int16\+\_\+t {\bfseries s16\+\_\+t}
+\item 
+typedef uint32\+\_\+t {\bfseries u32\+\_\+t}
+\item 
+typedef int32\+\_\+t {\bfseries s32\+\_\+t}
+\item 
+typedef uintptr\+\_\+t {\bfseries mem\+\_\+ptr\+\_\+t}
+\item 
+typedef int {\bfseries ssize\+\_\+t}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Support for different processor and compiler architectures 

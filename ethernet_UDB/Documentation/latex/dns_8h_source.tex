@@ -1,0 +1,89 @@
+\hypertarget{dns_8h_source}{}\doxysection{dns.\+h}
+\label{dns_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/dns.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/dns.h}}
+\mbox{\hyperlink{dns_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_DNS\_H}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define LWIP\_HDR\_DNS\_H}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#if LWIP\_DNS}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{50 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define DNS\_TMR\_INTERVAL          1000}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{comment}{/* DNS resolve types: */}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define LWIP\_DNS\_ADDRTYPE\_IPV4      0}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define LWIP\_DNS\_ADDRTYPE\_IPV6      1}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define LWIP\_DNS\_ADDRTYPE\_IPV4\_IPV6 2 }\textcolor{comment}{/* try to resolve IPv4 first, try IPv6 if IPv4 fails only */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define LWIP\_DNS\_ADDRTYPE\_IPV6\_IPV4 3 }\textcolor{comment}{/* try to resolve IPv6 first, try IPv4 if IPv6 fails only */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_IPV6}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#ifndef LWIP\_DNS\_ADDRTYPE\_DEFAULT}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define LWIP\_DNS\_ADDRTYPE\_DEFAULT   LWIP\_DNS\_ADDRTYPE\_IPV4\_IPV6}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#elif LWIP\_IPV4}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define LWIP\_DNS\_ADDRTYPE\_DEFAULT   LWIP\_DNS\_ADDRTYPE\_IPV4}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define LWIP\_DNS\_ADDRTYPE\_DEFAULT   LWIP\_DNS\_ADDRTYPE\_IPV6}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#if DNS\_LOCAL\_HOSTLIST}}
+\DoxyCodeLine{73 \textcolor{keyword}{struct }local\_hostlist\_entry \{}
+\DoxyCodeLine{75   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name;}
+\DoxyCodeLine{77   ip\_addr\_t addr;}
+\DoxyCodeLine{78   \textcolor{keyword}{struct }local\_hostlist\_entry *next;}
+\DoxyCodeLine{79 \};}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define DNS\_LOCAL\_HOSTLIST\_ELEM(name, addr\_init) \{name, addr\_init, NULL\}}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#if DNS\_LOCAL\_HOSTLIST\_IS\_DYNAMIC}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#ifndef DNS\_LOCAL\_HOSTLIST\_MAX\_NAMELEN}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define DNS\_LOCAL\_HOSTLIST\_MAX\_NAMELEN  DNS\_MAX\_NAME\_LENGTH}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define LOCALHOSTLIST\_ELEM\_SIZE ((sizeof(struct local\_hostlist\_entry) + DNS\_LOCAL\_HOSTLIST\_MAX\_NAMELEN + 1))}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DNS\_LOCAL\_HOSTLIST\_IS\_DYNAMIC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DNS\_LOCAL\_HOSTLIST */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{90 \textcolor{keyword}{extern} \textcolor{keyword}{const} ip\_addr\_t dns\_mquery\_v4group;}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{93 \textcolor{keyword}{extern} \textcolor{keyword}{const} ip\_addr\_t dns\_mquery\_v6group;}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{103 \textcolor{keyword}{typedef} void (*dns\_found\_callback)(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name, \textcolor{keyword}{const} ip\_addr\_t *ipaddr, \textcolor{keywordtype}{void} *callback\_arg);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{keywordtype}{void}             dns\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{106 \textcolor{keywordtype}{void}             dns\_tmr(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{107 \textcolor{keywordtype}{void}             dns\_setserver(u8\_t numdns, \textcolor{keyword}{const} ip\_addr\_t *dnsserver);}
+\DoxyCodeLine{108 \textcolor{keyword}{const} ip\_addr\_t* dns\_getserver(u8\_t numdns);}
+\DoxyCodeLine{109 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            dns\_gethostbyname(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *hostname, ip\_addr\_t *addr,}
+\DoxyCodeLine{110                                    dns\_found\_callback found, \textcolor{keywordtype}{void} *callback\_arg);}
+\DoxyCodeLine{111 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            dns\_gethostbyname\_addrtype(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *hostname, ip\_addr\_t *addr,}
+\DoxyCodeLine{112                                    dns\_found\_callback found, \textcolor{keywordtype}{void} *callback\_arg,}
+\DoxyCodeLine{113                                    u8\_t dns\_addrtype);}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#if DNS\_LOCAL\_HOSTLIST}}
+\DoxyCodeLine{117 \textcolor{keywordtype}{size\_t}         dns\_local\_iterate(dns\_found\_callback iterator\_fn, \textcolor{keywordtype}{void} *iterator\_arg);}
+\DoxyCodeLine{118 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}          dns\_local\_lookup(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *hostname, ip\_addr\_t *addr, u8\_t dns\_addrtype);}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#if DNS\_LOCAL\_HOSTLIST\_IS\_DYNAMIC}}
+\DoxyCodeLine{120 \textcolor{keywordtype}{int}            dns\_local\_removehost(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *hostname, \textcolor{keyword}{const} ip\_addr\_t *addr);}
+\DoxyCodeLine{121 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}          dns\_local\_addhost(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *hostname, \textcolor{keyword}{const} ip\_addr\_t *addr);}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DNS\_LOCAL\_HOSTLIST\_IS\_DYNAMIC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DNS\_LOCAL\_HOSTLIST */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{126 \}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_DNS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

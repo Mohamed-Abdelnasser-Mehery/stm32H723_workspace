@@ -1,0 +1,161 @@
+\hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def}{}\doxysection{FLASH\+\_\+\+OBProgram\+Init\+Type\+Def Struct Reference}
+\label{struct_f_l_a_s_h___o_b_program_init_type_def}\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+
+
+FLASH Option Bytes Program structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32h7xx\+\_\+hal\+\_\+flash\+\_\+ex.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_ac5941efaeb6bd9e3c0852613f990ebd8}{Option\+Type}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_ab5ab320199482e9eb21dc8460501dea5}{WRPState}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_a549b7149fc7cec7fa1235aa040b9d498}{WRPSector}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_a671880a1dafb7b92e0e2b65593407c12}{RDPLevel}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_af4bc744e01810b8cdef4b7c8c8e6009c}{BORLevel}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_a84b990aa673c75ca04bd361e8157953d}{USERType}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_aefa4621be119ce8af715a2271b53168c}{USERConfig}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_aa07868a5b012861c6111322c3dccdbec}{Banks}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_a07a586e1c17edc17ab5ef6fde379e1df}{PCROPConfig}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_a9dbd10c816d4f923270ba9d8930cc1d2}{PCROPStart\+Addr}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_ab5a6185fe25711bf99fb0abd4a751711}{PCROPEnd\+Addr}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_af8883eda509be07c1ed88338372280a1}{Boot\+Config}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_a479973ca43609ef19f9e9ae4dde4b6f5}{Boot\+Addr0}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_af7b5b1259e0545cebb9dfb51140bd800}{Boot\+Addr1}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_a6895e95922e505acab72bb6709ad03cc}{Secure\+Area\+Config}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_acac940ee8797b5a178b86cd08240d342}{Secure\+Area\+Start\+Addr}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_f_l_a_s_h___o_b_program_init_type_def_a223f3e3e05ced60e4408f7f545c2abd4}{Secure\+Area\+End\+Addr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+FLASH Option Bytes Program structure definition. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_aa07868a5b012861c6111322c3dccdbec}\label{struct_f_l_a_s_h___o_b_program_init_type_def_aa07868a5b012861c6111322c3dccdbec}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!Banks@{Banks}}
+\index{Banks@{Banks}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{Banks}{Banks}}
+{\footnotesize\ttfamily uint32\+\_\+t Banks}
+
+Select banks for WRP , PCROP and secure area config . This parameter must be a value of \mbox{\hyperlink{group___f_l_a_s_h_ex___banks}{FLASH Banks}} \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_a479973ca43609ef19f9e9ae4dde4b6f5}\label{struct_f_l_a_s_h___o_b_program_init_type_def_a479973ca43609ef19f9e9ae4dde4b6f5}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!BootAddr0@{BootAddr0}}
+\index{BootAddr0@{BootAddr0}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{BootAddr0}{BootAddr0}}
+{\footnotesize\ttfamily uint32\+\_\+t Boot\+Addr0}
+
+Boot Address 0. This parameter must be a value between begin and end of a bank \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_af7b5b1259e0545cebb9dfb51140bd800}\label{struct_f_l_a_s_h___o_b_program_init_type_def_af7b5b1259e0545cebb9dfb51140bd800}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!BootAddr1@{BootAddr1}}
+\index{BootAddr1@{BootAddr1}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{BootAddr1}{BootAddr1}}
+{\footnotesize\ttfamily uint32\+\_\+t Boot\+Addr1}
+
+Boot Address 1. This parameter must be a value between begin and end of a bank \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_af8883eda509be07c1ed88338372280a1}\label{struct_f_l_a_s_h___o_b_program_init_type_def_af8883eda509be07c1ed88338372280a1}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!BootConfig@{BootConfig}}
+\index{BootConfig@{BootConfig}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{BootConfig}{BootConfig}}
+{\footnotesize\ttfamily uint32\+\_\+t Boot\+Config}
+
+Specifies if the Boot Address to be configured BOOT\+\_\+\+ADD0, BOOT\+\_\+\+ADD1 or both. This parameter must be a value of \mbox{\hyperlink{group___f_l_a_s_h_ex___o_b___b_o_o_t___o_p_t_i_o_n}{FLASHEx OB BOOT OPTION}} enumeration \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_af4bc744e01810b8cdef4b7c8c8e6009c}\label{struct_f_l_a_s_h___o_b_program_init_type_def_af4bc744e01810b8cdef4b7c8c8e6009c}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!BORLevel@{BORLevel}}
+\index{BORLevel@{BORLevel}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{BORLevel}{BORLevel}}
+{\footnotesize\ttfamily uint32\+\_\+t BORLevel}
+
+Set the BOR Level. This parameter can be a value of \mbox{\hyperlink{group___f_l_a_s_h_ex___b_o_r___reset___level}{FLASH BOR Reset Level}} \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_ac5941efaeb6bd9e3c0852613f990ebd8}\label{struct_f_l_a_s_h___o_b_program_init_type_def_ac5941efaeb6bd9e3c0852613f990ebd8}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!OptionType@{OptionType}}
+\index{OptionType@{OptionType}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{OptionType}{OptionType}}
+{\footnotesize\ttfamily uint32\+\_\+t Option\+Type}
+
+Option byte to be configured. This parameter can be a value of \mbox{\hyperlink{group___f_l_a_s_h_ex___option___type}{FLASH Option Type}} \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_a07a586e1c17edc17ab5ef6fde379e1df}\label{struct_f_l_a_s_h___o_b_program_init_type_def_a07a586e1c17edc17ab5ef6fde379e1df}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!PCROPConfig@{PCROPConfig}}
+\index{PCROPConfig@{PCROPConfig}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PCROPConfig}{PCROPConfig}}
+{\footnotesize\ttfamily uint32\+\_\+t PCROPConfig}
+
+specifies if the PCROP area shall be erased or not when RDP level decreased from Level 1 to Level 0 or during a mass erase. This parameter must be a value of \mbox{\hyperlink{group___f_l_a_s_h_ex___o_b___p_c_r_o_p___r_d_p}{FLASHEx OB PCROP RDP}} enumeration \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_ab5a6185fe25711bf99fb0abd4a751711}\label{struct_f_l_a_s_h___o_b_program_init_type_def_ab5a6185fe25711bf99fb0abd4a751711}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!PCROPEndAddr@{PCROPEndAddr}}
+\index{PCROPEndAddr@{PCROPEndAddr}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PCROPEndAddr}{PCROPEndAddr}}
+{\footnotesize\ttfamily uint32\+\_\+t PCROPEnd\+Addr}
+
+PCROP End address (used for OPTIONBYTE\+\_\+\+PCROP). This parameter must be a value between PCROP Start address and end of a bank \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_a9dbd10c816d4f923270ba9d8930cc1d2}\label{struct_f_l_a_s_h___o_b_program_init_type_def_a9dbd10c816d4f923270ba9d8930cc1d2}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!PCROPStartAddr@{PCROPStartAddr}}
+\index{PCROPStartAddr@{PCROPStartAddr}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PCROPStartAddr}{PCROPStartAddr}}
+{\footnotesize\ttfamily uint32\+\_\+t PCROPStart\+Addr}
+
+PCROP Start address (used for OPTIONBYTE\+\_\+\+PCROP). This parameter must be a value between begin and end of a bank \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_a671880a1dafb7b92e0e2b65593407c12}\label{struct_f_l_a_s_h___o_b_program_init_type_def_a671880a1dafb7b92e0e2b65593407c12}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!RDPLevel@{RDPLevel}}
+\index{RDPLevel@{RDPLevel}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{RDPLevel}{RDPLevel}}
+{\footnotesize\ttfamily uint32\+\_\+t RDPLevel}
+
+Set the read protection level. This parameter can be a value of \mbox{\hyperlink{group___f_l_a_s_h_ex___option___bytes___read___protection}{FLASH Option Bytes Read Protection}} \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_a6895e95922e505acab72bb6709ad03cc}\label{struct_f_l_a_s_h___o_b_program_init_type_def_a6895e95922e505acab72bb6709ad03cc}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!SecureAreaConfig@{SecureAreaConfig}}
+\index{SecureAreaConfig@{SecureAreaConfig}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{SecureAreaConfig}{SecureAreaConfig}}
+{\footnotesize\ttfamily uint32\+\_\+t Secure\+Area\+Config}
+
+specifies if the bank secured area shall be erased or not when RDP level decreased from Level 1 to Level 0 or during a mass erase. This parameter must be a value of \mbox{\hyperlink{group___f_l_a_s_h_ex___o_b___s_e_c_u_r_e___r_d_p}{FLASHEx OB SECURE RDP}} enumeration \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_a223f3e3e05ced60e4408f7f545c2abd4}\label{struct_f_l_a_s_h___o_b_program_init_type_def_a223f3e3e05ced60e4408f7f545c2abd4}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!SecureAreaEndAddr@{SecureAreaEndAddr}}
+\index{SecureAreaEndAddr@{SecureAreaEndAddr}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{SecureAreaEndAddr}{SecureAreaEndAddr}}
+{\footnotesize\ttfamily uint32\+\_\+t Secure\+Area\+End\+Addr}
+
+Bank Secure area End address. This parameter must be a value between Secure Area Start address and end address of a bank1 \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_acac940ee8797b5a178b86cd08240d342}\label{struct_f_l_a_s_h___o_b_program_init_type_def_acac940ee8797b5a178b86cd08240d342}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!SecureAreaStartAddr@{SecureAreaStartAddr}}
+\index{SecureAreaStartAddr@{SecureAreaStartAddr}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{SecureAreaStartAddr}{SecureAreaStartAddr}}
+{\footnotesize\ttfamily uint32\+\_\+t Secure\+Area\+Start\+Addr}
+
+Bank Secure area Start address. This parameter must be a value between begin address and end address of bank1 \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_aefa4621be119ce8af715a2271b53168c}\label{struct_f_l_a_s_h___o_b_program_init_type_def_aefa4621be119ce8af715a2271b53168c}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!USERConfig@{USERConfig}}
+\index{USERConfig@{USERConfig}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{USERConfig}{USERConfig}}
+{\footnotesize\ttfamily uint32\+\_\+t USERConfig}
+
+Program the FLASH User Option Byte\+: IWDG\+\_\+\+SW / RST\+\_\+\+STOP / RST\+\_\+\+STDBY / IWDG\+\_\+\+FREEZE\+\_\+\+STOP / IWDG\+\_\+\+FREEZE\+\_\+\+SANDBY / IO\+\_\+\+HSLV / SWAP\+\_\+\+BANK\+\_\+\+OPT \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_a84b990aa673c75ca04bd361e8157953d}\label{struct_f_l_a_s_h___o_b_program_init_type_def_a84b990aa673c75ca04bd361e8157953d}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!USERType@{USERType}}
+\index{USERType@{USERType}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{USERType}{USERType}}
+{\footnotesize\ttfamily uint32\+\_\+t USERType}
+
+User option byte(s) to be configured (used for OPTIONBYTE\+\_\+\+USER). This parameter can be a combination of \mbox{\hyperlink{group___f_l_a_s_h_ex___o_b___u_s_e_r___type}{FLASHEx OB USER Type}} \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_a549b7149fc7cec7fa1235aa040b9d498}\label{struct_f_l_a_s_h___o_b_program_init_type_def_a549b7149fc7cec7fa1235aa040b9d498}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!WRPSector@{WRPSector}}
+\index{WRPSector@{WRPSector}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{WRPSector}{WRPSector}}
+{\footnotesize\ttfamily uint32\+\_\+t WRPSector}
+
+Specifies the sector(s) to be write protected. The value of this parameter depend on device used within the same series \mbox{\Hypertarget{struct_f_l_a_s_h___o_b_program_init_type_def_ab5ab320199482e9eb21dc8460501dea5}\label{struct_f_l_a_s_h___o_b_program_init_type_def_ab5ab320199482e9eb21dc8460501dea5}} 
+\index{FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}!WRPState@{WRPState}}
+\index{WRPState@{WRPState}!FLASH\_OBProgramInitTypeDef@{FLASH\_OBProgramInitTypeDef}}
+\doxysubsubsection{\texorpdfstring{WRPState}{WRPState}}
+{\footnotesize\ttfamily uint32\+\_\+t WRPState}
+
+Write protection activation or deactivation. This parameter can be a value of \mbox{\hyperlink{group___f_l_a_s_h_ex___w_r_p___state}{FLASH WRP State}} 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32h7xx__hal__flash__ex_8h}{stm32h7xx\+\_\+hal\+\_\+flash\+\_\+ex.\+h}}\end{DoxyCompactItemize}

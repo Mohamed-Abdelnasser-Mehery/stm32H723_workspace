@@ -1,0 +1,108 @@
+\hypertarget{ieee802154_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/netif/ieee802154.h File Reference}
+\label{ieee802154_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ieee802154.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ieee802154.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structieee__802154__hdr}{ieee\+\_\+802154\+\_\+hdr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ieee802154_8h_ab5cdd37dd303289e444d41cc31ea435b}\label{ieee802154_8h_ab5cdd37dd303289e444d41cc31ea435b}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+NO\+\_\+\+ADDR}~0x00 /$\ast$ PAN ID and address fields are not present $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_ad79574e549e762bab5a31ef58dd9d4e8}\label{ieee802154_8h_ad79574e549e762bab5a31ef58dd9d4e8}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+RESERVED}~0x01 /$\ast$ Reserved $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a8f5951a52cb0aa47a0849c807cb0986d}\label{ieee802154_8h_a8f5951a52cb0aa47a0849c807cb0986d}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+SHORT}~0x02 /$\ast$ Address field contains a short address (16 bit) $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a56a019a453563431017678da1f0fda22}\label{ieee802154_8h_a56a019a453563431017678da1f0fda22}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+EXT}~0x03 /$\ast$ Address field contains an extended address (64 bit) $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a757f4d7972d87a042d7816cd81eaee8f}\label{ieee802154_8h_a757f4d7972d87a042d7816cd81eaee8f}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FT\+\_\+\+MASK}~0x0007 /$\ast$ bits 0..\+2\+: Frame Type $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a52ced54d55c849f499459c2ce101db74}\label{ieee802154_8h_a52ced54d55c849f499459c2ce101db74}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FT\+\_\+\+BEACON}~0x00
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a0e5b32223ebc5cbdc17b1aff01aaefce}\label{ieee802154_8h_a0e5b32223ebc5cbdc17b1aff01aaefce}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FT\+\_\+\+DATA}~0x01
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a2c52b2c23a1506357c6c704139ce5f75}\label{ieee802154_8h_a2c52b2c23a1506357c6c704139ce5f75}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FT\+\_\+\+ACK}~0x02
+\item 
+\mbox{\Hypertarget{ieee802154_8h_ae0d45bd9b242533c9ba5c5cb0deee6a0}\label{ieee802154_8h_ae0d45bd9b242533c9ba5c5cb0deee6a0}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FT\+\_\+\+MAC\+\_\+\+CMD}~0x03
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a13b264540a07cce5ddb1ae51f31653ec}\label{ieee802154_8h_a13b264540a07cce5ddb1ae51f31653ec}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FT\+\_\+\+RESERVED}~0x04
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a47081e0d2ea3d0f9724137d4ab7cd7b2}\label{ieee802154_8h_a47081e0d2ea3d0f9724137d4ab7cd7b2}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FT\+\_\+\+MULTIPURPOSE}~0x05
+\item 
+\mbox{\Hypertarget{ieee802154_8h_ae5490e3d37073e2926996cc99e86538c}\label{ieee802154_8h_ae5490e3d37073e2926996cc99e86538c}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FT\+\_\+\+FRAG}~0x06
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a42296c532f817385dfa261ca211175a4}\label{ieee802154_8h_a42296c532f817385dfa261ca211175a4}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FT\+\_\+\+EXT}~0x07
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a9d01cc5611b695773c35e44706045b25}\label{ieee802154_8h_a9d01cc5611b695773c35e44706045b25}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+SEC\+\_\+\+EN}~0x0008 /$\ast$ bit 3\+: Security Enabled $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a2449ec9cd3bdadd565d895c45fad8bea}\label{ieee802154_8h_a2449ec9cd3bdadd565d895c45fad8bea}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FRAME\+\_\+\+PEND}~0x0010 /$\ast$ bit 4\+: Frame Pending $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a8ad551e03824e4e570e626b7504f263e}\label{ieee802154_8h_a8ad551e03824e4e570e626b7504f263e}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+ACK\+\_\+\+REQ}~0x0020 /$\ast$ bit 5\+: AR (ACK required) $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_ab4312905e578ce4c74c0561caeac19a1}\label{ieee802154_8h_ab4312905e578ce4c74c0561caeac19a1}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+PANID\+\_\+\+COMPR}~0x0040 /$\ast$ bit 6\+: PAN ID Compression (src and dst are equal, src PAN ID omitted) $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a5945d7424d2eab84d4fa6f9d6d028c80}\label{ieee802154_8h_a5945d7424d2eab84d4fa6f9d6d028c80}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+RESERVED}~0x0080
+\item 
+\mbox{\Hypertarget{ieee802154_8h_adaf6d754678c732b9838fc65267a6b81}\label{ieee802154_8h_adaf6d754678c732b9838fc65267a6b81}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+SEQNO\+\_\+\+SUPPR}~0x0100 /$\ast$ bit 8\+: Sequence Number Suppression $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_ace0e2f1d4390f596ce96cb4cd92569b1}\label{ieee802154_8h_ace0e2f1d4390f596ce96cb4cd92569b1}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+IE\+\_\+\+PRESENT}~0x0200 /$\ast$ bit 9\+: IE Present $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_afc2361a871a7e803c285cf8558f8156b}\label{ieee802154_8h_afc2361a871a7e803c285cf8558f8156b}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+DST\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+MASK}~0x0c00 /$\ast$ bits 10..\+11\+: Destination Addressing Mode $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a3749a87eb8260170b104504c20c9e9cf}\label{ieee802154_8h_a3749a87eb8260170b104504c20c9e9cf}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+DST\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+NO\+\_\+\+ADDR}~(IEEE\+\_\+802154\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+NO\+\_\+\+ADDR $<$$<$ 10)
+\item 
+\mbox{\Hypertarget{ieee802154_8h_aa9ec6d553c3fe3a8740e33ab69be1959}\label{ieee802154_8h_aa9ec6d553c3fe3a8740e33ab69be1959}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+DST\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+SHORT}~(IEEE\+\_\+802154\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+SHORT $<$$<$ 10)
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a38ca17eeba1522bb9b0dce588669b408}\label{ieee802154_8h_a38ca17eeba1522bb9b0dce588669b408}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+DST\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+EXT}~(IEEE\+\_\+802154\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+EXT $<$$<$ 10)
+\item 
+\mbox{\Hypertarget{ieee802154_8h_aeb32885c4b66472813888f57594bae34}\label{ieee802154_8h_aeb32885c4b66472813888f57594bae34}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FRAME\+\_\+\+VERSION\+\_\+\+MASK}~0x3000 /$\ast$ bits 12..\+13\+: Frame Version $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a08af2f80d4c949b6095753cf3f67f430}\label{ieee802154_8h_a08af2f80d4c949b6095753cf3f67f430}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FRAME\+\_\+\+VERSION\+\_\+\+GET}(x)~(((x) \& IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+FRAME\+\_\+\+VERSION\+\_\+\+MASK) $>$$>$ 12)
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a0acf81ca5544e4656904402fed1ec919}\label{ieee802154_8h_a0acf81ca5544e4656904402fed1ec919}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+SRC\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+MASK}~0xc000 /$\ast$ bits 14..\+15\+: Source Addressing Mode $\ast$/
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a06d1e4de7b0a40344487e25a412a64a8}\label{ieee802154_8h_a06d1e4de7b0a40344487e25a412a64a8}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+SRC\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+SHORT}~(IEEE\+\_\+802154\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+SHORT $<$$<$ 14)
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a0f95eb6e91d293e22c925ac63c49e36d}\label{ieee802154_8h_a0f95eb6e91d293e22c925ac63c49e36d}} 
+\#define {\bfseries IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+SRC\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+EXT}~(IEEE\+\_\+802154\+\_\+\+ADDR\+\_\+\+MODE\+\_\+\+EXT $<$$<$ 14)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ieee802154_8h_a55d85f8fa78765478676a0bc23539650}\label{ieee802154_8h_a55d85f8fa78765478676a0bc23539650}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\+\_\+\+STRUCT\+\_\+\+BEGIN}} struct \mbox{\hyperlink{structieee__802154__hdr}{ieee\+\_\+802154\+\_\+hdr}} {\bfseries PACK\+\_\+\+STRUCT\+\_\+\+STRUCT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definitions for IEEE 802.\+15.\+4 MAC frames 

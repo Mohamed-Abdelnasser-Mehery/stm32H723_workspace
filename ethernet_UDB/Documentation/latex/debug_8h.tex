@@ -1,0 +1,88 @@
+\hypertarget{debug_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/debug.h File Reference}
+\label{debug_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/debug.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/debug.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries LWIP\+\_\+\+DBG\+\_\+\+MASK\+\_\+\+LEVEL}~0x03
+\item 
+\#define {\bfseries LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+OFF}~\mbox{\hyperlink{group__debugging__levels_ga8ebaeb006b43f55897f3196b3617dc87}{LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+ALL}}
+\item 
+\#define \mbox{\hyperlink{debug_8h_a94ad086267808462beae2b38f91996ed}{LWIP\+\_\+\+ASSERT}}(message,  assertion)
+\item 
+\mbox{\Hypertarget{debug_8h_a451cdce6343503ea686ff5e4eff37d3c}\label{debug_8h_a451cdce6343503ea686ff5e4eff37d3c}} 
+\#define {\bfseries LWIP\+\_\+\+PLATFORM\+\_\+\+ERROR}(message)~\mbox{\hyperlink{group__compiler__abstraction_ga7e8bcd0282525704d6dd596bdd1b47d0}{LWIP\+\_\+\+PLATFORM\+\_\+\+ASSERT}}(message)
+\item 
+\#define \mbox{\hyperlink{debug_8h_a827bc03cd7889e7c007df39d33b33d18}{LWIP\+\_\+\+ERROR}}(message,  expression,  handler)
+\item 
+\#define \mbox{\hyperlink{debug_8h_a63a04edf7ff63c951bd8706711956cdb}{LWIP\+\_\+\+DEBUGF}}(debug,  message)
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Debug level (LWIP\+\_\+\+DBG\+\_\+\+MIN\+\_\+\+LEVEL)}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga8ebaeb006b43f55897f3196b3617dc87}{LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+ALL}}~0x00
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga77c491e468bf7d9a1bc48430c1866a96}{LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+WARNING}}~0x01
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga0269bdc51f1e8a5ecf9af72c6e1c996c}{LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+SERIOUS}}~0x02
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_gaab41143277cd38047b6660d90e9cec3b}{LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+SEVERE}}~0x03
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Enable/disable debug messages completely (LWIP\+\_\+\+DBG\+\_\+\+TYPES\+\_\+\+ON)}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga9e31b7cbbc8f46af8e62b548079acd4e}{LWIP\+\_\+\+DBG\+\_\+\+ON}}~0x80U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}~0x00U
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Debug message types (LWIP\+\_\+\+DBG\+\_\+\+TYPES\+\_\+\+ON)}\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga988147559b78642ac881815b66023646}{LWIP\+\_\+\+DBG\+\_\+\+TRACE}}~0x40U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga511ee3deb3240635f5ec6a1709c6d741}{LWIP\+\_\+\+DBG\+\_\+\+STATE}}~0x20U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga7d44d1804fa5e747aed86816e2a6cae0}{LWIP\+\_\+\+DBG\+\_\+\+FRESH}}~0x10U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_gab0a296414983155b30ad51871606b90f}{LWIP\+\_\+\+DBG\+\_\+\+HALT}}~0x08U
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+Debug messages infrastructure 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{debug_8h_a94ad086267808462beae2b38f91996ed}\label{debug_8h_a94ad086267808462beae2b38f91996ed}} 
+\index{debug.h@{debug.h}!LWIP\_ASSERT@{LWIP\_ASSERT}}
+\index{LWIP\_ASSERT@{LWIP\_ASSERT}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ASSERT}{LWIP\_ASSERT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{message,  }\item[{}]{assertion }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordflow}{do} \{ \textcolor{keywordflow}{if} (!(assertion)) \{ \(\backslash\)}
+\DoxyCodeLine{  LWIP\_PLATFORM\_ASSERT(message); \}\} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{debug_8h_a63a04edf7ff63c951bd8706711956cdb}\label{debug_8h_a63a04edf7ff63c951bd8706711956cdb}} 
+\index{debug.h@{debug.h}!LWIP\_DEBUGF@{LWIP\_DEBUGF}}
+\index{LWIP\_DEBUGF@{LWIP\_DEBUGF}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DEBUGF}{LWIP\_DEBUGF}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DEBUGF(\begin{DoxyParamCaption}\item[{}]{debug,  }\item[{}]{message }\end{DoxyParamCaption})}
+
+Enable debug message printing, but only if debug message type is enabled AND is of correct type AND is at least LWIP\+\_\+\+DBG\+\_\+\+LEVEL. \mbox{\Hypertarget{debug_8h_a827bc03cd7889e7c007df39d33b33d18}\label{debug_8h_a827bc03cd7889e7c007df39d33b33d18}} 
+\index{debug.h@{debug.h}!LWIP\_ERROR@{LWIP\_ERROR}}
+\index{LWIP\_ERROR@{LWIP\_ERROR}!debug.h@{debug.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ERROR}{LWIP\_ERROR}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ERROR(\begin{DoxyParamCaption}\item[{}]{message,  }\item[{}]{expression,  }\item[{}]{handler }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordflow}{do} \{ \textcolor{keywordflow}{if} (!(expression)) \{ \(\backslash\)}
+\DoxyCodeLine{  LWIP\_PLATFORM\_ERROR(message); handler;\}\} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}

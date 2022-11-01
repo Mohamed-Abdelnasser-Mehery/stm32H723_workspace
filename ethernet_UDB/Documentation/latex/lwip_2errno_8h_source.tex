@@ -1,0 +1,200 @@
+\hypertarget{lwip_2errno_8h_source}{}\doxysection{errno.\+h}
+\label{lwip_2errno_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/errno.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/errno.h}}
+\mbox{\hyperlink{lwip_2errno_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_ERRNO\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_ERRNO\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{43 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#ifdef LWIP\_PROVIDE\_ERRNO}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define  EPERM            1  }\textcolor{comment}{/* Operation not permitted */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define  ENOENT           2  }\textcolor{comment}{/* No such file or directory */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define  ESRCH            3  }\textcolor{comment}{/* No such process */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define  EINTR            4  }\textcolor{comment}{/* Interrupted system call */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define  EIO              5  }\textcolor{comment}{/* I/O error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define  ENXIO            6  }\textcolor{comment}{/* No such device or address */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define  E2BIG            7  }\textcolor{comment}{/* Arg list too long */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define  ENOEXEC          8  }\textcolor{comment}{/* Exec format error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define  EBADF            9  }\textcolor{comment}{/* Bad file number */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define  ECHILD          10  }\textcolor{comment}{/* No child processes */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define  EAGAIN          11  }\textcolor{comment}{/* Try again */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define  ENOMEM          12  }\textcolor{comment}{/* Out of memory */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define  EACCES          13  }\textcolor{comment}{/* Permission denied */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define  EFAULT          14  }\textcolor{comment}{/* Bad address */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define  ENOTBLK         15  }\textcolor{comment}{/* Block device required */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define  EBUSY           16  }\textcolor{comment}{/* Device or resource busy */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define  EEXIST          17  }\textcolor{comment}{/* File exists */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define  EXDEV           18  }\textcolor{comment}{/* Cross-\/device link */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define  ENODEV          19  }\textcolor{comment}{/* No such device */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define  ENOTDIR         20  }\textcolor{comment}{/* Not a directory */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define  EISDIR          21  }\textcolor{comment}{/* Is a directory */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define  EINVAL          22  }\textcolor{comment}{/* Invalid argument */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define  ENFILE          23  }\textcolor{comment}{/* File table overflow */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define  EMFILE          24  }\textcolor{comment}{/* Too many open files */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define  ENOTTY          25  }\textcolor{comment}{/* Not a typewriter */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define  ETXTBSY         26  }\textcolor{comment}{/* Text file busy */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define  EFBIG           27  }\textcolor{comment}{/* File too large */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define  ENOSPC          28  }\textcolor{comment}{/* No space left on device */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define  ESPIPE          29  }\textcolor{comment}{/* Illegal seek */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define  EROFS           30  }\textcolor{comment}{/* Read-\/only file system */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define  EMLINK          31  }\textcolor{comment}{/* Too many links */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define  EPIPE           32  }\textcolor{comment}{/* Broken pipe */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define  EDOM            33  }\textcolor{comment}{/* Math argument out of domain of func */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define  ERANGE          34  }\textcolor{comment}{/* Math result not representable */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define  EDEADLK         35  }\textcolor{comment}{/* Resource deadlock would occur */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define  ENAMETOOLONG    36  }\textcolor{comment}{/* File name too long */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define  ENOLCK          37  }\textcolor{comment}{/* No record locks available */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define  ENOSYS          38  }\textcolor{comment}{/* Function not implemented */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define  ENOTEMPTY       39  }\textcolor{comment}{/* Directory not empty */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define  ELOOP           40  }\textcolor{comment}{/* Too many symbolic links encountered */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define  EWOULDBLOCK     EAGAIN  }\textcolor{comment}{/* Operation would block */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define  ENOMSG          42  }\textcolor{comment}{/* No message of desired type */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define  EIDRM           43  }\textcolor{comment}{/* Identifier removed */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define  ECHRNG          44  }\textcolor{comment}{/* Channel number out of range */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define  EL2NSYNC        45  }\textcolor{comment}{/* Level 2 not synchronized */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define  EL3HLT          46  }\textcolor{comment}{/* Level 3 halted */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define  EL3RST          47  }\textcolor{comment}{/* Level 3 reset */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define  ELNRNG          48  }\textcolor{comment}{/* Link number out of range */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define  EUNATCH         49  }\textcolor{comment}{/* Protocol driver not attached */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define  ENOCSI          50  }\textcolor{comment}{/* No CSI structure available */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define  EL2HLT          51  }\textcolor{comment}{/* Level 2 halted */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define  EBADE           52  }\textcolor{comment}{/* Invalid exchange */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define  EBADR           53  }\textcolor{comment}{/* Invalid request descriptor */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define  EXFULL          54  }\textcolor{comment}{/* Exchange full */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define  ENOANO          55  }\textcolor{comment}{/* No anode */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define  EBADRQC         56  }\textcolor{comment}{/* Invalid request code */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define  EBADSLT         57  }\textcolor{comment}{/* Invalid slot */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define  EDEADLOCK       EDEADLK}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define  EBFONT          59  }\textcolor{comment}{/* Bad font file format */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define  ENOSTR          60  }\textcolor{comment}{/* Device not a stream */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define  ENODATA         61  }\textcolor{comment}{/* No data available */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define  ETIME           62  }\textcolor{comment}{/* Timer expired */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define  ENOSR           63  }\textcolor{comment}{/* Out of streams resources */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define  ENONET          64  }\textcolor{comment}{/* Machine is not on the network */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define  ENOPKG          65  }\textcolor{comment}{/* Package not installed */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define  EREMOTE         66  }\textcolor{comment}{/* Object is remote */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define  ENOLINK         67  }\textcolor{comment}{/* Link has been severed */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define  EADV            68  }\textcolor{comment}{/* Advertise error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define  ESRMNT          69  }\textcolor{comment}{/* Srmount error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define  ECOMM           70  }\textcolor{comment}{/* Communication error on send */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define  EPROTO          71  }\textcolor{comment}{/* Protocol error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define  EMULTIHOP       72  }\textcolor{comment}{/* Multihop attempted */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define  EDOTDOT         73  }\textcolor{comment}{/* RFS specific error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define  EBADMSG         74  }\textcolor{comment}{/* Not a data message */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define  EOVERFLOW       75  }\textcolor{comment}{/* Value too large for defined data type */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define  ENOTUNIQ        76  }\textcolor{comment}{/* Name not unique on network */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define  EBADFD          77  }\textcolor{comment}{/* File descriptor in bad state */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define  EREMCHG         78  }\textcolor{comment}{/* Remote address changed */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define  ELIBACC         79  }\textcolor{comment}{/* Can not access a needed shared library */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define  ELIBBAD         80  }\textcolor{comment}{/* Accessing a corrupted shared library */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#define  ELIBSCN         81  }\textcolor{comment}{/* .lib section in a.out corrupted */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define  ELIBMAX         82  }\textcolor{comment}{/* Attempting to link in too many shared libraries */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define  ELIBEXEC        83  }\textcolor{comment}{/* Cannot exec a shared library directly */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define  EILSEQ          84  }\textcolor{comment}{/* Illegal byte sequence */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define  ERESTART        85  }\textcolor{comment}{/* Interrupted system call should be restarted */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define  ESTRPIPE        86  }\textcolor{comment}{/* Streams pipe error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define  EUSERS          87  }\textcolor{comment}{/* Too many users */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define  ENOTSOCK        88  }\textcolor{comment}{/* Socket operation on non-\/socket */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#define  EDESTADDRREQ    89  }\textcolor{comment}{/* Destination address required */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define  EMSGSIZE        90  }\textcolor{comment}{/* Message too long */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define  EPROTOTYPE      91  }\textcolor{comment}{/* Protocol wrong type for socket */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#define  ENOPROTOOPT     92  }\textcolor{comment}{/* Protocol not available */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define  EPROTONOSUPPORT 93  }\textcolor{comment}{/* Protocol not supported */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#define  ESOCKTNOSUPPORT 94  }\textcolor{comment}{/* Socket type not supported */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#define  EOPNOTSUPP      95  }\textcolor{comment}{/* Operation not supported on transport endpoint */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define  EPFNOSUPPORT    96  }\textcolor{comment}{/* Protocol family not supported */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#define  EAFNOSUPPORT    97  }\textcolor{comment}{/* Address family not supported by protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#define  EADDRINUSE      98  }\textcolor{comment}{/* Address already in use */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#define  EADDRNOTAVAIL   99  }\textcolor{comment}{/* Cannot assign requested address */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#define  ENETDOWN       100  }\textcolor{comment}{/* Network is down */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define  ENETUNREACH    101  }\textcolor{comment}{/* Network is unreachable */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define  ENETRESET      102  }\textcolor{comment}{/* Network dropped connection because of reset */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#define  ECONNABORTED   103  }\textcolor{comment}{/* Software caused connection abort */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define  ECONNRESET     104  }\textcolor{comment}{/* Connection reset by peer */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define  ENOBUFS        105  }\textcolor{comment}{/* No buffer space available */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define  EISCONN        106  }\textcolor{comment}{/* Transport endpoint is already connected */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define  ENOTCONN       107  }\textcolor{comment}{/* Transport endpoint is not connected */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define  ESHUTDOWN      108  }\textcolor{comment}{/* Cannot send after transport endpoint shutdown */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define  ETOOMANYREFS   109  }\textcolor{comment}{/* Too many references: cannot splice */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define  ETIMEDOUT      110  }\textcolor{comment}{/* Connection timed out */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define  ECONNREFUSED   111  }\textcolor{comment}{/* Connection refused */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#define  EHOSTDOWN      112  }\textcolor{comment}{/* Host is down */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define  EHOSTUNREACH   113  }\textcolor{comment}{/* No route to host */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define  EALREADY       114  }\textcolor{comment}{/* Operation already in progress */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define  EINPROGRESS    115  }\textcolor{comment}{/* Operation now in progress */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define  ESTALE         116  }\textcolor{comment}{/* Stale NFS file handle */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#define  EUCLEAN        117  }\textcolor{comment}{/* Structure needs cleaning */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define  ENOTNAM        118  }\textcolor{comment}{/* Not a XENIX named type file */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define  ENAVAIL        119  }\textcolor{comment}{/* No XENIX semaphores available */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#define  EISNAM         120  }\textcolor{comment}{/* Is a named type file */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#define  EREMOTEIO      121  }\textcolor{comment}{/* Remote I/O error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define  EDQUOT         122  }\textcolor{comment}{/* Quota exceeded */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define  ENOMEDIUM      123  }\textcolor{comment}{/* No medium found */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define  EMEDIUMTYPE    124  }\textcolor{comment}{/* Wrong medium type */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#ifndef errno}}
+\DoxyCodeLine{177 \textcolor{keyword}{extern} \textcolor{keywordtype}{int} errno;}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_PROVIDE\_ERRNO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 \textcolor{comment}{/* Define LWIP\_ERRNO\_STDINCLUDE if you want to include <errno.h> here */}}
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#ifdef LWIP\_ERRNO\_STDINCLUDE}}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#include <errno.h>}}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_ERRNO\_STDINCLUDE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{186 \textcolor{comment}{/* Define LWIP\_ERRNO\_INCLUDE to an equivalent of <errno.h> to include the error defines here */}}
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#ifdef LWIP\_ERRNO\_INCLUDE}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#include LWIP\_ERRNO\_INCLUDE}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_ERRNO\_INCLUDE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_ERRNO\_STDINCLUDE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_PROVIDE\_ERRNO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{195 \}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_ERRNO\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

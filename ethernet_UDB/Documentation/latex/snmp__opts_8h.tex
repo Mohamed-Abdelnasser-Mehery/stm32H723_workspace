@@ -1,0 +1,78 @@
+\hypertarget{snmp__opts_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/apps/snmp\+\_\+opts.h File Reference}
+\label{snmp__opts_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/snmp\_opts.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/snmp\_opts.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gaf4900859dc53f19f5f67cc34e48ad68c}{LWIP\+\_\+\+SNMP}}~0
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gaf02e8b4b69e99df784e9953401477078}{SNMP\+\_\+\+USE\+\_\+\+NETCONN}}~0
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga8c93f4260af2eb3c50d4bc603f716f1f}{SNMP\+\_\+\+USE\+\_\+\+RAW}}~1
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga692343b0cc555c302fd713003d4f8a08}{SNMP\+\_\+\+TRAP\+\_\+\+DESTINATIONS}}~1
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga95e39047b9bcb385780b06b35af49261}{SNMP\+\_\+\+SAFE\+\_\+\+REQUESTS}}~1
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gae50cdd09697aa54a8b9f26432ac55ac2}{SNMP\+\_\+\+MAX\+\_\+\+OCTET\+\_\+\+STRING\+\_\+\+LEN}}~127
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga3ad9d293f90e3c885c4e3263a9064a41}{SNMP\+\_\+\+MAX\+\_\+\+OBJ\+\_\+\+ID\+\_\+\+LEN}}~50
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gac815d0dbe576299546ac612e7eaf3f90}{SNMP\+\_\+\+MIN\+\_\+\+VALUE\+\_\+\+SIZE}}~(2 $\ast$ sizeof(u32\+\_\+t$\ast$)) /$\ast$ size required to store the basic types (8 bytes for counter64) $\ast$/
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gafb4362575bc50476a7401a1ed14787f0}{SNMP\+\_\+\+MAX\+\_\+\+VALUE\+\_\+\+SIZE}}~LWIP\+\_\+\+MAX(LWIP\+\_\+\+MAX((\mbox{\hyperlink{group__snmp__opts_gae50cdd09697aa54a8b9f26432ac55ac2}{SNMP\+\_\+\+MAX\+\_\+\+OCTET\+\_\+\+STRING\+\_\+\+LEN}}), sizeof(u32\+\_\+t)$\ast$(\mbox{\hyperlink{group__snmp__opts_ga3ad9d293f90e3c885c4e3263a9064a41}{SNMP\+\_\+\+MAX\+\_\+\+OBJ\+\_\+\+ID\+\_\+\+LEN}})), \mbox{\hyperlink{group__snmp__opts_gac815d0dbe576299546ac612e7eaf3f90}{SNMP\+\_\+\+MIN\+\_\+\+VALUE\+\_\+\+SIZE}})
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga316c1e1f06f0c7ca56589563809e64db}{SNMP\+\_\+\+COMMUNITY}}~\char`\"{}public\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gafb9414dc7a33978b62a3a9838b659464}{SNMP\+\_\+\+COMMUNITY\+\_\+\+WRITE}}~\char`\"{}private\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gaaefc9dda5f8e5c296018a463cdbac39b}{SNMP\+\_\+\+COMMUNITY\+\_\+\+TRAP}}~\char`\"{}public\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga0e98b58159a77688f87f9f50479177fd}{SNMP\+\_\+\+MAX\+\_\+\+COMMUNITY\+\_\+\+STR\+\_\+\+LEN}}~LWIP\+\_\+\+MAX(LWIP\+\_\+\+MAX(sizeof(\mbox{\hyperlink{group__snmp__opts_ga316c1e1f06f0c7ca56589563809e64db}{SNMP\+\_\+\+COMMUNITY}}), sizeof(\mbox{\hyperlink{group__snmp__opts_gafb9414dc7a33978b62a3a9838b659464}{SNMP\+\_\+\+COMMUNITY\+\_\+\+WRITE}})), sizeof(\mbox{\hyperlink{group__snmp__opts_gaaefc9dda5f8e5c296018a463cdbac39b}{SNMP\+\_\+\+COMMUNITY\+\_\+\+TRAP}}))
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga868bfef6efe05515c86291137a633479}{SNMP\+\_\+\+LWIP\+\_\+\+ENTERPRISE\+\_\+\+OID}}~26381
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga09118b734e85df152af098744e888b34}{SNMP\+\_\+\+DEVICE\+\_\+\+ENTERPRISE\+\_\+\+OID}}~\{1, 3, 6, 1, 4, 1, \mbox{\hyperlink{group__snmp__opts_ga868bfef6efe05515c86291137a633479}{SNMP\+\_\+\+LWIP\+\_\+\+ENTERPRISE\+\_\+\+OID}}\}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga9e39ba5308f5c7ac5296c7d05fdfa97f}{SNMP\+\_\+\+DEVICE\+\_\+\+ENTERPRISE\+\_\+\+OID\+\_\+\+LEN}}~7
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gac041000361342f51ad5ee5d8f6254e02}{SNMP\+\_\+\+DEBUG}}~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gac12240265db443eaf9d31d187e586c16}{SNMP\+\_\+\+MIB\+\_\+\+DEBUG}}~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gaab667d48f48ee89f8bdbc7f134e6037d}{SNMP\+\_\+\+LWIP\+\_\+\+MIB2}}~\mbox{\hyperlink{group__snmp__opts_gaf4900859dc53f19f5f67cc34e48ad68c}{LWIP\+\_\+\+SNMP}}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_gae93a105b421a2ca91e862da5087cec73}{SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSDESC}}~\char`\"{}lw\+IP\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga80ba46f9517a51b5477f13082b2bcf98}{SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSNAME}}~\char`\"{}FQDN-\/unk\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga1a57501c615b630d363e0af1a504e683}{SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSCONTACT}}~\char`\"{}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga311cec98c8f7e4851d325fffe96cf8d9}{SNMP\+\_\+\+LWIP\+\_\+\+MIB2\+\_\+\+SYSLOCATION}}~\char`\"{}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__snmp__opts_ga5a24152aa5f3c2837b9a3145aa3c59f3}{SNMP\+\_\+\+LWIP\+\_\+\+GETBULK\+\_\+\+MAX\+\_\+\+REPETITIONS}}~0
+\item 
+\#define \mbox{\hyperlink{snmp__opts_8h_a1fe0e120f979ed400f649019edcefe2b}{LWIP\+\_\+\+SNMP\+\_\+\+V3}}~0
+\item 
+\mbox{\Hypertarget{snmp__opts_8h_aec8d46ed5bf44cac4c27ab77213e6949}\label{snmp__opts_8h_aec8d46ed5bf44cac4c27ab77213e6949}} 
+\#define {\bfseries LWIP\+\_\+\+SNMP\+\_\+\+V3\+\_\+\+MBEDTLS}~\mbox{\hyperlink{snmp__opts_8h_a1fe0e120f979ed400f649019edcefe2b}{LWIP\+\_\+\+SNMP\+\_\+\+V3}}
+\item 
+\mbox{\Hypertarget{snmp__opts_8h_a9023d215e3ae12386483f102f123d82a}\label{snmp__opts_8h_a9023d215e3ae12386483f102f123d82a}} 
+\#define {\bfseries LWIP\+\_\+\+SNMP\+\_\+\+V3\+\_\+\+CRYPTO}~LWIP\+\_\+\+SNMP\+\_\+\+V3\+\_\+\+MBEDTLS
+\item 
+\mbox{\Hypertarget{snmp__opts_8h_a60030f59240398c88ad4584d773d01dc}\label{snmp__opts_8h_a60030f59240398c88ad4584d773d01dc}} 
+\#define {\bfseries LWIP\+\_\+\+SNMP\+\_\+\+CONFIGURE\+\_\+\+VERSIONS}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SNMP server options list 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{snmp__opts_8h_a1fe0e120f979ed400f649019edcefe2b}\label{snmp__opts_8h_a1fe0e120f979ed400f649019edcefe2b}} 
+\index{snmp\_opts.h@{snmp\_opts.h}!LWIP\_SNMP\_V3@{LWIP\_SNMP\_V3}}
+\index{LWIP\_SNMP\_V3@{LWIP\_SNMP\_V3}!snmp\_opts.h@{snmp\_opts.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_SNMP\_V3}{LWIP\_SNMP\_V3}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+SNMP\+\_\+\+V3~0}
+
+LWIP\+\_\+\+SNMP\+\_\+\+V3==1\+: This enables EXPERIMENTAL SNMPv3 support. LWIP\+\_\+\+SNMP must also be enabled. THIS IS UNDER DEVELOPMENT AND SHOULD NOT BE ENABLED IN PRODUCTS. 

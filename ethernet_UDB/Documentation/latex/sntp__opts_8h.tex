@@ -1,0 +1,45 @@
+\hypertarget{sntp__opts_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/apps/sntp\+\_\+opts.h File Reference}
+\label{sntp__opts_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/sntp\_opts.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/sntp\_opts.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/prot/iana.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_gafe340b98c52dedcbc041267fe13b2da6}{SNTP\+\_\+\+SET\+\_\+\+SYSTEM\+\_\+\+TIME}}(sec)~\mbox{\hyperlink{group__compiler__abstraction_ga70624a5deb8b9199406372a7f3603ecf}{LWIP\+\_\+\+UNUSED\+\_\+\+ARG}}(sec)
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_ga5d9dc0827f402849f5c18d44e311dbc2}{SNTP\+\_\+\+MAX\+\_\+\+SERVERS}}~\mbox{\hyperlink{group__lwip__opts__dhcp_ga9d014e3f7dc9e1e7c7decd8652ba65e2}{LWIP\+\_\+\+DHCP\+\_\+\+MAX\+\_\+\+NTP\+\_\+\+SERVERS}}
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_ga961a61eef942ab5378cff1e3742b3ade}{SNTP\+\_\+\+GET\+\_\+\+SERVERS\+\_\+\+FROM\+\_\+\+DHCP}}~\mbox{\hyperlink{group__lwip__opts__dhcp_ga2cc18315edcd5ffc083d1256f7d22a83}{LWIP\+\_\+\+DHCP\+\_\+\+GET\+\_\+\+NTP\+\_\+\+SRV}}
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_gaef477c145ae404d77188b26b79b6996f}{SNTP\+\_\+\+SERVER\+\_\+\+DNS}}~0
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_ga25c6f9c14c17e218d110d826b09f8d91}{SNTP\+\_\+\+DEBUG}}~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_gacbee62c27f54371fc2c5259a834a0f9b}{SNTP\+\_\+\+PORT}}~\mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0a79c377ce09e05cd4410a8865d41b3efb}{LWIP\+\_\+\+IANA\+\_\+\+PORT\+\_\+\+SNTP}}
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_ga7d4e12d90912d486e64f289d7f3ca446}{SNTP\+\_\+\+CHECK\+\_\+\+RESPONSE}}~0
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_ga1e21781705d3549a305339fd7fca63e7}{SNTP\+\_\+\+COMP\+\_\+\+ROUNDTRIP}}~0
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_ga22017d43da7d4bf8d42e786b4ced4dfa}{SNTP\+\_\+\+STARTUP\+\_\+\+DELAY}}~0
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_gae082c2f3044d500ca5e1be1d4928de75}{SNTP\+\_\+\+STARTUP\+\_\+\+DELAY\+\_\+\+FUNC}}~(LWIP\+\_\+\+RAND() \% 5000)
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_ga44cf26b9b19832d88599244711a12d08}{SNTP\+\_\+\+RECV\+\_\+\+TIMEOUT}}~15000
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_ga9232c56443115be05a2f852eba21979c}{SNTP\+\_\+\+UPDATE\+\_\+\+DELAY}}~3600000
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_gab0ea385479a5c5c8c173f165ded2fb63}{SNTP\+\_\+\+GET\+\_\+\+SYSTEM\+\_\+\+TIME}}(sec,  us)~do \{ (sec) = 0; (us) = 0; \} while(0)
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_ga86d651d8eb07687208308deef95a23ba}{SNTP\+\_\+\+RETRY\+\_\+\+TIMEOUT}}~\mbox{\hyperlink{group__sntp__opts_ga44cf26b9b19832d88599244711a12d08}{SNTP\+\_\+\+RECV\+\_\+\+TIMEOUT}}
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_gafde10b3ed7cb4bb2cd2c4daa389db699}{SNTP\+\_\+\+RETRY\+\_\+\+TIMEOUT\+\_\+\+MAX}}~(\mbox{\hyperlink{group__sntp__opts_ga86d651d8eb07687208308deef95a23ba}{SNTP\+\_\+\+RETRY\+\_\+\+TIMEOUT}} $\ast$ 10)
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_gafdb7e98f608cc429188d7dac356614c2}{SNTP\+\_\+\+RETRY\+\_\+\+TIMEOUT\+\_\+\+EXP}}~1
+\item 
+\#define \mbox{\hyperlink{group__sntp__opts_ga5782f21ef24ebddd5ba2ce9a889094e3}{SNTP\+\_\+\+MONITOR\+\_\+\+SERVER\+\_\+\+REACHABILITY}}~1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SNTP client options list 

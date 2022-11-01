@@ -1,0 +1,220 @@
+\hypertarget{group___m_d_m_a___private___macros}{}\doxysection{MDMA Private Macros}
+\label{group___m_d_m_a___private___macros}\index{MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_ga21364d79ebce2e44ff7f275ab723fbb4}{IS\+\_\+\+MDMA\+\_\+\+LEVEL\+\_\+\+COMPLETE}}(\+\_\+\+\_\+\+LEVEL\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_ga3460b02087e282ad93420da24ff80fc5}{IS\+\_\+\+MDMA\+\_\+\+PRIORITY}}(\+\_\+\+\_\+\+PRIORITY\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_ga96165832c9c5ac9482414a5867b22a6d}{IS\+\_\+\+MDMA\+\_\+\+ENDIANNESS\+\_\+\+MODE}}(\+\_\+\+\_\+\+ENDIANNESS\+\_\+\+\_\+)
+\item 
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga494aa9605e8c5b2efee2842dd3d1e679}\label{group___m_d_m_a___private___macros_ga494aa9605e8c5b2efee2842dd3d1e679}} 
+\#define {\bfseries IS\+\_\+\+MDMA\+\_\+\+REQUEST}(\+\_\+\+\_\+\+REQUEST\+\_\+\+\_\+)~(((\+\_\+\+\_\+\+REQUEST\+\_\+\+\_\+) == \mbox{\hyperlink{group___m_d_m_a___request__selection_gae74213c98c7e2e2a374089d132ce51a6}{MDMA\+\_\+\+REQUEST\+\_\+\+SW}} ) $\vert$$\vert$ ((\+\_\+\+\_\+\+REQUEST\+\_\+\+\_\+) $<$= \mbox{\hyperlink{group___m_d_m_a___request__selection_ga09e729419d056bad2d95c5fb1868bed9}{MDMA\+\_\+\+REQUEST\+\_\+\+SDMMC1\+\_\+\+COMMAND\+\_\+\+END}}))
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_gaed4a8500d8fa320805a22efa6ff4eb52}{IS\+\_\+\+MDMA\+\_\+\+SOURCE\+\_\+\+INC}}(\+\_\+\+\_\+\+INC\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_ga6e2b11d495f54a91564f37242d95cc5b}{IS\+\_\+\+MDMA\+\_\+\+DESTINATION\+\_\+\+INC}}(\+\_\+\+\_\+\+INC\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_ga0fe4b16eb984743d126f493ff5b91416}{IS\+\_\+\+MDMA\+\_\+\+SOURCE\+\_\+\+DATASIZE}}(\+\_\+\+\_\+\+SIZE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_ga08befd1c1fa376298eb8542e4f4ee971}{IS\+\_\+\+MDMA\+\_\+\+DESTINATION\+\_\+\+DATASIZE}}(\+\_\+\+\_\+\+SIZE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_ga2b855ff6a95d1ed439948691780b09cb}{IS\+\_\+\+MDMA\+\_\+\+DATA\+\_\+\+ALIGNMENT}}(\+\_\+\+\_\+\+ALIGNMENT\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_ga8e19cc54fe6e204892b556da66bcce93}{IS\+\_\+\+MDMA\+\_\+\+SOURCE\+\_\+\+BURST}}(\+\_\+\+\_\+\+BURST\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_gaf0e5196cfdfd24939d9ece94cd5c2434}{IS\+\_\+\+MDMA\+\_\+\+DESTINATION\+\_\+\+BURST}}(\+\_\+\+\_\+\+BURST\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___private___macros_ga13f7cf72f1bd95d78d19cfc00d7da504}{IS\+\_\+\+MDMA\+\_\+\+TRANSFER\+\_\+\+TRIGGER\+\_\+\+MODE}}(\+\_\+\+\_\+\+MODE\+\_\+\+\_\+)
+\item 
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga9662594d214f810a3a9d42aa5865816d}\label{group___m_d_m_a___private___macros_ga9662594d214f810a3a9d42aa5865816d}} 
+\#define {\bfseries IS\+\_\+\+MDMA\+\_\+\+BUFFER\+\_\+\+TRANSFER\+\_\+\+LENGTH}(\+\_\+\+\_\+\+LENGTH\+\_\+\+\_\+)~(((\+\_\+\+\_\+\+LENGTH\+\_\+\+\_\+) $>$= 0x00000001U) \&\& ((\+\_\+\+\_\+\+LENGTH\+\_\+\+\_\+) $<$ 0x000000\+FFU))
+\item 
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga4f2e052ac1525d15ba145889485e0553}\label{group___m_d_m_a___private___macros_ga4f2e052ac1525d15ba145889485e0553}} 
+\#define {\bfseries IS\+\_\+\+MDMA\+\_\+\+BLOCK\+\_\+\+COUNT}(\+\_\+\+\_\+\+COUNT\+\_\+\+\_\+)~(((\+\_\+\+\_\+\+COUNT\+\_\+\+\_\+) $>$ 0U ) \&\& ((\+\_\+\+\_\+\+COUNT\+\_\+\+\_\+) $<$= 4096U))
+\item 
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga05aba724cf64a85d170949690ae6f002}\label{group___m_d_m_a___private___macros_ga05aba724cf64a85d170949690ae6f002}} 
+\#define {\bfseries IS\+\_\+\+MDMA\+\_\+\+TRANSFER\+\_\+\+LENGTH}(SIZE)~(((SIZE) $>$ 0U) \&\& ((SIZE) $<$= 65536U))
+\item 
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga76c02e4611ffd10606d3dfab0f05fa5b}\label{group___m_d_m_a___private___macros_ga76c02e4611ffd10606d3dfab0f05fa5b}} 
+\#define {\bfseries IS\+\_\+\+MDMA\+\_\+\+BLOCK\+\_\+\+ADDR\+\_\+\+OFFSET}(\+\_\+\+\_\+\+BLOCK\+\_\+\+ADD\+\_\+\+OFFSET\+\_\+\+\_\+)~(((\+\_\+\+\_\+\+BLOCK\+\_\+\+ADD\+\_\+\+OFFSET\+\_\+\+\_\+) $>$ (-\/65536)) \&\& ((\+\_\+\+\_\+\+BLOCK\+\_\+\+ADD\+\_\+\+OFFSET\+\_\+\+\_\+) $<$ 65536))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga2b855ff6a95d1ed439948691780b09cb}\label{group___m_d_m_a___private___macros_ga2b855ff6a95d1ed439948691780b09cb}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_DATA\_ALIGNMENT@{IS\_MDMA\_DATA\_ALIGNMENT}}
+\index{IS\_MDMA\_DATA\_ALIGNMENT@{IS\_MDMA\_DATA\_ALIGNMENT}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_DATA\_ALIGNMENT}{IS\_MDMA\_DATA\_ALIGNMENT}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+DATA\+\_\+\+ALIGNMENT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+ALIGNMENT\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                               (((\_\_ALIGNMENT\_\_) == \mbox{\hyperlink{group___m_d_m_a__data___alignment_gabbaf37c894719c7ba65a99f2a00a3648}{MDMA\_DATAALIGN\_PACKENABLE}} )    || \(\backslash\)}
+\DoxyCodeLine{                                               ((\_\_ALIGNMENT\_\_) == \mbox{\hyperlink{group___m_d_m_a__data___alignment_ga1187c5ce45017e0322a60ff575c13ff5}{MDMA\_DATAALIGN\_RIGHT}} )         || \(\backslash\)}
+\DoxyCodeLine{                                               ((\_\_ALIGNMENT\_\_) == \mbox{\hyperlink{group___m_d_m_a__data___alignment_gac595b2688fd03d599c468cced4db133b}{MDMA\_DATAALIGN\_RIGHT\_SIGNED}} )  || \(\backslash\)}
+\DoxyCodeLine{                                               ((\_\_ALIGNMENT\_\_) == \mbox{\hyperlink{group___m_d_m_a__data___alignment_gaa068720a5bee6c21bc90e295edf28ee2}{MDMA\_DATAALIGN\_LEFT}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_gaf0e5196cfdfd24939d9ece94cd5c2434}\label{group___m_d_m_a___private___macros_gaf0e5196cfdfd24939d9ece94cd5c2434}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_DESTINATION\_BURST@{IS\_MDMA\_DESTINATION\_BURST}}
+\index{IS\_MDMA\_DESTINATION\_BURST@{IS\_MDMA\_DESTINATION\_BURST}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_DESTINATION\_BURST}{IS\_MDMA\_DESTINATION\_BURST}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+DESTINATION\+\_\+\+BURST(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+BURST\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                              (((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__burst_ga134850700b374d64bee603857e5d1d0c}{MDMA\_DEST\_BURST\_SINGLE}} ) || \(\backslash\)}
+\DoxyCodeLine{                                              ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__burst_ga75c590bfa126540d379bf7cd67966c2c}{MDMA\_DEST\_BURST\_2BEATS}} ) || \(\backslash\)}
+\DoxyCodeLine{                                              ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__burst_ga86ebfeab4463730a268ccdf59f303399}{MDMA\_DEST\_BURST\_4BEATS}} ) || \(\backslash\)}
+\DoxyCodeLine{                                              ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__burst_gac38371351654878f79cb93bb644797d7}{MDMA\_DEST\_BURST\_8BEATS}})  || \(\backslash\)}
+\DoxyCodeLine{                                              ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__burst_gac16422b1de52ef42746b663f69a0a219}{MDMA\_DEST\_BURST\_16BEATS}}) || \(\backslash\)}
+\DoxyCodeLine{                                              ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__burst_ga4ec48b8884488d4799286c67d719c399}{MDMA\_DEST\_BURST\_32BEATS}}) || \(\backslash\)}
+\DoxyCodeLine{                                              ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__burst_ga21f08cc5c00e57bf44dd67f6c10e4c89}{MDMA\_DEST\_BURST\_64BEATS}}) || \(\backslash\)}
+\DoxyCodeLine{                                              ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__burst_ga13e55b825ef04630190ca0bd2e0a48c6}{MDMA\_DEST\_BURST\_128BEATS}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga08befd1c1fa376298eb8542e4f4ee971}\label{group___m_d_m_a___private___macros_ga08befd1c1fa376298eb8542e4f4ee971}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_DESTINATION\_DATASIZE@{IS\_MDMA\_DESTINATION\_DATASIZE}}
+\index{IS\_MDMA\_DESTINATION\_DATASIZE@{IS\_MDMA\_DESTINATION\_DATASIZE}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_DESTINATION\_DATASIZE}{IS\_MDMA\_DESTINATION\_DATASIZE}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+DESTINATION\+\_\+\+DATASIZE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+SIZE\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                                (((\_\_SIZE\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__data__size_ga180c03c23a76d465bf46e0c4b7ab59a3}{MDMA\_DEST\_DATASIZE\_BYTE}} )     || \(\backslash\)}
+\DoxyCodeLine{                                                ((\_\_SIZE\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__data__size_ga4281bd8ab25f2fef9739a9a1f71dfa8c}{MDMA\_DEST\_DATASIZE\_HALFWORD}} ) || \(\backslash\)}
+\DoxyCodeLine{                                                ((\_\_SIZE\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__data__size_ga96ba8c121a226e2b32837adf31d56a55}{MDMA\_DEST\_DATASIZE\_WORD}} )     || \(\backslash\)}
+\DoxyCodeLine{                                                ((\_\_SIZE\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__data__size_ga2bf426ec17c39790a037ae2b7bd889ee}{MDMA\_DEST\_DATASIZE\_DOUBLEWORD}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga6e2b11d495f54a91564f37242d95cc5b}\label{group___m_d_m_a___private___macros_ga6e2b11d495f54a91564f37242d95cc5b}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_DESTINATION\_INC@{IS\_MDMA\_DESTINATION\_INC}}
+\index{IS\_MDMA\_DESTINATION\_INC@{IS\_MDMA\_DESTINATION\_INC}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_DESTINATION\_INC}{IS\_MDMA\_DESTINATION\_INC}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+DESTINATION\+\_\+\+INC(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+INC\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                          (((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__increment__mode_ga536f787df6c7e4e522c2fb48653b1498}{MDMA\_DEST\_INC\_DISABLE}} )   || \(\backslash\)}
+\DoxyCodeLine{                                          ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__increment__mode_gaf0f590b5ece4b1def60ba4e86a46934e}{MDMA\_DEST\_INC\_BYTE}} )      || \(\backslash\)}
+\DoxyCodeLine{                                          ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__increment__mode_gae8fd91aa37044d76a9ab15d3d9cf976b}{MDMA\_DEST\_INC\_HALFWORD}} )  || \(\backslash\)}
+\DoxyCodeLine{                                          ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__increment__mode_gab98044e4f94e17a4c4750b1d2e984195}{MDMA\_DEST\_INC\_WORD}} )      || \(\backslash\)}
+\DoxyCodeLine{                                          ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__increment__mode_ga6edb1194881ee0cad8bd3a6d3f0414a3}{MDMA\_DEST\_INC\_DOUBLEWORD}}) || \(\backslash\)}
+\DoxyCodeLine{                                          ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__increment__mode_ga192fc55afed732614edd0988d5a6f035}{MDMA\_DEST\_DEC\_BYTE}})       || \(\backslash\)}
+\DoxyCodeLine{                                          ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__increment__mode_ga804bfa0640cd4fe60a239a99d66455b0}{MDMA\_DEST\_DEC\_HALFWORD}})   || \(\backslash\)}
+\DoxyCodeLine{                                          ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__increment__mode_ga8769bb30d736531e09621e23804b30b9}{MDMA\_DEST\_DEC\_WORD}})       || \(\backslash\)}
+\DoxyCodeLine{                                          ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___destination__increment__mode_ga8b69e6ac379e19c927e235bf0d7766e8}{MDMA\_DEST\_DEC\_DOUBLEWORD}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga96165832c9c5ac9482414a5867b22a6d}\label{group___m_d_m_a___private___macros_ga96165832c9c5ac9482414a5867b22a6d}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_ENDIANNESS\_MODE@{IS\_MDMA\_ENDIANNESS\_MODE}}
+\index{IS\_MDMA\_ENDIANNESS\_MODE@{IS\_MDMA\_ENDIANNESS\_MODE}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_ENDIANNESS\_MODE}{IS\_MDMA\_ENDIANNESS\_MODE}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+ENDIANNESS\+\_\+\+MODE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+ENDIANNESS\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                                 (((\_\_ENDIANNESS\_\_) == \mbox{\hyperlink{group___m_d_m_a___endianness_ga88f5c1412c437812b19689191aa55288}{MDMA\_LITTLE\_ENDIANNESS\_PRESERVE}} )         || \(\backslash\)}
+\DoxyCodeLine{                                                 ((\_\_ENDIANNESS\_\_) == \mbox{\hyperlink{group___m_d_m_a___endianness_gaf6d0288905776ac0e8f275da7404a27d}{MDMA\_LITTLE\_BYTE\_ENDIANNESS\_EXCHANGE}})     || \(\backslash\)}
+\DoxyCodeLine{                                                 ((\_\_ENDIANNESS\_\_) == \mbox{\hyperlink{group___m_d_m_a___endianness_gad7657af45b2d96d6849ace222b3c332d}{MDMA\_LITTLE\_HALFWORD\_ENDIANNESS\_EXCHANGE}}) || \(\backslash\)}
+\DoxyCodeLine{                                                 ((\_\_ENDIANNESS\_\_) == \mbox{\hyperlink{group___m_d_m_a___endianness_ga76a6d9629be30da04d478bd4e51697a2}{MDMA\_LITTLE\_WORD\_ENDIANNESS\_EXCHANGE}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga21364d79ebce2e44ff7f275ab723fbb4}\label{group___m_d_m_a___private___macros_ga21364d79ebce2e44ff7f275ab723fbb4}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_LEVEL\_COMPLETE@{IS\_MDMA\_LEVEL\_COMPLETE}}
+\index{IS\_MDMA\_LEVEL\_COMPLETE@{IS\_MDMA\_LEVEL\_COMPLETE}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_LEVEL\_COMPLETE}{IS\_MDMA\_LEVEL\_COMPLETE}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+LEVEL\+\_\+\+COMPLETE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+LEVEL\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                           (((\_\_LEVEL\_\_) == \mbox{\hyperlink{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9a4c610f559c818c0f79d7e9a1ac666ba0}{HAL\_MDMA\_FULL\_TRANSFER}} )  || \(\backslash\)}
+\DoxyCodeLine{                                           ((\_\_LEVEL\_\_) == \mbox{\hyperlink{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9a667357341af0e9c8b0ec7d35fd6cbdde}{HAL\_MDMA\_BUFFER\_TRANSFER}} )|| \(\backslash\)}
+\DoxyCodeLine{                                           ((\_\_LEVEL\_\_) == \mbox{\hyperlink{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9aadc788a52ebd23841f9862bddd2c864b}{HAL\_MDMA\_BLOCK\_TRANSFER}} ) || \(\backslash\)}
+\DoxyCodeLine{                                           ((\_\_LEVEL\_\_) == \mbox{\hyperlink{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9ae827bd536e8e73b4ad46599a021c7aa4}{HAL\_MDMA\_REPEAT\_BLOCK\_TRANSFER}} ))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga3460b02087e282ad93420da24ff80fc5}\label{group___m_d_m_a___private___macros_ga3460b02087e282ad93420da24ff80fc5}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_PRIORITY@{IS\_MDMA\_PRIORITY}}
+\index{IS\_MDMA\_PRIORITY@{IS\_MDMA\_PRIORITY}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_PRIORITY}{IS\_MDMA\_PRIORITY}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+PRIORITY(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+PRIORITY\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                        (((\_\_PRIORITY\_\_) == \mbox{\hyperlink{group___m_d_m_a___priority__level_gab723d916b0362fe0284fdd4b9fedc730}{MDMA\_PRIORITY\_LOW}} )   || \(\backslash\)}
+\DoxyCodeLine{                                        ((\_\_PRIORITY\_\_) == \mbox{\hyperlink{group___m_d_m_a___priority__level_gab4c365b134c8e73dffa39e25d440fa39}{MDMA\_PRIORITY\_MEDIUM}}) || \(\backslash\)}
+\DoxyCodeLine{                                        ((\_\_PRIORITY\_\_) == \mbox{\hyperlink{group___m_d_m_a___priority__level_ga70b2daa587353a19cb7fcacbe1764760}{MDMA\_PRIORITY\_HIGH}})   || \(\backslash\)}
+\DoxyCodeLine{                                        ((\_\_PRIORITY\_\_) == \mbox{\hyperlink{group___m_d_m_a___priority__level_ga9f0c8b5c3a51db25bfc6d334bd4485bf}{MDMA\_PRIORITY\_VERY\_HIGH}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga8e19cc54fe6e204892b556da66bcce93}\label{group___m_d_m_a___private___macros_ga8e19cc54fe6e204892b556da66bcce93}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_SOURCE\_BURST@{IS\_MDMA\_SOURCE\_BURST}}
+\index{IS\_MDMA\_SOURCE\_BURST@{IS\_MDMA\_SOURCE\_BURST}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_SOURCE\_BURST}{IS\_MDMA\_SOURCE\_BURST}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+SOURCE\+\_\+\+BURST(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+BURST\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                         (((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__burst_ga21f3428a921b47cf00f19a24692b245b}{MDMA\_SOURCE\_BURST\_SINGLE}} ) || \(\backslash\)}
+\DoxyCodeLine{                                         ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__burst_ga34c1c39c11aee347721d46152a46c3d2}{MDMA\_SOURCE\_BURST\_2BEATS}} ) || \(\backslash\)}
+\DoxyCodeLine{                                         ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__burst_gaf1956e7a9b739e0c1055eaf218414fbf}{MDMA\_SOURCE\_BURST\_4BEATS}} ) || \(\backslash\)}
+\DoxyCodeLine{                                         ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__burst_ga838a07d457ac07b06ff30f8705b2e2a3}{MDMA\_SOURCE\_BURST\_8BEATS}})  || \(\backslash\)}
+\DoxyCodeLine{                                         ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__burst_ga2d6a69cbf263d610113446769f9bf34a}{MDMA\_SOURCE\_BURST\_16BEATS}}) || \(\backslash\)}
+\DoxyCodeLine{                                         ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__burst_ga38982721219f305ef01286ffcd7825b5}{MDMA\_SOURCE\_BURST\_32BEATS}}) || \(\backslash\)}
+\DoxyCodeLine{                                         ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__burst_ga6ff9aae6e3d6705f3fd5a908a542c8bd}{MDMA\_SOURCE\_BURST\_64BEATS}}) || \(\backslash\)}
+\DoxyCodeLine{                                         ((\_\_BURST\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__burst_gaf7f4c260359fcf4f6d989b3bde691519}{MDMA\_SOURCE\_BURST\_128BEATS}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga0fe4b16eb984743d126f493ff5b91416}\label{group___m_d_m_a___private___macros_ga0fe4b16eb984743d126f493ff5b91416}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_SOURCE\_DATASIZE@{IS\_MDMA\_SOURCE\_DATASIZE}}
+\index{IS\_MDMA\_SOURCE\_DATASIZE@{IS\_MDMA\_SOURCE\_DATASIZE}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_SOURCE\_DATASIZE}{IS\_MDMA\_SOURCE\_DATASIZE}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+SOURCE\+\_\+\+DATASIZE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+SIZE\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                           (((\_\_SIZE\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__data__size_ga4128093e6b213370e6a7038409570c5e}{MDMA\_SRC\_DATASIZE\_BYTE}} )     || \(\backslash\)}
+\DoxyCodeLine{                                           ((\_\_SIZE\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__data__size_ga66b6427751b332e17146e2e09fc1aa8e}{MDMA\_SRC\_DATASIZE\_HALFWORD}} ) || \(\backslash\)}
+\DoxyCodeLine{                                           ((\_\_SIZE\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__data__size_ga1cc3069cc922ca23f2c4005e15870b2c}{MDMA\_SRC\_DATASIZE\_WORD}} )     || \(\backslash\)}
+\DoxyCodeLine{                                           ((\_\_SIZE\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__data__size_gabb4729682df019426c6ce03c8d002118}{MDMA\_SRC\_DATASIZE\_DOUBLEWORD}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_gaed4a8500d8fa320805a22efa6ff4eb52}\label{group___m_d_m_a___private___macros_gaed4a8500d8fa320805a22efa6ff4eb52}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_SOURCE\_INC@{IS\_MDMA\_SOURCE\_INC}}
+\index{IS\_MDMA\_SOURCE\_INC@{IS\_MDMA\_SOURCE\_INC}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_SOURCE\_INC}{IS\_MDMA\_SOURCE\_INC}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+SOURCE\+\_\+\+INC(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+INC\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                     (((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__increment__mode_ga487b113cfb8556c81b1b97a998700767}{MDMA\_SRC\_INC\_DISABLE}} )   || \(\backslash\)}
+\DoxyCodeLine{                                     ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__increment__mode_ga8a07ad2db2d70a66427b7ded4268bb53}{MDMA\_SRC\_INC\_BYTE}} )      || \(\backslash\)}
+\DoxyCodeLine{                                     ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__increment__mode_gac42a4d82b521b10b93778be409397cca}{MDMA\_SRC\_INC\_HALFWORD}} )  || \(\backslash\)}
+\DoxyCodeLine{                                     ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__increment__mode_ga556b53c8f4015fa8e111f1cb42a7552f}{MDMA\_SRC\_INC\_WORD}} )      || \(\backslash\)}
+\DoxyCodeLine{                                     ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__increment__mode_ga32a15ff39c04c2e645490323f4ffcbb8}{MDMA\_SRC\_INC\_DOUBLEWORD}}) || \(\backslash\)}
+\DoxyCodeLine{                                     ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__increment__mode_ga9ffda63e89b428189feec0c135761941}{MDMA\_SRC\_DEC\_BYTE}})       || \(\backslash\)}
+\DoxyCodeLine{                                     ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__increment__mode_ga283f0187d0be8f78f699df89259d9387}{MDMA\_SRC\_DEC\_HALFWORD}})   || \(\backslash\)}
+\DoxyCodeLine{                                     ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__increment__mode_ga17dbecadb5280a2a95c0764bb226ad02}{MDMA\_SRC\_DEC\_WORD}})       || \(\backslash\)}
+\DoxyCodeLine{                                     ((\_\_INC\_\_) == \mbox{\hyperlink{group___m_d_m_a___source__increment__mode_ga1a2a49eaf1b77f7262857806572ab5e3}{MDMA\_SRC\_DEC\_DOUBLEWORD}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___m_d_m_a___private___macros_ga13f7cf72f1bd95d78d19cfc00d7da504}\label{group___m_d_m_a___private___macros_ga13f7cf72f1bd95d78d19cfc00d7da504}} 
+\index{MDMA Private Macros@{MDMA Private Macros}!IS\_MDMA\_TRANSFER\_TRIGGER\_MODE@{IS\_MDMA\_TRANSFER\_TRIGGER\_MODE}}
+\index{IS\_MDMA\_TRANSFER\_TRIGGER\_MODE@{IS\_MDMA\_TRANSFER\_TRIGGER\_MODE}!MDMA Private Macros@{MDMA Private Macros}}
+\doxysubsubsection{\texorpdfstring{IS\_MDMA\_TRANSFER\_TRIGGER\_MODE}{IS\_MDMA\_TRANSFER\_TRIGGER\_MODE}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+MDMA\+\_\+\+TRANSFER\+\_\+\+TRIGGER\+\_\+\+MODE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+MODE\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                                  (((\_\_MODE\_\_) == \mbox{\hyperlink{group___m_d_m_a___transfer___trigger_mode_ga4fbad0d3d5d3ae406176ee930b634f6d}{MDMA\_BUFFER\_TRANSFER}} )      || \(\backslash\)}
+\DoxyCodeLine{                                                  ((\_\_MODE\_\_) == \mbox{\hyperlink{group___m_d_m_a___transfer___trigger_mode_gaf25ce24f3a14177b6e8f60327b69b05d}{MDMA\_BLOCK\_TRANSFER}} )        || \(\backslash\)}
+\DoxyCodeLine{                                                  ((\_\_MODE\_\_) == \mbox{\hyperlink{group___m_d_m_a___transfer___trigger_mode_gadbb115ccb0e375988cb7b98d48c6cb5a}{MDMA\_REPEAT\_BLOCK\_TRANSFER}} ) || \(\backslash\)}
+\DoxyCodeLine{                                                  ((\_\_MODE\_\_) == \mbox{\hyperlink{group___m_d_m_a___transfer___trigger_mode_ga626e450a5ee0b0e8910f6600b809e400}{MDMA\_FULL\_TRANSFER}}))}
+
+\end{DoxyCode}

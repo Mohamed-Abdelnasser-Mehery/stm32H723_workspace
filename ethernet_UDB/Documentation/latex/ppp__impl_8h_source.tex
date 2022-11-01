@@ -1,0 +1,728 @@
+\hypertarget{ppp__impl_8h_source}{}\doxysection{ppp\+\_\+impl.\+h}
+\label{ppp__impl_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ppp\_impl.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ppp\_impl.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{* ppp.h -\/ Network Point to Point Protocol header file.}}
+\DoxyCodeLine{3 \textcolor{comment}{*}}
+\DoxyCodeLine{4 \textcolor{comment}{* Copyright (c) 2003 by Marc Boucher, Services Informatiques (MBSI) inc.}}
+\DoxyCodeLine{5 \textcolor{comment}{* portions Copyright (c) 1997 Global Election Systems Inc.}}
+\DoxyCodeLine{6 \textcolor{comment}{*}}
+\DoxyCodeLine{7 \textcolor{comment}{* The authors hereby grant permission to use, copy, modify, distribute,}}
+\DoxyCodeLine{8 \textcolor{comment}{* and license this software and its documentation for any purpose, provided}}
+\DoxyCodeLine{9 \textcolor{comment}{* that existing copyright notices are retained in all copies and that this}}
+\DoxyCodeLine{10 \textcolor{comment}{* notice and the following disclaimer are included verbatim in any}}
+\DoxyCodeLine{11 \textcolor{comment}{* distributions. No written agreement, license, or royalty fee is required}}
+\DoxyCodeLine{12 \textcolor{comment}{* for any of the authorized uses.}}
+\DoxyCodeLine{13 \textcolor{comment}{*}}
+\DoxyCodeLine{14 \textcolor{comment}{* THIS SOFTWARE IS PROVIDED BY THE CONTRIBUTORS *AS IS* AND ANY EXPRESS OR}}
+\DoxyCodeLine{15 \textcolor{comment}{* IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES}}
+\DoxyCodeLine{16 \textcolor{comment}{* OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.}}
+\DoxyCodeLine{17 \textcolor{comment}{* IN NO EVENT SHALL THE CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,}}
+\DoxyCodeLine{18 \textcolor{comment}{* INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT}}
+\DoxyCodeLine{19 \textcolor{comment}{* NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,}}
+\DoxyCodeLine{20 \textcolor{comment}{* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY}}
+\DoxyCodeLine{21 \textcolor{comment}{* THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT}}
+\DoxyCodeLine{22 \textcolor{comment}{* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF}}
+\DoxyCodeLine{23 \textcolor{comment}{* THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{24 \textcolor{comment}{*}}
+\DoxyCodeLine{25 \textcolor{comment}{******************************************************************************}}
+\DoxyCodeLine{26 \textcolor{comment}{* REVISION HISTORY}}
+\DoxyCodeLine{27 \textcolor{comment}{*}}
+\DoxyCodeLine{28 \textcolor{comment}{* 03-\/01-\/01 Marc Boucher <marc@mbsi.ca>}}
+\DoxyCodeLine{29 \textcolor{comment}{*   Ported to lwIP.}}
+\DoxyCodeLine{30 \textcolor{comment}{* 97-\/11-\/05 Guy Lancaster <glanca@gesn.com>, Global Election Systems Inc.}}
+\DoxyCodeLine{31 \textcolor{comment}{*   Original derived from BSD codes.}}
+\DoxyCodeLine{32 \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_PPP\_IMPL\_H}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define LWIP\_HDR\_PPP\_IMPL\_H}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#if PPP\_SUPPORT }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifdef PPP\_INCLUDE\_SETTINGS\_HEADER}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}ppp\_settings.h"{}}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include <stdio.h>} \textcolor{comment}{/* formats */}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include <stdarg.h>}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include <stdlib.h>} \textcolor{comment}{/* strtol() */}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{def_8h}{lwip/def.h}}"{}}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{timeouts_8h}{lwip/timeouts.h}}"{}}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#include "{}ppp.h"{}}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#include "{}pppdebug.h"{}}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{57 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{comment}{/*}}
+\DoxyCodeLine{61 \textcolor{comment}{ * Memory used for control packets.}}
+\DoxyCodeLine{62 \textcolor{comment}{ *}}
+\DoxyCodeLine{63 \textcolor{comment}{ * PPP\_CTRL\_PBUF\_MAX\_SIZE is the amount of memory we allocate when we}}
+\DoxyCodeLine{64 \textcolor{comment}{ * cannot figure out how much we are going to use before filling the buffer.}}
+\DoxyCodeLine{65 \textcolor{comment}{ */}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#if PPP\_USE\_PBUF\_RAM}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define PPP\_CTRL\_PBUF\_TYPE       PBUF\_RAM}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define PPP\_CTRL\_PBUF\_MAX\_SIZE   512}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* PPP\_USE\_PBUF\_RAM */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define PPP\_CTRL\_PBUF\_TYPE       PBUF\_POOL}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define PPP\_CTRL\_PBUF\_MAX\_SIZE   PBUF\_POOL\_BUFSIZE}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_USE\_PBUF\_RAM */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{comment}{/*}}
+\DoxyCodeLine{75 \textcolor{comment}{ * The basic PPP frame.}}
+\DoxyCodeLine{76 \textcolor{comment}{ */}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define PPP\_ADDRESS(p)  (((u\_char *)(p))[0])}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define PPP\_CONTROL(p)  (((u\_char *)(p))[1])}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define PPP\_PROTOCOL(p) ((((u\_char *)(p))[2] << 8) + ((u\_char *)(p))[3])}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{comment}{/*}}
+\DoxyCodeLine{82 \textcolor{comment}{ * Significant octet values.}}
+\DoxyCodeLine{83 \textcolor{comment}{ */}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define PPP\_ALLSTATIONS 0xff    }\textcolor{comment}{/* All-\/Stations broadcast address */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define PPP\_UI      0x03    }\textcolor{comment}{/* Unnumbered Information */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define PPP\_FLAG    0x7e    }\textcolor{comment}{/* Flag Sequence */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define PPP\_ESCAPE  0x7d    }\textcolor{comment}{/* Asynchronous Control Escape */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define PPP\_TRANS   0x20    }\textcolor{comment}{/* Asynchronous transparency modifier */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{comment}{/*}}
+\DoxyCodeLine{91 \textcolor{comment}{ * Protocol field values.}}
+\DoxyCodeLine{92 \textcolor{comment}{ */}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define PPP\_IP      0x21    }\textcolor{comment}{/* Internet Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* UNUSED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define PPP\_AT      0x29    }\textcolor{comment}{/* AppleTalk Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define PPP\_IPX     0x2b    }\textcolor{comment}{/* IPX protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UNUSED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#if VJ\_SUPPORT}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define PPP\_VJC\_COMP    0x2d    }\textcolor{comment}{/* VJ compressed TCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define PPP\_VJC\_UNCOMP  0x2f    }\textcolor{comment}{/* VJ uncompressed TCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VJ\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#if PPP\_IPV6\_SUPPORT}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define PPP\_IPV6    0x57    }\textcolor{comment}{/* Internet Protocol Version 6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_IPV6\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#if CCP\_SUPPORT}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define PPP\_COMP    0xfd    }\textcolor{comment}{/* compressed packet */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CCP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define PPP\_IPCP    0x8021  }\textcolor{comment}{/* IP Control Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* UNUSED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define PPP\_ATCP    0x8029  }\textcolor{comment}{/* AppleTalk Control Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define PPP\_IPXCP   0x802b  }\textcolor{comment}{/* IPX Control Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UNUSED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#if PPP\_IPV6\_SUPPORT}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define PPP\_IPV6CP  0x8057  }\textcolor{comment}{/* IPv6 Control Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_IPV6\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#if CCP\_SUPPORT}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define PPP\_CCP     0x80fd  }\textcolor{comment}{/* Compression Control Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CCP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#if ECP\_SUPPORT}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define PPP\_ECP     0x8053  }\textcolor{comment}{/* Encryption Control Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ECP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define PPP\_LCP     0xc021  }\textcolor{comment}{/* Link Control Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#if PAP\_SUPPORT}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define PPP\_PAP     0xc023  }\textcolor{comment}{/* Password Authentication Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#if LQR\_SUPPORT}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define PPP\_LQR     0xc025  }\textcolor{comment}{/* Link Quality Report protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LQR\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#if CHAP\_SUPPORT}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#define PPP\_CHAP    0xc223  }\textcolor{comment}{/* Cryptographic Handshake Auth. Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#if CBCP\_SUPPORT}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define PPP\_CBCP    0xc029  }\textcolor{comment}{/* Callback Control Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CBCP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#if EAP\_SUPPORT}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define PPP\_EAP     0xc227  }\textcolor{comment}{/* Extensible Authentication Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* EAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{comment}{/*}}
+\DoxyCodeLine{140 \textcolor{comment}{ * The following struct gives the addresses of procedures to call}}
+\DoxyCodeLine{141 \textcolor{comment}{ * for a particular lower link level protocol.}}
+\DoxyCodeLine{142 \textcolor{comment}{ */}}
+\DoxyCodeLine{143 \textcolor{keyword}{struct }link\_callbacks \{}
+\DoxyCodeLine{144   \textcolor{comment}{/* Start a connection (e.g. Initiate discovery phase) */}}
+\DoxyCodeLine{145   void (*connect) (ppp\_pcb *pcb, \textcolor{keywordtype}{void} *ctx);}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{147   \textcolor{comment}{/* Listen for an incoming connection (Passive mode) */}}
+\DoxyCodeLine{148   void (*listen) (ppp\_pcb *pcb, \textcolor{keywordtype}{void} *ctx);}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{150   \textcolor{comment}{/* End a connection (i.e. initiate disconnect phase) */}}
+\DoxyCodeLine{151   void (*disconnect) (ppp\_pcb *pcb, \textcolor{keywordtype}{void} *ctx);}
+\DoxyCodeLine{152   \textcolor{comment}{/* Free lower protocol control block */}}
+\DoxyCodeLine{153   \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*free) (ppp\_pcb *pcb, \textcolor{keywordtype}{void} *ctx);}
+\DoxyCodeLine{154   \textcolor{comment}{/* Write a pbuf to a ppp link, only used from PPP functions to send PPP packets. */}}
+\DoxyCodeLine{155   \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*write)(ppp\_pcb *pcb, \textcolor{keywordtype}{void} *ctx, \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{156   \textcolor{comment}{/* Send a packet from lwIP core (IPv4 or IPv6) */}}
+\DoxyCodeLine{157   \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*netif\_output)(ppp\_pcb *pcb, \textcolor{keywordtype}{void} *ctx, \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p, u\_short protocol);}
+\DoxyCodeLine{158   \textcolor{comment}{/* configure the transmit-\/side characteristics of the PPP interface */}}
+\DoxyCodeLine{159   void (*send\_config)(ppp\_pcb *pcb, \textcolor{keywordtype}{void} *ctx, u32\_t accm, \textcolor{keywordtype}{int} pcomp, \textcolor{keywordtype}{int} accomp);}
+\DoxyCodeLine{160   \textcolor{comment}{/* confire the receive-\/side characteristics of the PPP interface */}}
+\DoxyCodeLine{161   void (*recv\_config)(ppp\_pcb *pcb, \textcolor{keywordtype}{void} *ctx, u32\_t accm, \textcolor{keywordtype}{int} pcomp, \textcolor{keywordtype}{int} accomp);}
+\DoxyCodeLine{162 \};}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{comment}{/*}}
+\DoxyCodeLine{165 \textcolor{comment}{ * What to do with network protocol (NP) packets.}}
+\DoxyCodeLine{166 \textcolor{comment}{ */}}
+\DoxyCodeLine{167 \textcolor{keyword}{enum} NPmode \{}
+\DoxyCodeLine{168     NPMODE\_PASS,        \textcolor{comment}{/* pass the packet through */}}
+\DoxyCodeLine{169     NPMODE\_DROP,        \textcolor{comment}{/* silently drop the packet */}}
+\DoxyCodeLine{170     NPMODE\_ERROR,       \textcolor{comment}{/* return an error */}}
+\DoxyCodeLine{171     NPMODE\_QUEUE        \textcolor{comment}{/* save it up for later. */}}
+\DoxyCodeLine{172 \};}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \textcolor{comment}{/*}}
+\DoxyCodeLine{175 \textcolor{comment}{ * Statistics.}}
+\DoxyCodeLine{176 \textcolor{comment}{ */}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#if PPP\_STATS\_SUPPORT}}
+\DoxyCodeLine{178 \textcolor{keyword}{struct }pppstat  \{}
+\DoxyCodeLine{179     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ppp\_ibytes;    \textcolor{comment}{/* bytes received */}}
+\DoxyCodeLine{180     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ppp\_ipackets;  \textcolor{comment}{/* packets received */}}
+\DoxyCodeLine{181     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ppp\_ierrors;   \textcolor{comment}{/* receive errors */}}
+\DoxyCodeLine{182     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ppp\_obytes;    \textcolor{comment}{/* bytes sent */}}
+\DoxyCodeLine{183     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ppp\_opackets;  \textcolor{comment}{/* packets sent */}}
+\DoxyCodeLine{184     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ppp\_oerrors;   \textcolor{comment}{/* transmit errors */}}
+\DoxyCodeLine{185 \};}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#if VJ\_SUPPORT}}
+\DoxyCodeLine{188 \textcolor{keyword}{struct }vjstat \{}
+\DoxyCodeLine{189     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vjs\_packets;   \textcolor{comment}{/* outbound packets */}}
+\DoxyCodeLine{190     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vjs\_compressed; \textcolor{comment}{/* outbound compressed packets */}}
+\DoxyCodeLine{191     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vjs\_searches;  \textcolor{comment}{/* searches for connection state */}}
+\DoxyCodeLine{192     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vjs\_misses;    \textcolor{comment}{/* times couldn't find conn. state */}}
+\DoxyCodeLine{193     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vjs\_uncompressedin; \textcolor{comment}{/* inbound uncompressed packets */}}
+\DoxyCodeLine{194     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vjs\_compressedin; \textcolor{comment}{/* inbound compressed packets */}}
+\DoxyCodeLine{195     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vjs\_errorin;   \textcolor{comment}{/* inbound unknown type packets */}}
+\DoxyCodeLine{196     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} vjs\_tossed;    \textcolor{comment}{/* inbound packets tossed because of error */}}
+\DoxyCodeLine{197 \};}
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VJ\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200 \textcolor{keyword}{struct }ppp\_stats \{}
+\DoxyCodeLine{201     \textcolor{keyword}{struct }pppstat p;       \textcolor{comment}{/* basic PPP statistics */}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#if VJ\_SUPPORT}}
+\DoxyCodeLine{203     \textcolor{keyword}{struct }vjstat vj;       \textcolor{comment}{/* VJ header compression statistics */}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VJ\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{205 \};}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#if CCP\_SUPPORT}}
+\DoxyCodeLine{208 \textcolor{keyword}{struct }compstat \{}
+\DoxyCodeLine{209     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} unc\_bytes; \textcolor{comment}{/* total uncompressed bytes */}}
+\DoxyCodeLine{210     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} unc\_packets;   \textcolor{comment}{/* total uncompressed packets */}}
+\DoxyCodeLine{211     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} comp\_bytes;    \textcolor{comment}{/* compressed bytes */}}
+\DoxyCodeLine{212     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} comp\_packets;  \textcolor{comment}{/* compressed packets */}}
+\DoxyCodeLine{213     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} inc\_bytes; \textcolor{comment}{/* incompressible bytes */}}
+\DoxyCodeLine{214     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} inc\_packets;   \textcolor{comment}{/* incompressible packets */}}
+\DoxyCodeLine{215     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} ratio;     \textcolor{comment}{/* recent compression ratio << 8 */}}
+\DoxyCodeLine{216 \};}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218 \textcolor{keyword}{struct }ppp\_comp\_stats \{}
+\DoxyCodeLine{219     \textcolor{keyword}{struct }compstat c;      \textcolor{comment}{/* packet compression statistics */}}
+\DoxyCodeLine{220     \textcolor{keyword}{struct }compstat d;      \textcolor{comment}{/* packet decompression statistics */}}
+\DoxyCodeLine{221 \};}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CCP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_STATS\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#if PPP\_IDLETIMELIMIT}}
+\DoxyCodeLine{227 \textcolor{comment}{/*}}
+\DoxyCodeLine{228 \textcolor{comment}{ * The following structure records the time in seconds since}}
+\DoxyCodeLine{229 \textcolor{comment}{ * the last NP packet was sent or received.}}
+\DoxyCodeLine{230 \textcolor{comment}{ */}}
+\DoxyCodeLine{231 \textcolor{keyword}{struct }ppp\_idle \{}
+\DoxyCodeLine{232     time\_t xmit\_idle;       \textcolor{comment}{/* time since last NP packet sent */}}
+\DoxyCodeLine{233     time\_t recv\_idle;       \textcolor{comment}{/* time since last NP packet received */}}
+\DoxyCodeLine{234 \};}
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_IDLETIMELIMIT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 \textcolor{comment}{/* values for epdisc.class */}}
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#define EPD\_NULL    0   }\textcolor{comment}{/* null discriminator, no data */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{239 \textcolor{preprocessor}{\#define EPD\_LOCAL   1}}
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#define EPD\_IP      2}}
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#define EPD\_MAC     3}}
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#define EPD\_MAGIC   4}}
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#define EPD\_PHONENUM    5}}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 \textcolor{comment}{/*}}
+\DoxyCodeLine{246 \textcolor{comment}{ * Global variables.}}
+\DoxyCodeLine{247 \textcolor{comment}{ */}}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#ifdef HAVE\_MULTILINK}}
+\DoxyCodeLine{249 \textcolor{keyword}{extern} u8\_t multilink;  \textcolor{comment}{/* enable multilink operation */}}
+\DoxyCodeLine{250 \textcolor{keyword}{extern} u8\_t doing\_multilink;}
+\DoxyCodeLine{251 \textcolor{keyword}{extern} u8\_t multilink\_master;}
+\DoxyCodeLine{252 \textcolor{keyword}{extern} u8\_t bundle\_eof;}
+\DoxyCodeLine{253 \textcolor{keyword}{extern} u8\_t bundle\_terminating;}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#ifdef MAXOCTETS}}
+\DoxyCodeLine{257 \textcolor{keyword}{extern} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} maxoctets;       \textcolor{comment}{/* Maximum octetes per session (in bytes) */}}
+\DoxyCodeLine{258 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}       maxoctets\_dir;      \textcolor{comment}{/* Direction :}}
+\DoxyCodeLine{259 \textcolor{comment}{                      0 -\/ in+out (default)}}
+\DoxyCodeLine{260 \textcolor{comment}{                      1 -\/ in}}
+\DoxyCodeLine{261 \textcolor{comment}{                      2 -\/ out}}
+\DoxyCodeLine{262 \textcolor{comment}{                      3 -\/ max(in,out) */}}
+\DoxyCodeLine{263 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}       maxoctets\_timeout;  \textcolor{comment}{/* Timeout for check of octets limit */}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#define PPP\_OCTETS\_DIRECTION\_SUM        0}}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#define PPP\_OCTETS\_DIRECTION\_IN         1}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#define PPP\_OCTETS\_DIRECTION\_OUT        2}}
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#define PPP\_OCTETS\_DIRECTION\_MAXOVERAL  3}}
+\DoxyCodeLine{268 \textcolor{comment}{/* same as previos, but little different on RADIUS side */}}
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#define PPP\_OCTETS\_DIRECTION\_MAXSESSION 4}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{comment}{/* Data input may be used by CCP and ECP, remove this entry}}
+\DoxyCodeLine{273 \textcolor{comment}{ * from struct protent to save some flash}}
+\DoxyCodeLine{274 \textcolor{comment}{ */}}
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#define PPP\_DATAINPUT 0}}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277 \textcolor{comment}{/*}}
+\DoxyCodeLine{278 \textcolor{comment}{ * The following struct gives the addresses of procedures to call}}
+\DoxyCodeLine{279 \textcolor{comment}{ * for a particular protocol.}}
+\DoxyCodeLine{280 \textcolor{comment}{ */}}
+\DoxyCodeLine{281 \textcolor{keyword}{struct }protent \{}
+\DoxyCodeLine{282     u\_short protocol;       \textcolor{comment}{/* PPP protocol number */}}
+\DoxyCodeLine{283     \textcolor{comment}{/* Initialization procedure */}}
+\DoxyCodeLine{284     void (*init) (ppp\_pcb *pcb);}
+\DoxyCodeLine{285     \textcolor{comment}{/* Process a received packet */}}
+\DoxyCodeLine{286     void (*input) (ppp\_pcb *pcb, u\_char *pkt, \textcolor{keywordtype}{int} len);}
+\DoxyCodeLine{287     \textcolor{comment}{/* Process a received protocol-\/reject */}}
+\DoxyCodeLine{288     void (*protrej) (ppp\_pcb *pcb);}
+\DoxyCodeLine{289     \textcolor{comment}{/* Lower layer has come up */}}
+\DoxyCodeLine{290     void (*lowerup) (ppp\_pcb *pcb);}
+\DoxyCodeLine{291     \textcolor{comment}{/* Lower layer has gone down */}}
+\DoxyCodeLine{292     void (*lowerdown) (ppp\_pcb *pcb);}
+\DoxyCodeLine{293     \textcolor{comment}{/* Open the protocol */}}
+\DoxyCodeLine{294     void (*open) (ppp\_pcb *pcb);}
+\DoxyCodeLine{295     \textcolor{comment}{/* Close the protocol */}}
+\DoxyCodeLine{296     void (*close) (ppp\_pcb *pcb, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *reason);}
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#if PRINTPKT\_SUPPORT}}
+\DoxyCodeLine{298     \textcolor{comment}{/* Print a packet in readable form */}}
+\DoxyCodeLine{299     int  (*printpkt) (\textcolor{keyword}{const} u\_char *pkt, \textcolor{keywordtype}{int} len,}
+\DoxyCodeLine{300               void (*printer) (\textcolor{keywordtype}{void} *, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *, ...),}
+\DoxyCodeLine{301               \textcolor{keywordtype}{void} *arg);}
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PRINTPKT\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{303 \textcolor{preprocessor}{\#if PPP\_DATAINPUT}}
+\DoxyCodeLine{304     \textcolor{comment}{/* Process a received data packet */}}
+\DoxyCodeLine{305     void (*datainput) (ppp\_pcb *pcb, u\_char *pkt, \textcolor{keywordtype}{int} len);}
+\DoxyCodeLine{306 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_DATAINPUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#if PRINTPKT\_SUPPORT}}
+\DoxyCodeLine{308     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name;       \textcolor{comment}{/* Text name of protocol */}}
+\DoxyCodeLine{309     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *data\_name;  \textcolor{comment}{/* Text name of corresponding data protocol */}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PRINTPKT\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#if PPP\_OPTIONS}}
+\DoxyCodeLine{312     option\_t *options;      \textcolor{comment}{/* List of command-\/line options */}}
+\DoxyCodeLine{313     \textcolor{comment}{/* Check requested options, assign defaults */}}
+\DoxyCodeLine{314     void (*check\_options) (void);}
+\DoxyCodeLine{315 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_OPTIONS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#if DEMAND\_SUPPORT}}
+\DoxyCodeLine{317     \textcolor{comment}{/* Configure interface for demand-\/dial */}}
+\DoxyCodeLine{318     int  (*demand\_conf) (\textcolor{keywordtype}{int} unit);}
+\DoxyCodeLine{319     \textcolor{comment}{/* Say whether to bring up link for this pkt */}}
+\DoxyCodeLine{320     int  (*active\_pkt) (u\_char *pkt, \textcolor{keywordtype}{int} len);}
+\DoxyCodeLine{321 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DEMAND\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{322 \};}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{324 \textcolor{comment}{/* Table of pointers to supported protocols */}}
+\DoxyCodeLine{325 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }protent* \textcolor{keyword}{const} protocols[];}
+\DoxyCodeLine{326 }
+\DoxyCodeLine{327 }
+\DoxyCodeLine{328 \textcolor{comment}{/* Values for auth\_pending, auth\_done */}}
+\DoxyCodeLine{329 \textcolor{preprocessor}{\#if PAP\_SUPPORT}}
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#define PAP\_WITHPEER    0x1}}
+\DoxyCodeLine{331 \textcolor{preprocessor}{\#define PAP\_PEER    0x2}}
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{333 \textcolor{preprocessor}{\#if CHAP\_SUPPORT}}
+\DoxyCodeLine{334 \textcolor{preprocessor}{\#define CHAP\_WITHPEER   0x4}}
+\DoxyCodeLine{335 \textcolor{preprocessor}{\#define CHAP\_PEER   0x8}}
+\DoxyCodeLine{336 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{337 \textcolor{preprocessor}{\#if EAP\_SUPPORT}}
+\DoxyCodeLine{338 \textcolor{preprocessor}{\#define EAP\_WITHPEER    0x10}}
+\DoxyCodeLine{339 \textcolor{preprocessor}{\#define EAP\_PEER    0x20}}
+\DoxyCodeLine{340 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* EAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342 \textcolor{comment}{/* Values for auth\_done only */}}
+\DoxyCodeLine{343 \textcolor{preprocessor}{\#if CHAP\_SUPPORT}}
+\DoxyCodeLine{344 \textcolor{preprocessor}{\#define CHAP\_MD5\_WITHPEER   0x40}}
+\DoxyCodeLine{345 \textcolor{preprocessor}{\#define CHAP\_MD5\_PEER       0x80}}
+\DoxyCodeLine{346 \textcolor{preprocessor}{\#if MSCHAP\_SUPPORT}}
+\DoxyCodeLine{347 \textcolor{preprocessor}{\#define CHAP\_MS\_SHIFT       8   }\textcolor{comment}{/* LSB position for MS auths */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#define CHAP\_MS\_WITHPEER    0x100}}
+\DoxyCodeLine{349 \textcolor{preprocessor}{\#define CHAP\_MS\_PEER        0x200}}
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#define CHAP\_MS2\_WITHPEER   0x400}}
+\DoxyCodeLine{351 \textcolor{preprocessor}{\#define CHAP\_MS2\_PEER       0x800}}
+\DoxyCodeLine{352 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{353 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355 \textcolor{comment}{/* Supported CHAP protocols */}}
+\DoxyCodeLine{356 \textcolor{preprocessor}{\#if CHAP\_SUPPORT}}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#if MSCHAP\_SUPPORT}}
+\DoxyCodeLine{359 \textcolor{preprocessor}{\#define CHAP\_MDTYPE\_SUPPORTED (MDTYPE\_MICROSOFT\_V2 | MDTYPE\_MICROSOFT | MDTYPE\_MD5)}}
+\DoxyCodeLine{360 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{361 \textcolor{preprocessor}{\#define CHAP\_MDTYPE\_SUPPORTED (MDTYPE\_MD5)}}
+\DoxyCodeLine{362 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* CHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{365 \textcolor{preprocessor}{\#define CHAP\_MDTYPE\_SUPPORTED (MDTYPE\_NONE)}}
+\DoxyCodeLine{366 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368 \textcolor{preprocessor}{\#if PPP\_STATS\_SUPPORT}}
+\DoxyCodeLine{369 \textcolor{comment}{/*}}
+\DoxyCodeLine{370 \textcolor{comment}{ * PPP statistics structure}}
+\DoxyCodeLine{371 \textcolor{comment}{ */}}
+\DoxyCodeLine{372 \textcolor{keyword}{struct }pppd\_stats \{}
+\DoxyCodeLine{373     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}    bytes\_in;}
+\DoxyCodeLine{374     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}    bytes\_out;}
+\DoxyCodeLine{375     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}    pkts\_in;}
+\DoxyCodeLine{376     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}    pkts\_out;}
+\DoxyCodeLine{377 \};}
+\DoxyCodeLine{378 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_STATS\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381 \textcolor{comment}{/*}}
+\DoxyCodeLine{382 \textcolor{comment}{ * PPP private functions}}
+\DoxyCodeLine{383 \textcolor{comment}{ */}}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385  }
+\DoxyCodeLine{386 \textcolor{comment}{/*}}
+\DoxyCodeLine{387 \textcolor{comment}{ * Functions called from lwIP core.}}
+\DoxyCodeLine{388 \textcolor{comment}{ */}}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{390 \textcolor{comment}{/* initialize the PPP subsystem */}}
+\DoxyCodeLine{391 \textcolor{keywordtype}{int} ppp\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{393 \textcolor{comment}{/*}}
+\DoxyCodeLine{394 \textcolor{comment}{ * Functions called from PPP link protocols.}}
+\DoxyCodeLine{395 \textcolor{comment}{ */}}
+\DoxyCodeLine{396 }
+\DoxyCodeLine{397 \textcolor{comment}{/* Create a new PPP control block */}}
+\DoxyCodeLine{398 ppp\_pcb *ppp\_new(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *pppif, \textcolor{keyword}{const} \textcolor{keyword}{struct} link\_callbacks *callbacks, \textcolor{keywordtype}{void} *link\_ctx\_cb,}
+\DoxyCodeLine{399                  ppp\_link\_status\_cb\_fn link\_status\_cb, \textcolor{keywordtype}{void} *ctx\_cb);}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401 \textcolor{comment}{/* Initiate LCP open request */}}
+\DoxyCodeLine{402 \textcolor{keywordtype}{void} ppp\_start(ppp\_pcb *pcb);}
+\DoxyCodeLine{403 }
+\DoxyCodeLine{404 \textcolor{comment}{/* Called when link failed to setup */}}
+\DoxyCodeLine{405 \textcolor{keywordtype}{void} ppp\_link\_failed(ppp\_pcb *pcb);}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407 \textcolor{comment}{/* Called when link is normally down (i.e. it was asked to end) */}}
+\DoxyCodeLine{408 \textcolor{keywordtype}{void} ppp\_link\_end(ppp\_pcb *pcb);}
+\DoxyCodeLine{409 }
+\DoxyCodeLine{410 \textcolor{comment}{/* function called to process input packet */}}
+\DoxyCodeLine{411 \textcolor{keywordtype}{void} ppp\_input(ppp\_pcb *pcb, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *pb);}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413 }
+\DoxyCodeLine{414 \textcolor{comment}{/*}}
+\DoxyCodeLine{415 \textcolor{comment}{ * Functions called by PPP protocols.}}
+\DoxyCodeLine{416 \textcolor{comment}{ */}}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418 \textcolor{comment}{/* function called by all PPP subsystems to send packets */}}
+\DoxyCodeLine{419 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} ppp\_write(ppp\_pcb *pcb, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421 \textcolor{comment}{/* functions called by auth.c link\_terminated() */}}
+\DoxyCodeLine{422 \textcolor{keywordtype}{void} ppp\_link\_terminated(ppp\_pcb *pcb);}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424 \textcolor{keywordtype}{void} new\_phase(ppp\_pcb *pcb, \textcolor{keywordtype}{int} p);}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{426 \textcolor{keywordtype}{int} ppp\_send\_config(ppp\_pcb *pcb, \textcolor{keywordtype}{int} mtu, u32\_t accm, \textcolor{keywordtype}{int} pcomp, \textcolor{keywordtype}{int} accomp);}
+\DoxyCodeLine{427 \textcolor{keywordtype}{int} ppp\_recv\_config(ppp\_pcb *pcb, \textcolor{keywordtype}{int} mru, u32\_t accm, \textcolor{keywordtype}{int} pcomp, \textcolor{keywordtype}{int} accomp);}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429 \textcolor{preprocessor}{\#if PPP\_IPV4\_SUPPORT}}
+\DoxyCodeLine{430 \textcolor{keywordtype}{int} sifaddr(ppp\_pcb *pcb, u32\_t our\_adr, u32\_t his\_adr, u32\_t netmask);}
+\DoxyCodeLine{431 \textcolor{keywordtype}{int} cifaddr(ppp\_pcb *pcb, u32\_t our\_adr, u32\_t his\_adr);}
+\DoxyCodeLine{432 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* UNUSED -\/ PROXY ARP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{433 \textcolor{keywordtype}{int} sifproxyarp(ppp\_pcb *pcb, u32\_t his\_adr);}
+\DoxyCodeLine{434 \textcolor{keywordtype}{int} cifproxyarp(ppp\_pcb *pcb, u32\_t his\_adr);}
+\DoxyCodeLine{435 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UNUSED -\/ PROXY ARP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{436 \textcolor{preprocessor}{\#if LWIP\_DNS}}
+\DoxyCodeLine{437 \textcolor{keywordtype}{int} sdns(ppp\_pcb *pcb, u32\_t ns1, u32\_t ns2);}
+\DoxyCodeLine{438 \textcolor{keywordtype}{int} cdns(ppp\_pcb *pcb, u32\_t ns1, u32\_t ns2);}
+\DoxyCodeLine{439 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{440 \textcolor{preprocessor}{\#if VJ\_SUPPORT}}
+\DoxyCodeLine{441 \textcolor{keywordtype}{int} sifvjcomp(ppp\_pcb *pcb, \textcolor{keywordtype}{int} vjcomp, \textcolor{keywordtype}{int} cidcomp, \textcolor{keywordtype}{int} maxcid);}
+\DoxyCodeLine{442 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VJ\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{443 \textcolor{keywordtype}{int} sifup(ppp\_pcb *pcb);}
+\DoxyCodeLine{444 \textcolor{keywordtype}{int} sifdown (ppp\_pcb *pcb);}
+\DoxyCodeLine{445 u32\_t get\_mask(u32\_t addr);}
+\DoxyCodeLine{446 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_IPV4\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448 \textcolor{preprocessor}{\#if PPP\_IPV6\_SUPPORT}}
+\DoxyCodeLine{449 \textcolor{keywordtype}{int} sif6addr(ppp\_pcb *pcb, eui64\_t our\_eui64, eui64\_t his\_eui64);}
+\DoxyCodeLine{450 \textcolor{keywordtype}{int} cif6addr(ppp\_pcb *pcb, eui64\_t our\_eui64, eui64\_t his\_eui64);}
+\DoxyCodeLine{451 \textcolor{keywordtype}{int} sif6up(ppp\_pcb *pcb);}
+\DoxyCodeLine{452 \textcolor{keywordtype}{int} sif6down (ppp\_pcb *pcb);}
+\DoxyCodeLine{453 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_IPV6\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{455 \textcolor{preprocessor}{\#if DEMAND\_SUPPORT}}
+\DoxyCodeLine{456 \textcolor{keywordtype}{int} sifnpmode(ppp\_pcb *pcb, \textcolor{keywordtype}{int} proto, \textcolor{keyword}{enum} NPmode mode);}
+\DoxyCodeLine{457 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DEMAND\_SUPPORt */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{459 \textcolor{keywordtype}{void} netif\_set\_mtu(ppp\_pcb *pcb, \textcolor{keywordtype}{int} mtu);}
+\DoxyCodeLine{460 \textcolor{keywordtype}{int} netif\_get\_mtu(ppp\_pcb *pcb);}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462 \textcolor{preprocessor}{\#if CCP\_SUPPORT}}
+\DoxyCodeLine{463 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* unused */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{464 \textcolor{keywordtype}{int} ccp\_test(ppp\_pcb *pcb, u\_char *opt\_ptr, \textcolor{keywordtype}{int} opt\_len, \textcolor{keywordtype}{int} for\_transmit);}
+\DoxyCodeLine{465 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* unused */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{466 \textcolor{keywordtype}{void} ccp\_set(ppp\_pcb *pcb, u8\_t isopen, u8\_t isup, u8\_t receive\_method, u8\_t transmit\_method);}
+\DoxyCodeLine{467 \textcolor{keywordtype}{void} ccp\_reset\_comp(ppp\_pcb *pcb);}
+\DoxyCodeLine{468 \textcolor{keywordtype}{void} ccp\_reset\_decomp(ppp\_pcb *pcb);}
+\DoxyCodeLine{469 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* unused */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{470 \textcolor{keywordtype}{int} ccp\_fatal\_error(ppp\_pcb *pcb);}
+\DoxyCodeLine{471 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* unused */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{472 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CCP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{473 }
+\DoxyCodeLine{474 \textcolor{preprocessor}{\#if PPP\_IDLETIMELIMIT}}
+\DoxyCodeLine{475 \textcolor{keywordtype}{int} get\_idle\_time(ppp\_pcb *pcb, \textcolor{keyword}{struct} ppp\_idle *ip);}
+\DoxyCodeLine{476 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_IDLETIMELIMIT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{477 }
+\DoxyCodeLine{478 \textcolor{preprocessor}{\#if DEMAND\_SUPPORT}}
+\DoxyCodeLine{479 \textcolor{keywordtype}{int} get\_loop\_output(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{480 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DEMAND\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{481 }
+\DoxyCodeLine{482 \textcolor{comment}{/* Optional protocol names list, to make our messages a little more informative. */}}
+\DoxyCodeLine{483 \textcolor{preprocessor}{\#if PPP\_PROTOCOLNAME}}
+\DoxyCodeLine{484 \textcolor{keyword}{const} \textcolor{keywordtype}{char} * protocol\_name(\textcolor{keywordtype}{int} proto);}
+\DoxyCodeLine{485 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_PROTOCOLNAME  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{487 \textcolor{comment}{/* Optional stats support, to get some statistics on the PPP interface */}}
+\DoxyCodeLine{488 \textcolor{preprocessor}{\#if PPP\_STATS\_SUPPORT}}
+\DoxyCodeLine{489 \textcolor{keywordtype}{void} print\_link\_stats(\textcolor{keywordtype}{void}); \textcolor{comment}{/* Print stats, if available */}}
+\DoxyCodeLine{490 \textcolor{keywordtype}{void} reset\_link\_stats(\textcolor{keywordtype}{int} u); \textcolor{comment}{/* Reset (init) stats when link goes up */}}
+\DoxyCodeLine{491 \textcolor{keywordtype}{void} update\_link\_stats(\textcolor{keywordtype}{int} u); \textcolor{comment}{/* Get stats at link termination */}}
+\DoxyCodeLine{492 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_STATS\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{493 }
+\DoxyCodeLine{494 }
+\DoxyCodeLine{495 }
+\DoxyCodeLine{496 \textcolor{comment}{/*}}
+\DoxyCodeLine{497 \textcolor{comment}{ * Inline versions of get/put char/short/long.}}
+\DoxyCodeLine{498 \textcolor{comment}{ * Pointer is advanced; we assume that both arguments}}
+\DoxyCodeLine{499 \textcolor{comment}{ * are lvalues and will already be in registers.}}
+\DoxyCodeLine{500 \textcolor{comment}{ * cp MUST be u\_char *.}}
+\DoxyCodeLine{501 \textcolor{comment}{ */}}
+\DoxyCodeLine{502 \textcolor{preprocessor}{\#define GETCHAR(c, cp) \{ \(\backslash\)}}
+\DoxyCodeLine{503 \textcolor{preprocessor}{    (c) = *(cp)++; \(\backslash\)}}
+\DoxyCodeLine{504 \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{505 \textcolor{preprocessor}{\#define PUTCHAR(c, cp) \{ \(\backslash\)}}
+\DoxyCodeLine{506 \textcolor{preprocessor}{    *(cp)++ = (u\_char) (c); \(\backslash\)}}
+\DoxyCodeLine{507 \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{508 \textcolor{preprocessor}{\#define GETSHORT(s, cp) \{ \(\backslash\)}}
+\DoxyCodeLine{509 \textcolor{preprocessor}{    (s) = *(cp)++ << 8; \(\backslash\)}}
+\DoxyCodeLine{510 \textcolor{preprocessor}{    (s) |= *(cp)++; \(\backslash\)}}
+\DoxyCodeLine{511 \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{512 \textcolor{preprocessor}{\#define PUTSHORT(s, cp) \{ \(\backslash\)}}
+\DoxyCodeLine{513 \textcolor{preprocessor}{    *(cp)++ = (u\_char) ((s) >> 8); \(\backslash\)}}
+\DoxyCodeLine{514 \textcolor{preprocessor}{    *(cp)++ = (u\_char) (s); \(\backslash\)}}
+\DoxyCodeLine{515 \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{516 \textcolor{preprocessor}{\#define GETLONG(l, cp) \{ \(\backslash\)}}
+\DoxyCodeLine{517 \textcolor{preprocessor}{    (l) = *(cp)++ << 8; \(\backslash\)}}
+\DoxyCodeLine{518 \textcolor{preprocessor}{    (l) |= *(cp)++; (l) <<= 8; \(\backslash\)}}
+\DoxyCodeLine{519 \textcolor{preprocessor}{    (l) |= *(cp)++; (l) <<= 8; \(\backslash\)}}
+\DoxyCodeLine{520 \textcolor{preprocessor}{    (l) |= *(cp)++; \(\backslash\)}}
+\DoxyCodeLine{521 \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{522 \textcolor{preprocessor}{\#define PUTLONG(l, cp) \{ \(\backslash\)}}
+\DoxyCodeLine{523 \textcolor{preprocessor}{    *(cp)++ = (u\_char) ((l) >> 24); \(\backslash\)}}
+\DoxyCodeLine{524 \textcolor{preprocessor}{    *(cp)++ = (u\_char) ((l) >> 16); \(\backslash\)}}
+\DoxyCodeLine{525 \textcolor{preprocessor}{    *(cp)++ = (u\_char) ((l) >> 8); \(\backslash\)}}
+\DoxyCodeLine{526 \textcolor{preprocessor}{    *(cp)++ = (u\_char) (l); \(\backslash\)}}
+\DoxyCodeLine{527 \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{528 }
+\DoxyCodeLine{529 \textcolor{preprocessor}{\#define INCPTR(n, cp)   ((cp) += (n))}}
+\DoxyCodeLine{530 \textcolor{preprocessor}{\#define DECPTR(n, cp)   ((cp) -\/= (n))}}
+\DoxyCodeLine{531 }
+\DoxyCodeLine{532 \textcolor{comment}{/*}}
+\DoxyCodeLine{533 \textcolor{comment}{ * System dependent definitions for user-\/level 4.3BSD UNIX implementation.}}
+\DoxyCodeLine{534 \textcolor{comment}{ */}}
+\DoxyCodeLine{535 \textcolor{preprocessor}{\#define TIMEOUT(f, a, t)        do \{ sys\_untimeout((f), (a)); sys\_timeout((t)*1000, (f), (a)); \} while(0)}}
+\DoxyCodeLine{536 \textcolor{preprocessor}{\#define TIMEOUTMS(f, a, t)      do \{ sys\_untimeout((f), (a)); sys\_timeout((t), (f), (a)); \} while(0)}}
+\DoxyCodeLine{537 \textcolor{preprocessor}{\#define UNTIMEOUT(f, a)         sys\_untimeout((f), (a))}}
+\DoxyCodeLine{538 }
+\DoxyCodeLine{539 \textcolor{preprocessor}{\#define BZERO(s, n)     memset(s, 0, n)}}
+\DoxyCodeLine{540 \textcolor{preprocessor}{\#define BCMP(s1, s2, l)     memcmp(s1, s2, l)}}
+\DoxyCodeLine{541 }
+\DoxyCodeLine{542 \textcolor{preprocessor}{\#define PRINTMSG(m, l)      \{ ppp\_info("{}Remote message: \%0.*v"{}}, l, m); \}}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{544 \textcolor{comment}{/*}}
+\DoxyCodeLine{545 \textcolor{comment}{ * MAKEHEADER -\/ Add Header fields to a packet.}}
+\DoxyCodeLine{546 \textcolor{comment}{ */}}
+\DoxyCodeLine{547 \textcolor{preprocessor}{\#define MAKEHEADER(p, t) \{ \(\backslash\)}}
+\DoxyCodeLine{548 \textcolor{preprocessor}{    PUTCHAR(PPP\_ALLSTATIONS, p); \(\backslash\)}}
+\DoxyCodeLine{549 \textcolor{preprocessor}{    PUTCHAR(PPP\_UI, p); \(\backslash\)}}
+\DoxyCodeLine{550 \textcolor{preprocessor}{    PUTSHORT(t, p); \}}}
+\DoxyCodeLine{551 }
+\DoxyCodeLine{552 \textcolor{comment}{/* Procedures exported from auth.c */}}
+\DoxyCodeLine{553 \textcolor{keywordtype}{void} link\_required(ppp\_pcb *pcb);     \textcolor{comment}{/* we are starting to use the link */}}
+\DoxyCodeLine{554 \textcolor{keywordtype}{void} link\_terminated(ppp\_pcb *pcb);   \textcolor{comment}{/* we are finished with the link */}}
+\DoxyCodeLine{555 \textcolor{keywordtype}{void} link\_down(ppp\_pcb *pcb);         \textcolor{comment}{/* the LCP layer has left the Opened state */}}
+\DoxyCodeLine{556 \textcolor{keywordtype}{void} upper\_layers\_down(ppp\_pcb *pcb); \textcolor{comment}{/* take all NCPs down */}}
+\DoxyCodeLine{557 \textcolor{keywordtype}{void} link\_established(ppp\_pcb *pcb);  \textcolor{comment}{/* the link is up; authenticate now */}}
+\DoxyCodeLine{558 \textcolor{keywordtype}{void} start\_networks(ppp\_pcb *pcb);    \textcolor{comment}{/* start all the network control protos */}}
+\DoxyCodeLine{559 \textcolor{keywordtype}{void} continue\_networks(ppp\_pcb *pcb); \textcolor{comment}{/* start network [ip, etc] control protos */}}
+\DoxyCodeLine{560 \textcolor{preprocessor}{\#if PPP\_AUTH\_SUPPORT}}
+\DoxyCodeLine{561 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{562 \textcolor{keywordtype}{int} auth\_check\_passwd(ppp\_pcb *pcb, \textcolor{keywordtype}{char} *auser, \textcolor{keywordtype}{int} userlen, \textcolor{keywordtype}{char} *apasswd, \textcolor{keywordtype}{int} passwdlen, \textcolor{keyword}{const} \textcolor{keywordtype}{char} **msg, \textcolor{keywordtype}{int} *msglen);}
+\DoxyCodeLine{563                                 \textcolor{comment}{/* check the user name and passwd against configuration */}}
+\DoxyCodeLine{564 \textcolor{keywordtype}{void} auth\_peer\_fail(ppp\_pcb *pcb, \textcolor{keywordtype}{int} protocol);}
+\DoxyCodeLine{565                 \textcolor{comment}{/* peer failed to authenticate itself */}}
+\DoxyCodeLine{566 \textcolor{keywordtype}{void} auth\_peer\_success(ppp\_pcb *pcb, \textcolor{keywordtype}{int} protocol, \textcolor{keywordtype}{int} prot\_flavor, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name, \textcolor{keywordtype}{int} namelen);}
+\DoxyCodeLine{567                 \textcolor{comment}{/* peer successfully authenticated itself */}}
+\DoxyCodeLine{568 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{569 \textcolor{keywordtype}{void} auth\_withpeer\_fail(ppp\_pcb *pcb, \textcolor{keywordtype}{int} protocol);}
+\DoxyCodeLine{570                 \textcolor{comment}{/* we failed to authenticate ourselves */}}
+\DoxyCodeLine{571 \textcolor{keywordtype}{void} auth\_withpeer\_success(ppp\_pcb *pcb, \textcolor{keywordtype}{int} protocol, \textcolor{keywordtype}{int} prot\_flavor);}
+\DoxyCodeLine{572                 \textcolor{comment}{/* we successfully authenticated ourselves */}}
+\DoxyCodeLine{573 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_AUTH\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{574 \textcolor{keywordtype}{void} np\_up(ppp\_pcb *pcb, \textcolor{keywordtype}{int} proto);    \textcolor{comment}{/* a network protocol has come up */}}
+\DoxyCodeLine{575 \textcolor{keywordtype}{void} np\_down(ppp\_pcb *pcb, \textcolor{keywordtype}{int} proto);  \textcolor{comment}{/* a network protocol has gone down */}}
+\DoxyCodeLine{576 \textcolor{keywordtype}{void} np\_finished(ppp\_pcb *pcb, \textcolor{keywordtype}{int} proto); \textcolor{comment}{/* a network protocol no longer needs link */}}
+\DoxyCodeLine{577 \textcolor{preprocessor}{\#if PPP\_AUTH\_SUPPORT}}
+\DoxyCodeLine{578 \textcolor{keywordtype}{int} get\_secret(ppp\_pcb *pcb, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *client, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *server, \textcolor{keywordtype}{char} *secret, \textcolor{keywordtype}{int} *secret\_len, \textcolor{keywordtype}{int} am\_server);}
+\DoxyCodeLine{579                 \textcolor{comment}{/* get "{}secret"{} for chap */}}
+\DoxyCodeLine{580 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_AUTH\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{581 }
+\DoxyCodeLine{582 \textcolor{comment}{/* Procedures exported from ipcp.c */}}
+\DoxyCodeLine{583 \textcolor{comment}{/* int parse\_dotted\_ip (char *, u32\_t *); */}}
+\DoxyCodeLine{584 }
+\DoxyCodeLine{585 \textcolor{comment}{/* Procedures exported from demand.c */}}
+\DoxyCodeLine{586 \textcolor{preprocessor}{\#if DEMAND\_SUPPORT}}
+\DoxyCodeLine{587 \textcolor{keywordtype}{void} demand\_conf (\textcolor{keywordtype}{void});    \textcolor{comment}{/* config interface(s) for demand-\/dial */}}
+\DoxyCodeLine{588 \textcolor{keywordtype}{void} demand\_block (\textcolor{keywordtype}{void});   \textcolor{comment}{/* set all NPs to queue up packets */}}
+\DoxyCodeLine{589 \textcolor{keywordtype}{void} demand\_unblock (\textcolor{keywordtype}{void}); \textcolor{comment}{/* set all NPs to pass packets */}}
+\DoxyCodeLine{590 \textcolor{keywordtype}{void} demand\_discard (\textcolor{keywordtype}{void}); \textcolor{comment}{/* set all NPs to discard packets */}}
+\DoxyCodeLine{591 \textcolor{keywordtype}{void} demand\_rexmit (\textcolor{keywordtype}{int}, u32\_t); \textcolor{comment}{/* retransmit saved frames for an NP*/}}
+\DoxyCodeLine{592 \textcolor{keywordtype}{int}  loop\_chars (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *, \textcolor{keywordtype}{int}); \textcolor{comment}{/* process chars from loopback */}}
+\DoxyCodeLine{593 \textcolor{keywordtype}{int}  loop\_frame (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *, \textcolor{keywordtype}{int}); \textcolor{comment}{/* should we bring link up? */}}
+\DoxyCodeLine{594 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DEMAND\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{595 }
+\DoxyCodeLine{596 \textcolor{comment}{/* Procedures exported from multilink.c */}}
+\DoxyCodeLine{597 \textcolor{preprocessor}{\#ifdef HAVE\_MULTILINK}}
+\DoxyCodeLine{598 \textcolor{keywordtype}{void} mp\_check\_options (\textcolor{keywordtype}{void}); \textcolor{comment}{/* Check multilink-\/related options */}}
+\DoxyCodeLine{599 \textcolor{keywordtype}{int}  mp\_join\_bundle (\textcolor{keywordtype}{void});  \textcolor{comment}{/* join our link to an appropriate bundle */}}
+\DoxyCodeLine{600 \textcolor{keywordtype}{void} mp\_exit\_bundle (\textcolor{keywordtype}{void});  \textcolor{comment}{/* have disconnected our link from bundle */}}
+\DoxyCodeLine{601 \textcolor{keywordtype}{void} mp\_bundle\_terminated (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{602 \textcolor{keywordtype}{char} *epdisc\_to\_str (\textcolor{keyword}{struct} epdisc *); \textcolor{comment}{/* string from endpoint discrim. */}}
+\DoxyCodeLine{603 \textcolor{keywordtype}{int}  str\_to\_epdisc (\textcolor{keyword}{struct} epdisc *, \textcolor{keywordtype}{char} *); \textcolor{comment}{/* endpt disc. from str */}}
+\DoxyCodeLine{604 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{605 \textcolor{preprocessor}{\#define mp\_bundle\_terminated()  }\textcolor{comment}{/* nothing */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{606 \textcolor{preprocessor}{\#define mp\_exit\_bundle()    }\textcolor{comment}{/* nothing */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{607 \textcolor{preprocessor}{\#define doing\_multilink     0}}
+\DoxyCodeLine{608 \textcolor{preprocessor}{\#define multilink\_master    0}}
+\DoxyCodeLine{609 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{610 }
+\DoxyCodeLine{611 \textcolor{comment}{/* Procedures exported from utils.c. */}}
+\DoxyCodeLine{612 \textcolor{keywordtype}{void} ppp\_print\_string(\textcolor{keyword}{const} u\_char *p, \textcolor{keywordtype}{int} len, \textcolor{keywordtype}{void} (*printer) (\textcolor{keywordtype}{void} *, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *, ...), \textcolor{keywordtype}{void} *arg);   \textcolor{comment}{/* Format a string for output */}}
+\DoxyCodeLine{613 \textcolor{keywordtype}{int} ppp\_slprintf(\textcolor{keywordtype}{char} *buf, \textcolor{keywordtype}{int} buflen, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);            \textcolor{comment}{/* sprintf++ */}}
+\DoxyCodeLine{614 \textcolor{keywordtype}{int} ppp\_vslprintf(\textcolor{keywordtype}{char} *buf, \textcolor{keywordtype}{int} buflen, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, va\_list args);  \textcolor{comment}{/* vsprintf++ */}}
+\DoxyCodeLine{615 \textcolor{keywordtype}{size\_t} ppp\_strlcpy(\textcolor{keywordtype}{char} *dest, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *src, \textcolor{keywordtype}{size\_t} len);        \textcolor{comment}{/* safe strcpy */}}
+\DoxyCodeLine{616 \textcolor{keywordtype}{size\_t} ppp\_strlcat(\textcolor{keywordtype}{char} *dest, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *src, \textcolor{keywordtype}{size\_t} len);        \textcolor{comment}{/* safe strncpy */}}
+\DoxyCodeLine{617 \textcolor{keywordtype}{void} ppp\_dbglog(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);    \textcolor{comment}{/* log a debug message */}}
+\DoxyCodeLine{618 \textcolor{keywordtype}{void} ppp\_info(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);      \textcolor{comment}{/* log an informational message */}}
+\DoxyCodeLine{619 \textcolor{keywordtype}{void} ppp\_notice(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);    \textcolor{comment}{/* log a notice-\/level message */}}
+\DoxyCodeLine{620 \textcolor{keywordtype}{void} ppp\_warn(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);      \textcolor{comment}{/* log a warning message */}}
+\DoxyCodeLine{621 \textcolor{keywordtype}{void} ppp\_error(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);     \textcolor{comment}{/* log an error message */}}
+\DoxyCodeLine{622 \textcolor{keywordtype}{void} ppp\_fatal(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *fmt, ...);     \textcolor{comment}{/* log an error message and die(1) */}}
+\DoxyCodeLine{623 \textcolor{preprocessor}{\#if PRINTPKT\_SUPPORT}}
+\DoxyCodeLine{624 \textcolor{keywordtype}{void} ppp\_dump\_packet(ppp\_pcb *pcb, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *tag, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *p, \textcolor{keywordtype}{int} len);}
+\DoxyCodeLine{625                                 \textcolor{comment}{/* dump packet to debug log if interesting */}}
+\DoxyCodeLine{626 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PRINTPKT\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{627 }
+\DoxyCodeLine{628 \textcolor{comment}{/*}}
+\DoxyCodeLine{629 \textcolor{comment}{ * Number of necessary timers analysis.}}
+\DoxyCodeLine{630 \textcolor{comment}{ *}}
+\DoxyCodeLine{631 \textcolor{comment}{ * PPP use at least one timer per each of its protocol, but not all protocols are}}
+\DoxyCodeLine{632 \textcolor{comment}{ * active at the same time, thus the number of necessary timeouts is actually}}
+\DoxyCodeLine{633 \textcolor{comment}{ * lower than enabled protocols. Here is the actual necessary timeouts based}}
+\DoxyCodeLine{634 \textcolor{comment}{ * on code analysis.}}
+\DoxyCodeLine{635 \textcolor{comment}{ *}}
+\DoxyCodeLine{636 \textcolor{comment}{ * Note that many features analysed here are not working at all and are only}}
+\DoxyCodeLine{637 \textcolor{comment}{ * there for a comprehensive analysis of necessary timers in order to prevent}}
+\DoxyCodeLine{638 \textcolor{comment}{ * having to redo that each time we add a feature.}}
+\DoxyCodeLine{639 \textcolor{comment}{ *}}
+\DoxyCodeLine{640 \textcolor{comment}{ * Timer list}}
+\DoxyCodeLine{641 \textcolor{comment}{ *}}
+\DoxyCodeLine{642 \textcolor{comment}{ * | holdoff timeout}}
+\DoxyCodeLine{643 \textcolor{comment}{ *  | low level protocol timeout (PPPoE or PPPoL2P)}}
+\DoxyCodeLine{644 \textcolor{comment}{ *   | LCP delayed UP}}
+\DoxyCodeLine{645 \textcolor{comment}{ *    | LCP retransmit (FSM)}}
+\DoxyCodeLine{646 \textcolor{comment}{ *     | LCP Echo timer}}
+\DoxyCodeLine{647 \textcolor{comment}{ *     .| PAP or CHAP or EAP authentication}}
+\DoxyCodeLine{648 \textcolor{comment}{ *     . | ECP retransmit (FSM)}}
+\DoxyCodeLine{649 \textcolor{comment}{ *     .  | CCP retransmit (FSM) when MPPE is enabled}}
+\DoxyCodeLine{650 \textcolor{comment}{ *     .   | CCP retransmit (FSM) when MPPE is NOT enabled}}
+\DoxyCodeLine{651 \textcolor{comment}{ *     .    | IPCP retransmit (FSM)}}
+\DoxyCodeLine{652 \textcolor{comment}{ *     .    .| IP6CP retransmit (FSM)}}
+\DoxyCodeLine{653 \textcolor{comment}{ *     .    . | Idle time limit}}
+\DoxyCodeLine{654 \textcolor{comment}{ *     .    .  | Max connect time}}
+\DoxyCodeLine{655 \textcolor{comment}{ *     .    .   | Max octets}}
+\DoxyCodeLine{656 \textcolor{comment}{ *     .    .    | CCP RACK timeout}}
+\DoxyCodeLine{657 \textcolor{comment}{ *     .    .    .}}
+\DoxyCodeLine{658 \textcolor{comment}{ * PPP\_PHASE\_DEAD}}
+\DoxyCodeLine{659 \textcolor{comment}{ * PPP\_PHASE\_HOLDOFF}}
+\DoxyCodeLine{660 \textcolor{comment}{ * |   .    .    .}}
+\DoxyCodeLine{661 \textcolor{comment}{ * PPP\_PHASE\_INITIALIZE}}
+\DoxyCodeLine{662 \textcolor{comment}{ *  |  .    .    .}}
+\DoxyCodeLine{663 \textcolor{comment}{ * PPP\_PHASE\_ESTABLISH}}
+\DoxyCodeLine{664 \textcolor{comment}{ *   | .    .    .}}
+\DoxyCodeLine{665 \textcolor{comment}{ *    |.    .    .}}
+\DoxyCodeLine{666 \textcolor{comment}{ *     |    .    .}}
+\DoxyCodeLine{667 \textcolor{comment}{ * PPP\_PHASE\_AUTHENTICATE}}
+\DoxyCodeLine{668 \textcolor{comment}{ *     |    .    .}}
+\DoxyCodeLine{669 \textcolor{comment}{ *     ||   .    .}}
+\DoxyCodeLine{670 \textcolor{comment}{ * PPP\_PHASE\_NETWORK}}
+\DoxyCodeLine{671 \textcolor{comment}{ *     | || .    .}}
+\DoxyCodeLine{672 \textcolor{comment}{ *     |   |||   .}}
+\DoxyCodeLine{673 \textcolor{comment}{ * PPP\_PHASE\_RUNNING}}
+\DoxyCodeLine{674 \textcolor{comment}{ *     |    .|||||}}
+\DoxyCodeLine{675 \textcolor{comment}{ *     |    . ||||}}
+\DoxyCodeLine{676 \textcolor{comment}{ * PPP\_PHASE\_TERMINATE}}
+\DoxyCodeLine{677 \textcolor{comment}{ *     |    . ||||}}
+\DoxyCodeLine{678 \textcolor{comment}{ * PPP\_PHASE\_NETWORK}}
+\DoxyCodeLine{679 \textcolor{comment}{ *    |.         .}}
+\DoxyCodeLine{680 \textcolor{comment}{ * PPP\_PHASE\_ESTABLISH}}
+\DoxyCodeLine{681 \textcolor{comment}{ * PPP\_PHASE\_DISCONNECT}}
+\DoxyCodeLine{682 \textcolor{comment}{ * PPP\_PHASE\_DEAD}}
+\DoxyCodeLine{683 \textcolor{comment}{ *}}
+\DoxyCodeLine{684 \textcolor{comment}{ * Alright, PPP basic retransmission and LCP Echo consume one timer.}}
+\DoxyCodeLine{685 \textcolor{comment}{ *  1}}
+\DoxyCodeLine{686 \textcolor{comment}{ *}}
+\DoxyCodeLine{687 \textcolor{comment}{ * If authentication is enabled one timer is necessary during authentication.}}
+\DoxyCodeLine{688 \textcolor{comment}{ *  1 + PPP\_AUTH\_SUPPORT}}
+\DoxyCodeLine{689 \textcolor{comment}{ *}}
+\DoxyCodeLine{690 \textcolor{comment}{ * If ECP is enabled one timer is necessary before IPCP and/or IP6CP, one more}}
+\DoxyCodeLine{691 \textcolor{comment}{ * is necessary if CCP is enabled (only with MPPE support but we don't care much}}
+\DoxyCodeLine{692 \textcolor{comment}{ * up to this detail level).}}
+\DoxyCodeLine{693 \textcolor{comment}{ *  1 + ECP\_SUPPORT + CCP\_SUPPORT}}
+\DoxyCodeLine{694 \textcolor{comment}{ *}}
+\DoxyCodeLine{695 \textcolor{comment}{ * If CCP is enabled it might consume a timer during IPCP or IP6CP, thus}}
+\DoxyCodeLine{696 \textcolor{comment}{ * we might use IPCP, IP6CP and CCP timers simultaneously.}}
+\DoxyCodeLine{697 \textcolor{comment}{ *  1 + PPP\_IPV4\_SUPPORT + PPP\_IPV6\_SUPPORT + CCP\_SUPPORT}}
+\DoxyCodeLine{698 \textcolor{comment}{ *}}
+\DoxyCodeLine{699 \textcolor{comment}{ * When entering running phase, IPCP or IP6CP is still running. If idle time limit}}
+\DoxyCodeLine{700 \textcolor{comment}{ * is enabled one more timer is necessary. Same for max connect time and max}}
+\DoxyCodeLine{701 \textcolor{comment}{ * octets features. Furthermore CCP RACK might be used past this point.}}
+\DoxyCodeLine{702 \textcolor{comment}{ *  1 + PPP\_IPV4\_SUPPORT + PPP\_IPV6\_SUPPORT -\/1 + PPP\_IDLETIMELIMIT + PPP\_MAXCONNECT + MAXOCTETS + CCP\_SUPPORT}}
+\DoxyCodeLine{703 \textcolor{comment}{ *}}
+\DoxyCodeLine{704 \textcolor{comment}{ * IPv4 or IPv6 must be enabled, therefore we don't need to take care the authentication}}
+\DoxyCodeLine{705 \textcolor{comment}{ * and the CCP + ECP case, thus reducing overall complexity.}}
+\DoxyCodeLine{706 \textcolor{comment}{ * 1 + LWIP\_MAX(PPP\_IPV4\_SUPPORT + PPP\_IPV6\_SUPPORT + CCP\_SUPPORT, PPP\_IPV4\_SUPPORT + PPP\_IPV6\_SUPPORT -\/1 + PPP\_IDLETIMELIMIT + PPP\_MAXCONNECT + MAXOCTETS + CCP\_SUPPORT)}}
+\DoxyCodeLine{707 \textcolor{comment}{ *}}
+\DoxyCodeLine{708 \textcolor{comment}{ * We don't support PPP\_IDLETIMELIMIT + PPP\_MAXCONNECT + MAXOCTETS features}}
+\DoxyCodeLine{709 \textcolor{comment}{ * and adding those defines to ppp\_opts.h just for having the value always}}
+\DoxyCodeLine{710 \textcolor{comment}{ * defined to 0 isn't worth it.}}
+\DoxyCodeLine{711 \textcolor{comment}{ * 1 + LWIP\_MAX(PPP\_IPV4\_SUPPORT + PPP\_IPV6\_SUPPORT + CCP\_SUPPORT, PPP\_IPV4\_SUPPORT + PPP\_IPV6\_SUPPORT -\/1 + CCP\_SUPPORT)}}
+\DoxyCodeLine{712 \textcolor{comment}{ *}}
+\DoxyCodeLine{713 \textcolor{comment}{ * Thus, the following is enough for now.}}
+\DoxyCodeLine{714 \textcolor{comment}{ * 1 + PPP\_IPV4\_SUPPORT + PPP\_IPV6\_SUPPORT + CCP\_SUPPORT}}
+\DoxyCodeLine{715 \textcolor{comment}{ */}}
+\DoxyCodeLine{716 }
+\DoxyCodeLine{717 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{718 \}}
+\DoxyCodeLine{719 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{720 }
+\DoxyCodeLine{721 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{722 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_PPP\_IMPL\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

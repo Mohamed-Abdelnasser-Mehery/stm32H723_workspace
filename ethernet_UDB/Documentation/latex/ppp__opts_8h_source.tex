@@ -1,0 +1,381 @@
+\hypertarget{ppp__opts_8h_source}{}\doxysection{ppp\+\_\+opts.\+h}
+\label{ppp__opts_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ppp\_opts.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ppp\_opts.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{3 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{6 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{7 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{8 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{9 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{14 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{15 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{16 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{17 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{18 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{19 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{20 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{21 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{22 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{23 \textcolor{comment}{ *}}
+\DoxyCodeLine{24 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{25 \textcolor{comment}{ *}}
+\DoxyCodeLine{26 \textcolor{comment}{ */}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#ifndef LWIP\_PPP\_OPTS\_H}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define LWIP\_PPP\_OPTS\_H}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifndef PPP\_SUPPORT}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define PPP\_SUPPORT                     0}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifndef PPPOE\_SUPPORT}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define PPPOE\_SUPPORT                   0}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#ifndef PPPOL2TP\_SUPPORT}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define PPPOL2TP\_SUPPORT                0}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#ifndef PPPOL2TP\_AUTH\_SUPPORT}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define PPPOL2TP\_AUTH\_SUPPORT           PPPOL2TP\_SUPPORT}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#ifndef PPPOS\_SUPPORT}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define PPPOS\_SUPPORT                   PPP\_SUPPORT}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#ifndef LWIP\_PPP\_API}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define LWIP\_PPP\_API                    (PPP\_SUPPORT \&\& (NO\_SYS == 0))}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#if PPP\_SUPPORT}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#ifndef MEMP\_NUM\_PPP\_PCB}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define MEMP\_NUM\_PPP\_PCB                1}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#ifndef PPP\_NUM\_TIMEOUTS\_PER\_PCB}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define PPP\_NUM\_TIMEOUTS\_PER\_PCB        (1 + PPP\_IPV4\_SUPPORT + PPP\_IPV6\_SUPPORT + CCP\_SUPPORT)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{comment}{/* The number of sys\_timeouts required for the PPP module */}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define PPP\_NUM\_TIMEOUTS                (PPP\_SUPPORT * PPP\_NUM\_TIMEOUTS\_PER\_PCB * MEMP\_NUM\_PPP\_PCB)}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#ifndef MEMP\_NUM\_PPPOS\_INTERFACES}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define MEMP\_NUM\_PPPOS\_INTERFACES       MEMP\_NUM\_PPP\_PCB}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#ifndef MEMP\_NUM\_PPPOE\_INTERFACES}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define MEMP\_NUM\_PPPOE\_INTERFACES       1}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#ifndef MEMP\_NUM\_PPPOL2TP\_INTERFACES}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define MEMP\_NUM\_PPPOL2TP\_INTERFACES       1}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#ifndef MEMP\_NUM\_PPP\_API\_MSG}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define MEMP\_NUM\_PPP\_API\_MSG 5}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#ifndef PPP\_DEBUG}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define PPP\_DEBUG                       LWIP\_DBG\_OFF}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#ifndef PPP\_INPROC\_IRQ\_SAFE}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#define PPP\_INPROC\_IRQ\_SAFE             0}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#ifndef PRINTPKT\_SUPPORT}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define PRINTPKT\_SUPPORT                0}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#ifndef PPP\_IPV4\_SUPPORT}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define PPP\_IPV4\_SUPPORT                (LWIP\_IPV4)}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#ifndef PPP\_IPV6\_SUPPORT}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define PPP\_IPV6\_SUPPORT                (LWIP\_IPV6)}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#ifndef PPP\_NOTIFY\_PHASE}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define PPP\_NOTIFY\_PHASE                0}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#ifndef PPP\_USE\_PBUF\_RAM}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#define PPP\_USE\_PBUF\_RAM                0}}
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#ifndef PPP\_FCS\_TABLE}}
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#define PPP\_FCS\_TABLE                   1}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#ifndef PAP\_SUPPORT}}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#define PAP\_SUPPORT                     0}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#ifndef CHAP\_SUPPORT}}
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#define CHAP\_SUPPORT                    0}}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{218 \textcolor{preprocessor}{\#ifndef MSCHAP\_SUPPORT}}
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#define MSCHAP\_SUPPORT                  0}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#if MSCHAP\_SUPPORT}}
+\DoxyCodeLine{222 \textcolor{comment}{/* MSCHAP requires CHAP support */}}
+\DoxyCodeLine{223 \textcolor{preprocessor}{\#undef CHAP\_SUPPORT}}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#define CHAP\_SUPPORT                    1}}
+\DoxyCodeLine{225 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#ifndef EAP\_SUPPORT}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#define EAP\_SUPPORT                     0}}
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#ifndef CCP\_SUPPORT}}
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#define CCP\_SUPPORT                     0}}
+\DoxyCodeLine{239 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#ifndef MPPE\_SUPPORT}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#define MPPE\_SUPPORT                    0}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{247 \textcolor{preprocessor}{\#if MPPE\_SUPPORT}}
+\DoxyCodeLine{248 \textcolor{comment}{/* MPPE requires CCP support */}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#undef CCP\_SUPPORT}}
+\DoxyCodeLine{250 \textcolor{preprocessor}{\#define CCP\_SUPPORT                     1}}
+\DoxyCodeLine{251 \textcolor{comment}{/* MPPE requires MSCHAP support */}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#undef MSCHAP\_SUPPORT}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#define MSCHAP\_SUPPORT                  1}}
+\DoxyCodeLine{254 \textcolor{comment}{/* MSCHAP requires CHAP support */}}
+\DoxyCodeLine{255 \textcolor{preprocessor}{\#undef CHAP\_SUPPORT}}
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#define CHAP\_SUPPORT                    1}}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MPPE\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#ifndef CBCP\_SUPPORT}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#define CBCP\_SUPPORT                    0}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#ifndef ECP\_SUPPORT}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#define ECP\_SUPPORT                     0}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#ifndef DEMAND\_SUPPORT}}
+\DoxyCodeLine{277 \textcolor{preprocessor}{\#define DEMAND\_SUPPORT                  0}}
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#ifndef LQR\_SUPPORT}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#define LQR\_SUPPORT                     0}}
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#ifndef PPP\_SERVER}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#define PPP\_SERVER                      0}}
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{297 \textcolor{comment}{/*}}
+\DoxyCodeLine{298 \textcolor{comment}{ * PPP\_OUR\_NAME: Our name for authentication purposes}}
+\DoxyCodeLine{299 \textcolor{comment}{ */}}
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#ifndef PPP\_OUR\_NAME}}
+\DoxyCodeLine{301 \textcolor{preprocessor}{\#define PPP\_OUR\_NAME                    "{}lwIP"{}}}
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{303 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{308 \textcolor{preprocessor}{\#ifndef VJ\_SUPPORT}}
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#define VJ\_SUPPORT                      1}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{311 \textcolor{comment}{/* VJ compression is only supported for TCP over IPv4 over PPPoS. */}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{\#if !PPPOS\_SUPPORT || !PPP\_IPV4\_SUPPORT || !LWIP\_TCP}}
+\DoxyCodeLine{313 \textcolor{preprocessor}{\#undef VJ\_SUPPORT}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{\#define VJ\_SUPPORT                      0}}
+\DoxyCodeLine{315 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !PPPOS\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{321 \textcolor{preprocessor}{\#ifndef PPP\_MD5\_RANDM}}
+\DoxyCodeLine{322 \textcolor{preprocessor}{\#define PPP\_MD5\_RANDM                   (CHAP\_SUPPORT || EAP\_SUPPORT || PPPOL2TP\_AUTH\_SUPPORT)}}
+\DoxyCodeLine{323 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#ifndef LWIP\_USE\_EXTERNAL\_POLARSSL}}
+\DoxyCodeLine{351 \textcolor{preprocessor}{\#define LWIP\_USE\_EXTERNAL\_POLARSSL      0}}
+\DoxyCodeLine{352 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{353 }
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#ifndef LWIP\_USE\_EXTERNAL\_MBEDTLS}}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#define LWIP\_USE\_EXTERNAL\_MBEDTLS       0}}
+\DoxyCodeLine{359 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361 \textcolor{comment}{/*}}
+\DoxyCodeLine{362 \textcolor{comment}{ * PPP Timeouts}}
+\DoxyCodeLine{363 \textcolor{comment}{ */}}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{368 \textcolor{preprocessor}{\#ifndef FSM\_DEFTIMEOUT}}
+\DoxyCodeLine{369 \textcolor{preprocessor}{\#define FSM\_DEFTIMEOUT                  6}}
+\DoxyCodeLine{370 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{375 \textcolor{preprocessor}{\#ifndef FSM\_DEFMAXTERMREQS}}
+\DoxyCodeLine{376 \textcolor{preprocessor}{\#define FSM\_DEFMAXTERMREQS              2}}
+\DoxyCodeLine{377 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{382 \textcolor{preprocessor}{\#ifndef FSM\_DEFMAXCONFREQS}}
+\DoxyCodeLine{383 \textcolor{preprocessor}{\#define FSM\_DEFMAXCONFREQS              10}}
+\DoxyCodeLine{384 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#ifndef FSM\_DEFMAXNAKLOOPS}}
+\DoxyCodeLine{390 \textcolor{preprocessor}{\#define FSM\_DEFMAXNAKLOOPS              5}}
+\DoxyCodeLine{391 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{392 }
+\DoxyCodeLine{396 \textcolor{preprocessor}{\#ifndef UPAP\_DEFTIMEOUT}}
+\DoxyCodeLine{397 \textcolor{preprocessor}{\#define UPAP\_DEFTIMEOUT                 6}}
+\DoxyCodeLine{398 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{403 \textcolor{preprocessor}{\#ifndef UPAP\_DEFTRANSMITS}}
+\DoxyCodeLine{404 \textcolor{preprocessor}{\#define UPAP\_DEFTRANSMITS               10}}
+\DoxyCodeLine{405 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{411 \textcolor{preprocessor}{\#ifndef UPAP\_DEFREQTIME}}
+\DoxyCodeLine{412 \textcolor{preprocessor}{\#define UPAP\_DEFREQTIME                 30}}
+\DoxyCodeLine{413 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{414 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{419 \textcolor{preprocessor}{\#ifndef CHAP\_DEFTIMEOUT}}
+\DoxyCodeLine{420 \textcolor{preprocessor}{\#define CHAP\_DEFTIMEOUT                 6}}
+\DoxyCodeLine{421 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{422 }
+\DoxyCodeLine{426 \textcolor{preprocessor}{\#ifndef CHAP\_DEFTRANSMITS}}
+\DoxyCodeLine{427 \textcolor{preprocessor}{\#define CHAP\_DEFTRANSMITS               10}}
+\DoxyCodeLine{428 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{429 }
+\DoxyCodeLine{430 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{434 \textcolor{preprocessor}{\#ifndef CHAP\_DEFRECHALLENGETIME}}
+\DoxyCodeLine{435 \textcolor{preprocessor}{\#define CHAP\_DEFRECHALLENGETIME         0}}
+\DoxyCodeLine{436 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{437 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{438 }
+\DoxyCodeLine{442 \textcolor{preprocessor}{\#ifndef EAP\_DEFREQTIME}}
+\DoxyCodeLine{443 \textcolor{preprocessor}{\#define EAP\_DEFREQTIME                  6}}
+\DoxyCodeLine{444 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{449 \textcolor{preprocessor}{\#ifndef EAP\_DEFALLOWREQ}}
+\DoxyCodeLine{450 \textcolor{preprocessor}{\#define EAP\_DEFALLOWREQ                 10}}
+\DoxyCodeLine{451 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{453 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{457 \textcolor{preprocessor}{\#ifndef EAP\_DEFTIMEOUT}}
+\DoxyCodeLine{458 \textcolor{preprocessor}{\#define EAP\_DEFTIMEOUT                  6}}
+\DoxyCodeLine{459 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{464 \textcolor{preprocessor}{\#ifndef EAP\_DEFTRANSMITS}}
+\DoxyCodeLine{465 \textcolor{preprocessor}{\#define EAP\_DEFTRANSMITS                10}}
+\DoxyCodeLine{466 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{467 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{468 }
+\DoxyCodeLine{473 \textcolor{preprocessor}{\#ifndef LCP\_DEFLOOPBACKFAIL}}
+\DoxyCodeLine{474 \textcolor{preprocessor}{\#define LCP\_DEFLOOPBACKFAIL             10}}
+\DoxyCodeLine{475 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{480 \textcolor{preprocessor}{\#ifndef LCP\_ECHOINTERVAL}}
+\DoxyCodeLine{481 \textcolor{preprocessor}{\#define LCP\_ECHOINTERVAL                0}}
+\DoxyCodeLine{482 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{487 \textcolor{preprocessor}{\#ifndef LCP\_MAXECHOFAILS}}
+\DoxyCodeLine{488 \textcolor{preprocessor}{\#define LCP\_MAXECHOFAILS                3}}
+\DoxyCodeLine{489 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{494 \textcolor{preprocessor}{\#ifndef PPP\_MAXIDLEFLAG}}
+\DoxyCodeLine{495 \textcolor{preprocessor}{\#define PPP\_MAXIDLEFLAG                 100}}
+\DoxyCodeLine{496 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{497 }
+\DoxyCodeLine{505 \textcolor{preprocessor}{\#ifndef PPP\_MRU}}
+\DoxyCodeLine{506 \textcolor{preprocessor}{\#define PPP\_MRU                         1500}}
+\DoxyCodeLine{507 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{512 \textcolor{preprocessor}{\#ifndef PPP\_DEFMRU}}
+\DoxyCodeLine{513 \textcolor{preprocessor}{\#define PPP\_DEFMRU                      1500}}
+\DoxyCodeLine{514 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{519 \textcolor{preprocessor}{\#ifndef PPP\_MAXMRU}}
+\DoxyCodeLine{520 \textcolor{preprocessor}{\#define PPP\_MAXMRU                      1500}}
+\DoxyCodeLine{521 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{522 }
+\DoxyCodeLine{526 \textcolor{preprocessor}{\#ifndef PPP\_MINMRU}}
+\DoxyCodeLine{527 \textcolor{preprocessor}{\#define PPP\_MINMRU                      128}}
+\DoxyCodeLine{528 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{535 \textcolor{preprocessor}{\#if PPPOL2TP\_SUPPORT}}
+\DoxyCodeLine{536 \textcolor{preprocessor}{\#ifndef PPPOL2TP\_DEFMRU}}
+\DoxyCodeLine{537 \textcolor{preprocessor}{\#define PPPOL2TP\_DEFMRU                 1450}}
+\DoxyCodeLine{538 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{539 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPPOL2TP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{544 \textcolor{preprocessor}{\#ifndef MAXNAMELEN}}
+\DoxyCodeLine{545 \textcolor{preprocessor}{\#define MAXNAMELEN                      256}}
+\DoxyCodeLine{546 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{547 }
+\DoxyCodeLine{551 \textcolor{preprocessor}{\#ifndef MAXSECRETLEN}}
+\DoxyCodeLine{552 \textcolor{preprocessor}{\#define MAXSECRETLEN                    256}}
+\DoxyCodeLine{553 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{555 \textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ */}}
+\DoxyCodeLine{556 }
+\DoxyCodeLine{557 \textcolor{comment}{/*}}
+\DoxyCodeLine{558 \textcolor{comment}{ * Build triggers for embedded PolarSSL}}
+\DoxyCodeLine{559 \textcolor{comment}{ */}}
+\DoxyCodeLine{560 \textcolor{preprocessor}{\#if !LWIP\_USE\_EXTERNAL\_POLARSSL \&\& !LWIP\_USE\_EXTERNAL\_MBEDTLS}}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{562 \textcolor{comment}{/* CHAP, EAP, L2TP AUTH and MD5 Random require MD5 support */}}
+\DoxyCodeLine{563 \textcolor{preprocessor}{\#if CHAP\_SUPPORT || EAP\_SUPPORT || PPPOL2TP\_AUTH\_SUPPORT || PPP\_MD5\_RANDM}}
+\DoxyCodeLine{564 \textcolor{preprocessor}{\#define LWIP\_INCLUDED\_POLARSSL\_MD5      1}}
+\DoxyCodeLine{565 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CHAP\_SUPPORT || EAP\_SUPPORT || PPPOL2TP\_AUTH\_SUPPORT || PPP\_MD5\_RANDM */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{566 }
+\DoxyCodeLine{567 \textcolor{preprocessor}{\#if MSCHAP\_SUPPORT}}
+\DoxyCodeLine{568 }
+\DoxyCodeLine{569 \textcolor{comment}{/* MSCHAP require MD4 support */}}
+\DoxyCodeLine{570 \textcolor{preprocessor}{\#define LWIP\_INCLUDED\_POLARSSL\_MD4      1}}
+\DoxyCodeLine{571 \textcolor{comment}{/* MSCHAP require SHA1 support */}}
+\DoxyCodeLine{572 \textcolor{preprocessor}{\#define LWIP\_INCLUDED\_POLARSSL\_SHA1     1}}
+\DoxyCodeLine{573 \textcolor{comment}{/* MSCHAP require DES support */}}
+\DoxyCodeLine{574 \textcolor{preprocessor}{\#define LWIP\_INCLUDED\_POLARSSL\_DES      1}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{576 \textcolor{comment}{/* MS-\/CHAP support is required for MPPE */}}
+\DoxyCodeLine{577 \textcolor{preprocessor}{\#if MPPE\_SUPPORT}}
+\DoxyCodeLine{578 \textcolor{comment}{/* MPPE require ARC4 support */}}
+\DoxyCodeLine{579 \textcolor{preprocessor}{\#define LWIP\_INCLUDED\_POLARSSL\_ARC4     1}}
+\DoxyCodeLine{580 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MPPE\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{581 }
+\DoxyCodeLine{582 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{583 }
+\DoxyCodeLine{584 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_USE\_EXTERNAL\_POLARSSL \&\& !LWIP\_USE\_EXTERNAL\_MBEDTLS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{585 }
+\DoxyCodeLine{586 \textcolor{comment}{/* Default value if unset */}}
+\DoxyCodeLine{587 \textcolor{preprocessor}{\#ifndef LWIP\_INCLUDED\_POLARSSL\_MD4}}
+\DoxyCodeLine{588 \textcolor{preprocessor}{\#define LWIP\_INCLUDED\_POLARSSL\_MD4      0}}
+\DoxyCodeLine{589 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_INCLUDED\_POLARSSL\_MD4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{590 \textcolor{preprocessor}{\#ifndef LWIP\_INCLUDED\_POLARSSL\_MD5}}
+\DoxyCodeLine{591 \textcolor{preprocessor}{\#define LWIP\_INCLUDED\_POLARSSL\_MD5      0}}
+\DoxyCodeLine{592 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_INCLUDED\_POLARSSL\_MD5 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{593 \textcolor{preprocessor}{\#ifndef LWIP\_INCLUDED\_POLARSSL\_SHA1}}
+\DoxyCodeLine{594 \textcolor{preprocessor}{\#define LWIP\_INCLUDED\_POLARSSL\_SHA1     0}}
+\DoxyCodeLine{595 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_INCLUDED\_POLARSSL\_SHA1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{596 \textcolor{preprocessor}{\#ifndef LWIP\_INCLUDED\_POLARSSL\_DES}}
+\DoxyCodeLine{597 \textcolor{preprocessor}{\#define LWIP\_INCLUDED\_POLARSSL\_DES      0}}
+\DoxyCodeLine{598 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_INCLUDED\_POLARSSL\_DES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{599 \textcolor{preprocessor}{\#ifndef LWIP\_INCLUDED\_POLARSSL\_ARC4}}
+\DoxyCodeLine{600 \textcolor{preprocessor}{\#define LWIP\_INCLUDED\_POLARSSL\_ARC4     0}}
+\DoxyCodeLine{601 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_INCLUDED\_POLARSSL\_ARC4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{602 }
+\DoxyCodeLine{603 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{604 }
+\DoxyCodeLine{605 \textcolor{comment}{/* Default value if unset */}}
+\DoxyCodeLine{606 \textcolor{preprocessor}{\#ifndef PPP\_NUM\_TIMEOUTS}}
+\DoxyCodeLine{607 \textcolor{preprocessor}{\#define PPP\_NUM\_TIMEOUTS                0}}
+\DoxyCodeLine{608 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_NUM\_TIMEOUTS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{609 }
+\DoxyCodeLine{610 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_PPP\_OPTS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

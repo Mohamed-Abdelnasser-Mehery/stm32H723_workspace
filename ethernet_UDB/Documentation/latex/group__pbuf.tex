@@ -1,0 +1,593 @@
+\hypertarget{group__pbuf}{}\doxysection{Packet buffers (PBUF)}
+\label{group__pbuf}\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__pbuf_ga894d91d811fd986f3cc3da828fa7beb3}{PBUF\+\_\+\+NEEDS\+\_\+\+COPY}}(p)~((p)-\/$>$type\+\_\+internal \& \mbox{\hyperlink{pbuf_8h_a02789ca67766def65000b58f7fe7d03b}{PBUF\+\_\+\+TYPE\+\_\+\+FLAG\+\_\+\+DATA\+\_\+\+VOLATILE}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}} \{ \newline
+\mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa2ded3594a3977f8bf9cf09552be327b5}{PBUF\+\_\+\+TRANSPORT}} = PBUF\+\_\+\+LINK\+\_\+\+ENCAPSULATION\+\_\+\+HLEN + PBUF\+\_\+\+LINK\+\_\+\+HLEN + PBUF\+\_\+\+IP\+\_\+\+HLEN + PBUF\+\_\+\+TRANSPORT\+\_\+\+HLEN
+, \mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfafcc1e506061ba69dfa142eb6b3da5f13}{PBUF\+\_\+\+IP}} = PBUF\+\_\+\+LINK\+\_\+\+ENCAPSULATION\+\_\+\+HLEN + PBUF\+\_\+\+LINK\+\_\+\+HLEN + PBUF\+\_\+\+IP\+\_\+\+HLEN
+, \mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfab4de441e737330558b609a990cd17346}{PBUF\+\_\+\+LINK}} = PBUF\+\_\+\+LINK\+\_\+\+ENCAPSULATION\+\_\+\+HLEN + PBUF\+\_\+\+LINK\+\_\+\+HLEN
+, \mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa0ff039585f05f9208bcb66c2d37783e2}{PBUF\+\_\+\+RAW\+\_\+\+TX}} = PBUF\+\_\+\+LINK\+\_\+\+ENCAPSULATION\+\_\+\+HLEN
+, \newline
+\mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa21116654fbab6d5a4dfeb87a1bb8f0ba}{PBUF\+\_\+\+RAW}} = 0
+ \}
+\item 
+enum \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}} \{ \mbox{\hyperlink{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac5e9f28455bca98944a030d4b84ecfab}{PBUF\+\_\+\+RAM}} = (PBUF\+\_\+\+ALLOC\+\_\+\+FLAG\+\_\+\+DATA\+\_\+\+CONTIGUOUS $\vert$ PBUF\+\_\+\+TYPE\+\_\+\+FLAG\+\_\+\+STRUCT\+\_\+\+DATA\+\_\+\+CONTIGUOUS $\vert$ PBUF\+\_\+\+TYPE\+\_\+\+ALLOC\+\_\+\+SRC\+\_\+\+MASK\+\_\+\+STD\+\_\+\+HEAP)
+, \mbox{\hyperlink{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac120b0fe39efe35bb682e4aa3b82e2c9}{PBUF\+\_\+\+ROM}} = PBUF\+\_\+\+TYPE\+\_\+\+ALLOC\+\_\+\+SRC\+\_\+\+MASK\+\_\+\+STD\+\_\+\+MEMP\+\_\+\+PBUF
+, \mbox{\hyperlink{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac9b6ba960fdea6f2e8f35c8313b77e4e}{PBUF\+\_\+\+REF}} = (PBUF\+\_\+\+TYPE\+\_\+\+FLAG\+\_\+\+DATA\+\_\+\+VOLATILE $\vert$ PBUF\+\_\+\+TYPE\+\_\+\+ALLOC\+\_\+\+SRC\+\_\+\+MASK\+\_\+\+STD\+\_\+\+MEMP\+\_\+\+PBUF)
+, \mbox{\hyperlink{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbae969347127387b9b59a23ccd24b76d21}{PBUF\+\_\+\+POOL}} = (PBUF\+\_\+\+ALLOC\+\_\+\+FLAG\+\_\+\+RX $\vert$ PBUF\+\_\+\+TYPE\+\_\+\+FLAG\+\_\+\+STRUCT\+\_\+\+DATA\+\_\+\+CONTIGUOUS $\vert$ PBUF\+\_\+\+TYPE\+\_\+\+ALLOC\+\_\+\+SRC\+\_\+\+MASK\+\_\+\+STD\+\_\+\+MEMP\+\_\+\+PBUF\+\_\+\+POOL)
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{group__pbuf_ga8bb9c5d54a06995b1c67ce695ead9969}{pbuf\+\_\+alloc}} (\mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}} layer, u16\+\_\+t length, \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}} type)
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{group__pbuf_ga6cff29c18a60a7f2828457fa61e3accb}{pbuf\+\_\+alloc\+\_\+reference}} (void $\ast$payload, u16\+\_\+t length, \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}} type)
+\item 
+void \mbox{\hyperlink{group__pbuf_ga50abfe830a33a1a47a562febee66015d}{pbuf\+\_\+realloc}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u16\+\_\+t new\+\_\+len)
+\item 
+u8\+\_\+t \mbox{\hyperlink{group__pbuf_gab0dd696fb4b6bc65e548944584f1738b}{pbuf\+\_\+free}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+void \mbox{\hyperlink{group__pbuf_ga77f6bbd69e45e542014d9c547c7da74e}{pbuf\+\_\+ref}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+void \mbox{\hyperlink{group__pbuf_ga82429084fe29015509c9b4a072707cd4}{pbuf\+\_\+cat}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$h, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$t)
+\item 
+void \mbox{\hyperlink{group__pbuf_ga831c9a72bda1d3bd4c7b96f5a0e3b891}{pbuf\+\_\+chain}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$h, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$t)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__pbuf_gaba88511dee3df4b631fde691f421320d}{pbuf\+\_\+copy}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p\+\_\+to, const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p\+\_\+from)
+\item 
+u16\+\_\+t \mbox{\hyperlink{group__pbuf_gac2f1f58fd36042e82af46f5015720899}{pbuf\+\_\+copy\+\_\+partial}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$buf, void $\ast$dataptr, u16\+\_\+t len, u16\+\_\+t offset)
+\item 
+void $\ast$ \mbox{\hyperlink{group__pbuf_ga6da6c83929df1b736b107e89faa8a8a2}{pbuf\+\_\+get\+\_\+contiguous}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, void $\ast$buffer, size\+\_\+t bufsize, u16\+\_\+t len, u16\+\_\+t offset)
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{group__pbuf_gabe4dfb2409c87a7c52c9a22a779f92e9}{pbuf\+\_\+skip}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$in, u16\+\_\+t in\+\_\+offset, u16\+\_\+t $\ast$out\+\_\+offset)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__pbuf_gad1e31e370271335b197272af2724ca85}{pbuf\+\_\+take}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$buf, const void $\ast$dataptr, u16\+\_\+t len)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__pbuf_gae1cf2bf7454ff87ff377b0b2262f9b44}{pbuf\+\_\+take\+\_\+at}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$buf, const void $\ast$dataptr, u16\+\_\+t len, u16\+\_\+t offset)
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{group__pbuf_ga031469589fa95ece3bf1c136d1509eac}{pbuf\+\_\+coalesce}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, \mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}} layer)
+\item 
+struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ \mbox{\hyperlink{group__pbuf_gac6842a5d8268606f9608bae15d652a22}{pbuf\+\_\+clone}} (\mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}} layer, \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}} type, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+u8\+\_\+t \mbox{\hyperlink{group__pbuf_ga6d803d9945bffb7ad97743f2fa503da6}{pbuf\+\_\+get\+\_\+at}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u16\+\_\+t offset)
+\item 
+int \mbox{\hyperlink{group__pbuf_ga839f342803b0cf89049744124c5a98ad}{pbuf\+\_\+try\+\_\+get\+\_\+at}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u16\+\_\+t offset)
+\item 
+void \mbox{\hyperlink{group__pbuf_gaf76863707dc02993eae116574b1ea03f}{pbuf\+\_\+put\+\_\+at}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u16\+\_\+t offset, u8\+\_\+t data)
+\item 
+u16\+\_\+t \mbox{\hyperlink{group__pbuf_ga2170ccbbb13238380dbb203ee1b85974}{pbuf\+\_\+memcmp}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, u16\+\_\+t offset, const void $\ast$s2, u16\+\_\+t n)
+\item 
+u16\+\_\+t \mbox{\hyperlink{group__pbuf_ga18c164a6e4a24d89ea9eb7571a886448}{pbuf\+\_\+memfind}} (const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, const void $\ast$\mbox{\hyperlink{structmem}{mem}}, u16\+\_\+t mem\+\_\+len, u16\+\_\+t start\+\_\+offset)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Packets are built from the pbuf data structure. It supports dynamic memory allocation for packet contents or can reference externally managed packet contents both in RAM and ROM. Quick allocation for incoming packets is provided through pools with fixed sized pbufs.
+
+A packet may span over multiple pbufs, chained as a singly linked list. This is called a \char`\"{}pbuf chain\char`\"{}.
+
+Multiple packets may be queued, also using this singly linked list. This is called a \char`\"{}packet queue\char`\"{}.
+
+So, a packet queue consists of one or more pbuf chains, each of which consist of one or more pbufs. CURRENTLY, PACKET QUEUES ARE NOT SUPPORTED!!! Use helper structs to queue multiple packets.
+
+The differences between a pbuf chain and a packet queue are very precise but subtle.
+
+The last pbuf of a packet has a -\/\texorpdfstring{$>$}{>}tot\+\_\+len field that equals the -\/\texorpdfstring{$>$}{>}len field. It can be found by traversing the list. If the last pbuf of a packet has a -\/\texorpdfstring{$>$}{>}next field other than NULL, more packets are on the queue.
+
+Therefore, looping through a pbuf of a single packet, has an loop end condition (tot\+\_\+len == p-\/\texorpdfstring{$>$}{>}len), NOT (next == NULL).
+
+Example of custom pbuf usage\+: zerocopyrx 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__pbuf_ga894d91d811fd986f3cc3da828fa7beb3}\label{group__pbuf_ga894d91d811fd986f3cc3da828fa7beb3}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!PBUF\_NEEDS\_COPY@{PBUF\_NEEDS\_COPY}}
+\index{PBUF\_NEEDS\_COPY@{PBUF\_NEEDS\_COPY}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{PBUF\_NEEDS\_COPY}{PBUF\_NEEDS\_COPY}}
+{\footnotesize\ttfamily \#define PBUF\+\_\+\+NEEDS\+\_\+\+COPY(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~((p)-\/$>$type\+\_\+internal \& \mbox{\hyperlink{pbuf_8h_a02789ca67766def65000b58f7fe7d03b}{PBUF\+\_\+\+TYPE\+\_\+\+FLAG\+\_\+\+DATA\+\_\+\+VOLATILE}})}
+
+\mbox{\hyperlink{group__pbuf_ga894d91d811fd986f3cc3da828fa7beb3}{PBUF\+\_\+\+NEEDS\+\_\+\+COPY(p)}}\+: return a boolean value indicating whether the given pbuf needs to be copied in order to be kept around beyond the current call stack without risking being corrupted. The default setting provides safety\+: it will make a copy iof any pbuf chain that does not consist entirely of PBUF\+\_\+\+ROM type pbufs. For setups with zero-\/copy support, it may be redefined to evaluate to true in all cases, for example. However, doing so also has an effect on the application side\+: any buffers that are {\itshape not} copied must also {\itshape not} be reused by the application after passing them to lw\+IP. For example, when setting PBUF\+\_\+\+NEEDS\+\_\+\+COPY to (0), after using udp\+\_\+send() with a PBUF\+\_\+\+RAM pbuf, the application must free the pbuf immediately, rather than reusing it for other purposes. For more background information on this, see tasks \#6735 and \#7896, and bugs \#11400 and \#49914. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}\label{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_layer@{pbuf\_layer}}
+\index{pbuf\_layer@{pbuf\_layer}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_layer}{pbuf\_layer}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}}}
+
+Enumeration of pbuf layers \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PBUF\_TRANSPORT@{PBUF\_TRANSPORT}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!PBUF\_TRANSPORT@{PBUF\_TRANSPORT}}}\mbox{\Hypertarget{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa2ded3594a3977f8bf9cf09552be327b5}\label{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa2ded3594a3977f8bf9cf09552be327b5}} 
+PBUF\+\_\+\+TRANSPORT&Includes spare room for transport layer header, e.\+g. UDP header. Use this if you intend to pass the pbuf to functions like udp\+\_\+send(). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PBUF\_IP@{PBUF\_IP}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!PBUF\_IP@{PBUF\_IP}}}\mbox{\Hypertarget{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfafcc1e506061ba69dfa142eb6b3da5f13}\label{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfafcc1e506061ba69dfa142eb6b3da5f13}} 
+PBUF\+\_\+\+IP&Includes spare room for IP header. Use this if you intend to pass the pbuf to functions like raw\+\_\+send(). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PBUF\_LINK@{PBUF\_LINK}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!PBUF\_LINK@{PBUF\_LINK}}}\mbox{\Hypertarget{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfab4de441e737330558b609a990cd17346}\label{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfab4de441e737330558b609a990cd17346}} 
+PBUF\+\_\+\+LINK&Includes spare room for link layer header (ethernet header). Use this if you intend to pass the pbuf to functions like ethernet\+\_\+output(). \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__lwip__opts__pbuf_ga35998a3d56af9940e6a80bb372597685}{PBUF\+\_\+\+LINK\+\_\+\+HLEN}} 
+\end{DoxySeeAlso}
+\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PBUF\_RAW\_TX@{PBUF\_RAW\_TX}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!PBUF\_RAW\_TX@{PBUF\_RAW\_TX}}}\mbox{\Hypertarget{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa0ff039585f05f9208bcb66c2d37783e2}\label{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa0ff039585f05f9208bcb66c2d37783e2}} 
+PBUF\+\_\+\+RAW\+\_\+\+TX&Includes spare room for additional encapsulation header before ethernet headers (e.\+g. 802.\+11). Use this if you intend to pass the pbuf to functions like netif-\/\texorpdfstring{$>$}{>}linkoutput(). \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__lwip__opts__pbuf_ga6e1ba1875ae5168a17b53d83597bc1de}{PBUF\+\_\+\+LINK\+\_\+\+ENCAPSULATION\+\_\+\+HLEN}} 
+\end{DoxySeeAlso}
+\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PBUF\_RAW@{PBUF\_RAW}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!PBUF\_RAW@{PBUF\_RAW}}}\mbox{\Hypertarget{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa21116654fbab6d5a4dfeb87a1bb8f0ba}\label{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa21116654fbab6d5a4dfeb87a1bb8f0ba}} 
+PBUF\+\_\+\+RAW&Use this for input packets in a netif driver when calling netif-\/\texorpdfstring{$>$}{>}input() in the most common case -\/ ethernet-\/layer netif driver. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}\label{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_type@{pbuf\_type}}
+\index{pbuf\_type@{pbuf\_type}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_type}{pbuf\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}}}
+
+Enumeration of pbuf types \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PBUF\_RAM@{PBUF\_RAM}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!PBUF\_RAM@{PBUF\_RAM}}}\mbox{\Hypertarget{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac5e9f28455bca98944a030d4b84ecfab}\label{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac5e9f28455bca98944a030d4b84ecfab}} 
+PBUF\+\_\+\+RAM&pbuf data is stored in RAM, used for TX mostly, struct pbuf and its payload are allocated in one piece of contiguous memory (so the first payload byte can be calculated from struct pbuf). \mbox{\hyperlink{group__pbuf_ga8bb9c5d54a06995b1c67ce695ead9969}{pbuf\+\_\+alloc()}} allocates PBUF\+\_\+\+RAM pbufs as unchained pbufs (although that might change in future versions). This should be used for all OUTGOING packets (TX). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PBUF\_ROM@{PBUF\_ROM}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!PBUF\_ROM@{PBUF\_ROM}}}\mbox{\Hypertarget{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac120b0fe39efe35bb682e4aa3b82e2c9}\label{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac120b0fe39efe35bb682e4aa3b82e2c9}} 
+PBUF\+\_\+\+ROM&pbuf data is stored in ROM, i.\+e. struct pbuf and its payload are located in totally different memory areas. Since it points to ROM, payload does not have to be copied when queued for transmission. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PBUF\_REF@{PBUF\_REF}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!PBUF\_REF@{PBUF\_REF}}}\mbox{\Hypertarget{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac9b6ba960fdea6f2e8f35c8313b77e4e}\label{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac9b6ba960fdea6f2e8f35c8313b77e4e}} 
+PBUF\+\_\+\+REF&pbuf comes from the pbuf pool. Much like PBUF\+\_\+\+ROM but payload might change so it has to be duplicated when queued before transmitting, depending on who has a \textquotesingle{}ref\textquotesingle{} to it. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PBUF\_POOL@{PBUF\_POOL}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!PBUF\_POOL@{PBUF\_POOL}}}\mbox{\Hypertarget{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbae969347127387b9b59a23ccd24b76d21}\label{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbae969347127387b9b59a23ccd24b76d21}} 
+PBUF\+\_\+\+POOL&pbuf payload refers to RAM. This one comes from a pool and should be used for RX. Payload can be chained (scatter-\/gather RX) but like PBUF\+\_\+\+RAM, struct pbuf and its payload are allocated in one piece of contiguous memory (so the first payload byte can be calculated from struct pbuf). Don\textquotesingle{}t use this for TX, if the pool becomes empty e.\+g. because of TCP queuing, you are unable to receive TCP acks! \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__pbuf_ga8bb9c5d54a06995b1c67ce695ead9969}\label{group__pbuf_ga8bb9c5d54a06995b1c67ce695ead9969}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_alloc@{pbuf\_alloc}}
+\index{pbuf\_alloc@{pbuf\_alloc}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_alloc()}{pbuf\_alloc()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ pbuf\+\_\+alloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}}}]{layer,  }\item[{u16\+\_\+t}]{length,  }\item[{\mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+Allocates a pbuf of the given type (possibly a chain for PBUF\+\_\+\+POOL type).
+
+The actual memory allocated for the pbuf is determined by the layer at which the pbuf is allocated and the requested size (from the size parameter).
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer} & header size \\
+\hline
+{\em length} & size of the pbuf\textquotesingle{}s payload \\
+\hline
+{\em type} & this parameter decides how and where the pbuf should be allocated as follows\+:\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item PBUF\+\_\+\+RAM\+: buffer memory for pbuf is allocated as one large chunk. This includes protocol headers as well.
+\item PBUF\+\_\+\+ROM\+: no buffer memory is allocated for the pbuf, even for protocol headers. Additional headers must be prepended by allocating another pbuf and chain in to the front of the ROM pbuf. It is assumed that the memory used is really similar to ROM in that it is immutable and will not be changed. Memory which is dynamic should generally not be attached to PBUF\+\_\+\+ROM pbufs. Use PBUF\+\_\+\+REF instead.
+\item PBUF\+\_\+\+REF\+: no buffer memory is allocated for the pbuf, even for protocol headers. It is assumed that the pbuf is only being used in a single thread. If the pbuf gets queued, then pbuf\+\_\+take should be called to copy the buffer.
+\item PBUF\+\_\+\+POOL\+: the pbuf is allocated as a pbuf chain, with pbufs from the pbuf pool that is allocated during pbuf\+\_\+init().
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+the allocated pbuf. If multiple pbufs where allocated, this is the first pbuf of a pbuf chain. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_ga6cff29c18a60a7f2828457fa61e3accb}\label{group__pbuf_ga6cff29c18a60a7f2828457fa61e3accb}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_alloc\_reference@{pbuf\_alloc\_reference}}
+\index{pbuf\_alloc\_reference@{pbuf\_alloc\_reference}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_alloc\_reference()}{pbuf\_alloc\_reference()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ pbuf\+\_\+alloc\+\_\+reference (\begin{DoxyParamCaption}\item[{void $\ast$}]{payload,  }\item[{u16\+\_\+t}]{length,  }\item[{\mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}}}]{type }\end{DoxyParamCaption})}
+
+Allocates a pbuf for referenced data. Referenced data can be volatile (PBUF\+\_\+\+REF) or long-\/lived (PBUF\+\_\+\+ROM).
+
+The actual memory allocated for the pbuf is determined by the layer at which the pbuf is allocated and the requested size (from the size parameter).
+
+
+\begin{DoxyParams}{Parameters}
+{\em payload} & referenced payload \\
+\hline
+{\em length} & size of the pbuf\textquotesingle{}s payload \\
+\hline
+{\em type} & this parameter decides how and where the pbuf should be allocated as follows\+:\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyItemize}
+\item PBUF\+\_\+\+ROM\+: It is assumed that the memory used is really similar to ROM in that it is immutable and will not be changed. Memory which is dynamic should generally not be attached to PBUF\+\_\+\+ROM pbufs. Use PBUF\+\_\+\+REF instead.
+\item PBUF\+\_\+\+REF\+: It is assumed that the pbuf is only being used in a single thread. If the pbuf gets queued, then pbuf\+\_\+take should be called to copy the buffer.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+the allocated pbuf. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_ga82429084fe29015509c9b4a072707cd4}\label{group__pbuf_ga82429084fe29015509c9b4a072707cd4}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_cat@{pbuf\_cat}}
+\index{pbuf\_cat@{pbuf\_cat}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_cat()}{pbuf\_cat()}}
+{\footnotesize\ttfamily void pbuf\+\_\+cat (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{h,  }\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+Concatenate two pbufs (each may be a pbuf chain) and take over the caller\textquotesingle{}s reference of the tail pbuf.
+
+\begin{DoxyNote}{Note}
+The caller MAY NOT reference the tail pbuf afterwards. Use \mbox{\hyperlink{group__pbuf_ga831c9a72bda1d3bd4c7b96f5a0e3b891}{pbuf\+\_\+chain()}} for that purpose.
+\end{DoxyNote}
+This function explicitly does not check for tot\+\_\+len overflow to prevent failing to queue too long pbufs. This can produce invalid pbufs, so handle with care!
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__pbuf_ga831c9a72bda1d3bd4c7b96f5a0e3b891}{pbuf\+\_\+chain()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__pbuf_ga831c9a72bda1d3bd4c7b96f5a0e3b891}\label{group__pbuf_ga831c9a72bda1d3bd4c7b96f5a0e3b891}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_chain@{pbuf\_chain}}
+\index{pbuf\_chain@{pbuf\_chain}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_chain()}{pbuf\_chain()}}
+{\footnotesize\ttfamily void pbuf\+\_\+chain (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{h,  }\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+Chain two pbufs (or pbuf chains) together.
+
+The caller MUST call pbuf\+\_\+free(t) once it has stopped using it. Use \mbox{\hyperlink{group__pbuf_ga82429084fe29015509c9b4a072707cd4}{pbuf\+\_\+cat()}} instead if you no longer use t.
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & head pbuf (chain) \\
+\hline
+{\em t} & tail pbuf (chain) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The pbufs MUST belong to the same packet. 
+
+MAY NOT be called on a packet queue.
+\end{DoxyNote}
+The -\/\texorpdfstring{$>$}{>}tot\+\_\+len fields of all pbufs of the head chain are adjusted. The -\/\texorpdfstring{$>$}{>}next field of the last pbuf of the head chain is adjusted. The -\/\texorpdfstring{$>$}{>}ref field of the first pbuf of the tail chain is adjusted. \mbox{\Hypertarget{group__pbuf_gac6842a5d8268606f9608bae15d652a22}\label{group__pbuf_gac6842a5d8268606f9608bae15d652a22}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_clone@{pbuf\_clone}}
+\index{pbuf\_clone@{pbuf\_clone}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_clone()}{pbuf\_clone()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ pbuf\+\_\+clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}}}]{layer,  }\item[{\mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\+\_\+type}}}]{type,  }\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+Allocates a new pbuf of same length (via \mbox{\hyperlink{group__pbuf_ga8bb9c5d54a06995b1c67ce695ead9969}{pbuf\+\_\+alloc()}}) and copies the source pbuf into this new pbuf (using \mbox{\hyperlink{group__pbuf_gaba88511dee3df4b631fde691f421320d}{pbuf\+\_\+copy()}}).
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer} & pbuf\+\_\+layer of the new pbuf \\
+\hline
+{\em type} & this parameter decides how and where the pbuf should be allocated (\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__pbuf_ga8bb9c5d54a06995b1c67ce695ead9969}{pbuf\+\_\+alloc()}}) 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & the source pbuf\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new pbuf or NULL if allocation fails 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_ga031469589fa95ece3bf1c136d1509eac}\label{group__pbuf_ga031469589fa95ece3bf1c136d1509eac}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_coalesce@{pbuf\_coalesce}}
+\index{pbuf\_coalesce@{pbuf\_coalesce}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_coalesce()}{pbuf\_coalesce()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ pbuf\+\_\+coalesce (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\+\_\+layer}}}]{layer }\end{DoxyParamCaption})}
+
+Creates a single pbuf out of a queue of pbufs.
+
+\begin{DoxyRemark}{Remarks}
+\+: Either the source pbuf \textquotesingle{}p\textquotesingle{} is freed by this function or the original pbuf \textquotesingle{}p\textquotesingle{} is returned, therefore the caller has to check the result!
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em p} & the source pbuf \\
+\hline
+{\em layer} & pbuf\+\_\+layer of the new pbuf\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new, single pbuf (p-\/\texorpdfstring{$>$}{>}next is NULL) or the old pbuf if allocation fails 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_gaba88511dee3df4b631fde691f421320d}\label{group__pbuf_gaba88511dee3df4b631fde691f421320d}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_copy@{pbuf\_copy}}
+\index{pbuf\_copy@{pbuf\_copy}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_copy()}{pbuf\_copy()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} pbuf\+\_\+copy (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p\+\_\+to,  }\item[{const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p\+\_\+from }\end{DoxyParamCaption})}
+
+Create PBUF\+\_\+\+RAM copies of pbufs.
+
+Used to queue packets on behalf of the lw\+IP stack, such as ARP based queueing.
+
+\begin{DoxyNote}{Note}
+You MUST explicitly use p = pbuf\+\_\+take(p);
+
+Only one packet is copied, no packet queue!
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+to} & pbuf destination of the copy \\
+\hline
+{\em p\+\_\+from} & pbuf source of the copy\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if pbuf was copied ERR\+\_\+\+ARG if one of the pbufs is NULL or p\+\_\+to is not big enough to hold p\+\_\+from 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_gac2f1f58fd36042e82af46f5015720899}\label{group__pbuf_gac2f1f58fd36042e82af46f5015720899}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_copy\_partial@{pbuf\_copy\_partial}}
+\index{pbuf\_copy\_partial@{pbuf\_copy\_partial}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_copy\_partial()}{pbuf\_copy\_partial()}}
+{\footnotesize\ttfamily u16\+\_\+t pbuf\+\_\+copy\+\_\+partial (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{buf,  }\item[{void $\ast$}]{dataptr,  }\item[{u16\+\_\+t}]{len,  }\item[{u16\+\_\+t}]{offset }\end{DoxyParamCaption})}
+
+Copy (part of) the contents of a packet buffer to an application supplied buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & the pbuf from which to copy data \\
+\hline
+{\em dataptr} & the application supplied buffer \\
+\hline
+{\em len} & length of data to copy (dataptr must be big enough). No more than buf-\/\texorpdfstring{$>$}{>}tot\+\_\+len will be copied, irrespective of len \\
+\hline
+{\em offset} & offset into the packet buffer from where to begin copying len bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of bytes copied, or 0 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_gab0dd696fb4b6bc65e548944584f1738b}\label{group__pbuf_gab0dd696fb4b6bc65e548944584f1738b}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_free@{pbuf\_free}}
+\index{pbuf\_free@{pbuf\_free}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_free()}{pbuf\_free()}}
+{\footnotesize\ttfamily u8\+\_\+t pbuf\+\_\+free (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+Dereference a pbuf chain or queue and deallocate any no-\/longer-\/used pbufs at the head of this chain or queue.
+
+Decrements the pbuf reference count. If it reaches zero, the pbuf is deallocated.
+
+For a pbuf chain, this is repeated for each pbuf in the chain, up to the first pbuf which has a non-\/zero reference count after decrementing. So, when all reference counts are one, the whole chain is free\textquotesingle{}d.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The pbuf (chain) to be dereferenced.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of pbufs that were de-\/allocated from the head of the chain.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+MUST NOT be called on a packet queue (Not verified to work yet). 
+
+the reference counter of a pbuf equals the number of pointers that refer to the pbuf (or into the pbuf). 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__pbuf_ga6d803d9945bffb7ad97743f2fa503da6}\label{group__pbuf_ga6d803d9945bffb7ad97743f2fa503da6}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_get\_at@{pbuf\_get\_at}}
+\index{pbuf\_get\_at@{pbuf\_get\_at}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_get\_at()}{pbuf\_get\_at()}}
+{\footnotesize\ttfamily u8\+\_\+t pbuf\+\_\+get\+\_\+at (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{u16\+\_\+t}]{offset }\end{DoxyParamCaption})}
+
+Get one byte from the specified position in a pbuf WARNING\+: returns zero for offset \texorpdfstring{$>$}{>}= p-\/\texorpdfstring{$>$}{>}tot\+\_\+len
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to parse \\
+\hline
+{\em offset} & offset into p of the byte to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+byte at an offset into p OR ZERO IF \textquotesingle{}offset\textquotesingle{} \texorpdfstring{$>$}{>}= p-\/\texorpdfstring{$>$}{>}tot\+\_\+len 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_ga6da6c83929df1b736b107e89faa8a8a2}\label{group__pbuf_ga6da6c83929df1b736b107e89faa8a8a2}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_get\_contiguous@{pbuf\_get\_contiguous}}
+\index{pbuf\_get\_contiguous@{pbuf\_get\_contiguous}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_get\_contiguous()}{pbuf\_get\_contiguous()}}
+{\footnotesize\ttfamily void $\ast$ pbuf\+\_\+get\+\_\+contiguous (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{void $\ast$}]{buffer,  }\item[{size\+\_\+t}]{bufsize,  }\item[{u16\+\_\+t}]{len,  }\item[{u16\+\_\+t}]{offset }\end{DoxyParamCaption})}
+
+Get part of a pbuf\textquotesingle{}s payload as contiguous memory. The returned memory is either a pointer into the pbuf\textquotesingle{}s payload or, if split over multiple pbufs, a copy into the user-\/supplied buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & the pbuf from which to copy data \\
+\hline
+{\em buffer} & the application supplied buffer \\
+\hline
+{\em bufsize} & size of the application supplied buffer \\
+\hline
+{\em len} & length of data to copy (dataptr must be big enough). No more than buf-\/\texorpdfstring{$>$}{>}tot\+\_\+len will be copied, irrespective of len \\
+\hline
+{\em offset} & offset into the packet buffer from where to begin copying len bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of bytes copied, or 0 on failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_ga2170ccbbb13238380dbb203ee1b85974}\label{group__pbuf_ga2170ccbbb13238380dbb203ee1b85974}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_memcmp@{pbuf\_memcmp}}
+\index{pbuf\_memcmp@{pbuf\_memcmp}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_memcmp()}{pbuf\_memcmp()}}
+{\footnotesize\ttfamily u16\+\_\+t pbuf\+\_\+memcmp (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{u16\+\_\+t}]{offset,  }\item[{const void $\ast$}]{s2,  }\item[{u16\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+Compare pbuf contents at specified offset with memory s2, both of length n
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to compare \\
+\hline
+{\em offset} & offset into p at which to start comparing \\
+\hline
+{\em s2} & buffer to compare \\
+\hline
+{\em n} & length of buffer to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+zero if equal, nonzero otherwise (0xffff if p is too short, diffoffset+1 otherwise) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_ga18c164a6e4a24d89ea9eb7571a886448}\label{group__pbuf_ga18c164a6e4a24d89ea9eb7571a886448}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_memfind@{pbuf\_memfind}}
+\index{pbuf\_memfind@{pbuf\_memfind}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_memfind()}{pbuf\_memfind()}}
+{\footnotesize\ttfamily u16\+\_\+t pbuf\+\_\+memfind (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{const void $\ast$}]{mem,  }\item[{u16\+\_\+t}]{mem\+\_\+len,  }\item[{u16\+\_\+t}]{start\+\_\+offset }\end{DoxyParamCaption})}
+
+Find occurrence of mem (with length mem\+\_\+len) in pbuf p, starting at offset start\+\_\+offset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to search, maximum length is 0x\+FFFE since 0x\+FFFF is used as return value \textquotesingle{}not found\textquotesingle{} \\
+\hline
+{\em mem} & search for the contents of this buffer \\
+\hline
+{\em mem\+\_\+len} & length of \textquotesingle{}mem\textquotesingle{} \\
+\hline
+{\em start\+\_\+offset} & offset into p at which to start searching \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0x\+FFFF if substr was not found in p or the index where it was found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_gaf76863707dc02993eae116574b1ea03f}\label{group__pbuf_gaf76863707dc02993eae116574b1ea03f}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_put\_at@{pbuf\_put\_at}}
+\index{pbuf\_put\_at@{pbuf\_put\_at}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_put\_at()}{pbuf\_put\_at()}}
+{\footnotesize\ttfamily void pbuf\+\_\+put\+\_\+at (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{u16\+\_\+t}]{offset,  }\item[{u8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+Put one byte to the specified position in a pbuf WARNING\+: silently ignores offset \texorpdfstring{$>$}{>}= p-\/\texorpdfstring{$>$}{>}tot\+\_\+len
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to fill \\
+\hline
+{\em offset} & offset into p of the byte to write \\
+\hline
+{\em data} & byte to write at an offset into p \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__pbuf_ga50abfe830a33a1a47a562febee66015d}\label{group__pbuf_ga50abfe830a33a1a47a562febee66015d}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_realloc@{pbuf\_realloc}}
+\index{pbuf\_realloc@{pbuf\_realloc}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_realloc()}{pbuf\_realloc()}}
+{\footnotesize\ttfamily void pbuf\+\_\+realloc (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{u16\+\_\+t}]{new\+\_\+len }\end{DoxyParamCaption})}
+
+Shrink a pbuf chain to a desired length.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to shrink. \\
+\hline
+{\em new\+\_\+len} & desired new length of pbuf chain\\
+\hline
+\end{DoxyParams}
+Depending on the desired length, the first few pbufs in a chain might be skipped and left unchanged. The new last pbuf in the chain will be resized, and any remaining pbufs will be freed.
+
+\begin{DoxyNote}{Note}
+If the pbuf is ROM/\+REF, only the -\/\texorpdfstring{$>$}{>}tot\+\_\+len and -\/\texorpdfstring{$>$}{>}len fields are adjusted. 
+
+May not be called on a packet queue.
+
+Despite its name, pbuf\+\_\+realloc cannot grow the size of a pbuf (chain). 
+\end{DoxyNote}
+\mbox{\Hypertarget{group__pbuf_ga77f6bbd69e45e542014d9c547c7da74e}\label{group__pbuf_ga77f6bbd69e45e542014d9c547c7da74e}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_ref@{pbuf\_ref}}
+\index{pbuf\_ref@{pbuf\_ref}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_ref()}{pbuf\_ref()}}
+{\footnotesize\ttfamily void pbuf\+\_\+ref (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+Increment the reference count of the pbuf.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to increase reference counter of \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__pbuf_gabe4dfb2409c87a7c52c9a22a779f92e9}\label{group__pbuf_gabe4dfb2409c87a7c52c9a22a779f92e9}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_skip@{pbuf\_skip}}
+\index{pbuf\_skip@{pbuf\_skip}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_skip()}{pbuf\_skip()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$ pbuf\+\_\+skip (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{in,  }\item[{u16\+\_\+t}]{in\+\_\+offset,  }\item[{u16\+\_\+t $\ast$}]{out\+\_\+offset }\end{DoxyParamCaption})}
+
+Skip a number of bytes at the start of a pbuf
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & input pbuf \\
+\hline
+{\em in\+\_\+offset} & offset to skip \\
+\hline
+{\em out\+\_\+offset} & resulting offset in the returned pbuf \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the pbuf in the queue where the offset is 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_gad1e31e370271335b197272af2724ca85}\label{group__pbuf_gad1e31e370271335b197272af2724ca85}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_take@{pbuf\_take}}
+\index{pbuf\_take@{pbuf\_take}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_take()}{pbuf\_take()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} pbuf\+\_\+take (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{buf,  }\item[{const void $\ast$}]{dataptr,  }\item[{u16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+Copy application supplied data into a pbuf. This function can only be used to copy the equivalent of buf-\/\texorpdfstring{$>$}{>}tot\+\_\+len data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & pbuf to fill with data \\
+\hline
+{\em dataptr} & application supplied data buffer \\
+\hline
+{\em len} & length of the application supplied data buffer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if successful, ERR\+\_\+\+MEM if the pbuf is not big enough 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_gae1cf2bf7454ff87ff377b0b2262f9b44}\label{group__pbuf_gae1cf2bf7454ff87ff377b0b2262f9b44}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_take\_at@{pbuf\_take\_at}}
+\index{pbuf\_take\_at@{pbuf\_take\_at}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_take\_at()}{pbuf\_take\_at()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} pbuf\+\_\+take\+\_\+at (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{buf,  }\item[{const void $\ast$}]{dataptr,  }\item[{u16\+\_\+t}]{len,  }\item[{u16\+\_\+t}]{offset }\end{DoxyParamCaption})}
+
+Same as \mbox{\hyperlink{group__pbuf_gad1e31e370271335b197272af2724ca85}{pbuf\+\_\+take()}} but puts data at an offset
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & pbuf to fill with data \\
+\hline
+{\em dataptr} & application supplied data buffer \\
+\hline
+{\em len} & length of the application supplied data buffer \\
+\hline
+{\em offset} & offset in pbuf where to copy dataptr to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if successful, ERR\+\_\+\+MEM if the pbuf is not big enough 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group__pbuf_ga839f342803b0cf89049744124c5a98ad}\label{group__pbuf_ga839f342803b0cf89049744124c5a98ad}} 
+\index{Packet buffers (PBUF)@{Packet buffers (PBUF)}!pbuf\_try\_get\_at@{pbuf\_try\_get\_at}}
+\index{pbuf\_try\_get\_at@{pbuf\_try\_get\_at}!Packet buffers (PBUF)@{Packet buffers (PBUF)}}
+\doxysubsubsection{\texorpdfstring{pbuf\_try\_get\_at()}{pbuf\_try\_get\_at()}}
+{\footnotesize\ttfamily int pbuf\+\_\+try\+\_\+get\+\_\+at (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{u16\+\_\+t}]{offset }\end{DoxyParamCaption})}
+
+Get one byte from the specified position in a pbuf
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & pbuf to parse \\
+\hline
+{\em offset} & offset into p of the byte to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+byte at an offset into p \mbox{[}0..0x\+FF\mbox{]} OR negative if \textquotesingle{}offset\textquotesingle{} \texorpdfstring{$>$}{>}= p-\/\texorpdfstring{$>$}{>}tot\+\_\+len 
+\end{DoxyReturn}

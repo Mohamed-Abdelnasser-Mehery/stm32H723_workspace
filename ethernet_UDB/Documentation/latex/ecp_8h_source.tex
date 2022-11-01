@@ -1,0 +1,68 @@
+\hypertarget{ecp_8h_source}{}\doxysection{ecp.\+h}
+\label{ecp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ecp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ecp.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * ecp.h -\/ Definitions for PPP Encryption Control Protocol.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 2002 Google, Inc.}}
+\DoxyCodeLine{5 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{8 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{9 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{12 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    the documentation and/or other materials provided with the}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ *}}
+\DoxyCodeLine{19 \textcolor{comment}{ * 3. The name(s) of the authors of this software must not be used to}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{21 \textcolor{comment}{ *    prior written permission.}}
+\DoxyCodeLine{22 \textcolor{comment}{ *}}
+\DoxyCodeLine{23 \textcolor{comment}{ * THE AUTHORS OF THIS SOFTWARE DISCLAIM ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{24 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{25 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY}}
+\DoxyCodeLine{26 \textcolor{comment}{ * SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{27 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{30 \textcolor{comment}{ *}}
+\DoxyCodeLine{31 \textcolor{comment}{ * \$Id: ecp.h,v 1.2 2003/01/10 07:12:36 fcusack Exp \$}}
+\DoxyCodeLine{32 \textcolor{comment}{ */}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& ECP\_SUPPORT  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef ECP\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define ECP\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{41 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ecp\_options \{}
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} required;      \textcolor{comment}{/* Is ECP required? */}}
+\DoxyCodeLine{46     \textcolor{keywordtype}{unsigned} enctype;       \textcolor{comment}{/* Encryption type */}}
+\DoxyCodeLine{47 \} ecp\_options;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{extern} fsm ecp\_fsm[];}
+\DoxyCodeLine{50 \textcolor{keyword}{extern} ecp\_options ecp\_wantoptions[];}
+\DoxyCodeLine{51 \textcolor{keyword}{extern} ecp\_options ecp\_gotoptions[];}
+\DoxyCodeLine{52 \textcolor{keyword}{extern} ecp\_options ecp\_allowoptions[];}
+\DoxyCodeLine{53 \textcolor{keyword}{extern} ecp\_options ecp\_hisoptions[];}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }protent ecp\_protent;}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{58 \}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ECP\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& ECP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

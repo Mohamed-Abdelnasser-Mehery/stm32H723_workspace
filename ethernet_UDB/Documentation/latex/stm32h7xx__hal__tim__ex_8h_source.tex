@@ -1,0 +1,350 @@
+\hypertarget{stm32h7xx__hal__tim__ex_8h_source}{}\doxysection{stm32h7xx\+\_\+hal\+\_\+tim\+\_\+ex.\+h}
+\label{stm32h7xx__hal__tim__ex_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_tim\_ex.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_tim\_ex.h}}
+\mbox{\hyperlink{stm32h7xx__hal__tim__ex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{19 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef STM32H7xx\_HAL\_TIM\_EX\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define STM32H7xx\_HAL\_TIM\_EX\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{24 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32h7xx__hal__def_8h}{stm32h7xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{38 \textcolor{comment}{/* Exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{47 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{48 \{}
+\DoxyCodeLine{49   uint32\_t \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_ac1191c7421a3ca4c53ec7875870812e5}{IC1Polarity}};         }
+\DoxyCodeLine{52   uint32\_t \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_aa913a8df0a4c97fefa87ff760fae10cb}{IC1Prescaler}};        }
+\DoxyCodeLine{55   uint32\_t \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_a5efa2ad5085fe72fb0b5dc2e2fc61def}{IC1Filter}};           }
+\DoxyCodeLine{58   uint32\_t \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_a5d74bf14283eb95439d6d37952274f07}{Commutation\_Delay}};   }
+\DoxyCodeLine{60 \} \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def}{TIM\_HallSensor\_InitTypeDef}};}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#if defined(TIM\_BREAK\_INPUT\_SUPPORT)}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{66 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{67 \{}
+\DoxyCodeLine{68   uint32\_t Source;         }
+\DoxyCodeLine{70   uint32\_t Enable;         }
+\DoxyCodeLine{72   uint32\_t Polarity;       }
+\DoxyCodeLine{75 \} TIMEx\_BreakInputConfigTypeDef;}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TIM\_BREAK\_INPUT\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{81 \textcolor{comment}{/* End of exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{comment}{/* Exported constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define TIM\_TIM1\_ETR\_GPIO        0x00000000U                                                 }\textcolor{comment}{/* !< TIM1\_ETR is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define TIM\_TIM1\_ETR\_COMP1       TIM1\_AF1\_ETRSEL\_0                                           }\textcolor{comment}{/* !< TIM1\_ETR is connected to COMP1 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define TIM\_TIM1\_ETR\_COMP2       TIM1\_AF1\_ETRSEL\_1                                           }\textcolor{comment}{/* !< TIM1\_ETR is connected to COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define TIM\_TIM1\_ETR\_ADC1\_AWD1   (TIM1\_AF1\_ETRSEL\_1 | TIM1\_AF1\_ETRSEL\_0)                     }\textcolor{comment}{/* !< TIM1\_ETR is connected to ADC1 AWD1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define TIM\_TIM1\_ETR\_ADC1\_AWD2   (TIM1\_AF1\_ETRSEL\_2)                                         }\textcolor{comment}{/* !< TIM1\_ETR is connected to ADC1 AWD2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define TIM\_TIM1\_ETR\_ADC1\_AWD3   (TIM1\_AF1\_ETRSEL\_2 | TIM1\_AF1\_ETRSEL\_0)                     }\textcolor{comment}{/* !< TIM1\_ETR is connected to ADC1 AWD3 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define TIM\_TIM1\_ETR\_ADC3\_AWD1   (TIM1\_AF1\_ETRSEL\_2 | TIM1\_AF1\_ETRSEL\_1)                     }\textcolor{comment}{/* !< TIM1\_ETR is connected to ADC3 AWD1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define TIM\_TIM1\_ETR\_ADC3\_AWD2   (TIM1\_AF1\_ETRSEL\_2 | TIM1\_AF1\_ETRSEL\_1 | TIM1\_AF1\_ETRSEL\_0) }\textcolor{comment}{/* !< TIM1\_ETR is connected to ADC3 AWD2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define TIM\_TIM1\_ETR\_ADC3\_AWD3   TIM1\_AF1\_ETRSEL\_3                                           }\textcolor{comment}{/* !< TIM1\_ETR is connected to ADC3 AWD3 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define TIM\_TIM8\_ETR\_GPIO        0x00000000U                                                 }\textcolor{comment}{/* !< TIM8\_ETR is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define TIM\_TIM8\_ETR\_COMP1       TIM8\_AF1\_ETRSEL\_0                                           }\textcolor{comment}{/* !< TIM8\_ETR is connected to COMP1 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define TIM\_TIM8\_ETR\_COMP2       TIM8\_AF1\_ETRSEL\_1                                           }\textcolor{comment}{/* !< TIM8\_ETR is connected to COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define TIM\_TIM8\_ETR\_ADC2\_AWD1   (TIM8\_AF1\_ETRSEL\_1 | TIM8\_AF1\_ETRSEL\_0)                     }\textcolor{comment}{/* !< TIM8\_ETR is connected to ADC2 AWD1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define TIM\_TIM8\_ETR\_ADC2\_AWD2   (TIM8\_AF1\_ETRSEL\_2)                                         }\textcolor{comment}{/* !< TIM8\_ETR is connected to ADC2 AWD2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define TIM\_TIM8\_ETR\_ADC2\_AWD3   (TIM8\_AF1\_ETRSEL\_2 | TIM8\_AF1\_ETRSEL\_0)                     }\textcolor{comment}{/* !< TIM8\_ETR is connected to ADC2 AWD3 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define TIM\_TIM8\_ETR\_ADC3\_AWD1   (TIM8\_AF1\_ETRSEL\_2 | TIM8\_AF1\_ETRSEL\_1)                     }\textcolor{comment}{/* !< TIM8\_ETR is connected to ADC3 AWD1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define TIM\_TIM8\_ETR\_ADC3\_AWD2   (TIM8\_AF1\_ETRSEL\_2 | TIM8\_AF1\_ETRSEL\_1 | TIM8\_AF1\_ETRSEL\_0) }\textcolor{comment}{/* !< TIM8\_ETR is connected to ADC3 AWD2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define TIM\_TIM8\_ETR\_ADC3\_AWD3   TIM8\_AF1\_ETRSEL\_3                                           }\textcolor{comment}{/* !< TIM8\_ETR is connected to ADC3 AWD3 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define TIM\_TIM2\_ETR\_GPIO        0x00000000U                             }\textcolor{comment}{/* !< TIM2\_ETR is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define TIM\_TIM2\_ETR\_COMP1       (TIM2\_AF1\_ETRSEL\_0)                     }\textcolor{comment}{/* !< TIM2\_ETR is connected to COMP1 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define TIM\_TIM2\_ETR\_COMP2       (TIM2\_AF1\_ETRSEL\_1)                     }\textcolor{comment}{/* !< TIM2\_ETR is connected to COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define TIM\_TIM2\_ETR\_RCC\_LSE     (TIM2\_AF1\_ETRSEL\_1 | TIM8\_AF1\_ETRSEL\_0) }\textcolor{comment}{/* !< TIM2\_ETR is connected to RCC LSE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define TIM\_TIM2\_ETR\_SAI1\_FSA    TIM2\_AF1\_ETRSEL\_2                       }\textcolor{comment}{/* !< TIM2\_ETR is connected to SAI1 FS\_A */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define TIM\_TIM2\_ETR\_SAI1\_FSB    (TIM2\_AF1\_ETRSEL\_2 | TIM8\_AF1\_ETRSEL\_0) }\textcolor{comment}{/* !< TIM2\_ETR is connected to SAI1 FS\_B */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define TIM\_TIM3\_ETR\_GPIO        0x00000000U          }\textcolor{comment}{/* !< TIM3\_ETR is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define TIM\_TIM3\_ETR\_COMP1       TIM3\_AF1\_ETRSEL\_0    }\textcolor{comment}{/* !< TIM3\_ETR is connected to COMP1 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define TIM\_TIM5\_ETR\_GPIO        0x00000000U          }\textcolor{comment}{/* !< TIM5\_ETR is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define TIM\_TIM5\_ETR\_SAI2\_FSA    TIM5\_AF1\_ETRSEL\_0    }\textcolor{comment}{/* !< TIM5\_ETR is connected to SAI2 FS\_A */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define TIM\_TIM5\_ETR\_SAI2\_FSB    TIM5\_AF1\_ETRSEL\_1    }\textcolor{comment}{/* !< TIM5\_ETR is connected to SAI2 FS\_B */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define TIM\_TIM5\_ETR\_SAI4\_FSA    TIM5\_AF1\_ETRSEL\_0    }\textcolor{comment}{/* !< TIM5\_ETR is connected to SAI4 FS\_A */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define TIM\_TIM5\_ETR\_SAI4\_FSB    TIM5\_AF1\_ETRSEL\_1    }\textcolor{comment}{/* !< TIM5\_ETR is connected to SAI4 FS\_B */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define TIM\_TIM23\_ETR\_GPIO       0x00000000U          }\textcolor{comment}{/* !< TIM23\_ETR is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define TIM\_TIM23\_ETR\_COMP1      (TIM2\_AF1\_ETRSEL\_0)  }\textcolor{comment}{/* !< TIM23\_ETR is connected to COMP1 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define TIM\_TIM23\_ETR\_COMP2      (TIM2\_AF1\_ETRSEL\_1)  }\textcolor{comment}{/* !< TIM23\_ETR is connected to COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define TIM\_TIM24\_ETR\_GPIO        0x00000000U                                }\textcolor{comment}{/* !< TIM24\_ETR is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define TIM\_TIM24\_ETR\_SAI4\_FSA    TIM5\_AF1\_ETRSEL\_0                          }\textcolor{comment}{/* !< TIM24\_ETR is connected to SAI4 FS\_A */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define TIM\_TIM24\_ETR\_SAI4\_FSB    TIM5\_AF1\_ETRSEL\_1                          }\textcolor{comment}{/* !< TIM24\_ETR is connected to SAI4 FS\_B */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define TIM\_TIM24\_ETR\_SAI1\_FSA    (TIM2\_AF1\_ETRSEL\_1 | TIM8\_AF1\_ETRSEL\_0)    }\textcolor{comment}{/* !< TIM24\_ETR is connected to SAI1 FS\_A */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define TIM\_TIM24\_ETR\_SAI1\_FSB    TIM2\_AF1\_ETRSEL\_2                          }\textcolor{comment}{/* !< TIM24\_ETR is connected to SAI1 FS\_B */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#if defined(TIM\_BREAK\_INPUT\_SUPPORT)}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#define TIM\_BREAKINPUT\_BRK     0x00000001U                                      }}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define TIM\_BREAKINPUT\_BRK2    0x00000002U                                      }}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define TIM\_BREAKINPUTSOURCE\_BKIN     0x00000001U                               }\textcolor{comment}{/* !< An external source (GPIO) is connected to the BKIN pin  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define TIM\_BREAKINPUTSOURCE\_COMP1    0x00000002U                               }\textcolor{comment}{/* !< The COMP1 output is connected to the break input */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define TIM\_BREAKINPUTSOURCE\_COMP2    0x00000004U                               }\textcolor{comment}{/* !< The COMP2 output is connected to the break input */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define TIM\_BREAKINPUTSOURCE\_DFSDM1   0x00000008U                               }\textcolor{comment}{/* !< The analog watchdog output of the DFSDM1 peripheral is connected to the break input */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define TIM\_BREAKINPUTSOURCE\_DISABLE     0x00000000U                            }}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define TIM\_BREAKINPUTSOURCE\_ENABLE      0x00000001U                            }}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define TIM\_BREAKINPUTSOURCE\_POLARITY\_LOW     0x00000001U                       }}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define TIM\_BREAKINPUTSOURCE\_POLARITY\_HIGH    0x00000000U                       }}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TIM\_BREAK\_INPUT\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#define TIM\_TIM1\_TI1\_GPIO                          0x00000000U                               }\textcolor{comment}{/* !< TIM1\_TI1 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#define TIM\_TIM1\_TI1\_COMP1                         TIM\_TISEL\_TI1SEL\_0                        }\textcolor{comment}{/* !< TIM1\_TI1 is connected to COMP1 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define TIM\_TIM8\_TI1\_GPIO                          0x00000000U                               }\textcolor{comment}{/* !< TIM8\_TI1 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#define TIM\_TIM8\_TI1\_COMP2                         TIM\_TISEL\_TI1SEL\_0                        }\textcolor{comment}{/* !< TIM8\_TI1 is connected to COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#define TIM\_TIM2\_TI4\_GPIO                          0x00000000U                               }\textcolor{comment}{/* !< TIM2\_TI4 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define TIM\_TIM2\_TI4\_COMP1                         TIM\_TISEL\_TI4SEL\_0                        }\textcolor{comment}{/* !< TIM2\_TI4 is connected to COMP1 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#define TIM\_TIM2\_TI4\_COMP2                         TIM\_TISEL\_TI4SEL\_1                        }\textcolor{comment}{/* !< TIM2\_TI4 is connected to COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#define TIM\_TIM2\_TI4\_COMP1\_COMP2                   (TIM\_TISEL\_TI4SEL\_0 | TIM\_TISEL\_TI4SEL\_1) }\textcolor{comment}{/* !< TIM2\_TI4 is connected to COMP2 OUT OR COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#define TIM\_TIM3\_TI1\_GPIO                          0x00000000U                               }\textcolor{comment}{/* !< TIM3\_TI1 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#define TIM\_TIM3\_TI1\_COMP1                         TIM\_TISEL\_TI1SEL\_0                        }\textcolor{comment}{/* !< TIM3\_TI1 is connected to COMP1 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#define TIM\_TIM3\_TI1\_COMP2                         TIM\_TISEL\_TI1SEL\_1                        }\textcolor{comment}{/* !< TIM3\_TI1 is connected to COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#define TIM\_TIM3\_TI1\_COMP1\_COMP2                   (TIM\_TISEL\_TI1SEL\_0 | TIM\_TISEL\_TI1SEL\_1) }\textcolor{comment}{/* !< TIM3\_TI1 is connected to COMP1 OUT or COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define TIM\_TIM5\_TI1\_GPIO                          0x00000000U                               }\textcolor{comment}{/* !< TIM5\_TI1 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#define TIM\_TIM5\_TI1\_CAN\_TMP                       TIM\_TISEL\_TI1SEL\_0                        }\textcolor{comment}{/* !< TIM5\_TI1 is connected to CAN TMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#define TIM\_TIM5\_TI1\_CAN\_RTP                       TIM\_TISEL\_TI1SEL\_1                        }\textcolor{comment}{/* !< TIM5\_TI1 is connected to CAN RTP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define TIM\_TIM12\_TI1\_GPIO                         0x00000000U                               }\textcolor{comment}{/* !< TIM12 TI1 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#define TIM\_TIM12\_TI1\_SPDIF\_FS                     TIM\_TISEL\_TI1SEL\_0                        }\textcolor{comment}{/* !< TIM12 TI1 is connected to SPDIF FS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI1\_GPIO                         0x00000000U                               }\textcolor{comment}{/* !< TIM15\_TI1 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI1\_TIM2\_CH1                     TIM\_TISEL\_TI1SEL\_0                        }\textcolor{comment}{/* !< TIM15\_TI1 is connected to TIM2 CH1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI1\_TIM3\_CH1                     TIM\_TISEL\_TI1SEL\_1                        }\textcolor{comment}{/* !< TIM15\_TI1 is connected to TIM3 CH1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI1\_TIM4\_CH1                     (TIM\_TISEL\_TI1SEL\_0 | TIM\_TISEL\_TI1SEL\_1) }\textcolor{comment}{/* !< TIM15\_TI1 is connected to TIM4 CH1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI1\_RCC\_LSE                      (TIM\_TISEL\_TI1SEL\_2)                      }\textcolor{comment}{/* !< TIM15\_TI1 is connected to RCC LSE  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI1\_RCC\_CSI                      (TIM\_TISEL\_TI1SEL\_2 | TIM\_TISEL\_TI1SEL\_0) }\textcolor{comment}{/* !< TIM15\_TI1 is connected to RCC CSI  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI1\_RCC\_MCO2                     (TIM\_TISEL\_TI1SEL\_2 | TIM\_TISEL\_TI1SEL\_1) }\textcolor{comment}{/* !< TIM15\_TI1 is connected to RCC MCO2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI2\_GPIO                         0x00000000U                               }\textcolor{comment}{/* !< TIM15\_TI2 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI2\_TIM2\_CH2                     (TIM\_TISEL\_TI2SEL\_0)                      }\textcolor{comment}{/* !< TIM15\_TI2 is connected to TIM2 CH2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{216 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI2\_TIM3\_CH2                     (TIM\_TISEL\_TI2SEL\_1)                      }\textcolor{comment}{/* !< TIM15\_TI2 is connected to TIM3 CH2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{217 \textcolor{preprocessor}{\#define TIM\_TIM15\_TI2\_TIM4\_CH2                     (TIM\_TISEL\_TI2SEL\_0 | TIM\_TISEL\_TI2SEL\_1) }\textcolor{comment}{/* !< TIM15\_TI2 is connected to TIM4 CH2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#define TIM\_TIM16\_TI1\_GPIO                         0x00000000U                               }\textcolor{comment}{/* !< TIM16 TI1 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#define TIM\_TIM16\_TI1\_RCC\_LSI                      TIM\_TISEL\_TI1SEL\_0                        }\textcolor{comment}{/* !< TIM16 TI1 is connected to RCC LSI */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#define TIM\_TIM16\_TI1\_RCC\_LSE                      TIM\_TISEL\_TI1SEL\_1                        }\textcolor{comment}{/* !< TIM16 TI1 is connected to RCC LSE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#define TIM\_TIM16\_TI1\_WKUP\_IT                      (TIM\_TISEL\_TI1SEL\_0 | TIM\_TISEL\_TI1SEL\_1) }\textcolor{comment}{/* !< TIM16 TI1 is connected to WKUP\_IT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#define TIM\_TIM17\_TI1\_GPIO                         0x00000000U                               }\textcolor{comment}{/* !< TIM17 TI1 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{225 \textcolor{preprocessor}{\#define TIM\_TIM17\_TI1\_SPDIF\_FS                     TIM\_TISEL\_TI1SEL\_0                        }\textcolor{comment}{/* !< TIM17 TI1 is connected to SPDIF FS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#define TIM\_TIM17\_TI1\_RCC\_HSE1MHZ                  TIM\_TISEL\_TI1SEL\_1                        }\textcolor{comment}{/* !< TIM17 TI1 is connected to RCC HSE 1Mhz */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#define TIM\_TIM17\_TI1\_RCC\_MCO1                     (TIM\_TISEL\_TI1SEL\_0 | TIM\_TISEL\_TI1SEL\_1) }\textcolor{comment}{/* !< TIM17 TI1 is connected to RCC MCO1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#define TIM\_TIM23\_TI4\_GPIO                         0x00000000U                               }\textcolor{comment}{/* !< TIM23\_TI4 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#define TIM\_TIM23\_TI4\_COMP1                        TIM\_TISEL\_TI4SEL\_0                        }\textcolor{comment}{/* !< TIM23\_TI4 is connected to COMP1 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#define TIM\_TIM23\_TI4\_COMP2                        TIM\_TISEL\_TI4SEL\_1                        }\textcolor{comment}{/* !< TIM23\_TI4 is connected to COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#define TIM\_TIM23\_TI4\_COMP1\_COMP2                  (TIM\_TISEL\_TI4SEL\_0 | TIM\_TISEL\_TI4SEL\_1) }\textcolor{comment}{/* !< TIM23\_TI4 is connected to COMP1 OUT or COMP2 OUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234 \textcolor{preprocessor}{\#define TIM\_TIM24\_TI1\_GPIO                         0x00000000U                               }\textcolor{comment}{/* !< TIM24\_TI1 is connected to GPIO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#define TIM\_TIM24\_TI1\_CAN\_TMP                      TIM\_TISEL\_TI1SEL\_0                        }\textcolor{comment}{/* !< TIM24\_TI1 is connected to CAN TMP  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#define TIM\_TIM24\_TI1\_CAN\_RTP                      TIM\_TISEL\_TI1SEL\_1                        }\textcolor{comment}{/* !< TIM24\_TI1 is connected to CAN RTP  */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#define TIM\_TIM24\_TI1\_CAN\_SOC                      (TIM\_TISEL\_TI4SEL\_0 | TIM\_TISEL\_TI4SEL\_1) }\textcolor{comment}{/* !< TIM24\_TI1 is connected to CAN SOC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{245 \textcolor{comment}{/* End of exported constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247 \textcolor{comment}{/* Exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{255 \textcolor{comment}{/* End of exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257 \textcolor{comment}{/* Private macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#define IS\_TIM\_BREAKINPUT(\_\_BREAKINPUT\_\_)  (((\_\_BREAKINPUT\_\_) == TIM\_BREAKINPUT\_BRK)  || \(\backslash\)}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{                                            ((\_\_BREAKINPUT\_\_) == TIM\_BREAKINPUT\_BRK2))}}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#define IS\_TIM\_BREAKINPUTSOURCE(\_\_SOURCE\_\_)  (((\_\_SOURCE\_\_) == TIM\_BREAKINPUTSOURCE\_BKIN)  || \(\backslash\)}}
+\DoxyCodeLine{265 \textcolor{preprocessor}{                                              ((\_\_SOURCE\_\_) == TIM\_BREAKINPUTSOURCE\_COMP1) || \(\backslash\)}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{                                              ((\_\_SOURCE\_\_) == TIM\_BREAKINPUTSOURCE\_COMP2) || \(\backslash\)}}
+\DoxyCodeLine{267 \textcolor{preprocessor}{                                              ((\_\_SOURCE\_\_) == TIM\_BREAKINPUTSOURCE\_DFSDM1))}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#define IS\_TIM\_BREAKINPUTSOURCE\_STATE(\_\_STATE\_\_)  (((\_\_STATE\_\_) == TIM\_BREAKINPUTSOURCE\_DISABLE)  || \(\backslash\)}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{                                                   ((\_\_STATE\_\_) == TIM\_BREAKINPUTSOURCE\_ENABLE))}}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#define IS\_TIM\_BREAKINPUTSOURCE\_POLARITY(\_\_POLARITY\_\_)  (((\_\_POLARITY\_\_) == TIM\_BREAKINPUTSOURCE\_POLARITY\_LOW)  || \(\backslash\)}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{                                                         ((\_\_POLARITY\_\_) == TIM\_BREAKINPUTSOURCE\_POLARITY\_HIGH))}}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#define IS\_TIM\_TISEL(\_\_TISEL\_\_)  (((\_\_TISEL\_\_) == TIM\_TIM1\_TI1\_GPIO)         ||\(\backslash\)}}
+\DoxyCodeLine{276 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM1\_TI1\_COMP1)        ||\(\backslash\)}}
+\DoxyCodeLine{277 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM8\_TI1\_GPIO)         ||\(\backslash\)}}
+\DoxyCodeLine{278 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM8\_TI1\_COMP2)        ||\(\backslash\)}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM2\_TI4\_GPIO)         ||\(\backslash\)}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM2\_TI4\_COMP1)        ||\(\backslash\)}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM2\_TI4\_COMP2)        ||\(\backslash\)}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM2\_TI4\_COMP1\_COMP2)  ||\(\backslash\)}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM3\_TI1\_GPIO)         ||\(\backslash\)}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM3\_TI1\_COMP1)        ||\(\backslash\)}}
+\DoxyCodeLine{285 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM3\_TI1\_COMP2)        ||\(\backslash\)}}
+\DoxyCodeLine{286 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM3\_TI1\_COMP1\_COMP2)  ||\(\backslash\)}}
+\DoxyCodeLine{287 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM5\_TI1\_GPIO)         ||\(\backslash\)}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM5\_TI1\_CAN\_TMP)      ||\(\backslash\)}}
+\DoxyCodeLine{289 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM5\_TI1\_CAN\_RTP)      ||\(\backslash\)}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM12\_TI1\_SPDIF\_FS)    ||\(\backslash\)}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM12\_TI1\_GPIO)        ||\(\backslash\)}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI1\_GPIO)        ||\(\backslash\)}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI1\_TIM2\_CH1)    ||\(\backslash\)}}
+\DoxyCodeLine{294 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI1\_TIM3\_CH1)    ||\(\backslash\)}}
+\DoxyCodeLine{295 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI1\_TIM4\_CH1)    ||\(\backslash\)}}
+\DoxyCodeLine{296 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI1\_RCC\_LSE)     ||\(\backslash\)}}
+\DoxyCodeLine{297 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI1\_RCC\_CSI)     ||\(\backslash\)}}
+\DoxyCodeLine{298 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI1\_RCC\_MCO2)    ||\(\backslash\)}}
+\DoxyCodeLine{299 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI2\_GPIO)        ||\(\backslash\)}}
+\DoxyCodeLine{300 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI2\_TIM2\_CH2)    ||\(\backslash\)}}
+\DoxyCodeLine{301 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI2\_TIM3\_CH2)    ||\(\backslash\)}}
+\DoxyCodeLine{302 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM15\_TI2\_TIM4\_CH2)    ||\(\backslash\)}}
+\DoxyCodeLine{303 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM16\_TI1\_GPIO)        ||\(\backslash\)}}
+\DoxyCodeLine{304 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM16\_TI1\_RCC\_LSI)     ||\(\backslash\)}}
+\DoxyCodeLine{305 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM16\_TI1\_RCC\_LSE)     ||\(\backslash\)}}
+\DoxyCodeLine{306 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM16\_TI1\_WKUP\_IT)     ||\(\backslash\)}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM17\_TI1\_GPIO)        ||\(\backslash\)}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM17\_TI1\_SPDIF\_FS)    ||\(\backslash\)}}
+\DoxyCodeLine{309 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM17\_TI1\_RCC\_HSE1MHZ) ||\(\backslash\)}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM17\_TI1\_RCC\_MCO1)    ||\(\backslash\)}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM23\_TI4\_GPIO)        ||\(\backslash\)}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM23\_TI4\_COMP1)       ||\(\backslash\)}}
+\DoxyCodeLine{313 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM23\_TI4\_COMP2)       ||\(\backslash\)}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM23\_TI4\_COMP1\_COMP2) ||\(\backslash\)}}
+\DoxyCodeLine{315 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM24\_TI1\_GPIO)        ||\(\backslash\)}}
+\DoxyCodeLine{316 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM24\_TI1\_CAN\_TMP)     ||\(\backslash\)}}
+\DoxyCodeLine{317 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM24\_TI1\_CAN\_RTP)     ||\(\backslash\)}}
+\DoxyCodeLine{318 \textcolor{preprocessor}{                                  ((\_\_TISEL\_\_) == TIM\_TIM24\_TI1\_CAN\_SOC))}}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#define IS\_TIM\_REMAP(\_\_RREMAP\_\_)     (((\_\_RREMAP\_\_) == TIM\_TIM1\_ETR\_GPIO)      ||\(\backslash\)}}
+\DoxyCodeLine{321 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM1\_ETR\_ADC1\_AWD1) ||\(\backslash\)}}
+\DoxyCodeLine{322 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM1\_ETR\_ADC1\_AWD2) ||\(\backslash\)}}
+\DoxyCodeLine{323 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM1\_ETR\_ADC1\_AWD3) ||\(\backslash\)}}
+\DoxyCodeLine{324 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM1\_ETR\_ADC3\_AWD1) ||\(\backslash\)}}
+\DoxyCodeLine{325 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM1\_ETR\_ADC3\_AWD2) ||\(\backslash\)}}
+\DoxyCodeLine{326 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM1\_ETR\_ADC3\_AWD3) ||\(\backslash\)}}
+\DoxyCodeLine{327 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM1\_ETR\_COMP1)     ||\(\backslash\)}}
+\DoxyCodeLine{328 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM1\_ETR\_COMP2)     ||\(\backslash\)}}
+\DoxyCodeLine{329 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM8\_ETR\_GPIO)      ||\(\backslash\)}}
+\DoxyCodeLine{330 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM8\_ETR\_ADC2\_AWD1) ||\(\backslash\)}}
+\DoxyCodeLine{331 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM8\_ETR\_ADC2\_AWD2) ||\(\backslash\)}}
+\DoxyCodeLine{332 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM8\_ETR\_ADC2\_AWD3) ||\(\backslash\)}}
+\DoxyCodeLine{333 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM8\_ETR\_ADC3\_AWD1) ||\(\backslash\)}}
+\DoxyCodeLine{334 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM8\_ETR\_ADC3\_AWD2) ||\(\backslash\)}}
+\DoxyCodeLine{335 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM8\_ETR\_ADC3\_AWD3) ||\(\backslash\)}}
+\DoxyCodeLine{336 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM8\_ETR\_COMP1)     ||\(\backslash\)}}
+\DoxyCodeLine{337 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM8\_ETR\_COMP2)     ||\(\backslash\)}}
+\DoxyCodeLine{338 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM2\_ETR\_GPIO)      ||\(\backslash\)}}
+\DoxyCodeLine{339 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM2\_ETR\_COMP1)     ||\(\backslash\)}}
+\DoxyCodeLine{340 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM2\_ETR\_COMP2)     ||\(\backslash\)}}
+\DoxyCodeLine{341 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM2\_ETR\_RCC\_LSE)   ||\(\backslash\)}}
+\DoxyCodeLine{342 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM2\_ETR\_SAI1\_FSA)  ||\(\backslash\)}}
+\DoxyCodeLine{343 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM2\_ETR\_SAI1\_FSB)  ||\(\backslash\)}}
+\DoxyCodeLine{344 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM3\_ETR\_GPIO)      ||\(\backslash\)}}
+\DoxyCodeLine{345 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM3\_ETR\_COMP1)     ||\(\backslash\)}}
+\DoxyCodeLine{346 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM5\_ETR\_GPIO)      ||\(\backslash\)}}
+\DoxyCodeLine{347 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM5\_ETR\_SAI2\_FSA)  ||\(\backslash\)}}
+\DoxyCodeLine{348 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM5\_ETR\_SAI2\_FSB)  ||\(\backslash\)}}
+\DoxyCodeLine{349 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM23\_ETR\_GPIO)     ||\(\backslash\)}}
+\DoxyCodeLine{350 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM23\_ETR\_COMP1)    ||\(\backslash\)}}
+\DoxyCodeLine{351 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM23\_ETR\_COMP2)    ||\(\backslash\)}}
+\DoxyCodeLine{352 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM24\_ETR\_GPIO)     ||\(\backslash\)}}
+\DoxyCodeLine{353 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM24\_ETR\_SAI4\_FSA) ||\(\backslash\)}}
+\DoxyCodeLine{354 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM24\_ETR\_SAI4\_FSB) ||\(\backslash\)}}
+\DoxyCodeLine{355 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM24\_ETR\_SAI1\_FSA) ||\(\backslash\)}}
+\DoxyCodeLine{356 \textcolor{preprocessor}{                                      ((\_\_RREMAP\_\_) == TIM\_TIM24\_ETR\_SAI1\_FSB))}}
+\DoxyCodeLine{357 }
+\DoxyCodeLine{361 \textcolor{comment}{/* End of private macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363 \textcolor{comment}{/* Exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{372 \textcolor{comment}{/*  Timer Hall Sensor functions  **********************************************/}}
+\DoxyCodeLine{373 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_HallSensor\_Init(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, \mbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def}{TIM\_HallSensor\_InitTypeDef}} *sConfig);}
+\DoxyCodeLine{374 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_HallSensor\_DeInit(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376 \textcolor{keywordtype}{void} HAL\_TIMEx\_HallSensor\_MspInit(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{377 \textcolor{keywordtype}{void} HAL\_TIMEx\_HallSensor\_MspDeInit(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379 \textcolor{comment}{/* Blocking mode: Polling */}}
+\DoxyCodeLine{380 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_HallSensor\_Start(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{381 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_HallSensor\_Stop(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{382 \textcolor{comment}{/* Non-\/Blocking mode: Interrupt */}}
+\DoxyCodeLine{383 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_HallSensor\_Start\_IT(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{384 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_HallSensor\_Stop\_IT(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{385 \textcolor{comment}{/* Non-\/Blocking mode: DMA */}}
+\DoxyCodeLine{386 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_HallSensor\_Start\_DMA(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t *pData, uint16\_t Length);}
+\DoxyCodeLine{387 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_HallSensor\_Stop\_DMA(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{396 \textcolor{comment}{/*  Timer Complementary Output Compare functions  *****************************/}}
+\DoxyCodeLine{397 \textcolor{comment}{/* Blocking mode: Polling */}}
+\DoxyCodeLine{398 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_OCN\_Start(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel);}
+\DoxyCodeLine{399 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_OCN\_Stop(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel);}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401 \textcolor{comment}{/* Non-\/Blocking mode: Interrupt */}}
+\DoxyCodeLine{402 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_OCN\_Start\_IT(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel);}
+\DoxyCodeLine{403 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_OCN\_Stop\_IT(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel);}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405 \textcolor{comment}{/* Non-\/Blocking mode: DMA */}}
+\DoxyCodeLine{406 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_OCN\_Start\_DMA(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel, uint32\_t *pData, uint16\_t Length);}
+\DoxyCodeLine{407 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_OCN\_Stop\_DMA(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel);}
+\DoxyCodeLine{416 \textcolor{comment}{/*  Timer Complementary PWM functions  ****************************************/}}
+\DoxyCodeLine{417 \textcolor{comment}{/* Blocking mode: Polling */}}
+\DoxyCodeLine{418 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_PWMN\_Start(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel);}
+\DoxyCodeLine{419 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_PWMN\_Stop(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel);}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421 \textcolor{comment}{/* Non-\/Blocking mode: Interrupt */}}
+\DoxyCodeLine{422 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_PWMN\_Start\_IT(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel);}
+\DoxyCodeLine{423 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_PWMN\_Stop\_IT(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel);}
+\DoxyCodeLine{424 \textcolor{comment}{/* Non-\/Blocking mode: DMA */}}
+\DoxyCodeLine{425 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_PWMN\_Start\_DMA(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel, uint32\_t *pData, uint16\_t Length);}
+\DoxyCodeLine{426 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_PWMN\_Stop\_DMA(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channel);}
+\DoxyCodeLine{435 \textcolor{comment}{/*  Timer Complementary One Pulse functions  **********************************/}}
+\DoxyCodeLine{436 \textcolor{comment}{/* Blocking mode: Polling */}}
+\DoxyCodeLine{437 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_OnePulseN\_Start(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t OutputChannel);}
+\DoxyCodeLine{438 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_OnePulseN\_Stop(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t OutputChannel);}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440 \textcolor{comment}{/* Non-\/Blocking mode: Interrupt */}}
+\DoxyCodeLine{441 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_OnePulseN\_Start\_IT(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t OutputChannel);}
+\DoxyCodeLine{442 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_OnePulseN\_Stop\_IT(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t OutputChannel);}
+\DoxyCodeLine{451 \textcolor{comment}{/* Extended Control functions  ************************************************/}}
+\DoxyCodeLine{452 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_ConfigCommutEvent(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t  InputTrigger,}
+\DoxyCodeLine{453                                               uint32\_t  CommutationSource);}
+\DoxyCodeLine{454 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_ConfigCommutEvent\_IT(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t  InputTrigger,}
+\DoxyCodeLine{455                                                  uint32\_t  CommutationSource);}
+\DoxyCodeLine{456 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_ConfigCommutEvent\_DMA(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t  InputTrigger,}
+\DoxyCodeLine{457                                                   uint32\_t  CommutationSource);}
+\DoxyCodeLine{458 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_MasterConfigSynchronization(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim,}
+\DoxyCodeLine{459                                                         \mbox{\hyperlink{struct_t_i_m___master_config_type_def}{TIM\_MasterConfigTypeDef}} *sMasterConfig);}
+\DoxyCodeLine{460 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_ConfigBreakDeadTime(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim,}
+\DoxyCodeLine{461                                                 \mbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def}{TIM\_BreakDeadTimeConfigTypeDef}} *sBreakDeadTimeConfig);}
+\DoxyCodeLine{462 \textcolor{preprocessor}{\#if defined(TIM\_BREAK\_INPUT\_SUPPORT)}}
+\DoxyCodeLine{463 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_ConfigBreakInput(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t BreakInput,}
+\DoxyCodeLine{464                                              TIMEx\_BreakInputConfigTypeDef *sBreakInputConfig);}
+\DoxyCodeLine{465 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TIM\_BREAK\_INPUT\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{466 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_GroupChannel5(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Channels);}
+\DoxyCodeLine{467 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_RemapConfig(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t Remap);}
+\DoxyCodeLine{468 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}  HAL\_TIMEx\_TISelection(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t TISelection, uint32\_t Channel);}
+\DoxyCodeLine{469 \textcolor{preprocessor}{\#if defined(TIM\_BDTR\_BKBID)}}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_DisarmBreakInput(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t BreakInput);}
+\DoxyCodeLine{472 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_TIMEx\_ReArmBreakInput(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim, uint32\_t BreakInput);}
+\DoxyCodeLine{473 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TIM\_BDTR\_BKBID */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{482 \textcolor{comment}{/* Extended Callback **********************************************************/}}
+\DoxyCodeLine{483 \textcolor{keywordtype}{void} HAL\_TIMEx\_CommutCallback(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{484 \textcolor{keywordtype}{void} HAL\_TIMEx\_CommutHalfCpltCallback(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{485 \textcolor{keywordtype}{void} HAL\_TIMEx\_BreakCallback(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{486 \textcolor{keywordtype}{void} HAL\_TIMEx\_Break2Callback(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{495 \textcolor{comment}{/* Extended Peripheral State functions  ***************************************/}}
+\DoxyCodeLine{496 \mbox{\hyperlink{group___t_i_m___exported___types_gae0994cf5970e56ca4903e9151f40010c}{HAL\_TIM\_StateTypeDef}} HAL\_TIMEx\_HallSensor\_GetState(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim);}
+\DoxyCodeLine{497 \mbox{\hyperlink{group___t_i_m___exported___types_ga1a70fcbe9952e18af5c890e216a15f34}{HAL\_TIM\_ChannelStateTypeDef}} HAL\_TIMEx\_GetChannelNState(\mbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}} *htim,  uint32\_t ChannelN);}
+\DoxyCodeLine{505 \textcolor{comment}{/* End of exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{506 }
+\DoxyCodeLine{507 \textcolor{comment}{/* Private functions-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{511 \textcolor{keywordtype}{void} TIMEx\_DMACommutationCplt(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma);}
+\DoxyCodeLine{512 \textcolor{keywordtype}{void} TIMEx\_DMACommutationHalfCplt(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma);}
+\DoxyCodeLine{516 \textcolor{comment}{/* End of private functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{517 }
+\DoxyCodeLine{526 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{527 \}}
+\DoxyCodeLine{528 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{529 }
+\DoxyCodeLine{530 }
+\DoxyCodeLine{531 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STM32H7xx\_HAL\_TIM\_EX\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

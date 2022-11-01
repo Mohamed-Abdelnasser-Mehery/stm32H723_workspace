@@ -1,0 +1,97 @@
+\hypertarget{struct_r_c_c___p_l_l2_init_type_def}{}\doxysection{RCC\+\_\+\+PLL2\+Init\+Type\+Def Struct Reference}
+\label{struct_r_c_c___p_l_l2_init_type_def}\index{RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}}
+
+
+PLL2 Clock structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32h7xx\+\_\+hal\+\_\+rcc\+\_\+ex.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l2_init_type_def_a83eca8b6efcc48c2201fbe14e08e7422}{PLL2M}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l2_init_type_def_a762f17d416d8eb4077efbb4902f6ee0c}{PLL2N}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l2_init_type_def_aa92b48cc78194ebefd09891c76d978d9}{PLL2P}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l2_init_type_def_a0390228752feb6154d24c930ecc5e77f}{PLL2Q}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l2_init_type_def_adf7940e4bf0166ca23933077ab61ce0b}{PLL2R}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l2_init_type_def_a64e8a8643041abc8f6975b46f5bf23dd}{PLL2\+RGE}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l2_init_type_def_a31d2b90e692776de4068d1cced9529e9}{PLL2\+VCOSEL}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l2_init_type_def_ab2038a39196a31cc9a4c5b70d048c6cc}{PLL2\+FRACN}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+PLL2 Clock structure definition. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_r_c_c___p_l_l2_init_type_def_ab2038a39196a31cc9a4c5b70d048c6cc}\label{struct_r_c_c___p_l_l2_init_type_def_ab2038a39196a31cc9a4c5b70d048c6cc}} 
+\index{RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}!PLL2FRACN@{PLL2FRACN}}
+\index{PLL2FRACN@{PLL2FRACN}!RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL2FRACN}{PLL2FRACN}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL2\+FRACN}
+
+PLL2\+FRACN\+: Specifies Fractional Part Of The Multiplication Factor for PLL2 VCO It should be a value between 0 and 8191 ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l2_init_type_def_a83eca8b6efcc48c2201fbe14e08e7422}\label{struct_r_c_c___p_l_l2_init_type_def_a83eca8b6efcc48c2201fbe14e08e7422}} 
+\index{RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}!PLL2M@{PLL2M}}
+\index{PLL2M@{PLL2M}!RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL2M}{PLL2M}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL2M}
+
+PLL2M\+: Division factor for PLL2 VCO input clock. This parameter must be a number between Min\+\_\+\+Data = 1 and Max\+\_\+\+Data = 63 ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l2_init_type_def_a762f17d416d8eb4077efbb4902f6ee0c}\label{struct_r_c_c___p_l_l2_init_type_def_a762f17d416d8eb4077efbb4902f6ee0c}} 
+\index{RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}!PLL2N@{PLL2N}}
+\index{PLL2N@{PLL2N}!RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL2N}{PLL2N}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL2N}
+
+PLL2N\+: Multiplication factor for PLL2 VCO output clock. This parameter must be a number between Min\+\_\+\+Data = 4 and Max\+\_\+\+Data = 512 or between Min\+\_\+\+Data = 8 and Max\+\_\+\+Data = 420($\ast$) ($\ast$) \+: For stm32h7a3xx and stm32h7b3xx family lines. ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l2_init_type_def_aa92b48cc78194ebefd09891c76d978d9}\label{struct_r_c_c___p_l_l2_init_type_def_aa92b48cc78194ebefd09891c76d978d9}} 
+\index{RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}!PLL2P@{PLL2P}}
+\index{PLL2P@{PLL2P}!RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL2P}{PLL2P}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL2P}
+
+PLL2P\+: Division factor for system clock. This parameter must be a number between Min\+\_\+\+Data = 2 and Max\+\_\+\+Data = 128 odd division factors are not allowed ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l2_init_type_def_a0390228752feb6154d24c930ecc5e77f}\label{struct_r_c_c___p_l_l2_init_type_def_a0390228752feb6154d24c930ecc5e77f}} 
+\index{RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}!PLL2Q@{PLL2Q}}
+\index{PLL2Q@{PLL2Q}!RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL2Q}{PLL2Q}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL2Q}
+
+PLL2Q\+: Division factor for peripheral clocks. This parameter must be a number between Min\+\_\+\+Data = 1 and Max\+\_\+\+Data = 128 ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l2_init_type_def_adf7940e4bf0166ca23933077ab61ce0b}\label{struct_r_c_c___p_l_l2_init_type_def_adf7940e4bf0166ca23933077ab61ce0b}} 
+\index{RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}!PLL2R@{PLL2R}}
+\index{PLL2R@{PLL2R}!RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL2R}{PLL2R}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL2R}
+
+PLL2R\+: Division factor for peripheral clocks. This parameter must be a number between Min\+\_\+\+Data = 1 and Max\+\_\+\+Data = 128 ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l2_init_type_def_a64e8a8643041abc8f6975b46f5bf23dd}\label{struct_r_c_c___p_l_l2_init_type_def_a64e8a8643041abc8f6975b46f5bf23dd}} 
+\index{RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}!PLL2RGE@{PLL2RGE}}
+\index{PLL2RGE@{PLL2RGE}!RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL2RGE}{PLL2RGE}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL2\+RGE}
+
+PLL2\+RGE\+: PLL2 clock Input range This parameter must be a value of \mbox{\hyperlink{group___r_c_c___p_l_l2___v_c_i___range}{RCC PLL2 VCI Range}} ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l2_init_type_def_a31d2b90e692776de4068d1cced9529e9}\label{struct_r_c_c___p_l_l2_init_type_def_a31d2b90e692776de4068d1cced9529e9}} 
+\index{RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}!PLL2VCOSEL@{PLL2VCOSEL}}
+\index{PLL2VCOSEL@{PLL2VCOSEL}!RCC\_PLL2InitTypeDef@{RCC\_PLL2InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL2VCOSEL}{PLL2VCOSEL}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL2\+VCOSEL}
+
+PLL2\+VCOSEL\+: PLL2 clock Output range This parameter must be a value of \mbox{\hyperlink{group___r_c_c___p_l_l2___v_c_o___range}{RCC PLL2 VCO Range}} ~\newline
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32h7xx__hal__rcc__ex_8h}{stm32h7xx\+\_\+hal\+\_\+rcc\+\_\+ex.\+h}}\end{DoxyCompactItemize}

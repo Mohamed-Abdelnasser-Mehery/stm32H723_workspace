@@ -1,0 +1,145 @@
+\hypertarget{stm32h7xx__hal__eth__ex_8h_source}{}\doxysection{stm32h7xx\+\_\+hal\+\_\+eth\+\_\+ex.\+h}
+\label{stm32h7xx__hal__eth__ex_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_eth\_ex.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_eth\_ex.h}}
+\mbox{\hyperlink{stm32h7xx__hal__eth__ex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{19 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef STM32H7xx\_HAL\_ETH\_EX\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define STM32H7xx\_HAL\_ETH\_EX\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{24 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#if defined(ETH)}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32h7xx__hal__def_8h}{stm32h7xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{40 \textcolor{comment}{/* Exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{48 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50   FunctionalState InnerVLANTagInStatus;      }
+\DoxyCodeLine{52   uint32\_t StripInnerVLANTag;                }
+\DoxyCodeLine{56   FunctionalState InnerVLANTag;              }
+\DoxyCodeLine{58   FunctionalState DoubleVLANProcessing;      }
+\DoxyCodeLine{60   FunctionalState VLANTagHashTableMatch;     }
+\DoxyCodeLine{62   FunctionalState VLANTagInStatus;           }
+\DoxyCodeLine{64   uint32\_t StripVLANTag;                     }
+\DoxyCodeLine{67   uint32\_t VLANTypeCheck;                    }
+\DoxyCodeLine{70   FunctionalState VLANTagInverceMatch;       }
+\DoxyCodeLine{71 \} ETH\_RxVLANConfigTypeDef;}
+\DoxyCodeLine{79 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{80 \{}
+\DoxyCodeLine{81   FunctionalState SourceTxDesc;   }
+\DoxyCodeLine{83   FunctionalState SVLANType;      }
+\DoxyCodeLine{85   uint32\_t VLANTagControl;        }
+\DoxyCodeLine{87 \} ETH\_TxVLANConfigTypeDef;}
+\DoxyCodeLine{95 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{96 \{}
+\DoxyCodeLine{97   uint32\_t Protocol;                }
+\DoxyCodeLine{100   uint32\_t SrcAddrFilterMatch;      }
+\DoxyCodeLine{103   uint32\_t DestAddrFilterMatch;     }
+\DoxyCodeLine{106   uint32\_t SrcAddrHigherBitsMatch;  }
+\DoxyCodeLine{109   uint32\_t DestAddrHigherBitsMatch; }
+\DoxyCodeLine{112   uint32\_t Ip4SrcAddr;              }
+\DoxyCodeLine{115   uint32\_t Ip4DestAddr;             }
+\DoxyCodeLine{118   uint32\_t Ip6Addr[4];                 }
+\DoxyCodeLine{120 \} ETH\_L3FilterConfigTypeDef;}
+\DoxyCodeLine{128 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{129 \{}
+\DoxyCodeLine{130   uint32\_t Protocol;               }
+\DoxyCodeLine{133   uint32\_t SrcPortFilterMatch;     }
+\DoxyCodeLine{136   uint32\_t DestPortFilterMatch;    }
+\DoxyCodeLine{139   uint32\_t SourcePort;             }
+\DoxyCodeLine{142   uint32\_t DestinationPort;        }
+\DoxyCodeLine{144 \} ETH\_L4FilterConfigTypeDef;}
+\DoxyCodeLine{153 \textcolor{comment}{/* Exported constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#define ETH\_TX\_LPI\_ENTRY    ETH\_MACLCSR\_TLPIEN}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define ETH\_TX\_LPI\_EXIT     ETH\_MACLCSR\_TLPIEX}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define ETH\_RX\_LPI\_ENTRY    ETH\_MACLCSR\_RLPIEN}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define ETH\_RX\_LPI\_EXIT     ETH\_MACLCSR\_RLPIEX}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#define ETH\_L3\_FILTER\_0                 ((uint32\_t)0x00000000)}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define ETH\_L3\_FILTER\_1                 ((uint32\_t)0x0000000C)}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#define ETH\_L4\_FILTER\_0                 ((uint32\_t)0x00000000)}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#define ETH\_L4\_FILTER\_1                 ((uint32\_t)0x0000000C)}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define ETH\_L3\_IPV6\_MATCH                       ETH\_MACL3L4CR\_L3PEN}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#define ETH\_L3\_IPV4\_MATCH                       ((uint32\_t)0x00000000)}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define ETH\_L3\_SRC\_ADDR\_PERFECT\_MATCH\_ENABLE    ETH\_MACL3L4CR\_L3SAM}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#define ETH\_L3\_SRC\_ADDR\_INVERSE\_MATCH\_ENABLE    (ETH\_MACL3L4CR\_L3SAM | ETH\_MACL3L4CR\_L3SAIM)}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#define ETH\_L3\_SRC\_ADDR\_MATCH\_DISABLE           ((uint32\_t)0x00000000)}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#define ETH\_L3\_DEST\_ADDR\_PERFECT\_MATCH\_ENABLE   ETH\_MACL3L4CR\_L3DAM}}
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#define ETH\_L3\_DEST\_ADDR\_INVERSE\_MATCH\_ENABLE   (ETH\_MACL3L4CR\_L3DAM | ETH\_MACL3L4CR\_L3DAIM)}}
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#define ETH\_L3\_DEST\_ADDR\_MATCH\_DISABLE          ((uint32\_t)0x00000000)}}
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#define ETH\_L4\_UDP\_MATCH                        ETH\_MACL3L4CR\_L4PEN}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#define ETH\_L4\_TCP\_MATCH                        ((uint32\_t)0x00000000)}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#define ETH\_L4\_SRC\_PORT\_PERFECT\_MATCH\_ENABLE    ETH\_MACL3L4CR\_L4SPM}}
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#define ETH\_L4\_SRC\_PORT\_INVERSE\_MATCH\_ENABLE    (ETH\_MACL3L4CR\_L4SPM |ETH\_MACL3L4CR\_L4SPIM)}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#define ETH\_L4\_SRC\_PORT\_MATCH\_DISABLE           ((uint32\_t)0x00000000)}}
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#define ETH\_L4\_DEST\_PORT\_PERFECT\_MATCH\_ENABLE   ETH\_MACL3L4CR\_L4DPM}}
+\DoxyCodeLine{239 \textcolor{preprocessor}{\#define ETH\_L4\_DEST\_PORT\_INVERSE\_MATCH\_ENABLE   (ETH\_MACL3L4CR\_L4DPM | ETH\_MACL3L4CR\_L4DPIM)}}
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#define ETH\_L4\_DEST\_PORT\_MATCH\_DISABLE          ((uint32\_t)0x00000000)}}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#define ETH\_INNERVLANTAGRXSTRIPPING\_NONE      ETH\_MACVTR\_EIVLS\_DONOTSTRIP}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#define ETH\_INNERVLANTAGRXSTRIPPING\_IFPASS    ETH\_MACVTR\_EIVLS\_STRIPIFPASS}}
+\DoxyCodeLine{250 \textcolor{preprocessor}{\#define ETH\_INNERVLANTAGRXSTRIPPING\_IFFAILS   ETH\_MACVTR\_EIVLS\_STRIPIFFAILS}}
+\DoxyCodeLine{251 \textcolor{preprocessor}{\#define ETH\_INNERVLANTAGRXSTRIPPING\_ALWAYS    ETH\_MACVTR\_EIVLS\_ALWAYSSTRIP}}
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#define ETH\_VLANTAGRXSTRIPPING\_NONE      ETH\_MACVTR\_EVLS\_DONOTSTRIP}}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#define ETH\_VLANTAGRXSTRIPPING\_IFPASS    ETH\_MACVTR\_EVLS\_STRIPIFPASS}}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#define ETH\_VLANTAGRXSTRIPPING\_IFFAILS   ETH\_MACVTR\_EVLS\_STRIPIFFAILS}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#define ETH\_VLANTAGRXSTRIPPING\_ALWAYS    ETH\_MACVTR\_EVLS\_ALWAYSSTRIP}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#define ETH\_VLANTYPECHECK\_DISABLE    ETH\_MACVTR\_DOVLTC}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define ETH\_VLANTYPECHECK\_SVLAN      (ETH\_MACVTR\_ERSVLM | ETH\_MACVTR\_ESVL)}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#define ETH\_VLANTYPECHECK\_CVLAN      ((uint32\_t)0x00000000)}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#define ETH\_VLANTAGCONTROL\_NONE       (ETH\_MACVIR\_VLP | ETH\_MACVIR\_VLC\_NOVLANTAG)}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#define ETH\_VLANTAGCONTROL\_DELETE     (ETH\_MACVIR\_VLP | ETH\_MACVIR\_VLC\_VLANTAGDELETE)}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{\#define ETH\_VLANTAGCONTROL\_INSERT     (ETH\_MACVIR\_VLP | ETH\_MACVIR\_VLC\_VLANTAGINSERT)}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#define ETH\_VLANTAGCONTROL\_REPLACE    (ETH\_MACVIR\_VLP | ETH\_MACVIR\_VLC\_VLANTAGREPLACE)}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#define ETH\_INNER\_TX\_VLANTAG    ((uint32\_t)0x00000001U)}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#define ETH\_OUTER\_TX\_VLANTAG    ((uint32\_t)0x00000000U)}}
+\DoxyCodeLine{301 \textcolor{comment}{/* Exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{309 \textcolor{comment}{/* MAC ARP Offloading APIs  ***************************************************/}}
+\DoxyCodeLine{310 \textcolor{keywordtype}{void}              HAL\_ETHEx\_EnableARPOffload(ETH\_HandleTypeDef *heth);}
+\DoxyCodeLine{311 \textcolor{keywordtype}{void}              HAL\_ETHEx\_DisableARPOffload(ETH\_HandleTypeDef *heth);}
+\DoxyCodeLine{312 \textcolor{keywordtype}{void}              HAL\_ETHEx\_SetARPAddressMatch(ETH\_HandleTypeDef *heth, uint32\_t IpAddress);}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314 \textcolor{comment}{/* MAC L3 L4 Filtering APIs ***************************************************/}}
+\DoxyCodeLine{315 \textcolor{keywordtype}{void}              HAL\_ETHEx\_EnableL3L4Filtering(ETH\_HandleTypeDef *heth);}
+\DoxyCodeLine{316 \textcolor{keywordtype}{void}              HAL\_ETHEx\_DisableL3L4Filtering(ETH\_HandleTypeDef *heth);}
+\DoxyCodeLine{317 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_ETHEx\_GetL3FilterConfig(ETH\_HandleTypeDef *heth, uint32\_t Filter,}
+\DoxyCodeLine{318                                               ETH\_L3FilterConfigTypeDef *pL3FilterConfig);}
+\DoxyCodeLine{319 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_ETHEx\_GetL4FilterConfig(ETH\_HandleTypeDef *heth, uint32\_t Filter,}
+\DoxyCodeLine{320                                               ETH\_L4FilterConfigTypeDef *pL4FilterConfig);}
+\DoxyCodeLine{321 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_ETHEx\_SetL3FilterConfig(ETH\_HandleTypeDef *heth, uint32\_t Filter,}
+\DoxyCodeLine{322                                               ETH\_L3FilterConfigTypeDef *pL3FilterConfig);}
+\DoxyCodeLine{323 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_ETHEx\_SetL4FilterConfig(ETH\_HandleTypeDef *heth, uint32\_t Filter,}
+\DoxyCodeLine{324                                               ETH\_L4FilterConfigTypeDef *pL4FilterConfig);}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{326 \textcolor{comment}{/* MAC VLAN Processing APIs    ************************************************/}}
+\DoxyCodeLine{327 \textcolor{keywordtype}{void}              HAL\_ETHEx\_EnableVLANProcessing(ETH\_HandleTypeDef *heth);}
+\DoxyCodeLine{328 \textcolor{keywordtype}{void}              HAL\_ETHEx\_DisableVLANProcessing(ETH\_HandleTypeDef *heth);}
+\DoxyCodeLine{329 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_ETHEx\_GetRxVLANConfig(ETH\_HandleTypeDef *heth, ETH\_RxVLANConfigTypeDef *pVlanConfig);}
+\DoxyCodeLine{330 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_ETHEx\_SetRxVLANConfig(ETH\_HandleTypeDef *heth, ETH\_RxVLANConfigTypeDef *pVlanConfig);}
+\DoxyCodeLine{331 \textcolor{keywordtype}{void}              HAL\_ETHEx\_SetVLANHashTable(ETH\_HandleTypeDef *heth, uint32\_t VLANHashTable);}
+\DoxyCodeLine{332 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_ETHEx\_GetTxVLANConfig(ETH\_HandleTypeDef *heth, uint32\_t VLANTag,}
+\DoxyCodeLine{333                                             ETH\_TxVLANConfigTypeDef *pVlanConfig);}
+\DoxyCodeLine{334 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_ETHEx\_SetTxVLANConfig(ETH\_HandleTypeDef *heth, uint32\_t VLANTag,}
+\DoxyCodeLine{335                                             ETH\_TxVLANConfigTypeDef *pVlanConfig);}
+\DoxyCodeLine{336 \textcolor{keywordtype}{void}              HAL\_ETHEx\_SetTxVLANIdentifier(ETH\_HandleTypeDef *heth, uint32\_t VLANTag, uint32\_t VLANIdentifier);}
+\DoxyCodeLine{337 }
+\DoxyCodeLine{338 \textcolor{comment}{/* Energy Efficient Ethernet APIs *********************************************/}}
+\DoxyCodeLine{339 \textcolor{keywordtype}{void}              HAL\_ETHEx\_EnterLPIMode(ETH\_HandleTypeDef *heth, FunctionalState TxAutomate,}
+\DoxyCodeLine{340                                          FunctionalState TxClockStop);}
+\DoxyCodeLine{341 \textcolor{keywordtype}{void}              HAL\_ETHEx\_ExitLPIMode(ETH\_HandleTypeDef *heth);}
+\DoxyCodeLine{342 uint32\_t          HAL\_ETHEx\_GetMACLPIEvent(ETH\_HandleTypeDef *heth);}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{360 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ETH */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{363 \}}
+\DoxyCodeLine{364 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STM32H7xx\_HAL\_ETH\_EX\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368 }
+
+\end{DoxyCode}

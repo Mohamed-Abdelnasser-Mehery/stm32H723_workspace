@@ -1,0 +1,68 @@
+\hypertarget{structieee__802154__hdr}{}\doxysection{ieee\+\_\+802154\+\_\+hdr Struct Reference}
+\label{structieee__802154__hdr}\index{ieee\_802154\_hdr@{ieee\_802154\_hdr}}
+
+
+{\ttfamily \#include $<$ieee802154.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structieee__802154__hdr_a87e8b24b73b1494f2b14e5ef16fbb5fe}{PACK\+\_\+\+STRUCT\+\_\+\+FIELD}} (u16\+\_\+t frame\+\_\+control)
+\item 
+\mbox{\hyperlink{structieee__802154__hdr_a367b524e0e43d1886c8295b0d66b651f}{PACK\+\_\+\+STRUCT\+\_\+\+FLD\+\_\+8}} (u8\+\_\+t sequence\+\_\+number)
+\item 
+\mbox{\hyperlink{structieee__802154__hdr_a68a053df7573479ef55eff29ecbdb594}{PACK\+\_\+\+STRUCT\+\_\+\+FIELD}} (u16\+\_\+t destination\+\_\+pan\+\_\+id)
+\item 
+\mbox{\hyperlink{structieee__802154__hdr_ad85e1bbe922f501545ec1d3c0156167a}{PACK\+\_\+\+STRUCT\+\_\+\+FLD\+\_\+8}} (u8\+\_\+t destination\+\_\+address\mbox{[}8\mbox{]})
+\item 
+\mbox{\hyperlink{structieee__802154__hdr_a093919b73aaaaf7f1743a1e56f456d0d}{PACK\+\_\+\+STRUCT\+\_\+\+FIELD}} (u16\+\_\+t source\+\_\+pan\+\_\+id)
+\item 
+\mbox{\hyperlink{structieee__802154__hdr_a47b31543697fa20eda27d0b4f20dc2e9}{PACK\+\_\+\+STRUCT\+\_\+\+FLD\+\_\+8}} (u8\+\_\+t source\+\_\+address\mbox{[}8\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+General MAC frame format This shows the full featured header, mainly for documentation. Some fields are omitted or shortened to achieve frame compression. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structieee__802154__hdr_a68a053df7573479ef55eff29ecbdb594}\label{structieee__802154__hdr_a68a053df7573479ef55eff29ecbdb594}} 
+\index{ieee\_802154\_hdr@{ieee\_802154\_hdr}!PACK\_STRUCT\_FIELD@{PACK\_STRUCT\_FIELD}}
+\index{PACK\_STRUCT\_FIELD@{PACK\_STRUCT\_FIELD}!ieee\_802154\_hdr@{ieee\_802154\_hdr}}
+\doxysubsubsection{\texorpdfstring{PACK\_STRUCT\_FIELD()}{PACK\_STRUCT\_FIELD()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily PACK\+\_\+\+STRUCT\+\_\+\+FIELD (\begin{DoxyParamCaption}\item[{u16\+\_\+t}]{destination\+\_\+pan\+\_\+id }\end{DoxyParamCaption})}
+
+Destination PAN ID is omitted if Destination Addressing Mode is 0 \mbox{\Hypertarget{structieee__802154__hdr_a87e8b24b73b1494f2b14e5ef16fbb5fe}\label{structieee__802154__hdr_a87e8b24b73b1494f2b14e5ef16fbb5fe}} 
+\index{ieee\_802154\_hdr@{ieee\_802154\_hdr}!PACK\_STRUCT\_FIELD@{PACK\_STRUCT\_FIELD}}
+\index{PACK\_STRUCT\_FIELD@{PACK\_STRUCT\_FIELD}!ieee\_802154\_hdr@{ieee\_802154\_hdr}}
+\doxysubsubsection{\texorpdfstring{PACK\_STRUCT\_FIELD()}{PACK\_STRUCT\_FIELD()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily PACK\+\_\+\+STRUCT\+\_\+\+FIELD (\begin{DoxyParamCaption}\item[{u16\+\_\+t}]{frame\+\_\+control }\end{DoxyParamCaption})}
+
+See IEEE\+\_\+802154\+\_\+\+FC\+\_\+$\ast$ defines \mbox{\Hypertarget{structieee__802154__hdr_a093919b73aaaaf7f1743a1e56f456d0d}\label{structieee__802154__hdr_a093919b73aaaaf7f1743a1e56f456d0d}} 
+\index{ieee\_802154\_hdr@{ieee\_802154\_hdr}!PACK\_STRUCT\_FIELD@{PACK\_STRUCT\_FIELD}}
+\index{PACK\_STRUCT\_FIELD@{PACK\_STRUCT\_FIELD}!ieee\_802154\_hdr@{ieee\_802154\_hdr}}
+\doxysubsubsection{\texorpdfstring{PACK\_STRUCT\_FIELD()}{PACK\_STRUCT\_FIELD()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily PACK\+\_\+\+STRUCT\+\_\+\+FIELD (\begin{DoxyParamCaption}\item[{u16\+\_\+t}]{source\+\_\+pan\+\_\+id }\end{DoxyParamCaption})}
+
+Source PAN ID is omitted if Source Addressing Mode is 0 or if IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+PANID\+\_\+\+COMPR is set in frame control \mbox{\Hypertarget{structieee__802154__hdr_ad85e1bbe922f501545ec1d3c0156167a}\label{structieee__802154__hdr_ad85e1bbe922f501545ec1d3c0156167a}} 
+\index{ieee\_802154\_hdr@{ieee\_802154\_hdr}!PACK\_STRUCT\_FLD\_8@{PACK\_STRUCT\_FLD\_8}}
+\index{PACK\_STRUCT\_FLD\_8@{PACK\_STRUCT\_FLD\_8}!ieee\_802154\_hdr@{ieee\_802154\_hdr}}
+\doxysubsubsection{\texorpdfstring{PACK\_STRUCT\_FLD\_8()}{PACK\_STRUCT\_FLD\_8()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily PACK\+\_\+\+STRUCT\+\_\+\+FLD\+\_\+8 (\begin{DoxyParamCaption}\item[{u8\+\_\+t}]{destination\+\_\+address\mbox{[}8\mbox{]} }\end{DoxyParamCaption})}
+
+Destination Address is omitted if Destination Addressing Mode is 0 \mbox{\Hypertarget{structieee__802154__hdr_a367b524e0e43d1886c8295b0d66b651f}\label{structieee__802154__hdr_a367b524e0e43d1886c8295b0d66b651f}} 
+\index{ieee\_802154\_hdr@{ieee\_802154\_hdr}!PACK\_STRUCT\_FLD\_8@{PACK\_STRUCT\_FLD\_8}}
+\index{PACK\_STRUCT\_FLD\_8@{PACK\_STRUCT\_FLD\_8}!ieee\_802154\_hdr@{ieee\_802154\_hdr}}
+\doxysubsubsection{\texorpdfstring{PACK\_STRUCT\_FLD\_8()}{PACK\_STRUCT\_FLD\_8()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily PACK\+\_\+\+STRUCT\+\_\+\+FLD\+\_\+8 (\begin{DoxyParamCaption}\item[{u8\+\_\+t}]{sequence\+\_\+number }\end{DoxyParamCaption})}
+
+Sequence number is omitted if IEEE\+\_\+802154\+\_\+\+FC\+\_\+\+SEQNO\+\_\+\+SUPPR is set in frame\+\_\+control \mbox{\Hypertarget{structieee__802154__hdr_a47b31543697fa20eda27d0b4f20dc2e9}\label{structieee__802154__hdr_a47b31543697fa20eda27d0b4f20dc2e9}} 
+\index{ieee\_802154\_hdr@{ieee\_802154\_hdr}!PACK\_STRUCT\_FLD\_8@{PACK\_STRUCT\_FLD\_8}}
+\index{PACK\_STRUCT\_FLD\_8@{PACK\_STRUCT\_FLD\_8}!ieee\_802154\_hdr@{ieee\_802154\_hdr}}
+\doxysubsubsection{\texorpdfstring{PACK\_STRUCT\_FLD\_8()}{PACK\_STRUCT\_FLD\_8()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily PACK\+\_\+\+STRUCT\+\_\+\+FLD\+\_\+8 (\begin{DoxyParamCaption}\item[{u8\+\_\+t}]{source\+\_\+address\mbox{[}8\mbox{]} }\end{DoxyParamCaption})}
+
+Source Address is omitted if Source Addressing Mode is 0 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/netif/\mbox{\hyperlink{ieee802154_8h}{ieee802154.\+h}}\end{DoxyCompactItemize}

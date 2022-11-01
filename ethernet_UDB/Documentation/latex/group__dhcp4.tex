@@ -1,0 +1,24 @@
+\hypertarget{group__dhcp4}{}\doxysection{DHCPv4}
+\label{group__dhcp4}\index{DHCPv4@{DHCPv4}}
+DHCP (IPv4) related functions This is a DHCP client for the lw\+IP TCP/\+IP stack. It aims to conform with RFC 2131 and RFC 2132.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000005}{Todo}}]\+:
+\begin{DoxyItemize}
+\item Support for interfaces other than Ethernet (SLIP, PPP, ...)
+\end{DoxyItemize}\end{DoxyRefDesc}
+
+
+Options\+: DHCP\+\_\+\+COARSE\+\_\+\+TIMER\+\_\+\+SECS (recommended 60 which is a minute) DHCP\+\_\+\+FINE\+\_\+\+TIMER\+\_\+\+MSECS (recommended 500 which equals TCP coarse timer)
+
+dhcp\+\_\+start() starts a DHCP client instance which configures the interface by obtaining an IP address lease and maintaining it.
+
+Use dhcp\+\_\+release() to end the lease and use dhcp\+\_\+stop() to remove the DHCP client.
+
+\begin{DoxySeeAlso}{See also}
+LWIP\+\_\+\+HOOK\+\_\+\+DHCP\+\_\+\+APPEND\+\_\+\+OPTIONS 
+
+LWIP\+\_\+\+HOOK\+\_\+\+DHCP\+\_\+\+PARSE\+\_\+\+OPTION
+
+netifapi\+\_\+dhcp4 
+\end{DoxySeeAlso}

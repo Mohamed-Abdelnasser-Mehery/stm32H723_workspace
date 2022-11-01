@@ -1,0 +1,156 @@
+\hypertarget{struct_____m_d_m_a___handle_type_def}{}\doxysection{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def Struct Reference}
+\label{struct_____m_d_m_a___handle_type_def}\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+
+
+MDMA handle Structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32h7xx\+\_\+hal\+\_\+mdma.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_m_d_m_a___channel___type_def}{MDMA\+\_\+\+Channel\+\_\+\+Type\+Def}} $\ast$ \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_ad17a9359c80e9eb051c3fcc7c4f96b5c}{Instance}}
+\item 
+\mbox{\hyperlink{struct_m_d_m_a___init_type_def}{MDMA\+\_\+\+Init\+Type\+Def}} \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_aebdee5bd1e5cd41e9e50f973977ae569}{Init}}
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\+\_\+\+Lock\+Type\+Def}} \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b}{Lock}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___m_d_m_a___exported___types_ga1e58ed6c9c6842db93575e2624537327}{HAL\+\_\+\+MDMA\+\_\+\+State\+Type\+Def}} \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_a16e61dc7aec146f5cf0ae76aa30f9ae8}{State}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_a6ee5f2130887847bbc051932ea43b73d}{Parent}}
+\item 
+void($\ast$ \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_aaa8ed194032bcba37bdcc52e877793ad}{Xfer\+Cplt\+Callback}} )(struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)
+\item 
+void($\ast$ \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_a27fdeb0e1283e9e97b94cc90dac187d0}{Xfer\+Buffer\+Cplt\+Callback}} )(struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)
+\item 
+void($\ast$ \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_ae4064e9d5fe0308094d328c1a15be87f}{Xfer\+Block\+Cplt\+Callback}} )(struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)
+\item 
+void($\ast$ \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_a5d377875065efc533596f7aff89354d3}{Xfer\+Repeat\+Block\+Cplt\+Callback}} )(struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)
+\item 
+void($\ast$ \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_a21eeca41117329639ffb91a3580381ce}{Xfer\+Error\+Callback}} )(struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)
+\item 
+void($\ast$ \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_a8ad04f2b1fbe4f691327f13cfb4dfb74}{Xfer\+Abort\+Callback}} )(struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)
+\item 
+\mbox{\hyperlink{struct_m_d_m_a___link_node_type_def}{MDMA\+\_\+\+Link\+Node\+Type\+Def}} $\ast$ \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_afa0d02b088a0d52faf591f19a69f3658}{First\+Linked\+List\+Node\+Address}}
+\item 
+\mbox{\hyperlink{struct_m_d_m_a___link_node_type_def}{MDMA\+\_\+\+Link\+Node\+Type\+Def}} $\ast$ \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_af78f9b41cb497aa207f883ccff33caa6}{Last\+Linked\+List\+Node\+Address}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_a6cb844524ad576f52ad8bf7ca9a13945}{Linked\+List\+Node\+Counter}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e}{Error\+Code}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MDMA handle Structure definition. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e}\label{struct_____m_d_m_a___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!ErrorCode@{ErrorCode}}
+\index{ErrorCode@{ErrorCode}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{ErrorCode}{ErrorCode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t Error\+Code}
+
+MDMA Error code ~\newline
+ \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_afa0d02b088a0d52faf591f19a69f3658}\label{struct_____m_d_m_a___handle_type_def_afa0d02b088a0d52faf591f19a69f3658}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!FirstLinkedListNodeAddress@{FirstLinkedListNodeAddress}}
+\index{FirstLinkedListNodeAddress@{FirstLinkedListNodeAddress}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{FirstLinkedListNodeAddress}{FirstLinkedListNodeAddress}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def}{MDMA\+\_\+\+Link\+Node\+Type\+Def}}$\ast$ First\+Linked\+List\+Node\+Address}
+
+specifies the first node address of the transfer list (after the initial node defined by the Init struct) this parameter is used internally by the MDMA driver to construct the linked list node \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_aebdee5bd1e5cd41e9e50f973977ae569}\label{struct_____m_d_m_a___handle_type_def_aebdee5bd1e5cd41e9e50f973977ae569}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!Init@{Init}}
+\index{Init@{Init}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Init}{Init}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_m_d_m_a___init_type_def}{MDMA\+\_\+\+Init\+Type\+Def}} Init}
+
+MDMA communication parameters ~\newline
+ \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_ad17a9359c80e9eb051c3fcc7c4f96b5c}\label{struct_____m_d_m_a___handle_type_def_ad17a9359c80e9eb051c3fcc7c4f96b5c}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!Instance@{Instance}}
+\index{Instance@{Instance}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_m_d_m_a___channel___type_def}{MDMA\+\_\+\+Channel\+\_\+\+Type\+Def}}$\ast$ Instance}
+
+Register base address ~\newline
+ \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_af78f9b41cb497aa207f883ccff33caa6}\label{struct_____m_d_m_a___handle_type_def_af78f9b41cb497aa207f883ccff33caa6}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!LastLinkedListNodeAddress@{LastLinkedListNodeAddress}}
+\index{LastLinkedListNodeAddress@{LastLinkedListNodeAddress}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{LastLinkedListNodeAddress}{LastLinkedListNodeAddress}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def}{MDMA\+\_\+\+Link\+Node\+Type\+Def}}$\ast$ Last\+Linked\+List\+Node\+Address}
+
+specifies the last node address of the transfer list this parameter is used internally by the MDMA driver to construct the linked list node \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_a6cb844524ad576f52ad8bf7ca9a13945}\label{struct_____m_d_m_a___handle_type_def_a6cb844524ad576f52ad8bf7ca9a13945}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!LinkedListNodeCounter@{LinkedListNodeCounter}}
+\index{LinkedListNodeCounter@{LinkedListNodeCounter}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{LinkedListNodeCounter}{LinkedListNodeCounter}}
+{\footnotesize\ttfamily uint32\+\_\+t Linked\+List\+Node\+Counter}
+
+Number of nodes in the MDMA linked list \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b}\label{struct_____m_d_m_a___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!Lock@{Lock}}
+\index{Lock@{Lock}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Lock}{Lock}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stm32h7xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\+\_\+\+Lock\+Type\+Def}} Lock}
+
+MDMA locking object ~\newline
+ \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_a6ee5f2130887847bbc051932ea43b73d}\label{struct_____m_d_m_a___handle_type_def_a6ee5f2130887847bbc051932ea43b73d}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!Parent@{Parent}}
+\index{Parent@{Parent}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{Parent}{Parent}}
+{\footnotesize\ttfamily void$\ast$ Parent}
+
+Parent object state ~\newline
+ \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_a16e61dc7aec146f5cf0ae76aa30f9ae8}\label{struct_____m_d_m_a___handle_type_def_a16e61dc7aec146f5cf0ae76aa30f9ae8}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!State@{State}}
+\index{State@{State}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} \mbox{\hyperlink{group___m_d_m_a___exported___types_ga1e58ed6c9c6842db93575e2624537327}{HAL\+\_\+\+MDMA\+\_\+\+State\+Type\+Def}} State}
+
+MDMA transfer state ~\newline
+ \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_a8ad04f2b1fbe4f691327f13cfb4dfb74}\label{struct_____m_d_m_a___handle_type_def_a8ad04f2b1fbe4f691327f13cfb4dfb74}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!XferAbortCallback@{XferAbortCallback}}
+\index{XferAbortCallback@{XferAbortCallback}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{XferAbortCallback}{XferAbortCallback}}
+{\footnotesize\ttfamily void($\ast$ Xfer\+Abort\+Callback) (struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)}
+
+MDMA transfer Abort callback ~\newline
+ \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_ae4064e9d5fe0308094d328c1a15be87f}\label{struct_____m_d_m_a___handle_type_def_ae4064e9d5fe0308094d328c1a15be87f}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!XferBlockCpltCallback@{XferBlockCpltCallback}}
+\index{XferBlockCpltCallback@{XferBlockCpltCallback}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{XferBlockCpltCallback}{XferBlockCpltCallback}}
+{\footnotesize\ttfamily void($\ast$ Xfer\+Block\+Cplt\+Callback) (struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)}
+
+MDMA block transfer complete callback ~\newline
+ \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_a27fdeb0e1283e9e97b94cc90dac187d0}\label{struct_____m_d_m_a___handle_type_def_a27fdeb0e1283e9e97b94cc90dac187d0}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!XferBufferCpltCallback@{XferBufferCpltCallback}}
+\index{XferBufferCpltCallback@{XferBufferCpltCallback}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{XferBufferCpltCallback}{XferBufferCpltCallback}}
+{\footnotesize\ttfamily void($\ast$ Xfer\+Buffer\+Cplt\+Callback) (struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)}
+
+MDMA buffer transfer complete callback \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_aaa8ed194032bcba37bdcc52e877793ad}\label{struct_____m_d_m_a___handle_type_def_aaa8ed194032bcba37bdcc52e877793ad}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!XferCpltCallback@{XferCpltCallback}}
+\index{XferCpltCallback@{XferCpltCallback}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{XferCpltCallback}{XferCpltCallback}}
+{\footnotesize\ttfamily void($\ast$ Xfer\+Cplt\+Callback) (struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)}
+
+MDMA transfer complete callback ~\newline
+ \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_a21eeca41117329639ffb91a3580381ce}\label{struct_____m_d_m_a___handle_type_def_a21eeca41117329639ffb91a3580381ce}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!XferErrorCallback@{XferErrorCallback}}
+\index{XferErrorCallback@{XferErrorCallback}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{XferErrorCallback}{XferErrorCallback}}
+{\footnotesize\ttfamily void($\ast$ Xfer\+Error\+Callback) (struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)}
+
+MDMA transfer error callback ~\newline
+ \mbox{\Hypertarget{struct_____m_d_m_a___handle_type_def_a5d377875065efc533596f7aff89354d3}\label{struct_____m_d_m_a___handle_type_def_a5d377875065efc533596f7aff89354d3}} 
+\index{\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}!XferRepeatBlockCpltCallback@{XferRepeatBlockCpltCallback}}
+\index{XferRepeatBlockCpltCallback@{XferRepeatBlockCpltCallback}!\_\_MDMA\_HandleTypeDef@{\_\_MDMA\_HandleTypeDef}}
+\doxysubsubsection{\texorpdfstring{XferRepeatBlockCpltCallback}{XferRepeatBlockCpltCallback}}
+{\footnotesize\ttfamily void($\ast$ Xfer\+Repeat\+Block\+Cplt\+Callback) (struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} $\ast$hmdma)}
+
+MDMA block transfer repeat callback ~\newline
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32h7xx__hal__mdma_8h}{stm32h7xx\+\_\+hal\+\_\+mdma.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,1505 @@
+\hypertarget{opt_8h_source}{}\doxysection{opt.\+h}
+\label{opt_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/opt.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/opt.h}}
+\mbox{\hyperlink{opt_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{comment}{/*}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{12 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{19 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{23 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{24 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{25 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{26 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{27 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{28 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{29 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{30 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{31 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{32 \textcolor{comment}{ *}}
+\DoxyCodeLine{33 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ */}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{comment}{/*}}
+\DoxyCodeLine{40 \textcolor{comment}{ * NOTE: || defined \_\_DOXYGEN\_\_ is a workaround for doxygen bug -\/}}
+\DoxyCodeLine{41 \textcolor{comment}{ * without this, doxygen does not see the actual \#define}}
+\DoxyCodeLine{42 \textcolor{comment}{ */}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#if !defined LWIP\_HDR\_OPT\_H}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define LWIP\_HDR\_OPT\_H}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/*}}
+\DoxyCodeLine{48 \textcolor{comment}{ * Include user defined options first. Anything not defined in these files}}
+\DoxyCodeLine{49 \textcolor{comment}{ * will be set to standard values. Override anything you don't like!}}
+\DoxyCodeLine{50 \textcolor{comment}{ */}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#include "{}lwipopts.h"{}}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{debug_8h}{lwip/debug.h}}"{}}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{71  \textcolor{comment}{/*}}
+\DoxyCodeLine{72 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{73 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ NO SYS -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{74 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{75 \textcolor{comment}{*/}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#if !defined NO\_SYS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define NO\_SYS                          0}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#if !defined LWIP\_TIMERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#ifdef NO\_SYS\_NO\_TIMERS}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define LWIP\_TIMERS                     (!NO\_SYS || (NO\_SYS \&\& !NO\_SYS\_NO\_TIMERS))}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define LWIP\_TIMERS                     1}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#if !defined LWIP\_TIMERS\_CUSTOM || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define LWIP\_TIMERS\_CUSTOM              0}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#if !defined MEMCPY || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define MEMCPY(dst,src,len)             memcpy(dst,src,len)}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#if !defined SMEMCPY || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define SMEMCPY(dst,src,len)            memcpy(dst,src,len)}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#if !defined MEMMOVE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define MEMMOVE(dst,src,len)            memmove(dst,src,len)}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{160 \textcolor{comment}{/*}}
+\DoxyCodeLine{161 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{162 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Core locking -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{163 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{164 \textcolor{comment}{*/}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#if !defined LWIP\_MPU\_COMPATIBLE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define LWIP\_MPU\_COMPATIBLE             0}}
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#if !defined LWIP\_TCPIP\_CORE\_LOCKING || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define LWIP\_TCPIP\_CORE\_LOCKING         1}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#if !defined LWIP\_TCPIP\_CORE\_LOCKING\_INPUT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define LWIP\_TCPIP\_CORE\_LOCKING\_INPUT   0}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#if !defined SYS\_LIGHTWEIGHT\_PROT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#define SYS\_LIGHTWEIGHT\_PROT            1}}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#if !defined LWIP\_ASSERT\_CORE\_LOCKED || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#define LWIP\_ASSERT\_CORE\_LOCKED()}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#if !defined LWIP\_MARK\_TCPIP\_THREAD || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#define LWIP\_MARK\_TCPIP\_THREAD()}}
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{242 \textcolor{comment}{/*}}
+\DoxyCodeLine{243 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{244 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Memory options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{245 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{246 \textcolor{comment}{*/}}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#if !defined MEM\_LIBC\_MALLOC || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{258 \textcolor{preprocessor}{\#define MEM\_LIBC\_MALLOC                 0}}
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#if !defined MEMP\_MEM\_MALLOC || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define MEMP\_MEM\_MALLOC                 0}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#if !defined MEMP\_MEM\_INIT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#define MEMP\_MEM\_INIT                   0}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#if !defined MEM\_ALIGNMENT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#define MEM\_ALIGNMENT                   1}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#if !defined MEM\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#define MEM\_SIZE                        1600}}
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#if !defined MEMP\_OVERFLOW\_CHECK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#define MEMP\_OVERFLOW\_CHECK             0}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#if !defined MEMP\_SANITY\_CHECK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#define MEMP\_SANITY\_CHECK               0}}
+\DoxyCodeLine{319 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{320 }
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#if !defined MEM\_OVERFLOW\_CHECK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{331 \textcolor{preprocessor}{\#define MEM\_OVERFLOW\_CHECK              0}}
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{338 \textcolor{preprocessor}{\#if !defined MEM\_SANITY\_CHECK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{339 \textcolor{preprocessor}{\#define MEM\_SANITY\_CHECK                0}}
+\DoxyCodeLine{340 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#if !defined MEM\_USE\_POOLS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{349 \textcolor{preprocessor}{\#define MEM\_USE\_POOLS                   0}}
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{356 \textcolor{preprocessor}{\#if !defined MEM\_USE\_POOLS\_TRY\_BIGGER\_POOL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#define MEM\_USE\_POOLS\_TRY\_BIGGER\_POOL   0}}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{366 \textcolor{preprocessor}{\#if !defined MEMP\_USE\_CUSTOM\_POOLS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{367 \textcolor{preprocessor}{\#define MEMP\_USE\_CUSTOM\_POOLS           0}}
+\DoxyCodeLine{368 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{388 \textcolor{preprocessor}{\#if !defined LWIP\_ALLOW\_MEM\_FREE\_FROM\_OTHER\_CONTEXT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#define LWIP\_ALLOW\_MEM\_FREE\_FROM\_OTHER\_CONTEXT 0}}
+\DoxyCodeLine{390 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{395 \textcolor{comment}{/*}}
+\DoxyCodeLine{396 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{397 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Internal Memory Pool Sizes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{398 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{399 \textcolor{comment}{*/}}
+\DoxyCodeLine{410 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_PBUF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{411 \textcolor{preprocessor}{\#define MEMP\_NUM\_PBUF                   16}}
+\DoxyCodeLine{412 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{418 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_RAW\_PCB || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{419 \textcolor{preprocessor}{\#define MEMP\_NUM\_RAW\_PCB                4}}
+\DoxyCodeLine{420 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{421 }
+\DoxyCodeLine{427 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_UDP\_PCB || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{428 \textcolor{preprocessor}{\#define MEMP\_NUM\_UDP\_PCB                4}}
+\DoxyCodeLine{429 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{430 }
+\DoxyCodeLine{435 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_TCP\_PCB || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{436 \textcolor{preprocessor}{\#define MEMP\_NUM\_TCP\_PCB                5}}
+\DoxyCodeLine{437 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{438 }
+\DoxyCodeLine{443 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_TCP\_PCB\_LISTEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{444 \textcolor{preprocessor}{\#define MEMP\_NUM\_TCP\_PCB\_LISTEN         8}}
+\DoxyCodeLine{445 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{446 }
+\DoxyCodeLine{451 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_TCP\_SEG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{452 \textcolor{preprocessor}{\#define MEMP\_NUM\_TCP\_SEG                16}}
+\DoxyCodeLine{453 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{461 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_ALTCP\_PCB || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{462 \textcolor{preprocessor}{\#define MEMP\_NUM\_ALTCP\_PCB              MEMP\_NUM\_TCP\_PCB}}
+\DoxyCodeLine{463 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{469 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_REASSDATA || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{470 \textcolor{preprocessor}{\#define MEMP\_NUM\_REASSDATA              5}}
+\DoxyCodeLine{471 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{480 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_FRAG\_PBUF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{481 \textcolor{preprocessor}{\#define MEMP\_NUM\_FRAG\_PBUF              15}}
+\DoxyCodeLine{482 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{490 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_ARP\_QUEUE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{491 \textcolor{preprocessor}{\#define MEMP\_NUM\_ARP\_QUEUE              30}}
+\DoxyCodeLine{492 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{493 }
+\DoxyCodeLine{500 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_IGMP\_GROUP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{501 \textcolor{preprocessor}{\#define MEMP\_NUM\_IGMP\_GROUP             8}}
+\DoxyCodeLine{502 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{508 \textcolor{preprocessor}{\#define LWIP\_NUM\_SYS\_TIMEOUT\_INTERNAL   (LWIP\_TCP + IP\_REASSEMBLY + LWIP\_ARP + (2*LWIP\_DHCP) + LWIP\_AUTOIP + LWIP\_IGMP + LWIP\_DNS + PPP\_NUM\_TIMEOUTS + (LWIP\_IPV6 * (1 + LWIP\_IPV6\_REASS + LWIP\_IPV6\_MLD)))}}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{515 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_SYS\_TIMEOUT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{516 \textcolor{preprocessor}{\#define MEMP\_NUM\_SYS\_TIMEOUT            LWIP\_NUM\_SYS\_TIMEOUT\_INTERNAL}}
+\DoxyCodeLine{517 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{518 }
+\DoxyCodeLine{523 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_NETBUF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{524 \textcolor{preprocessor}{\#define MEMP\_NUM\_NETBUF                 2}}
+\DoxyCodeLine{525 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{526 }
+\DoxyCodeLine{531 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_NETCONN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{532 \textcolor{preprocessor}{\#define MEMP\_NUM\_NETCONN                4}}
+\DoxyCodeLine{533 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{534 }
+\DoxyCodeLine{540 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_SELECT\_CB || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{541 \textcolor{preprocessor}{\#define MEMP\_NUM\_SELECT\_CB              4}}
+\DoxyCodeLine{542 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{549 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_TCPIP\_MSG\_API || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{550 \textcolor{preprocessor}{\#define MEMP\_NUM\_TCPIP\_MSG\_API          8}}
+\DoxyCodeLine{551 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{558 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_TCPIP\_MSG\_INPKT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{559 \textcolor{preprocessor}{\#define MEMP\_NUM\_TCPIP\_MSG\_INPKT        8}}
+\DoxyCodeLine{560 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{561 }
+\DoxyCodeLine{566 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_NETDB || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{567 \textcolor{preprocessor}{\#define MEMP\_NUM\_NETDB                  1}}
+\DoxyCodeLine{568 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{569 }
+\DoxyCodeLine{574 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_LOCALHOSTLIST || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{575 \textcolor{preprocessor}{\#define MEMP\_NUM\_LOCALHOSTLIST          1}}
+\DoxyCodeLine{576 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{577 }
+\DoxyCodeLine{581 \textcolor{preprocessor}{\#if !defined PBUF\_POOL\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{582 \textcolor{preprocessor}{\#define PBUF\_POOL\_SIZE                  16}}
+\DoxyCodeLine{583 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{584 }
+\DoxyCodeLine{588 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_API\_MSG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{589 \textcolor{preprocessor}{\#define MEMP\_NUM\_API\_MSG                MEMP\_NUM\_TCPIP\_MSG\_API}}
+\DoxyCodeLine{590 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{591 }
+\DoxyCodeLine{594 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_DNS\_API\_MSG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{595 \textcolor{preprocessor}{\#define MEMP\_NUM\_DNS\_API\_MSG            MEMP\_NUM\_TCPIP\_MSG\_API}}
+\DoxyCodeLine{596 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{597 }
+\DoxyCodeLine{601 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_SOCKET\_SETGETSOCKOPT\_DATA || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{602 \textcolor{preprocessor}{\#define MEMP\_NUM\_SOCKET\_SETGETSOCKOPT\_DATA MEMP\_NUM\_TCPIP\_MSG\_API}}
+\DoxyCodeLine{603 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{604 }
+\DoxyCodeLine{608 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_NETIFAPI\_MSG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{609 \textcolor{preprocessor}{\#define MEMP\_NUM\_NETIFAPI\_MSG           MEMP\_NUM\_TCPIP\_MSG\_API}}
+\DoxyCodeLine{610 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{615 \textcolor{comment}{/*}}
+\DoxyCodeLine{616 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{617 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ ARP options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{618 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{619 \textcolor{comment}{*/}}
+\DoxyCodeLine{628 \textcolor{preprocessor}{\#if !defined LWIP\_ARP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{629 \textcolor{preprocessor}{\#define LWIP\_ARP                        1}}
+\DoxyCodeLine{630 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{631 }
+\DoxyCodeLine{635 \textcolor{preprocessor}{\#if !defined ARP\_TABLE\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{636 \textcolor{preprocessor}{\#define ARP\_TABLE\_SIZE                  10}}
+\DoxyCodeLine{637 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{638 }
+\DoxyCodeLine{643 \textcolor{preprocessor}{\#if !defined ARP\_MAXAGE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{644 \textcolor{preprocessor}{\#define ARP\_MAXAGE                      300}}
+\DoxyCodeLine{645 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{646 }
+\DoxyCodeLine{654 \textcolor{preprocessor}{\#if !defined ARP\_QUEUEING || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{655 \textcolor{preprocessor}{\#define ARP\_QUEUEING                    0}}
+\DoxyCodeLine{656 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{657 }
+\DoxyCodeLine{662 \textcolor{preprocessor}{\#if !defined ARP\_QUEUE\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{663 \textcolor{preprocessor}{\#define ARP\_QUEUE\_LEN                   3}}
+\DoxyCodeLine{664 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{665 }
+\DoxyCodeLine{676 \textcolor{preprocessor}{\#if !defined ETHARP\_SUPPORT\_VLAN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{677 \textcolor{preprocessor}{\#define ETHARP\_SUPPORT\_VLAN             0}}
+\DoxyCodeLine{678 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{679 }
+\DoxyCodeLine{682 \textcolor{preprocessor}{\#if !defined LWIP\_ETHERNET || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{683 \textcolor{preprocessor}{\#define LWIP\_ETHERNET                   LWIP\_ARP}}
+\DoxyCodeLine{684 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{685 }
+\DoxyCodeLine{691 \textcolor{preprocessor}{\#if !defined ETH\_PAD\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{692 \textcolor{preprocessor}{\#define ETH\_PAD\_SIZE                    0}}
+\DoxyCodeLine{693 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{694 }
+\DoxyCodeLine{698 \textcolor{preprocessor}{\#if !defined ETHARP\_SUPPORT\_STATIC\_ENTRIES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{699 \textcolor{preprocessor}{\#define ETHARP\_SUPPORT\_STATIC\_ENTRIES   0}}
+\DoxyCodeLine{700 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{701 }
+\DoxyCodeLine{706 \textcolor{preprocessor}{\#if !defined ETHARP\_TABLE\_MATCH\_NETIF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{707 \textcolor{preprocessor}{\#define ETHARP\_TABLE\_MATCH\_NETIF        !LWIP\_SINGLE\_NETIF}}
+\DoxyCodeLine{708 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{713 \textcolor{comment}{/*}}
+\DoxyCodeLine{714 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{715 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ IP options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{716 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{717 \textcolor{comment}{*/}}
+\DoxyCodeLine{726 \textcolor{preprocessor}{\#if !defined LWIP\_IPV4 || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{727 \textcolor{preprocessor}{\#define LWIP\_IPV4                       1}}
+\DoxyCodeLine{728 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{729 }
+\DoxyCodeLine{735 \textcolor{preprocessor}{\#if !defined IP\_FORWARD || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{736 \textcolor{preprocessor}{\#define IP\_FORWARD                      0}}
+\DoxyCodeLine{737 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{738 }
+\DoxyCodeLine{744 \textcolor{preprocessor}{\#if !defined IP\_REASSEMBLY || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{745 \textcolor{preprocessor}{\#define IP\_REASSEMBLY                   1}}
+\DoxyCodeLine{746 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{747 }
+\DoxyCodeLine{753 \textcolor{preprocessor}{\#if !defined IP\_FRAG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{754 \textcolor{preprocessor}{\#define IP\_FRAG                         1}}
+\DoxyCodeLine{755 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{756 }
+\DoxyCodeLine{757 \textcolor{preprocessor}{\#if !LWIP\_IPV4}}
+\DoxyCodeLine{758 \textcolor{comment}{/* disable IPv4 extensions when IPv4 is disabled */}}
+\DoxyCodeLine{759 \textcolor{preprocessor}{\#undef IP\_FORWARD}}
+\DoxyCodeLine{760 \textcolor{preprocessor}{\#define IP\_FORWARD                      0}}
+\DoxyCodeLine{761 \textcolor{preprocessor}{\#undef IP\_REASSEMBLY}}
+\DoxyCodeLine{762 \textcolor{preprocessor}{\#define IP\_REASSEMBLY                   0}}
+\DoxyCodeLine{763 \textcolor{preprocessor}{\#undef IP\_FRAG}}
+\DoxyCodeLine{764 \textcolor{preprocessor}{\#define IP\_FRAG                         0}}
+\DoxyCodeLine{765 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{766 }
+\DoxyCodeLine{772 \textcolor{preprocessor}{\#if !defined IP\_OPTIONS\_ALLOWED || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{773 \textcolor{preprocessor}{\#define IP\_OPTIONS\_ALLOWED              1}}
+\DoxyCodeLine{774 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{775 }
+\DoxyCodeLine{781 \textcolor{preprocessor}{\#if !defined IP\_REASS\_MAXAGE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{782 \textcolor{preprocessor}{\#define IP\_REASS\_MAXAGE                 15}}
+\DoxyCodeLine{783 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{784 }
+\DoxyCodeLine{793 \textcolor{preprocessor}{\#if !defined IP\_REASS\_MAX\_PBUFS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{794 \textcolor{preprocessor}{\#define IP\_REASS\_MAX\_PBUFS              10}}
+\DoxyCodeLine{795 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{796 }
+\DoxyCodeLine{800 \textcolor{preprocessor}{\#if !defined IP\_DEFAULT\_TTL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{801 \textcolor{preprocessor}{\#define IP\_DEFAULT\_TTL                  255}}
+\DoxyCodeLine{802 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{803 }
+\DoxyCodeLine{809 \textcolor{preprocessor}{\#if !defined IP\_SOF\_BROADCAST || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{810 \textcolor{preprocessor}{\#define IP\_SOF\_BROADCAST                0}}
+\DoxyCodeLine{811 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{812 }
+\DoxyCodeLine{817 \textcolor{preprocessor}{\#if !defined IP\_SOF\_BROADCAST\_RECV || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{818 \textcolor{preprocessor}{\#define IP\_SOF\_BROADCAST\_RECV           0}}
+\DoxyCodeLine{819 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{820 }
+\DoxyCodeLine{828 \textcolor{preprocessor}{\#if !defined IP\_FORWARD\_ALLOW\_TX\_ON\_RX\_NETIF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{829 \textcolor{preprocessor}{\#define IP\_FORWARD\_ALLOW\_TX\_ON\_RX\_NETIF 0}}
+\DoxyCodeLine{830 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{835 \textcolor{comment}{/*}}
+\DoxyCodeLine{836 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{837 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ ICMP options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{838 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{839 \textcolor{comment}{*/}}
+\DoxyCodeLine{849 \textcolor{preprocessor}{\#if !defined LWIP\_ICMP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{850 \textcolor{preprocessor}{\#define LWIP\_ICMP                       1}}
+\DoxyCodeLine{851 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{852 }
+\DoxyCodeLine{856 \textcolor{preprocessor}{\#if !defined ICMP\_TTL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{857 \textcolor{preprocessor}{\#define ICMP\_TTL                        IP\_DEFAULT\_TTL}}
+\DoxyCodeLine{858 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{859 }
+\DoxyCodeLine{863 \textcolor{preprocessor}{\#if !defined LWIP\_BROADCAST\_PING || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{864 \textcolor{preprocessor}{\#define LWIP\_BROADCAST\_PING             0}}
+\DoxyCodeLine{865 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{866 }
+\DoxyCodeLine{870 \textcolor{preprocessor}{\#if !defined LWIP\_MULTICAST\_PING || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{871 \textcolor{preprocessor}{\#define LWIP\_MULTICAST\_PING             0}}
+\DoxyCodeLine{872 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{877 \textcolor{comment}{/*}}
+\DoxyCodeLine{878 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{879 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ RAW options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{880 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{881 \textcolor{comment}{*/}}
+\DoxyCodeLine{890 \textcolor{preprocessor}{\#if !defined LWIP\_RAW || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{891 \textcolor{preprocessor}{\#define LWIP\_RAW                        0}}
+\DoxyCodeLine{892 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{893 }
+\DoxyCodeLine{897 \textcolor{preprocessor}{\#if !defined RAW\_TTL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{898 \textcolor{preprocessor}{\#define RAW\_TTL                         IP\_DEFAULT\_TTL}}
+\DoxyCodeLine{899 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{904 \textcolor{comment}{/*}}
+\DoxyCodeLine{905 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{906 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ DHCP options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{907 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{908 \textcolor{comment}{*/}}
+\DoxyCodeLine{917 \textcolor{preprocessor}{\#if !defined LWIP\_DHCP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{918 \textcolor{preprocessor}{\#define LWIP\_DHCP                       0}}
+\DoxyCodeLine{919 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{920 \textcolor{preprocessor}{\#if !LWIP\_IPV4}}
+\DoxyCodeLine{921 \textcolor{comment}{/* disable DHCP when IPv4 is disabled */}}
+\DoxyCodeLine{922 \textcolor{preprocessor}{\#undef LWIP\_DHCP}}
+\DoxyCodeLine{923 \textcolor{preprocessor}{\#define LWIP\_DHCP                       0}}
+\DoxyCodeLine{924 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{925 }
+\DoxyCodeLine{929 \textcolor{preprocessor}{\#if !defined DHCP\_DOES\_ARP\_CHECK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{930 \textcolor{preprocessor}{\#define DHCP\_DOES\_ARP\_CHECK             (LWIP\_DHCP \&\& LWIP\_ARP)}}
+\DoxyCodeLine{931 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{932 }
+\DoxyCodeLine{936 \textcolor{preprocessor}{\#if !defined LWIP\_DHCP\_BOOTP\_FILE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{937 \textcolor{preprocessor}{\#define LWIP\_DHCP\_BOOTP\_FILE            0}}
+\DoxyCodeLine{938 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{939 }
+\DoxyCodeLine{945 \textcolor{preprocessor}{\#if !defined LWIP\_DHCP\_GET\_NTP\_SRV || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{946 \textcolor{preprocessor}{\#define LWIP\_DHCP\_GET\_NTP\_SRV           0}}
+\DoxyCodeLine{947 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{948 }
+\DoxyCodeLine{952 \textcolor{preprocessor}{\#if !defined LWIP\_DHCP\_MAX\_NTP\_SERVERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{953 \textcolor{preprocessor}{\#define LWIP\_DHCP\_MAX\_NTP\_SERVERS       1}}
+\DoxyCodeLine{954 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{955 }
+\DoxyCodeLine{961 \textcolor{preprocessor}{\#if !defined LWIP\_DHCP\_MAX\_DNS\_SERVERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{962 \textcolor{preprocessor}{\#define LWIP\_DHCP\_MAX\_DNS\_SERVERS       DNS\_MAX\_SERVERS}}
+\DoxyCodeLine{963 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{968 \textcolor{comment}{/*}}
+\DoxyCodeLine{969 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{970 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ AUTOIP options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{971 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{972 \textcolor{comment}{*/}}
+\DoxyCodeLine{981 \textcolor{preprocessor}{\#if !defined LWIP\_AUTOIP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{982 \textcolor{preprocessor}{\#define LWIP\_AUTOIP                     0}}
+\DoxyCodeLine{983 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{984 \textcolor{preprocessor}{\#if !LWIP\_IPV4}}
+\DoxyCodeLine{985 \textcolor{comment}{/* disable AUTOIP when IPv4 is disabled */}}
+\DoxyCodeLine{986 \textcolor{preprocessor}{\#undef LWIP\_AUTOIP}}
+\DoxyCodeLine{987 \textcolor{preprocessor}{\#define LWIP\_AUTOIP                     0}}
+\DoxyCodeLine{988 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{989 }
+\DoxyCodeLine{994 \textcolor{preprocessor}{\#if !defined LWIP\_DHCP\_AUTOIP\_COOP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{995 \textcolor{preprocessor}{\#define LWIP\_DHCP\_AUTOIP\_COOP           0}}
+\DoxyCodeLine{996 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{997 }
+\DoxyCodeLine{1005 \textcolor{preprocessor}{\#if !defined LWIP\_DHCP\_AUTOIP\_COOP\_TRIES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1006 \textcolor{preprocessor}{\#define LWIP\_DHCP\_AUTOIP\_COOP\_TRIES     9}}
+\DoxyCodeLine{1007 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1012 \textcolor{comment}{/*}}
+\DoxyCodeLine{1013 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1014 \textcolor{comment}{   -\/-\/-\/-\/-\/ SNMP MIB2 support      -\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1015 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1016 \textcolor{comment}{*/}}
+\DoxyCodeLine{1027 \textcolor{preprocessor}{\#if !defined LWIP\_MIB2\_CALLBACKS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1028 \textcolor{preprocessor}{\#define LWIP\_MIB2\_CALLBACKS             0}}
+\DoxyCodeLine{1029 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1034 \textcolor{comment}{/*}}
+\DoxyCodeLine{1035 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1036 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/ Multicast options -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1037 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1038 \textcolor{comment}{*/}}
+\DoxyCodeLine{1049 \textcolor{preprocessor}{\#if !defined LWIP\_MULTICAST\_TX\_OPTIONS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1050 \textcolor{preprocessor}{\#define LWIP\_MULTICAST\_TX\_OPTIONS       ((LWIP\_IGMP || LWIP\_IPV6\_MLD) \&\& (LWIP\_UDP || LWIP\_RAW))}}
+\DoxyCodeLine{1051 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1056 \textcolor{comment}{/*}}
+\DoxyCodeLine{1057 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1058 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ IGMP options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1059 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1060 \textcolor{comment}{*/}}
+\DoxyCodeLine{1069 \textcolor{preprocessor}{\#if !defined LWIP\_IGMP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1070 \textcolor{preprocessor}{\#define LWIP\_IGMP                       0}}
+\DoxyCodeLine{1071 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1072 \textcolor{preprocessor}{\#if !LWIP\_IPV4}}
+\DoxyCodeLine{1073 \textcolor{preprocessor}{\#undef LWIP\_IGMP}}
+\DoxyCodeLine{1074 \textcolor{preprocessor}{\#define LWIP\_IGMP                       0}}
+\DoxyCodeLine{1075 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1080 \textcolor{comment}{/*}}
+\DoxyCodeLine{1081 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1082 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ DNS options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1083 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1084 \textcolor{comment}{*/}}
+\DoxyCodeLine{1094 \textcolor{preprocessor}{\#if !defined LWIP\_DNS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1095 \textcolor{preprocessor}{\#define LWIP\_DNS                        0}}
+\DoxyCodeLine{1096 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1097 }
+\DoxyCodeLine{1099 \textcolor{preprocessor}{\#if !defined DNS\_TABLE\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1100 \textcolor{preprocessor}{\#define DNS\_TABLE\_SIZE                  4}}
+\DoxyCodeLine{1101 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1102 }
+\DoxyCodeLine{1104 \textcolor{preprocessor}{\#if !defined DNS\_MAX\_NAME\_LENGTH || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1105 \textcolor{preprocessor}{\#define DNS\_MAX\_NAME\_LENGTH             256}}
+\DoxyCodeLine{1106 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1107 }
+\DoxyCodeLine{1112 \textcolor{preprocessor}{\#if !defined DNS\_MAX\_SERVERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1113 \textcolor{preprocessor}{\#define DNS\_MAX\_SERVERS                 2}}
+\DoxyCodeLine{1114 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1115 }
+\DoxyCodeLine{1117 \textcolor{preprocessor}{\#if !defined DNS\_MAX\_RETRIES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1118 \textcolor{preprocessor}{\#define DNS\_MAX\_RETRIES                 4}}
+\DoxyCodeLine{1119 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1120 }
+\DoxyCodeLine{1122 \textcolor{preprocessor}{\#if !defined DNS\_DOES\_NAME\_CHECK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1123 \textcolor{preprocessor}{\#define DNS\_DOES\_NAME\_CHECK             1}}
+\DoxyCodeLine{1124 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1125 }
+\DoxyCodeLine{1130 \textcolor{preprocessor}{\#if !defined LWIP\_DNS\_SECURE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1131 \textcolor{preprocessor}{\#define LWIP\_DNS\_SECURE (LWIP\_DNS\_SECURE\_RAND\_XID | LWIP\_DNS\_SECURE\_NO\_MULTIPLE\_OUTSTANDING | LWIP\_DNS\_SECURE\_RAND\_SRC\_PORT)}}
+\DoxyCodeLine{1132 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1133 }
+\DoxyCodeLine{1134 \textcolor{comment}{/* A list of DNS security features follows */}}
+\DoxyCodeLine{1135 \textcolor{preprocessor}{\#define LWIP\_DNS\_SECURE\_RAND\_XID                1}}
+\DoxyCodeLine{1136 \textcolor{preprocessor}{\#define LWIP\_DNS\_SECURE\_NO\_MULTIPLE\_OUTSTANDING 2}}
+\DoxyCodeLine{1137 \textcolor{preprocessor}{\#define LWIP\_DNS\_SECURE\_RAND\_SRC\_PORT           4}}
+\DoxyCodeLine{1138 }
+\DoxyCodeLine{1147 \textcolor{preprocessor}{\#if !defined DNS\_LOCAL\_HOSTLIST || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1148 \textcolor{preprocessor}{\#define DNS\_LOCAL\_HOSTLIST              0}}
+\DoxyCodeLine{1149 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DNS\_LOCAL\_HOSTLIST */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1150 }
+\DoxyCodeLine{1153 \textcolor{preprocessor}{\#if !defined DNS\_LOCAL\_HOSTLIST\_IS\_DYNAMIC || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1154 \textcolor{preprocessor}{\#define DNS\_LOCAL\_HOSTLIST\_IS\_DYNAMIC   0}}
+\DoxyCodeLine{1155 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DNS\_LOCAL\_HOSTLIST\_IS\_DYNAMIC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1156 }
+\DoxyCodeLine{1159 \textcolor{preprocessor}{\#if !defined LWIP\_DNS\_SUPPORT\_MDNS\_QUERIES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1160 \textcolor{preprocessor}{\#define LWIP\_DNS\_SUPPORT\_MDNS\_QUERIES   0}}
+\DoxyCodeLine{1161 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1166 \textcolor{comment}{/*}}
+\DoxyCodeLine{1167 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1168 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ UDP options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1169 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1170 \textcolor{comment}{*/}}
+\DoxyCodeLine{1179 \textcolor{preprocessor}{\#if !defined LWIP\_UDP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1180 \textcolor{preprocessor}{\#define LWIP\_UDP                        1}}
+\DoxyCodeLine{1181 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1182 }
+\DoxyCodeLine{1186 \textcolor{preprocessor}{\#if !defined LWIP\_UDPLITE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1187 \textcolor{preprocessor}{\#define LWIP\_UDPLITE                    0}}
+\DoxyCodeLine{1188 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1189 }
+\DoxyCodeLine{1193 \textcolor{preprocessor}{\#if !defined UDP\_TTL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1194 \textcolor{preprocessor}{\#define UDP\_TTL                         IP\_DEFAULT\_TTL}}
+\DoxyCodeLine{1195 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1196 }
+\DoxyCodeLine{1200 \textcolor{preprocessor}{\#if !defined LWIP\_NETBUF\_RECVINFO || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1201 \textcolor{preprocessor}{\#define LWIP\_NETBUF\_RECVINFO            0}}
+\DoxyCodeLine{1202 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1207 \textcolor{comment}{/*}}
+\DoxyCodeLine{1208 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1209 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ TCP options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1210 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1211 \textcolor{comment}{*/}}
+\DoxyCodeLine{1220 \textcolor{preprocessor}{\#if !defined LWIP\_TCP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1221 \textcolor{preprocessor}{\#define LWIP\_TCP                        1}}
+\DoxyCodeLine{1222 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1223 }
+\DoxyCodeLine{1227 \textcolor{preprocessor}{\#if !defined TCP\_TTL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1228 \textcolor{preprocessor}{\#define TCP\_TTL                         IP\_DEFAULT\_TTL}}
+\DoxyCodeLine{1229 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1230 }
+\DoxyCodeLine{1238 \textcolor{preprocessor}{\#if !defined TCP\_WND || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1239 \textcolor{preprocessor}{\#define TCP\_WND                         (4 * TCP\_MSS)}}
+\DoxyCodeLine{1240 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1241 }
+\DoxyCodeLine{1245 \textcolor{preprocessor}{\#if !defined TCP\_MAXRTX || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1246 \textcolor{preprocessor}{\#define TCP\_MAXRTX                      12}}
+\DoxyCodeLine{1247 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1248 }
+\DoxyCodeLine{1252 \textcolor{preprocessor}{\#if !defined TCP\_SYNMAXRTX || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1253 \textcolor{preprocessor}{\#define TCP\_SYNMAXRTX                   6}}
+\DoxyCodeLine{1254 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1255 }
+\DoxyCodeLine{1260 \textcolor{preprocessor}{\#if !defined TCP\_QUEUE\_OOSEQ || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1261 \textcolor{preprocessor}{\#define TCP\_QUEUE\_OOSEQ                 LWIP\_TCP}}
+\DoxyCodeLine{1262 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1263 }
+\DoxyCodeLine{1267 \textcolor{preprocessor}{\#if !defined LWIP\_TCP\_SACK\_OUT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1268 \textcolor{preprocessor}{\#define LWIP\_TCP\_SACK\_OUT               0}}
+\DoxyCodeLine{1269 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1270 }
+\DoxyCodeLine{1281 \textcolor{preprocessor}{\#if !defined LWIP\_TCP\_MAX\_SACK\_NUM || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1282 \textcolor{preprocessor}{\#define LWIP\_TCP\_MAX\_SACK\_NUM           4}}
+\DoxyCodeLine{1283 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1284 }
+\DoxyCodeLine{1292 \textcolor{preprocessor}{\#if !defined TCP\_MSS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1293 \textcolor{preprocessor}{\#define TCP\_MSS                         536}}
+\DoxyCodeLine{1294 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1295 }
+\DoxyCodeLine{1304 \textcolor{preprocessor}{\#if !defined TCP\_CALCULATE\_EFF\_SEND\_MSS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1305 \textcolor{preprocessor}{\#define TCP\_CALCULATE\_EFF\_SEND\_MSS      1}}
+\DoxyCodeLine{1306 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1307 }
+\DoxyCodeLine{1308 }
+\DoxyCodeLine{1313 \textcolor{preprocessor}{\#if !defined TCP\_SND\_BUF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1314 \textcolor{preprocessor}{\#define TCP\_SND\_BUF                     (2 * TCP\_MSS)}}
+\DoxyCodeLine{1315 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1316 }
+\DoxyCodeLine{1321 \textcolor{preprocessor}{\#if !defined TCP\_SND\_QUEUELEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1322 \textcolor{preprocessor}{\#define TCP\_SND\_QUEUELEN                ((4 * (TCP\_SND\_BUF) + (TCP\_MSS -\/ 1))/(TCP\_MSS))}}
+\DoxyCodeLine{1323 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1324 }
+\DoxyCodeLine{1330 \textcolor{preprocessor}{\#if !defined TCP\_SNDLOWAT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1331 \textcolor{preprocessor}{\#define TCP\_SNDLOWAT                    LWIP\_MIN(LWIP\_MAX(((TCP\_SND\_BUF)/2), (2 * TCP\_MSS) + 1), (TCP\_SND\_BUF) -\/ 1)}}
+\DoxyCodeLine{1332 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1333 }
+\DoxyCodeLine{1339 \textcolor{preprocessor}{\#if !defined TCP\_SNDQUEUELOWAT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1340 \textcolor{preprocessor}{\#define TCP\_SNDQUEUELOWAT               LWIP\_MAX(((TCP\_SND\_QUEUELEN)/2), 5)}}
+\DoxyCodeLine{1341 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1342 }
+\DoxyCodeLine{1348 \textcolor{preprocessor}{\#if !defined TCP\_OOSEQ\_MAX\_BYTES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1349 \textcolor{preprocessor}{\#define TCP\_OOSEQ\_MAX\_BYTES             0}}
+\DoxyCodeLine{1350 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1351 }
+\DoxyCodeLine{1358 \textcolor{preprocessor}{\#if !defined TCP\_OOSEQ\_BYTES\_LIMIT}}
+\DoxyCodeLine{1359 \textcolor{preprocessor}{\#if TCP\_OOSEQ\_MAX\_BYTES}}
+\DoxyCodeLine{1360 \textcolor{preprocessor}{\#define TCP\_OOSEQ\_BYTES\_LIMIT(pcb)      TCP\_OOSEQ\_MAX\_BYTES}}
+\DoxyCodeLine{1361 \textcolor{preprocessor}{\#elif defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1362 \textcolor{preprocessor}{\#define TCP\_OOSEQ\_BYTES\_LIMIT(pcb)}}
+\DoxyCodeLine{1363 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1364 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1365 }
+\DoxyCodeLine{1371 \textcolor{preprocessor}{\#if !defined TCP\_OOSEQ\_MAX\_PBUFS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1372 \textcolor{preprocessor}{\#define TCP\_OOSEQ\_MAX\_PBUFS             0}}
+\DoxyCodeLine{1373 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1374 }
+\DoxyCodeLine{1381 \textcolor{preprocessor}{\#if !defined TCP\_OOSEQ\_PBUFS\_LIMIT}}
+\DoxyCodeLine{1382 \textcolor{preprocessor}{\#if TCP\_OOSEQ\_MAX\_PBUFS}}
+\DoxyCodeLine{1383 \textcolor{preprocessor}{\#define TCP\_OOSEQ\_PBUFS\_LIMIT(pcb)      TCP\_OOSEQ\_MAX\_PBUFS}}
+\DoxyCodeLine{1384 \textcolor{preprocessor}{\#elif defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1385 \textcolor{preprocessor}{\#define TCP\_OOSEQ\_PBUFS\_LIMIT(pcb)}}
+\DoxyCodeLine{1386 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1387 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1388 }
+\DoxyCodeLine{1392 \textcolor{preprocessor}{\#if !defined TCP\_LISTEN\_BACKLOG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1393 \textcolor{preprocessor}{\#define TCP\_LISTEN\_BACKLOG              0}}
+\DoxyCodeLine{1394 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1395 }
+\DoxyCodeLine{1401 \textcolor{preprocessor}{\#if !defined TCP\_DEFAULT\_LISTEN\_BACKLOG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1402 \textcolor{preprocessor}{\#define TCP\_DEFAULT\_LISTEN\_BACKLOG      0xff}}
+\DoxyCodeLine{1403 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1404 }
+\DoxyCodeLine{1419 \textcolor{preprocessor}{\#if !defined TCP\_OVERSIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1420 \textcolor{preprocessor}{\#define TCP\_OVERSIZE                    TCP\_MSS}}
+\DoxyCodeLine{1421 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1422 }
+\DoxyCodeLine{1429 \textcolor{preprocessor}{\#if !defined LWIP\_TCP\_TIMESTAMPS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1430 \textcolor{preprocessor}{\#define LWIP\_TCP\_TIMESTAMPS             0}}
+\DoxyCodeLine{1431 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1432 }
+\DoxyCodeLine{1437 \textcolor{preprocessor}{\#if !defined TCP\_WND\_UPDATE\_THRESHOLD || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1438 \textcolor{preprocessor}{\#define TCP\_WND\_UPDATE\_THRESHOLD        LWIP\_MIN((TCP\_WND / 4), (TCP\_MSS * 4))}}
+\DoxyCodeLine{1439 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1440 }
+\DoxyCodeLine{1448 \textcolor{preprocessor}{\#if !defined(LWIP\_EVENT\_API) \&\& !defined(LWIP\_CALLBACK\_API) || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1449 \textcolor{preprocessor}{\#define LWIP\_EVENT\_API                  0}}
+\DoxyCodeLine{1450 \textcolor{preprocessor}{\#define LWIP\_CALLBACK\_API               1}}
+\DoxyCodeLine{1451 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{1452 \textcolor{preprocessor}{\#ifndef LWIP\_EVENT\_API}}
+\DoxyCodeLine{1453 \textcolor{preprocessor}{\#define LWIP\_EVENT\_API                  0}}
+\DoxyCodeLine{1454 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1455 \textcolor{preprocessor}{\#ifndef LWIP\_CALLBACK\_API}}
+\DoxyCodeLine{1456 \textcolor{preprocessor}{\#define LWIP\_CALLBACK\_API               0}}
+\DoxyCodeLine{1457 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1458 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1459 }
+\DoxyCodeLine{1468 \textcolor{preprocessor}{\#if !defined LWIP\_WND\_SCALE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1469 \textcolor{preprocessor}{\#define LWIP\_WND\_SCALE                  0}}
+\DoxyCodeLine{1470 \textcolor{preprocessor}{\#define TCP\_RCV\_SCALE                   0}}
+\DoxyCodeLine{1471 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1472 }
+\DoxyCodeLine{1478 \textcolor{preprocessor}{\#if !defined LWIP\_TCP\_PCB\_NUM\_EXT\_ARGS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1479 \textcolor{preprocessor}{\#define LWIP\_TCP\_PCB\_NUM\_EXT\_ARGS       0}}
+\DoxyCodeLine{1480 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1481 }
+\DoxyCodeLine{1494 \textcolor{preprocessor}{\#if !defined LWIP\_ALTCP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1495 \textcolor{preprocessor}{\#define LWIP\_ALTCP                      0}}
+\DoxyCodeLine{1496 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1497 }
+\DoxyCodeLine{1503 \textcolor{preprocessor}{\#if !defined LWIP\_ALTCP\_TLS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1504 \textcolor{preprocessor}{\#define LWIP\_ALTCP\_TLS                  0}}
+\DoxyCodeLine{1505 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1506 }
+\DoxyCodeLine{1511 \textcolor{comment}{/*}}
+\DoxyCodeLine{1512 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1513 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Pbuf options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1514 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1515 \textcolor{comment}{*/}}
+\DoxyCodeLine{1526 \textcolor{preprocessor}{\#if !defined PBUF\_LINK\_HLEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1527 \textcolor{preprocessor}{\#if defined LWIP\_HOOK\_VLAN\_SET \&\& !defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1528 \textcolor{preprocessor}{\#define PBUF\_LINK\_HLEN                  (18 + ETH\_PAD\_SIZE)}}
+\DoxyCodeLine{1529 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_HOOK\_VLAN\_SET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1530 \textcolor{preprocessor}{\#define PBUF\_LINK\_HLEN                  (14 + ETH\_PAD\_SIZE)}}
+\DoxyCodeLine{1531 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HOOK\_VLAN\_SET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1532 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1533 }
+\DoxyCodeLine{1538 \textcolor{preprocessor}{\#if !defined PBUF\_LINK\_ENCAPSULATION\_HLEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1539 \textcolor{preprocessor}{\#define PBUF\_LINK\_ENCAPSULATION\_HLEN    0}}
+\DoxyCodeLine{1540 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1541 }
+\DoxyCodeLine{1547 \textcolor{preprocessor}{\#if !defined PBUF\_POOL\_BUFSIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1548 \textcolor{preprocessor}{\#define PBUF\_POOL\_BUFSIZE               LWIP\_MEM\_ALIGN\_SIZE(TCP\_MSS+40+PBUF\_LINK\_ENCAPSULATION\_HLEN+PBUF\_LINK\_HLEN)}}
+\DoxyCodeLine{1549 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1550 }
+\DoxyCodeLine{1555 \textcolor{preprocessor}{\#if !defined LWIP\_PBUF\_REF\_T || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1556 \textcolor{preprocessor}{\#define LWIP\_PBUF\_REF\_T                 u8\_t}}
+\DoxyCodeLine{1557 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1562 \textcolor{comment}{/*}}
+\DoxyCodeLine{1563 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1564 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Network Interfaces options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1565 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1566 \textcolor{comment}{*/}}
+\DoxyCodeLine{1576 \textcolor{preprocessor}{\#if !defined LWIP\_SINGLE\_NETIF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1577 \textcolor{preprocessor}{\#define LWIP\_SINGLE\_NETIF               0}}
+\DoxyCodeLine{1578 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1579 }
+\DoxyCodeLine{1584 \textcolor{preprocessor}{\#if !defined LWIP\_NETIF\_HOSTNAME || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1585 \textcolor{preprocessor}{\#define LWIP\_NETIF\_HOSTNAME             0}}
+\DoxyCodeLine{1586 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1587 }
+\DoxyCodeLine{1591 \textcolor{preprocessor}{\#if !defined LWIP\_NETIF\_API || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1592 \textcolor{preprocessor}{\#define LWIP\_NETIF\_API                  0}}
+\DoxyCodeLine{1593 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1594 }
+\DoxyCodeLine{1599 \textcolor{preprocessor}{\#if !defined LWIP\_NETIF\_STATUS\_CALLBACK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1600 \textcolor{preprocessor}{\#define LWIP\_NETIF\_STATUS\_CALLBACK      0}}
+\DoxyCodeLine{1601 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1602 }
+\DoxyCodeLine{1608 \textcolor{preprocessor}{\#if !defined LWIP\_NETIF\_EXT\_STATUS\_CALLBACK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1609 \textcolor{preprocessor}{\#define LWIP\_NETIF\_EXT\_STATUS\_CALLBACK  0}}
+\DoxyCodeLine{1610 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1611 }
+\DoxyCodeLine{1616 \textcolor{preprocessor}{\#if !defined LWIP\_NETIF\_LINK\_CALLBACK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1617 \textcolor{preprocessor}{\#define LWIP\_NETIF\_LINK\_CALLBACK        0}}
+\DoxyCodeLine{1618 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1619 }
+\DoxyCodeLine{1624 \textcolor{preprocessor}{\#if !defined LWIP\_NETIF\_REMOVE\_CALLBACK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1625 \textcolor{preprocessor}{\#define LWIP\_NETIF\_REMOVE\_CALLBACK      0}}
+\DoxyCodeLine{1626 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1627 }
+\DoxyCodeLine{1635 \textcolor{preprocessor}{\#if !defined LWIP\_NETIF\_HWADDRHINT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1636 \textcolor{preprocessor}{\#define LWIP\_NETIF\_HWADDRHINT           0}}
+\DoxyCodeLine{1637 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1638 }
+\DoxyCodeLine{1657 \textcolor{preprocessor}{\#if !defined LWIP\_NETIF\_TX\_SINGLE\_PBUF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1658 \textcolor{preprocessor}{\#define LWIP\_NETIF\_TX\_SINGLE\_PBUF       0}}
+\DoxyCodeLine{1659 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_TX\_SINGLE\_PBUF */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1660 }
+\DoxyCodeLine{1665 \textcolor{preprocessor}{\#if !defined LWIP\_NUM\_NETIF\_CLIENT\_DATA || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1666 \textcolor{preprocessor}{\#define LWIP\_NUM\_NETIF\_CLIENT\_DATA      0}}
+\DoxyCodeLine{1667 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1672 \textcolor{comment}{/*}}
+\DoxyCodeLine{1673 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1674 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ LOOPIF options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1675 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1676 \textcolor{comment}{*/}}
+\DoxyCodeLine{1687 \textcolor{preprocessor}{\#if !defined LWIP\_HAVE\_LOOPIF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1688 \textcolor{preprocessor}{\#define LWIP\_HAVE\_LOOPIF                (LWIP\_NETIF\_LOOPBACK \&\& !LWIP\_SINGLE\_NETIF)}}
+\DoxyCodeLine{1689 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1690 }
+\DoxyCodeLine{1694 \textcolor{preprocessor}{\#if !defined LWIP\_LOOPIF\_MULTICAST || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1695 \textcolor{preprocessor}{\#define LWIP\_LOOPIF\_MULTICAST           0}}
+\DoxyCodeLine{1696 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1697 }
+\DoxyCodeLine{1702 \textcolor{preprocessor}{\#if !defined LWIP\_NETIF\_LOOPBACK || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1703 \textcolor{preprocessor}{\#define LWIP\_NETIF\_LOOPBACK             0}}
+\DoxyCodeLine{1704 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1705 }
+\DoxyCodeLine{1710 \textcolor{preprocessor}{\#if !defined LWIP\_LOOPBACK\_MAX\_PBUFS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1711 \textcolor{preprocessor}{\#define LWIP\_LOOPBACK\_MAX\_PBUFS         0}}
+\DoxyCodeLine{1712 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1713 }
+\DoxyCodeLine{1727 \textcolor{preprocessor}{\#if !defined LWIP\_NETIF\_LOOPBACK\_MULTITHREADING || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1728 \textcolor{preprocessor}{\#define LWIP\_NETIF\_LOOPBACK\_MULTITHREADING    (!NO\_SYS)}}
+\DoxyCodeLine{1729 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1734 \textcolor{comment}{/*}}
+\DoxyCodeLine{1735 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1736 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Thread options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1737 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1738 \textcolor{comment}{*/}}
+\DoxyCodeLine{1747 \textcolor{preprocessor}{\#if !defined TCPIP\_THREAD\_NAME || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1748 \textcolor{preprocessor}{\#define TCPIP\_THREAD\_NAME               "{}tcpip\_thread"{}}}
+\DoxyCodeLine{1749 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1750 }
+\DoxyCodeLine{1756 \textcolor{preprocessor}{\#if !defined TCPIP\_THREAD\_STACKSIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1757 \textcolor{preprocessor}{\#define TCPIP\_THREAD\_STACKSIZE          0}}
+\DoxyCodeLine{1758 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1759 }
+\DoxyCodeLine{1765 \textcolor{preprocessor}{\#if !defined TCPIP\_THREAD\_PRIO || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1766 \textcolor{preprocessor}{\#define TCPIP\_THREAD\_PRIO               1}}
+\DoxyCodeLine{1767 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1768 }
+\DoxyCodeLine{1774 \textcolor{preprocessor}{\#if !defined TCPIP\_MBOX\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1775 \textcolor{preprocessor}{\#define TCPIP\_MBOX\_SIZE                 0}}
+\DoxyCodeLine{1776 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1777 }
+\DoxyCodeLine{1782 \textcolor{preprocessor}{\#if !defined LWIP\_TCPIP\_THREAD\_ALIVE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1783 \textcolor{preprocessor}{\#define LWIP\_TCPIP\_THREAD\_ALIVE()}}
+\DoxyCodeLine{1784 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1785 }
+\DoxyCodeLine{1789 \textcolor{preprocessor}{\#if !defined SLIPIF\_THREAD\_NAME || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1790 \textcolor{preprocessor}{\#define SLIPIF\_THREAD\_NAME              "{}slipif\_loop"{}}}
+\DoxyCodeLine{1791 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1792 }
+\DoxyCodeLine{1798 \textcolor{preprocessor}{\#if !defined SLIPIF\_THREAD\_STACKSIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1799 \textcolor{preprocessor}{\#define SLIPIF\_THREAD\_STACKSIZE         0}}
+\DoxyCodeLine{1800 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1801 }
+\DoxyCodeLine{1807 \textcolor{preprocessor}{\#if !defined SLIPIF\_THREAD\_PRIO || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1808 \textcolor{preprocessor}{\#define SLIPIF\_THREAD\_PRIO              1}}
+\DoxyCodeLine{1809 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1810 }
+\DoxyCodeLine{1814 \textcolor{preprocessor}{\#if !defined DEFAULT\_THREAD\_NAME || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1815 \textcolor{preprocessor}{\#define DEFAULT\_THREAD\_NAME             "{}lwIP"{}}}
+\DoxyCodeLine{1816 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1817 }
+\DoxyCodeLine{1823 \textcolor{preprocessor}{\#if !defined DEFAULT\_THREAD\_STACKSIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1824 \textcolor{preprocessor}{\#define DEFAULT\_THREAD\_STACKSIZE        0}}
+\DoxyCodeLine{1825 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1826 }
+\DoxyCodeLine{1832 \textcolor{preprocessor}{\#if !defined DEFAULT\_THREAD\_PRIO || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1833 \textcolor{preprocessor}{\#define DEFAULT\_THREAD\_PRIO             1}}
+\DoxyCodeLine{1834 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1835 }
+\DoxyCodeLine{1841 \textcolor{preprocessor}{\#if !defined DEFAULT\_RAW\_RECVMBOX\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1842 \textcolor{preprocessor}{\#define DEFAULT\_RAW\_RECVMBOX\_SIZE       0}}
+\DoxyCodeLine{1843 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1844 }
+\DoxyCodeLine{1850 \textcolor{preprocessor}{\#if !defined DEFAULT\_UDP\_RECVMBOX\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1851 \textcolor{preprocessor}{\#define DEFAULT\_UDP\_RECVMBOX\_SIZE       0}}
+\DoxyCodeLine{1852 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1853 }
+\DoxyCodeLine{1859 \textcolor{preprocessor}{\#if !defined DEFAULT\_TCP\_RECVMBOX\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1860 \textcolor{preprocessor}{\#define DEFAULT\_TCP\_RECVMBOX\_SIZE       0}}
+\DoxyCodeLine{1861 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1862 }
+\DoxyCodeLine{1868 \textcolor{preprocessor}{\#if !defined DEFAULT\_ACCEPTMBOX\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1869 \textcolor{preprocessor}{\#define DEFAULT\_ACCEPTMBOX\_SIZE         0}}
+\DoxyCodeLine{1870 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1875 \textcolor{comment}{/*}}
+\DoxyCodeLine{1876 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1877 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Sequential layer options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1878 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1879 \textcolor{comment}{*/}}
+\DoxyCodeLine{1888 \textcolor{preprocessor}{\#if !defined LWIP\_NETCONN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1889 \textcolor{preprocessor}{\#define LWIP\_NETCONN                    1}}
+\DoxyCodeLine{1890 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1891 }
+\DoxyCodeLine{1895 \textcolor{preprocessor}{\#if !defined LWIP\_TCPIP\_TIMEOUT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1896 \textcolor{preprocessor}{\#define LWIP\_TCPIP\_TIMEOUT              0}}
+\DoxyCodeLine{1897 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1898 }
+\DoxyCodeLine{1909 \textcolor{preprocessor}{\#if !defined LWIP\_NETCONN\_SEM\_PER\_THREAD || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1910 \textcolor{preprocessor}{\#define LWIP\_NETCONN\_SEM\_PER\_THREAD     0}}
+\DoxyCodeLine{1911 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1912 }
+\DoxyCodeLine{1921 \textcolor{preprocessor}{\#if !defined LWIP\_NETCONN\_FULLDUPLEX || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1922 \textcolor{preprocessor}{\#define LWIP\_NETCONN\_FULLDUPLEX         0}}
+\DoxyCodeLine{1923 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1928 \textcolor{comment}{/*}}
+\DoxyCodeLine{1929 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1930 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Socket options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1931 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1932 \textcolor{comment}{*/}}
+\DoxyCodeLine{1941 \textcolor{preprocessor}{\#if !defined LWIP\_SOCKET || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1942 \textcolor{preprocessor}{\#define LWIP\_SOCKET                     1}}
+\DoxyCodeLine{1943 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1944 }
+\DoxyCodeLine{1951 \textcolor{preprocessor}{\#if !defined LWIP\_COMPAT\_SOCKETS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1952 \textcolor{preprocessor}{\#define LWIP\_COMPAT\_SOCKETS             1}}
+\DoxyCodeLine{1953 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1954 }
+\DoxyCodeLine{1960 \textcolor{preprocessor}{\#if !defined LWIP\_POSIX\_SOCKETS\_IO\_NAMES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1961 \textcolor{preprocessor}{\#define LWIP\_POSIX\_SOCKETS\_IO\_NAMES     1}}
+\DoxyCodeLine{1962 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1963 }
+\DoxyCodeLine{1971 \textcolor{preprocessor}{\#if !defined LWIP\_SOCKET\_OFFSET || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1972 \textcolor{preprocessor}{\#define LWIP\_SOCKET\_OFFSET              0}}
+\DoxyCodeLine{1973 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1974 }
+\DoxyCodeLine{1980 \textcolor{preprocessor}{\#if !defined LWIP\_TCP\_KEEPALIVE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1981 \textcolor{preprocessor}{\#define LWIP\_TCP\_KEEPALIVE              0}}
+\DoxyCodeLine{1982 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1983 }
+\DoxyCodeLine{1988 \textcolor{preprocessor}{\#if !defined LWIP\_SO\_SNDTIMEO || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1989 \textcolor{preprocessor}{\#define LWIP\_SO\_SNDTIMEO                0}}
+\DoxyCodeLine{1990 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1991 }
+\DoxyCodeLine{1996 \textcolor{preprocessor}{\#if !defined LWIP\_SO\_RCVTIMEO || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{1997 \textcolor{preprocessor}{\#define LWIP\_SO\_RCVTIMEO                0}}
+\DoxyCodeLine{1998 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1999 }
+\DoxyCodeLine{2004 \textcolor{preprocessor}{\#if !defined LWIP\_SO\_SNDRCVTIMEO\_NONSTANDARD || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2005 \textcolor{preprocessor}{\#define LWIP\_SO\_SNDRCVTIMEO\_NONSTANDARD 0}}
+\DoxyCodeLine{2006 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2007 }
+\DoxyCodeLine{2011 \textcolor{preprocessor}{\#if !defined LWIP\_SO\_RCVBUF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2012 \textcolor{preprocessor}{\#define LWIP\_SO\_RCVBUF                  0}}
+\DoxyCodeLine{2013 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2014 }
+\DoxyCodeLine{2018 \textcolor{preprocessor}{\#if !defined LWIP\_SO\_LINGER || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2019 \textcolor{preprocessor}{\#define LWIP\_SO\_LINGER                  0}}
+\DoxyCodeLine{2020 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2021 }
+\DoxyCodeLine{2025 \textcolor{preprocessor}{\#if !defined RECV\_BUFSIZE\_DEFAULT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2026 \textcolor{preprocessor}{\#define RECV\_BUFSIZE\_DEFAULT            INT\_MAX}}
+\DoxyCodeLine{2027 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2028 }
+\DoxyCodeLine{2032 \textcolor{preprocessor}{\#if !defined LWIP\_TCP\_CLOSE\_TIMEOUT\_MS\_DEFAULT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2033 \textcolor{preprocessor}{\#define LWIP\_TCP\_CLOSE\_TIMEOUT\_MS\_DEFAULT 20000}}
+\DoxyCodeLine{2034 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2035 }
+\DoxyCodeLine{2039 \textcolor{preprocessor}{\#if !defined SO\_REUSE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2040 \textcolor{preprocessor}{\#define SO\_REUSE                        0}}
+\DoxyCodeLine{2041 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2042 }
+\DoxyCodeLine{2048 \textcolor{preprocessor}{\#if !defined SO\_REUSE\_RXTOALL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2049 \textcolor{preprocessor}{\#define SO\_REUSE\_RXTOALL                0}}
+\DoxyCodeLine{2050 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2051 }
+\DoxyCodeLine{2060 \textcolor{preprocessor}{\#if !defined LWIP\_FIONREAD\_LINUXMODE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2061 \textcolor{preprocessor}{\#define LWIP\_FIONREAD\_LINUXMODE         0}}
+\DoxyCodeLine{2062 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2063 }
+\DoxyCodeLine{2070 \textcolor{preprocessor}{\#if !defined LWIP\_SOCKET\_SELECT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2071 \textcolor{preprocessor}{\#define LWIP\_SOCKET\_SELECT              1}}
+\DoxyCodeLine{2072 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2073 }
+\DoxyCodeLine{2078 \textcolor{preprocessor}{\#if !defined LWIP\_SOCKET\_POLL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2079 \textcolor{preprocessor}{\#define LWIP\_SOCKET\_POLL                1}}
+\DoxyCodeLine{2080 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2085 \textcolor{comment}{/*}}
+\DoxyCodeLine{2086 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2087 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Statistics options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2088 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2089 \textcolor{comment}{*/}}
+\DoxyCodeLine{2098 \textcolor{preprocessor}{\#if !defined LWIP\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2099 \textcolor{preprocessor}{\#define LWIP\_STATS                      1}}
+\DoxyCodeLine{2100 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2101 }
+\DoxyCodeLine{2102 \textcolor{preprocessor}{\#if LWIP\_STATS}}
+\DoxyCodeLine{2103 }
+\DoxyCodeLine{2107 \textcolor{preprocessor}{\#if !defined LWIP\_STATS\_DISPLAY || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2108 \textcolor{preprocessor}{\#define LWIP\_STATS\_DISPLAY              0}}
+\DoxyCodeLine{2109 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2110 }
+\DoxyCodeLine{2114 \textcolor{preprocessor}{\#if !defined LINK\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2115 \textcolor{preprocessor}{\#define LINK\_STATS                      1}}
+\DoxyCodeLine{2116 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2117 }
+\DoxyCodeLine{2121 \textcolor{preprocessor}{\#if !defined ETHARP\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2122 \textcolor{preprocessor}{\#define ETHARP\_STATS                    (LWIP\_ARP)}}
+\DoxyCodeLine{2123 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2124 }
+\DoxyCodeLine{2128 \textcolor{preprocessor}{\#if !defined IP\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2129 \textcolor{preprocessor}{\#define IP\_STATS                        1}}
+\DoxyCodeLine{2130 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2131 }
+\DoxyCodeLine{2136 \textcolor{preprocessor}{\#if !defined IPFRAG\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2137 \textcolor{preprocessor}{\#define IPFRAG\_STATS                    (IP\_REASSEMBLY || IP\_FRAG)}}
+\DoxyCodeLine{2138 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2139 }
+\DoxyCodeLine{2143 \textcolor{preprocessor}{\#if !defined ICMP\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2144 \textcolor{preprocessor}{\#define ICMP\_STATS                      1}}
+\DoxyCodeLine{2145 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2146 }
+\DoxyCodeLine{2150 \textcolor{preprocessor}{\#if !defined IGMP\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2151 \textcolor{preprocessor}{\#define IGMP\_STATS                      (LWIP\_IGMP)}}
+\DoxyCodeLine{2152 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2153 }
+\DoxyCodeLine{2158 \textcolor{preprocessor}{\#if !defined UDP\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2159 \textcolor{preprocessor}{\#define UDP\_STATS                       (LWIP\_UDP)}}
+\DoxyCodeLine{2160 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2161 }
+\DoxyCodeLine{2166 \textcolor{preprocessor}{\#if !defined TCP\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2167 \textcolor{preprocessor}{\#define TCP\_STATS                       (LWIP\_TCP)}}
+\DoxyCodeLine{2168 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2169 }
+\DoxyCodeLine{2173 \textcolor{preprocessor}{\#if !defined MEM\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2174 \textcolor{preprocessor}{\#define MEM\_STATS                       ((MEM\_LIBC\_MALLOC == 0) \&\& (MEM\_USE\_POOLS == 0))}}
+\DoxyCodeLine{2175 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2176 }
+\DoxyCodeLine{2180 \textcolor{preprocessor}{\#if !defined MEMP\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2181 \textcolor{preprocessor}{\#define MEMP\_STATS                      (MEMP\_MEM\_MALLOC == 0)}}
+\DoxyCodeLine{2182 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2183 }
+\DoxyCodeLine{2187 \textcolor{preprocessor}{\#if !defined SYS\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2188 \textcolor{preprocessor}{\#define SYS\_STATS                       (NO\_SYS == 0)}}
+\DoxyCodeLine{2189 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2190 }
+\DoxyCodeLine{2194 \textcolor{preprocessor}{\#if !defined IP6\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2195 \textcolor{preprocessor}{\#define IP6\_STATS                       (LWIP\_IPV6)}}
+\DoxyCodeLine{2196 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2197 }
+\DoxyCodeLine{2201 \textcolor{preprocessor}{\#if !defined ICMP6\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2202 \textcolor{preprocessor}{\#define ICMP6\_STATS                     (LWIP\_IPV6 \&\& LWIP\_ICMP6)}}
+\DoxyCodeLine{2203 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2204 }
+\DoxyCodeLine{2208 \textcolor{preprocessor}{\#if !defined IP6\_FRAG\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2209 \textcolor{preprocessor}{\#define IP6\_FRAG\_STATS                  (LWIP\_IPV6 \&\& (LWIP\_IPV6\_FRAG || LWIP\_IPV6\_REASS))}}
+\DoxyCodeLine{2210 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2211 }
+\DoxyCodeLine{2215 \textcolor{preprocessor}{\#if !defined MLD6\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2216 \textcolor{preprocessor}{\#define MLD6\_STATS                      (LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD)}}
+\DoxyCodeLine{2217 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2218 }
+\DoxyCodeLine{2222 \textcolor{preprocessor}{\#if !defined ND6\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2223 \textcolor{preprocessor}{\#define ND6\_STATS                       (LWIP\_IPV6)}}
+\DoxyCodeLine{2224 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2225 }
+\DoxyCodeLine{2229 \textcolor{preprocessor}{\#if !defined MIB2\_STATS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2230 \textcolor{preprocessor}{\#define MIB2\_STATS                      0}}
+\DoxyCodeLine{2231 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2232 }
+\DoxyCodeLine{2233 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{2234 }
+\DoxyCodeLine{2235 \textcolor{preprocessor}{\#define LINK\_STATS                      0}}
+\DoxyCodeLine{2236 \textcolor{preprocessor}{\#define ETHARP\_STATS                    0}}
+\DoxyCodeLine{2237 \textcolor{preprocessor}{\#define IP\_STATS                        0}}
+\DoxyCodeLine{2238 \textcolor{preprocessor}{\#define IPFRAG\_STATS                    0}}
+\DoxyCodeLine{2239 \textcolor{preprocessor}{\#define ICMP\_STATS                      0}}
+\DoxyCodeLine{2240 \textcolor{preprocessor}{\#define IGMP\_STATS                      0}}
+\DoxyCodeLine{2241 \textcolor{preprocessor}{\#define UDP\_STATS                       0}}
+\DoxyCodeLine{2242 \textcolor{preprocessor}{\#define TCP\_STATS                       0}}
+\DoxyCodeLine{2243 \textcolor{preprocessor}{\#define MEM\_STATS                       0}}
+\DoxyCodeLine{2244 \textcolor{preprocessor}{\#define MEMP\_STATS                      0}}
+\DoxyCodeLine{2245 \textcolor{preprocessor}{\#define SYS\_STATS                       0}}
+\DoxyCodeLine{2246 \textcolor{preprocessor}{\#define LWIP\_STATS\_DISPLAY              0}}
+\DoxyCodeLine{2247 \textcolor{preprocessor}{\#define IP6\_STATS                       0}}
+\DoxyCodeLine{2248 \textcolor{preprocessor}{\#define ICMP6\_STATS                     0}}
+\DoxyCodeLine{2249 \textcolor{preprocessor}{\#define IP6\_FRAG\_STATS                  0}}
+\DoxyCodeLine{2250 \textcolor{preprocessor}{\#define MLD6\_STATS                      0}}
+\DoxyCodeLine{2251 \textcolor{preprocessor}{\#define ND6\_STATS                       0}}
+\DoxyCodeLine{2252 \textcolor{preprocessor}{\#define MIB2\_STATS                      0}}
+\DoxyCodeLine{2253 }
+\DoxyCodeLine{2254 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_STATS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{2259 \textcolor{comment}{/*}}
+\DoxyCodeLine{2260 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2261 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Checksum options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2262 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2263 \textcolor{comment}{*/}}
+\DoxyCodeLine{2274 \textcolor{preprocessor}{\#if !defined LWIP\_CHECKSUM\_CTRL\_PER\_NETIF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2275 \textcolor{preprocessor}{\#define LWIP\_CHECKSUM\_CTRL\_PER\_NETIF    0}}
+\DoxyCodeLine{2276 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2277 }
+\DoxyCodeLine{2281 \textcolor{preprocessor}{\#if !defined CHECKSUM\_GEN\_IP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2282 \textcolor{preprocessor}{\#define CHECKSUM\_GEN\_IP                 1}}
+\DoxyCodeLine{2283 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2284 }
+\DoxyCodeLine{2288 \textcolor{preprocessor}{\#if !defined CHECKSUM\_GEN\_UDP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2289 \textcolor{preprocessor}{\#define CHECKSUM\_GEN\_UDP                1}}
+\DoxyCodeLine{2290 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2291 }
+\DoxyCodeLine{2295 \textcolor{preprocessor}{\#if !defined CHECKSUM\_GEN\_TCP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2296 \textcolor{preprocessor}{\#define CHECKSUM\_GEN\_TCP                1}}
+\DoxyCodeLine{2297 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2298 }
+\DoxyCodeLine{2302 \textcolor{preprocessor}{\#if !defined CHECKSUM\_GEN\_ICMP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2303 \textcolor{preprocessor}{\#define CHECKSUM\_GEN\_ICMP               1}}
+\DoxyCodeLine{2304 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2305 }
+\DoxyCodeLine{2309 \textcolor{preprocessor}{\#if !defined CHECKSUM\_GEN\_ICMP6 || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2310 \textcolor{preprocessor}{\#define CHECKSUM\_GEN\_ICMP6              1}}
+\DoxyCodeLine{2311 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2312 }
+\DoxyCodeLine{2316 \textcolor{preprocessor}{\#if !defined CHECKSUM\_CHECK\_IP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2317 \textcolor{preprocessor}{\#define CHECKSUM\_CHECK\_IP               1}}
+\DoxyCodeLine{2318 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2319 }
+\DoxyCodeLine{2323 \textcolor{preprocessor}{\#if !defined CHECKSUM\_CHECK\_UDP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2324 \textcolor{preprocessor}{\#define CHECKSUM\_CHECK\_UDP              1}}
+\DoxyCodeLine{2325 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2326 }
+\DoxyCodeLine{2330 \textcolor{preprocessor}{\#if !defined CHECKSUM\_CHECK\_TCP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2331 \textcolor{preprocessor}{\#define CHECKSUM\_CHECK\_TCP              1}}
+\DoxyCodeLine{2332 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2333 }
+\DoxyCodeLine{2337 \textcolor{preprocessor}{\#if !defined CHECKSUM\_CHECK\_ICMP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2338 \textcolor{preprocessor}{\#define CHECKSUM\_CHECK\_ICMP             1}}
+\DoxyCodeLine{2339 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2340 }
+\DoxyCodeLine{2344 \textcolor{preprocessor}{\#if !defined CHECKSUM\_CHECK\_ICMP6 || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2345 \textcolor{preprocessor}{\#define CHECKSUM\_CHECK\_ICMP6            1}}
+\DoxyCodeLine{2346 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2347 }
+\DoxyCodeLine{2352 \textcolor{preprocessor}{\#if !defined LWIP\_CHECKSUM\_ON\_COPY || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2353 \textcolor{preprocessor}{\#define LWIP\_CHECKSUM\_ON\_COPY           0}}
+\DoxyCodeLine{2354 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2359 \textcolor{comment}{/*}}
+\DoxyCodeLine{2360 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2361 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ IPv6 options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2362 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2363 \textcolor{comment}{*/}}
+\DoxyCodeLine{2372 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6 || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2373 \textcolor{preprocessor}{\#define LWIP\_IPV6                       0}}
+\DoxyCodeLine{2374 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2375 }
+\DoxyCodeLine{2381 \textcolor{preprocessor}{\#if !defined IPV6\_REASS\_MAXAGE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2382 \textcolor{preprocessor}{\#define IPV6\_REASS\_MAXAGE               60}}
+\DoxyCodeLine{2383 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2384 }
+\DoxyCodeLine{2402 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_SCOPES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2403 \textcolor{preprocessor}{\#define LWIP\_IPV6\_SCOPES                (LWIP\_IPV6 \&\& !LWIP\_SINGLE\_NETIF)}}
+\DoxyCodeLine{2404 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2405 }
+\DoxyCodeLine{2412 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_SCOPES\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2413 \textcolor{preprocessor}{\#define LWIP\_IPV6\_SCOPES\_DEBUG          0}}
+\DoxyCodeLine{2414 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2415 }
+\DoxyCodeLine{2419 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_NUM\_ADDRESSES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2420 \textcolor{preprocessor}{\#define LWIP\_IPV6\_NUM\_ADDRESSES         3}}
+\DoxyCodeLine{2421 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2422 }
+\DoxyCodeLine{2426 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_FORWARD || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2427 \textcolor{preprocessor}{\#define LWIP\_IPV6\_FORWARD               0}}
+\DoxyCodeLine{2428 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2429 }
+\DoxyCodeLine{2433 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_FRAG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2434 \textcolor{preprocessor}{\#define LWIP\_IPV6\_FRAG                  1}}
+\DoxyCodeLine{2435 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2436 }
+\DoxyCodeLine{2440 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_REASS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2441 \textcolor{preprocessor}{\#define LWIP\_IPV6\_REASS                 LWIP\_IPV6}}
+\DoxyCodeLine{2442 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2443 }
+\DoxyCodeLine{2448 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_SEND\_ROUTER\_SOLICIT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2449 \textcolor{preprocessor}{\#define LWIP\_IPV6\_SEND\_ROUTER\_SOLICIT   1}}
+\DoxyCodeLine{2450 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2451 }
+\DoxyCodeLine{2455 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_AUTOCONFIG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2456 \textcolor{preprocessor}{\#define LWIP\_IPV6\_AUTOCONFIG            LWIP\_IPV6}}
+\DoxyCodeLine{2457 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2458 }
+\DoxyCodeLine{2466 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_ADDRESS\_LIFETIMES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2467 \textcolor{preprocessor}{\#define LWIP\_IPV6\_ADDRESS\_LIFETIMES     LWIP\_IPV6\_AUTOCONFIG}}
+\DoxyCodeLine{2468 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2469 }
+\DoxyCodeLine{2473 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_DUP\_DETECT\_ATTEMPTS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2474 \textcolor{preprocessor}{\#define LWIP\_IPV6\_DUP\_DETECT\_ATTEMPTS   1}}
+\DoxyCodeLine{2475 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2488 \textcolor{preprocessor}{\#if !defined LWIP\_ICMP6 || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2489 \textcolor{preprocessor}{\#define LWIP\_ICMP6                      LWIP\_IPV6}}
+\DoxyCodeLine{2490 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2491 }
+\DoxyCodeLine{2496 \textcolor{preprocessor}{\#if !defined LWIP\_ICMP6\_DATASIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2497 \textcolor{preprocessor}{\#define LWIP\_ICMP6\_DATASIZE             8}}
+\DoxyCodeLine{2498 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2499 }
+\DoxyCodeLine{2503 \textcolor{preprocessor}{\#if !defined LWIP\_ICMP6\_HL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2504 \textcolor{preprocessor}{\#define LWIP\_ICMP6\_HL                   255}}
+\DoxyCodeLine{2505 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2520 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_MLD || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2521 \textcolor{preprocessor}{\#define LWIP\_IPV6\_MLD                   LWIP\_IPV6}}
+\DoxyCodeLine{2522 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2523 }
+\DoxyCodeLine{2530 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_MLD6\_GROUP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2531 \textcolor{preprocessor}{\#define MEMP\_NUM\_MLD6\_GROUP             4}}
+\DoxyCodeLine{2532 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2546 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_QUEUEING || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2547 \textcolor{preprocessor}{\#define LWIP\_ND6\_QUEUEING               LWIP\_IPV6}}
+\DoxyCodeLine{2548 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2549 }
+\DoxyCodeLine{2553 \textcolor{preprocessor}{\#if !defined MEMP\_NUM\_ND6\_QUEUE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2554 \textcolor{preprocessor}{\#define MEMP\_NUM\_ND6\_QUEUE              20}}
+\DoxyCodeLine{2555 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2556 }
+\DoxyCodeLine{2560 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_NUM\_NEIGHBORS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2561 \textcolor{preprocessor}{\#define LWIP\_ND6\_NUM\_NEIGHBORS          10}}
+\DoxyCodeLine{2562 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2563 }
+\DoxyCodeLine{2567 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_NUM\_DESTINATIONS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2568 \textcolor{preprocessor}{\#define LWIP\_ND6\_NUM\_DESTINATIONS       10}}
+\DoxyCodeLine{2569 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2570 }
+\DoxyCodeLine{2574 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_NUM\_PREFIXES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2575 \textcolor{preprocessor}{\#define LWIP\_ND6\_NUM\_PREFIXES           5}}
+\DoxyCodeLine{2576 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2577 }
+\DoxyCodeLine{2581 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_NUM\_ROUTERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2582 \textcolor{preprocessor}{\#define LWIP\_ND6\_NUM\_ROUTERS            3}}
+\DoxyCodeLine{2583 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2584 }
+\DoxyCodeLine{2589 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_MAX\_MULTICAST\_SOLICIT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2590 \textcolor{preprocessor}{\#define LWIP\_ND6\_MAX\_MULTICAST\_SOLICIT  3}}
+\DoxyCodeLine{2591 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2592 }
+\DoxyCodeLine{2597 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_MAX\_UNICAST\_SOLICIT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2598 \textcolor{preprocessor}{\#define LWIP\_ND6\_MAX\_UNICAST\_SOLICIT    3}}
+\DoxyCodeLine{2599 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2600 }
+\DoxyCodeLine{2604 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_MAX\_ANYCAST\_DELAY\_TIME || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2605 \textcolor{preprocessor}{\#define LWIP\_ND6\_MAX\_ANYCAST\_DELAY\_TIME 1000}}
+\DoxyCodeLine{2606 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2607 }
+\DoxyCodeLine{2611 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_MAX\_NEIGHBOR\_ADVERTISEMENT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2612 \textcolor{preprocessor}{\#define LWIP\_ND6\_MAX\_NEIGHBOR\_ADVERTISEMENT  3}}
+\DoxyCodeLine{2613 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2614 }
+\DoxyCodeLine{2619 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_REACHABLE\_TIME || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2620 \textcolor{preprocessor}{\#define LWIP\_ND6\_REACHABLE\_TIME         30000}}
+\DoxyCodeLine{2621 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2622 }
+\DoxyCodeLine{2626 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_RETRANS\_TIMER || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2627 \textcolor{preprocessor}{\#define LWIP\_ND6\_RETRANS\_TIMER          1000}}
+\DoxyCodeLine{2628 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2629 }
+\DoxyCodeLine{2634 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_DELAY\_FIRST\_PROBE\_TIME || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2635 \textcolor{preprocessor}{\#define LWIP\_ND6\_DELAY\_FIRST\_PROBE\_TIME 5000}}
+\DoxyCodeLine{2636 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2637 }
+\DoxyCodeLine{2642 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_ALLOW\_RA\_UPDATES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2643 \textcolor{preprocessor}{\#define LWIP\_ND6\_ALLOW\_RA\_UPDATES       1}}
+\DoxyCodeLine{2644 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2645 }
+\DoxyCodeLine{2651 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_TCP\_REACHABILITY\_HINTS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2652 \textcolor{preprocessor}{\#define LWIP\_ND6\_TCP\_REACHABILITY\_HINTS 1}}
+\DoxyCodeLine{2653 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2654 }
+\DoxyCodeLine{2660 \textcolor{preprocessor}{\#if !defined LWIP\_ND6\_RDNSS\_MAX\_DNS\_SERVERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2661 \textcolor{preprocessor}{\#define LWIP\_ND6\_RDNSS\_MAX\_DNS\_SERVERS  0}}
+\DoxyCodeLine{2662 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2675 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_DHCP6 || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2676 \textcolor{preprocessor}{\#define LWIP\_IPV6\_DHCP6                 0}}
+\DoxyCodeLine{2677 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2678 }
+\DoxyCodeLine{2683 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_DHCP6\_STATEFUL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2684 \textcolor{preprocessor}{\#define LWIP\_IPV6\_DHCP6\_STATEFUL        0}}
+\DoxyCodeLine{2685 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2686 }
+\DoxyCodeLine{2690 \textcolor{preprocessor}{\#if !defined LWIP\_IPV6\_DHCP6\_STATELESS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2691 \textcolor{preprocessor}{\#define LWIP\_IPV6\_DHCP6\_STATELESS       LWIP\_IPV6\_DHCP6}}
+\DoxyCodeLine{2692 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2693 }
+\DoxyCodeLine{2699 \textcolor{preprocessor}{\#if !defined LWIP\_DHCP6\_GET\_NTP\_SRV || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2700 \textcolor{preprocessor}{\#define LWIP\_DHCP6\_GET\_NTP\_SRV          0}}
+\DoxyCodeLine{2701 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2702 }
+\DoxyCodeLine{2706 \textcolor{preprocessor}{\#if !defined LWIP\_DHCP6\_MAX\_NTP\_SERVERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2707 \textcolor{preprocessor}{\#define LWIP\_DHCP6\_MAX\_NTP\_SERVERS      1}}
+\DoxyCodeLine{2708 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2709 }
+\DoxyCodeLine{2715 \textcolor{preprocessor}{\#if !defined LWIP\_DHCP6\_MAX\_DNS\_SERVERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2716 \textcolor{preprocessor}{\#define LWIP\_DHCP6\_MAX\_DNS\_SERVERS      DNS\_MAX\_SERVERS}}
+\DoxyCodeLine{2717 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2722 \textcolor{comment}{/*}}
+\DoxyCodeLine{2723 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2724 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Hook options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2725 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{2726 \textcolor{comment}{*/}}
+\DoxyCodeLine{2727 }
+\DoxyCodeLine{2740 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2741 \textcolor{preprocessor}{\#define LWIP\_HOOK\_FILENAME "{}path/to/my/lwip\_hooks.h"{}}}
+\DoxyCodeLine{2742 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2743 }
+\DoxyCodeLine{2765 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2766 \textcolor{preprocessor}{\#define LWIP\_HOOK\_TCP\_ISN(local\_ip, local\_port, remote\_ip, remote\_port)}}
+\DoxyCodeLine{2767 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2768 }
+\DoxyCodeLine{2795 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2796 \textcolor{preprocessor}{\#define LWIP\_HOOK\_TCP\_INPACKET\_PCB(pcb, hdr, optlen, opt1len, opt2, p)}}
+\DoxyCodeLine{2797 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2798 }
+\DoxyCodeLine{2817 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2818 \textcolor{preprocessor}{\#define LWIP\_HOOK\_TCP\_OUT\_TCPOPT\_LENGTH(pcb, internal\_len)}}
+\DoxyCodeLine{2819 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2820 }
+\DoxyCodeLine{2841 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2842 \textcolor{preprocessor}{\#define LWIP\_HOOK\_TCP\_OUT\_ADD\_TCPOPTS(p, hdr, pcb, opts)}}
+\DoxyCodeLine{2843 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2844 }
+\DoxyCodeLine{2860 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2861 \textcolor{preprocessor}{\#define LWIP\_HOOK\_IP4\_INPUT(pbuf, input\_netif)}}
+\DoxyCodeLine{2862 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2863 }
+\DoxyCodeLine{2876 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2877 \textcolor{preprocessor}{\#define LWIP\_HOOK\_IP4\_ROUTE()}}
+\DoxyCodeLine{2878 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2879 }
+\DoxyCodeLine{2893 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2894 \textcolor{preprocessor}{\#define LWIP\_HOOK\_IP4\_ROUTE\_SRC(src, dest)}}
+\DoxyCodeLine{2895 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2896 }
+\DoxyCodeLine{2914 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2915 \textcolor{preprocessor}{\#define LWIP\_HOOK\_IP4\_CANFORWARD(src, dest)}}
+\DoxyCodeLine{2916 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2917 }
+\DoxyCodeLine{2936 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2937 \textcolor{preprocessor}{\#define LWIP\_HOOK\_ETHARP\_GET\_GW(netif, dest)}}
+\DoxyCodeLine{2938 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2939 }
+\DoxyCodeLine{2955 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2956 \textcolor{preprocessor}{\#define LWIP\_HOOK\_IP6\_INPUT(pbuf, input\_netif)}}
+\DoxyCodeLine{2957 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2958 }
+\DoxyCodeLine{2972 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2973 \textcolor{preprocessor}{\#define LWIP\_HOOK\_IP6\_ROUTE(src, dest)}}
+\DoxyCodeLine{2974 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2975 }
+\DoxyCodeLine{2994 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{2995 \textcolor{preprocessor}{\#define LWIP\_HOOK\_ND6\_GET\_GW(netif, dest)}}
+\DoxyCodeLine{2996 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{2997 }
+\DoxyCodeLine{3012 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3013 \textcolor{preprocessor}{\#define LWIP\_HOOK\_VLAN\_CHECK(netif, eth\_hdr, vlan\_hdr)}}
+\DoxyCodeLine{3014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3015 }
+\DoxyCodeLine{3036 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3037 \textcolor{preprocessor}{\#define LWIP\_HOOK\_VLAN\_SET(netif, p, src, dst, eth\_type)}}
+\DoxyCodeLine{3038 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3039 }
+\DoxyCodeLine{3047 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3048 \textcolor{preprocessor}{\#define LWIP\_HOOK\_MEMP\_AVAILABLE(memp\_t\_type)}}
+\DoxyCodeLine{3049 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3050 }
+\DoxyCodeLine{3066 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3067 \textcolor{preprocessor}{\#define LWIP\_HOOK\_UNKNOWN\_ETH\_PROTOCOL(pbuf, netif)}}
+\DoxyCodeLine{3068 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3069 }
+\DoxyCodeLine{3095 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3096 \textcolor{preprocessor}{\#define LWIP\_HOOK\_DHCP\_APPEND\_OPTIONS(netif, dhcp, state, msg, msg\_type, options\_len\_ptr)}}
+\DoxyCodeLine{3097 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3098 }
+\DoxyCodeLine{3123 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3124 \textcolor{preprocessor}{\#define LWIP\_HOOK\_DHCP\_PARSE\_OPTION(netif, dhcp, state, msg, msg\_type, option, len, pbuf, offset)}}
+\DoxyCodeLine{3125 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3126 }
+\DoxyCodeLine{3151 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3152 \textcolor{preprocessor}{\#define LWIP\_HOOK\_DHCP6\_APPEND\_OPTIONS(netif, dhcp6, state, msg, msg\_type, options\_len\_ptr, max\_len)}}
+\DoxyCodeLine{3153 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3154 }
+\DoxyCodeLine{3174 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3175 \textcolor{preprocessor}{\#define LWIP\_HOOK\_SOCKETS\_SETSOCKOPT(s, sock, level, optname, optval, optlen, err)}}
+\DoxyCodeLine{3176 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3177 }
+\DoxyCodeLine{3197 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3198 \textcolor{preprocessor}{\#define LWIP\_HOOK\_SOCKETS\_GETSOCKOPT(s, sock, level, optname, optval, optlen, err)}}
+\DoxyCodeLine{3199 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3200 }
+\DoxyCodeLine{3220 \textcolor{preprocessor}{\#ifdef \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3221 \textcolor{preprocessor}{\#define LWIP\_HOOK\_NETCONN\_EXTERNAL\_RESOLVE(name, addr, addrtype, err)}}
+\DoxyCodeLine{3222 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3227 \textcolor{comment}{/*}}
+\DoxyCodeLine{3228 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{3229 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Debugging options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{3230 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{3231 \textcolor{comment}{*/}}
+\DoxyCodeLine{3243 \textcolor{preprocessor}{\#if !defined LWIP\_DBG\_MIN\_LEVEL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3244 \textcolor{preprocessor}{\#define LWIP\_DBG\_MIN\_LEVEL              LWIP\_DBG\_LEVEL\_ALL}}
+\DoxyCodeLine{3245 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3246 }
+\DoxyCodeLine{3252 \textcolor{preprocessor}{\#if !defined LWIP\_DBG\_TYPES\_ON || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3253 \textcolor{preprocessor}{\#define LWIP\_DBG\_TYPES\_ON               LWIP\_DBG\_ON}}
+\DoxyCodeLine{3254 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3255 }
+\DoxyCodeLine{3259 \textcolor{preprocessor}{\#if !defined ETHARP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3260 \textcolor{preprocessor}{\#define ETHARP\_DEBUG                    LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3261 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3262 }
+\DoxyCodeLine{3266 \textcolor{preprocessor}{\#if !defined NETIF\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3267 \textcolor{preprocessor}{\#define NETIF\_DEBUG                     LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3268 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3269 }
+\DoxyCodeLine{3273 \textcolor{preprocessor}{\#if !defined PBUF\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3274 \textcolor{preprocessor}{\#define PBUF\_DEBUG                      LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3275 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3276 }
+\DoxyCodeLine{3280 \textcolor{preprocessor}{\#if !defined API\_LIB\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3281 \textcolor{preprocessor}{\#define API\_LIB\_DEBUG                   LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3282 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3283 }
+\DoxyCodeLine{3287 \textcolor{preprocessor}{\#if !defined API\_MSG\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3288 \textcolor{preprocessor}{\#define API\_MSG\_DEBUG                   LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3289 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3290 }
+\DoxyCodeLine{3294 \textcolor{preprocessor}{\#if !defined SOCKETS\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3295 \textcolor{preprocessor}{\#define SOCKETS\_DEBUG                   LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3296 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3297 }
+\DoxyCodeLine{3301 \textcolor{preprocessor}{\#if !defined ICMP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3302 \textcolor{preprocessor}{\#define ICMP\_DEBUG                      LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3303 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3304 }
+\DoxyCodeLine{3308 \textcolor{preprocessor}{\#if !defined IGMP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3309 \textcolor{preprocessor}{\#define IGMP\_DEBUG                      LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3310 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3311 }
+\DoxyCodeLine{3315 \textcolor{preprocessor}{\#if !defined INET\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3316 \textcolor{preprocessor}{\#define INET\_DEBUG                      LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3317 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3318 }
+\DoxyCodeLine{3322 \textcolor{preprocessor}{\#if !defined IP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3323 \textcolor{preprocessor}{\#define IP\_DEBUG                        LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3324 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3325 }
+\DoxyCodeLine{3329 \textcolor{preprocessor}{\#if !defined IP\_REASS\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3330 \textcolor{preprocessor}{\#define IP\_REASS\_DEBUG                  LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3331 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3332 }
+\DoxyCodeLine{3336 \textcolor{preprocessor}{\#if !defined RAW\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3337 \textcolor{preprocessor}{\#define RAW\_DEBUG                       LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3338 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3339 }
+\DoxyCodeLine{3343 \textcolor{preprocessor}{\#if !defined MEM\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3344 \textcolor{preprocessor}{\#define MEM\_DEBUG                       LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3345 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3346 }
+\DoxyCodeLine{3350 \textcolor{preprocessor}{\#if !defined MEMP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3351 \textcolor{preprocessor}{\#define MEMP\_DEBUG                      LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3352 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3353 }
+\DoxyCodeLine{3357 \textcolor{preprocessor}{\#if !defined SYS\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3358 \textcolor{preprocessor}{\#define SYS\_DEBUG                       LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3359 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3360 }
+\DoxyCodeLine{3364 \textcolor{preprocessor}{\#if !defined TIMERS\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3365 \textcolor{preprocessor}{\#define TIMERS\_DEBUG                    LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3366 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3367 }
+\DoxyCodeLine{3371 \textcolor{preprocessor}{\#if !defined TCP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3372 \textcolor{preprocessor}{\#define TCP\_DEBUG                       LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3373 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3374 }
+\DoxyCodeLine{3378 \textcolor{preprocessor}{\#if !defined TCP\_INPUT\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3379 \textcolor{preprocessor}{\#define TCP\_INPUT\_DEBUG                 LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3380 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3381 }
+\DoxyCodeLine{3385 \textcolor{preprocessor}{\#if !defined TCP\_FR\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3386 \textcolor{preprocessor}{\#define TCP\_FR\_DEBUG                    LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3387 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3388 }
+\DoxyCodeLine{3393 \textcolor{preprocessor}{\#if !defined TCP\_RTO\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3394 \textcolor{preprocessor}{\#define TCP\_RTO\_DEBUG                   LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3395 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3396 }
+\DoxyCodeLine{3400 \textcolor{preprocessor}{\#if !defined TCP\_CWND\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3401 \textcolor{preprocessor}{\#define TCP\_CWND\_DEBUG                  LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3402 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3403 }
+\DoxyCodeLine{3407 \textcolor{preprocessor}{\#if !defined TCP\_WND\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3408 \textcolor{preprocessor}{\#define TCP\_WND\_DEBUG                   LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3409 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3410 }
+\DoxyCodeLine{3414 \textcolor{preprocessor}{\#if !defined TCP\_OUTPUT\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3415 \textcolor{preprocessor}{\#define TCP\_OUTPUT\_DEBUG                LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3416 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3417 }
+\DoxyCodeLine{3421 \textcolor{preprocessor}{\#if !defined TCP\_RST\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3422 \textcolor{preprocessor}{\#define TCP\_RST\_DEBUG                   LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3423 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3424 }
+\DoxyCodeLine{3428 \textcolor{preprocessor}{\#if !defined TCP\_QLEN\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3429 \textcolor{preprocessor}{\#define TCP\_QLEN\_DEBUG                  LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3430 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3431 }
+\DoxyCodeLine{3435 \textcolor{preprocessor}{\#if !defined UDP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3436 \textcolor{preprocessor}{\#define UDP\_DEBUG                       LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3437 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3438 }
+\DoxyCodeLine{3442 \textcolor{preprocessor}{\#if !defined TCPIP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3443 \textcolor{preprocessor}{\#define TCPIP\_DEBUG                     LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3444 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3445 }
+\DoxyCodeLine{3449 \textcolor{preprocessor}{\#if !defined SLIP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3450 \textcolor{preprocessor}{\#define SLIP\_DEBUG                      LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3451 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3452 }
+\DoxyCodeLine{3456 \textcolor{preprocessor}{\#if !defined DHCP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3457 \textcolor{preprocessor}{\#define DHCP\_DEBUG                      LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3458 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3459 }
+\DoxyCodeLine{3463 \textcolor{preprocessor}{\#if !defined AUTOIP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3464 \textcolor{preprocessor}{\#define AUTOIP\_DEBUG                    LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3465 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3466 }
+\DoxyCodeLine{3470 \textcolor{preprocessor}{\#if !defined DNS\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3471 \textcolor{preprocessor}{\#define DNS\_DEBUG                       LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3472 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3473 }
+\DoxyCodeLine{3477 \textcolor{preprocessor}{\#if !defined IP6\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3478 \textcolor{preprocessor}{\#define IP6\_DEBUG                       LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3479 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3480 }
+\DoxyCodeLine{3484 \textcolor{preprocessor}{\#if !defined DHCP6\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3485 \textcolor{preprocessor}{\#define DHCP6\_DEBUG                     LWIP\_DBG\_OFF}}
+\DoxyCodeLine{3486 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3494 \textcolor{preprocessor}{\#if !defined LWIP\_TESTMODE}}
+\DoxyCodeLine{3495 \textcolor{preprocessor}{\#define LWIP\_TESTMODE                   0}}
+\DoxyCodeLine{3496 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3497 }
+\DoxyCodeLine{3498 \textcolor{comment}{/*}}
+\DoxyCodeLine{3499 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{3500 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Performance tracking options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{3501 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{3502 \textcolor{comment}{*/}}
+\DoxyCodeLine{3512 \textcolor{preprocessor}{\#if !defined LWIP\_PERF || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{3513 \textcolor{preprocessor}{\#define LWIP\_PERF                       0}}
+\DoxyCodeLine{3514 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3519 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_OPT\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

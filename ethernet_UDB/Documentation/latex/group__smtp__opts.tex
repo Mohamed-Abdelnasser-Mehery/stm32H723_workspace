@@ -1,0 +1,90 @@
+\hypertarget{group__smtp__opts}{}\doxysection{Options}
+\label{group__smtp__opts}\index{Options@{Options}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__smtp__opts_ga4b1667149354b7819847cb4f5f1ff144}{SMTP\+\_\+\+BODYDH}}~0
+\item 
+\#define \mbox{\hyperlink{group__smtp__opts_gae7ea4f31c521947d5127e268ae02c317}{SMTP\+\_\+\+DEBUG}}~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}
+\item 
+\#define \mbox{\hyperlink{group__smtp__opts_gaee3b273524a2253ce5fb44b240b0371b}{SMTP\+\_\+\+MAX\+\_\+\+SERVERNAME\+\_\+\+LEN}}~256
+\item 
+\#define \mbox{\hyperlink{group__smtp__opts_gafa0c84e5279b8eb8a5dbea6fe97aa099}{SMTP\+\_\+\+MAX\+\_\+\+USERNAME\+\_\+\+LEN}}~32
+\item 
+\#define \mbox{\hyperlink{group__smtp__opts_ga9aa5f5529121a8266947f33c5e424ccc}{SMTP\+\_\+\+MAX\+\_\+\+PASS\+\_\+\+LEN}}~32
+\item 
+\#define \mbox{\hyperlink{group__smtp__opts_gab5559a7c976e72204d9391f655bcc07e}{SMTP\+\_\+\+COPY\+\_\+\+AUTHDATA}}~1
+\item 
+\#define \mbox{\hyperlink{group__smtp__opts_ga021d8133159895a2dbf5fb0b243da9fa}{SMTP\+\_\+\+CHECK\+\_\+\+DATA}}~1
+\item 
+\#define \mbox{\hyperlink{group__smtp__opts_ga2e6c8313006592884e89bbcf353cf5ac}{SMTP\+\_\+\+SUPPORT\+\_\+\+AUTH\+\_\+\+PLAIN}}~1
+\item 
+\#define \mbox{\hyperlink{group__smtp__opts_ga7a83e686b109fa59557c13736aeeab3b}{SMTP\+\_\+\+SUPPORT\+\_\+\+AUTH\+\_\+\+LOGIN}}~1
+\item 
+\mbox{\Hypertarget{group__smtp__opts_gaea569fa07304f69a8caafce78faa2fe6}\label{group__smtp__opts_gaea569fa07304f69a8caafce78faa2fe6}} 
+\#define {\bfseries SMTP\+\_\+\+STATE\+\_\+\+MALLOC}(size)~\mbox{\hyperlink{mem_8c_ae2190f95ae9c46bb99ec0be4f4e4e5e4}{mem\+\_\+malloc}}(size)
+\item 
+\mbox{\Hypertarget{group__smtp__opts_gaff61e8eb64df1bfac23064c4bf214343}\label{group__smtp__opts_gaff61e8eb64df1bfac23064c4bf214343}} 
+\#define {\bfseries SMTP\+\_\+\+STATE\+\_\+\+FREE}(ptr)~\mbox{\hyperlink{mem_8c_a65169147c44e9db60d997819af9b455c}{mem\+\_\+free}}(ptr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__smtp__opts_ga4b1667149354b7819847cb4f5f1ff144}\label{group__smtp__opts_ga4b1667149354b7819847cb4f5f1ff144}} 
+\index{Options@{Options}!SMTP\_BODYDH@{SMTP\_BODYDH}}
+\index{SMTP\_BODYDH@{SMTP\_BODYDH}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SMTP\_BODYDH}{SMTP\_BODYDH}}
+{\footnotesize\ttfamily \#define SMTP\+\_\+\+BODYDH~0}
+
+Set this to 1 to enable data handler callback on BODY \mbox{\Hypertarget{group__smtp__opts_ga021d8133159895a2dbf5fb0b243da9fa}\label{group__smtp__opts_ga021d8133159895a2dbf5fb0b243da9fa}} 
+\index{Options@{Options}!SMTP\_CHECK\_DATA@{SMTP\_CHECK\_DATA}}
+\index{SMTP\_CHECK\_DATA@{SMTP\_CHECK\_DATA}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SMTP\_CHECK\_DATA}{SMTP\_CHECK\_DATA}}
+{\footnotesize\ttfamily \#define SMTP\+\_\+\+CHECK\+\_\+\+DATA~1}
+
+Set this to 0 to save some code space if you know for sure that all data passed to this module conforms to the requirements in the SMTP RFC. WARNING\+: use this with care! \mbox{\Hypertarget{group__smtp__opts_gab5559a7c976e72204d9391f655bcc07e}\label{group__smtp__opts_gab5559a7c976e72204d9391f655bcc07e}} 
+\index{Options@{Options}!SMTP\_COPY\_AUTHDATA@{SMTP\_COPY\_AUTHDATA}}
+\index{SMTP\_COPY\_AUTHDATA@{SMTP\_COPY\_AUTHDATA}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SMTP\_COPY\_AUTHDATA}{SMTP\_COPY\_AUTHDATA}}
+{\footnotesize\ttfamily \#define SMTP\+\_\+\+COPY\+\_\+\+AUTHDATA~1}
+
+Set this to 0 if you know the authentication data will not change during the smtp session, which saves some heap space. \mbox{\Hypertarget{group__smtp__opts_gae7ea4f31c521947d5127e268ae02c317}\label{group__smtp__opts_gae7ea4f31c521947d5127e268ae02c317}} 
+\index{Options@{Options}!SMTP\_DEBUG@{SMTP\_DEBUG}}
+\index{SMTP\_DEBUG@{SMTP\_DEBUG}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SMTP\_DEBUG}{SMTP\_DEBUG}}
+{\footnotesize\ttfamily \#define SMTP\+\_\+\+DEBUG~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}}
+
+SMTP\+\_\+\+DEBUG\+: Enable debugging for SNTP. \mbox{\Hypertarget{group__smtp__opts_ga9aa5f5529121a8266947f33c5e424ccc}\label{group__smtp__opts_ga9aa5f5529121a8266947f33c5e424ccc}} 
+\index{Options@{Options}!SMTP\_MAX\_PASS\_LEN@{SMTP\_MAX\_PASS\_LEN}}
+\index{SMTP\_MAX\_PASS\_LEN@{SMTP\_MAX\_PASS\_LEN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SMTP\_MAX\_PASS\_LEN}{SMTP\_MAX\_PASS\_LEN}}
+{\footnotesize\ttfamily \#define SMTP\+\_\+\+MAX\+\_\+\+PASS\+\_\+\+LEN~32}
+
+Maximum length reserved for password \mbox{\Hypertarget{group__smtp__opts_gaee3b273524a2253ce5fb44b240b0371b}\label{group__smtp__opts_gaee3b273524a2253ce5fb44b240b0371b}} 
+\index{Options@{Options}!SMTP\_MAX\_SERVERNAME\_LEN@{SMTP\_MAX\_SERVERNAME\_LEN}}
+\index{SMTP\_MAX\_SERVERNAME\_LEN@{SMTP\_MAX\_SERVERNAME\_LEN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SMTP\_MAX\_SERVERNAME\_LEN}{SMTP\_MAX\_SERVERNAME\_LEN}}
+{\footnotesize\ttfamily \#define SMTP\+\_\+\+MAX\+\_\+\+SERVERNAME\+\_\+\+LEN~256}
+
+Maximum length reserved for server name including terminating 0 byte \mbox{\Hypertarget{group__smtp__opts_gafa0c84e5279b8eb8a5dbea6fe97aa099}\label{group__smtp__opts_gafa0c84e5279b8eb8a5dbea6fe97aa099}} 
+\index{Options@{Options}!SMTP\_MAX\_USERNAME\_LEN@{SMTP\_MAX\_USERNAME\_LEN}}
+\index{SMTP\_MAX\_USERNAME\_LEN@{SMTP\_MAX\_USERNAME\_LEN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SMTP\_MAX\_USERNAME\_LEN}{SMTP\_MAX\_USERNAME\_LEN}}
+{\footnotesize\ttfamily \#define SMTP\+\_\+\+MAX\+\_\+\+USERNAME\+\_\+\+LEN~32}
+
+Maximum length reserved for username \mbox{\Hypertarget{group__smtp__opts_ga7a83e686b109fa59557c13736aeeab3b}\label{group__smtp__opts_ga7a83e686b109fa59557c13736aeeab3b}} 
+\index{Options@{Options}!SMTP\_SUPPORT\_AUTH\_LOGIN@{SMTP\_SUPPORT\_AUTH\_LOGIN}}
+\index{SMTP\_SUPPORT\_AUTH\_LOGIN@{SMTP\_SUPPORT\_AUTH\_LOGIN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SMTP\_SUPPORT\_AUTH\_LOGIN}{SMTP\_SUPPORT\_AUTH\_LOGIN}}
+{\footnotesize\ttfamily \#define SMTP\+\_\+\+SUPPORT\+\_\+\+AUTH\+\_\+\+LOGIN~1}
+
+Set this to 1 to enable AUTH LOGIN support \mbox{\Hypertarget{group__smtp__opts_ga2e6c8313006592884e89bbcf353cf5ac}\label{group__smtp__opts_ga2e6c8313006592884e89bbcf353cf5ac}} 
+\index{Options@{Options}!SMTP\_SUPPORT\_AUTH\_PLAIN@{SMTP\_SUPPORT\_AUTH\_PLAIN}}
+\index{SMTP\_SUPPORT\_AUTH\_PLAIN@{SMTP\_SUPPORT\_AUTH\_PLAIN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{SMTP\_SUPPORT\_AUTH\_PLAIN}{SMTP\_SUPPORT\_AUTH\_PLAIN}}
+{\footnotesize\ttfamily \#define SMTP\+\_\+\+SUPPORT\+\_\+\+AUTH\+\_\+\+PLAIN~1}
+
+Set this to 1 to enable AUTH PLAIN support 

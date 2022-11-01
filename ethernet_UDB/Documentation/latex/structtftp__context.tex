@@ -1,0 +1,91 @@
+\hypertarget{structtftp__context}{}\doxysection{tftp\+\_\+context Struct Reference}
+\label{structtftp__context}\index{tftp\_context@{tftp\_context}}
+
+
+{\ttfamily \#include $<$tftp\+\_\+server.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$($\ast$ \mbox{\hyperlink{structtftp__context_a7e6aaba9a609e0eb3ba1586a1cc3c3b2}{open}} )(const char $\ast$fname, const char $\ast$mode, u8\+\_\+t \mbox{\hyperlink{structtftp__context_aab77e76c0096e1af89c896dd89ae9ce8}{write}})
+\item 
+void($\ast$ \mbox{\hyperlink{structtftp__context_a2075eeb5d023db4b34a3f2d99fac1432}{close}} )(void $\ast$handle)
+\item 
+int($\ast$ \mbox{\hyperlink{structtftp__context_a0f5ec613597877f1e78543fb1ca32e9b}{read}} )(void $\ast$handle, void $\ast$buf, int bytes)
+\item 
+int($\ast$ \mbox{\hyperlink{structtftp__context_aab77e76c0096e1af89c896dd89ae9ce8}{write}} )(void $\ast$handle, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+TFTP context containing callback functions for TFTP transfers 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structtftp__context_a2075eeb5d023db4b34a3f2d99fac1432}\label{structtftp__context_a2075eeb5d023db4b34a3f2d99fac1432}} 
+\index{tftp\_context@{tftp\_context}!close@{close}}
+\index{close@{close}!tftp\_context@{tftp\_context}}
+\doxysubsubsection{\texorpdfstring{close}{close}}
+{\footnotesize\ttfamily void($\ast$ close) (void $\ast$handle)}
+
+Close file handle 
+\begin{DoxyParams}{Parameters}
+{\em handle} & File handle returned by \mbox{\hyperlink{structtftp__context_a7e6aaba9a609e0eb3ba1586a1cc3c3b2}{open()}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{structtftp__context_a7e6aaba9a609e0eb3ba1586a1cc3c3b2}\label{structtftp__context_a7e6aaba9a609e0eb3ba1586a1cc3c3b2}} 
+\index{tftp\_context@{tftp\_context}!open@{open}}
+\index{open@{open}!tftp\_context@{tftp\_context}}
+\doxysubsubsection{\texorpdfstring{open}{open}}
+{\footnotesize\ttfamily void $\ast$($\ast$ open) (const char $\ast$fname, const char $\ast$mode, u8\+\_\+t \mbox{\hyperlink{structtftp__context_aab77e76c0096e1af89c896dd89ae9ce8}{write}})}
+
+Open file for read/write. 
+\begin{DoxyParams}{Parameters}
+{\em fname} & Filename \\
+\hline
+{\em mode} & Mode string from TFTP RFC 1350 (netascii, octet, mail) \\
+\hline
+{\em write} & Flag indicating read (0) or write (!= 0) access \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+File handle supplied to other functions 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structtftp__context_a0f5ec613597877f1e78543fb1ca32e9b}\label{structtftp__context_a0f5ec613597877f1e78543fb1ca32e9b}} 
+\index{tftp\_context@{tftp\_context}!read@{read}}
+\index{read@{read}!tftp\_context@{tftp\_context}}
+\doxysubsubsection{\texorpdfstring{read}{read}}
+{\footnotesize\ttfamily int($\ast$ read) (void $\ast$handle, void $\ast$buf, int bytes)}
+
+Read from file 
+\begin{DoxyParams}{Parameters}
+{\em handle} & File handle returned by \mbox{\hyperlink{structtftp__context_a7e6aaba9a609e0eb3ba1586a1cc3c3b2}{open()}} \\
+\hline
+{\em buf} & Target buffer to copy read data to \\
+\hline
+{\em bytes} & Number of bytes to copy to buf \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\texorpdfstring{$>$}{>}= 0\+: Success; \texorpdfstring{$<$}{<} 0\+: Error 
+\end{DoxyReturn}
+\mbox{\Hypertarget{structtftp__context_aab77e76c0096e1af89c896dd89ae9ce8}\label{structtftp__context_aab77e76c0096e1af89c896dd89ae9ce8}} 
+\index{tftp\_context@{tftp\_context}!write@{write}}
+\index{write@{write}!tftp\_context@{tftp\_context}}
+\doxysubsubsection{\texorpdfstring{write}{write}}
+{\footnotesize\ttfamily int($\ast$ write) (void $\ast$handle, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)}
+
+Write to file 
+\begin{DoxyParams}{Parameters}
+{\em handle} & File handle returned by \mbox{\hyperlink{structtftp__context_a7e6aaba9a609e0eb3ba1586a1cc3c3b2}{open()}} \\
+\hline
+{\em pbuf} & PBUF adjusted such that payload pointer points to the beginning of write data. In other words, TFTP headers are stripped off. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\texorpdfstring{$>$}{>}= 0\+: Success; \texorpdfstring{$<$}{<} 0\+: Error 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/apps/\mbox{\hyperlink{tftp__server_8h}{tftp\+\_\+server.\+h}}\end{DoxyCompactItemize}

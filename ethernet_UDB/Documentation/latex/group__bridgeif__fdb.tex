@@ -1,0 +1,38 @@
+\hypertarget{group__bridgeif__fdb}{}\doxysection{FDB example code}
+\label{group__bridgeif__fdb}\index{FDB example code@{FDB example code}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__bridgeif__fdb_gad912bfd3ce8e24d0eb48b7dc9de07c39}{bridgeif\+\_\+fdb\+\_\+update\+\_\+src}} (void $\ast$fdb\+\_\+ptr, struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} $\ast$src\+\_\+addr, u8\+\_\+t port\+\_\+idx)
+\item 
+bridgeif\+\_\+portmask\+\_\+t \mbox{\hyperlink{group__bridgeif__fdb_ga616fb7404be5da79d8092b4a14976750}{bridgeif\+\_\+fdb\+\_\+get\+\_\+dst\+\_\+ports}} (void $\ast$fdb\+\_\+ptr, struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} $\ast$dst\+\_\+addr)
+\item 
+void $\ast$ \mbox{\hyperlink{group__bridgeif__fdb_ga137fdeb4939e8fb889b10a97ea479d3a}{bridgeif\+\_\+fdb\+\_\+init}} (u16\+\_\+t max\+\_\+fdb\+\_\+entries)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file implements an example for an FDB (Forwarding Data\+Base) 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__bridgeif__fdb_ga616fb7404be5da79d8092b4a14976750}\label{group__bridgeif__fdb_ga616fb7404be5da79d8092b4a14976750}} 
+\index{FDB example code@{FDB example code}!bridgeif\_fdb\_get\_dst\_ports@{bridgeif\_fdb\_get\_dst\_ports}}
+\index{bridgeif\_fdb\_get\_dst\_ports@{bridgeif\_fdb\_get\_dst\_ports}!FDB example code@{FDB example code}}
+\doxysubsubsection{\texorpdfstring{bridgeif\_fdb\_get\_dst\_ports()}{bridgeif\_fdb\_get\_dst\_ports()}}
+{\footnotesize\ttfamily bridgeif\+\_\+portmask\+\_\+t bridgeif\+\_\+fdb\+\_\+get\+\_\+dst\+\_\+ports (\begin{DoxyParamCaption}\item[{void $\ast$}]{fdb\+\_\+ptr,  }\item[{struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} $\ast$}]{dst\+\_\+addr }\end{DoxyParamCaption})}
+
+Walk our list of auto-\/learnt fdb entries and return a port to forward or BR\+\_\+\+FLOOD if unknown \mbox{\Hypertarget{group__bridgeif__fdb_ga137fdeb4939e8fb889b10a97ea479d3a}\label{group__bridgeif__fdb_ga137fdeb4939e8fb889b10a97ea479d3a}} 
+\index{FDB example code@{FDB example code}!bridgeif\_fdb\_init@{bridgeif\_fdb\_init}}
+\index{bridgeif\_fdb\_init@{bridgeif\_fdb\_init}!FDB example code@{FDB example code}}
+\doxysubsubsection{\texorpdfstring{bridgeif\_fdb\_init()}{bridgeif\_fdb\_init()}}
+{\footnotesize\ttfamily void $\ast$ bridgeif\+\_\+fdb\+\_\+init (\begin{DoxyParamCaption}\item[{u16\+\_\+t}]{max\+\_\+fdb\+\_\+entries }\end{DoxyParamCaption})}
+
+Init our simple fdb list \mbox{\Hypertarget{group__bridgeif__fdb_gad912bfd3ce8e24d0eb48b7dc9de07c39}\label{group__bridgeif__fdb_gad912bfd3ce8e24d0eb48b7dc9de07c39}} 
+\index{FDB example code@{FDB example code}!bridgeif\_fdb\_update\_src@{bridgeif\_fdb\_update\_src}}
+\index{bridgeif\_fdb\_update\_src@{bridgeif\_fdb\_update\_src}!FDB example code@{FDB example code}}
+\doxysubsubsection{\texorpdfstring{bridgeif\_fdb\_update\_src()}{bridgeif\_fdb\_update\_src()}}
+{\footnotesize\ttfamily void bridgeif\+\_\+fdb\+\_\+update\+\_\+src (\begin{DoxyParamCaption}\item[{void $\ast$}]{fdb\+\_\+ptr,  }\item[{struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} $\ast$}]{src\+\_\+addr,  }\item[{u8\+\_\+t}]{port\+\_\+idx }\end{DoxyParamCaption})}
+
+A real simple and slow implementation of an auto-\/learning forwarding database that remembers known src mac addresses to know which port to send frames destined for that mac address.
+
+ATTENTION\+: This is meant as an example only, in real-\/world use, you should provide a better implementation \+:-\/) 

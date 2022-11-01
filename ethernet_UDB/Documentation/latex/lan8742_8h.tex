@@ -1,0 +1,408 @@
+\hypertarget{lan8742_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+BSP/\+Components/lan8742/lan8742.h File Reference}
+\label{lan8742_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/BSP/Components/lan8742/lan8742.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/BSP/Components/lan8742/lan8742.h}}
+
+
+This file contains all the functions prototypes for the \mbox{\hyperlink{lan8742_8c}{lan8742.\+c}} PHY driver.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlan8742___i_o_ctx__t}{lan8742\+\_\+\+IOCtx\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BCR}~((uint16\+\_\+t)0x0000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR}~((uint16\+\_\+t)0x0001U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYI1R}~((uint16\+\_\+t)0x0002U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYI2R}~((uint16\+\_\+t)0x0003U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR}~((uint16\+\_\+t)0x0004U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR}~((uint16\+\_\+t)0x0005U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANER}~((uint16\+\_\+t)0x0006U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPTR}~((uint16\+\_\+t)0x0007U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPRR}~((uint16\+\_\+t)0x0008U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MMDACR}~((uint16\+\_\+t)0x000\+DU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MMDAADR}~((uint16\+\_\+t)0x000\+EU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR}~((uint16\+\_\+t)0x0010U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MCSR}~((uint16\+\_\+t)0x0011U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+SMR}~((uint16\+\_\+t)0x0012U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TPDCR}~((uint16\+\_\+t)0x0018U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TCSR}~((uint16\+\_\+t)0x0019U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+SECR}~((uint16\+\_\+t)0x001\+AU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+SCSIR}~((uint16\+\_\+t)0x001\+BU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+CLR}~((uint16\+\_\+t)0x001\+CU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ISFR}~((uint16\+\_\+t)0x001\+DU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+IMR}~((uint16\+\_\+t)0x001\+EU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYSCSR}~((uint16\+\_\+t)0x001\+FU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BCR\+\_\+\+SOFT\+\_\+\+RESET}~((uint16\+\_\+t)0x8000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BCR\+\_\+\+LOOPBACK}~((uint16\+\_\+t)0x4000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BCR\+\_\+\+SPEED\+\_\+\+SELECT}~((uint16\+\_\+t)0x2000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BCR\+\_\+\+AUTONEGO\+\_\+\+EN}~((uint16\+\_\+t)0x1000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BCR\+\_\+\+POWER\+\_\+\+DOWN}~((uint16\+\_\+t)0x0800U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BCR\+\_\+\+ISOLATE}~((uint16\+\_\+t)0x0400U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BCR\+\_\+\+RESTART\+\_\+\+AUTONEGO}~((uint16\+\_\+t)0x0200U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BCR\+\_\+\+DUPLEX\+\_\+\+MODE}~((uint16\+\_\+t)0x0100U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+100\+BASE\+\_\+\+T4}~((uint16\+\_\+t)0x8000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+100\+BASE\+\_\+\+TX\+\_\+\+FD}~((uint16\+\_\+t)0x4000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+100\+BASE\+\_\+\+TX\+\_\+\+HD}~((uint16\+\_\+t)0x2000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+10\+BASE\+\_\+\+T\+\_\+\+FD}~((uint16\+\_\+t)0x1000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+10\+BASE\+\_\+\+T\+\_\+\+HD}~((uint16\+\_\+t)0x0800U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+100\+BASE\+\_\+\+T2\+\_\+\+FD}~((uint16\+\_\+t)0x0400U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+100\+BASE\+\_\+\+T2\+\_\+\+HD}~((uint16\+\_\+t)0x0200U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+\+EXTENDED\+\_\+\+STATUS}~((uint16\+\_\+t)0x0100U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+\+AUTONEGO\+\_\+\+CPLT}~((uint16\+\_\+t)0x0020U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+\+REMOTE\+\_\+\+FAULT}~((uint16\+\_\+t)0x0010U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+\+AUTONEGO\+\_\+\+ABILITY}~((uint16\+\_\+t)0x0008U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+\+LINK\+\_\+\+STATUS}~((uint16\+\_\+t)0x0004U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+\+JABBER\+\_\+\+DETECT}~((uint16\+\_\+t)0x0002U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+BSR\+\_\+\+EXTENDED\+\_\+\+CAP}~((uint16\+\_\+t)0x0001U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYI1\+R\+\_\+\+OUI\+\_\+3\+\_\+18}~((uint16\+\_\+t)0x\+FFFFU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYI2\+R\+\_\+\+OUI\+\_\+19\+\_\+24}~((uint16\+\_\+t)0x\+FC00U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYI2\+R\+\_\+\+MODEL\+\_\+\+NBR}~((uint16\+\_\+t)0x03\+F0U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYI2\+R\+\_\+\+REVISION\+\_\+\+NBR}~((uint16\+\_\+t)0x000\+FU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+\+NEXT\+\_\+\+PAGE}~((uint16\+\_\+t)0x8000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+\+REMOTE\+\_\+\+FAULT}~((uint16\+\_\+t)0x2000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+\+PAUSE\+\_\+\+OPERATION}~((uint16\+\_\+t)0x0\+C00U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+\+PO\+\_\+\+NOPAUSE}~((uint16\+\_\+t)0x0000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+\+PO\+\_\+\+SYMMETRIC\+\_\+\+PAUSE}~((uint16\+\_\+t)0x0400U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+\+PO\+\_\+\+ASYMMETRIC\+\_\+\+PAUSE}~((uint16\+\_\+t)0x0800U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+\+PO\+\_\+\+ADVERTISE\+\_\+\+SUPPORT}~((uint16\+\_\+t)0x0\+C00U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+100\+BASE\+\_\+\+TX\+\_\+\+FD}~((uint16\+\_\+t)0x0100U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+100\+BASE\+\_\+\+TX}~((uint16\+\_\+t)0x0080U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+10\+BASE\+\_\+\+T\+\_\+\+FD}~((uint16\+\_\+t)0x0040U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+10\+BASE\+\_\+T}~((uint16\+\_\+t)0x0020U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANAR\+\_\+\+SELECTOR\+\_\+\+FIELD}~((uint16\+\_\+t)0x000\+FU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+\+NEXT\+\_\+\+PAGE}~((uint16\+\_\+t)0x8000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+\+REMOTE\+\_\+\+FAULT}~((uint16\+\_\+t)0x2000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+\+PAUSE\+\_\+\+OPERATION}~((uint16\+\_\+t)0x0\+C00U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+\+PO\+\_\+\+NOPAUSE}~((uint16\+\_\+t)0x0000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+\+PO\+\_\+\+SYMMETRIC\+\_\+\+PAUSE}~((uint16\+\_\+t)0x0400U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+\+PO\+\_\+\+ASYMMETRIC\+\_\+\+PAUSE}~((uint16\+\_\+t)0x0800U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+\+PO\+\_\+\+ADVERTISE\+\_\+\+SUPPORT}~((uint16\+\_\+t)0x0\+C00U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+100\+BASE\+\_\+\+TX\+\_\+\+FD}~((uint16\+\_\+t)0x0100U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+100\+BASE\+\_\+\+TX}~((uint16\+\_\+t)0x0080U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+10\+BASE\+\_\+\+T\+\_\+\+FD}~((uint16\+\_\+t)0x0040U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+10\+BASE\+\_\+T}~((uint16\+\_\+t)0x0020U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANLPAR\+\_\+\+SELECTOR\+\_\+\+FIELD}~((uint16\+\_\+t)0x000\+FU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANER\+\_\+\+RX\+\_\+\+NP\+\_\+\+LOCATION\+\_\+\+ABLE}~((uint16\+\_\+t)0x0040U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANER\+\_\+\+RX\+\_\+\+NP\+\_\+\+STORAGE\+\_\+\+LOCATION}~((uint16\+\_\+t)0x0020U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANER\+\_\+\+PARALLEL\+\_\+\+DETECT\+\_\+\+FAULT}~((uint16\+\_\+t)0x0010U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANER\+\_\+\+LP\+\_\+\+NP\+\_\+\+ABLE}~((uint16\+\_\+t)0x0008U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANER\+\_\+\+NP\+\_\+\+ABLE}~((uint16\+\_\+t)0x0004U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANER\+\_\+\+PAGE\+\_\+\+RECEIVED}~((uint16\+\_\+t)0x0002U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANER\+\_\+\+LP\+\_\+\+AUTONEG\+\_\+\+ABLE}~((uint16\+\_\+t)0x0001U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPTR\+\_\+\+NEXT\+\_\+\+PAGE}~((uint16\+\_\+t)0x8000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPTR\+\_\+\+MESSAGE\+\_\+\+PAGE}~((uint16\+\_\+t)0x2000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPTR\+\_\+\+ACK2}~((uint16\+\_\+t)0x1000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPTR\+\_\+\+TOGGLE}~((uint16\+\_\+t)0x0800U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPTR\+\_\+\+MESSAGGE\+\_\+\+CODE}~((uint16\+\_\+t)0x07\+FFU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPTR\+\_\+\+NEXT\+\_\+\+PAGE}~((uint16\+\_\+t)0x8000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPRR\+\_\+\+ACK}~((uint16\+\_\+t)0x4000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPRR\+\_\+\+MESSAGE\+\_\+\+PAGE}~((uint16\+\_\+t)0x2000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPRR\+\_\+\+ACK2}~((uint16\+\_\+t)0x1000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPRR\+\_\+\+TOGGLE}~((uint16\+\_\+t)0x0800U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ANNPRR\+\_\+\+MESSAGGE\+\_\+\+CODE}~((uint16\+\_\+t)0x07\+FFU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MMDACR\+\_\+\+MMD\+\_\+\+FUNCTION}~((uint16\+\_\+t)0x\+C000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MMDACR\+\_\+\+MMD\+\_\+\+FUNCTION\+\_\+\+ADDR}~((uint16\+\_\+t)0x0000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MMDACR\+\_\+\+MMD\+\_\+\+FUNCTION\+\_\+\+DATA}~((uint16\+\_\+t)0x4000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MMDACR\+\_\+\+MMD\+\_\+\+DEV\+\_\+\+ADDR}~((uint16\+\_\+t)0x001\+FU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+TX\+\_\+\+ENABLE}~((uint16\+\_\+t)0x8000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+TX\+\_\+\+TIMER}~((uint16\+\_\+t)0x6000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+TX\+\_\+\+TIMER\+\_\+1S}~((uint16\+\_\+t)0x0000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+TX\+\_\+\+TIMER\+\_\+768\+MS}~((uint16\+\_\+t)0x2000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+TX\+\_\+\+TIMER\+\_\+512\+MS}~((uint16\+\_\+t)0x4000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+TX\+\_\+\+TIMER\+\_\+265\+MS}~((uint16\+\_\+t)0x6000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+RX\+\_\+\+ENABLE}~((uint16\+\_\+t)0x1000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+RX\+\_\+\+MAX\+\_\+\+INTERVAL}~((uint16\+\_\+t)0x0\+C00U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+RX\+\_\+\+MAX\+\_\+\+INTERVAL\+\_\+64\+MS}~((uint16\+\_\+t)0x0000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+RX\+\_\+\+MAX\+\_\+\+INTERVAL\+\_\+256\+MS}~((uint16\+\_\+t)0x0400U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+RX\+\_\+\+MAX\+\_\+\+INTERVAL\+\_\+512\+MS}~((uint16\+\_\+t)0x0800U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+RX\+\_\+\+MAX\+\_\+\+INTERVAL\+\_\+1S}~((uint16\+\_\+t)0x0\+C00U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+EX\+\_\+\+CROSS\+\_\+\+OVER}~((uint16\+\_\+t)0x0002U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENCTR\+\_\+\+EX\+\_\+\+MANUAL\+\_\+\+CROSS\+\_\+\+OVER}~((uint16\+\_\+t)0x0001U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MCSR\+\_\+\+EDPWRDOWN}~((uint16\+\_\+t)0x2000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MCSR\+\_\+\+FARLOOPBACK}~((uint16\+\_\+t)0x0200U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MCSR\+\_\+\+ALTINT}~((uint16\+\_\+t)0x0040U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MCSR\+\_\+\+ENERGYON}~((uint16\+\_\+t)0x0002U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+SMR\+\_\+\+MODE}~((uint16\+\_\+t)0x00\+E0U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+SMR\+\_\+\+PHY\+\_\+\+ADDR}~((uint16\+\_\+t)0x001\+FU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TPDCR\+\_\+\+DELAY\+\_\+\+IN}~((uint16\+\_\+t)0x8000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TPDCR\+\_\+\+LINE\+\_\+\+BREAK\+\_\+\+COUNTER}~((uint16\+\_\+t)0x7000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TPDCR\+\_\+\+PATTERN\+\_\+\+HIGH}~((uint16\+\_\+t)0x0\+FC0U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TPDCR\+\_\+\+PATTERN\+\_\+\+LOW}~((uint16\+\_\+t)0x003\+FU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TCSR\+\_\+\+TDR\+\_\+\+ENABLE}~((uint16\+\_\+t)0x8000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TCSR\+\_\+\+TDR\+\_\+\+AD\+\_\+\+FILTER\+\_\+\+ENABLE}~((uint16\+\_\+t)0x4000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TCSR\+\_\+\+TDR\+\_\+\+CH\+\_\+\+CABLE\+\_\+\+TYPE}~((uint16\+\_\+t)0x0600U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TCSR\+\_\+\+TDR\+\_\+\+CH\+\_\+\+CABLE\+\_\+\+DEFAULT}~((uint16\+\_\+t)0x0000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TCSR\+\_\+\+TDR\+\_\+\+CH\+\_\+\+CABLE\+\_\+\+SHORTED}~((uint16\+\_\+t)0x0200U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TCSR\+\_\+\+TDR\+\_\+\+CH\+\_\+\+CABLE\+\_\+\+OPEN}~((uint16\+\_\+t)0x0400U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TCSR\+\_\+\+TDR\+\_\+\+CH\+\_\+\+CABLE\+\_\+\+MATCH}~((uint16\+\_\+t)0x0600U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TCSR\+\_\+\+TDR\+\_\+\+CH\+\_\+\+STATUS}~((uint16\+\_\+t)0x0100U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+TCSR\+\_\+\+TDR\+\_\+\+CH\+\_\+\+LENGTH}~((uint16\+\_\+t)0x00\+FFU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+SCSIR\+\_\+\+AUTO\+\_\+\+MDIX\+\_\+\+ENABLE}~((uint16\+\_\+t)0x8000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+SCSIR\+\_\+\+CHANNEL\+\_\+\+SELECT}~((uint16\+\_\+t)0x2000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+SCSIR\+\_\+\+SQE\+\_\+\+DISABLE}~((uint16\+\_\+t)0x0800U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+SCSIR\+\_\+\+XPOLALITY}~((uint16\+\_\+t)0x0010U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+CLR\+\_\+\+CABLE\+\_\+\+LENGTH}~((uint16\+\_\+t)0x\+F000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+INT\+\_\+8}~((uint16\+\_\+t)0x0100U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+INT\+\_\+7}~((uint16\+\_\+t)0x0080U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+INT\+\_\+6}~((uint16\+\_\+t)0x0040U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+INT\+\_\+5}~((uint16\+\_\+t)0x0020U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+INT\+\_\+4}~((uint16\+\_\+t)0x0010U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+INT\+\_\+3}~((uint16\+\_\+t)0x0008U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+INT\+\_\+2}~((uint16\+\_\+t)0x0004U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+INT\+\_\+1}~((uint16\+\_\+t)0x0002U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYSCSR\+\_\+\+AUTONEGO\+\_\+\+DONE}~((uint16\+\_\+t)0x1000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYSCSR\+\_\+\+HCDSPEEDMASK}~((uint16\+\_\+t)0x001\+CU)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYSCSR\+\_\+10\+BT\+\_\+\+HD}~((uint16\+\_\+t)0x0004U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYSCSR\+\_\+10\+BT\+\_\+\+FD}~((uint16\+\_\+t)0x0014U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYSCSR\+\_\+100\+BTX\+\_\+\+HD}~((uint16\+\_\+t)0x0008U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PHYSCSR\+\_\+100\+BTX\+\_\+\+FD}~((uint16\+\_\+t)0x0018U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+\+READ\+\_\+\+ERROR}~((int32\+\_\+t)-\/5)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+\+WRITE\+\_\+\+ERROR}~((int32\+\_\+t)-\/4)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+\+ADDRESS\+\_\+\+ERROR}~((int32\+\_\+t)-\/3)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+\+RESET\+\_\+\+TIMEOUT}~((int32\+\_\+t)-\/2)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+\+ERROR}~((int32\+\_\+t)-\/1)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+\+OK}~((int32\+\_\+t) 0)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+\+LINK\+\_\+\+DOWN}~((int32\+\_\+t) 1)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+100\+MBITS\+\_\+\+FULLDUPLEX}~((int32\+\_\+t) 2)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+100\+MBITS\+\_\+\+HALFDUPLEX}~((int32\+\_\+t) 3)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+10\+MBITS\+\_\+\+FULLDUPLEX}~((int32\+\_\+t) 4)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+10\+MBITS\+\_\+\+HALFDUPLEX}~((int32\+\_\+t) 5)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+STATUS\+\_\+\+AUTONEGO\+\_\+\+NOTDONE}~((int32\+\_\+t) 6)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+WOL\+\_\+\+IT}~LAN8742\+\_\+\+INT\+\_\+8
+\item 
+\#define {\bfseries LAN8742\+\_\+\+ENERGYON\+\_\+\+IT}~LAN8742\+\_\+\+INT\+\_\+7
+\item 
+\#define {\bfseries LAN8742\+\_\+\+AUTONEGO\+\_\+\+COMPLETE\+\_\+\+IT}~LAN8742\+\_\+\+INT\+\_\+6
+\item 
+\#define {\bfseries LAN8742\+\_\+\+REMOTE\+\_\+\+FAULT\+\_\+\+IT}~LAN8742\+\_\+\+INT\+\_\+5
+\item 
+\#define {\bfseries LAN8742\+\_\+\+LINK\+\_\+\+DOWN\+\_\+\+IT}~LAN8742\+\_\+\+INT\+\_\+4
+\item 
+\#define {\bfseries LAN8742\+\_\+\+AUTONEGO\+\_\+\+LP\+\_\+\+ACK\+\_\+\+IT}~LAN8742\+\_\+\+INT\+\_\+3
+\item 
+\#define {\bfseries LAN8742\+\_\+\+PARALLEL\+\_\+\+DETECTION\+\_\+\+FAULT\+\_\+\+IT}~LAN8742\+\_\+\+INT\+\_\+2
+\item 
+\#define {\bfseries LAN8742\+\_\+\+AUTONEGO\+\_\+\+PAGE\+\_\+\+RECEIVED\+\_\+\+IT}~LAN8742\+\_\+\+INT\+\_\+1
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int32\+\_\+t($\ast$ {\bfseries lan8742\+\_\+\+Init\+\_\+\+Func}) (void)
+\item 
+typedef int32\+\_\+t($\ast$ {\bfseries lan8742\+\_\+\+De\+Init\+\_\+\+Func}) (void)
+\item 
+typedef int32\+\_\+t($\ast$ {\bfseries lan8742\+\_\+\+Read\+Reg\+\_\+\+Func}) (uint32\+\_\+t, uint32\+\_\+t, uint32\+\_\+t $\ast$)
+\item 
+typedef int32\+\_\+t($\ast$ {\bfseries lan8742\+\_\+\+Write\+Reg\+\_\+\+Func}) (uint32\+\_\+t, uint32\+\_\+t, uint32\+\_\+t)
+\item 
+typedef int32\+\_\+t($\ast$ {\bfseries lan8742\+\_\+\+Get\+Tick\+\_\+\+Func}) (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_gafeca65505e1d55842af42870ce9ce415}{LAN8742\+\_\+\+Register\+Bus\+IO}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, \mbox{\hyperlink{structlan8742___i_o_ctx__t}{lan8742\+\_\+\+IOCtx\+\_\+t}} $\ast$ioctx)
+\begin{DoxyCompactList}\small\item\em Register IO functions to component object. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_gaab94fc962bd0e87bee6a0982746294c9}{LAN8742\+\_\+\+Init}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Initialize the lan8742 and configure the needed hardware resources. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga64b2e8a9f84fdaf708e2cbba649fd42a}{LAN8742\+\_\+\+De\+Init}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em De-\/\+Initialize the lan8742 and it\textquotesingle{}s hardware resources. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga956e4cce08951849c76ca295419f7de2}{LAN8742\+\_\+\+Disable\+Power\+Down\+Mode}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Disable the LAN8742 power down mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga4b3c4b90282412cc8e6c78c2bedd95e7}{LAN8742\+\_\+\+Enable\+Power\+Down\+Mode}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Enable the LAN8742 power down mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga6e7011f1fafafe4b4f7fb5749a40c2fd}{LAN8742\+\_\+\+Start\+Auto\+Nego}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Start the auto negotiation process. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga62d39c03000882625bf58fb113b4e2ea}{LAN8742\+\_\+\+Get\+Link\+State}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Get the link state of LAN8742 device. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga8453fd5dc383dc78db8b5ece11c30e15}{LAN8742\+\_\+\+Set\+Link\+State}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, uint32\+\_\+t Link\+State)
+\begin{DoxyCompactList}\small\item\em Set the link state of LAN8742 device. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_gaf9cc68679bf682461be50a98d3dce213}{LAN8742\+\_\+\+Enable\+Loopback\+Mode}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Enable loopback mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga0075022dcabad1959e6584b41d3965ba}{LAN8742\+\_\+\+Disable\+Loopback\+Mode}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Disable loopback mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_gae4c8f24f0acdb4ba7776813eb044afde}{LAN8742\+\_\+\+Enable\+IT}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, uint32\+\_\+t Interrupt)
+\begin{DoxyCompactList}\small\item\em Enable IT source. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga4be402b5189a70a81fe48f0d17bd8718}{LAN8742\+\_\+\+Disable\+IT}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, uint32\+\_\+t Interrupt)
+\begin{DoxyCompactList}\small\item\em Disable IT source. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga2b1c58036084c36e643fb72779b90e47}{LAN8742\+\_\+\+Clear\+IT}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, uint32\+\_\+t Interrupt)
+\begin{DoxyCompactList}\small\item\em Clear IT flag. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga2c3d66c4f76ca99aa4b3a8d6feae71ae}{LAN8742\+\_\+\+Get\+ITStatus}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, uint32\+\_\+t Interrupt)
+\begin{DoxyCompactList}\small\item\em Get IT Flag status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all the functions prototypes for the \mbox{\hyperlink{lan8742_8c}{lan8742.\+c}} PHY driver. 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2017 STMicroelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under BSD 3-\/Clause license, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: opensource.\+org/licenses/\+BSD-\/3-\/\+Clause 

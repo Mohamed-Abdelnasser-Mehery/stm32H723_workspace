@@ -1,0 +1,36 @@
+\hypertarget{group__lwip__opts__memcpy}{}\doxysection{memcpy}
+\label{group__lwip__opts__memcpy}\index{memcpy@{memcpy}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__memcpy_gaa1dd57a66b6de8c0593e9e3e8d1411f6}{MEMCPY}}(dst,  src,  len)~memcpy(dst,src,len)
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}{SMEMCPY}}(dst,  src,  len)~memcpy(dst,src,len)
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__memcpy_ga0e00bb235da5557fcbc049f732503863}{MEMMOVE}}(dst,  src,  len)~memmove(dst,src,len)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__memcpy_gaa1dd57a66b6de8c0593e9e3e8d1411f6}\label{group__lwip__opts__memcpy_gaa1dd57a66b6de8c0593e9e3e8d1411f6}} 
+\index{memcpy@{memcpy}!MEMCPY@{MEMCPY}}
+\index{MEMCPY@{MEMCPY}!memcpy@{memcpy}}
+\doxysubsubsection{\texorpdfstring{MEMCPY}{MEMCPY}}
+{\footnotesize\ttfamily \#define MEMCPY(\begin{DoxyParamCaption}\item[{}]{dst,  }\item[{}]{src,  }\item[{}]{len }\end{DoxyParamCaption})~memcpy(dst,src,len)}
+
+MEMCPY\+: override this if you have a faster implementation at hand than the one included in your C library \mbox{\Hypertarget{group__lwip__opts__memcpy_ga0e00bb235da5557fcbc049f732503863}\label{group__lwip__opts__memcpy_ga0e00bb235da5557fcbc049f732503863}} 
+\index{memcpy@{memcpy}!MEMMOVE@{MEMMOVE}}
+\index{MEMMOVE@{MEMMOVE}!memcpy@{memcpy}}
+\doxysubsubsection{\texorpdfstring{MEMMOVE}{MEMMOVE}}
+{\footnotesize\ttfamily \#define MEMMOVE(\begin{DoxyParamCaption}\item[{}]{dst,  }\item[{}]{src,  }\item[{}]{len }\end{DoxyParamCaption})~memmove(dst,src,len)}
+
+MEMMOVE\+: override this if you have a faster implementation at hand than the one included in your C library. lw\+IP currently uses MEMMOVE only when IPv6 fragmentation support is enabled. \mbox{\Hypertarget{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}\label{group__lwip__opts__memcpy_ga8c6e3c1e4f74acb16376188dbf8909ec}} 
+\index{memcpy@{memcpy}!SMEMCPY@{SMEMCPY}}
+\index{SMEMCPY@{SMEMCPY}!memcpy@{memcpy}}
+\doxysubsubsection{\texorpdfstring{SMEMCPY}{SMEMCPY}}
+{\footnotesize\ttfamily \#define SMEMCPY(\begin{DoxyParamCaption}\item[{}]{dst,  }\item[{}]{src,  }\item[{}]{len }\end{DoxyParamCaption})~memcpy(dst,src,len)}
+
+SMEMCPY\+: override this with care! Some compilers (e.\+g. gcc) can inline a call to memcpy() if the length is known at compile time and is small. 

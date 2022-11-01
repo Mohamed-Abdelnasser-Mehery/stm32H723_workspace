@@ -1,0 +1,97 @@
+\hypertarget{struct_r_c_c___p_l_l3_init_type_def}{}\doxysection{RCC\+\_\+\+PLL3\+Init\+Type\+Def Struct Reference}
+\label{struct_r_c_c___p_l_l3_init_type_def}\index{RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}}
+
+
+PLL3 Clock structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32h7xx\+\_\+hal\+\_\+rcc\+\_\+ex.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l3_init_type_def_a5587c368ebacdc27205eb832c2f91af6}{PLL3M}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l3_init_type_def_a21a36271c6710b44403dbcfb419dc1fb}{PLL3N}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l3_init_type_def_aae5e3f3fa4d08e1167cd4aaad2711f5a}{PLL3P}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l3_init_type_def_a9dd2986188104a0ef363cbc04c61ad0f}{PLL3Q}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l3_init_type_def_a3fd91d26d5651e1adccba173871475f5}{PLL3R}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l3_init_type_def_a67d78f132dc1414771190177e34165a2}{PLL3\+RGE}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l3_init_type_def_a83f1fbc4b616e3e344c574154ca96402}{PLL3\+VCOSEL}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_r_c_c___p_l_l3_init_type_def_ab3f92197f68d0959987e610a0e938f7b}{PLL3\+FRACN}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+PLL3 Clock structure definition. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_r_c_c___p_l_l3_init_type_def_ab3f92197f68d0959987e610a0e938f7b}\label{struct_r_c_c___p_l_l3_init_type_def_ab3f92197f68d0959987e610a0e938f7b}} 
+\index{RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}!PLL3FRACN@{PLL3FRACN}}
+\index{PLL3FRACN@{PLL3FRACN}!RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL3FRACN}{PLL3FRACN}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL3\+FRACN}
+
+PLL3\+FRACN\+: Specifies Fractional Part Of The Multiplication Factor for PLL3 VCO It should be a value between 0 and 8191 ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l3_init_type_def_a5587c368ebacdc27205eb832c2f91af6}\label{struct_r_c_c___p_l_l3_init_type_def_a5587c368ebacdc27205eb832c2f91af6}} 
+\index{RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}!PLL3M@{PLL3M}}
+\index{PLL3M@{PLL3M}!RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL3M}{PLL3M}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL3M}
+
+PLL3M\+: Division factor for PLL3 VCO input clock. This parameter must be a number between Min\+\_\+\+Data = 1 and Max\+\_\+\+Data = 63 ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l3_init_type_def_a21a36271c6710b44403dbcfb419dc1fb}\label{struct_r_c_c___p_l_l3_init_type_def_a21a36271c6710b44403dbcfb419dc1fb}} 
+\index{RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}!PLL3N@{PLL3N}}
+\index{PLL3N@{PLL3N}!RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL3N}{PLL3N}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL3N}
+
+PLL3N\+: Multiplication factor for PLL3 VCO output clock. This parameter must be a number between Min\+\_\+\+Data = 4 and Max\+\_\+\+Data = 512 or between Min\+\_\+\+Data = 8 and Max\+\_\+\+Data = 420($\ast$) ($\ast$) \+: For stm32h7a3xx and stm32h7b3xx family lines. ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l3_init_type_def_aae5e3f3fa4d08e1167cd4aaad2711f5a}\label{struct_r_c_c___p_l_l3_init_type_def_aae5e3f3fa4d08e1167cd4aaad2711f5a}} 
+\index{RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}!PLL3P@{PLL3P}}
+\index{PLL3P@{PLL3P}!RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL3P}{PLL3P}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL3P}
+
+PLL3P\+: Division factor for system clock. This parameter must be a number between Min\+\_\+\+Data = 2 and Max\+\_\+\+Data = 128 odd division factors are not allowed ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l3_init_type_def_a9dd2986188104a0ef363cbc04c61ad0f}\label{struct_r_c_c___p_l_l3_init_type_def_a9dd2986188104a0ef363cbc04c61ad0f}} 
+\index{RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}!PLL3Q@{PLL3Q}}
+\index{PLL3Q@{PLL3Q}!RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL3Q}{PLL3Q}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL3Q}
+
+PLL3Q\+: Division factor for peripheral clocks. This parameter must be a number between Min\+\_\+\+Data = 1 and Max\+\_\+\+Data = 128 ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l3_init_type_def_a3fd91d26d5651e1adccba173871475f5}\label{struct_r_c_c___p_l_l3_init_type_def_a3fd91d26d5651e1adccba173871475f5}} 
+\index{RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}!PLL3R@{PLL3R}}
+\index{PLL3R@{PLL3R}!RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL3R}{PLL3R}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL3R}
+
+PLL3R\+: Division factor for peripheral clocks. This parameter must be a number between Min\+\_\+\+Data = 1 and Max\+\_\+\+Data = 128 ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l3_init_type_def_a67d78f132dc1414771190177e34165a2}\label{struct_r_c_c___p_l_l3_init_type_def_a67d78f132dc1414771190177e34165a2}} 
+\index{RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}!PLL3RGE@{PLL3RGE}}
+\index{PLL3RGE@{PLL3RGE}!RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL3RGE}{PLL3RGE}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL3\+RGE}
+
+PLL3\+RGE\+: PLL3 clock Input range This parameter must be a value of \mbox{\hyperlink{group___r_c_c___p_l_l3___v_c_i___range}{RCC PLL3 VCI Range}} ~\newline
+ \mbox{\Hypertarget{struct_r_c_c___p_l_l3_init_type_def_a83f1fbc4b616e3e344c574154ca96402}\label{struct_r_c_c___p_l_l3_init_type_def_a83f1fbc4b616e3e344c574154ca96402}} 
+\index{RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}!PLL3VCOSEL@{PLL3VCOSEL}}
+\index{PLL3VCOSEL@{PLL3VCOSEL}!RCC\_PLL3InitTypeDef@{RCC\_PLL3InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{PLL3VCOSEL}{PLL3VCOSEL}}
+{\footnotesize\ttfamily uint32\+\_\+t PLL3\+VCOSEL}
+
+PLL3\+VCOSEL\+: PLL3 clock Output range This parameter must be a value of \mbox{\hyperlink{group___r_c_c___p_l_l3___v_c_o___range}{RCC PLL3 VCO Range}} ~\newline
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32h7xx__hal__rcc__ex_8h}{stm32h7xx\+\_\+hal\+\_\+rcc\+\_\+ex.\+h}}\end{DoxyCompactItemize}

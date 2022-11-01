@@ -1,0 +1,154 @@
+\hypertarget{stm32h7xx__hal__pwr__ex_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Src/stm32h7xx\+\_\+hal\+\_\+pwr\+\_\+ex.c File Reference}
+\label{stm32h7xx__hal__pwr__ex_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Src/stm32h7xx\_hal\_pwr\_ex.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Src/stm32h7xx\_hal\_pwr\_ex.c}}
+
+
+Extended PWR HAL module driver. This file provides firmware functions to manage the following functionalities of PWR extension peripheral\+:  
+
+
+{\ttfamily \#include \char`\"{}stm32h7xx\+\_\+hal.\+h\char`\"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+Extended PWR HAL module driver. This file provides firmware functions to manage the following functionalities of PWR extension peripheral\+: 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team
+\begin{DoxyItemize}
+\item Peripheral Extended features functions
+\end{DoxyItemize}
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2017 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS.
+
+\begin{DoxyVerb}==============================================================================
+                      ##### How to use this driver #####
+==============================================================================
+[..]
+ (#) Call HAL_PWREx_ConfigSupply() function to configure the regulator supply
+     with the following different setups according to hardware (support SMPS):
+     (+) PWR_DIRECT_SMPS_SUPPLY
+     (+) PWR_SMPS_1V8_SUPPLIES_LDO
+     (+) PWR_SMPS_2V5_SUPPLIES_LDO
+     (+) PWR_SMPS_1V8_SUPPLIES_EXT_AND_LDO
+     (+) PWR_SMPS_2V5_SUPPLIES_EXT_AND_LDO
+     (+) PWR_SMPS_1V8_SUPPLIES_EXT
+     (+) PWR_SMPS_2V5_SUPPLIES_EXT
+     (+) PWR_LDO_SUPPLY
+     (+) PWR_EXTERNAL_SOURCE_SUPPLY
+
+ (#) Call HAL_PWREx_GetSupplyConfig() function to get the current supply setup.
+
+ (#) Call HAL_PWREx_ControlVoltageScaling() function to configure the main
+     internal regulator output voltage. The voltage scaling could be one of
+     the following scales :
+     (+) PWR_REGULATOR_VOLTAGE_SCALE0
+     (+) PWR_REGULATOR_VOLTAGE_SCALE1
+     (+) PWR_REGULATOR_VOLTAGE_SCALE2
+     (+) PWR_REGULATOR_VOLTAGE_SCALE3
+
+ (#) Call HAL_PWREx_GetVoltageRange() function to get the current output
+     voltage applied to the main regulator.
+
+ (#) Call HAL_PWREx_ControlStopModeVoltageScaling() function to configure the
+     main internal regulator output voltage in STOP mode. The voltage scaling
+     in STOP mode could be one of the following scales :
+     (+) PWR_REGULATOR_SVOS_SCALE3
+     (+) PWR_REGULATOR_SVOS_SCALE4
+     (+) PWR_REGULATOR_SVOS_SCALE5
+
+ (#) Call HAL_PWREx_GetStopModeVoltageRange() function to get the current
+     output voltage applied to the main regulator in STOP mode.
+
+ (#) Call HAL_PWREx_EnterSTOP2Mode() function to enter the system in STOP mode
+     with core domain in D2STOP mode. This API is used only for STM32H7Axxx
+     and STM32H7Bxxx devices.
+     Please ensure to clear all CPU pending events by calling
+     HAL_PWREx_ClearPendingEvent() function when trying to enter the Cortex-Mx
+     in DEEP-SLEEP mode with __WFE() entry.
+
+ (#) Call HAL_PWREx_EnterSTOPMode() function to enter the selected domain in
+     DSTOP mode. Call this API with all available power domains to enter the
+     system in STOP mode.
+     Please ensure to clear all CPU pending events by calling
+     HAL_PWREx_ClearPendingEvent() function when trying to enter the Cortex-Mx
+     in DEEP-SLEEP mode with __WFE() entry.
+
+ (#) Call HAL_PWREx_ClearPendingEvent() function always before entring the
+     Cortex-Mx in any low power mode (SLEEP/DEEP-SLEEP) using WFE entry.
+
+ (#) Call HAL_PWREx_EnterSTANDBYMode() function to enter the selected domain
+     in DSTANDBY mode. Call this API with all available power domains to enter
+     the system in STANDBY mode.
+
+ (#) Call HAL_PWREx_ConfigD3Domain() function to setup the D3/SRD domain state
+     (RUN/STOP) when the system enter to low power mode.
+
+ (#) Call HAL_PWREx_ClearDomainFlags() function to clear the CPU flags for the
+     selected power domain. This API is used only for dual core devices.
+
+ (#) Call HAL_PWREx_HoldCore() and HAL_PWREx_ReleaseCore() functions to hold
+     and release the selected CPU and and their domain peripherals when
+     exiting STOP mode. These APIs are used only for dual core devices.
+
+ (#) Call HAL_PWREx_EnableFlashPowerDown() and
+     HAL_PWREx_DisableFlashPowerDown() functions to enable and disable the
+     Flash Power Down in STOP mode.
+
+ (#) Call HAL_PWREx_EnableMemoryShutOff() and
+     HAL_PWREx_DisableMemoryShutOff() functions to enable and disable the
+     memory block shut-off in DStop or DStop2. These APIs are used only for
+     STM32H7Axxx and STM32H7Bxxx lines.
+
+ (#) Call HAL_PWREx_EnableWakeUpPin() and HAL_PWREx_DisableWakeUpPin()
+     functions to enable and disable the Wake-up pin functionality for
+     the selected pin.
+
+ (#) Call HAL_PWREx_GetWakeupFlag() and HAL_PWREx_ClearWakeupFlag()
+     functions to manage wake-up flag for the selected pin.
+
+ (#) Call HAL_PWREx_WAKEUP_PIN_IRQHandler() function to handle all wake-up
+     pins interrupts.
+
+ (#) Call HAL_PWREx_EnableBkUpReg() and HAL_PWREx_DisableBkUpReg() functions
+     to enable and disable the backup domain regulator.
+
+ (#) Call HAL_PWREx_EnableUSBReg(), HAL_PWREx_DisableUSBReg(),
+     HAL_PWREx_EnableUSBVoltageDetector() and
+     HAL_PWREx_DisableUSBVoltageDetector() functions to manage USB power
+     regulation functionalities.
+
+ (#) Call HAL_PWREx_EnableBatteryCharging() and
+     HAL_PWREx_DisableBatteryCharging() functions to enable and disable the
+     battery charging feature with the selected resistor.
+
+ (#) Call HAL_PWREx_EnableAnalogBooster() and
+     HAL_PWREx_DisableAnalogBooster() functions to enable and disable the
+     AVD boost feature when the VDD supply voltage is below 2V7.
+
+ (#) Call HAL_PWREx_EnableMonitoring() and HAL_PWREx_DisableMonitoring()
+     functions to enable and disable the VBAT and Temperature monitoring.
+     When VBAT and Temperature monitoring feature is enables, use
+     HAL_PWREx_GetTemperatureLevel() and HAL_PWREx_GetVBATLevel() to get
+     respectively the Temperature level and VBAT level.
+
+ (#) Call HAL_PWREx_GetMMCVoltage() and HAL_PWREx_DisableMonitoring()
+     function to get VDDMMC voltage level. This API is used only for
+     STM32H7Axxx and STM32H7Bxxx lines
+
+ (#) Call HAL_PWREx_ConfigAVD() after setting parameter to be configured
+     (event mode and voltage threshold) in order to set up the Analog Voltage
+     Detector then use HAL_PWREx_EnableAVD() and  HAL_PWREx_DisableAVD()
+     functions to start and stop the AVD detection.
+     (+) AVD level could be one of the following values :
+           (++) 1V7
+           (++) 2V1
+           (++) 2V5
+           (++) 2V8
+
+ (#) Call HAL_PWREx_PVD_AVD_IRQHandler() function to handle the PWR PVD and
+     AVD interrupt request.\end{DoxyVerb}
+ 

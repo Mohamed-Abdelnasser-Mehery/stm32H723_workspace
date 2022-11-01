@@ -1,0 +1,105 @@
+\hypertarget{stm32h7xx__hal__hsem_8h_source}{}\doxysection{stm32h7xx\+\_\+hal\+\_\+hsem.\+h}
+\label{stm32h7xx__hal__hsem_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_hsem.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_hsem.h}}
+\mbox{\hyperlink{stm32h7xx__hal__hsem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{19 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef STM32H7xx\_HAL\_HSEM\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define STM32H7xx\_HAL\_HSEM\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{24 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32h7xx__hal__def_8h}{stm32h7xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{38 \textcolor{comment}{/* Exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_SEMID\_TO\_MASK(\_\_SEMID\_\_) (1 << (\_\_SEMID\_\_))}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_ENABLE\_IT(\_\_SEM\_MASK\_\_) ((((SCB-\/>CPUID \& 0x000000F0) >> 4 )== 0x7) ? \(\backslash\)}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{                                            (HSEM-\/>C1IER |= (\_\_SEM\_MASK\_\_)) : \(\backslash\)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{                                            (HSEM-\/>C2IER |= (\_\_SEM\_MASK\_\_)))}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_ENABLE\_IT(\_\_SEM\_MASK\_\_) (HSEM-\/>IER |= (\_\_SEM\_MASK\_\_))}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_DISABLE\_IT(\_\_SEM\_MASK\_\_) ((((SCB-\/>CPUID \& 0x000000F0) >> 4 )== 0x7) ? \(\backslash\)}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{                                             (HSEM-\/>C1IER \&= \string~(\_\_SEM\_MASK\_\_)) :       \(\backslash\)}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{                                             (HSEM-\/>C2IER \&= \string~(\_\_SEM\_MASK\_\_)))}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_DISABLE\_IT(\_\_SEM\_MASK\_\_) (HSEM-\/>IER \&= \string~(\_\_SEM\_MASK\_\_))}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_GET\_IT(\_\_SEM\_MASK\_\_) ((((SCB-\/>CPUID \& 0x000000F0) >> 4 )== 0x7) ? \(\backslash\)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{                                         ((\_\_SEM\_MASK\_\_) \& HSEM-\/>C1MISR) :        \(\backslash\)}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{                                         ((\_\_SEM\_MASK\_\_) \& HSEM-\/>C2MISR1))}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_GET\_IT(\_\_SEM\_MASK\_\_) ((\_\_SEM\_MASK\_\_) \& HSEM-\/>MISR)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_GET\_FLAG(\_\_SEM\_MASK\_\_) ((((SCB-\/>CPUID \& 0x000000F0) >> 4 )== 0x7) ? \(\backslash\)}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{                                           (\_\_SEM\_MASK\_\_) \& HSEM-\/>C1ISR :           \(\backslash\)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{                                           (\_\_SEM\_MASK\_\_) \& HSEM-\/>C2ISR)}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_GET\_FLAG(\_\_SEM\_MASK\_\_) ((\_\_SEM\_MASK\_\_) \& HSEM-\/>ISR)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_CLEAR\_FLAG(\_\_SEM\_MASK\_\_) ((((SCB-\/>CPUID \& 0x000000F0) >> 4 )== 0x7) ? \(\backslash\)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{                                             (HSEM-\/>C1ICR |= (\_\_SEM\_MASK\_\_)) :        \(\backslash\)}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{                                             (HSEM-\/>C2ICR |= (\_\_SEM\_MASK\_\_)))}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define \_\_HAL\_HSEM\_CLEAR\_FLAG(\_\_SEM\_MASK\_\_) (HSEM-\/>ICR |= (\_\_SEM\_MASK\_\_))}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{118 \textcolor{comment}{/* Exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{128 \textcolor{comment}{/* HSEM semaphore take (lock) using 2-\/Step  method ****************************/}}
+\DoxyCodeLine{129 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}  HAL\_HSEM\_Take(uint32\_t SemID, uint32\_t ProcessID);}
+\DoxyCodeLine{130 \textcolor{comment}{/* HSEM semaphore fast take (lock) using 1-\/Step  method ***********************/}}
+\DoxyCodeLine{131 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}  HAL\_HSEM\_FastTake(uint32\_t SemID);}
+\DoxyCodeLine{132 \textcolor{comment}{/* HSEM Release  **************************************************************/}}
+\DoxyCodeLine{133 \textcolor{keywordtype}{void}  HAL\_HSEM\_Release(uint32\_t SemID, uint32\_t ProcessID);}
+\DoxyCodeLine{134 \textcolor{comment}{/* HSEM Release All************************************************************/}}
+\DoxyCodeLine{135 \textcolor{keywordtype}{void} HAL\_HSEM\_ReleaseAll(uint32\_t Key, uint32\_t CoreID);}
+\DoxyCodeLine{136 \textcolor{comment}{/* HSEM Check semaphore state Taken or not   **********************************/}}
+\DoxyCodeLine{137 uint32\_t HAL\_HSEM\_IsSemTaken(uint32\_t SemID);}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{147 \textcolor{comment}{/* HSEM Set Clear Key *********************************************************/}}
+\DoxyCodeLine{148 \textcolor{keywordtype}{void}  HAL\_HSEM\_SetClearKey(uint32\_t Key);}
+\DoxyCodeLine{149 \textcolor{comment}{/* HSEM Get Clear Key *********************************************************/}}
+\DoxyCodeLine{150 uint32\_t HAL\_HSEM\_GetClearKey(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{159 \textcolor{comment}{/* HSEM Activate HSEM Notification (When a semaphore is released) ) *****************/}}
+\DoxyCodeLine{160 \textcolor{keywordtype}{void} HAL\_HSEM\_ActivateNotification(uint32\_t SemMask);}
+\DoxyCodeLine{161 \textcolor{comment}{/* HSEM Deactivate HSEM Notification (When a semaphore is released)  ****************/}}
+\DoxyCodeLine{162 \textcolor{keywordtype}{void} HAL\_HSEM\_DeactivateNotification(uint32\_t SemMask);}
+\DoxyCodeLine{163 \textcolor{comment}{/* HSEM Free Callback (When a semaphore is released)  *******************************/}}
+\DoxyCodeLine{164 \textcolor{keywordtype}{void} HAL\_HSEM\_FreeCallback(uint32\_t SemMask);}
+\DoxyCodeLine{165 \textcolor{comment}{/* HSEM IRQ Handler  **********************************************************/}}
+\DoxyCodeLine{166 \textcolor{keywordtype}{void} HAL\_HSEM\_IRQHandler(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{176 \textcolor{comment}{/* Private macros -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#define IS\_HSEM\_SEMID(\_\_SEMID\_\_) ((\_\_SEMID\_\_) <= HSEM\_SEMID\_MAX )}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#define IS\_HSEM\_PROCESSID(\_\_PROCESSID\_\_) ((\_\_PROCESSID\_\_) <= HSEM\_PROCESSID\_MAX )}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#define IS\_HSEM\_KEY(\_\_KEY\_\_) ((\_\_KEY\_\_) <= HSEM\_CLEAR\_KEY\_MAX )}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#define IS\_HSEM\_COREID(\_\_COREID\_\_) (((\_\_COREID\_\_) == HSEM\_CPU1\_COREID) || \(\backslash\)}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{                                    ((\_\_COREID\_\_) == HSEM\_CPU2\_COREID))}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#define IS\_HSEM\_COREID(\_\_COREID\_\_) ((\_\_COREID\_\_) == HSEM\_CPU1\_COREID)}}
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 }
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{208 \}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STM32H7xx\_HAL\_HSEM\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

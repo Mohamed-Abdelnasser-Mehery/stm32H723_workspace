@@ -1,0 +1,152 @@
+\hypertarget{stm32h7xx__hal__mdma_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Src/stm32h7xx\+\_\+hal\+\_\+mdma.c File Reference}
+\label{stm32h7xx__hal__mdma_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Src/stm32h7xx\_hal\_mdma.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Src/stm32h7xx\_hal\_mdma.c}}
+
+
+This file provides firmware functions to manage the following functionalities of the Master Direct Memory Access (MDMA) peripheral\+:  
+
+
+{\ttfamily \#include \char`\"{}stm32h7xx\+\_\+hal.\+h\char`\"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+This file provides firmware functions to manage the following functionalities of the Master Direct Memory Access (MDMA) peripheral\+: 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team
+\begin{DoxyItemize}
+\item Initialization/de-\/initialization functions
+\item I/O operation functions
+\item Peripheral State and errors functions
+\end{DoxyItemize}
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2017 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS.
+
+\begin{DoxyVerb}==============================================================================
+                      ##### How to use this driver #####
+==============================================================================
+[..]
+ (#) Enable and configure the peripheral to be connected to the MDMA Channel
+     (except for internal SRAM/FLASH memories: no initialization is
+     necessary) please refer to Reference manual for connection between peripherals
+     and MDMA requests.
+
+ (#)
+     For a given Channel use HAL_MDMA_Init function to program the required configuration through the following parameters:
+     transfer request , channel priority, data endianness, Source increment, destination increment ,
+     source data size, destination data size, data alignment, source Burst, destination Burst ,
+     buffer Transfer Length, Transfer Trigger Mode (buffer transfer, block transfer, repeated block transfer
+     or full transfer) source and destination block address offset, mask address and data.
+
+     If using the MDMA in linked list mode then use function HAL_MDMA_LinkedList_CreateNode to fill a transfer node.
+     Note that parameters given to the function HAL_MDMA_Init corresponds always to the node zero.
+     Use function HAL_MDMA_LinkedList_AddNode to connect the created node to the linked list at a given position.
+     User can make a linked list circular using function HAL_MDMA_LinkedList_EnableCircularMode , this function will automatically connect the
+     last node of the list to the first one in order to make the list circular.
+     In this case the linked list will loop on node 1 : first node connected after the initial transfer defined by the HAL_MDMA_Init
+
+    -@-   The initial transfer itself (node 0 corresponding to the Init).
+          User can disable the circular mode using function HAL_MDMA_LinkedList_DisableCircularMode, this function will then remove
+          the connection between last node and first one.
+
+     Function HAL_MDMA_LinkedList_RemoveNode can be used to remove (disconnect) a node from the transfer linked list.
+     When a linked list is circular (last node connected to first one), if removing node1  (node where the linked list loops),
+     the linked list remains circular and node 2 becomes the first one.
+     Note that if the linked list is made circular the transfer will loop infinitely (or until aborted by the user).
+
+  [..]
+     (+) User can select the transfer trigger mode (parameter TransferTriggerMode) to define the amount of data to be
+         transfer upon a request :
+           (++) MDMA_BUFFER_TRANSFER : each request triggers a transfer of BufferTransferLength data
+             with BufferTransferLength defined within the HAL_MDMA_Init.
+           (++) MDMA_BLOCK_TRANSFER : each request triggers a transfer of a block
+             with block size defined within the function HAL_MDMA_Start/HAL_MDMA_Start_IT
+             or within the current linked list node parameters.
+           (++) MDMA_REPEAT_BLOCK_TRANSFER : each request triggers a transfer of a number of blocks
+             with block size and number of blocks defined within the function HAL_MDMA_Start/HAL_MDMA_Start_IT
+             or within the current linked list node parameters.
+           (++) MDMA_FULL_TRANSFER : each request triggers a full transfer
+            all blocks and all nodes(if a linked list has been created using HAL_MDMA_LinkedList_CreateNode \ HAL_MDMA_LinkedList_AddNode).
+
+   *** Polling mode IO operation ***
+   =================================
+  [..]
+        (+) Use HAL_MDMA_Start() to start MDMA transfer after the configuration of Source
+            address and destination address and the Length of data to be transferred.
+        (+) Use HAL_MDMA_PollForTransfer() to poll for the end of current transfer or a transfer level
+           In this case a fixed Timeout can be configured by User depending from his application.
+        (+) Use HAL_MDMA_Abort() function to abort the current transfer : blocking method this API returns
+            when the abort ends or timeout (should not be called from an interrupt service routine).
+
+   *** Interrupt mode IO operation ***
+   ===================================
+  [..]
+        (+) Configure the MDMA interrupt priority using HAL_NVIC_SetPriority()
+        (+) Enable the MDMA IRQ handler using HAL_NVIC_EnableIRQ()
+        (+) Use HAL_MDMA_Start_IT() to start MDMA transfer after the configuration of
+            Source address and destination address and the Length of data to be transferred. In this
+            case the MDMA interrupt is configured.
+        (+) Use HAL_MDMA_IRQHandler() called under MDMA_IRQHandler() Interrupt subroutine
+        (+) At the end of data transfer HAL_MDMA_IRQHandler() function is executed and user can
+            add his own function by customization of function pointer XferCpltCallback and
+            XferErrorCallback (i.e a member of MDMA handle structure).
+
+        (+) Use HAL_MDMA_Abort_IT() function to abort the current transfer : non-blocking method. This API will finish the execution immediately
+            then the callback XferAbortCallback (if specified  by the user) is asserted once the MDMA channel has effectively aborted.
+            (could be called from an interrupt service routine).
+
+        (+) Use functions HAL_MDMA_RegisterCallback and HAL_MDMA_UnRegisterCallback respectevely to register unregister user callbacks
+            from the following list :
+            (++) XferCpltCallback            : transfer complete callback.
+            (++) XferBufferCpltCallback      : buffer transfer complete callback.
+            (++) XferBlockCpltCallback       : block transfer complete callback.
+            (++) XferRepeatBlockCpltCallback : repeated block transfer complete callback.
+            (++) XferErrorCallback           : transfer error callback.
+            (++) XferAbortCallback           : transfer abort complete callback.
+
+  [..]
+       (+)  If the transfer Request corresponds to SW request (MDMA_REQUEST_SW) User can use function HAL_MDMA_GenerateSWRequest to
+            trigger requests manually. Function HAL_MDMA_GenerateSWRequest must be used with the following precautions:
+            (++) This function returns an error if used while the Transfer has ended or not started.
+            (++) If used while the current request has not been served yet (current request transfer on going)
+              this function returns an error and the new request is ignored.
+
+            Generally this function should be used in conjunctions with the MDMA callbacks:
+            (++) example 1:
+               (+++) Configure a transfer with request set to MDMA_REQUEST_SW and trigger mode set to MDMA_BUFFER_TRANSFER
+               (+++) Register a callback for buffer transfer complete (using callback ID set to HAL_MDMA_XFER_BUFFERCPLT_CB_ID)
+               (+++) After calling HAL_MDMA_Start_IT the MDMA will issue the transfer of a first BufferTransferLength data.
+               (+++) When the buffer transfer complete callback is asserted first buffer has been transferred and user can ask for a new buffer transfer
+                 request using HAL_MDMA_GenerateSWRequest.
+
+            (++) example 2:
+               (+++) Configure a transfer with request set to MDMA_REQUEST_SW and trigger mode set to MDMA_BLOCK_TRANSFER
+               (+++) Register a callback for block transfer complete (using callback ID HAL_MDMA_XFER_BLOCKCPLT_CB_ID)
+               (+++) After calling HAL_MDMA_Start_IT the MDMA will issue the transfer of a first block of data.
+               (+++) When the block transfer complete callback is asserted the first block has been transferred and user can ask
+                 for a new block transfer request using HAL_MDMA_GenerateSWRequest.
+
+  [..]  Use HAL_MDMA_GetState() function to return the MDMA state and HAL_MDMA_GetError() in case of error detection.
+
+   *** MDMA HAL driver macros list ***
+   =============================================
+   [..]
+     Below the list of most used macros in MDMA HAL driver.
+
+    (+) __HAL_MDMA_ENABLE: Enable the specified MDMA Channel.
+    (+) __HAL_MDMA_DISABLE: Disable the specified MDMA Channel.
+    (+) __HAL_MDMA_GET_FLAG: Get the MDMA Channel pending flags.
+    (+) __HAL_MDMA_CLEAR_FLAG: Clear the MDMA Channel pending flags.
+    (+) __HAL_MDMA_ENABLE_IT: Enable the specified MDMA Channel interrupts.
+    (+) __HAL_MDMA_DISABLE_IT: Disable the specified MDMA Channel interrupts.
+    (+) __HAL_MDMA_GET_IT_SOURCE: Check whether the specified MDMA Channel interrupt has occurred or not.
+
+   [..]
+    (@) You can refer to the header file of the MDMA HAL driver for more useful macros.
+
+  [..]\end{DoxyVerb}
+ 

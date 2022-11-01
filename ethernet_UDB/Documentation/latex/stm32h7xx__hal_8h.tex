@@ -1,0 +1,559 @@
+\hypertarget{stm32h7xx__hal_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/stm32h7xx\+\_\+hal.h File Reference}
+\label{stm32h7xx__hal_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal.h}}
+
+
+This file contains all the functions prototypes for the HAL module driver.  
+
+
+{\ttfamily \#include \char`\"{}stm32h7xx\+\_\+hal\+\_\+conf.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___r_e_v___i_d_ga498b4d7f48050305fc773434d2ccfc96}{REV\+\_\+\+ID\+\_\+Y}}~((uint32\+\_\+t)0x1003)
+\item 
+\#define \mbox{\hyperlink{group___r_e_v___i_d_ga264ac48efa158ce5db4706b4eaf03ad2}{REV\+\_\+\+ID\+\_\+B}}~((uint32\+\_\+t)0x2000)
+\item 
+\#define \mbox{\hyperlink{group___r_e_v___i_d_ga999c555a2adce0f7f62511eea228a133}{REV\+\_\+\+ID\+\_\+X}}~((uint32\+\_\+t)0x2001)
+\item 
+\#define \mbox{\hyperlink{group___r_e_v___i_d_gacea48d1c4bc88ccedf219b329742f47d}{REV\+\_\+\+ID\+\_\+V}}~((uint32\+\_\+t)0x2003)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___v_r_e_f_b_u_f___voltage_scale_ga86e7f4b6c85b829989e4ec60360fb88b}{SYSCFG\+\_\+\+VREFBUF\+\_\+\+VOLTAGE\+\_\+\+SCALE0}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4ad31423f2b61a5e16259b480affcd4e}{VREFBUF\+\_\+\+CSR\+\_\+\+VRS\+\_\+\+OUT1}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___v_r_e_f_b_u_f___voltage_scale_gaa5ecc0da30439d5fda889757bbd44c35}{SYSCFG\+\_\+\+VREFBUF\+\_\+\+VOLTAGE\+\_\+\+SCALE1}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2196c2e62a5836321bd1fce4f8185147}{VREFBUF\+\_\+\+CSR\+\_\+\+VRS\+\_\+\+OUT2}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___v_r_e_f_b_u_f___voltage_scale_ga4215e975c8c7871d561af40ddcb66a4c}{SYSCFG\+\_\+\+VREFBUF\+\_\+\+VOLTAGE\+\_\+\+SCALE2}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad0f11f1753f848b79db6997e52a60fc9}{VREFBUF\+\_\+\+CSR\+\_\+\+VRS\+\_\+\+OUT3}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___v_r_e_f_b_u_f___voltage_scale_ga3e6e7c3c36ef6e3c3b13d1e7ff76f730}{SYSCFG\+\_\+\+VREFBUF\+\_\+\+VOLTAGE\+\_\+\+SCALE3}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga853e123345f6fd43901bcd34f24a32af}{VREFBUF\+\_\+\+CSR\+\_\+\+VRS\+\_\+\+OUT4}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___v_r_e_f_b_u_f___voltage_scale_ga1891f0fe07f2af737633642e92c18bde}{IS\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+VOLTAGE\+\_\+\+SCALE}}(\+\_\+\+\_\+\+SCALE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___v_r_e_f_b_u_f___high_impedance_ga6b8d3faa8cfb212fe529687f3037b67e}{SYSCFG\+\_\+\+VREFBUF\+\_\+\+HIGH\+\_\+\+IMPEDANCE\+\_\+\+DISABLE}}~((uint32\+\_\+t)0x00000000)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___v_r_e_f_b_u_f___high_impedance_ga7934c4ecf490ff83f7f13849415d71bc}{SYSCFG\+\_\+\+VREFBUF\+\_\+\+HIGH\+\_\+\+IMPEDANCE\+\_\+\+ENABLE}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga13d4cf5943c63ae8ff694e1446266bcc}{VREFBUF\+\_\+\+CSR\+\_\+\+HIZ}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___v_r_e_f_b_u_f___high_impedance_gabc82321a98a875a13137b16726997eef}{IS\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+HIGH\+\_\+\+IMPEDANCE}}(\+\_\+\+\_\+\+VALUE\+\_\+\+\_\+)
+\item 
+\#define {\bfseries IS\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+TRIMMING}(\+\_\+\+\_\+\+VALUE\+\_\+\+\_\+)~(((\+\_\+\+\_\+\+VALUE\+\_\+\+\_\+) $>$ 0\+UL) \&\& ((\+\_\+\+\_\+\+VALUE\+\_\+\+\_\+) $<$= \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga352e19b53b9986eb54de8fd79b27d052}{VREFBUF\+\_\+\+CCR\+\_\+\+TRIM}}))
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___fast_mode_plus___g_p_i_o_ga1f9beaf68b00ae5598cb8d930da05704}{SYSCFG\+\_\+\+FASTMODEPLUS\+\_\+\+PB6}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4f1109e7172c280e92a0a36a04f955a6}{SYSCFG\+\_\+\+PMCR\+\_\+\+I2\+C\+\_\+\+PB6\+\_\+\+FMP}}
+\begin{DoxyCompactList}\small\item\em Fast-\/mode Plus driving capability on a specific GPIO. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___fast_mode_plus___g_p_i_o_ga4b939ef5ec69e81277ef2323d5917eb5}{SYSCFG\+\_\+\+FASTMODEPLUS\+\_\+\+PB7}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga857e64c3b9046d7f4e31dcff948ee1fb}{SYSCFG\+\_\+\+PMCR\+\_\+\+I2\+C\+\_\+\+PB7\+\_\+\+FMP}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___fast_mode_plus___g_p_i_o_ga2cd8442a02f25ed8e7e0ba6e5723edd4}{SYSCFG\+\_\+\+FASTMODEPLUS\+\_\+\+PB8}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga20cec3b2133abb30466383a87a73a07d}{SYSCFG\+\_\+\+PMCR\+\_\+\+I2\+C\+\_\+\+PB8\+\_\+\+FMP}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___fast_mode_plus___g_p_i_o_ga71c50ae2406cd9b6dff73cd9cd189c3d}{SYSCFG\+\_\+\+FASTMODEPLUS\+\_\+\+PB9}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga32e0273693846a65638ea444795d6860}{SYSCFG\+\_\+\+PMCR\+\_\+\+I2\+C\+\_\+\+PB9\+\_\+\+FMP}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___fast_mode_plus___g_p_i_o_ga2d44c67961ec9f4feecec777364c13a0}{IS\+\_\+\+SYSCFG\+\_\+\+FASTMODEPLUS}}(\+\_\+\+\_\+\+PIN\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___ethernet___config_ga1c9b2b06ee42deef14f6c7db1fbb92ba}{SYSCFG\+\_\+\+ETH\+\_\+\+MII}}~((uint32\+\_\+t)0x00000000)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___ethernet___config_gaee6ff567fc1b5acf1ae39c9ac96f8859}{SYSCFG\+\_\+\+ETH\+\_\+\+RMII}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga87e6488ce77fedf3b904bf2dc21a4020}{SYSCFG\+\_\+\+PMCR\+\_\+\+EPIS\+\_\+\+SEL\+\_\+2}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___ethernet___config_ga22b15520ddc3b80b1e362e001c15528a}{IS\+\_\+\+SYSCFG\+\_\+\+ETHERNET\+\_\+\+CONFIG}}(CONFIG)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_gae225d4830cd3419f45c2cba5fd6d2876}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PA0}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac09d8a573fcd3e269f5a4615a11157a3}{SYSCFG\+\_\+\+PMCR\+\_\+\+PA0\+SO}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_ga0fe951b162c29d0a3d532894375d3533}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PA1}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac2bbe7641733bfc09316908de46ea6bf}{SYSCFG\+\_\+\+PMCR\+\_\+\+PA1\+SO}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_gafddab45bcddc8895f9df24af67d91af8}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PC2}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gae1b0a753193a908694c296b0d28cf775}{SYSCFG\+\_\+\+PMCR\+\_\+\+PC2\+SO}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_ga3cd7e13aae64fba4a14d78265d0df53d}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PC3}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0d6a187be602ef1c97637cb6f7b25919}{SYSCFG\+\_\+\+PMCR\+\_\+\+PC3\+SO}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_ga40a0916e39356cb53a3ee8ce2f54aa69}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PA0\+\_\+\+OPEN}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac09d8a573fcd3e269f5a4615a11157a3}{SYSCFG\+\_\+\+PMCR\+\_\+\+PA0\+SO}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_ga537984f692f48793796a12e991d6695d}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PA0\+\_\+\+CLOSE}}~((uint32\+\_\+t)0x00000000)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_ga59a74a2959f6297db837dd13f62d11d2}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PA1\+\_\+\+OPEN}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac2bbe7641733bfc09316908de46ea6bf}{SYSCFG\+\_\+\+PMCR\+\_\+\+PA1\+SO}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_ga655106c7bc5c9df42fcc59558d22bcd7}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PA1\+\_\+\+CLOSE}}~((uint32\+\_\+t)0x00000000)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_ga5a2c13d189b9e007b52bc8d08bad873c}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PC2\+\_\+\+OPEN}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gae1b0a753193a908694c296b0d28cf775}{SYSCFG\+\_\+\+PMCR\+\_\+\+PC2\+SO}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_ga9a75dce687d98144fc9f9db319ed2e7b}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PC2\+\_\+\+CLOSE}}~((uint32\+\_\+t)0x00000000)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_ga50679d20ff5dcfedd20c2d75dcf8ea05}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PC3\+\_\+\+OPEN}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0d6a187be602ef1c97637cb6f7b25919}{SYSCFG\+\_\+\+PMCR\+\_\+\+PC3\+SO}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___analog___switch___config_ga5f911e7fc1783bebfbd25e13e4493782}{SYSCFG\+\_\+\+SWITCH\+\_\+\+PC3\+\_\+\+CLOSE}}~((uint32\+\_\+t)0x00000000)
+\item 
+\#define \mbox{\hyperlink{group___h_a_l_ga6da4021779923a1958dd3acff1bb70f1}{IS\+\_\+\+SYSCFG\+\_\+\+ANALOG\+\_\+\+SWITCH}}(SWITCH)
+\item 
+\#define \mbox{\hyperlink{group___h_a_l_ga5a6284c15670af423246bba037b3052b}{IS\+\_\+\+SYSCFG\+\_\+\+SWITCH\+\_\+\+STATE}}(STATE)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___boot___config_ga8c9e1fa3b481f00549666ad724bb9a61}{SYSCFG\+\_\+\+BOOT\+\_\+\+ADDR0}}~((uint32\+\_\+t)0x00000000)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___boot___config_ga59b93a238b6b46032d1af169541979d7}{SYSCFG\+\_\+\+BOOT\+\_\+\+ADDR1}}~((uint32\+\_\+t)0x00000001)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___boot___config_ga0dc168ddc2e75e8710f4e696d45d6059}{IS\+\_\+\+SYSCFG\+\_\+\+BOOT\+\_\+\+REGISTER}}(REGISTER)
+\item 
+\#define {\bfseries IS\+\_\+\+SYSCFG\+\_\+\+BOOT\+\_\+\+ADDRESS}(ADDRESS)~((ADDRESS) $<$ \mbox{\hyperlink{group___peripheral__memory__map_ga9171f49478fa86d932f89e78e73b88b0}{PERIPH\+\_\+\+BASE}})
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___i_o_compenstion_cell___config_ga94fa1b2cf3f545f6aa22ee0cb397a7a0}{SYSCFG\+\_\+\+CELL\+\_\+\+CODE}}~((uint32\+\_\+t)0x00000000)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___i_o_compenstion_cell___config_ga15ed66ec8f5b766abb34efb703c9c50f}{SYSCFG\+\_\+\+REGISTER\+\_\+\+CODE}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga6596bbbb455bf3f6593c9aa4a350cae9}{SYSCFG\+\_\+\+CCCSR\+\_\+\+CS}}
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___i_o_compenstion_cell___config_ga1104dcb9c604425451ccfc554e19677f}{IS\+\_\+\+SYSCFG\+\_\+\+CODE\+\_\+\+SELECT}}(SELECT)
+\item 
+\#define {\bfseries IS\+\_\+\+SYSCFG\+\_\+\+CODE\+\_\+\+CONFIG}(CONFIG)~((CONFIG) $<$ (0x10\+UL))
+\item 
+\#define {\bfseries EXTI\+\_\+\+MODE\+\_\+\+IT}~((uint32\+\_\+t)0x00010000)
+\item 
+\#define {\bfseries EXTI\+\_\+\+MODE\+\_\+\+EVT}~((uint32\+\_\+t)0x00020000)
+\item 
+\#define {\bfseries EXTI\+\_\+\+RISING\+\_\+\+EDGE}~((uint32\+\_\+t)0x00100000)
+\item 
+\#define {\bfseries EXTI\+\_\+\+FALLING\+\_\+\+EDGE}~((uint32\+\_\+t)0x00200000)
+\item 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+EDGE\+\_\+\+LINE}(EDGE)~(((EDGE) == EXTI\+\_\+\+RISING\+\_\+\+EDGE) $\vert$$\vert$ ((EDGE) == EXTI\+\_\+\+FALLING\+\_\+\+EDGE))
+\item 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+MODE\+\_\+\+LINE}(MODE)~(((MODE) == EXTI\+\_\+\+MODE\+\_\+\+IT) $\vert$$\vert$ ((MODE) == EXTI\+\_\+\+MODE\+\_\+\+EVT))
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga5d9011faf4106bf40c74ff617b1e4973}{EXTI\+\_\+\+LINE0}}~((uint32\+\_\+t)0x00)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaaba6df92e2a71ffd93baec85cd0f9e89}{EXTI\+\_\+\+LINE1}}~((uint32\+\_\+t)0x01)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaa2510982e59ba9c313eada9cdc76aa08}{EXTI\+\_\+\+LINE2}}~((uint32\+\_\+t)0x02)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga9534db63b2c5e59646d415e13325c028}{EXTI\+\_\+\+LINE3}}~((uint32\+\_\+t)0x03)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga148019fb5e5bbf3dbb6cc5eb74541df0}{EXTI\+\_\+\+LINE4}}~((uint32\+\_\+t)0x04)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga11145270abb9a3d184bb9d8b00014cec}{EXTI\+\_\+\+LINE5}}~((uint32\+\_\+t)0x05)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gafc75ecdd4cf7265d434f18320fb874ad}{EXTI\+\_\+\+LINE6}}~((uint32\+\_\+t)0x06)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga0d7c89e4fe627f9dc4e59d08820906d4}{EXTI\+\_\+\+LINE7}}~((uint32\+\_\+t)0x07)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga7c137e2f2a8f478cbad351fa412694ad}{EXTI\+\_\+\+LINE8}}~((uint32\+\_\+t)0x08)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gab01e9777448076d5db8b9e3a02681f8a}{EXTI\+\_\+\+LINE9}}~((uint32\+\_\+t)0x09)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga62fc344e22f30467a6dcdeab42908fd3}{EXTI\+\_\+\+LINE10}}~((uint32\+\_\+t)0x0A)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga8d4c2f6a70a983e971c933f507e3309d}{EXTI\+\_\+\+LINE11}}~((uint32\+\_\+t)0x0B)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga36a546d69360530ca0345f0d0a15e7ae}{EXTI\+\_\+\+LINE12}}~((uint32\+\_\+t)0x0C)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaa8ef9ed6d2e5b5fd2eb5aad1e89bcfb3}{EXTI\+\_\+\+LINE13}}~((uint32\+\_\+t)0x0D)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga6b1c5fb1dac595296b9aeed7744d486c}{EXTI\+\_\+\+LINE14}}~((uint32\+\_\+t)0x0E)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga373c9155ecf4572de295940c612b2f49}{EXTI\+\_\+\+LINE15}}~((uint32\+\_\+t)0x0F)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE16}~((uint32\+\_\+t)0x10)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE17}~((uint32\+\_\+t)0x11)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE18}~((uint32\+\_\+t)0x12)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE19}~((uint32\+\_\+t)0x13)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE20}~((uint32\+\_\+t)0x14)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE21}~((uint32\+\_\+t)0x15)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE22}~((uint32\+\_\+t)0x16)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE23}~((uint32\+\_\+t)0x17)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE24}~((uint32\+\_\+t)0x18)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE25}~((uint32\+\_\+t)0x19)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE26}~((uint32\+\_\+t)0x1A)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE27}~((uint32\+\_\+t)0x1B)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE28}~((uint32\+\_\+t)0x1C)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE29}~((uint32\+\_\+t)0x1D)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE30}~((uint32\+\_\+t)0x1E)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE31}~((uint32\+\_\+t)0x1F)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE32}~((uint32\+\_\+t)0x20)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE33}~((uint32\+\_\+t)0x21)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE34}~((uint32\+\_\+t)0x22)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE35}~((uint32\+\_\+t)0x23)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE36}~((uint32\+\_\+t)0x24)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE37}~((uint32\+\_\+t)0x25)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE38}~((uint32\+\_\+t)0x26)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE39}~((uint32\+\_\+t)0x27)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE40}~((uint32\+\_\+t)0x28)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE41}~((uint32\+\_\+t)0x29)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE42}~((uint32\+\_\+t)0x2A)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE43}~((uint32\+\_\+t)0x2B)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE44}~((uint32\+\_\+t)0x2C)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE47}~((uint32\+\_\+t)0x2F)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE48}~((uint32\+\_\+t)0x30)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE49}~((uint32\+\_\+t)0x31)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE50}~((uint32\+\_\+t)0x32)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE51}~((uint32\+\_\+t)0x33)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE52}~((uint32\+\_\+t)0x34)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE53}~((uint32\+\_\+t)0x35)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE54}~((uint32\+\_\+t)0x36)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE55}~((uint32\+\_\+t)0x37)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE56}~((uint32\+\_\+t)0x38)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE57}~((uint32\+\_\+t)0x39)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE58}~((uint32\+\_\+t)0x3A)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE59}~((uint32\+\_\+t)0x3B)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE60}~((uint32\+\_\+t)0x3C)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE61}~((uint32\+\_\+t)0x3D)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE62}~((uint32\+\_\+t)0x3E)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE63}~((uint32\+\_\+t)0x3F)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE64}~((uint32\+\_\+t)0x40)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE65}~((uint32\+\_\+t)0x41)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE66}~((uint32\+\_\+t)0x42)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE67}~((uint32\+\_\+t)0x43)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE68}~((uint32\+\_\+t)0x44)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE69}~((uint32\+\_\+t)0x45)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE70}~((uint32\+\_\+t)0x46)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE71}~((uint32\+\_\+t)0x47)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE72}~((uint32\+\_\+t)0x48)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE73}~((uint32\+\_\+t)0x49)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE74}~((uint32\+\_\+t)0x4A)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE75}~((uint32\+\_\+t)0x4B)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE76}~((uint32\+\_\+t)0x4C)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE85}~((uint32\+\_\+t)0x55)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE86}~((uint32\+\_\+t)0x56)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE87}~((uint32\+\_\+t)0x57)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE88}~((uint32\+\_\+t)0x58)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE89}~((uint32\+\_\+t)0x59)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE90}~((uint32\+\_\+t)0x5A)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE91}~((uint32\+\_\+t)0x5B)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaf7213c46b003f5966e1d10dfffc55339}{IS\+\_\+\+HAL\+\_\+\+EXTI\+\_\+\+CONFIG\+\_\+\+LINE}}(LINE)
+\item 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+ALL\+\_\+\+LINE}(LINE)
+\item 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+D1\+\_\+\+LINE}(LINE)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gadeacd4c0966ebee676a18f2e88edeae7}{IS\+\_\+\+EXTI\+\_\+\+D3\+\_\+\+LINE}}(LINE)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaf89fcc18dbe54bc8166a5597501bf720}{BDMA\+\_\+\+CH6\+\_\+\+CLEAR}}~((uint32\+\_\+t)0x00000000)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gab0764eb109a9aaedd285e7c031916f24}{BDMA\+\_\+\+CH7\+\_\+\+CLEAR}}~((uint32\+\_\+t)0x00000001)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga8cecf2d7f91730fda9dffe045605ab41}{LPTIM2\+\_\+\+OUT\+\_\+\+CLEAR}}~((uint32\+\_\+t)0x00000002)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga7a6ceec4a16af9561ea136908ce82f44}{LPTIM3\+\_\+\+OUT\+\_\+\+CLEAR}}~((uint32\+\_\+t)0x00000003)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaf07f2d39e3110756ed1090836df33254}{IS\+\_\+\+EXTI\+\_\+\+D3\+\_\+\+CLEAR}}(SOURCE)
+\item 
+\#define {\bfseries FMC\+\_\+\+SWAPBMAP\+\_\+\+DISABLE}~(0x00000000U)
+\item 
+\#define {\bfseries FMC\+\_\+\+SWAPBMAP\+\_\+\+SDRAM\+\_\+\+SRAM}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaddd6e921ed3ad9c1f72dd4a97faa1d93}{FMC\+\_\+\+BCR1\+\_\+\+BMAP\+\_\+0}}
+\item 
+\#define {\bfseries FMC\+\_\+\+SWAPBMAP\+\_\+\+SDRAMB2}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gae4e91362757afb6bcbf492dc512fd245}{FMC\+\_\+\+BCR1\+\_\+\+BMAP\+\_\+1}}
+\item 
+\#define \mbox{\hyperlink{group___f_m_c___swap_bank_mapping___config_ga8053e7710f6402a6e3d284dfaa05affb}{IS\+\_\+\+FMC\+\_\+\+SWAPBMAP\+\_\+\+MODE}}(\+\_\+\+\_\+\+MODE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_ga616c0ad7439136d834bde7b8a09f1483}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+AXISRAM\+\_\+\+DBL\+\_\+\+ECC\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga57279acfc068c3e8ab4e1fe47b0bcd57}{SYSCFG\+\_\+\+CFGR\+\_\+\+AXISRAML}})
+\begin{DoxyCompactList}\small\item\em SYSCFG Break AXIRAM double ECC lock. Enable and lock the connection of AXIRAM double ECC error to TIM1/8/15/16/17 and HRTIMER Break input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_ga769a292bedba6880bf86c176171d6779}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+ITCM\+\_\+\+DBL\+\_\+\+ECC\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga80f8e470cde2a18d5e90d8826333db01}{SYSCFG\+\_\+\+CFGR\+\_\+\+ITCML}})
+\begin{DoxyCompactList}\small\item\em SYSCFG Break ITCM double ECC lock. Enable and lock the connection of ITCM double ECC error to TIM1/8/15/16/17 and HRTIMER Break input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_ga12296c107679f5f133e1d1583d29f94b}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+DTCM\+\_\+\+DBL\+\_\+\+ECC\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga35969855605eecc54ae2e1c6b757b6e0}{SYSCFG\+\_\+\+CFGR\+\_\+\+DTCML}})
+\begin{DoxyCompactList}\small\item\em SYSCFG Break DTCM double ECC lock. Enable and lock the connection of DTCM double ECC error to TIM1/8/15/16/17 and HRTIMER Break input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_ga38c42933475b0bc006e11dbd6be2bf0f}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+SRAM1\+\_\+\+DBL\+\_\+\+ECC\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9ab30a57911f15034778a70815774d8b}{SYSCFG\+\_\+\+CFGR\+\_\+\+SRAM1L}})
+\begin{DoxyCompactList}\small\item\em SYSCFG Break SRAM1 double ECC lock. Enable and lock the connection of SRAM1 double ECC error to TIM1/8/15/16/17 and HRTIMER Break input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_gafbe869a5b559936b60104d5ea4fb3a06}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+SRAM2\+\_\+\+DBL\+\_\+\+ECC\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga93a1e04d5e85ec61347d0bd7cd1dbffb}{SYSCFG\+\_\+\+CFGR\+\_\+\+SRAM2L}})
+\begin{DoxyCompactList}\small\item\em SYSCFG Break SRAM2 double ECC lock. Enable and lock the connection of SRAM2 double ECC error to TIM1/8/15/16/17 and HRTIMER Break input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_ga62fcc98e1bc68ef66a77e5c7e4cdee52}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+SRAM3\+\_\+\+DBL\+\_\+\+ECC\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, SYSCFG\+\_\+\+CFGR\+\_\+\+SRAM3L)
+\begin{DoxyCompactList}\small\item\em SYSCFG Break SRAM3 double ECC lock. Enable and lock the connection of SRAM3 double ECC error to TIM1/8/15/16/17 and HRTIMER Break input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_gae01ffb633dfd94927bb9dcec5a0f3632}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+SRAM4\+\_\+\+DBL\+\_\+\+ECC\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga060b71d107d9153ac506ed6076fac455}{SYSCFG\+\_\+\+CFGR\+\_\+\+SRAM4L}})
+\begin{DoxyCompactList}\small\item\em SYSCFG Break SRAM4 double ECC lock. Enable and lock the connection of SRAM4 double ECC error to TIM1/8/15/16/17 and HRTIMER Break input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_gaf9481d90345878e86cef9c0dbae9615c}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+BKRAM\+\_\+\+DBL\+\_\+\+ECC\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga171746fd5059701bf7475dd7b19a4499}{SYSCFG\+\_\+\+CFGR\+\_\+\+BKRAML}})
+\begin{DoxyCompactList}\small\item\em SYSCFG Break Backup SRAM double ECC lock. Enable and lock the connection of Backup SRAM double ECC error to TIM1/8/15/16/17 and HRTIMER Break input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_gafab3caecc6a715d033275377215142ea}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+CM7\+\_\+\+LOCKUP\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga687d5e366cf578d8c99c0c9a42594a66}{SYSCFG\+\_\+\+CFGR\+\_\+\+CM7L}})
+\begin{DoxyCompactList}\small\item\em SYSCFG Break Cortex-\/\+M7 Lockup lock. Enable and lock the connection of Cortex-\/\+M7 LOCKUP output to TIM1/8/15/16/17 and HRTIMER Break input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_gacfcda24922d87045f660bbd4a482abc4}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+FLASH\+\_\+\+DBL\+\_\+\+ECC\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga941ad57bf7d854c202923dfaef8ba4c3}{SYSCFG\+\_\+\+CFGR\+\_\+\+FLASHL}})
+\begin{DoxyCompactList}\small\item\em SYSCFG Break FLASH double ECC lock. Enable and lock the connection of Flash double ECC error connection to TIM1/8/15/16/17 and HRTIMER Break input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_gadfaca1cb2ee6df46e27aead12fe01e0c}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+BREAK\+\_\+\+PVD\+\_\+\+LOCK}}()~SET\+\_\+\+BIT(SYSCFG-\/$>$CFGR, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gabe872acc2230f4a9c8c61d0becd4a85b}{SYSCFG\+\_\+\+CFGR\+\_\+\+PVDL}})
+\begin{DoxyCompactList}\small\item\em SYSCFG Break PVD lock. Enable and lock the PVD connection to Timer1/8/15/16/17 and HRTIMER Break input, as well as the PVDE and PLS\mbox{[}2\+:0\mbox{]} in the PWR\+\_\+\+CR1 register. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_ga61181f4b4955f17858475485f8cd366c}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+FASTMODEPLUS\+\_\+\+ENABLE}}(\+\_\+\+\_\+\+FASTMODEPLUS\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Fast-\/mode Plus driving capability enable/disable macros. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___s_y_s_c_f_g___exported___macros_ga5f20cbc8ad78101d527209003dc014f2}{\+\_\+\+\_\+\+HAL\+\_\+\+SYSCFG\+\_\+\+FASTMODEPLUS\+\_\+\+DISABLE}}(\+\_\+\+\_\+\+FASTMODEPLUS\+\_\+\+\_\+)
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+WWDG1}()~(DBGMCU-\/$>$APB3\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB3\+FZ1\+\_\+\+DBG\+\_\+\+WWDG1))
+\begin{DoxyCompactList}\small\item\em Freeze/\+Unfreeze Peripherals in Debug mode. \end{DoxyCompactList}\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM2}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM2))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM3}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM3))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM4}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM4))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM5}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM5))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM6}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM6))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM7}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM7))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM12}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM12))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM13}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM13))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM14}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM14))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+LPTIM1}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+LPTIM1))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+I2\+C1}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+I2\+C1))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+I2\+C2}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+I2\+C2))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+I2\+C3}()~(DBGMCU-\/$>$APB1\+LFZ1 $\vert$= (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+I2\+C3))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM1}()~(DBGMCU-\/$>$APB2\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+TIM1))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM8}()~(DBGMCU-\/$>$APB2\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+TIM8))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM15}()~(DBGMCU-\/$>$APB2\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+TIM15))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM16}()~(DBGMCU-\/$>$APB2\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+TIM16))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+TIM17}()~(DBGMCU-\/$>$APB2\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+TIM17))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+HRTIM}()~(DBGMCU-\/$>$APB2\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+HRTIM))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+I2\+C4}()~(DBGMCU-\/$>$APB4\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+I2\+C4))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+LPTIM2}()~(DBGMCU-\/$>$APB4\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+LPTIM2))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+LPTIM3}()~(DBGMCU-\/$>$APB4\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+LPTIM3))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+LPTIM4}()~(DBGMCU-\/$>$APB4\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+LPTIM4))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+LPTIM5}()~(DBGMCU-\/$>$APB4\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+LPTIM5))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+RTC}()~(DBGMCU-\/$>$APB4\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+RTC))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+FREEZE\+\_\+\+IWDG1}()~(DBGMCU-\/$>$APB4\+FZ1 $\vert$= (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+IWDG1))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+WWDG1}()~(DBGMCU-\/$>$APB3\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB3\+FZ1\+\_\+\+DBG\+\_\+\+WWDG1))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM2}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM2))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM3}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM3))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM4}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM4))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM5}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM5))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM6}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM6))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM7}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM7))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM12}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM12))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM13}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM13))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM14}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+TIM14))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+LPTIM1}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+LPTIM1))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+I2\+C1}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+I2\+C1))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+I2\+C2}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+I2\+C2))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+I2\+C3}()~(DBGMCU-\/$>$APB1\+LFZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB1\+LFZ1\+\_\+\+DBG\+\_\+\+I2\+C3))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM1}()~(DBGMCU-\/$>$APB2\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+TIM1))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM8}()~(DBGMCU-\/$>$APB2\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+TIM8))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM15}()~(DBGMCU-\/$>$APB2\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+TIM15))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM16}()~(DBGMCU-\/$>$APB2\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+TIM16))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+TIM17}()~(DBGMCU-\/$>$APB2\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+TIM17))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+HRTIM}()~(DBGMCU-\/$>$APB2\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB2\+FZ1\+\_\+\+DBG\+\_\+\+HRTIM))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+I2\+C4}()~(DBGMCU-\/$>$APB4\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+I2\+C4))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+LPTIM2}()~(DBGMCU-\/$>$APB4\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+LPTIM2))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+LPTIM3}()~(DBGMCU-\/$>$APB4\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+LPTIM3))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+LPTIM4}()~(DBGMCU-\/$>$APB4\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+LPTIM4))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+LPTIM5}()~(DBGMCU-\/$>$APB4\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+LPTIM5))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+RTC}()~(DBGMCU-\/$>$APB4\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+RTC))
+\item 
+\#define {\bfseries \+\_\+\+\_\+\+HAL\+\_\+\+DBGMCU\+\_\+\+Un\+Freeze\+\_\+\+IWDG1}()~(DBGMCU-\/$>$APB4\+FZ1  \&= $\sim$ (DBGMCU\+\_\+\+APB4\+FZ1\+\_\+\+DBG\+\_\+\+IWDG1))
+\item 
+\#define \mbox{\hyperlink{group___h_a_l___private___macros_ga2a86bf8a89ad75716cd92e932a8ae71e}{IS\+\_\+\+TICKFREQ}}(FREQ)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___h_a_l___t_i_c_k___f_r_e_q_gab36ec81674817249c46734772ff3b73a}\label{group___h_a_l___t_i_c_k___f_r_e_q_gab36ec81674817249c46734772ff3b73a}} 
+enum {\bfseries HAL\+\_\+\+Tick\+Freq\+Type\+Def} \{ {\bfseries HAL\+\_\+\+TICK\+\_\+\+FREQ\+\_\+10\+HZ} = 100U
+, {\bfseries HAL\+\_\+\+TICK\+\_\+\+FREQ\+\_\+100\+HZ} = 10U
+, {\bfseries HAL\+\_\+\+TICK\+\_\+\+FREQ\+\_\+1\+KHZ} = 1U
+, {\bfseries HAL\+\_\+\+TICK\+\_\+\+FREQ\+\_\+\+DEFAULT} = HAL\+\_\+\+TICK\+\_\+\+FREQ\+\_\+1\+KHZ
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___h_a_l_gaecac54d350c3730e6831eb404e557dc4}{HAL\+\_\+\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em This function is used to initialize the HAL Library; it must be the first instruction to be executed in the main program (before to call any other HAL function), it performs the following\+: Configures the Sys\+Tick to generate an interrupt each 1 millisecond, which is clocked by the HSI (at this stage, the clock is not yet configured and thus the system is running from the internal HSI at 16 MHz). Set NVIC Group Priority to 4. Calls the \mbox{\hyperlink{group___h_a_l___group1_ga07e099a69ab23e79be8b7a80505de519}{HAL\+\_\+\+Msp\+Init()}} callback function defined in user file \char`\"{}stm32h7xx\+\_\+hal\+\_\+msp.\+c\char`\"{} to do the global low level hardware initialization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___h_a_l_ga95911129a26afb05232caaaefa31956f}{HAL\+\_\+\+De\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em This function de-\/\+Initializes common part of the HAL and stops the systick. This function is optional. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gae4fb8e66865c87d0ebab74a726a6891f}{HAL\+\_\+\+Msp\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the MSP. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gadd10d026ef02d00e32e80c9eab9db830}{HAL\+\_\+\+Msp\+De\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em De\+Initializes the MSP. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___h_a_l_ga879cdb21ef051eb81ec51c18147397d5}{HAL\+\_\+\+Init\+Tick}} (uint32\+\_\+t Tick\+Priority)
+\begin{DoxyCompactList}\small\item\em This function configures the source of the time base. The time source is configured to have 1ms time base with a dedicated Tick interrupt priority. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gaa8361d44d76b7f6256834f828165837a}{HAL\+\_\+\+Inc\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em This function is called to increment a global variable \char`\"{}uw\+Tick\char`\"{} used as application time base. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gae63b34eea12780ca2e1100c2402da18e}{HAL\+\_\+\+Delay}} (uint32\+\_\+t Delay)
+\begin{DoxyCompactList}\small\item\em This function provides minimum delay (in milliseconds) based on variable incremented. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l_gaf2c4f03d53e997a54e1fd5e80daa55c4}{HAL\+\_\+\+Get\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em Provides a tick value in millisecond. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l_gacdcc8b5d33b9f97fe1b0abd6a86a3d4b}{HAL\+\_\+\+Get\+Tick\+Prio}} (void)
+\begin{DoxyCompactList}\small\item\em This function returns a tick priority. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___h_a_l_ga47f2dd240b2aed823a76b11496f37690}{HAL\+\_\+\+Set\+Tick\+Freq}} (HAL\+\_\+\+Tick\+Freq\+Type\+Def Freq)
+\begin{DoxyCompactList}\small\item\em Set new tick Freq. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Tick\+Freq\+Type\+Def \mbox{\hyperlink{group___h_a_l_ga803cdbcc0883bcf5f5c98c50024c97e6}{HAL\+\_\+\+Get\+Tick\+Freq}} (void)
+\begin{DoxyCompactList}\small\item\em Return tick frequency. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gaaf651af2afe688a991c657f64f8fa5f9}{HAL\+\_\+\+Suspend\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em Suspend Tick increment. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga24e0ee9dae1ec0f9d19200f5575ff790}{HAL\+\_\+\+Resume\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em Resume Tick increment. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l_gafb139b375512ad2a234e4619b129b966}{HAL\+\_\+\+Get\+Hal\+Version}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the HAL revision. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l_gae051ef9e932404b21f5877c7186406b8}{HAL\+\_\+\+Get\+REVID}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the device revision identifier. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l_gaff785f069ed650de77ff82ac407f7c84}{HAL\+\_\+\+Get\+DEVID}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the device identifier. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l_gaf982aa0a575eef3758c0840a24077506}{HAL\+\_\+\+Get\+UIDw0}} (void)
+\begin{DoxyCompactList}\small\item\em Return the first word of the unique device identifier (UID based on 96 bits) \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l_ga52720dd92ed2bd4314a2a129855d766c}{HAL\+\_\+\+Get\+UIDw1}} (void)
+\begin{DoxyCompactList}\small\item\em Return the second word of the unique device identifier (UID based on 96 bits) \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l_ga5785ae5ec8d4c5a7dadb1359f0778700}{HAL\+\_\+\+Get\+UIDw2}} (void)
+\begin{DoxyCompactList}\small\item\em Return the third word of the unique device identifier (UID based on 96 bits) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gaf3cd66016fc04802f795b36f2f9a68d1}{HAL\+\_\+\+SYSCFG\+\_\+\+Analog\+Switch\+Config}} (uint32\+\_\+t SYSCFG\+\_\+\+Analog\+Switch, uint32\+\_\+t SYSCFG\+\_\+\+Switch\+State)
+\begin{DoxyCompactList}\small\item\em Analog Switch control for dual analog pads. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga20b6ca07582e10aec5e15ad2fda7dfc1}{HAL\+\_\+\+Enable\+Compensation\+Cell}} (void)
+\begin{DoxyCompactList}\small\item\em Enables the I/O Compensation Cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga653f1166b0e37afd40372550d806e667}{HAL\+\_\+\+Disable\+Compensation\+Cell}} (void)
+\begin{DoxyCompactList}\small\item\em Power-\/down the I/O Compensation Cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gaf917b7597a248de90f56f726d1a9d7fc}{HAL\+\_\+\+SYSCFG\+\_\+\+Enable\+IOSpeed\+Optimize}} (void)
+\begin{DoxyCompactList}\small\item\em To Enable optimize the I/O speed when the product voltage is low. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga7e66c046aca125b43632bd48062aa7e2}{HAL\+\_\+\+SYSCFG\+\_\+\+Disable\+IOSpeed\+Optimize}} (void)
+\begin{DoxyCompactList}\small\item\em To Disable optimize the I/O speed when the product voltage is low. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga1d50aaa188c9ac4f4d601f241a8dd0d8}{HAL\+\_\+\+SYSCFG\+\_\+\+Compensation\+Code\+Select}} (uint32\+\_\+t SYSCFG\+\_\+\+Comp\+Code)
+\begin{DoxyCompactList}\small\item\em Code selection for the I/O Compensation cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gad7601fc9520bc414a90ab50ff15aa0d5}{HAL\+\_\+\+SYSCFG\+\_\+\+Compensation\+Code\+Config}} (uint32\+\_\+t SYSCFG\+\_\+\+PMOSCode, uint32\+\_\+t SYSCFG\+\_\+\+NMOSCode)
+\begin{DoxyCompactList}\small\item\em Code selection for the I/O Compensation cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gaf031bcc71ebad9b7edf405547efd762b}{HAL\+\_\+\+DBGMCU\+\_\+\+Enable\+DBGSleep\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Enable the Debug Module during Domain1/\+CDomain SLEEP mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gac7820d0561f19999a68d714655b901b5}{HAL\+\_\+\+DBGMCU\+\_\+\+Disable\+DBGSleep\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Disable the Debug Module during Domain1/\+CDomain SLEEP mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gadf25043b17de4bef38a95a75fd03e5c4}{HAL\+\_\+\+DBGMCU\+\_\+\+Enable\+DBGStop\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Enable the Debug Module during Domain1/\+CDomain STOP mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga2c93dcee35e5983d74f1000de7c042d5}{HAL\+\_\+\+DBGMCU\+\_\+\+Disable\+DBGStop\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Disable the Debug Module during Domain1/\+CDomain STOP mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga28a1323b2eeb0a408c1cfdbfa0db5ead}{HAL\+\_\+\+DBGMCU\+\_\+\+Enable\+DBGStandby\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Enable the Debug Module during Domain1/\+CDomain STANDBY mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga7faa58d8508ea3123b9f247a70379779}{HAL\+\_\+\+DBGMCU\+\_\+\+Disable\+DBGStandby\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Disable the Debug Module during Domain1/\+CDomain STANDBY mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gac248995c863da942024d6fb556732027}{HAL\+\_\+\+EXTI\+\_\+\+Edge\+Config}} (uint32\+\_\+t EXTI\+\_\+\+Line, uint32\+\_\+t EXTI\+\_\+\+Edge)
+\begin{DoxyCompactList}\small\item\em Configure the EXTI input event line edge. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gaafbf043f6ed81243cf73194e394b104c}{HAL\+\_\+\+EXTI\+\_\+\+Generate\+SWInterrupt}} (uint32\+\_\+t EXTI\+\_\+\+Line)
+\begin{DoxyCompactList}\small\item\em Generates a Software interrupt on selected EXTI line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gaaa883ca7eecba560c8ac92a1b252ae88}{HAL\+\_\+\+EXTI\+\_\+\+D1\+\_\+\+Clear\+Flag}} (uint32\+\_\+t EXTI\+\_\+\+Line)
+\begin{DoxyCompactList}\small\item\em Clears the EXTI\textquotesingle{}s line pending flags for Domain D1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gafc2445849507e5aeb7d48e77c278a604}{HAL\+\_\+\+EXTI\+\_\+\+D1\+\_\+\+Event\+Input\+Config}} (uint32\+\_\+t EXTI\+\_\+\+Line, uint32\+\_\+t EXTI\+\_\+\+Mode, uint32\+\_\+t EXTI\+\_\+\+Line\+Cmd)
+\begin{DoxyCompactList}\small\item\em Configure the EXTI input event line for Domain D1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga16c56027a8671ff62a26204152aa8f95}{HAL\+\_\+\+EXTI\+\_\+\+D3\+\_\+\+Event\+Input\+Config}} (uint32\+\_\+t EXTI\+\_\+\+Line, uint32\+\_\+t EXTI\+\_\+\+Line\+Cmd, uint32\+\_\+t EXTI\+\_\+\+Clear\+Src)
+\begin{DoxyCompactList}\small\item\em Configure the EXTI input event line for Domain D3. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga2ababe650b4698a325acb86a575e4cf0}{HAL\+\_\+\+Set\+FMCMemory\+Swapping\+Config}} (uint32\+\_\+t Bank\+Map\+Config)
+\begin{DoxyCompactList}\small\item\em Set the FMC Memory Mapping Swapping config. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l_gac3bf32c8fd5ae5ec50f5585190f39274}{HAL\+\_\+\+Get\+FMCMemory\+Swapping\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em Get FMC Bank mapping mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga79b8e839deeb200f22ab3f6d21359338}{HAL\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+Voltage\+Scaling\+Config}} (uint32\+\_\+t Voltage\+Scaling)
+\begin{DoxyCompactList}\small\item\em Configure the internal voltage reference buffer voltage scale. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga7de0a1fcafa18030af600b0ed908b805}{HAL\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+High\+Impedance\+Config}} (uint32\+\_\+t Mode)
+\begin{DoxyCompactList}\small\item\em Configure the internal voltage reference buffer high impedance mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_gae0317419d084f9d40b32c1dd6037925f}{HAL\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+Trimming\+Config}} (uint32\+\_\+t Trimming\+Value)
+\begin{DoxyCompactList}\small\item\em Tune the Internal Voltage Reference buffer (VREFBUF). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___h_a_l_ga3a184f1a037585ba7a1d931abff30275}{HAL\+\_\+\+SYSCFG\+\_\+\+Enable\+VREFBUF}} (void)
+\begin{DoxyCompactList}\small\item\em Enable the Internal Voltage Reference buffer (VREFBUF). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l_ga26991b4078e8f985b1caced43b6cfb9c}{HAL\+\_\+\+SYSCFG\+\_\+\+Disable\+VREFBUF}} (void)
+\begin{DoxyCompactList}\small\item\em Disable the Internal Voltage Reference buffer (VREFBUF). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t {\bfseries uw\+Tick}
+\item 
+uint32\+\_\+t {\bfseries uw\+Tick\+Prio}
+\item 
+HAL\+\_\+\+Tick\+Freq\+Type\+Def {\bfseries uw\+Tick\+Freq}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains all the functions prototypes for the HAL module driver. 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2017 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 

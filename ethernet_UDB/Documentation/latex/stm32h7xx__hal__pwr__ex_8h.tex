@@ -1,0 +1,267 @@
+\hypertarget{stm32h7xx__hal__pwr__ex_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/stm32h7xx\+\_\+hal\+\_\+pwr\+\_\+ex.h File Reference}
+\label{stm32h7xx__hal__pwr__ex_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_pwr\_ex.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_pwr\_ex.h}}
+
+
+Header file of PWR HAL Extension module.  
+
+
+{\ttfamily \#include \char`\"{}stm32h7xx\+\_\+hal\+\_\+def.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_w_r_ex___a_v_d_type_def}{PWREx\+\_\+\+AVDType\+Def}}
+\begin{DoxyCompactList}\small\item\em PWREx AVD configuration structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_p_w_r_ex___wakeup_pin_type_def}{PWREx\+\_\+\+Wakeup\+Pin\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em PWREx Wakeup pin configuration structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN6}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gafb7008891cb55f69825cec54505e3090}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN6}}
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN4}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gacaf01588cb3fb50f633b7c0fac730be5}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN4}}
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN2}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga57bb5a1d823c85bff792206f67a9fa65}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN2}}
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN1}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9cb58726bd2fd0cef12f971e6b33e199}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN1}}
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN6\+\_\+\+HIGH}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gafb7008891cb55f69825cec54505e3090}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN6}}
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN4\+\_\+\+HIGH}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gacaf01588cb3fb50f633b7c0fac730be5}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN4}}
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN2\+\_\+\+HIGH}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga57bb5a1d823c85bff792206f67a9fa65}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN2}}
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN1\+\_\+\+HIGH}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9cb58726bd2fd0cef12f971e6b33e199}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN1}}
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN6\+\_\+\+LOW}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gac74ff4f910dd9d8b1936652a32633e83}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPP6}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gafb7008891cb55f69825cec54505e3090}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN6}})
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN4\+\_\+\+LOW}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga43b560d7efa4e38c262f915a70617b8b}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPP4}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_gacaf01588cb3fb50f633b7c0fac730be5}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN4}})
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN2\+\_\+\+LOW}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gab75598efca41eaa4355e22146a8fd88b}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPP2}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga57bb5a1d823c85bff792206f67a9fa65}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN2}})
+\item 
+\#define {\bfseries PWR\+\_\+\+WAKEUP\+\_\+\+PIN1\+\_\+\+LOW}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga429746227c2e81c7716695342b77f10e}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPP1}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga9cb58726bd2fd0cef12f971e6b33e199}{PWR\+\_\+\+WKUPEPR\+\_\+\+WKUPEN1}})
+\item 
+\#define {\bfseries PWR\+\_\+\+PIN\+\_\+\+POLARITY\+\_\+\+HIGH}~(0x00000000U)
+\item 
+\#define {\bfseries PWR\+\_\+\+PIN\+\_\+\+POLARITY\+\_\+\+LOW}~(0x00000001U)
+\item 
+\#define {\bfseries PWR\+\_\+\+PIN\+\_\+\+NO\+\_\+\+PULL}~(0x00000000U)
+\item 
+\#define {\bfseries PWR\+\_\+\+PIN\+\_\+\+PULL\+\_\+\+UP}~(0x00000001U)
+\item 
+\#define {\bfseries PWR\+\_\+\+PIN\+\_\+\+PULL\+\_\+\+DOWN}~(0x00000002U)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___wakeup___pins___flags_ga04563c5953e8540c253b1fe63788c607}{PWR\+\_\+\+WAKEUP\+\_\+\+FLAG1}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gacd3e1821b5493f98f758bef31203d9d4}{PWR\+\_\+\+WKUPFR\+\_\+\+WKUPF1}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___wakeup___pins___flags_ga1e76ebc117adb945bd16509b772c2c36}{PWR\+\_\+\+WAKEUP\+\_\+\+FLAG2}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga703c5e67341ec2a5dbe3d01c32e70d49}{PWR\+\_\+\+WKUPFR\+\_\+\+WKUPF2}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___wakeup___pins___flags_ga1982eb8a141ef8eedcdefdb3d40c9647}{PWR\+\_\+\+WAKEUP\+\_\+\+FLAG4}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga0c527dcba2e6b9184b62691c6c7984c4}{PWR\+\_\+\+WKUPFR\+\_\+\+WKUPF4}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___wakeup___pins___flags_gaa22106c19aa0b124cdac5d062671f6c7}{PWR\+\_\+\+WAKEUP\+\_\+\+FLAG6}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gafff4a9218c5dd8a61f6edc1633ea91d1}{PWR\+\_\+\+WKUPFR\+\_\+\+WKUPF6}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___wakeup___pins___flags_ga53a37c207eaf3119c899d31e0e146979}{PWR\+\_\+\+WAKEUP\+\_\+\+FLAG\+\_\+\+ALL}}
+\item 
+\#define {\bfseries PWR\+\_\+\+D1\+\_\+\+DOMAIN}~(0x00000000U)
+\item 
+\#define {\bfseries PWR\+\_\+\+D3\+\_\+\+DOMAIN}~(0x00000002U)
+\item 
+\#define {\bfseries PWR\+\_\+\+CPU\+\_\+\+FLAGS}~(0x00000000U)
+\item 
+\#define {\bfseries PWR\+\_\+\+D3\+\_\+\+DOMAIN\+\_\+\+STOP}~(0x00000000U)
+\item 
+\#define {\bfseries PWR\+\_\+\+D3\+\_\+\+DOMAIN\+\_\+\+RUN}~(0x00000800U)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___supply__configuration_gaf26cc2eab346d2209674dd59da2f69d6}{PWR\+\_\+\+LDO\+\_\+\+SUPPLY}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2e5832efbbab5ab98c031bdb891a7977}{PWR\+\_\+\+CR3\+\_\+\+LDOEN}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___supply__configuration_ga4c9f87494abc9b79e5e029b7984ea722}{PWR\+\_\+\+EXTERNAL\+\_\+\+SOURCE\+\_\+\+SUPPLY}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga18df5e5c7aaa92d19eb53be04121d143}{PWR\+\_\+\+CR3\+\_\+\+BYPASS}}
+\item 
+\#define {\bfseries PWR\+\_\+\+SUPPLY\+\_\+\+CONFIG\+\_\+\+MASK}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaf5a8423dbc59c5572057861d59115222}{PWR\+\_\+\+CR3\+\_\+\+SCUEN}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2e5832efbbab5ab98c031bdb891a7977}{PWR\+\_\+\+CR3\+\_\+\+LDOEN}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga18df5e5c7aaa92d19eb53be04121d143}{PWR\+\_\+\+CR3\+\_\+\+BYPASS}})
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d__detection__level_ga719beb7812960c2be7e60c054bbe5e7f}{PWR\+\_\+\+AVDLEVEL\+\_\+0}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga4661026831a28ccec36486dfb384a86b}{PWR\+\_\+\+CR1\+\_\+\+ALS\+\_\+\+LEV0}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d__detection__level_ga248a7e98fc0c1a169893f3d84b352221}{PWR\+\_\+\+AVDLEVEL\+\_\+1}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaa69adb1b0deb5fab2855d3f2bba252ae}{PWR\+\_\+\+CR1\+\_\+\+ALS\+\_\+\+LEV1}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d__detection__level_ga32e2321ed0fdbf8c46ff968c27ba8833}{PWR\+\_\+\+AVDLEVEL\+\_\+2}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaac6de094a39da36056d79dc9a8f30b73}{PWR\+\_\+\+CR1\+\_\+\+ALS\+\_\+\+LEV2}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d__detection__level_gaf2d0cc6c22cc36cd329d323b63a1e10b}{PWR\+\_\+\+AVDLEVEL\+\_\+3}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gabbc1f2eb3a899e3c8179a7ca615df4ec}{PWR\+\_\+\+CR1\+\_\+\+ALS\+\_\+\+LEV3}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d___mode_gaceaab58f23550b548ffe34c649dc3ef1}{PWR\+\_\+\+AVD\+\_\+\+MODE\+\_\+\+NORMAL}}~(0x00000000U)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d___mode_ga93258cef76f6d1660eddc8647bdc951e}{PWR\+\_\+\+AVD\+\_\+\+MODE\+\_\+\+IT\+\_\+\+RISING}}~(0x00010001U)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d___mode_ga6077d6462da91191596eedfc05f5ee4c}{PWR\+\_\+\+AVD\+\_\+\+MODE\+\_\+\+IT\+\_\+\+FALLING}}~(0x00010002U)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d___mode_gae14b126c8bfa89fefa3d163519097266}{PWR\+\_\+\+AVD\+\_\+\+MODE\+\_\+\+IT\+\_\+\+RISING\+\_\+\+FALLING}}~(0x00010003U)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d___mode_ga8e374c88d255e66ebf6ab799f596f804}{PWR\+\_\+\+AVD\+\_\+\+MODE\+\_\+\+EVENT\+\_\+\+RISING}}~(0x00020001U)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d___mode_ga3e55c737b9859d16c2cf9f0bb1a9f2d8}{PWR\+\_\+\+AVD\+\_\+\+MODE\+\_\+\+EVENT\+\_\+\+FALLING}}~(0x00020002U)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d___mode_ga0ee35e6f102d9a4b7ad029f701dbdaf0}{PWR\+\_\+\+AVD\+\_\+\+MODE\+\_\+\+EVENT\+\_\+\+RISING\+\_\+\+FALLING}}~(0x00020003U)
+\item 
+\#define {\bfseries PWR\+\_\+\+REGULATOR\+\_\+\+SVOS\+\_\+\+SCALE5}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga68f36ed101595cf6e764515e09282ecb}{PWR\+\_\+\+CR1\+\_\+\+SVOS\+\_\+0}})
+\item 
+\#define {\bfseries PWR\+\_\+\+REGULATOR\+\_\+\+SVOS\+\_\+\+SCALE4}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga65e6869cb8f2870d89d043aea414d923}{PWR\+\_\+\+CR1\+\_\+\+SVOS\+\_\+1}})
+\item 
+\#define {\bfseries PWR\+\_\+\+REGULATOR\+\_\+\+SVOS\+\_\+\+SCALE3}~(\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga68f36ed101595cf6e764515e09282ecb}{PWR\+\_\+\+CR1\+\_\+\+SVOS\+\_\+0}} $\vert$ \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga65e6869cb8f2870d89d043aea414d923}{PWR\+\_\+\+CR1\+\_\+\+SVOS\+\_\+1}})
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___v_b_a_t___battery___charging___resistor_ga27d3d5ee9e0fc78ecac6e41498a37916}{PWR\+\_\+\+BATTERY\+\_\+\+CHARGING\+\_\+\+RESISTOR\+\_\+5}}~(0x00000000U)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___v_b_a_t___battery___charging___resistor_gacebb57480a111beaf8ca05f014cbd096}{PWR\+\_\+\+BATTERY\+\_\+\+CHARGING\+\_\+\+RESISTOR\+\_\+1\+\_\+5}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga21807d08cdbb2fbd8f42b731a5d528ce}{PWR\+\_\+\+CR3\+\_\+\+VBRS}}
+\item 
+\#define {\bfseries PWR\+\_\+\+VBAT\+\_\+\+BETWEEN\+\_\+\+HIGH\+\_\+\+LOW\+\_\+\+THRESHOLD}~(0x00000000U)
+\item 
+\#define {\bfseries PWR\+\_\+\+VBAT\+\_\+\+BELOW\+\_\+\+LOW\+\_\+\+THRESHOLD}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga36dd5dc04502cb2bcfbbbad9247d47da}{PWR\+\_\+\+CR2\+\_\+\+VBATL}}
+\item 
+\#define {\bfseries PWR\+\_\+\+VBAT\+\_\+\+ABOVE\+\_\+\+HIGH\+\_\+\+THRESHOLD}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaac411ccef055ec95447cd8b736221e06}{PWR\+\_\+\+CR2\+\_\+\+VBATH}}
+\item 
+\#define {\bfseries PWR\+\_\+\+TEMP\+\_\+\+BETWEEN\+\_\+\+HIGH\+\_\+\+LOW\+\_\+\+THRESHOLD}~(0x00000000U)
+\item 
+\#define {\bfseries PWR\+\_\+\+TEMP\+\_\+\+BELOW\+\_\+\+LOW\+\_\+\+THRESHOLD}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga186c016996c65b07e913e83155082865}{PWR\+\_\+\+CR2\+\_\+\+TEMPL}}
+\item 
+\#define {\bfseries PWR\+\_\+\+TEMP\+\_\+\+ABOVE\+\_\+\+HIGH\+\_\+\+THRESHOLD}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gab519388ffad6698f98ada73c4bf81248}{PWR\+\_\+\+CR2\+\_\+\+TEMPH}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga3bac4551decbfbbb98e8a5e19f526a39}{EXTI\+\_\+\+IMR1\+\_\+\+IM16}}
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_ga4d8f3ab2c24208009d222f90513d3e22}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+ENABLE\+\_\+\+IT}}()~SET\+\_\+\+BIT(EXTI-\/$>$IMR1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}})
+\begin{DoxyCompactList}\small\item\em Enable the AVD EXTI Line 16. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_ga87ece977172976ef85a39cdf6a764ba6}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+DISABLE\+\_\+\+IT}}()~CLEAR\+\_\+\+BIT(EXTI-\/$>$IMR1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}})
+\begin{DoxyCompactList}\small\item\em Disable the AVD EXTI Line 16. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_ga01e4a63775705e1fb3bd35d42eebb174}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+ENABLE\+\_\+\+EVENT}}()~SET\+\_\+\+BIT(EXTI-\/$>$EMR1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}})
+\begin{DoxyCompactList}\small\item\em Enable event on AVD EXTI Line 16. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_ga602663b21cd99367a20a53e42d660770}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+DISABLE\+\_\+\+EVENT}}()~CLEAR\+\_\+\+BIT(EXTI-\/$>$EMR1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}})
+\begin{DoxyCompactList}\small\item\em Disable event on AVD EXTI Line 16. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_ga010c2e73970f53da9e67d220be626756}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+ENABLE\+\_\+\+RISING\+\_\+\+EDGE}}()~SET\+\_\+\+BIT(EXTI-\/$>$RTSR1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}})
+\begin{DoxyCompactList}\small\item\em Enable the AVD Extended Interrupt Rising Trigger. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_ga6b2be4e68f4231caea41729ba6f3bf6f}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+DISABLE\+\_\+\+RISING\+\_\+\+EDGE}}()~CLEAR\+\_\+\+BIT(EXTI-\/$>$RTSR1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}})
+\begin{DoxyCompactList}\small\item\em Disable the AVD Extended Interrupt Rising Trigger. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_gaa5cad02e62ed38453ab230ea146cebde}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+ENABLE\+\_\+\+FALLING\+\_\+\+EDGE}}()~SET\+\_\+\+BIT(EXTI-\/$>$FTSR1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}})
+\begin{DoxyCompactList}\small\item\em Enable the AVD Extended Interrupt Falling Trigger. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_ga38fc7068ab1e5a307e756dcd84c4794a}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+DISABLE\+\_\+\+FALLING\+\_\+\+EDGE}}()~CLEAR\+\_\+\+BIT(EXTI-\/$>$FTSR1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}})
+\begin{DoxyCompactList}\small\item\em Disable the AVD Extended Interrupt Falling Trigger. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_gabbbba998f6e6301caf51e25848aa0245}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+ENABLE\+\_\+\+RISING\+\_\+\+FALLING\+\_\+\+EDGE}}()
+\begin{DoxyCompactList}\small\item\em Enable the AVD Extended Interrupt Rising and Falling Trigger. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_gacd81e42093044e405602c08ea797510f}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+DISABLE\+\_\+\+RISING\+\_\+\+FALLING\+\_\+\+EDGE}}()
+\begin{DoxyCompactList}\small\item\em Disable the AVD Extended Interrupt Rising \& Falling Trigger. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_ga45149d5078f1b362959276881577304c}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+GET\+\_\+\+FLAG}}()~((READ\+\_\+\+BIT(EXTI-\/$>$PR1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}}) == \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}}) ? 1UL \+: 0\+UL)
+\begin{DoxyCompactList}\small\item\em Check whether the specified AVD EXTI interrupt flag is set or not. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_gaecb184d9739df1bc7f9cb3f87469b177}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+CLEAR\+\_\+\+FLAG}}()~SET\+\_\+\+BIT(EXTI-\/$>$PR1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}})
+\begin{DoxyCompactList}\small\item\em Clear the AVD EXTI flag. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___exported___macro_ga743ded25ef6ce7e57487feb209e29156}{\+\_\+\+\_\+\+HAL\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+EXTI\+\_\+\+GENERATE\+\_\+\+SWIT}}()~SET\+\_\+\+BIT(EXTI-\/$>$SWIER1, \mbox{\hyperlink{group___p_w_r_ex___a_v_d___e_x_t_i___line_ga7457ae35d3789770d20d2c5f02f60393}{PWR\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+AVD}})
+\begin{DoxyCompactList}\small\item\em Generates a Software interrupt on AVD EXTI line. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_gabb3c500d4d7ea1dc826f52fc9dec2c9e}{IS\+\_\+\+PWR\+\_\+\+SUPPLY}}(PWR\+\_\+\+SOURCE)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_ga7d24202b56ce1146aa6148634815a9e5}{IS\+\_\+\+PWR\+\_\+\+STOP\+\_\+\+MODE\+\_\+\+REGULATOR\+\_\+\+VOLTAGE}}(VOLTAGE)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_gace9d411313f557c68c1a9520fe4048f4}{IS\+\_\+\+PWR\+\_\+\+DOMAIN}}(DOMAIN)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_ga9ffc3e752d2a6fec00fd7c8df99c860b}{IS\+\_\+\+D3\+\_\+\+STATE}}(STATE)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_gac6fcc59d6ff95b8feda1b228517f9c3f}{IS\+\_\+\+PWR\+\_\+\+WAKEUP\+\_\+\+PIN}}(PIN)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_gaea0b82025f1437d5456ffe51fdde7b8e}{IS\+\_\+\+PWR\+\_\+\+WAKEUP\+\_\+\+PIN\+\_\+\+POLARITY}}(POLARITY)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_ga36daf016d16522fa4b33e8fc164eac9f}{IS\+\_\+\+PWR\+\_\+\+WAKEUP\+\_\+\+PIN\+\_\+\+PULL}}(PULL)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_ga581ad994a953ec09595a5ad75a8152ef}{IS\+\_\+\+PWR\+\_\+\+WAKEUP\+\_\+\+FLAG}}(FLAG)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_ga4ae79058bea178927af19a09fb132bb9}{IS\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+LEVEL}}(LEVEL)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_ga6b9484a79026dd997e6dc5a6f765a479}{IS\+\_\+\+PWR\+\_\+\+AVD\+\_\+\+MODE}}(MODE)
+\item 
+\#define \mbox{\hyperlink{group___p_w_r_ex___i_s___p_w_r___definitions_ga3fa01a4ed0f3f68986664d2b117b3640}{IS\+\_\+\+PWR\+\_\+\+BATTERY\+\_\+\+RESISTOR\+\_\+\+SELECT}}(RESISTOR)
+\item 
+\#define {\bfseries IS\+\_\+\+PWR\+\_\+\+D1\+\_\+\+CPU}(CPU)~((CPU) == CM7\+\_\+\+CPUID)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Config\+Supply} (uint32\+\_\+t Supply\+Source)
+\item 
+uint32\+\_\+t {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Get\+Supply\+Config} (void)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Control\+Voltage\+Scaling} (uint32\+\_\+t Voltage\+Scaling)
+\item 
+uint32\+\_\+t {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Get\+Voltage\+Range} (void)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Control\+Stop\+Mode\+Voltage\+Scaling} (uint32\+\_\+t Voltage\+Scaling)
+\item 
+uint32\+\_\+t {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Get\+Stop\+Mode\+Voltage\+Range} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Enter\+STOPMode} (uint32\+\_\+t Regulator, uint8\+\_\+t STOPEntry, uint32\+\_\+t Domain)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Enter\+STANDBYMode} (uint32\+\_\+t Domain)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Config\+D3\+Domain} (uint32\+\_\+t D3\+State)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Clear\+Pending\+Event} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Enable\+Flash\+Power\+Down} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Disable\+Flash\+Power\+Down} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Enable\+Wake\+Up\+Pin} (\mbox{\hyperlink{struct_p_w_r_ex___wakeup_pin_type_def}{PWREx\+\_\+\+Wakeup\+Pin\+Type\+Def}} $\ast$s\+Pin\+Params)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Disable\+Wake\+Up\+Pin} (uint32\+\_\+t Wake\+Up\+Pin)
+\item 
+uint32\+\_\+t {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Get\+Wakeup\+Flag} (uint32\+\_\+t Wake\+Up\+Flag)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Clear\+Wakeup\+Flag} (uint32\+\_\+t Wake\+Up\+Flag)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+WAKEUP\+\_\+\+PIN\+\_\+\+IRQHandler} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+WKUP1\+\_\+\+Callback} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+WKUP2\+\_\+\+Callback} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+WKUP4\+\_\+\+Callback} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+WKUP6\+\_\+\+Callback} (void)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Enable\+Bk\+Up\+Reg} (void)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Disable\+Bk\+Up\+Reg} (void)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Enable\+USBReg} (void)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Disable\+USBReg} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Enable\+USBVoltage\+Detector} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Disable\+USBVoltage\+Detector} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Enable\+Battery\+Charging} (uint32\+\_\+t Resistor\+Value)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Disable\+Battery\+Charging} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Enable\+Monitoring} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Disable\+Monitoring} (void)
+\item 
+uint32\+\_\+t {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Get\+Temperature\+Level} (void)
+\item 
+uint32\+\_\+t {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Get\+VBATLevel} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Config\+AVD} (\mbox{\hyperlink{struct_p_w_r_ex___a_v_d_type_def}{PWREx\+\_\+\+AVDType\+Def}} $\ast$s\+Config\+AVD)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Enable\+AVD} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+Disable\+AVD} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+PVD\+\_\+\+AVD\+\_\+\+IRQHandler} (void)
+\item 
+void {\bfseries HAL\+\_\+\+PWREx\+\_\+\+AVDCallback} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of PWR HAL Extension module. 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2017 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 

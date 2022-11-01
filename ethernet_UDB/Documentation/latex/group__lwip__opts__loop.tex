@@ -1,0 +1,52 @@
+\hypertarget{group__lwip__opts__loop}{}\doxysection{Loopback interface}
+\label{group__lwip__opts__loop}\index{Loopback interface@{Loopback interface}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__loop_gaa2b1f736373cd896e212644aa453fbaf}{LWIP\+\_\+\+HAVE\+\_\+\+LOOPIF}}~(\mbox{\hyperlink{group__lwip__opts__loop_ga724a0ea765d5a47d026d529725f31c01}{LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK}} \&\& !\mbox{\hyperlink{group__lwip__opts__netif_ga943063b053eeac76b0b1bcef2ddd93be}{LWIP\+\_\+\+SINGLE\+\_\+\+NETIF}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__loop_ga10a878b390c2fbe421d82502001c7300}{LWIP\+\_\+\+LOOPIF\+\_\+\+MULTICAST}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__loop_ga724a0ea765d5a47d026d529725f31c01}{LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__loop_gaacc3ad5d0a771d45fb0a3e3a09b1dbea}{LWIP\+\_\+\+LOOPBACK\+\_\+\+MAX\+\_\+\+PBUFS}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__loop_gaa28d13ddd5281b1912276991e7ea58c5}{LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK\+\_\+\+MULTITHREADING}}~(!NO\+\_\+\+SYS)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__loop_gaa2b1f736373cd896e212644aa453fbaf}\label{group__lwip__opts__loop_gaa2b1f736373cd896e212644aa453fbaf}} 
+\index{Loopback interface@{Loopback interface}!LWIP\_HAVE\_LOOPIF@{LWIP\_HAVE\_LOOPIF}}
+\index{LWIP\_HAVE\_LOOPIF@{LWIP\_HAVE\_LOOPIF}!Loopback interface@{Loopback interface}}
+\doxysubsubsection{\texorpdfstring{LWIP\_HAVE\_LOOPIF}{LWIP\_HAVE\_LOOPIF}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+HAVE\+\_\+\+LOOPIF~(\mbox{\hyperlink{group__lwip__opts__loop_ga724a0ea765d5a47d026d529725f31c01}{LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK}} \&\& !\mbox{\hyperlink{group__lwip__opts__netif_ga943063b053eeac76b0b1bcef2ddd93be}{LWIP\+\_\+\+SINGLE\+\_\+\+NETIF}})}
+
+LWIP\+\_\+\+HAVE\+\_\+\+LOOPIF==1\+: Support loop interface (127.\+0.\+0.\+1). This is only needed when no real netifs are available. If at least one other netif is available, loopback traffic uses this netif. \mbox{\Hypertarget{group__lwip__opts__loop_gaacc3ad5d0a771d45fb0a3e3a09b1dbea}\label{group__lwip__opts__loop_gaacc3ad5d0a771d45fb0a3e3a09b1dbea}} 
+\index{Loopback interface@{Loopback interface}!LWIP\_LOOPBACK\_MAX\_PBUFS@{LWIP\_LOOPBACK\_MAX\_PBUFS}}
+\index{LWIP\_LOOPBACK\_MAX\_PBUFS@{LWIP\_LOOPBACK\_MAX\_PBUFS}!Loopback interface@{Loopback interface}}
+\doxysubsubsection{\texorpdfstring{LWIP\_LOOPBACK\_MAX\_PBUFS}{LWIP\_LOOPBACK\_MAX\_PBUFS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+LOOPBACK\+\_\+\+MAX\+\_\+\+PBUFS~0}
+
+LWIP\+\_\+\+LOOPBACK\+\_\+\+MAX\+\_\+\+PBUFS\+: Maximum number of pbufs on queue for loopback sending for each netif (0 = disabled) \mbox{\Hypertarget{group__lwip__opts__loop_ga10a878b390c2fbe421d82502001c7300}\label{group__lwip__opts__loop_ga10a878b390c2fbe421d82502001c7300}} 
+\index{Loopback interface@{Loopback interface}!LWIP\_LOOPIF\_MULTICAST@{LWIP\_LOOPIF\_MULTICAST}}
+\index{LWIP\_LOOPIF\_MULTICAST@{LWIP\_LOOPIF\_MULTICAST}!Loopback interface@{Loopback interface}}
+\doxysubsubsection{\texorpdfstring{LWIP\_LOOPIF\_MULTICAST}{LWIP\_LOOPIF\_MULTICAST}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+LOOPIF\+\_\+\+MULTICAST~0}
+
+LWIP\+\_\+\+LOOPIF\+\_\+\+MULTICAST==1\+: Support multicast/\+IGMP on loop interface (127.\+0.\+0.\+1). \mbox{\Hypertarget{group__lwip__opts__loop_ga724a0ea765d5a47d026d529725f31c01}\label{group__lwip__opts__loop_ga724a0ea765d5a47d026d529725f31c01}} 
+\index{Loopback interface@{Loopback interface}!LWIP\_NETIF\_LOOPBACK@{LWIP\_NETIF\_LOOPBACK}}
+\index{LWIP\_NETIF\_LOOPBACK@{LWIP\_NETIF\_LOOPBACK}!Loopback interface@{Loopback interface}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETIF\_LOOPBACK}{LWIP\_NETIF\_LOOPBACK}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK~0}
+
+LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK==1\+: Support sending packets with a destination IP address equal to the netif IP address, looping them back up the stack. \mbox{\Hypertarget{group__lwip__opts__loop_gaa28d13ddd5281b1912276991e7ea58c5}\label{group__lwip__opts__loop_gaa28d13ddd5281b1912276991e7ea58c5}} 
+\index{Loopback interface@{Loopback interface}!LWIP\_NETIF\_LOOPBACK\_MULTITHREADING@{LWIP\_NETIF\_LOOPBACK\_MULTITHREADING}}
+\index{LWIP\_NETIF\_LOOPBACK\_MULTITHREADING@{LWIP\_NETIF\_LOOPBACK\_MULTITHREADING}!Loopback interface@{Loopback interface}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETIF\_LOOPBACK\_MULTITHREADING}{LWIP\_NETIF\_LOOPBACK\_MULTITHREADING}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK\+\_\+\+MULTITHREADING~(!NO\+\_\+\+SYS)}
+
+LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK\+\_\+\+MULTITHREADING\+: Indicates whether threading is enabled in the system, as netifs must change how they behave depending on this setting for the LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK option to work. Setting this is needed to avoid reentering non-\/reentrant functions like tcp\+\_\+input(). LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK\+\_\+\+MULTITHREADING==1\+: Indicates that the user is using a multithreaded environment like \mbox{\hyperlink{tcpip_8c}{tcpip.\+c}}. In this case, netif-\/\texorpdfstring{$>$}{>}input() is called directly. LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK\+\_\+\+MULTITHREADING==0\+: Indicates a polling (or NO\+\_\+\+SYS) setup. The packets are put on a list and netif\+\_\+poll() must be called in the main application loop. 

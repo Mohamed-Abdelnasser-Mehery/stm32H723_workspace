@@ -1,0 +1,60 @@
+\hypertarget{group__mqtt__opts}{}\doxysection{Options}
+\label{group__mqtt__opts}\index{Options@{Options}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__mqtt__opts_ga70627bafaffa071875cee9edc38d942b}{MQTT\+\_\+\+OUTPUT\+\_\+\+RINGBUF\+\_\+\+SIZE}}~256
+\item 
+\#define \mbox{\hyperlink{group__mqtt__opts_ga8275ef78a85fb14c3ac1423c70e45805}{MQTT\+\_\+\+VAR\+\_\+\+HEADER\+\_\+\+BUFFER\+\_\+\+LEN}}~128
+\item 
+\#define \mbox{\hyperlink{group__mqtt__opts_gae82460b35de2291e9661e440c3458e8f}{MQTT\+\_\+\+REQ\+\_\+\+MAX\+\_\+\+IN\+\_\+\+FLIGHT}}~4
+\item 
+\#define \mbox{\hyperlink{group__mqtt__opts_ga1d89fda808c7047eab7a67d3785aea8e}{MQTT\+\_\+\+CYCLIC\+\_\+\+TIMER\+\_\+\+INTERVAL}}~5
+\item 
+\#define \mbox{\hyperlink{group__mqtt__opts_ga262639f2b45f6e064fb53156396d6d0a}{MQTT\+\_\+\+REQ\+\_\+\+TIMEOUT}}~30
+\item 
+\#define \mbox{\hyperlink{group__mqtt__opts_gac5d0580d1caf57dac1cb56662e5d9f7b}{MQTT\+\_\+\+CONNECT\+\_\+\+TIMOUT}}~100
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__mqtt__opts_gac5d0580d1caf57dac1cb56662e5d9f7b}\label{group__mqtt__opts_gac5d0580d1caf57dac1cb56662e5d9f7b}} 
+\index{Options@{Options}!MQTT\_CONNECT\_TIMOUT@{MQTT\_CONNECT\_TIMOUT}}
+\index{MQTT\_CONNECT\_TIMOUT@{MQTT\_CONNECT\_TIMOUT}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{MQTT\_CONNECT\_TIMOUT}{MQTT\_CONNECT\_TIMOUT}}
+{\footnotesize\ttfamily \#define MQTT\+\_\+\+CONNECT\+\_\+\+TIMOUT~100}
+
+Seconds for MQTT connect response timeout after sending connect request \mbox{\Hypertarget{group__mqtt__opts_ga1d89fda808c7047eab7a67d3785aea8e}\label{group__mqtt__opts_ga1d89fda808c7047eab7a67d3785aea8e}} 
+\index{Options@{Options}!MQTT\_CYCLIC\_TIMER\_INTERVAL@{MQTT\_CYCLIC\_TIMER\_INTERVAL}}
+\index{MQTT\_CYCLIC\_TIMER\_INTERVAL@{MQTT\_CYCLIC\_TIMER\_INTERVAL}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{MQTT\_CYCLIC\_TIMER\_INTERVAL}{MQTT\_CYCLIC\_TIMER\_INTERVAL}}
+{\footnotesize\ttfamily \#define MQTT\+\_\+\+CYCLIC\+\_\+\+TIMER\+\_\+\+INTERVAL~5}
+
+Seconds between each cyclic timer call. \mbox{\Hypertarget{group__mqtt__opts_ga70627bafaffa071875cee9edc38d942b}\label{group__mqtt__opts_ga70627bafaffa071875cee9edc38d942b}} 
+\index{Options@{Options}!MQTT\_OUTPUT\_RINGBUF\_SIZE@{MQTT\_OUTPUT\_RINGBUF\_SIZE}}
+\index{MQTT\_OUTPUT\_RINGBUF\_SIZE@{MQTT\_OUTPUT\_RINGBUF\_SIZE}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{MQTT\_OUTPUT\_RINGBUF\_SIZE}{MQTT\_OUTPUT\_RINGBUF\_SIZE}}
+{\footnotesize\ttfamily \#define MQTT\+\_\+\+OUTPUT\+\_\+\+RINGBUF\+\_\+\+SIZE~256}
+
+Output ring-\/buffer size, must be able to fit largest outgoing publish message topic+payloads \mbox{\Hypertarget{group__mqtt__opts_gae82460b35de2291e9661e440c3458e8f}\label{group__mqtt__opts_gae82460b35de2291e9661e440c3458e8f}} 
+\index{Options@{Options}!MQTT\_REQ\_MAX\_IN\_FLIGHT@{MQTT\_REQ\_MAX\_IN\_FLIGHT}}
+\index{MQTT\_REQ\_MAX\_IN\_FLIGHT@{MQTT\_REQ\_MAX\_IN\_FLIGHT}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{MQTT\_REQ\_MAX\_IN\_FLIGHT}{MQTT\_REQ\_MAX\_IN\_FLIGHT}}
+{\footnotesize\ttfamily \#define MQTT\+\_\+\+REQ\+\_\+\+MAX\+\_\+\+IN\+\_\+\+FLIGHT~4}
+
+Maximum number of pending subscribe, unsubscribe and publish requests to server . \mbox{\Hypertarget{group__mqtt__opts_ga262639f2b45f6e064fb53156396d6d0a}\label{group__mqtt__opts_ga262639f2b45f6e064fb53156396d6d0a}} 
+\index{Options@{Options}!MQTT\_REQ\_TIMEOUT@{MQTT\_REQ\_TIMEOUT}}
+\index{MQTT\_REQ\_TIMEOUT@{MQTT\_REQ\_TIMEOUT}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{MQTT\_REQ\_TIMEOUT}{MQTT\_REQ\_TIMEOUT}}
+{\footnotesize\ttfamily \#define MQTT\+\_\+\+REQ\+\_\+\+TIMEOUT~30}
+
+Publish, subscribe and unsubscribe request timeout in seconds. \mbox{\Hypertarget{group__mqtt__opts_ga8275ef78a85fb14c3ac1423c70e45805}\label{group__mqtt__opts_ga8275ef78a85fb14c3ac1423c70e45805}} 
+\index{Options@{Options}!MQTT\_VAR\_HEADER\_BUFFER\_LEN@{MQTT\_VAR\_HEADER\_BUFFER\_LEN}}
+\index{MQTT\_VAR\_HEADER\_BUFFER\_LEN@{MQTT\_VAR\_HEADER\_BUFFER\_LEN}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{MQTT\_VAR\_HEADER\_BUFFER\_LEN}{MQTT\_VAR\_HEADER\_BUFFER\_LEN}}
+{\footnotesize\ttfamily \#define MQTT\+\_\+\+VAR\+\_\+\+HEADER\+\_\+\+BUFFER\+\_\+\+LEN~128}
+
+Number of bytes in receive buffer, must be at least the size of the longest incoming topic + 8 If one wants to avoid fragmented incoming publish, set length to max incoming topic length + max payload length + 8 

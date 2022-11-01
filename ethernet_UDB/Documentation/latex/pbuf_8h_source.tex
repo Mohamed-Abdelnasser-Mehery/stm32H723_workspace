@@ -1,0 +1,208 @@
+\hypertarget{pbuf_8h_source}{}\doxysection{pbuf.\+h}
+\label{pbuf_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/pbuf.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/pbuf.h}}
+\mbox{\hyperlink{pbuf_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_PBUF\_H}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define LWIP\_HDR\_PBUF\_H}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{45 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#ifndef LWIP\_SUPPORT\_CUSTOM\_PBUF}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define LWIP\_SUPPORT\_CUSTOM\_PBUF ((IP\_FRAG \&\& !LWIP\_NETIF\_TX\_SINGLE\_PBUF) || (LWIP\_IPV6 \&\& LWIP\_IPV6\_FRAG))}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#ifndef PBUF\_NEEDS\_COPY}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define PBUF\_NEEDS\_COPY(p)  ((p)-\/>type\_internal \& PBUF\_TYPE\_FLAG\_DATA\_VOLATILE)}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PBUF\_NEEDS\_COPY */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{comment}{/* @todo: We need a mechanism to prevent wasting memory in every pbuf}}
+\DoxyCodeLine{76 \textcolor{comment}{   (TCP vs. UDP, IPv4 vs. IPv6: UDP/IPv4 packets may waste up to 28 bytes) */}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define PBUF\_TRANSPORT\_HLEN 20}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define PBUF\_IP\_HLEN        40}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define PBUF\_IP\_HLEN        20}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{89 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{93   \mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa2ded3594a3977f8bf9cf09552be327b5}{PBUF\_TRANSPORT}} = \mbox{\hyperlink{group__lwip__opts__pbuf_ga6e1ba1875ae5168a17b53d83597bc1de}{PBUF\_LINK\_ENCAPSULATION\_HLEN}} + \mbox{\hyperlink{group__lwip__opts__pbuf_ga35998a3d56af9940e6a80bb372597685}{PBUF\_LINK\_HLEN}} + PBUF\_IP\_HLEN + PBUF\_TRANSPORT\_HLEN,}
+\DoxyCodeLine{97   \mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfafcc1e506061ba69dfa142eb6b3da5f13}{PBUF\_IP}} = \mbox{\hyperlink{group__lwip__opts__pbuf_ga6e1ba1875ae5168a17b53d83597bc1de}{PBUF\_LINK\_ENCAPSULATION\_HLEN}} + \mbox{\hyperlink{group__lwip__opts__pbuf_ga35998a3d56af9940e6a80bb372597685}{PBUF\_LINK\_HLEN}} + PBUF\_IP\_HLEN,}
+\DoxyCodeLine{102   \mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfab4de441e737330558b609a990cd17346}{PBUF\_LINK}} = \mbox{\hyperlink{group__lwip__opts__pbuf_ga6e1ba1875ae5168a17b53d83597bc1de}{PBUF\_LINK\_ENCAPSULATION\_HLEN}} + \mbox{\hyperlink{group__lwip__opts__pbuf_ga35998a3d56af9940e6a80bb372597685}{PBUF\_LINK\_HLEN}},}
+\DoxyCodeLine{108   \mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa0ff039585f05f9208bcb66c2d37783e2}{PBUF\_RAW\_TX}} = \mbox{\hyperlink{group__lwip__opts__pbuf_ga6e1ba1875ae5168a17b53d83597bc1de}{PBUF\_LINK\_ENCAPSULATION\_HLEN}},}
+\DoxyCodeLine{111   \mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa21116654fbab6d5a4dfeb87a1bb8f0ba}{PBUF\_RAW}} = 0}
+\DoxyCodeLine{112 \} \mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\_layer}};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{comment}{/* Base flags for pbuf\_type definitions: */}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define PBUF\_TYPE\_FLAG\_STRUCT\_DATA\_CONTIGUOUS       0x80}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define PBUF\_TYPE\_FLAG\_DATA\_VOLATILE                0x40}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define PBUF\_TYPE\_ALLOC\_SRC\_MASK                    0x0F}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define PBUF\_ALLOC\_FLAG\_RX                          0x0100}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define PBUF\_ALLOC\_FLAG\_DATA\_CONTIGUOUS             0x0200}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define PBUF\_TYPE\_ALLOC\_SRC\_MASK\_STD\_HEAP           0x00}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define PBUF\_TYPE\_ALLOC\_SRC\_MASK\_STD\_MEMP\_PBUF      0x01}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define PBUF\_TYPE\_ALLOC\_SRC\_MASK\_STD\_MEMP\_PBUF\_POOL 0x02}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define PBUF\_TYPE\_ALLOC\_SRC\_MASK\_APP\_MIN            0x03}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define PBUF\_TYPE\_ALLOC\_SRC\_MASK\_APP\_MAX            PBUF\_TYPE\_ALLOC\_SRC\_MASK}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{145 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{152   \mbox{\hyperlink{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac5e9f28455bca98944a030d4b84ecfab}{PBUF\_RAM}} = (\mbox{\hyperlink{pbuf_8h_a426883d928f8f3e8fd066e616159d78f}{PBUF\_ALLOC\_FLAG\_DATA\_CONTIGUOUS}} | \mbox{\hyperlink{pbuf_8h_a49ab2c0662378f268ed8209bd54aaedf}{PBUF\_TYPE\_FLAG\_STRUCT\_DATA\_CONTIGUOUS}} | PBUF\_TYPE\_ALLOC\_SRC\_MASK\_STD\_HEAP),}
+\DoxyCodeLine{156   \mbox{\hyperlink{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac120b0fe39efe35bb682e4aa3b82e2c9}{PBUF\_ROM}} = PBUF\_TYPE\_ALLOC\_SRC\_MASK\_STD\_MEMP\_PBUF,}
+\DoxyCodeLine{160   \mbox{\hyperlink{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbac9b6ba960fdea6f2e8f35c8313b77e4e}{PBUF\_REF}} = (\mbox{\hyperlink{pbuf_8h_a02789ca67766def65000b58f7fe7d03b}{PBUF\_TYPE\_FLAG\_DATA\_VOLATILE}} | PBUF\_TYPE\_ALLOC\_SRC\_MASK\_STD\_MEMP\_PBUF),}
+\DoxyCodeLine{167   \mbox{\hyperlink{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbae969347127387b9b59a23ccd24b76d21}{PBUF\_POOL}} = (\mbox{\hyperlink{pbuf_8h_a567a0dfa01b0e5540f9416a200ed163f}{PBUF\_ALLOC\_FLAG\_RX}} | \mbox{\hyperlink{pbuf_8h_a49ab2c0662378f268ed8209bd54aaedf}{PBUF\_TYPE\_FLAG\_STRUCT\_DATA\_CONTIGUOUS}} | PBUF\_TYPE\_ALLOC\_SRC\_MASK\_STD\_MEMP\_PBUF\_POOL)}
+\DoxyCodeLine{168 \} \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\_type}};}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 }
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#define PBUF\_FLAG\_PUSH      0x01U}}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#define PBUF\_FLAG\_IS\_CUSTOM 0x02U}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define PBUF\_FLAG\_MCASTLOOP 0x04U}}
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#define PBUF\_FLAG\_LLBCAST   0x08U}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#define PBUF\_FLAG\_LLMCAST   0x10U}}
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#define PBUF\_FLAG\_TCP\_FIN   0x20U}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{186 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} \{}
+\DoxyCodeLine{188   \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *\mbox{\hyperlink{structpbuf_a31ec1ec7a950f5c2d04b7982e43569a4}{next}};}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{191   \textcolor{keywordtype}{void} *\mbox{\hyperlink{structpbuf_a9eff55064941fb604452abb0050ea99d}{payload}};}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{200   u16\_t \mbox{\hyperlink{structpbuf_a0da5e2fdea39b8b93fed9c9dfbf4ed3a}{tot\_len}};}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{203   u16\_t \mbox{\hyperlink{structpbuf_a8ce64dec181e5de8d865dee387e25f76}{len}};}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{208   u8\_t \mbox{\hyperlink{structpbuf_a176b75c79d2e9e14cd31f12a84a361d2}{type\_internal}};}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{211   u8\_t \mbox{\hyperlink{structpbuf_acdbb1031079f6bcd67096ea22e82edb4}{flags}};}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{218   \mbox{\hyperlink{group__lwip__opts__pbuf_gaaefb80d6bf9257c0f4322c36e1272c38}{LWIP\_PBUF\_REF\_T}} \mbox{\hyperlink{structpbuf_a219ea4d7c344b7d080d883e412291459}{ref}};}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{221   u8\_t \mbox{\hyperlink{structpbuf_a1660c3be24992add89afe62eb0e1c062}{if\_idx}};}
+\DoxyCodeLine{222 \};}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 }
+\DoxyCodeLine{229 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf__rom}{pbuf\_rom}} \{}
+\DoxyCodeLine{231   \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *\mbox{\hyperlink{structpbuf__rom_a31ec1ec7a950f5c2d04b7982e43569a4}{next}};}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{234   \textcolor{keyword}{const} \textcolor{keywordtype}{void} *\mbox{\hyperlink{structpbuf__rom_ab558ffccace0b535c8ab0e15b1134f24}{payload}};}
+\DoxyCodeLine{235 \};}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#if LWIP\_SUPPORT\_CUSTOM\_PBUF}}
+\DoxyCodeLine{239 \textcolor{keyword}{typedef} void (*pbuf\_free\_custom\_fn)(\textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{242 \textcolor{keyword}{struct }pbuf\_custom \{}
+\DoxyCodeLine{244   \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} \mbox{\hyperlink{structpbuf}{pbuf}};}
+\DoxyCodeLine{246   pbuf\_free\_custom\_fn custom\_free\_function;}
+\DoxyCodeLine{247 \};}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SUPPORT\_CUSTOM\_PBUF */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{251 \textcolor{preprocessor}{\#ifndef PBUF\_POOL\_FREE\_OOSEQ}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#define PBUF\_POOL\_FREE\_OOSEQ 1}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PBUF\_POOL\_FREE\_OOSEQ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#if LWIP\_TCP \&\& TCP\_QUEUE\_OOSEQ \&\& NO\_SYS \&\& PBUF\_POOL\_FREE\_OOSEQ}}
+\DoxyCodeLine{255 \textcolor{keyword}{extern} \textcolor{keyword}{volatile} u8\_t pbuf\_free\_ooseq\_pending;}
+\DoxyCodeLine{256 \textcolor{keywordtype}{void} pbuf\_free\_ooseq(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#define PBUF\_CHECK\_FREE\_OOSEQ() do \{ if(pbuf\_free\_ooseq\_pending) \{ \(\backslash\)}}
+\DoxyCodeLine{261 \textcolor{preprocessor}{  }\textcolor{comment}{/* pbuf\_alloc() reported PBUF\_POOL to be empty -\/> try to free some \(\backslash\)}}
+\DoxyCodeLine{262 \textcolor{comment}{     ooseq queued pbufs now */}\textcolor{preprocessor}{ \(\backslash\)}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{  pbuf\_free\_ooseq(); \}\}while(0)}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_TCP \&\& TCP\_QUEUE\_OOSEQ \&\& NO\_SYS \&\& PBUF\_POOL\_FREE\_OOSEQ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{265   \textcolor{comment}{/* Otherwise declare an empty PBUF\_CHECK\_FREE\_OOSEQ */}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{  \#define PBUF\_CHECK\_FREE\_OOSEQ()}}
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCP \&\& TCP\_QUEUE\_OOSEQ \&\& NO\_SYS \&\& PBUF\_POOL\_FREE\_OOSEQ*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269 \textcolor{comment}{/* Initializes the pbuf module. This call is empty for now, but may not be in future. */}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#define pbuf\_init()}}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *\mbox{\hyperlink{group__pbuf_ga8bb9c5d54a06995b1c67ce695ead9969}{pbuf\_alloc}}(\mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\_layer}} l, u16\_t length, \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\_type}} type);}
+\DoxyCodeLine{273 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *\mbox{\hyperlink{group__pbuf_ga6cff29c18a60a7f2828457fa61e3accb}{pbuf\_alloc\_reference}}(\textcolor{keywordtype}{void} *\mbox{\hyperlink{structpbuf_a9eff55064941fb604452abb0050ea99d}{payload}}, u16\_t length, \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\_type}} type);}
+\DoxyCodeLine{274 \textcolor{preprocessor}{\#if LWIP\_SUPPORT\_CUSTOM\_PBUF}}
+\DoxyCodeLine{275 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *pbuf\_alloced\_custom(\mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\_layer}} l, u16\_t length, \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\_type}} type,}
+\DoxyCodeLine{276                                  \textcolor{keyword}{struct} pbuf\_custom *p, \textcolor{keywordtype}{void} *payload\_mem,}
+\DoxyCodeLine{277                                  u16\_t payload\_mem\_len);}
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SUPPORT\_CUSTOM\_PBUF */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{279 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__pbuf_ga50abfe830a33a1a47a562febee66015d}{pbuf\_realloc}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, u16\_t size);}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#define pbuf\_get\_allocsrc(p)          ((p)-\/>type\_internal \& PBUF\_TYPE\_ALLOC\_SRC\_MASK)}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#define pbuf\_match\_allocsrc(p, type)  (pbuf\_get\_allocsrc(p) == ((type) \& PBUF\_TYPE\_ALLOC\_SRC\_MASK))}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{\#define pbuf\_match\_type(p, type)      pbuf\_match\_allocsrc(p, type)}}
+\DoxyCodeLine{283 u8\_t \mbox{\hyperlink{pbuf_8h_aaa17c1951cf2d207b6adfd3947d91f00}{pbuf\_header}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, s16\_t header\_size);}
+\DoxyCodeLine{284 u8\_t \mbox{\hyperlink{pbuf_8h_a27480c41c34021d4417691d327163626}{pbuf\_header\_force}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, s16\_t header\_size);}
+\DoxyCodeLine{285 u8\_t \mbox{\hyperlink{pbuf_8h_a32dc14bd88dcafa25e627ab18e801815}{pbuf\_add\_header}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keywordtype}{size\_t} header\_size\_increment);}
+\DoxyCodeLine{286 u8\_t \mbox{\hyperlink{pbuf_8h_ad4ef8c5fbbd1447db04f8f73923e7dee}{pbuf\_add\_header\_force}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keywordtype}{size\_t} header\_size\_increment);}
+\DoxyCodeLine{287 u8\_t \mbox{\hyperlink{pbuf_8h_ab65da7cd8f7449b3b2e57d7fa1a74ef4}{pbuf\_remove\_header}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keywordtype}{size\_t} header\_size);}
+\DoxyCodeLine{288 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *\mbox{\hyperlink{pbuf_8h_ab0a834127db093fcb6ffc48d966de318}{pbuf\_free\_header}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *q, u16\_t size);}
+\DoxyCodeLine{289 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__pbuf_ga77f6bbd69e45e542014d9c547c7da74e}{pbuf\_ref}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{290 u8\_t \mbox{\hyperlink{group__pbuf_gab0dd696fb4b6bc65e548944584f1738b}{pbuf\_free}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{291 u16\_t \mbox{\hyperlink{pbuf_8h_a5df7ac5ae59012fe9aeddba375a72190}{pbuf\_clen}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{292 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__pbuf_ga82429084fe29015509c9b4a072707cd4}{pbuf\_cat}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *head, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *tail);}
+\DoxyCodeLine{293 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__pbuf_ga831c9a72bda1d3bd4c7b96f5a0e3b891}{pbuf\_chain}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *head, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *tail);}
+\DoxyCodeLine{294 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *\mbox{\hyperlink{pbuf_8h_ace8aac12c3ebe16262c2202bd5eb02ab}{pbuf\_dechain}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{295 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{group__pbuf_gaba88511dee3df4b631fde691f421320d}{pbuf\_copy}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p\_to, \textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p\_from);}
+\DoxyCodeLine{296 u16\_t \mbox{\hyperlink{group__pbuf_gac2f1f58fd36042e82af46f5015720899}{pbuf\_copy\_partial}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keywordtype}{void} *dataptr, u16\_t \mbox{\hyperlink{structpbuf_a8ce64dec181e5de8d865dee387e25f76}{len}}, u16\_t offset);}
+\DoxyCodeLine{297 \textcolor{keywordtype}{void} *\mbox{\hyperlink{group__pbuf_ga6da6c83929df1b736b107e89faa8a8a2}{pbuf\_get\_contiguous}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keywordtype}{void} *buffer, \textcolor{keywordtype}{size\_t} bufsize, u16\_t \mbox{\hyperlink{structpbuf_a8ce64dec181e5de8d865dee387e25f76}{len}}, u16\_t offset);}
+\DoxyCodeLine{298 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{group__pbuf_gad1e31e370271335b197272af2724ca85}{pbuf\_take}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *buf, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *dataptr, u16\_t \mbox{\hyperlink{structpbuf_a8ce64dec181e5de8d865dee387e25f76}{len}});}
+\DoxyCodeLine{299 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{group__pbuf_gae1cf2bf7454ff87ff377b0b2262f9b44}{pbuf\_take\_at}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *buf, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *dataptr, u16\_t \mbox{\hyperlink{structpbuf_a8ce64dec181e5de8d865dee387e25f76}{len}}, u16\_t offset);}
+\DoxyCodeLine{300 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *\mbox{\hyperlink{group__pbuf_gabe4dfb2409c87a7c52c9a22a779f92e9}{pbuf\_skip}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}}* in, u16\_t in\_offset, u16\_t* out\_offset);}
+\DoxyCodeLine{301 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *\mbox{\hyperlink{group__pbuf_ga031469589fa95ece3bf1c136d1509eac}{pbuf\_coalesce}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\_layer}} layer);}
+\DoxyCodeLine{302 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *\mbox{\hyperlink{group__pbuf_gac6842a5d8268606f9608bae15d652a22}{pbuf\_clone}}(\mbox{\hyperlink{group__pbuf_gaee1baa59bb2f85ba575b5a8619ac1ebf}{pbuf\_layer}} l, \mbox{\hyperlink{group__pbuf_gab7e0e32fcc292c0d7107721766ed92fb}{pbuf\_type}} type, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{303 \textcolor{preprocessor}{\#if LWIP\_CHECKSUM\_ON\_COPY}}
+\DoxyCodeLine{304 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} pbuf\_fill\_chksum(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, u16\_t start\_offset, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *dataptr,}
+\DoxyCodeLine{305                        u16\_t \mbox{\hyperlink{structpbuf_a8ce64dec181e5de8d865dee387e25f76}{len}}, u16\_t *chksum);}
+\DoxyCodeLine{306 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_CHECKSUM\_ON\_COPY */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#if LWIP\_TCP \&\& TCP\_QUEUE\_OOSEQ \&\& LWIP\_WND\_SCALE}}
+\DoxyCodeLine{308 \textcolor{keywordtype}{void} pbuf\_split\_64k(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} **rest);}
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCP \&\& TCP\_QUEUE\_OOSEQ \&\& LWIP\_WND\_SCALE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311 u8\_t \mbox{\hyperlink{group__pbuf_ga6d803d9945bffb7ad97743f2fa503da6}{pbuf\_get\_at}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}}* p, u16\_t offset);}
+\DoxyCodeLine{312 \textcolor{keywordtype}{int} \mbox{\hyperlink{group__pbuf_ga839f342803b0cf89049744124c5a98ad}{pbuf\_try\_get\_at}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}}* p, u16\_t offset);}
+\DoxyCodeLine{313 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__pbuf_gaf76863707dc02993eae116574b1ea03f}{pbuf\_put\_at}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}}* p, u16\_t offset, u8\_t data);}
+\DoxyCodeLine{314 u16\_t \mbox{\hyperlink{group__pbuf_ga2170ccbbb13238380dbb203ee1b85974}{pbuf\_memcmp}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}}* p, u16\_t offset, \textcolor{keyword}{const} \textcolor{keywordtype}{void}* s2, u16\_t n);}
+\DoxyCodeLine{315 u16\_t \mbox{\hyperlink{group__pbuf_ga18c164a6e4a24d89ea9eb7571a886448}{pbuf\_memfind}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}}* p, \textcolor{keyword}{const} \textcolor{keywordtype}{void}* \mbox{\hyperlink{structmem}{mem}}, u16\_t mem\_len, u16\_t start\_offset);}
+\DoxyCodeLine{316 u16\_t \mbox{\hyperlink{pbuf_8h_a9ba3f7b705309ceadb147692fd5a1c7d}{pbuf\_strstr}}(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}}* p, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* substr);}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{319 \}}
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_PBUF\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

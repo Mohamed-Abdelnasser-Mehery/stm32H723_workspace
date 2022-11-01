@@ -1,0 +1,232 @@
+\hypertarget{group__lwip__opts__tcp}{}\doxysection{TCP}
+\label{group__lwip__opts__tcp}\index{TCP@{TCP}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_gaa4ed98deb97b77c633cb8870f34c71e9}{LWIP\+\_\+\+TCP}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_gacd5b25ea81d2894790d25da5393cdab4}{TCP\+\_\+\+TTL}}~\mbox{\hyperlink{group__lwip__opts__ipv4_ga556b9b58fd02c0fdd126791baef77411}{IP\+\_\+\+DEFAULT\+\_\+\+TTL}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga7f535a6efb5cdf86c3210e35ece1d6a7}{TCP\+\_\+\+WND}}~(4 $\ast$ \mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga0dee0911197855bdf19ef79778c241a6}{TCP\+\_\+\+MAXRTX}}~12
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga50b434a8541a4813f7b27f576c05d1b6}{TCP\+\_\+\+SYNMAXRTX}}~6
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga89ffd0d7d1529bdb26bfbad267d0ad75}{TCP\+\_\+\+QUEUE\+\_\+\+OOSEQ}}~\mbox{\hyperlink{group__lwip__opts__tcp_gaa4ed98deb97b77c633cb8870f34c71e9}{LWIP\+\_\+\+TCP}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_gaf1b6a015d29fea67b906c276e1e8314f}{LWIP\+\_\+\+TCP\+\_\+\+SACK\+\_\+\+OUT}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_gaaac0e9f559a8e3c251f3504cebcf44dc}{LWIP\+\_\+\+TCP\+\_\+\+MAX\+\_\+\+SACK\+\_\+\+NUM}}~4
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}}~536
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_gac04b84d32251ac558f0c3a8af85ba3a5}{TCP\+\_\+\+CALCULATE\+\_\+\+EFF\+\_\+\+SEND\+\_\+\+MSS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga871d111968d8c6c7880ff36b93c5c4dd}{TCP\+\_\+\+SND\+\_\+\+BUF}}~(2 $\ast$ \mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga9beaa47832ead4180981bfbf71074904}{TCP\+\_\+\+SND\+\_\+\+QUEUELEN}}~((4 $\ast$ (\mbox{\hyperlink{group__lwip__opts__tcp_ga871d111968d8c6c7880ff36b93c5c4dd}{TCP\+\_\+\+SND\+\_\+\+BUF}}) + (\mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}} -\/ 1))/(\mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}}))
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_gae5c9866d7cd463ac7b36792182145aec}{TCP\+\_\+\+SNDLOWAT}}~LWIP\+\_\+\+MIN(LWIP\+\_\+\+MAX(((\mbox{\hyperlink{group__lwip__opts__tcp_ga871d111968d8c6c7880ff36b93c5c4dd}{TCP\+\_\+\+SND\+\_\+\+BUF}})/2), (2 $\ast$ \mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}}) + 1), (\mbox{\hyperlink{group__lwip__opts__tcp_ga871d111968d8c6c7880ff36b93c5c4dd}{TCP\+\_\+\+SND\+\_\+\+BUF}}) -\/ 1)
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga75659867592a6b01c198532ed1b65698}{TCP\+\_\+\+SNDQUEUELOWAT}}~LWIP\+\_\+\+MAX(((TCP\+\_\+\+SND\+\_\+\+QUEUELEN)/2), 5)
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga9d6d3219bb5fc0bc760a64114de13c25}{TCP\+\_\+\+OOSEQ\+\_\+\+MAX\+\_\+\+BYTES}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga1f57d3859c4556f785708e5dc440617e}{TCP\+\_\+\+OOSEQ\+\_\+\+MAX\+\_\+\+PBUFS}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga98b23e7cbd3281915c50a485cb61899d}{TCP\+\_\+\+LISTEN\+\_\+\+BACKLOG}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga93cce3f47e33df11248c908d1775bacf}{TCP\+\_\+\+DEFAULT\+\_\+\+LISTEN\+\_\+\+BACKLOG}}~0xff
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga5648e2580bb55c0efdfbebcf3bad1eef}{TCP\+\_\+\+OVERSIZE}}~\mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga249bc450bb818cf2ef3cf1472ff354fd}{LWIP\+\_\+\+TCP\+\_\+\+TIMESTAMPS}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga5d45732ba3a8438b141096d86e07ef8d}{TCP\+\_\+\+WND\+\_\+\+UPDATE\+\_\+\+THRESHOLD}}~LWIP\+\_\+\+MIN((\mbox{\hyperlink{group__lwip__opts__tcp_ga7f535a6efb5cdf86c3210e35ece1d6a7}{TCP\+\_\+\+WND}} / 4), (\mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}} $\ast$ 4))
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga39f76e811117155be8525bb386ecddb7}{LWIP\+\_\+\+EVENT\+\_\+\+API}}~0
+\item 
+\mbox{\Hypertarget{group__lwip__opts__tcp_ga2ca03bfa6f604ba536e38ccfdbdf9c8d}\label{group__lwip__opts__tcp_ga2ca03bfa6f604ba536e38ccfdbdf9c8d}} 
+\#define {\bfseries LWIP\+\_\+\+CALLBACK\+\_\+\+API}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga88dbbfeeeb41b129fdc8235fc08bb530}{LWIP\+\_\+\+WND\+\_\+\+SCALE}}~0
+\item 
+\mbox{\Hypertarget{group__lwip__opts__tcp_ga768765a2c678fefeca6c89aae0cf629f}\label{group__lwip__opts__tcp_ga768765a2c678fefeca6c89aae0cf629f}} 
+\#define {\bfseries TCP\+\_\+\+RCV\+\_\+\+SCALE}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga40b1cdad52eaa91a3f5c242fc92ee223}{LWIP\+\_\+\+TCP\+\_\+\+PCB\+\_\+\+NUM\+\_\+\+EXT\+\_\+\+ARGS}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_ga26dee0e5d9c51b1dda0adad29c770a77}{LWIP\+\_\+\+ALTCP}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__tcp_gab03ba0306cf0a99ccce3d100142f60c8}{LWIP\+\_\+\+ALTCP\+\_\+\+TLS}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__tcp_ga26dee0e5d9c51b1dda0adad29c770a77}\label{group__lwip__opts__tcp_ga26dee0e5d9c51b1dda0adad29c770a77}} 
+\index{TCP@{TCP}!LWIP\_ALTCP@{LWIP\_ALTCP}}
+\index{LWIP\_ALTCP@{LWIP\_ALTCP}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ALTCP}{LWIP\_ALTCP}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ALTCP~0}
+
+LWIP\+\_\+\+ALTCP==1\+: enable the altcp API. altcp is an abstraction layer that prevents applications linking against the tcp.\+h functions but provides the same functionality. It is used to e.\+g. add SSL/\+TLS or proxy-\/connect support to an application written for the tcp callback API without that application knowing the protocol details.
+
+With LWIP\+\_\+\+ALTCP==0, applications written against the altcp API can still be compiled but are directly linked against the tcp.\+h callback API and then cannot use layered protocols.
+
+See \mbox{\hyperlink{group__altcp__api}{Application layered TCP Introduction}} \mbox{\Hypertarget{group__lwip__opts__tcp_gab03ba0306cf0a99ccce3d100142f60c8}\label{group__lwip__opts__tcp_gab03ba0306cf0a99ccce3d100142f60c8}} 
+\index{TCP@{TCP}!LWIP\_ALTCP\_TLS@{LWIP\_ALTCP\_TLS}}
+\index{LWIP\_ALTCP\_TLS@{LWIP\_ALTCP\_TLS}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ALTCP\_TLS}{LWIP\_ALTCP\_TLS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ALTCP\+\_\+\+TLS~0}
+
+LWIP\+\_\+\+ALTCP\+\_\+\+TLS==1\+: enable TLS support for altcp API. This needs a port of the functions in \mbox{\hyperlink{altcp__tls_8h}{altcp\+\_\+tls.\+h}} to a TLS library. A port to ARM mbedtls is provided with lw\+IP, see apps/altcp\+\_\+tls/ directory and LWIP\+\_\+\+ALTCP\+\_\+\+TLS\+\_\+\+MBEDTLS option. \mbox{\Hypertarget{group__lwip__opts__tcp_ga39f76e811117155be8525bb386ecddb7}\label{group__lwip__opts__tcp_ga39f76e811117155be8525bb386ecddb7}} 
+\index{TCP@{TCP}!LWIP\_EVENT\_API@{LWIP\_EVENT\_API}}
+\index{LWIP\_EVENT\_API@{LWIP\_EVENT\_API}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_EVENT\_API}{LWIP\_EVENT\_API}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+EVENT\+\_\+\+API~0}
+
+LWIP\+\_\+\+EVENT\+\_\+\+API and LWIP\+\_\+\+CALLBACK\+\_\+\+API\+: Only one of these should be set to 1. LWIP\+\_\+\+EVENT\+\_\+\+API==1\+: The user defines lwip\+\_\+tcp\+\_\+event() to receive all events (accept, sent, etc) that happen in the system. LWIP\+\_\+\+CALLBACK\+\_\+\+API==1\+: The PCB callback function is called directly for the event. This is the default. \mbox{\Hypertarget{group__lwip__opts__tcp_gaa4ed98deb97b77c633cb8870f34c71e9}\label{group__lwip__opts__tcp_gaa4ed98deb97b77c633cb8870f34c71e9}} 
+\index{TCP@{TCP}!LWIP\_TCP@{LWIP\_TCP}}
+\index{LWIP\_TCP@{LWIP\_TCP}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCP}{LWIP\_TCP}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TCP~1}
+
+LWIP\+\_\+\+TCP==1\+: Turn on TCP. \mbox{\Hypertarget{group__lwip__opts__tcp_gaaac0e9f559a8e3c251f3504cebcf44dc}\label{group__lwip__opts__tcp_gaaac0e9f559a8e3c251f3504cebcf44dc}} 
+\index{TCP@{TCP}!LWIP\_TCP\_MAX\_SACK\_NUM@{LWIP\_TCP\_MAX\_SACK\_NUM}}
+\index{LWIP\_TCP\_MAX\_SACK\_NUM@{LWIP\_TCP\_MAX\_SACK\_NUM}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCP\_MAX\_SACK\_NUM}{LWIP\_TCP\_MAX\_SACK\_NUM}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TCP\+\_\+\+MAX\+\_\+\+SACK\+\_\+\+NUM~4}
+
+LWIP\+\_\+\+TCP\+\_\+\+MAX\+\_\+\+SACK\+\_\+\+NUM\+: The maximum number of SACK values to include in TCP segments. Must be at least 1, but is only used if LWIP\+\_\+\+TCP\+\_\+\+SACK\+\_\+\+OUT is enabled. NOTE\+: Even though we never send more than 3 or 4 SACK ranges in a single segment (depending on other options), setting this option to values greater than 4 is not pointless. This is basically the max number of SACK ranges we want to keep track of. As new data is delivered, some of the SACK ranges may be removed or merged. In that case some of those older SACK ranges may be used again. The amount of memory used to store SACK ranges is LWIP\+\_\+\+TCP\+\_\+\+MAX\+\_\+\+SACK\+\_\+\+NUM $\ast$ 8 bytes for each TCP PCB. \mbox{\Hypertarget{group__lwip__opts__tcp_ga40b1cdad52eaa91a3f5c242fc92ee223}\label{group__lwip__opts__tcp_ga40b1cdad52eaa91a3f5c242fc92ee223}} 
+\index{TCP@{TCP}!LWIP\_TCP\_PCB\_NUM\_EXT\_ARGS@{LWIP\_TCP\_PCB\_NUM\_EXT\_ARGS}}
+\index{LWIP\_TCP\_PCB\_NUM\_EXT\_ARGS@{LWIP\_TCP\_PCB\_NUM\_EXT\_ARGS}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCP\_PCB\_NUM\_EXT\_ARGS}{LWIP\_TCP\_PCB\_NUM\_EXT\_ARGS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TCP\+\_\+\+PCB\+\_\+\+NUM\+\_\+\+EXT\+\_\+\+ARGS~0}
+
+LWIP\+\_\+\+TCP\+\_\+\+PCB\+\_\+\+NUM\+\_\+\+EXT\+\_\+\+ARGS\+: When this is \texorpdfstring{$>$}{>} 0, every tcp pcb (including listen pcb) includes a number of additional argument entries in an array (see tcp\+\_\+ext\+\_\+arg\+\_\+alloc\+\_\+id) \mbox{\Hypertarget{group__lwip__opts__tcp_gaf1b6a015d29fea67b906c276e1e8314f}\label{group__lwip__opts__tcp_gaf1b6a015d29fea67b906c276e1e8314f}} 
+\index{TCP@{TCP}!LWIP\_TCP\_SACK\_OUT@{LWIP\_TCP\_SACK\_OUT}}
+\index{LWIP\_TCP\_SACK\_OUT@{LWIP\_TCP\_SACK\_OUT}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCP\_SACK\_OUT}{LWIP\_TCP\_SACK\_OUT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TCP\+\_\+\+SACK\+\_\+\+OUT~0}
+
+LWIP\+\_\+\+TCP\+\_\+\+SACK\+\_\+\+OUT==1\+: TCP will support sending selective acknowledgements (SACKs). \mbox{\Hypertarget{group__lwip__opts__tcp_ga249bc450bb818cf2ef3cf1472ff354fd}\label{group__lwip__opts__tcp_ga249bc450bb818cf2ef3cf1472ff354fd}} 
+\index{TCP@{TCP}!LWIP\_TCP\_TIMESTAMPS@{LWIP\_TCP\_TIMESTAMPS}}
+\index{LWIP\_TCP\_TIMESTAMPS@{LWIP\_TCP\_TIMESTAMPS}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCP\_TIMESTAMPS}{LWIP\_TCP\_TIMESTAMPS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TCP\+\_\+\+TIMESTAMPS~0}
+
+LWIP\+\_\+\+TCP\+\_\+\+TIMESTAMPS==1\+: support the TCP timestamp option. The timestamp option is currently only used to help remote hosts, it is not really used locally. Therefore, it is only enabled when a TS option is received in the initial SYN packet from a remote host. \mbox{\Hypertarget{group__lwip__opts__tcp_ga88dbbfeeeb41b129fdc8235fc08bb530}\label{group__lwip__opts__tcp_ga88dbbfeeeb41b129fdc8235fc08bb530}} 
+\index{TCP@{TCP}!LWIP\_WND\_SCALE@{LWIP\_WND\_SCALE}}
+\index{LWIP\_WND\_SCALE@{LWIP\_WND\_SCALE}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{LWIP\_WND\_SCALE}{LWIP\_WND\_SCALE}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+WND\+\_\+\+SCALE~0}
+
+LWIP\+\_\+\+WND\+\_\+\+SCALE and TCP\+\_\+\+RCV\+\_\+\+SCALE\+: Set LWIP\+\_\+\+WND\+\_\+\+SCALE to 1 to enable window scaling. Set TCP\+\_\+\+RCV\+\_\+\+SCALE to the desired scaling factor (shift count in the range of \mbox{[}0..14\mbox{]}). When LWIP\+\_\+\+WND\+\_\+\+SCALE is enabled but TCP\+\_\+\+RCV\+\_\+\+SCALE is 0, we can use a large send window while having a small receive window only. \mbox{\Hypertarget{group__lwip__opts__tcp_gac04b84d32251ac558f0c3a8af85ba3a5}\label{group__lwip__opts__tcp_gac04b84d32251ac558f0c3a8af85ba3a5}} 
+\index{TCP@{TCP}!TCP\_CALCULATE\_EFF\_SEND\_MSS@{TCP\_CALCULATE\_EFF\_SEND\_MSS}}
+\index{TCP\_CALCULATE\_EFF\_SEND\_MSS@{TCP\_CALCULATE\_EFF\_SEND\_MSS}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_CALCULATE\_EFF\_SEND\_MSS}{TCP\_CALCULATE\_EFF\_SEND\_MSS}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+CALCULATE\+\_\+\+EFF\+\_\+\+SEND\+\_\+\+MSS~1}
+
+TCP\+\_\+\+CALCULATE\+\_\+\+EFF\+\_\+\+SEND\+\_\+\+MSS\+: \char`\"{}\+The maximum size of a segment that TCP really sends, the \textquotesingle{}effective send MSS,\textquotesingle{} MUST be the smaller of the send MSS (which reflects the available reassembly buffer size at the remote host) and the largest size permitted by the IP layer\char`\"{} (RFC 1122) Setting this to 1 enables code that checks TCP\+\_\+\+MSS against the MTU of the netif used for a connection and limits the MSS if it would be too big otherwise. \mbox{\Hypertarget{group__lwip__opts__tcp_ga93cce3f47e33df11248c908d1775bacf}\label{group__lwip__opts__tcp_ga93cce3f47e33df11248c908d1775bacf}} 
+\index{TCP@{TCP}!TCP\_DEFAULT\_LISTEN\_BACKLOG@{TCP\_DEFAULT\_LISTEN\_BACKLOG}}
+\index{TCP\_DEFAULT\_LISTEN\_BACKLOG@{TCP\_DEFAULT\_LISTEN\_BACKLOG}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_DEFAULT\_LISTEN\_BACKLOG}{TCP\_DEFAULT\_LISTEN\_BACKLOG}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+DEFAULT\+\_\+\+LISTEN\+\_\+\+BACKLOG~0xff}
+
+The maximum allowed backlog for TCP listen netconns. This backlog is used unless another is explicitly specified. 0xff is the maximum (u8\+\_\+t). \mbox{\Hypertarget{group__lwip__opts__tcp_ga98b23e7cbd3281915c50a485cb61899d}\label{group__lwip__opts__tcp_ga98b23e7cbd3281915c50a485cb61899d}} 
+\index{TCP@{TCP}!TCP\_LISTEN\_BACKLOG@{TCP\_LISTEN\_BACKLOG}}
+\index{TCP\_LISTEN\_BACKLOG@{TCP\_LISTEN\_BACKLOG}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_LISTEN\_BACKLOG}{TCP\_LISTEN\_BACKLOG}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+LISTEN\+\_\+\+BACKLOG~0}
+
+TCP\+\_\+\+OOSEQ\+\_\+\+PBUFS\+\_\+\+LIMIT(pcb)\+: Return the maximum number of pbufs to be queued on ooseq per pcb, given the pcb. Only valid for TCP\+\_\+\+QUEUE\+\_\+\+OOSEQ==1 \&\& TCP\+\_\+\+OOSEQ\+\_\+\+MAX\+\_\+\+PBUFS==1. Use this to override TCP\+\_\+\+OOSEQ\+\_\+\+MAX\+\_\+\+PBUFS to a dynamic value per pcb. TCP\+\_\+\+LISTEN\+\_\+\+BACKLOG\+: Enable the backlog option for tcp listen pcb. \mbox{\Hypertarget{group__lwip__opts__tcp_ga0dee0911197855bdf19ef79778c241a6}\label{group__lwip__opts__tcp_ga0dee0911197855bdf19ef79778c241a6}} 
+\index{TCP@{TCP}!TCP\_MAXRTX@{TCP\_MAXRTX}}
+\index{TCP\_MAXRTX@{TCP\_MAXRTX}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_MAXRTX}{TCP\_MAXRTX}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+MAXRTX~12}
+
+TCP\+\_\+\+MAXRTX\+: Maximum number of retransmissions of data segments. \mbox{\Hypertarget{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}\label{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}} 
+\index{TCP@{TCP}!TCP\_MSS@{TCP\_MSS}}
+\index{TCP\_MSS@{TCP\_MSS}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_MSS}{TCP\_MSS}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+MSS~536}
+
+TCP\+\_\+\+MSS\+: TCP Maximum segment size. (default is 536, a conservative default, you might want to increase this.) For the receive side, this MSS is advertised to the remote side when opening a connection. For the transmit size, this MSS sets an upper limit on the MSS advertised by the remote host. \mbox{\Hypertarget{group__lwip__opts__tcp_ga9d6d3219bb5fc0bc760a64114de13c25}\label{group__lwip__opts__tcp_ga9d6d3219bb5fc0bc760a64114de13c25}} 
+\index{TCP@{TCP}!TCP\_OOSEQ\_MAX\_BYTES@{TCP\_OOSEQ\_MAX\_BYTES}}
+\index{TCP\_OOSEQ\_MAX\_BYTES@{TCP\_OOSEQ\_MAX\_BYTES}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_OOSEQ\_MAX\_BYTES}{TCP\_OOSEQ\_MAX\_BYTES}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+OOSEQ\+\_\+\+MAX\+\_\+\+BYTES~0}
+
+TCP\+\_\+\+OOSEQ\+\_\+\+MAX\+\_\+\+BYTES\+: The default maximum number of bytes queued on ooseq per pcb if TCP\+\_\+\+OOSEQ\+\_\+\+BYTES\+\_\+\+LIMIT is not defined. Default is 0 (no limit). Only valid for TCP\+\_\+\+QUEUE\+\_\+\+OOSEQ==1. \mbox{\Hypertarget{group__lwip__opts__tcp_ga1f57d3859c4556f785708e5dc440617e}\label{group__lwip__opts__tcp_ga1f57d3859c4556f785708e5dc440617e}} 
+\index{TCP@{TCP}!TCP\_OOSEQ\_MAX\_PBUFS@{TCP\_OOSEQ\_MAX\_PBUFS}}
+\index{TCP\_OOSEQ\_MAX\_PBUFS@{TCP\_OOSEQ\_MAX\_PBUFS}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_OOSEQ\_MAX\_PBUFS}{TCP\_OOSEQ\_MAX\_PBUFS}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+OOSEQ\+\_\+\+MAX\+\_\+\+PBUFS~0}
+
+TCP\+\_\+\+OOSEQ\+\_\+\+BYTES\+\_\+\+LIMIT(pcb)\+: Return the maximum number of bytes to be queued on ooseq per pcb, given the pcb. Only valid for TCP\+\_\+\+QUEUE\+\_\+\+OOSEQ==1 \&\& TCP\+\_\+\+OOSEQ\+\_\+\+MAX\+\_\+\+BYTES==1. Use this to override TCP\+\_\+\+OOSEQ\+\_\+\+MAX\+\_\+\+BYTES to a dynamic value per pcb. TCP\+\_\+\+OOSEQ\+\_\+\+MAX\+\_\+\+PBUFS\+: The default maximum number of pbufs queued on ooseq per pcb if TCP\+\_\+\+OOSEQ\+\_\+\+BYTES\+\_\+\+LIMIT is not defined. Default is 0 (no limit). Only valid for TCP\+\_\+\+QUEUE\+\_\+\+OOSEQ==1. \mbox{\Hypertarget{group__lwip__opts__tcp_ga5648e2580bb55c0efdfbebcf3bad1eef}\label{group__lwip__opts__tcp_ga5648e2580bb55c0efdfbebcf3bad1eef}} 
+\index{TCP@{TCP}!TCP\_OVERSIZE@{TCP\_OVERSIZE}}
+\index{TCP\_OVERSIZE@{TCP\_OVERSIZE}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_OVERSIZE}{TCP\_OVERSIZE}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+OVERSIZE~\mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}}}
+
+TCP\+\_\+\+OVERSIZE\+: The maximum number of bytes that tcp\+\_\+write may allocate ahead of time in an attempt to create shorter pbuf chains for transmission. The meaningful range is 0 to TCP\+\_\+\+MSS. Some suggested values are\+:
+
+0\+: Disable oversized allocation. Each tcp\+\_\+write() allocates a new pbuf (old behaviour). 1\+: Allocate size-\/aligned pbufs with minimal excess. Use this if your scatter-\/gather DMA requires aligned fragments. 128\+: Limit the pbuf/memory overhead to 20\%. TCP\+\_\+\+MSS\+: Try to create unfragmented TCP packets. TCP\+\_\+\+MSS/4\+: Try to create 4 fragments or less per TCP packet. \mbox{\Hypertarget{group__lwip__opts__tcp_ga89ffd0d7d1529bdb26bfbad267d0ad75}\label{group__lwip__opts__tcp_ga89ffd0d7d1529bdb26bfbad267d0ad75}} 
+\index{TCP@{TCP}!TCP\_QUEUE\_OOSEQ@{TCP\_QUEUE\_OOSEQ}}
+\index{TCP\_QUEUE\_OOSEQ@{TCP\_QUEUE\_OOSEQ}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_QUEUE\_OOSEQ}{TCP\_QUEUE\_OOSEQ}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+QUEUE\+\_\+\+OOSEQ~\mbox{\hyperlink{group__lwip__opts__tcp_gaa4ed98deb97b77c633cb8870f34c71e9}{LWIP\+\_\+\+TCP}}}
+
+TCP\+\_\+\+QUEUE\+\_\+\+OOSEQ==1\+: TCP will queue segments that arrive out of order. Define to 0 if your device is low on memory. \mbox{\Hypertarget{group__lwip__opts__tcp_ga871d111968d8c6c7880ff36b93c5c4dd}\label{group__lwip__opts__tcp_ga871d111968d8c6c7880ff36b93c5c4dd}} 
+\index{TCP@{TCP}!TCP\_SND\_BUF@{TCP\_SND\_BUF}}
+\index{TCP\_SND\_BUF@{TCP\_SND\_BUF}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_SND\_BUF}{TCP\_SND\_BUF}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+SND\+\_\+\+BUF~(2 $\ast$ \mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}})}
+
+TCP\+\_\+\+SND\+\_\+\+BUF\+: TCP sender buffer space (bytes). To achieve good performance, this should be at least 2 $\ast$ TCP\+\_\+\+MSS. \mbox{\Hypertarget{group__lwip__opts__tcp_ga9beaa47832ead4180981bfbf71074904}\label{group__lwip__opts__tcp_ga9beaa47832ead4180981bfbf71074904}} 
+\index{TCP@{TCP}!TCP\_SND\_QUEUELEN@{TCP\_SND\_QUEUELEN}}
+\index{TCP\_SND\_QUEUELEN@{TCP\_SND\_QUEUELEN}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_SND\_QUEUELEN}{TCP\_SND\_QUEUELEN}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+SND\+\_\+\+QUEUELEN~((4 $\ast$ (\mbox{\hyperlink{group__lwip__opts__tcp_ga871d111968d8c6c7880ff36b93c5c4dd}{TCP\+\_\+\+SND\+\_\+\+BUF}}) + (\mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}} -\/ 1))/(\mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}}))}
+
+TCP\+\_\+\+SND\+\_\+\+QUEUELEN\+: TCP sender buffer space (pbufs). This must be at least as much as (2 $\ast$ TCP\+\_\+\+SND\+\_\+\+BUF/\+TCP\+\_\+\+MSS) for things to work. \mbox{\Hypertarget{group__lwip__opts__tcp_gae5c9866d7cd463ac7b36792182145aec}\label{group__lwip__opts__tcp_gae5c9866d7cd463ac7b36792182145aec}} 
+\index{TCP@{TCP}!TCP\_SNDLOWAT@{TCP\_SNDLOWAT}}
+\index{TCP\_SNDLOWAT@{TCP\_SNDLOWAT}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_SNDLOWAT}{TCP\_SNDLOWAT}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+SNDLOWAT~LWIP\+\_\+\+MIN(LWIP\+\_\+\+MAX(((\mbox{\hyperlink{group__lwip__opts__tcp_ga871d111968d8c6c7880ff36b93c5c4dd}{TCP\+\_\+\+SND\+\_\+\+BUF}})/2), (2 $\ast$ \mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}}) + 1), (\mbox{\hyperlink{group__lwip__opts__tcp_ga871d111968d8c6c7880ff36b93c5c4dd}{TCP\+\_\+\+SND\+\_\+\+BUF}}) -\/ 1)}
+
+TCP\+\_\+\+SNDLOWAT\+: TCP writable space (bytes). This must be less than TCP\+\_\+\+SND\+\_\+\+BUF. It is the amount of space which must be available in the TCP snd\+\_\+buf for select to return writable (combined with TCP\+\_\+\+SNDQUEUELOWAT). \mbox{\Hypertarget{group__lwip__opts__tcp_ga75659867592a6b01c198532ed1b65698}\label{group__lwip__opts__tcp_ga75659867592a6b01c198532ed1b65698}} 
+\index{TCP@{TCP}!TCP\_SNDQUEUELOWAT@{TCP\_SNDQUEUELOWAT}}
+\index{TCP\_SNDQUEUELOWAT@{TCP\_SNDQUEUELOWAT}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_SNDQUEUELOWAT}{TCP\_SNDQUEUELOWAT}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+SNDQUEUELOWAT~LWIP\+\_\+\+MAX(((TCP\+\_\+\+SND\+\_\+\+QUEUELEN)/2), 5)}
+
+TCP\+\_\+\+SNDQUEUELOWAT\+: TCP writable bufs (pbuf count). This must be less than TCP\+\_\+\+SND\+\_\+\+QUEUELEN. If the number of pbufs queued on a pcb drops below this number, select returns writable (combined with TCP\+\_\+\+SNDLOWAT). \mbox{\Hypertarget{group__lwip__opts__tcp_ga50b434a8541a4813f7b27f576c05d1b6}\label{group__lwip__opts__tcp_ga50b434a8541a4813f7b27f576c05d1b6}} 
+\index{TCP@{TCP}!TCP\_SYNMAXRTX@{TCP\_SYNMAXRTX}}
+\index{TCP\_SYNMAXRTX@{TCP\_SYNMAXRTX}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_SYNMAXRTX}{TCP\_SYNMAXRTX}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+SYNMAXRTX~6}
+
+TCP\+\_\+\+SYNMAXRTX\+: Maximum number of retransmissions of SYN segments. \mbox{\Hypertarget{group__lwip__opts__tcp_gacd5b25ea81d2894790d25da5393cdab4}\label{group__lwip__opts__tcp_gacd5b25ea81d2894790d25da5393cdab4}} 
+\index{TCP@{TCP}!TCP\_TTL@{TCP\_TTL}}
+\index{TCP\_TTL@{TCP\_TTL}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_TTL}{TCP\_TTL}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+TTL~\mbox{\hyperlink{group__lwip__opts__ipv4_ga556b9b58fd02c0fdd126791baef77411}{IP\+\_\+\+DEFAULT\+\_\+\+TTL}}}
+
+TCP\+\_\+\+TTL\+: Default Time-\/\+To-\/\+Live value. \mbox{\Hypertarget{group__lwip__opts__tcp_ga7f535a6efb5cdf86c3210e35ece1d6a7}\label{group__lwip__opts__tcp_ga7f535a6efb5cdf86c3210e35ece1d6a7}} 
+\index{TCP@{TCP}!TCP\_WND@{TCP\_WND}}
+\index{TCP\_WND@{TCP\_WND}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_WND}{TCP\_WND}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+WND~(4 $\ast$ \mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}})}
+
+TCP\+\_\+\+WND\+: The size of a TCP window. This must be at least (2 $\ast$ TCP\+\_\+\+MSS) for things to work well. ATTENTION\+: when using TCP\+\_\+\+RCV\+\_\+\+SCALE, TCP\+\_\+\+WND is the total size with scaling applied. Maximum window value in the TCP header will be TCP\+\_\+\+WND \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} TCP\+\_\+\+RCV\+\_\+\+SCALE \mbox{\Hypertarget{group__lwip__opts__tcp_ga5d45732ba3a8438b141096d86e07ef8d}\label{group__lwip__opts__tcp_ga5d45732ba3a8438b141096d86e07ef8d}} 
+\index{TCP@{TCP}!TCP\_WND\_UPDATE\_THRESHOLD@{TCP\_WND\_UPDATE\_THRESHOLD}}
+\index{TCP\_WND\_UPDATE\_THRESHOLD@{TCP\_WND\_UPDATE\_THRESHOLD}!TCP@{TCP}}
+\doxysubsubsection{\texorpdfstring{TCP\_WND\_UPDATE\_THRESHOLD}{TCP\_WND\_UPDATE\_THRESHOLD}}
+{\footnotesize\ttfamily \#define TCP\+\_\+\+WND\+\_\+\+UPDATE\+\_\+\+THRESHOLD~LWIP\+\_\+\+MIN((\mbox{\hyperlink{group__lwip__opts__tcp_ga7f535a6efb5cdf86c3210e35ece1d6a7}{TCP\+\_\+\+WND}} / 4), (\mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}} $\ast$ 4))}
+
+TCP\+\_\+\+WND\+\_\+\+UPDATE\+\_\+\+THRESHOLD\+: difference in window to trigger an explicit window update 

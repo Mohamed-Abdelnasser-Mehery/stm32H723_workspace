@@ -1,0 +1,152 @@
+\hypertarget{memp__std_8h_source}{}\doxysection{memp\+\_\+std.\+h}
+\label{memp__std_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/memp\_std.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/memp\_std.h}}
+\mbox{\hyperlink{memp__std_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * SETUP: Make sure we define everything we will need.}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * We have create three types of pools:}}
+\DoxyCodeLine{13 \textcolor{comment}{ *   1) MEMPOOL -\/ standard pools}}
+\DoxyCodeLine{14 \textcolor{comment}{ *   2) MALLOC\_MEMPOOL -\/ to be used by mem\_malloc in mem.c}}
+\DoxyCodeLine{15 \textcolor{comment}{ *   3) PBUF\_MEMPOOL -\/ a mempool of pbuf's, so include space for the pbuf struct}}
+\DoxyCodeLine{16 \textcolor{comment}{ *}}
+\DoxyCodeLine{17 \textcolor{comment}{ * If the include'r doesn't require any special treatment of each of the types}}
+\DoxyCodeLine{18 \textcolor{comment}{ * above, then will declare \#2 \& \#3 to be just standard mempools.}}
+\DoxyCodeLine{19 \textcolor{comment}{ */}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef LWIP\_MALLOC\_MEMPOOL}}
+\DoxyCodeLine{21 \textcolor{comment}{/* This treats "{}malloc pools"{} just like any other pool.}}
+\DoxyCodeLine{22 \textcolor{comment}{   The pools are a little bigger to provide 'size' as the amount of user data. */}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define LWIP\_MALLOC\_MEMPOOL(num, size) LWIP\_MEMPOOL(POOL\_\#\#size, num, (size + LWIP\_MEM\_ALIGN\_SIZE(sizeof(struct memp\_malloc\_helper))), "{}MALLOC\_"{}}\#size)}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define LWIP\_MALLOC\_MEMPOOL\_START}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define LWIP\_MALLOC\_MEMPOOL\_END}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MALLOC\_MEMPOOL */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#ifndef LWIP\_PBUF\_MEMPOOL}}
+\DoxyCodeLine{29 \textcolor{comment}{/* This treats "{}pbuf pools"{} just like any other pool.}}
+\DoxyCodeLine{30 \textcolor{comment}{ * Allocates buffers for a pbuf struct AND a payload size */}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define LWIP\_PBUF\_MEMPOOL(name, num, payload, desc) LWIP\_MEMPOOL(name, num, (LWIP\_MEM\_ALIGN\_SIZE(sizeof(struct pbuf)) + LWIP\_MEM\_ALIGN\_SIZE(payload)), desc)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_PBUF\_MEMPOOL */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{comment}{/*}}
+\DoxyCodeLine{36 \textcolor{comment}{ * A list of internal pools used by LWIP.}}
+\DoxyCodeLine{37 \textcolor{comment}{ *}}
+\DoxyCodeLine{38 \textcolor{comment}{ * LWIP\_MEMPOOL(pool\_name, number\_elements, element\_size, pool\_description)}}
+\DoxyCodeLine{39 \textcolor{comment}{ *     creates a pool name MEMP\_pool\_name. description is used in stats.c}}
+\DoxyCodeLine{40 \textcolor{comment}{ */}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#if LWIP\_RAW}}
+\DoxyCodeLine{42 LWIP\_MEMPOOL(RAW\_PCB,        \mbox{\hyperlink{group__lwip__opts__memp_ga379bf92ed322cda54cb701337421e0d3}{MEMP\_NUM\_RAW\_PCB}},         \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} raw\_pcb),        \textcolor{stringliteral}{"{}RAW\_PCB"{}})}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_RAW */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#if LWIP\_UDP}}
+\DoxyCodeLine{46 LWIP\_MEMPOOL(UDP\_PCB,        \mbox{\hyperlink{group__lwip__opts__memp_ga2c416da481ab09bd1ba257b75a0707eb}{MEMP\_NUM\_UDP\_PCB}},         \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} udp\_pcb),        \textcolor{stringliteral}{"{}UDP\_PCB"{}})}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_UDP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#if LWIP\_TCP}}
+\DoxyCodeLine{50 LWIP\_MEMPOOL(TCP\_PCB,        \mbox{\hyperlink{group__lwip__opts__memp_ga73beecc19cfbc3114768f9b32b2cd70e}{MEMP\_NUM\_TCP\_PCB}},         \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} tcp\_pcb),        \textcolor{stringliteral}{"{}TCP\_PCB"{}})}
+\DoxyCodeLine{51 LWIP\_MEMPOOL(TCP\_PCB\_LISTEN, \mbox{\hyperlink{group__lwip__opts__memp_ga04fba6a249123513271dccb4ec26aa5a}{MEMP\_NUM\_TCP\_PCB\_LISTEN}},  sizeof(struct tcp\_pcb\_listen), "{}TCP\_PCB\_LISTEN"{})}
+\DoxyCodeLine{52 LWIP\_MEMPOOL(TCP\_SEG,        \mbox{\hyperlink{group__lwip__opts__memp_gaa35fb3a1a76661e3ffb9722a57092de3}{MEMP\_NUM\_TCP\_SEG}},         sizeof(struct tcp\_seg),        "{}TCP\_SEG"{})}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#if LWIP\_ALTCP \&\& LWIP\_TCP}}
+\DoxyCodeLine{56 LWIP\_MEMPOOL(ALTCP\_PCB,      \mbox{\hyperlink{group__lwip__opts__memp_ga24f6737ee990990b81b0d16ef6e0dffd}{MEMP\_NUM\_ALTCP\_PCB}},       \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} altcp\_pcb),      \textcolor{stringliteral}{"{}ALTCP\_PCB"{}})}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_ALTCP \&\& LWIP\_TCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& IP\_REASSEMBLY}}
+\DoxyCodeLine{60 LWIP\_MEMPOOL(REASSDATA,      \mbox{\hyperlink{group__lwip__opts__memp_ga169436c5860253b90e25bdba9fdcac86}{MEMP\_NUM\_REASSDATA}},       \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} ip\_reassdata),   \textcolor{stringliteral}{"{}REASSDATA"{}})}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 \&\& IP\_REASSEMBLY */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#if (IP\_FRAG \&\& !LWIP\_NETIF\_TX\_SINGLE\_PBUF) || (LWIP\_IPV6 \&\& LWIP\_IPV6\_FRAG)}}
+\DoxyCodeLine{63 LWIP\_MEMPOOL(FRAG\_PBUF,      \mbox{\hyperlink{group__lwip__opts__memp_ga1f66051a654dcd7a4e19bc6aff240630}{MEMP\_NUM\_FRAG\_PBUF}},       \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} pbuf\_custom\_ref),\textcolor{stringliteral}{"{}FRAG\_PBUF"{}})}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* IP\_FRAG \&\& !LWIP\_NETIF\_TX\_SINGLE\_PBUF || (LWIP\_IPV6 \&\& LWIP\_IPV6\_FRAG) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#if LWIP\_NETCONN || LWIP\_SOCKET}}
+\DoxyCodeLine{67 LWIP\_MEMPOOL(NETBUF,         \mbox{\hyperlink{group__lwip__opts__memp_ga5d99df65869ac101ed6a611fc85016be}{MEMP\_NUM\_NETBUF}},          \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} netbuf),         \textcolor{stringliteral}{"{}NETBUF"{}})}
+\DoxyCodeLine{68 LWIP\_MEMPOOL(NETCONN,        \mbox{\hyperlink{group__lwip__opts__memp_gacb40bd726b7e15593b20a628d298f456}{MEMP\_NUM\_NETCONN}},         sizeof(struct netconn),        "{}NETCONN"{})}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETCONN || LWIP\_SOCKET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#if NO\_SYS==0}}
+\DoxyCodeLine{72 LWIP\_MEMPOOL(TCPIP\_MSG\_API,  \mbox{\hyperlink{group__lwip__opts__memp_gafbbfd6ce8536038cd00fa85bebae987c}{MEMP\_NUM\_TCPIP\_MSG\_API}},   \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} \mbox{\hyperlink{structtcpip__msg}{tcpip\_msg}}),      \textcolor{stringliteral}{"{}TCPIP\_MSG\_API"{}})}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#if LWIP\_MPU\_COMPATIBLE}}
+\DoxyCodeLine{74 LWIP\_MEMPOOL(API\_MSG,        \mbox{\hyperlink{group__lwip__opts__memp_ga5a95abf3610c56e7c23cb035eb9c3444}{MEMP\_NUM\_API\_MSG}},         \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} api\_msg),        \textcolor{stringliteral}{"{}API\_MSG"{}})}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#if LWIP\_DNS}}
+\DoxyCodeLine{76 LWIP\_MEMPOOL(DNS\_API\_MSG,    \mbox{\hyperlink{group__lwip__opts__memp_ga3b1f228c598529c62895ad04ff294980}{MEMP\_NUM\_DNS\_API\_MSG}},     \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} dns\_api\_msg),    \textcolor{stringliteral}{"{}DNS\_API\_MSG"{}})}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#if LWIP\_SOCKET \&\& !LWIP\_TCPIP\_CORE\_LOCKING}}
+\DoxyCodeLine{79 LWIP\_MEMPOOL(SOCKET\_SETGETSOCKOPT\_DATA, \mbox{\hyperlink{group__lwip__opts__memp_gacf9782dd26bf8a655044dc041a9de948}{MEMP\_NUM\_SOCKET\_SETGETSOCKOPT\_DATA}}, \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} lwip\_setgetsockopt\_data), \textcolor{stringliteral}{"{}SOCKET\_SETGETSOCKOPT\_DATA"{}})}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#if LWIP\_SOCKET \&\& (LWIP\_SOCKET\_SELECT || LWIP\_SOCKET\_POLL)}}
+\DoxyCodeLine{82 LWIP\_MEMPOOL(SELECT\_CB,      \mbox{\hyperlink{group__lwip__opts__memp_ga8e136f5811e6652c6c5d2fcf596f0893}{MEMP\_NUM\_SELECT\_CB}},       \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} lwip\_select\_cb), \textcolor{stringliteral}{"{}SELECT\_CB"{}})}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SOCKET \&\& (LWIP\_SOCKET\_SELECT || LWIP\_SOCKET\_POLL) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#if LWIP\_NETIF\_API}}
+\DoxyCodeLine{85 LWIP\_MEMPOOL(NETIFAPI\_MSG,   \mbox{\hyperlink{group__lwip__opts__memp_gadd5a973b98068ce9318ea2f96b5fa14c}{MEMP\_NUM\_NETIFAPI\_MSG}},    \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} netifapi\_msg),   \textcolor{stringliteral}{"{}NETIFAPI\_MSG"{}})}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#if !LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}}
+\DoxyCodeLine{89 LWIP\_MEMPOOL(TCPIP\_MSG\_INPKT,\mbox{\hyperlink{group__lwip__opts__memp_gab089a7088439e726c3801ba9e249d831}{MEMP\_NUM\_TCPIP\_MSG\_INPKT}}, \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} \mbox{\hyperlink{structtcpip__msg}{tcpip\_msg}}),      \textcolor{stringliteral}{"{}TCPIP\_MSG\_INPKT"{}})}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_TCPIP\_CORE\_LOCKING\_INPUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* NO\_SYS==0 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_ARP \&\& ARP\_QUEUEING}}
+\DoxyCodeLine{94 LWIP\_MEMPOOL(ARP\_QUEUE,      \mbox{\hyperlink{group__lwip__opts__memp_ga087b00ea20a7edebcad33a1a1353a5d7}{MEMP\_NUM\_ARP\_QUEUE}},       \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} etharp\_q\_entry), \textcolor{stringliteral}{"{}ARP\_QUEUE"{}})}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_ARP \&\& ARP\_QUEUEING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#if LWIP\_IGMP}}
+\DoxyCodeLine{98 LWIP\_MEMPOOL(IGMP\_GROUP,     \mbox{\hyperlink{group__lwip__opts__memp_gab648ff95d8ffa4216b95f82a568a5d9a}{MEMP\_NUM\_IGMP\_GROUP}},      \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} igmp\_group),     \textcolor{stringliteral}{"{}IGMP\_GROUP"{}})}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IGMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#if LWIP\_TIMERS \&\& !LWIP\_TIMERS\_CUSTOM}}
+\DoxyCodeLine{102 LWIP\_MEMPOOL(SYS\_TIMEOUT,    \mbox{\hyperlink{group__lwip__opts__memp_ga4afbdca581a58d57bc7a81118a95327e}{MEMP\_NUM\_SYS\_TIMEOUT}},     \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} sys\_timeo),      \textcolor{stringliteral}{"{}SYS\_TIMEOUT"{}})}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TIMERS \&\& !LWIP\_TIMERS\_CUSTOM */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#if LWIP\_DNS \&\& LWIP\_SOCKET}}
+\DoxyCodeLine{106 LWIP\_MEMPOOL(NETDB,          \mbox{\hyperlink{group__lwip__opts__memp_ga293bc22b60bf3f8e2520f60a88370e7a}{MEMP\_NUM\_NETDB}},           NETDB\_ELEM\_SIZE,               \textcolor{stringliteral}{"{}NETDB"{}})}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS \&\& LWIP\_SOCKET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#if LWIP\_DNS \&\& DNS\_LOCAL\_HOSTLIST \&\& DNS\_LOCAL\_HOSTLIST\_IS\_DYNAMIC}}
+\DoxyCodeLine{109 LWIP\_MEMPOOL(LOCALHOSTLIST,  \mbox{\hyperlink{group__lwip__opts__memp_gaa9b0f949da12cbe8fe5f7aefc30290e0}{MEMP\_NUM\_LOCALHOSTLIST}},   LOCALHOSTLIST\_ELEM\_SIZE,       \textcolor{stringliteral}{"{}LOCALHOSTLIST"{}})}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS \&\& DNS\_LOCAL\_HOSTLIST \&\& DNS\_LOCAL\_HOSTLIST\_IS\_DYNAMIC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#if LWIP\_IPV6 \&\& LWIP\_ND6\_QUEUEING}}
+\DoxyCodeLine{113 LWIP\_MEMPOOL(ND6\_QUEUE,      \mbox{\hyperlink{group__lwip__opts__nd6_gabfaf3d92d51e2a9d70c8360af2611fb2}{MEMP\_NUM\_ND6\_QUEUE}},       \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} nd6\_q\_entry),    \textcolor{stringliteral}{"{}ND6\_QUEUE"{}})}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 \&\& LWIP\_ND6\_QUEUEING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#if LWIP\_IPV6 \&\& LWIP\_IPV6\_REASS}}
+\DoxyCodeLine{117 LWIP\_MEMPOOL(IP6\_REASSDATA,  \mbox{\hyperlink{group__lwip__opts__memp_ga169436c5860253b90e25bdba9fdcac86}{MEMP\_NUM\_REASSDATA}},       \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} ip6\_reassdata),  \textcolor{stringliteral}{"{}IP6\_REASSDATA"{}})}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 \&\& LWIP\_IPV6\_REASS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#if LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD}}
+\DoxyCodeLine{121 LWIP\_MEMPOOL(MLD6\_GROUP,     \mbox{\hyperlink{group__lwip__opts__mld6_ga89e92d8de8898696e797f13fdd169494}{MEMP\_NUM\_MLD6\_GROUP}},      \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} mld\_group),      \textcolor{stringliteral}{"{}MLD6\_GROUP"{}})}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{comment}{/*}}
+\DoxyCodeLine{126 \textcolor{comment}{ * A list of pools of pbuf's used by LWIP.}}
+\DoxyCodeLine{127 \textcolor{comment}{ *}}
+\DoxyCodeLine{128 \textcolor{comment}{ * LWIP\_PBUF\_MEMPOOL(pool\_name, number\_elements, pbuf\_payload\_size, pool\_description)}}
+\DoxyCodeLine{129 \textcolor{comment}{ *     creates a pool name MEMP\_pool\_name. description is used in stats.c}}
+\DoxyCodeLine{130 \textcolor{comment}{ *     This allocates enough space for the pbuf struct and a payload.}}
+\DoxyCodeLine{131 \textcolor{comment}{ *     (Example: pbuf\_payload\_size=0 allocates only size for the struct)}}
+\DoxyCodeLine{132 \textcolor{comment}{ */}}
+\DoxyCodeLine{133 LWIP\_MEMPOOL(PBUF,           \mbox{\hyperlink{group__lwip__opts__memp_ga92b30aed958ec59334d936d4ca725418}{MEMP\_NUM\_PBUF}},            \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}}),           \textcolor{stringliteral}{"{}PBUF\_REF/ROM"{}})}
+\DoxyCodeLine{134 LWIP\_PBUF\_MEMPOOL(\mbox{\hyperlink{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbae969347127387b9b59a23ccd24b76d21}{PBUF\_POOL}}, \mbox{\hyperlink{group__lwip__opts__memp_ga50eaadc4cad0716410332691e382c38a}{PBUF\_POOL\_SIZE}},           \mbox{\hyperlink{group__lwip__opts__pbuf_gae61f4491d56e805e79b79eb5d35a00e5}{PBUF\_POOL\_BUFSIZE}},             "{}\mbox{\hyperlink{group__pbuf_ggab7e0e32fcc292c0d7107721766ed92fbae969347127387b9b59a23ccd24b76d21}{PBUF\_POOL}}"{})}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{comment}{/*}}
+\DoxyCodeLine{138 \textcolor{comment}{ * Allow for user-\/defined pools; this must be explicitly set in lwipopts.h}}
+\DoxyCodeLine{139 \textcolor{comment}{ * since the default is to NOT look for lwippools.h}}
+\DoxyCodeLine{140 \textcolor{comment}{ */}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#if MEMP\_USE\_CUSTOM\_POOLS}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#include "{}lwippools.h"{}}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MEMP\_USE\_CUSTOM\_POOLS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{comment}{/*}}
+\DoxyCodeLine{146 \textcolor{comment}{ * REQUIRED CLEANUP: Clear up so we don't get "{}multiply defined"{} error later}}
+\DoxyCodeLine{147 \textcolor{comment}{ * (\#undef is ignored for something that is not defined)}}
+\DoxyCodeLine{148 \textcolor{comment}{ */}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#undef LWIP\_MEMPOOL}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#undef LWIP\_MALLOC\_MEMPOOL}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#undef LWIP\_MALLOC\_MEMPOOL\_START}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#undef LWIP\_MALLOC\_MEMPOOL\_END}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#undef LWIP\_PBUF\_MEMPOOL}}
+
+\end{DoxyCode}

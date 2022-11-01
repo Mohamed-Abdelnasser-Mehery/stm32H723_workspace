@@ -1,0 +1,58 @@
+\hypertarget{prot_2autoip_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/prot/autoip.h File Reference}
+\label{prot_2autoip_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/autoip.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/autoip.h}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_ac19d92e0bfcb52079adbe92fb569d468}\label{prot_2autoip_8h_ac19d92e0bfcb52079adbe92fb569d468}} 
+\#define {\bfseries AUTOIP\+\_\+\+NET}~0x\+A9\+FE0000
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a8b4506c8e0ab7631f49567f9b81779c6}\label{prot_2autoip_8h_a8b4506c8e0ab7631f49567f9b81779c6}} 
+\#define {\bfseries AUTOIP\+\_\+\+RANGE\+\_\+\+START}~(AUTOIP\+\_\+\+NET $\vert$ 0x0100)
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a84dec606d57f40eed1cdc782f702f161}\label{prot_2autoip_8h_a84dec606d57f40eed1cdc782f702f161}} 
+\#define {\bfseries AUTOIP\+\_\+\+RANGE\+\_\+\+END}~(AUTOIP\+\_\+\+NET $\vert$ 0x\+FEFF)
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_aecea6220ab7fcd0910262d5929eb5d95}\label{prot_2autoip_8h_aecea6220ab7fcd0910262d5929eb5d95}} 
+\#define {\bfseries PROBE\+\_\+\+WAIT}~1   /$\ast$ second   (initial random delay)                 $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a959b454f842224af595205645244f946}\label{prot_2autoip_8h_a959b454f842224af595205645244f946}} 
+\#define {\bfseries PROBE\+\_\+\+MIN}~1   /$\ast$ second   (minimum delay till repeated probe)    $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_ad408cf94a71b848cff8108dc5c1558e6}\label{prot_2autoip_8h_ad408cf94a71b848cff8108dc5c1558e6}} 
+\#define {\bfseries PROBE\+\_\+\+MAX}~2   /$\ast$ seconds  (maximum delay till repeated probe)    $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a3a610440fbb8d2c6abb4aa9702f904ef}\label{prot_2autoip_8h_a3a610440fbb8d2c6abb4aa9702f904ef}} 
+\#define {\bfseries PROBE\+\_\+\+NUM}~3   /$\ast$          (number of probe packets)              $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a29141f41d1391d34730b75539000f9ea}\label{prot_2autoip_8h_a29141f41d1391d34730b75539000f9ea}} 
+\#define {\bfseries ANNOUNCE\+\_\+\+NUM}~2   /$\ast$          (number of announcement packets)       $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a7ed8f0b9d3330a2967142e0e48b28521}\label{prot_2autoip_8h_a7ed8f0b9d3330a2967142e0e48b28521}} 
+\#define {\bfseries ANNOUNCE\+\_\+\+INTERVAL}~2   /$\ast$ seconds  (time between announcement packets)    $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a1a9b374b5e2e6da152f3a1556d09e6b3}\label{prot_2autoip_8h_a1a9b374b5e2e6da152f3a1556d09e6b3}} 
+\#define {\bfseries ANNOUNCE\+\_\+\+WAIT}~2   /$\ast$ seconds  (delay before announcing)              $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a14d30da6b838f3d718c0d92a9f3f3816}\label{prot_2autoip_8h_a14d30da6b838f3d718c0d92a9f3f3816}} 
+\#define {\bfseries MAX\+\_\+\+CONFLICTS}~10  /$\ast$          (max conflicts before rate limiting)   $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a420da51b5955d94c44d285638b3931bf}\label{prot_2autoip_8h_a420da51b5955d94c44d285638b3931bf}} 
+\#define {\bfseries RATE\+\_\+\+LIMIT\+\_\+\+INTERVAL}~60  /$\ast$ seconds  (delay between successive attempts)    $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a5c21e0d4d66eb7056ba4d515d36f0a20}\label{prot_2autoip_8h_a5c21e0d4d66eb7056ba4d515d36f0a20}} 
+\#define {\bfseries DEFEND\+\_\+\+INTERVAL}~10  /$\ast$ seconds  (min. wait between defensive ARPs)     $\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2autoip_8h_a1a27a030b740b1577f95d5aeb54a1a0c}\label{prot_2autoip_8h_a1a27a030b740b1577f95d5aeb54a1a0c}} 
+enum {\bfseries autoip\+\_\+state\+\_\+enum\+\_\+t} \{ {\bfseries AUTOIP\+\_\+\+STATE\+\_\+\+OFF} = 0
+, {\bfseries AUTOIP\+\_\+\+STATE\+\_\+\+PROBING} = 1
+, {\bfseries AUTOIP\+\_\+\+STATE\+\_\+\+ANNOUNCING} = 2
+, {\bfseries AUTOIP\+\_\+\+STATE\+\_\+\+BOUND} = 3
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Auto\+IP protocol definitions 

@@ -1,0 +1,67 @@
+\hypertarget{stm32h7xx__hal__i2c__ex_8h_source}{}\doxysection{stm32h7xx\+\_\+hal\+\_\+i2c\+\_\+ex.\+h}
+\label{stm32h7xx__hal__i2c__ex_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_i2c\_ex.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_i2c\_ex.h}}
+\mbox{\hyperlink{stm32h7xx__hal__i2c__ex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{19 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef STM32H7xx\_HAL\_I2C\_EX\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define STM32H7xx\_HAL\_I2C\_EX\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{24 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32h7xx__hal__def_8h}{stm32h7xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{38 \textcolor{comment}{/* Exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{39 \textcolor{comment}{/* Exported constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define I2C\_ANALOGFILTER\_ENABLE         0x00000000U}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define I2C\_ANALOGFILTER\_DISABLE        I2C\_CR1\_ANFOFF}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define I2C\_FMP\_NOT\_SUPPORTED           0xAAAA0000U                                     }}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define I2C\_FASTMODEPLUS\_PB6            SYSCFG\_PMCR\_I2C\_PB6\_FMP                        }}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define I2C\_FASTMODEPLUS\_PB7            SYSCFG\_PMCR\_I2C\_PB7\_FMP                        }}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define I2C\_FASTMODEPLUS\_PB8            SYSCFG\_PMCR\_I2C\_PB8\_FMP                        }}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define I2C\_FASTMODEPLUS\_PB9            SYSCFG\_PMCR\_I2C\_PB9\_FMP                        }}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define I2C\_FASTMODEPLUS\_I2C1           SYSCFG\_PMCR\_I2C1\_FMP                           }}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define I2C\_FASTMODEPLUS\_I2C2           SYSCFG\_PMCR\_I2C2\_FMP                           }}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define I2C\_FASTMODEPLUS\_I2C3           SYSCFG\_PMCR\_I2C3\_FMP                           }}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define I2C\_FASTMODEPLUS\_I2C4           SYSCFG\_PMCR\_I2C4\_FMP                           }}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#if defined(SYSCFG\_PMCR\_I2C5\_FMP)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define I2C\_FASTMODEPLUS\_I2C5           SYSCFG\_PMCR\_I2C5\_FMP                           }}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define I2C\_FASTMODEPLUS\_I2C5           (uint32\_t)(0x00001000U | I2C\_FMP\_NOT\_SUPPORTED) }}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYSCFG\_PMCR\_I2C5\_FMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{78 \textcolor{comment}{/* Exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{87 \textcolor{comment}{/* Exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{95 \textcolor{comment}{/* Peripheral Control functions  ************************************************/}}
+\DoxyCodeLine{96 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_I2CEx\_ConfigAnalogFilter(\mbox{\hyperlink{struct_____i2_c___handle_type_def}{I2C\_HandleTypeDef}} *hi2c, uint32\_t AnalogFilter);}
+\DoxyCodeLine{97 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_I2CEx\_ConfigDigitalFilter(\mbox{\hyperlink{struct_____i2_c___handle_type_def}{I2C\_HandleTypeDef}} *hi2c, uint32\_t DigitalFilter);}
+\DoxyCodeLine{105 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_I2CEx\_EnableWakeUp(\mbox{\hyperlink{struct_____i2_c___handle_type_def}{I2C\_HandleTypeDef}} *hi2c);}
+\DoxyCodeLine{106 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_I2CEx\_DisableWakeUp(\mbox{\hyperlink{struct_____i2_c___handle_type_def}{I2C\_HandleTypeDef}} *hi2c);}
+\DoxyCodeLine{114 \textcolor{keywordtype}{void} HAL\_I2CEx\_EnableFastModePlus(uint32\_t ConfigFastModePlus);}
+\DoxyCodeLine{115 \textcolor{keywordtype}{void} HAL\_I2CEx\_DisableFastModePlus(uint32\_t ConfigFastModePlus);}
+\DoxyCodeLine{124 \textcolor{comment}{/* Private constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{133 \textcolor{comment}{/* Private macros -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define IS\_I2C\_ANALOG\_FILTER(FILTER)    (((FILTER) == I2C\_ANALOGFILTER\_ENABLE) || \(\backslash\)}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{                                         ((FILTER) == I2C\_ANALOGFILTER\_DISABLE))}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define IS\_I2C\_DIGITAL\_FILTER(FILTER)   ((FILTER) <= 0x0000000FU)}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define IS\_I2C\_FASTMODEPLUS(\_\_CONFIG\_\_) ((((\_\_CONFIG\_\_) \& I2C\_FASTMODEPLUS\_PB6)  == I2C\_FASTMODEPLUS\_PB6)  || \(\backslash\)}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{                                         (((\_\_CONFIG\_\_) \& I2C\_FASTMODEPLUS\_PB7)  == I2C\_FASTMODEPLUS\_PB7)  || \(\backslash\)}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{                                         (((\_\_CONFIG\_\_) \& I2C\_FASTMODEPLUS\_PB8)  == I2C\_FASTMODEPLUS\_PB8)  || \(\backslash\)}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{                                         (((\_\_CONFIG\_\_) \& I2C\_FASTMODEPLUS\_PB9)  == I2C\_FASTMODEPLUS\_PB9)  || \(\backslash\)}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{                                         (((\_\_CONFIG\_\_) \& I2C\_FASTMODEPLUS\_I2C1) == I2C\_FASTMODEPLUS\_I2C1) || \(\backslash\)}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{                                         (((\_\_CONFIG\_\_) \& I2C\_FASTMODEPLUS\_I2C2) == I2C\_FASTMODEPLUS\_I2C2) || \(\backslash\)}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{                                         (((\_\_CONFIG\_\_) \& I2C\_FASTMODEPLUS\_I2C3) == I2C\_FASTMODEPLUS\_I2C3) || \(\backslash\)}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{                                         (((\_\_CONFIG\_\_) \& I2C\_FASTMODEPLUS\_I2C4) == I2C\_FASTMODEPLUS\_I2C4))}}
+\DoxyCodeLine{154 \textcolor{comment}{/* Private Functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{158 \textcolor{comment}{/* Private functions are defined in stm32h7xx\_hal\_i2c\_ex.c file */}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{172 \}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STM32H7xx\_HAL\_I2C\_EX\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

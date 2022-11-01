@@ -1,0 +1,321 @@
+\hypertarget{api_8h_source}{}\doxysection{api.\+h}
+\label{api_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/api.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/api.h}}
+\mbox{\hyperlink{api_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_API\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_API\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#if LWIP\_NETCONN || LWIP\_SOCKET }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{43 \textcolor{comment}{/* Note: Netconn API is always available when sockets are enabled -\/}}
+\DoxyCodeLine{44 \textcolor{comment}{ * sockets are implemented on top of them */}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{arch_8h}{lwip/arch.h}}"{}}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netbuf_8h}{lwip/netbuf.h}}"{}}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{sys_8h}{lwip/sys.h}}"{}}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{53 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{comment}{/* Throughout this file, IP addresses and port numbers are expected to be in}}
+\DoxyCodeLine{57 \textcolor{comment}{ * the same byte order as in the corresponding pcb.}}
+\DoxyCodeLine{58 \textcolor{comment}{ */}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{comment}{/* Flags for netconn\_write (u8\_t) */}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define NETCONN\_NOFLAG      0x00}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define NETCONN\_NOCOPY      0x00 }\textcolor{comment}{/* Only for source code compatibility */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define NETCONN\_COPY        0x01}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define NETCONN\_MORE        0x02}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define NETCONN\_DONTBLOCK   0x04}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define NETCONN\_NOAUTORCVD  0x08 }\textcolor{comment}{/* prevent netconn\_recv\_data\_tcp() from updating the tcp window -\/ must be done manually via netconn\_tcp\_recvd() */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define NETCONN\_NOFIN       0x10 }\textcolor{comment}{/* upper layer already received data, leave FIN in queue until called again */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{comment}{/* Flags for struct netconn.flags (u8\_t) */}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define NETCONN\_FLAG\_MBOXCLOSED               0x01}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define NETCONN\_FLAG\_NON\_BLOCKING             0x02}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define NETCONN\_FLAG\_IN\_NONBLOCKING\_CONNECT   0x04}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#if LWIP\_NETCONN\_FULLDUPLEX}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define NETCONN\_FLAG\_MBOXINVALID              0x08}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETCONN\_FULLDUPLEX */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define NETCONN\_FLAG\_CHECK\_WRITESPACE         0x10}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define NETCONN\_FLAG\_IPV6\_V6ONLY              0x20}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#if LWIP\_NETBUF\_RECVINFO}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define NETCONN\_FLAG\_PKTINFO                  0x40}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETBUF\_RECVINFO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define NETCONN\_FIN\_RX\_PENDING                0x80}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{comment}{/* Helpers to process several netconn\_types by the same code */}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define NETCONNTYPE\_GROUP(t)         ((t)\&0xF0)}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define NETCONNTYPE\_DATAGRAM(t)      ((t)\&0xE0)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define NETCONN\_TYPE\_IPV6            0x08}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define NETCONNTYPE\_ISIPV6(t)        (((t)\&NETCONN\_TYPE\_IPV6) != 0)}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define NETCONNTYPE\_ISUDPLITE(t)     (((t)\&0xF3) == NETCONN\_UDPLITE)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define NETCONNTYPE\_ISUDPNOCHKSUM(t) (((t)\&0xF3) == NETCONN\_UDPNOCHKSUM)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define NETCONNTYPE\_ISIPV6(t)        (0)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define NETCONNTYPE\_ISUDPLITE(t)     ((t) == NETCONN\_UDPLITE)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define NETCONNTYPE\_ISUDPNOCHKSUM(t) ((t) == NETCONN\_UDPNOCHKSUM)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{113 \textcolor{keyword}{enum} netconn\_type \{}
+\DoxyCodeLine{114   NETCONN\_INVALID     = 0,}
+\DoxyCodeLine{116   NETCONN\_TCP         = 0x10,}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{119   NETCONN\_TCP\_IPV6    = NETCONN\_TCP | NETCONN\_TYPE\_IPV6 \textcolor{comment}{/* 0x18 */},}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{122   NETCONN\_UDP         = 0x20,}
+\DoxyCodeLine{124   NETCONN\_UDPLITE     = 0x21,}
+\DoxyCodeLine{126   NETCONN\_UDPNOCHKSUM = 0x22,}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{130   NETCONN\_UDP\_IPV6         = NETCONN\_UDP | NETCONN\_TYPE\_IPV6 \textcolor{comment}{/* 0x28 */},}
+\DoxyCodeLine{132   NETCONN\_UDPLITE\_IPV6     = NETCONN\_UDPLITE | NETCONN\_TYPE\_IPV6 \textcolor{comment}{/* 0x29 */},}
+\DoxyCodeLine{134   NETCONN\_UDPNOCHKSUM\_IPV6 = NETCONN\_UDPNOCHKSUM | NETCONN\_TYPE\_IPV6 \textcolor{comment}{/* 0x2a */},}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{138   NETCONN\_RAW         = 0x40}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{141   , NETCONN\_RAW\_IPV6    = NETCONN\_RAW | NETCONN\_TYPE\_IPV6 \textcolor{comment}{/* 0x48 */}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{143 \};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{147 \textcolor{keyword}{enum} netconn\_state \{}
+\DoxyCodeLine{148   NETCONN\_NONE,}
+\DoxyCodeLine{149   NETCONN\_WRITE,}
+\DoxyCodeLine{150   NETCONN\_LISTEN,}
+\DoxyCodeLine{151   NETCONN\_CONNECT,}
+\DoxyCodeLine{152   NETCONN\_CLOSE}
+\DoxyCodeLine{153 \};}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{181 \textcolor{keyword}{enum} netconn\_evt \{}
+\DoxyCodeLine{182   NETCONN\_EVT\_RCVPLUS,}
+\DoxyCodeLine{183   NETCONN\_EVT\_RCVMINUS,}
+\DoxyCodeLine{184   NETCONN\_EVT\_SENDPLUS,}
+\DoxyCodeLine{185   NETCONN\_EVT\_SENDMINUS,}
+\DoxyCodeLine{186   NETCONN\_EVT\_ERROR}
+\DoxyCodeLine{187 \};}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#if LWIP\_IGMP || (LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD)}}
+\DoxyCodeLine{191 \textcolor{keyword}{enum} netconn\_igmp \{}
+\DoxyCodeLine{192   NETCONN\_JOIN,}
+\DoxyCodeLine{193   NETCONN\_LEAVE}
+\DoxyCodeLine{194 \};}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IGMP || (LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#if LWIP\_DNS}}
+\DoxyCodeLine{198 \textcolor{comment}{/* Used for netconn\_gethostbyname\_addrtype(), these should match the DNS\_ADDRTYPE defines in dns.h */}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define NETCONN\_DNS\_DEFAULT   NETCONN\_DNS\_IPV4\_IPV6}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#define NETCONN\_DNS\_IPV4      0}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#define NETCONN\_DNS\_IPV6      1}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define NETCONN\_DNS\_IPV4\_IPV6 2 }\textcolor{comment}{/* try to resolve IPv4 first, try IPv6 if IPv4 fails only */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define NETCONN\_DNS\_IPV6\_IPV4 3 }\textcolor{comment}{/* try to resolve IPv6 first, try IPv4 if IPv6 fails only */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{comment}{/* forward-\/declare some structs to avoid to include their headers */}}
+\DoxyCodeLine{207 \textcolor{keyword}{struct }\mbox{\hyperlink{structip__pcb}{ip\_pcb}};}
+\DoxyCodeLine{208 \textcolor{keyword}{struct }tcp\_pcb;}
+\DoxyCodeLine{209 \textcolor{keyword}{struct }udp\_pcb;}
+\DoxyCodeLine{210 \textcolor{keyword}{struct }raw\_pcb;}
+\DoxyCodeLine{211 \textcolor{keyword}{struct }netconn;}
+\DoxyCodeLine{212 \textcolor{keyword}{struct }api\_msg;}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{215 \textcolor{keyword}{typedef} void (* netconn\_callback)(\textcolor{keyword}{struct }netconn *, \textcolor{keyword}{enum} netconn\_evt, u16\_t len);}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{218 \textcolor{keyword}{struct }netconn \{}
+\DoxyCodeLine{220   \textcolor{keyword}{enum} netconn\_type type;}
+\DoxyCodeLine{222   \textcolor{keyword}{enum} netconn\_state state;}
+\DoxyCodeLine{224   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{225     \textcolor{keyword}{struct }\mbox{\hyperlink{structip__pcb}{ip\_pcb}}  *ip;}
+\DoxyCodeLine{226     \textcolor{keyword}{struct }tcp\_pcb *tcp;}
+\DoxyCodeLine{227     \textcolor{keyword}{struct }udp\_pcb *udp;}
+\DoxyCodeLine{228     \textcolor{keyword}{struct }raw\_pcb *raw;}
+\DoxyCodeLine{229   \} pcb;}
+\DoxyCodeLine{231   \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} pending\_err;}
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#if !LWIP\_NETCONN\_SEM\_PER\_THREAD}}
+\DoxyCodeLine{234   sys\_sem\_t op\_completed;}
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{238   sys\_mbox\_t recvmbox;}
+\DoxyCodeLine{239 \textcolor{preprocessor}{\#if LWIP\_TCP}}
+\DoxyCodeLine{242   sys\_mbox\_t acceptmbox;}
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#if LWIP\_NETCONN\_FULLDUPLEX}}
+\DoxyCodeLine{247   \textcolor{keywordtype}{int} mbox\_threads\_waiting;}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{250 \textcolor{preprocessor}{\#if LWIP\_SOCKET}}
+\DoxyCodeLine{251   \textcolor{keywordtype}{int} socket;}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SOCKET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#if LWIP\_SO\_SNDTIMEO}}
+\DoxyCodeLine{256   s32\_t send\_timeout;}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SO\_RCVTIMEO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{258 \textcolor{preprocessor}{\#if LWIP\_SO\_RCVTIMEO}}
+\DoxyCodeLine{261   u32\_t recv\_timeout;}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SO\_RCVTIMEO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#if LWIP\_SO\_RCVBUF}}
+\DoxyCodeLine{266   \textcolor{keywordtype}{int} recv\_bufsize;}
+\DoxyCodeLine{270   \textcolor{keywordtype}{int} recv\_avail;}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SO\_RCVBUF */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#if LWIP\_SO\_LINGER}}
+\DoxyCodeLine{274   s16\_t linger;}
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SO\_LINGER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{277   u8\_t flags;}
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#if LWIP\_TCP}}
+\DoxyCodeLine{282   \textcolor{keyword}{struct }api\_msg *current\_msg;}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{285   netconn\_callback callback;}
+\DoxyCodeLine{286 \};}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{293 \textcolor{keyword}{struct }netvector \{}
+\DoxyCodeLine{295   \textcolor{keyword}{const} \textcolor{keywordtype}{void} *ptr;}
+\DoxyCodeLine{297   \textcolor{keywordtype}{size\_t} len;}
+\DoxyCodeLine{298 \};}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{301 \textcolor{preprocessor}{\#define API\_EVENT(c,e,l) if (c-\/>callback) \{         \(\backslash\)}}
+\DoxyCodeLine{302 \textcolor{preprocessor}{                           (*c-\/>callback)(c, e, l); \(\backslash\)}}
+\DoxyCodeLine{303 \textcolor{preprocessor}{                         \}}}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305 \textcolor{comment}{/* Network connection functions: */}}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#define netconn\_new(t)                  netconn\_new\_with\_proto\_and\_callback(t, 0, NULL)}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#define netconn\_new\_with\_callback(t, c) netconn\_new\_with\_proto\_and\_callback(t, 0, c)}}
+\DoxyCodeLine{312 \textcolor{keyword}{struct }netconn *netconn\_new\_with\_proto\_and\_callback(\textcolor{keyword}{enum} netconn\_type t, u8\_t proto,}
+\DoxyCodeLine{313                                              netconn\_callback callback);}
+\DoxyCodeLine{314 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_prepare\_delete(\textcolor{keyword}{struct} netconn *conn);}
+\DoxyCodeLine{315 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_delete(\textcolor{keyword}{struct} netconn *conn);}
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#define netconn\_type(conn) (conn-\/>type)}}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_getaddr(\textcolor{keyword}{struct} netconn *conn, ip\_addr\_t *addr,}
+\DoxyCodeLine{320                         u16\_t *port, u8\_t local);}
+\DoxyCodeLine{322 \textcolor{preprocessor}{\#define netconn\_peer(c,i,p) netconn\_getaddr(c,i,p,0)}}
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#define netconn\_addr(c,i,p) netconn\_getaddr(c,i,p,1)}}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{326 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_bind(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{const} ip\_addr\_t *addr, u16\_t port);}
+\DoxyCodeLine{327 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_bind\_if(\textcolor{keyword}{struct} netconn *conn, u8\_t if\_idx);}
+\DoxyCodeLine{328 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_connect(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{const} ip\_addr\_t *addr, u16\_t port);}
+\DoxyCodeLine{329 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_disconnect (\textcolor{keyword}{struct} netconn *conn);}
+\DoxyCodeLine{330 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_listen\_with\_backlog(\textcolor{keyword}{struct} netconn *conn, u8\_t backlog);}
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#define netconn\_listen(conn) netconn\_listen\_with\_backlog(conn, TCP\_DEFAULT\_LISTEN\_BACKLOG)}}
+\DoxyCodeLine{333 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_accept(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{struct} netconn **new\_conn);}
+\DoxyCodeLine{334 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_recv(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{struct} netbuf **new\_buf);}
+\DoxyCodeLine{335 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_recv\_udp\_raw\_netbuf(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{struct} netbuf **new\_buf);}
+\DoxyCodeLine{336 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_recv\_udp\_raw\_netbuf\_flags(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{struct} netbuf **new\_buf, u8\_t apiflags);}
+\DoxyCodeLine{337 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_recv\_tcp\_pbuf(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} **new\_buf);}
+\DoxyCodeLine{338 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_recv\_tcp\_pbuf\_flags(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} **new\_buf, u8\_t apiflags);}
+\DoxyCodeLine{339 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_tcp\_recvd(\textcolor{keyword}{struct} netconn *conn, \textcolor{keywordtype}{size\_t} len);}
+\DoxyCodeLine{340 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_sendto(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{struct} netbuf *buf,}
+\DoxyCodeLine{341                              \textcolor{keyword}{const} ip\_addr\_t *addr, u16\_t port);}
+\DoxyCodeLine{342 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_send(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{struct} netbuf *buf);}
+\DoxyCodeLine{343 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_write\_partly(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *dataptr, \textcolor{keywordtype}{size\_t} size,}
+\DoxyCodeLine{344                              u8\_t apiflags, \textcolor{keywordtype}{size\_t} *bytes\_written);}
+\DoxyCodeLine{345 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_write\_vectors\_partly(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{struct} netvector *vectors, u16\_t vectorcnt,}
+\DoxyCodeLine{346                                      u8\_t apiflags, \textcolor{keywordtype}{size\_t} *bytes\_written);}
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#define netconn\_write(conn, dataptr, size, apiflags) \(\backslash\)}}
+\DoxyCodeLine{349 \textcolor{preprocessor}{          netconn\_write\_partly(conn, dataptr, size, apiflags, NULL)}}
+\DoxyCodeLine{350 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_close(\textcolor{keyword}{struct} netconn *conn);}
+\DoxyCodeLine{351 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_shutdown(\textcolor{keyword}{struct} netconn *conn, u8\_t shut\_rx, u8\_t shut\_tx);}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353 \textcolor{preprocessor}{\#if LWIP\_IGMP || (LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD)}}
+\DoxyCodeLine{354 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_join\_leave\_group(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{const} ip\_addr\_t *multiaddr,}
+\DoxyCodeLine{355                              \textcolor{keyword}{const} ip\_addr\_t *netif\_addr, \textcolor{keyword}{enum} netconn\_igmp join\_or\_leave);}
+\DoxyCodeLine{356 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_join\_leave\_group\_netif(\textcolor{keyword}{struct} netconn *conn, \textcolor{keyword}{const} ip\_addr\_t *multiaddr,}
+\DoxyCodeLine{357                              u8\_t if\_idx, \textcolor{keyword}{enum} netconn\_igmp join\_or\_leave);}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IGMP || (LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{359 \textcolor{preprocessor}{\#if LWIP\_DNS}}
+\DoxyCodeLine{360 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_IPV6}}
+\DoxyCodeLine{361 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_gethostbyname\_addrtype(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name, ip\_addr\_t *addr, u8\_t dns\_addrtype);}
+\DoxyCodeLine{362 \textcolor{preprocessor}{\#define netconn\_gethostbyname(name, addr) netconn\_gethostbyname\_addrtype(name, addr, NETCONN\_DNS\_DEFAULT)}}
+\DoxyCodeLine{363 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{364 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_gethostbyname(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name, ip\_addr\_t *addr);}
+\DoxyCodeLine{365 \textcolor{preprocessor}{\#define netconn\_gethostbyname\_addrtype(name, addr, dns\_addrtype) netconn\_gethostbyname(name, addr)}}
+\DoxyCodeLine{366 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{367 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DNS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}   netconn\_err(\textcolor{keyword}{struct} netconn *conn);}
+\DoxyCodeLine{370 \textcolor{preprocessor}{\#define netconn\_recv\_bufsize(conn)      ((conn)-\/>recv\_bufsize)}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372 \textcolor{preprocessor}{\#define netconn\_set\_flags(conn, set\_flags)     do \{ (conn)-\/>flags = (u8\_t)((conn)-\/>flags |  (set\_flags)); \} while(0)}}
+\DoxyCodeLine{373 \textcolor{preprocessor}{\#define netconn\_clear\_flags(conn, clr\_flags)   do \{ (conn)-\/>flags = (u8\_t)((conn)-\/>flags \& (u8\_t)(\string~(clr\_flags) \& 0xff)); \} while(0)}}
+\DoxyCodeLine{374 \textcolor{preprocessor}{\#define netconn\_is\_flag\_set(conn, flag)        (((conn)-\/>flags \& (flag)) != 0)}}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{377 \textcolor{preprocessor}{\#define netconn\_set\_nonblocking(conn, val)  do \{ if(val) \{ \(\backslash\)}}
+\DoxyCodeLine{378 \textcolor{preprocessor}{  netconn\_set\_flags(conn, NETCONN\_FLAG\_NON\_BLOCKING); \(\backslash\)}}
+\DoxyCodeLine{379 \textcolor{preprocessor}{\} else \{ \(\backslash\)}}
+\DoxyCodeLine{380 \textcolor{preprocessor}{  netconn\_clear\_flags(conn, NETCONN\_FLAG\_NON\_BLOCKING); \}\} while(0)}}
+\DoxyCodeLine{382 \textcolor{preprocessor}{\#define netconn\_is\_nonblocking(conn)        (((conn)-\/>flags \& NETCONN\_FLAG\_NON\_BLOCKING) != 0)}}
+\DoxyCodeLine{383 }
+\DoxyCodeLine{384 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{388 \textcolor{preprocessor}{\#define netconn\_set\_ipv6only(conn, val)  do \{ if(val) \{ \(\backslash\)}}
+\DoxyCodeLine{389 \textcolor{preprocessor}{  netconn\_set\_flags(conn, NETCONN\_FLAG\_IPV6\_V6ONLY); \(\backslash\)}}
+\DoxyCodeLine{390 \textcolor{preprocessor}{\} else \{ \(\backslash\)}}
+\DoxyCodeLine{391 \textcolor{preprocessor}{  netconn\_clear\_flags(conn, NETCONN\_FLAG\_IPV6\_V6ONLY); \}\} while(0)}}
+\DoxyCodeLine{395 \textcolor{preprocessor}{\#define netconn\_get\_ipv6only(conn)        (((conn)-\/>flags \& NETCONN\_FLAG\_IPV6\_V6ONLY) != 0)}}
+\DoxyCodeLine{396 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398 \textcolor{preprocessor}{\#if LWIP\_SO\_SNDTIMEO}}
+\DoxyCodeLine{400 \textcolor{preprocessor}{\#define netconn\_set\_sendtimeout(conn, timeout)      ((conn)-\/>send\_timeout = (timeout))}}
+\DoxyCodeLine{402 \textcolor{preprocessor}{\#define netconn\_get\_sendtimeout(conn)               ((conn)-\/>send\_timeout)}}
+\DoxyCodeLine{403 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SO\_SNDTIMEO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{404 \textcolor{preprocessor}{\#if LWIP\_SO\_RCVTIMEO}}
+\DoxyCodeLine{406 \textcolor{preprocessor}{\#define netconn\_set\_recvtimeout(conn, timeout)      ((conn)-\/>recv\_timeout = (timeout))}}
+\DoxyCodeLine{408 \textcolor{preprocessor}{\#define netconn\_get\_recvtimeout(conn)               ((conn)-\/>recv\_timeout)}}
+\DoxyCodeLine{409 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SO\_RCVTIMEO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{410 \textcolor{preprocessor}{\#if LWIP\_SO\_RCVBUF}}
+\DoxyCodeLine{412 \textcolor{preprocessor}{\#define netconn\_set\_recvbufsize(conn, recvbufsize)  ((conn)-\/>recv\_bufsize = (recvbufsize))}}
+\DoxyCodeLine{414 \textcolor{preprocessor}{\#define netconn\_get\_recvbufsize(conn)               ((conn)-\/>recv\_bufsize)}}
+\DoxyCodeLine{415 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SO\_RCVBUF*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417 \textcolor{preprocessor}{\#if LWIP\_NETCONN\_SEM\_PER\_THREAD}}
+\DoxyCodeLine{418 \textcolor{keywordtype}{void} netconn\_thread\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{419 \textcolor{keywordtype}{void} netconn\_thread\_cleanup(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{420 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_NETCONN\_SEM\_PER\_THREAD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{421 \textcolor{preprocessor}{\#define netconn\_thread\_init()}}
+\DoxyCodeLine{422 \textcolor{preprocessor}{\#define netconn\_thread\_cleanup()}}
+\DoxyCodeLine{423 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETCONN\_SEM\_PER\_THREAD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{424 }
+\DoxyCodeLine{425 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{426 \}}
+\DoxyCodeLine{427 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETCONN || LWIP\_SOCKET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{430 }
+\DoxyCodeLine{431 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_API\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

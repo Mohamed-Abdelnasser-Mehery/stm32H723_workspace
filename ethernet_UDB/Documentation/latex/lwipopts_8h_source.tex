@@ -1,0 +1,99 @@
+\hypertarget{lwipopts_8h_source}{}\doxysection{lwipopts.\+h}
+\label{lwipopts_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/LWIP/Target/lwipopts.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/LWIP/Target/lwipopts.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* USER CODE BEGIN Header */}}
+\DoxyCodeLine{19 \textcolor{comment}{/* USER CODE END Header */}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifndef \_\_LWIPOPTS\_\_H\_\_}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define \_\_LWIPOPTS\_\_H\_\_}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{main_8h}{main.h}}"{}}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{28 \textcolor{comment}{/* Current version of LwIP supported by CubeMx: 2.1.2 -\/*/}}
+\DoxyCodeLine{29 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{comment}{/* Within 'USER CODE' section, code will be kept by default at each generation */}}
+\DoxyCodeLine{32 \textcolor{comment}{/* USER CODE BEGIN 0 */}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{comment}{/* USER CODE END 0 */}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{37  \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{comment}{/* STM32CubeMX Specific Parameters (not defined in opt.h) -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{41 \textcolor{comment}{/* Parameters set in STM32CubeMX LwIP Configuration GUI -\/*/}}
+\DoxyCodeLine{42 \textcolor{comment}{/*-\/-\/-\/-\/-\/ WITH\_RTOS disabled (Since FREERTOS is not set) -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define WITH\_RTOS 0}}
+\DoxyCodeLine{44 \textcolor{comment}{/*-\/-\/-\/-\/-\/ CHECKSUM\_BY\_HARDWARE enabled -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define CHECKSUM\_BY\_HARDWARE 1}}
+\DoxyCodeLine{46 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{comment}{/* LwIP Stack Parameters (modified compared to initialization value in opt.h) -\/*/}}
+\DoxyCodeLine{49 \textcolor{comment}{/* Parameters set in STM32CubeMX LwIP Configuration GUI -\/*/}}
+\DoxyCodeLine{50 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Default value in ETH configuration GUI in CubeMx: 1524 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define ETH\_RX\_BUFFER\_SIZE 1524}}
+\DoxyCodeLine{52 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for NO\_SYS: 0 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define NO\_SYS 1}}
+\DoxyCodeLine{54 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for SYS\_LIGHTWEIGHT\_PROT: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define SYS\_LIGHTWEIGHT\_PROT 0}}
+\DoxyCodeLine{56 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for MEM\_ALIGNMENT: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define MEM\_ALIGNMENT 4}}
+\DoxyCodeLine{58 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Default Value for MEM\_SIZE: 1600 -\/-\/-\/*/}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define MEM\_SIZE 10*1024}}
+\DoxyCodeLine{60 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Default Value for H7 devices: 0x30044000 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define LWIP\_RAM\_HEAP\_POINTER 0x30004000}}
+\DoxyCodeLine{62 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value supported for H7 devices: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define LWIP\_SUPPORT\_CUSTOM\_PBUF 1}}
+\DoxyCodeLine{64 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for LWIP\_ETHERNET: LWIP\_ARP || PPPOE\_SUPPORT -\/*/}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define LWIP\_ETHERNET 1}}
+\DoxyCodeLine{66 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for LWIP\_DNS\_SECURE: (LWIP\_DNS\_SECURE\_RAND\_XID | LWIP\_DNS\_SECURE\_NO\_MULTIPLE\_OUTSTANDING | LWIP\_DNS\_SECURE\_RAND\_SRC\_PORT) -\/*/}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define LWIP\_DNS\_SECURE 7}}
+\DoxyCodeLine{68 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for TCP\_SND\_QUEUELEN: (4*TCP\_SND\_BUF + (TCP\_MSS -\/ 1))/TCP\_MSS -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define TCP\_SND\_QUEUELEN 9}}
+\DoxyCodeLine{70 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for TCP\_SNDLOWAT: LWIP\_MIN(LWIP\_MAX(((TCP\_SND\_BUF)/2), (2 * TCP\_MSS) + 1), (TCP\_SND\_BUF) -\/ 1) -\/*/}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define TCP\_SNDLOWAT 1071}}
+\DoxyCodeLine{72 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for TCP\_SNDQUEUELOWAT: LWIP\_MAX(TCP\_SND\_QUEUELEN)/2, 5) -\/*/}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define TCP\_SNDQUEUELOWAT 5}}
+\DoxyCodeLine{74 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for TCP\_WND\_UPDATE\_THRESHOLD: LWIP\_MIN(TCP\_WND/4, TCP\_MSS*4) -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define TCP\_WND\_UPDATE\_THRESHOLD 536}}
+\DoxyCodeLine{76 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for LWIP\_NETIF\_LINK\_CALLBACK: 0 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define LWIP\_NETIF\_LINK\_CALLBACK 1}}
+\DoxyCodeLine{78 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for LWIP\_NETCONN: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define LWIP\_NETCONN 0}}
+\DoxyCodeLine{80 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for LWIP\_SOCKET: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define LWIP\_SOCKET 0}}
+\DoxyCodeLine{82 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for RECV\_BUFSIZE\_DEFAULT: INT\_MAX -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define RECV\_BUFSIZE\_DEFAULT 2000000000}}
+\DoxyCodeLine{84 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for LWIP\_STATS: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define LWIP\_STATS 0}}
+\DoxyCodeLine{86 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for CHECKSUM\_GEN\_IP: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define CHECKSUM\_GEN\_IP 0}}
+\DoxyCodeLine{88 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for CHECKSUM\_GEN\_UDP: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define CHECKSUM\_GEN\_UDP 0}}
+\DoxyCodeLine{90 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for CHECKSUM\_GEN\_TCP: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define CHECKSUM\_GEN\_TCP 0}}
+\DoxyCodeLine{92 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for CHECKSUM\_GEN\_ICMP6: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define CHECKSUM\_GEN\_ICMP6 0}}
+\DoxyCodeLine{94 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for CHECKSUM\_CHECK\_IP: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define CHECKSUM\_CHECK\_IP 0}}
+\DoxyCodeLine{96 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for CHECKSUM\_CHECK\_UDP: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define CHECKSUM\_CHECK\_UDP 0}}
+\DoxyCodeLine{98 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for CHECKSUM\_CHECK\_TCP: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define CHECKSUM\_CHECK\_TCP 0}}
+\DoxyCodeLine{100 \textcolor{comment}{/*-\/-\/-\/-\/-\/ Value in opt.h for CHECKSUM\_CHECK\_ICMP6: 1 -\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define CHECKSUM\_CHECK\_ICMP6 0}}
+\DoxyCodeLine{102 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{103 \textcolor{comment}{/* USER CODE BEGIN 1 */}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{comment}{/* USER CODE END 1 */}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{108 \}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*\_\_LWIPOPTS\_\_H\_\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

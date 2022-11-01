@@ -1,0 +1,72 @@
+\hypertarget{iana_8h_source}{}\doxysection{iana.\+h}
+\label{iana_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/iana.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/iana.h}}
+\mbox{\hyperlink{iana_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (c) 2017 Dirk Ziegelmeier.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{14 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{21 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{22 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{23 \textcolor{comment}{ *}}
+\DoxyCodeLine{24 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{25 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{26 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{27 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{28 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{29 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{30 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{31 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{32 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{33 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ * Author: Dirk Ziegelmeier <dziegel@gmx.de>}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ */}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_PROT\_IANA\_H}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define LWIP\_HDR\_PROT\_IANA\_H}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{45 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{52 \textcolor{keyword}{enum} \mbox{\hyperlink{group__iana_ga3d2bbfcb56c8adf3be8c8d12868cecfe}{lwip\_iana\_hwtype}} \{}
+\DoxyCodeLine{54   \mbox{\hyperlink{group__iana_gga3d2bbfcb56c8adf3be8c8d12868cecfea89e82e6ac55811bb26fe66ec029f2a0c}{LWIP\_IANA\_HWTYPE\_ETHERNET}} = 1}
+\DoxyCodeLine{55 \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{62 \textcolor{keyword}{enum} \mbox{\hyperlink{group__iana_gac9396d90585e49e9a287179bf5aa9ba0}{lwip\_iana\_port\_number}} \{}
+\DoxyCodeLine{64   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0ae2645895203ca3c54005afad053a813c}{LWIP\_IANA\_PORT\_SMTP}}        = 25,}
+\DoxyCodeLine{66   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0ac70ae96c985cf3660e26aa496094916d}{LWIP\_IANA\_PORT\_DHCP\_SERVER}} = 67,}
+\DoxyCodeLine{68   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0a9fcae1f16758e1ac35dab343fc897f40}{LWIP\_IANA\_PORT\_DHCP\_CLIENT}} = 68,}
+\DoxyCodeLine{70   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0a7b318226afef92e019b67227acf94050}{LWIP\_IANA\_PORT\_TFTP}}        = 69,}
+\DoxyCodeLine{72   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0a1c665cb8e57dff577f4966493c15b618}{LWIP\_IANA\_PORT\_HTTP}}        = 80,}
+\DoxyCodeLine{74   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0a79c377ce09e05cd4410a8865d41b3efb}{LWIP\_IANA\_PORT\_SNTP}}        = 123,}
+\DoxyCodeLine{76   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0ae1cf6eaab024b31aff5bf407d38e0ede}{LWIP\_IANA\_PORT\_NETBIOS}}     = 137,}
+\DoxyCodeLine{78   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0aeb10a37f0c48e053b138f65b843c45d3}{LWIP\_IANA\_PORT\_SNMP}}        = 161,}
+\DoxyCodeLine{80   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0aff60c0d3e8eca210b7e4faca3491f4a8}{LWIP\_IANA\_PORT\_SNMP\_TRAP}}   = 162,}
+\DoxyCodeLine{82   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0ad07fb8ff2b18006405d904b5b3810c88}{LWIP\_IANA\_PORT\_HTTPS}}       = 443,}
+\DoxyCodeLine{84   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0a88f8872246977c6e24c617266ada1a3b}{LWIP\_IANA\_PORT\_SMTPS}}       = 465,}
+\DoxyCodeLine{86   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0a172d486d82c552ef3540cf8d61b14b22}{LWIP\_IANA\_PORT\_MQTT}}        = 1883,}
+\DoxyCodeLine{88   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0a839da325f45916d7b27d53d5e5e97dc6}{LWIP\_IANA\_PORT\_MDNS}}        = 5353,}
+\DoxyCodeLine{90   \mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0ab833e9dc7646bd7affde45691bc66601}{LWIP\_IANA\_PORT\_SECURE\_MQTT}} = 8883}
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{94 \}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_PROT\_IANA\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

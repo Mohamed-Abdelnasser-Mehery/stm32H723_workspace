@@ -1,0 +1,251 @@
+\hypertarget{httpd__opts_8h_source}{}\doxysection{httpd\+\_\+opts.\+h}
+\label{httpd__opts_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/httpd\_opts.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/httpd\_opts.h}}
+\mbox{\hyperlink{httpd__opts_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2003 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ * This version of the file has been modified by Texas Instruments to offer}}
+\DoxyCodeLine{37 \textcolor{comment}{ * simple server-\/side-\/include (SSI) and Common Gateway Interface (CGI)}}
+\DoxyCodeLine{38 \textcolor{comment}{ * capability.}}
+\DoxyCodeLine{39 \textcolor{comment}{ */}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_HTTPD\_OPTS\_H}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_HTTPD\_OPTS\_H}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{iana_8h}{lwip/prot/iana.h}}"{}}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_CGI || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_CGI            0}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_CGI\_SSI || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_CGI\_SSI        0}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_SSI || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_SSI            0}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_SSI\_RAW || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_SSI\_RAW        0}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_SSI\_BY\_FILE\_EXTENSION || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_SSI\_BY\_FILE\_EXTENSION  1}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_SUPPORT\_POST || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_SUPPORT\_POST   0}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{comment}{/* The maximum number of parameters that the CGI handler can be sent. */}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_MAX\_CGI\_PARAMETERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_MAX\_CGI\_PARAMETERS 16}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_SSI\_MULTIPART || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_SSI\_MULTIPART    0}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{comment}{/* The maximum length of the string comprising the SSI tag name}}
+\DoxyCodeLine{143 \textcolor{comment}{ * ATTENTION: tags longer than this are ignored, not truncated!}}
+\DoxyCodeLine{144 \textcolor{comment}{ */}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_MAX\_TAG\_NAME\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_MAX\_TAG\_NAME\_LEN 8}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{comment}{/* The maximum length of string that can be returned to replace any given tag}}
+\DoxyCodeLine{150 \textcolor{comment}{ * If this buffer is not long enough, use LWIP\_HTTPD\_SSI\_MULTIPART.}}
+\DoxyCodeLine{151 \textcolor{comment}{ */}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_MAX\_TAG\_INSERT\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_MAX\_TAG\_INSERT\_LEN 192}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_POST\_MANUAL\_WND || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_POST\_MANUAL\_WND  0}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#if !defined HTTPD\_SERVER\_AGENT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define HTTPD\_SERVER\_AGENT "{}lwIP/"{}} LWIP\_VERSION\_STRING "{} (http://savannah.nongnu.org/projects/lwip)"{}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_DYNAMIC\_HEADERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_DYNAMIC\_HEADERS 0}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#if !defined HTTPD\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#define HTTPD\_DEBUG         LWIP\_DBG\_OFF}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#if !defined HTTPD\_USE\_MEM\_POOL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#define HTTPD\_USE\_MEM\_POOL  0}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#if !defined HTTPD\_SERVER\_PORT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define HTTPD\_SERVER\_PORT                   LWIP\_IANA\_PORT\_HTTP}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#if !defined HTTPD\_SERVER\_PORT\_HTTPS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#define HTTPD\_SERVER\_PORT\_HTTPS             LWIP\_IANA\_PORT\_HTTPS}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#if !defined HTTPD\_ENABLE\_HTTPS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#define HTTPD\_ENABLE\_HTTPS                  0}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#if !defined HTTPD\_MAX\_RETRIES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#define HTTPD\_MAX\_RETRIES                   4}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#if !defined HTTPD\_POLL\_INTERVAL || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#define HTTPD\_POLL\_INTERVAL                 4}}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#if !defined HTTPD\_TCP\_PRIO || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#define HTTPD\_TCP\_PRIO                      TCP\_PRIO\_MIN}}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_TIMING || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{225 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_TIMING                   0}}
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#if !defined HTTPD\_DEBUG\_TIMING || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#define HTTPD\_DEBUG\_TIMING                  LWIP\_DBG\_OFF}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{234 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_SUPPORT\_EXTSTATUS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_SUPPORT\_EXTSTATUS        0}}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{239 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_SUPPORT\_V09 || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_SUPPORT\_V09              1}}
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{247 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_SUPPORT\_11\_KEEPALIVE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_SUPPORT\_11\_KEEPALIVE     0}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_SUPPORT\_REQUESTLIST || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_SUPPORT\_REQUESTLIST      1}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#if LWIP\_HTTPD\_SUPPORT\_REQUESTLIST}}
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_REQ\_QUEUELEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_REQ\_QUEUELEN             5}}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_REQ\_BUFSIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_REQ\_BUFSIZE              LWIP\_HTTPD\_MAX\_REQ\_LENGTH}}
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_MAX\_REQ\_LENGTH || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_MAX\_REQ\_LENGTH           LWIP\_MIN(1023, (LWIP\_HTTPD\_REQ\_QUEUELEN * PBUF\_POOL\_BUFSIZE))}}
+\DoxyCodeLine{274 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HTTPD\_SUPPORT\_REQUESTLIST */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{282 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_MAX\_REQUEST\_URI\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_MAX\_REQUEST\_URI\_LEN      63}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_POST\_MAX\_RESPONSE\_URI\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_POST\_MAX\_RESPONSE\_URI\_LEN 63}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_SSI\_INCLUDE\_TAG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_SSI\_INCLUDE\_TAG           1}}
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_ABORT\_ON\_CLOSE\_MEM\_ERROR || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{303 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_ABORT\_ON\_CLOSE\_MEM\_ERROR  0}}
+\DoxyCodeLine{304 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_KILL\_OLD\_ON\_CONNECTIONS\_EXCEEDED || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_KILL\_OLD\_ON\_CONNECTIONS\_EXCEEDED 0}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_OMIT\_HEADER\_FOR\_EXTENSIONLESS\_URI || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_OMIT\_HEADER\_FOR\_EXTENSIONLESS\_URI 0}}
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{321 \textcolor{preprocessor}{\#if !defined HTTP\_IS\_TAG\_VOLATILE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{322 \textcolor{preprocessor}{\#define HTTP\_IS\_TAG\_VOLATILE(ptr) TCP\_WRITE\_FLAG\_COPY}}
+\DoxyCodeLine{323 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325 \textcolor{comment}{/* By default, the httpd is limited to send 2*pcb-\/>mss to keep resource usage low}}
+\DoxyCodeLine{326 \textcolor{comment}{   when http is not an important protocol in the device. */}}
+\DoxyCodeLine{327 \textcolor{preprocessor}{\#if !defined HTTPD\_LIMIT\_SENDING\_TO\_2MSS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{328 \textcolor{preprocessor}{\#define HTTPD\_LIMIT\_SENDING\_TO\_2MSS 1}}
+\DoxyCodeLine{329 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{330 }
+\DoxyCodeLine{331 \textcolor{comment}{/* Define this to a function that returns the maximum amount of data to enqueue.}}
+\DoxyCodeLine{332 \textcolor{comment}{   The function have this signature: u16\_t fn(struct altcp\_pcb* pcb);}}
+\DoxyCodeLine{333 \textcolor{comment}{   The best place to define this is the hooks file (@see LWIP\_HOOK\_FILENAME) */}}
+\DoxyCodeLine{334 \textcolor{preprocessor}{\#if !defined HTTPD\_MAX\_WRITE\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{335 \textcolor{preprocessor}{\#if HTTPD\_LIMIT\_SENDING\_TO\_2MSS}}
+\DoxyCodeLine{336 \textcolor{preprocessor}{\#define HTTPD\_MAX\_WRITE\_LEN(pcb)    ((u16\_t)(2 * altcp\_mss(pcb)))}}
+\DoxyCodeLine{337 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{338 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ FS OPTIONS -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{349 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_CUSTOM\_FILES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_CUSTOM\_FILES       0}}
+\DoxyCodeLine{351 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_DYNAMIC\_FILE\_READ || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_DYNAMIC\_FILE\_READ  0}}
+\DoxyCodeLine{359 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{364 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_FILE\_STATE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{365 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_FILE\_STATE         0}}
+\DoxyCodeLine{366 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{371 \textcolor{preprocessor}{\#if !defined HTTPD\_PRECALCULATED\_CHECKSUM || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{372 \textcolor{preprocessor}{\#define HTTPD\_PRECALCULATED\_CHECKSUM  0}}
+\DoxyCodeLine{373 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{378 \textcolor{preprocessor}{\#if !defined LWIP\_HTTPD\_FS\_ASYNC\_READ || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{379 \textcolor{preprocessor}{\#define LWIP\_HTTPD\_FS\_ASYNC\_READ      0}}
+\DoxyCodeLine{380 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{383 \textcolor{preprocessor}{\#if !defined HTTPD\_FSDATA\_FILE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{384 \textcolor{comment}{/* HTTPD\_USE\_CUSTOM\_FSDATA: Compatibility with deprecated lwIP option */}}
+\DoxyCodeLine{385 \textcolor{preprocessor}{\#if defined(HTTPD\_USE\_CUSTOM\_FSDATA) \&\& (HTTPD\_USE\_CUSTOM\_FSDATA != 0)}}
+\DoxyCodeLine{386 \textcolor{preprocessor}{\#define HTTPD\_FSDATA\_FILE "{}fsdata\_custom.c"{}}}
+\DoxyCodeLine{387 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{388 \textcolor{preprocessor}{\#define HTTPD\_FSDATA\_FILE "{}fsdata.c"{}}}
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{390 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{396 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_HTTPD\_OPTS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

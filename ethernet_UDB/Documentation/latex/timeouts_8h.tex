@@ -1,0 +1,69 @@
+\hypertarget{timeouts_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/timeouts.h File Reference}
+\label{timeouts_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/timeouts.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/timeouts.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlwip__cyclic__timer}{lwip\+\_\+cyclic\+\_\+timer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{timeouts_8h_a9ab7e8d91b741ce44b96c68c8e4141d3}\label{timeouts_8h_a9ab7e8d91b741ce44b96c68c8e4141d3}} 
+\#define {\bfseries LWIP\+\_\+\+DEBUG\+\_\+\+TIMERNAMES}~0
+\item 
+\#define \mbox{\hyperlink{timeouts_8h_a9e2b2593e709ff54c7e3c0b003f6f1b0}{SYS\+\_\+\+TIMEOUTS\+\_\+\+SLEEPTIME\+\_\+\+INFINITE}}~0x\+FFFFFFFF
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{timeouts_8h_a3835d5c43cf31662a2b9c99e72788e25}{lwip\+\_\+cyclic\+\_\+timer\+\_\+handler}}) (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const struct \mbox{\hyperlink{structlwip__cyclic__timer}{lwip\+\_\+cyclic\+\_\+timer}} \mbox{\hyperlink{timeouts_8h_addc06ab816f051a0fe6f280972eed142}{lwip\+\_\+cyclic\+\_\+timers}} \mbox{[}$\,$\mbox{]}
+\item 
+const int \mbox{\hyperlink{timeouts_8h_a9d01f287a19f20b073d3a1c306ecbfcd}{lwip\+\_\+num\+\_\+cyclic\+\_\+timers}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Timer implementations 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{timeouts_8h_a9e2b2593e709ff54c7e3c0b003f6f1b0}\label{timeouts_8h_a9e2b2593e709ff54c7e3c0b003f6f1b0}} 
+\index{timeouts.h@{timeouts.h}!SYS\_TIMEOUTS\_SLEEPTIME\_INFINITE@{SYS\_TIMEOUTS\_SLEEPTIME\_INFINITE}}
+\index{SYS\_TIMEOUTS\_SLEEPTIME\_INFINITE@{SYS\_TIMEOUTS\_SLEEPTIME\_INFINITE}!timeouts.h@{timeouts.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_TIMEOUTS\_SLEEPTIME\_INFINITE}{SYS\_TIMEOUTS\_SLEEPTIME\_INFINITE}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+TIMEOUTS\+\_\+\+SLEEPTIME\+\_\+\+INFINITE~0x\+FFFFFFFF}
+
+Returned by sys\+\_\+timeouts\+\_\+sleeptime() to indicate there is no timer, so we can sleep forever. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{timeouts_8h_a3835d5c43cf31662a2b9c99e72788e25}\label{timeouts_8h_a3835d5c43cf31662a2b9c99e72788e25}} 
+\index{timeouts.h@{timeouts.h}!lwip\_cyclic\_timer\_handler@{lwip\_cyclic\_timer\_handler}}
+\index{lwip\_cyclic\_timer\_handler@{lwip\_cyclic\_timer\_handler}!timeouts.h@{timeouts.h}}
+\doxysubsubsection{\texorpdfstring{lwip\_cyclic\_timer\_handler}{lwip\_cyclic\_timer\_handler}}
+{\footnotesize\ttfamily typedef void($\ast$ lwip\+\_\+cyclic\+\_\+timer\+\_\+handler) (void)}
+
+Function prototype for a stack-\/internal timer function that has to be called at a defined interval 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{timeouts_8h_addc06ab816f051a0fe6f280972eed142}\label{timeouts_8h_addc06ab816f051a0fe6f280972eed142}} 
+\index{timeouts.h@{timeouts.h}!lwip\_cyclic\_timers@{lwip\_cyclic\_timers}}
+\index{lwip\_cyclic\_timers@{lwip\_cyclic\_timers}!timeouts.h@{timeouts.h}}
+\doxysubsubsection{\texorpdfstring{lwip\_cyclic\_timers}{lwip\_cyclic\_timers}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structlwip__cyclic__timer}{lwip\+\_\+cyclic\+\_\+timer}} lwip\+\_\+cyclic\+\_\+timers\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+This array contains all stack-\/internal cyclic timers. To get the number of timers, use lwip\+\_\+num\+\_\+cyclic\+\_\+timers
+
+This array contains all stack-\/internal cyclic timers. To get the number of timers, use LWIP\+\_\+\+ARRAYSIZE() \mbox{\Hypertarget{timeouts_8h_a9d01f287a19f20b073d3a1c306ecbfcd}\label{timeouts_8h_a9d01f287a19f20b073d3a1c306ecbfcd}} 
+\index{timeouts.h@{timeouts.h}!lwip\_num\_cyclic\_timers@{lwip\_num\_cyclic\_timers}}
+\index{lwip\_num\_cyclic\_timers@{lwip\_num\_cyclic\_timers}!timeouts.h@{timeouts.h}}
+\doxysubsubsection{\texorpdfstring{lwip\_num\_cyclic\_timers}{lwip\_num\_cyclic\_timers}}
+{\footnotesize\ttfamily const int lwip\+\_\+num\+\_\+cyclic\+\_\+timers\hspace{0.3cm}{\ttfamily [extern]}}
+
+Array size of lwip\+\_\+cyclic\+\_\+timers\mbox{[}\mbox{]} 

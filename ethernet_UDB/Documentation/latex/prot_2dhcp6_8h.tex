@@ -1,0 +1,187 @@
+\hypertarget{prot_2dhcp6_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/prot/dhcp6.h File Reference}
+\label{prot_2dhcp6_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/dhcp6.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/dhcp6.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdhcp6__msg}{dhcp6\+\_\+msg}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_ad98f7dae4c19a6e4e91c6a22067ca55e}\label{prot_2dhcp6_8h_ad98f7dae4c19a6e4e91c6a22067ca55e}} 
+\#define {\bfseries DHCP6\+\_\+\+CLIENT\+\_\+\+PORT}~546
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a588ab8dc398377cea8a0626ce2435fcf}\label{prot_2dhcp6_8h_a588ab8dc398377cea8a0626ce2435fcf}} 
+\#define {\bfseries DHCP6\+\_\+\+SERVER\+\_\+\+PORT}~547
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a90008b460e2fd6b8576adf4cefc9d1ce}\label{prot_2dhcp6_8h_a90008b460e2fd6b8576adf4cefc9d1ce}} 
+\#define {\bfseries DHCP6\+\_\+\+TRANSACTION\+\_\+\+ID\+\_\+\+LEN}~3
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a21648f9fd992e83a85d196b971c4d486}\label{prot_2dhcp6_8h_a21648f9fd992e83a85d196b971c4d486}} 
+\#define {\bfseries DHCP6\+\_\+\+SOLICIT}~1
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a4a793acac55607cc630f35d352501e4d}\label{prot_2dhcp6_8h_a4a793acac55607cc630f35d352501e4d}} 
+\#define {\bfseries DHCP6\+\_\+\+ADVERTISE}~2
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a6037e7d05e3ccd0825fcb7e53c791020}\label{prot_2dhcp6_8h_a6037e7d05e3ccd0825fcb7e53c791020}} 
+\#define {\bfseries DHCP6\+\_\+\+REQUEST}~3
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a8059576702f11c572a7e36740b33de85}\label{prot_2dhcp6_8h_a8059576702f11c572a7e36740b33de85}} 
+\#define {\bfseries DHCP6\+\_\+\+CONFIRM}~4
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a7ff3e65d3ebc92ebba28fc90f085fec2}\label{prot_2dhcp6_8h_a7ff3e65d3ebc92ebba28fc90f085fec2}} 
+\#define {\bfseries DHCP6\+\_\+\+RENEW}~5
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a772cfda1dac68d874c8e6df89126d6e0}\label{prot_2dhcp6_8h_a772cfda1dac68d874c8e6df89126d6e0}} 
+\#define {\bfseries DHCP6\+\_\+\+REBIND}~6
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_ae714b98888a09718077d5427f656047e}\label{prot_2dhcp6_8h_ae714b98888a09718077d5427f656047e}} 
+\#define {\bfseries DHCP6\+\_\+\+REPLY}~7
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a7af68f3ab31f35400bb79692242dfcd8}\label{prot_2dhcp6_8h_a7af68f3ab31f35400bb79692242dfcd8}} 
+\#define {\bfseries DHCP6\+\_\+\+RELEASE}~8
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a1c929cd04f6c6d7152578cb86d6c2508}\label{prot_2dhcp6_8h_a1c929cd04f6c6d7152578cb86d6c2508}} 
+\#define {\bfseries DHCP6\+\_\+\+DECLINE}~9
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a0d90d01ddabfe416ce10294131776e6c}\label{prot_2dhcp6_8h_a0d90d01ddabfe416ce10294131776e6c}} 
+\#define {\bfseries DHCP6\+\_\+\+RECONFIGURE}~10
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a180455413a18aed9152f5b2838b8c057}\label{prot_2dhcp6_8h_a180455413a18aed9152f5b2838b8c057}} 
+\#define {\bfseries DHCP6\+\_\+\+INFOREQUEST}~11
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a05c7f8a994e4f9d6ef51c0d88f0e1450}\label{prot_2dhcp6_8h_a05c7f8a994e4f9d6ef51c0d88f0e1450}} 
+\#define {\bfseries DHCP6\+\_\+\+RELAYFORW}~12
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_ac63f086bd78257b2884e551547d9410c}\label{prot_2dhcp6_8h_ac63f086bd78257b2884e551547d9410c}} 
+\#define {\bfseries DHCP6\+\_\+\+RELAYREPL}~13
+\item 
+\#define \mbox{\hyperlink{prot_2dhcp6_8h_a878a7734e159826e82e958fe3a5ca175}{DHCP6\+\_\+\+STATUS\+\_\+\+SUCCESS}}~0 /$\ast$ Success. $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_abad5bb4b8bb9cd1169deac71a77b263e}\label{prot_2dhcp6_8h_abad5bb4b8bb9cd1169deac71a77b263e}} 
+\#define {\bfseries DHCP6\+\_\+\+STATUS\+\_\+\+UNSPECFAIL}~1 /$\ast$ Failure, reason unspecified; this status code is sent by either a client or a server to indicate a failure not explicitly specified in this document. $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_ac4eb9d00b6a51c7db6b918bfe0924e9c}\label{prot_2dhcp6_8h_ac4eb9d00b6a51c7db6b918bfe0924e9c}} 
+\#define {\bfseries DHCP6\+\_\+\+STATUS\+\_\+\+NOADDRSAVAIL}~2 /$\ast$ Server has no addresses available to assign to the IA(s). $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a0f1d776c2d0e0a180dadd64ac6d8474b}\label{prot_2dhcp6_8h_a0f1d776c2d0e0a180dadd64ac6d8474b}} 
+\#define {\bfseries DHCP6\+\_\+\+STATUS\+\_\+\+NOBINDING}~3 /$\ast$ Client record (binding) unavailable. $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_ac856274afb7a60449ba3e4d04d8b0203}\label{prot_2dhcp6_8h_ac856274afb7a60449ba3e4d04d8b0203}} 
+\#define {\bfseries DHCP6\+\_\+\+STATUS\+\_\+\+NOTONLINK}~4 /$\ast$ The prefix for the address is not appropriate for the link to which the client is attached. $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a5fe842b0c5e991be94522ac9bc486a46}\label{prot_2dhcp6_8h_a5fe842b0c5e991be94522ac9bc486a46}} 
+\#define {\bfseries DHCP6\+\_\+\+STATUS\+\_\+\+USEMULTICAST}~5 /$\ast$ Sent by a server to a client to force the client to send messages to the server using the All\+\_\+\+DHCP\+\_\+\+Relay\+\_\+\+Agents\+\_\+and\+\_\+\+Servers address. $\ast$/
+\item 
+\#define \mbox{\hyperlink{prot_2dhcp6_8h_afe33f98cb94e0f18892a41502cf54e36}{DHCP6\+\_\+\+DUID\+\_\+\+LLT}}~1 /$\ast$ LLT\+: Link-\/layer Address Plus Time $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_af427c37c4875ceaeaf0521b9b3e62e3b}\label{prot_2dhcp6_8h_af427c37c4875ceaeaf0521b9b3e62e3b}} 
+\#define {\bfseries DHCP6\+\_\+\+DUID\+\_\+\+EN}~2 /$\ast$ EN\+: Enterprise number $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a8f36b241c673d72459b5aa03d7a000a0}\label{prot_2dhcp6_8h_a8f36b241c673d72459b5aa03d7a000a0}} 
+\#define {\bfseries DHCP6\+\_\+\+DUID\+\_\+\+LL}~3 /$\ast$ LL\+: Link-\/layer Address $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_abb9e675bdfe64ad3f523614967be5695}\label{prot_2dhcp6_8h_abb9e675bdfe64ad3f523614967be5695}} 
+\#define {\bfseries DHCP6\+\_\+\+DUID\+\_\+\+UUID}~4 /$\ast$ UUID (RFC 6355) $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a28dccc6efd89c5d45449cf9302ed1dad}\label{prot_2dhcp6_8h_a28dccc6efd89c5d45449cf9302ed1dad}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+CLIENTID}~1
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a066c257c32b18463a9a42f82d91f8bca}\label{prot_2dhcp6_8h_a066c257c32b18463a9a42f82d91f8bca}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+SERVERID}~2
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_aa6d1e1c5b7d335056a36b7e2885547f2}\label{prot_2dhcp6_8h_aa6d1e1c5b7d335056a36b7e2885547f2}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+IA\+\_\+\+NA}~3
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_afc7916d505aa2e0b35ffd3544e3fee19}\label{prot_2dhcp6_8h_afc7916d505aa2e0b35ffd3544e3fee19}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+IA\+\_\+\+TA}~4
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_ad689e123345d0f99bb56b5f2e5e3e33e}\label{prot_2dhcp6_8h_ad689e123345d0f99bb56b5f2e5e3e33e}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+IAADDR}~5
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a379f86d72aa2bdfb11f1c9360cfae007}\label{prot_2dhcp6_8h_a379f86d72aa2bdfb11f1c9360cfae007}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+ORO}~6
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a20d659ef9f3b9dd015dc3bdee0c788bc}\label{prot_2dhcp6_8h_a20d659ef9f3b9dd015dc3bdee0c788bc}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+PREFERENCE}~7
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a60da915208172ded7fa7b33d8ddee806}\label{prot_2dhcp6_8h_a60da915208172ded7fa7b33d8ddee806}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+ELAPSED\+\_\+\+TIME}~8
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a1e2a8442fce42c2d2afa1727dd374c98}\label{prot_2dhcp6_8h_a1e2a8442fce42c2d2afa1727dd374c98}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+RELAY\+\_\+\+MSG}~9
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a75585cf734101acb4c2d7fe89758d832}\label{prot_2dhcp6_8h_a75585cf734101acb4c2d7fe89758d832}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+AUTH}~11
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a86502980527793e6895aad8bb509585f}\label{prot_2dhcp6_8h_a86502980527793e6895aad8bb509585f}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+UNICAST}~12
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a9f0c8d3618d1ede7ad95151a5e996710}\label{prot_2dhcp6_8h_a9f0c8d3618d1ede7ad95151a5e996710}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+STATUS\+\_\+\+CODE}~13
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_ab12a6954863ba37d4ab51f6ad39c4530}\label{prot_2dhcp6_8h_ab12a6954863ba37d4ab51f6ad39c4530}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+RAPID\+\_\+\+COMMIT}~14
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a1d6351cb169ecc1d92696b3aa900ae43}\label{prot_2dhcp6_8h_a1d6351cb169ecc1d92696b3aa900ae43}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+USER\+\_\+\+CLASS}~15
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a2391c7f0e1896d6bfc0f508dbcebe368}\label{prot_2dhcp6_8h_a2391c7f0e1896d6bfc0f508dbcebe368}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+VENDOR\+\_\+\+CLASS}~16
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a1ca01eb920823b23d588c0c5f035f5b3}\label{prot_2dhcp6_8h_a1ca01eb920823b23d588c0c5f035f5b3}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+VENDOR\+\_\+\+OPTS}~17
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_afc4bef8f59b3fd88a2d27e81837114f5}\label{prot_2dhcp6_8h_afc4bef8f59b3fd88a2d27e81837114f5}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+INTERFACE\+\_\+\+ID}~18
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a6bd767bd0080edaad05b7b34b5ebde81}\label{prot_2dhcp6_8h_a6bd767bd0080edaad05b7b34b5ebde81}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+RECONF\+\_\+\+MSG}~19
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a6e88a5613d74ad155beb0718b787441e}\label{prot_2dhcp6_8h_a6e88a5613d74ad155beb0718b787441e}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+RECONF\+\_\+\+ACCEPT}~20
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a09c5d24a61172a2dc6cdd3b5084d1409}\label{prot_2dhcp6_8h_a09c5d24a61172a2dc6cdd3b5084d1409}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+DNS\+\_\+\+SERVERS}~23 /$\ast$ RFC 3646 $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a336558af17e8654ca19f087a39803c8b}\label{prot_2dhcp6_8h_a336558af17e8654ca19f087a39803c8b}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+DOMAIN\+\_\+\+LIST}~24 /$\ast$ RFC 3646 $\ast$/
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a2b0c74d5ddf521db28646dee7cd34fe3}\label{prot_2dhcp6_8h_a2b0c74d5ddf521db28646dee7cd34fe3}} 
+\#define {\bfseries DHCP6\+\_\+\+OPTION\+\_\+\+SNTP\+\_\+\+SERVERS}~31 /$\ast$ RFC 4075 $\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a563d064000f6252c4b7a7af1e700d736}\label{prot_2dhcp6_8h_a563d064000f6252c4b7a7af1e700d736}} 
+enum {\bfseries dhcp6\+\_\+state\+\_\+enum\+\_\+t} \{ {\bfseries DHCP6\+\_\+\+STATE\+\_\+\+OFF} = 0
+, {\bfseries DHCP6\+\_\+\+STATE\+\_\+\+STATELESS\+\_\+\+IDLE} = 1
+, {\bfseries DHCP6\+\_\+\+STATE\+\_\+\+REQUESTING\+\_\+\+CONFIG} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2dhcp6_8h_a38a344a82ad970eaf871da2bcb877be4}\label{prot_2dhcp6_8h_a38a344a82ad970eaf871da2bcb877be4}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\+\_\+\+STRUCT\+\_\+\+BEGIN}} struct \mbox{\hyperlink{structdhcp6__msg}{dhcp6\+\_\+msg}} {\bfseries PACK\+\_\+\+STRUCT\+\_\+\+STRUCT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+DHCPv6 protocol definitions 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{prot_2dhcp6_8h_afe33f98cb94e0f18892a41502cf54e36}\label{prot_2dhcp6_8h_afe33f98cb94e0f18892a41502cf54e36}} 
+\index{dhcp6.h@{dhcp6.h}!DHCP6\_DUID\_LLT@{DHCP6\_DUID\_LLT}}
+\index{DHCP6\_DUID\_LLT@{DHCP6\_DUID\_LLT}!dhcp6.h@{dhcp6.h}}
+\doxysubsubsection{\texorpdfstring{DHCP6\_DUID\_LLT}{DHCP6\_DUID\_LLT}}
+{\footnotesize\ttfamily \#define DHCP6\+\_\+\+DUID\+\_\+\+LLT~1 /$\ast$ LLT\+: Link-\/layer Address Plus Time $\ast$/}
+
+DHCPv6 DUID types \mbox{\Hypertarget{prot_2dhcp6_8h_a878a7734e159826e82e958fe3a5ca175}\label{prot_2dhcp6_8h_a878a7734e159826e82e958fe3a5ca175}} 
+\index{dhcp6.h@{dhcp6.h}!DHCP6\_STATUS\_SUCCESS@{DHCP6\_STATUS\_SUCCESS}}
+\index{DHCP6\_STATUS\_SUCCESS@{DHCP6\_STATUS\_SUCCESS}!dhcp6.h@{dhcp6.h}}
+\doxysubsubsection{\texorpdfstring{DHCP6\_STATUS\_SUCCESS}{DHCP6\_STATUS\_SUCCESS}}
+{\footnotesize\ttfamily \#define DHCP6\+\_\+\+STATUS\+\_\+\+SUCCESS~0 /$\ast$ Success. $\ast$/}
+
+DHCPv6 status codes 

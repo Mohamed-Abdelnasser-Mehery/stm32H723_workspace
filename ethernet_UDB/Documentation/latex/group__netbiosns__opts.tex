@@ -1,0 +1,22 @@
+\hypertarget{group__netbiosns__opts}{}\doxysection{Options}
+\label{group__netbiosns__opts}\index{Options@{Options}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__netbiosns__opts_gaa9dec8fc3dee5e72fbe9b854437bce84}{LWIP\+\_\+\+NETBIOS\+\_\+\+RESPOND\+\_\+\+NAME\+\_\+\+QUERY}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__netbiosns__opts_gaa9dec8fc3dee5e72fbe9b854437bce84}\label{group__netbiosns__opts_gaa9dec8fc3dee5e72fbe9b854437bce84}} 
+\index{Options@{Options}!LWIP\_NETBIOS\_RESPOND\_NAME\_QUERY@{LWIP\_NETBIOS\_RESPOND\_NAME\_QUERY}}
+\index{LWIP\_NETBIOS\_RESPOND\_NAME\_QUERY@{LWIP\_NETBIOS\_RESPOND\_NAME\_QUERY}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETBIOS\_RESPOND\_NAME\_QUERY}{LWIP\_NETBIOS\_RESPOND\_NAME\_QUERY}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETBIOS\+\_\+\+RESPOND\+\_\+\+NAME\+\_\+\+QUERY~0}
+
+Net\+BIOS name of lwip device This must be uppercase until NETBIOS\+\_\+\+STRCMP() is defined to a string comparision function that is case insensitive. If you want to use the netif\textquotesingle{}s hostname, use this (with LWIP\+\_\+\+NETIF\+\_\+\+HOSTNAME)\+: (\mbox{\hyperlink{ip_8h_aabecef3c7653a9767c79245c44fcab9f}{ip\+\_\+current\+\_\+netif()}} != NULL ? \mbox{\hyperlink{ip_8h_aabecef3c7653a9767c79245c44fcab9f}{ip\+\_\+current\+\_\+netif()}}-\/\texorpdfstring{$>$}{>}hostname != NULL ? \mbox{\hyperlink{ip_8h_aabecef3c7653a9767c79245c44fcab9f}{ip\+\_\+current\+\_\+netif()}}-\/\texorpdfstring{$>$}{>}hostname \+: \char`\"{}\char`\"{} \+: \char`\"{}\char`\"{})
+
+If this is not defined, netbiosns\+\_\+set\+\_\+name() can be called at runtime to change the name. Respond to Net\+BIOS name queries Default is disabled 

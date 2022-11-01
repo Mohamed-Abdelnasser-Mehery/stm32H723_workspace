@@ -1,0 +1,130 @@
+\hypertarget{raw_8h_source}{}\doxysection{raw.\+h}
+\label{raw_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/raw.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/raw.h}}
+\mbox{\hyperlink{raw_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{comment}{/*}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{12 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{19 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{23 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{24 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{25 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{26 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{27 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{28 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{29 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{30 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{31 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{32 \textcolor{comment}{ *}}
+\DoxyCodeLine{33 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ */}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_RAW\_H}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define LWIP\_HDR\_RAW\_H}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#if LWIP\_RAW }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pbuf_8h}{lwip/pbuf.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{def_8h}{lwip/def.h}}"{}}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip_8h}{lwip/ip.h}}"{}}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip6__addr_8h}{lwip/ip6\_addr.h}}"{}}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{52 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define RAW\_FLAGS\_CONNECTED      0x01U}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define RAW\_FLAGS\_HDRINCL        0x02U}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define RAW\_FLAGS\_MULTICAST\_LOOP 0x04U}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{struct }raw\_pcb;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{71 \textcolor{keyword}{typedef} u8\_t (*raw\_recv\_fn)(\textcolor{keywordtype}{void} *arg, \textcolor{keyword}{struct }raw\_pcb *pcb, \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p,}
+\DoxyCodeLine{72     \textcolor{keyword}{const} ip\_addr\_t *addr);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{75 \textcolor{keyword}{struct }raw\_pcb \{}
+\DoxyCodeLine{76   \textcolor{comment}{/* Common members of all PCB types */}}
+\DoxyCodeLine{77   \mbox{\hyperlink{ip_8h_a8bdf4b5f674375e76cdd968826d80e53}{IP\_PCB}};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79   \textcolor{keyword}{struct }raw\_pcb *next;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81   u8\_t protocol;}
+\DoxyCodeLine{82   u8\_t flags;}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#if LWIP\_MULTICAST\_TX\_OPTIONS}}
+\DoxyCodeLine{86   u8\_t mcast\_ifindex;}
+\DoxyCodeLine{88   u8\_t mcast\_ttl;}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MULTICAST\_TX\_OPTIONS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{92   raw\_recv\_fn recv;}
+\DoxyCodeLine{93   \textcolor{comment}{/* user-\/supplied argument for the recv callback */}}
+\DoxyCodeLine{94   \textcolor{keywordtype}{void} *recv\_arg;}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{96   \textcolor{comment}{/* fields for handling checksum computations as per RFC3542. */}}
+\DoxyCodeLine{97   u16\_t chksum\_offset;}
+\DoxyCodeLine{98   u8\_t  chksum\_reqd;}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{100 \};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{comment}{/* The following functions is the application layer interface to the}}
+\DoxyCodeLine{103 \textcolor{comment}{   RAW code. */}}
+\DoxyCodeLine{104 \textcolor{keyword}{struct }raw\_pcb * raw\_new        (u8\_t proto);}
+\DoxyCodeLine{105 \textcolor{keyword}{struct }raw\_pcb * raw\_new\_ip\_type(u8\_t type, u8\_t proto);}
+\DoxyCodeLine{106 \textcolor{keywordtype}{void}             raw\_remove     (\textcolor{keyword}{struct} raw\_pcb *pcb);}
+\DoxyCodeLine{107 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            raw\_bind       (\textcolor{keyword}{struct} raw\_pcb *pcb, \textcolor{keyword}{const} ip\_addr\_t *ipaddr);}
+\DoxyCodeLine{108 \textcolor{keywordtype}{void}             raw\_bind\_netif (\textcolor{keyword}{struct} raw\_pcb *pcb, \textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{109 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            raw\_connect    (\textcolor{keyword}{struct} raw\_pcb *pcb, \textcolor{keyword}{const} ip\_addr\_t *ipaddr);}
+\DoxyCodeLine{110 \textcolor{keywordtype}{void}             raw\_disconnect (\textcolor{keyword}{struct} raw\_pcb *pcb);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            raw\_sendto     (\textcolor{keyword}{struct} raw\_pcb *pcb, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{const} ip\_addr\_t *ipaddr);}
+\DoxyCodeLine{113 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            raw\_sendto\_if\_src(\textcolor{keyword}{struct} raw\_pcb *pcb, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{const} ip\_addr\_t *dst\_ip, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip\_addr\_t *src\_ip);}
+\DoxyCodeLine{114 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            raw\_send       (\textcolor{keyword}{struct} raw\_pcb *pcb, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{keywordtype}{void}             raw\_recv       (\textcolor{keyword}{struct} raw\_pcb *pcb, raw\_recv\_fn recv, \textcolor{keywordtype}{void} *recv\_arg);}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define          raw\_flags(pcb) ((pcb)-\/>flags)}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define          raw\_setflags(pcb,f)  ((pcb)-\/>flags = (f))}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define          raw\_set\_flags(pcb, set\_flags)     do \{ (pcb)-\/>flags = (u8\_t)((pcb)-\/>flags |  (set\_flags)); \} while(0)}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define          raw\_clear\_flags(pcb, clr\_flags)   do \{ (pcb)-\/>flags = (u8\_t)((pcb)-\/>flags \& (u8\_t)(\string~(clr\_flags) \& 0xff)); \} while(0)}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define          raw\_is\_flag\_set(pcb, flag)        (((pcb)-\/>flags \& (flag)) != 0)}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define raw\_init() }\textcolor{comment}{/* Compatibility define, no init needed. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{comment}{/* for compatibility with older implementation */}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define raw\_new\_ip6(proto) raw\_new\_ip\_type(IPADDR\_TYPE\_V6, proto)}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#if LWIP\_MULTICAST\_TX\_OPTIONS}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define raw\_set\_multicast\_netif\_index(pcb, idx) ((pcb)-\/>mcast\_ifindex = (idx))}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define raw\_get\_multicast\_netif\_index(pcb)      ((pcb)-\/>mcast\_ifindex)}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define raw\_set\_multicast\_ttl(pcb, value)       ((pcb)-\/>mcast\_ttl = (value))}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define raw\_get\_multicast\_ttl(pcb)              ((pcb)-\/>mcast\_ttl)}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MULTICAST\_TX\_OPTIONS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{138 \}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_RAW */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_RAW\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

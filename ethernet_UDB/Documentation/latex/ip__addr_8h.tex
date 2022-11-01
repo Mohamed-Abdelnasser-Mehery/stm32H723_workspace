@@ -1,0 +1,165 @@
+\hypertarget{ip__addr_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/ip\+\_\+addr.h File Reference}
+\label{ip__addr_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip\_addr.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip\_addr.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/def.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip4\+\_\+addr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip6\+\_\+addr.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a234cb2e45cd58a80bc3ef433d23f4c57}\label{ip__addr_8h_a234cb2e45cd58a80bc3ef433d23f4c57}} 
+\#define {\bfseries IP\+\_\+\+ADDR\+\_\+\+PCB\+\_\+\+VERSION\+\_\+\+MATCH}(addr,  pcb)~1
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a81ed1fbe375d867d6e77c83976c07671}\label{ip__addr_8h_a81ed1fbe375d867d6e77c83976c07671}} 
+\#define {\bfseries IP\+\_\+\+ADDR\+\_\+\+PCB\+\_\+\+VERSION\+\_\+\+MATCH\+\_\+\+EXACT}(pcb,  ipaddr)~1
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a93c7bf3f7487495472aa0f9b5fc25d1a}\label{ip__addr_8h_a93c7bf3f7487495472aa0f9b5fc25d1a}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+set\+\_\+any\+\_\+val}(is\+\_\+ipv6,  ipaddr)~ip\+\_\+addr\+\_\+set\+\_\+any(is\+\_\+ipv6, \&(ipaddr))
+\item 
+\mbox{\Hypertarget{ip__addr_8h_ac1c5f897bbee217771b1a6ba18733042}\label{ip__addr_8h_ac1c5f897bbee217771b1a6ba18733042}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+set\+\_\+loopback\+\_\+val}(is\+\_\+ipv6,  ipaddr)~ip\+\_\+addr\+\_\+set\+\_\+loopback(is\+\_\+ipv6, \&(ipaddr))
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a1266e500b1db0b7cdc4b269cace49746}\label{ip__addr_8h_a1266e500b1db0b7cdc4b269cace49746}} 
+\#define {\bfseries IPADDR6\+\_\+\+INIT}(a,  b,  c,  d)~\{ \{ a, b, c, d \} IPADDR6\+\_\+\+ZONE\+\_\+\+INIT \}
+\item 
+\mbox{\Hypertarget{ip__addr_8h_adaff748da2b808995993dd3db5420f08}\label{ip__addr_8h_adaff748da2b808995993dd3db5420f08}} 
+\#define {\bfseries IPADDR6\+\_\+\+INIT\+\_\+\+HOST}(a,  b,  c,  d)~\{ \{ PP\+\_\+\+HTONL(a), PP\+\_\+\+HTONL(b), PP\+\_\+\+HTONL(c), PP\+\_\+\+HTONL(d) \} IPADDR6\+\_\+\+ZONE\+\_\+\+INIT \}
+\item 
+\mbox{\Hypertarget{ip__addr_8h_ab1a059f07bd9c50aa58447d963b823a1}\label{ip__addr_8h_ab1a059f07bd9c50aa58447d963b823a1}} 
+\#define {\bfseries IP\+\_\+\+IS\+\_\+\+V4\+\_\+\+VAL}(ipaddr)~0
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a1578e34703e86711a7fb7dcc3857004d}\label{ip__addr_8h_a1578e34703e86711a7fb7dcc3857004d}} 
+\#define {\bfseries IP\+\_\+\+IS\+\_\+\+V6\+\_\+\+VAL}(ipaddr)~1
+\item 
+\mbox{\Hypertarget{ip__addr_8h_abee5dab2191bb0f3355d7f30d1496f24}\label{ip__addr_8h_abee5dab2191bb0f3355d7f30d1496f24}} 
+\#define {\bfseries IP\+\_\+\+IS\+\_\+\+V4}(ipaddr)~0
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a9bac7e938757f1d24df2404e8b57cb7d}\label{ip__addr_8h_a9bac7e938757f1d24df2404e8b57cb7d}} 
+\#define {\bfseries IP\+\_\+\+IS\+\_\+\+V6}(ipaddr)~1
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a83b17dbf7d1faf5c8f8c20b039db8bb8}\label{ip__addr_8h_a83b17dbf7d1faf5c8f8c20b039db8bb8}} 
+\#define {\bfseries IP\+\_\+\+IS\+\_\+\+ANY\+\_\+\+TYPE\+\_\+\+VAL}(ipaddr)~0
+\item 
+\mbox{\Hypertarget{ip__addr_8h_aaa800ce1929a1bb0f3d64bebd44e4051}\label{ip__addr_8h_aaa800ce1929a1bb0f3d64bebd44e4051}} 
+\#define {\bfseries IP\+\_\+\+SET\+\_\+\+TYPE\+\_\+\+VAL}(ipaddr,  iptype)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a4d435d88b2eaebaea1ef75ee586204fd}\label{ip__addr_8h_a4d435d88b2eaebaea1ef75ee586204fd}} 
+\#define {\bfseries IP\+\_\+\+SET\+\_\+\+TYPE}(ipaddr,  iptype)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_aa2d07afd28376f89da2cdcf5d2497ce7}\label{ip__addr_8h_aa2d07afd28376f89da2cdcf5d2497ce7}} 
+\#define {\bfseries IP\+\_\+\+GET\+\_\+\+TYPE}(ipaddr)~\mbox{\hyperlink{group__ipaddr_ggaf2142f0dfdcc938e2db16aa745ed585caae510fd8ec7fe405b594b57af61f9a02}{IPADDR\+\_\+\+TYPE\+\_\+\+V6}}
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a409c5139bb61763a1e983bb132675dba}\label{ip__addr_8h_a409c5139bb61763a1e983bb132675dba}} 
+\#define {\bfseries IP\+\_\+\+ADDR\+\_\+\+RAW\+\_\+\+SIZE}(ipaddr)~sizeof(ip6\+\_\+addr\+\_\+t)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a06e75bcd198012b5ba39480c233608bd}\label{ip__addr_8h_a06e75bcd198012b5ba39480c233608bd}} 
+\#define {\bfseries ip\+\_\+2\+\_\+ip6}(ipaddr)~(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a9ee53b601b89dcb517496ba0bccf9bd0}\label{ip__addr_8h_a9ee53b601b89dcb517496ba0bccf9bd0}} 
+\#define {\bfseries IP\+\_\+\+ADDR6}(ipaddr,  i0,  i1,  i2,  i3)~IP6\+\_\+\+ADDR(ipaddr,i0,i1,i2,i3)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_abfb1ce44d6a8791336bf3ac06aa086ca}\label{ip__addr_8h_abfb1ce44d6a8791336bf3ac06aa086ca}} 
+\#define {\bfseries IP\+\_\+\+ADDR6\+\_\+\+HOST}(ipaddr,  i0,  i1,  i2,  i3)~IP\+\_\+\+ADDR6(ipaddr,PP\+\_\+\+HTONL(i0),PP\+\_\+\+HTONL(i1),PP\+\_\+\+HTONL(i2),PP\+\_\+\+HTONL(i3))
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a77a933975db287f6aa5c2e70249ba18f}\label{ip__addr_8h_a77a933975db287f6aa5c2e70249ba18f}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+copy}(dest,  src)~ip6\+\_\+addr\+\_\+copy(dest, src)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_abe6f7908ce8a91dc587e2ebc2172e651}\label{ip__addr_8h_abe6f7908ce8a91dc587e2ebc2172e651}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+copy\+\_\+from\+\_\+ip6}(dest,  src)~ip6\+\_\+addr\+\_\+copy(dest, src)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a130ca0907497831677c130dbb3289e1e}\label{ip__addr_8h_a130ca0907497831677c130dbb3289e1e}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+copy\+\_\+from\+\_\+ip6\+\_\+packed}(dest,  src)~ip6\+\_\+addr\+\_\+copy\+\_\+from\+\_\+packed(dest, src)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a40db7feae2b92f7a7a01d65a85b06e18}\label{ip__addr_8h_a40db7feae2b92f7a7a01d65a85b06e18}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+set}(dest,  src)~ip6\+\_\+addr\+\_\+set(dest, src)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_aea5e4795598bc33fa2db1773c8e6fbac}\label{ip__addr_8h_aea5e4795598bc33fa2db1773c8e6fbac}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+set\+\_\+ipaddr}(dest,  src)~ip6\+\_\+addr\+\_\+set(dest, src)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_aae7edb585c062ae03bfbd3af7bf671bc}\label{ip__addr_8h_aae7edb585c062ae03bfbd3af7bf671bc}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+set\+\_\+zero}(ipaddr)~ip6\+\_\+addr\+\_\+set\+\_\+zero(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_afb3a0e5241683aff573e195f31ba8845}\label{ip__addr_8h_afb3a0e5241683aff573e195f31ba8845}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+set\+\_\+zero\+\_\+ip6}(ipaddr)~ip6\+\_\+addr\+\_\+set\+\_\+zero(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a8853fce54b1816dca3af90b48677e673}\label{ip__addr_8h_a8853fce54b1816dca3af90b48677e673}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+set\+\_\+any}(is\+\_\+ipv6,  ipaddr)~ip6\+\_\+addr\+\_\+set\+\_\+any(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a8f9d56ac85cd87338a1823e4a58ba1da}\label{ip__addr_8h_a8f9d56ac85cd87338a1823e4a58ba1da}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+set\+\_\+loopback}(is\+\_\+ipv6,  ipaddr)~ip6\+\_\+addr\+\_\+set\+\_\+loopback(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a3528798be1d2f1ec6a6bccd35694edce}\label{ip__addr_8h_a3528798be1d2f1ec6a6bccd35694edce}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+set\+\_\+hton}(dest,  src)~ip6\+\_\+addr\+\_\+set\+\_\+hton(dest, src)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a535520cd0a0d08a4c4c29b331c55830f}\label{ip__addr_8h_a535520cd0a0d08a4c4c29b331c55830f}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+get\+\_\+network}(target,  host,  mask)~ip6\+\_\+addr\+\_\+set\+\_\+zero(target)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a3a2123f0bbf6fe843c8542e349c680eb}\label{ip__addr_8h_a3a2123f0bbf6fe843c8542e349c680eb}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+netcmp}(addr1,  addr2,  mask)~0
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a008c9c92d770cc030ea054e6b259835a}\label{ip__addr_8h_a008c9c92d770cc030ea054e6b259835a}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+cmp}(addr1,  addr2)~ip6\+\_\+addr\+\_\+cmp(addr1, addr2)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_adb66f6d5fa926ed4b0e69db58dffcbe4}\label{ip__addr_8h_adb66f6d5fa926ed4b0e69db58dffcbe4}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+cmp\+\_\+zoneless}(addr1,  addr2)~ip6\+\_\+addr\+\_\+cmp\+\_\+zoneless(addr1, addr2)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a279118890e6a90aa740051fb8b0cc5f4}\label{ip__addr_8h_a279118890e6a90aa740051fb8b0cc5f4}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+isany}(ipaddr)~ip6\+\_\+addr\+\_\+isany(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_acd8f5aa151cff966fd28368b85f38c05}\label{ip__addr_8h_acd8f5aa151cff966fd28368b85f38c05}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+isany\+\_\+val}(ipaddr)~ip6\+\_\+addr\+\_\+isany\+\_\+val(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a0fc8bf6662809274750868683b3a422e}\label{ip__addr_8h_a0fc8bf6662809274750868683b3a422e}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+isloopback}(ipaddr)~ip6\+\_\+addr\+\_\+isloopback(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a33bc079baaf513a9a7381b9531a1f653}\label{ip__addr_8h_a33bc079baaf513a9a7381b9531a1f653}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+islinklocal}(ipaddr)~ip6\+\_\+addr\+\_\+islinklocal(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a11275b39f9b8e876e8124a16410e8840}\label{ip__addr_8h_a11275b39f9b8e876e8124a16410e8840}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+isbroadcast}(addr,  \mbox{\hyperlink{structnetif}{netif}})~0
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a2170d3ee13dd22722222228e7b1c5752}\label{ip__addr_8h_a2170d3ee13dd22722222228e7b1c5752}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+ismulticast}(ipaddr)~ip6\+\_\+addr\+\_\+ismulticast(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_af7d84bce2fb861a97f3047ecd69ab018}\label{ip__addr_8h_af7d84bce2fb861a97f3047ecd69ab018}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+debug\+\_\+print}(debug,  ipaddr)~ip6\+\_\+addr\+\_\+debug\+\_\+print(debug, ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_ac3d7eec8027db2203117e6f30df8fba5}\label{ip__addr_8h_ac3d7eec8027db2203117e6f30df8fba5}} 
+\#define {\bfseries ip\+\_\+addr\+\_\+debug\+\_\+print\+\_\+val}(debug,  ipaddr)~ip6\+\_\+addr\+\_\+debug\+\_\+print\+\_\+val(debug, ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_ad345f630acbf2a01536d10d3aacee04f}\label{ip__addr_8h_ad345f630acbf2a01536d10d3aacee04f}} 
+\#define {\bfseries ipaddr\+\_\+ntoa}(ipaddr)~ip6addr\+\_\+ntoa(ipaddr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_ac5a2215f804102c72f59dcdf1ccf6449}\label{ip__addr_8h_ac5a2215f804102c72f59dcdf1ccf6449}} 
+\#define {\bfseries ipaddr\+\_\+ntoa\+\_\+r}(ipaddr,  buf,  buflen)~ip6addr\+\_\+ntoa\+\_\+r(ipaddr, buf, buflen)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a9b9fae6ad88a288c3c6da050644e2a48}\label{ip__addr_8h_a9b9fae6ad88a288c3c6da050644e2a48}} 
+\#define {\bfseries ipaddr\+\_\+aton}(cp,  addr)~ip6addr\+\_\+aton(cp, addr)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a8619278bcbf705844f584f36972fc758}\label{ip__addr_8h_a8619278bcbf705844f584f36972fc758}} 
+\#define {\bfseries IPADDR\+\_\+\+STRLEN\+\_\+\+MAX}~IP6\+ADDR\+\_\+\+STRLEN\+\_\+\+MAX
+\item 
+\mbox{\Hypertarget{ip__addr_8h_ae221446ab455b8a1a0d2a4153b9c1bb3}\label{ip__addr_8h_ae221446ab455b8a1a0d2a4153b9c1bb3}} 
+\#define {\bfseries IP46\+\_\+\+ADDR\+\_\+\+ANY}(type)~(IP6\+\_\+\+ADDR\+\_\+\+ANY)
+\item 
+\mbox{\Hypertarget{ip__addr_8h_abe43b154533b73585c4e58f568370ede}\label{ip__addr_8h_abe43b154533b73585c4e58f568370ede}} 
+\#define {\bfseries IP\+\_\+\+ANY\+\_\+\+TYPE}~IP\+\_\+\+ADDR\+\_\+\+ANY
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{ip__addr_8h_a88b43639738c4de2d3cd22e3a1fd7696}\label{ip__addr_8h_a88b43639738c4de2d3cd22e3a1fd7696}} 
+typedef ip6\+\_\+addr\+\_\+t {\bfseries ip\+\_\+addr\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__ipaddr_gaf2142f0dfdcc938e2db16aa745ed585c}{lwip\+\_\+ip\+\_\+addr\+\_\+type}} \{ \mbox{\hyperlink{group__ipaddr_ggaf2142f0dfdcc938e2db16aa745ed585cace47fa82608deeb1c1c7c2c891eb5049}{IPADDR\+\_\+\+TYPE\+\_\+\+V4}} = 0U
+, \mbox{\hyperlink{group__ipaddr_ggaf2142f0dfdcc938e2db16aa745ed585caae510fd8ec7fe405b594b57af61f9a02}{IPADDR\+\_\+\+TYPE\+\_\+\+V6}} = 6U
+, \mbox{\hyperlink{group__ipaddr_ggaf2142f0dfdcc938e2db16aa745ed585cac6b2c99cf920e08efcb55dc40e42944e}{IPADDR\+\_\+\+TYPE\+\_\+\+ANY}} = 46U
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+IP address API (common IPv4 and IPv6) 

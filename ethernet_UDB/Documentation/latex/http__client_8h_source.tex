@@ -1,0 +1,116 @@
+\hypertarget{http__client_8h_source}{}\doxysection{http\+\_\+client.\+h}
+\label{http__client_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/http\_client.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/http\_client.h}}
+\mbox{\hyperlink{http__client_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2018 Simon Goldschmidt <goldsimon@gmx.de>}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Simon Goldschmidt <goldsimon@gmx.de>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_HTTP\_CLIENT\_H}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_HTTP\_CLIENT\_H}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{altcp_8h}{lwip/altcp.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{iana_8h}{lwip/prot/iana.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pbuf_8h}{lwip/pbuf.h}}"{}}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#if LWIP\_TCP \&\& LWIP\_CALLBACK\_API}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{51 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#ifndef LWIP\_HTTPC\_HAVE\_FILE\_IO}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define LWIP\_HTTPC\_HAVE\_FILE\_IO   0}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define HTTP\_DEFAULT\_PORT         LWIP\_IANA\_PORT\_HTTP}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{74 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} ehttpc\_result \{}
+\DoxyCodeLine{76   HTTPC\_RESULT\_OK            = 0,}
+\DoxyCodeLine{78   HTTPC\_RESULT\_ERR\_UNKNOWN   = 1,}
+\DoxyCodeLine{80   HTTPC\_RESULT\_ERR\_CONNECT   = 2,}
+\DoxyCodeLine{82   HTTPC\_RESULT\_ERR\_HOSTNAME  = 3,}
+\DoxyCodeLine{84   HTTPC\_RESULT\_ERR\_CLOSED    = 4,}
+\DoxyCodeLine{86   HTTPC\_RESULT\_ERR\_TIMEOUT   = 5,}
+\DoxyCodeLine{88   HTTPC\_RESULT\_ERR\_SVR\_RESP  = 6,}
+\DoxyCodeLine{90   HTTPC\_RESULT\_ERR\_MEM       = 7,}
+\DoxyCodeLine{92   HTTPC\_RESULT\_LOCAL\_ABORT   = 8,}
+\DoxyCodeLine{94   HTTPC\_RESULT\_ERR\_CONTENT\_LEN = 9}
+\DoxyCodeLine{95 \} httpc\_result\_t;}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_httpc\_state httpc\_state\_t;}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{110 \textcolor{keyword}{typedef} void (*httpc\_result\_fn)(\textcolor{keywordtype}{void} *arg, httpc\_result\_t httpc\_result, u32\_t rx\_content\_len, u32\_t srv\_res, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{123 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*httpc\_headers\_done\_fn)(httpc\_state\_t *connection, \textcolor{keywordtype}{void} *arg, \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *hdr, u16\_t hdr\_len, u32\_t content\_len);}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\_httpc\_connection \{}
+\DoxyCodeLine{126   ip\_addr\_t proxy\_addr;}
+\DoxyCodeLine{127   u16\_t proxy\_port;}
+\DoxyCodeLine{128   u8\_t use\_proxy;}
+\DoxyCodeLine{129   \textcolor{comment}{/* @todo: add username:pass? */}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#if LWIP\_ALTCP}}
+\DoxyCodeLine{132   altcp\_allocator\_t *altcp\_allocator;}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135   \textcolor{comment}{/* this callback is called when the transfer is finished (or aborted) */}}
+\DoxyCodeLine{136   httpc\_result\_fn result\_fn;}
+\DoxyCodeLine{137   \textcolor{comment}{/* this callback is called after receiving the http headers}}
+\DoxyCodeLine{138 \textcolor{comment}{     It can abort the connection by returning != ERR\_OK */}}
+\DoxyCodeLine{139   httpc\_headers\_done\_fn headers\_done\_fn;}
+\DoxyCodeLine{140 \} httpc\_connection\_t;}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} httpc\_get\_file(\textcolor{keyword}{const} ip\_addr\_t* server\_addr, u16\_t port, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* uri, \textcolor{keyword}{const} httpc\_connection\_t *settings,}
+\DoxyCodeLine{143                      altcp\_recv\_fn recv\_fn, \textcolor{keywordtype}{void}* callback\_arg, httpc\_state\_t **connection);}
+\DoxyCodeLine{144 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} httpc\_get\_file\_dns(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* server\_name, u16\_t port, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* uri, \textcolor{keyword}{const} httpc\_connection\_t *settings,}
+\DoxyCodeLine{145                      altcp\_recv\_fn recv\_fn, \textcolor{keywordtype}{void}* callback\_arg, httpc\_state\_t **connection);}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#if LWIP\_HTTPC\_HAVE\_FILE\_IO}}
+\DoxyCodeLine{148 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} httpc\_get\_file\_to\_disk(\textcolor{keyword}{const} ip\_addr\_t* server\_addr, u16\_t port, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* uri, \textcolor{keyword}{const} httpc\_connection\_t *settings,}
+\DoxyCodeLine{149                      \textcolor{keywordtype}{void}* callback\_arg, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* local\_file\_name, httpc\_state\_t **connection);}
+\DoxyCodeLine{150 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} httpc\_get\_file\_dns\_to\_disk(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* server\_name, u16\_t port, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* uri, \textcolor{keyword}{const} httpc\_connection\_t *settings,}
+\DoxyCodeLine{151                      \textcolor{keywordtype}{void}* callback\_arg, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* local\_file\_name, httpc\_state\_t **connection);}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HTTPC\_HAVE\_FILE\_IO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{155 \}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCP \&\& LWIP\_CALLBACK\_API */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_HTTP\_CLIENT\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

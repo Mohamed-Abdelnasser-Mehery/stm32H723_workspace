@@ -1,0 +1,45 @@
+\hypertarget{bridgeif__fdb_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/netif/bridgeif\+\_\+fdb.c File Reference}
+\label{bridgeif__fdb_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/netif/bridgeif\_fdb.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/netif/bridgeif\_fdb.c}}
+{\ttfamily \#include \char`\"{}netif/bridgeif.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/mem.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/timeouts.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbridgeif__dfdb__entry__s}{bridgeif\+\_\+dfdb\+\_\+entry\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structbridgeif__dfdb__s}{bridgeif\+\_\+dfdb\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bridgeif__fdb_8c_aa18e39767c7367c12488dcc8e4840b44}\label{bridgeif__fdb_8c_aa18e39767c7367c12488dcc8e4840b44}} 
+\#define {\bfseries BRIDGEIF\+\_\+\+AGE\+\_\+\+TIMER\+\_\+\+MS}~1000
+\item 
+\mbox{\Hypertarget{bridgeif__fdb_8c_aaf015fef1cde8650f34060c31ccb1243}\label{bridgeif__fdb_8c_aaf015fef1cde8650f34060c31ccb1243}} 
+\#define {\bfseries BR\+\_\+\+FDB\+\_\+\+TIMEOUT\+\_\+\+SEC}~(60$\ast$5) /$\ast$ 5 minutes FDB timeout $\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bridgeif__fdb_8c_acff4a88b8341facd8556a023ed8dc6ea}\label{bridgeif__fdb_8c_acff4a88b8341facd8556a023ed8dc6ea}} 
+typedef struct \mbox{\hyperlink{structbridgeif__dfdb__entry__s}{bridgeif\+\_\+dfdb\+\_\+entry\+\_\+s}} {\bfseries bridgeif\+\_\+dfdb\+\_\+entry\+\_\+t}
+\item 
+\mbox{\Hypertarget{bridgeif__fdb_8c_a328050254189140c7cfa3e1f89bcff7c}\label{bridgeif__fdb_8c_a328050254189140c7cfa3e1f89bcff7c}} 
+typedef struct \mbox{\hyperlink{structbridgeif__dfdb__s}{bridgeif\+\_\+dfdb\+\_\+s}} {\bfseries bridgeif\+\_\+dfdb\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__bridgeif__fdb_gad912bfd3ce8e24d0eb48b7dc9de07c39}{bridgeif\+\_\+fdb\+\_\+update\+\_\+src}} (void $\ast$fdb\+\_\+ptr, struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} $\ast$src\+\_\+addr, u8\+\_\+t port\+\_\+idx)
+\item 
+bridgeif\+\_\+portmask\+\_\+t \mbox{\hyperlink{group__bridgeif__fdb_ga616fb7404be5da79d8092b4a14976750}{bridgeif\+\_\+fdb\+\_\+get\+\_\+dst\+\_\+ports}} (void $\ast$fdb\+\_\+ptr, struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} $\ast$dst\+\_\+addr)
+\item 
+void $\ast$ \mbox{\hyperlink{group__bridgeif__fdb_ga137fdeb4939e8fb889b10a97ea479d3a}{bridgeif\+\_\+fdb\+\_\+init}} (u16\+\_\+t max\+\_\+fdb\+\_\+entries)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+lw\+IP netif implementing an FDB for IEEE 802.\+1D MAC Bridge 

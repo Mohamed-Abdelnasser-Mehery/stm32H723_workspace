@@ -1,0 +1,89 @@
+\hypertarget{memp__priv_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/priv/memp\+\_\+priv.h File Reference}
+\label{memp__priv_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/memp\_priv.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/memp\_priv.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/mem.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/priv/mem\+\_\+priv.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmemp}{memp}}
+\item 
+struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a7f8c378e0581aa2dc491cff52ae4fce2}\label{memp__priv_8h_a7f8c378e0581aa2dc491cff52ae4fce2}} 
+\#define {\bfseries MEMP\+\_\+\+SIZE}~0
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a12e0cfbac9c8263e5a1fb319b92338e7}\label{memp__priv_8h_a12e0cfbac9c8263e5a1fb319b92338e7}} 
+\#define {\bfseries MEMP\+\_\+\+ALIGN\+\_\+\+SIZE}(x)~(\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(x))
+\item 
+\mbox{\Hypertarget{memp__priv_8h_aabec8ab3418486aed704fb8bb933da42}\label{memp__priv_8h_aabec8ab3418486aed704fb8bb933da42}} 
+\#define {\bfseries DECLARE\+\_\+\+LWIP\+\_\+\+MEMPOOL\+\_\+\+DESC}(desc)
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a9373cb7cc6e658a60cec6ca57173a72d}\label{memp__priv_8h_a9373cb7cc6e658a60cec6ca57173a72d}} 
+\#define {\bfseries LWIP\+\_\+\+MEMPOOL\+\_\+\+DECLARE\+\_\+\+STATS\+\_\+\+INSTANCE}(name)
+\item 
+\mbox{\Hypertarget{memp__priv_8h_a46723c1d1d900d5f23e5bde91d22d8be}\label{memp__priv_8h_a46723c1d1d900d5f23e5bde91d22d8be}} 
+\#define {\bfseries LWIP\+\_\+\+MEMPOOL\+\_\+\+DECLARE\+\_\+\+STATS\+\_\+\+REFERENCE}(name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{memp__priv_8h_a6416303426d05526bed33f241fa6ecd7}{memp\+\_\+init\+\_\+pool}} (const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$desc)
+\item 
+void $\ast$ \mbox{\hyperlink{memp__priv_8h_ab6bfb9562c3a77e329a888e59ef0ace3}{memp\+\_\+malloc\+\_\+pool}} (const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$desc)
+\item 
+void \mbox{\hyperlink{memp__priv_8h_a62f8c3c907743e34eee3cdac7fa1eaa5}{memp\+\_\+free\+\_\+pool}} (const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$desc, void $\ast$\mbox{\hyperlink{structmem}{mem}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+memory pools lw\+IP internal implementations (do not use in application code) 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{memp__priv_8h_a62f8c3c907743e34eee3cdac7fa1eaa5}\label{memp__priv_8h_a62f8c3c907743e34eee3cdac7fa1eaa5}} 
+\index{memp\_priv.h@{memp\_priv.h}!memp\_free\_pool@{memp\_free\_pool}}
+\index{memp\_free\_pool@{memp\_free\_pool}!memp\_priv.h@{memp\_priv.h}}
+\doxysubsubsection{\texorpdfstring{memp\_free\_pool()}{memp\_free\_pool()}}
+{\footnotesize\ttfamily void memp\+\_\+free\+\_\+pool (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$}]{desc,  }\item[{void $\ast$}]{mem }\end{DoxyParamCaption})}
+
+Put a custom pool element back into its pool.
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & the pool where to put mem \\
+\hline
+{\em mem} & the memp element to free \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{memp__priv_8h_a6416303426d05526bed33f241fa6ecd7}\label{memp__priv_8h_a6416303426d05526bed33f241fa6ecd7}} 
+\index{memp\_priv.h@{memp\_priv.h}!memp\_init\_pool@{memp\_init\_pool}}
+\index{memp\_init\_pool@{memp\_init\_pool}!memp\_priv.h@{memp\_priv.h}}
+\doxysubsubsection{\texorpdfstring{memp\_init\_pool()}{memp\_init\_pool()}}
+{\footnotesize\ttfamily void memp\+\_\+init\+\_\+pool (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$}]{desc }\end{DoxyParamCaption})}
+
+Initialize custom memory pool. Related functions\+: memp\+\_\+malloc\+\_\+pool, memp\+\_\+free\+\_\+pool
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & pool to initialize \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{memp__priv_8h_ab6bfb9562c3a77e329a888e59ef0ace3}\label{memp__priv_8h_ab6bfb9562c3a77e329a888e59ef0ace3}} 
+\index{memp\_priv.h@{memp\_priv.h}!memp\_malloc\_pool@{memp\_malloc\_pool}}
+\index{memp\_malloc\_pool@{memp\_malloc\_pool}!memp\_priv.h@{memp\_priv.h}}
+\doxysubsubsection{\texorpdfstring{memp\_malloc\_pool()}{memp\_malloc\_pool()}}
+{\footnotesize\ttfamily void $\ast$ memp\+\_\+malloc\+\_\+pool (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$}]{desc }\end{DoxyParamCaption})}
+
+Get an element from a custom pool.
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & the pool to get an element from\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated memory or a NULL pointer on error 
+\end{DoxyReturn}

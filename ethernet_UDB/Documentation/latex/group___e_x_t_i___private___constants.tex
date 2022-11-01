@@ -1,0 +1,83 @@
+\hypertarget{group___e_x_t_i___private___constants}{}\doxysection{EXTI Private Constants}
+\label{group___e_x_t_i___private___constants}\index{EXTI Private Constants@{EXTI Private Constants}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga508bbe670f4f32775988b55e6914b6ec}\label{group___e_x_t_i___private___constants_ga508bbe670f4f32775988b55e6914b6ec}} 
+\#define {\bfseries EXTI\+\_\+\+PROPERTY\+\_\+\+SHIFT}~24U
+\begin{DoxyCompactList}\small\item\em EXTI Line property definition. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga6a646555edd627e1e7b43aa4e87b4aa7}\label{group___e_x_t_i___private___constants_ga6a646555edd627e1e7b43aa4e87b4aa7}} 
+\#define {\bfseries EXTI\+\_\+\+DIRECT}~(0x01\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga508bbe670f4f32775988b55e6914b6ec}{EXTI\+\_\+\+PROPERTY\+\_\+\+SHIFT}})
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga6f245ca02e17c1798fe43a66ea5b7fa4}\label{group___e_x_t_i___private___constants_ga6f245ca02e17c1798fe43a66ea5b7fa4}} 
+\#define {\bfseries EXTI\+\_\+\+CONFIG}~(0x02\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga508bbe670f4f32775988b55e6914b6ec}{EXTI\+\_\+\+PROPERTY\+\_\+\+SHIFT}})
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_gacfa322960fc87db022536119cabb4d2a}\label{group___e_x_t_i___private___constants_gacfa322960fc87db022536119cabb4d2a}} 
+\#define {\bfseries EXTI\+\_\+\+GPIO}~((0x04\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga508bbe670f4f32775988b55e6914b6ec}{EXTI\+\_\+\+PROPERTY\+\_\+\+SHIFT}}) $\vert$ EXTI\+\_\+\+CONFIG)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_gac15c8e004a79171f659e6cba49e8a57a}\label{group___e_x_t_i___private___constants_gac15c8e004a79171f659e6cba49e8a57a}} 
+\#define {\bfseries EXTI\+\_\+\+RESERVED}~(0x08\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga508bbe670f4f32775988b55e6914b6ec}{EXTI\+\_\+\+PROPERTY\+\_\+\+SHIFT}})
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga6aa8e044ea8987b6839f419123734e4b}\label{group___e_x_t_i___private___constants_ga6aa8e044ea8987b6839f419123734e4b}} 
+\#define {\bfseries EXTI\+\_\+\+PROPERTY\+\_\+\+MASK}~(EXTI\+\_\+\+DIRECT $\vert$ EXTI\+\_\+\+CONFIG $\vert$ EXTI\+\_\+\+GPIO)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_gaeafd5ba0336cfb4b095151c0797b347e}\label{group___e_x_t_i___private___constants_gaeafd5ba0336cfb4b095151c0797b347e}} 
+\#define {\bfseries EXTI\+\_\+\+EVENT\+\_\+\+PRESENCE\+\_\+\+SHIFT}~28U
+\begin{DoxyCompactList}\small\item\em EXTI Event presence definition. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_gaa3c3d1a80e41861baaa300532bc2ccc8}\label{group___e_x_t_i___private___constants_gaa3c3d1a80e41861baaa300532bc2ccc8}} 
+\#define {\bfseries EXTI\+\_\+\+EVENT}~(0x01\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_gaeafd5ba0336cfb4b095151c0797b347e}{EXTI\+\_\+\+EVENT\+\_\+\+PRESENCE\+\_\+\+SHIFT}})
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga34a030aa06cdf8b312993663d910a4b3}\label{group___e_x_t_i___private___constants_ga34a030aa06cdf8b312993663d910a4b3}} 
+\#define {\bfseries EXTI\+\_\+\+EVENT\+\_\+\+PRESENCE\+\_\+\+MASK}~(EXTI\+\_\+\+EVENT)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga187f8b65fedba7cc4a5662552dd0eb40}\label{group___e_x_t_i___private___constants_ga187f8b65fedba7cc4a5662552dd0eb40}} 
+\#define {\bfseries EXTI\+\_\+\+REG\+\_\+\+SHIFT}~16U
+\begin{DoxyCompactList}\small\item\em EXTI Register and bit usage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga091fa19d9bb51b0b09be614b0857265e}\label{group___e_x_t_i___private___constants_ga091fa19d9bb51b0b09be614b0857265e}} 
+\#define {\bfseries EXTI\+\_\+\+REG1}~(0x00\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga187f8b65fedba7cc4a5662552dd0eb40}{EXTI\+\_\+\+REG\+\_\+\+SHIFT}})
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_gae6c7c1bc326dac76cae7eee9d499ed68}\label{group___e_x_t_i___private___constants_gae6c7c1bc326dac76cae7eee9d499ed68}} 
+\#define {\bfseries EXTI\+\_\+\+REG2}~(0x01\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga187f8b65fedba7cc4a5662552dd0eb40}{EXTI\+\_\+\+REG\+\_\+\+SHIFT}})
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga24d984b3393b91a56f6ed1dee4d32231}\label{group___e_x_t_i___private___constants_ga24d984b3393b91a56f6ed1dee4d32231}} 
+\#define {\bfseries EXTI\+\_\+\+REG3}~(0x02\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga187f8b65fedba7cc4a5662552dd0eb40}{EXTI\+\_\+\+REG\+\_\+\+SHIFT}})
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga1aa525d078e0b4ba049f08d9f06f4012}\label{group___e_x_t_i___private___constants_ga1aa525d078e0b4ba049f08d9f06f4012}} 
+\#define {\bfseries EXTI\+\_\+\+REG\+\_\+\+MASK}~(EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+REG3)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga755405defae45017e19a17fd0279869c}\label{group___e_x_t_i___private___constants_ga755405defae45017e19a17fd0279869c}} 
+\#define {\bfseries EXTI\+\_\+\+PIN\+\_\+\+MASK}~0x0000001\+FUL
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_gaa824366c2fa58a4333ff25642bbd5273}\label{group___e_x_t_i___private___constants_gaa824366c2fa58a4333ff25642bbd5273}} 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+SHIFT}~20U
+\begin{DoxyCompactList}\small\item\em EXTI Target and bit usage. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga7a67228ff1a9b592aefa39b1422810d4}\label{group___e_x_t_i___private___constants_ga7a67228ff1a9b592aefa39b1422810d4}} 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE}~(0x00\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_gaa824366c2fa58a4333ff25642bbd5273}{EXTI\+\_\+\+TARGET\+\_\+\+SHIFT}})
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_gaed6c014443a3ec4052d911c84e677952}\label{group___e_x_t_i___private___constants_gaed6c014443a3ec4052d911c84e677952}} 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+D3\+SRD}~(0x01\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_gaa824366c2fa58a4333ff25642bbd5273}{EXTI\+\_\+\+TARGET\+\_\+\+SHIFT}})
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga343c8a43f7daaa95bad95f554bcc5bde}\label{group___e_x_t_i___private___constants_ga343c8a43f7daaa95bad95f554bcc5bde}} 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+CPU1}~(0x02\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_gaa824366c2fa58a4333ff25642bbd5273}{EXTI\+\_\+\+TARGET\+\_\+\+SHIFT}})
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_gaff854ea8189ab527d45e125ec79e3c68}\label{group___e_x_t_i___private___constants_gaff854ea8189ab527d45e125ec79e3c68}} 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MASK}~(EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+D3\+SRD $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+CPU1)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_gac884e74625c2bb6056a0b12ed7974739}\label{group___e_x_t_i___private___constants_gac884e74625c2bb6056a0b12ed7974739}} 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU}~EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+CPU1
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga0650e8735ff8aaecb59c3d47bf4c60cf}\label{group___e_x_t_i___private___constants_ga0650e8735ff8aaecb59c3d47bf4c60cf}} 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL}~EXTI\+\_\+\+TARGET\+\_\+\+MASK
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga657f081646b552ee10bdfc7af94b5cdf}\label{group___e_x_t_i___private___constants_ga657f081646b552ee10bdfc7af94b5cdf}} 
+\#define {\bfseries EXTI\+\_\+\+MODE\+\_\+\+MASK}~(EXTI\+\_\+\+MODE\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+MODE\+\_\+\+INTERRUPT)
+\begin{DoxyCompactList}\small\item\em EXTI Mask for interrupt \& event mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga3e14df666414849fd5a3907a96a2a892}\label{group___e_x_t_i___private___constants_ga3e14df666414849fd5a3907a96a2a892}} 
+\#define {\bfseries EXTI\+\_\+\+TRIGGER\+\_\+\+MASK}~(EXTI\+\_\+\+TRIGGER\+\_\+\+RISING $\vert$ EXTI\+\_\+\+TRIGGER\+\_\+\+FALLING)
+\begin{DoxyCompactList}\small\item\em EXTI Mask for trigger possibilities. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{group___e_x_t_i___private___constants_ga577c4d3186ba6dd303761b23510595ef}\label{group___e_x_t_i___private___constants_ga577c4d3186ba6dd303761b23510595ef}} 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+\+NB}~88UL
+\begin{DoxyCompactList}\small\item\em EXTI Line number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}

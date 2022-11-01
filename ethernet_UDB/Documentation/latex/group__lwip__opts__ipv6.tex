@@ -1,0 +1,119 @@
+\hypertarget{group__lwip__opts__ipv6}{}\doxysection{IPv6}
+\label{group__lwip__opts__ipv6}\index{IPv6@{IPv6}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__lwip__opts__icmp6}{ICMP6}}
+\item 
+\mbox{\hyperlink{group__lwip__opts__mld6}{Multicast listener discovery}}
+\item 
+\mbox{\hyperlink{group__lwip__opts__nd6}{Neighbor discovery}}
+\item 
+\mbox{\hyperlink{group__lwip__opts__dhcpv6}{DHCPv6}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_ga8adc0b7dbedd279387a21588f0e2c969}{IPV6\+\_\+\+REASS\+\_\+\+MAXAGE}}~60
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_ga91d1e630059df3b3a296e2b6ff7aead5}{LWIP\+\_\+\+IPV6\+\_\+\+SCOPES}}~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}} \&\& !\mbox{\hyperlink{group__lwip__opts__netif_ga943063b053eeac76b0b1bcef2ddd93be}{LWIP\+\_\+\+SINGLE\+\_\+\+NETIF}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_ga623ef29d27d98fb7be8732730a5ddf4b}{LWIP\+\_\+\+IPV6\+\_\+\+SCOPES\+\_\+\+DEBUG}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_ga16c1b672604bfb0a66a6aeeb854589d3}{LWIP\+\_\+\+IPV6\+\_\+\+NUM\+\_\+\+ADDRESSES}}~3
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_gac96c5802de6c75dd62ab38cff6d16a32}{LWIP\+\_\+\+IPV6\+\_\+\+FORWARD}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_ga9ab6269f3087f6d9f7b2c7181ef043c3}{LWIP\+\_\+\+IPV6\+\_\+\+FRAG}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_gad0ef160d72e63b02c5e875b06ec53864}{LWIP\+\_\+\+IPV6\+\_\+\+REASS}}~\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_ga273ed2e1a4e6a43713a0e4a06a34ee5c}{LWIP\+\_\+\+IPV6\+\_\+\+SEND\+\_\+\+ROUTER\+\_\+\+SOLICIT}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_ga580039bf2baf49fcb9e504e5d2b40a03}{LWIP\+\_\+\+IPV6\+\_\+\+AUTOCONFIG}}~\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_ga2c0127fca1073ad3f0a1e53f00ea8858}{LWIP\+\_\+\+IPV6\+\_\+\+ADDRESS\+\_\+\+LIFETIMES}}~\mbox{\hyperlink{group__lwip__opts__ipv6_ga580039bf2baf49fcb9e504e5d2b40a03}{LWIP\+\_\+\+IPV6\+\_\+\+AUTOCONFIG}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__ipv6_gad8489522d34f37e42b4001bab3781bcb}{LWIP\+\_\+\+IPV6\+\_\+\+DUP\+\_\+\+DETECT\+\_\+\+ATTEMPTS}}~1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__ipv6_ga8adc0b7dbedd279387a21588f0e2c969}\label{group__lwip__opts__ipv6_ga8adc0b7dbedd279387a21588f0e2c969}} 
+\index{IPv6@{IPv6}!IPV6\_REASS\_MAXAGE@{IPV6\_REASS\_MAXAGE}}
+\index{IPV6\_REASS\_MAXAGE@{IPV6\_REASS\_MAXAGE}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{IPV6\_REASS\_MAXAGE}{IPV6\_REASS\_MAXAGE}}
+{\footnotesize\ttfamily \#define IPV6\+\_\+\+REASS\+\_\+\+MAXAGE~60}
+
+IPV6\+\_\+\+REASS\+\_\+\+MAXAGE\+: Maximum time (in multiples of IP6\+\_\+\+REASS\+\_\+\+TMR\+\_\+\+INTERVAL -\/ so seconds, normally) a fragmented IP packet waits for all fragments to arrive. If not all fragments arrived in this time, the whole packet is discarded. \mbox{\Hypertarget{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}\label{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6@{LWIP\_IPV6}}
+\index{LWIP\_IPV6@{LWIP\_IPV6}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6}{LWIP\_IPV6}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6~0}
+
+LWIP\+\_\+\+IPV6==1\+: Enable IPv6 \mbox{\Hypertarget{group__lwip__opts__ipv6_ga2c0127fca1073ad3f0a1e53f00ea8858}\label{group__lwip__opts__ipv6_ga2c0127fca1073ad3f0a1e53f00ea8858}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6\_ADDRESS\_LIFETIMES@{LWIP\_IPV6\_ADDRESS\_LIFETIMES}}
+\index{LWIP\_IPV6\_ADDRESS\_LIFETIMES@{LWIP\_IPV6\_ADDRESS\_LIFETIMES}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_ADDRESS\_LIFETIMES}{LWIP\_IPV6\_ADDRESS\_LIFETIMES}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+ADDRESS\+\_\+\+LIFETIMES~\mbox{\hyperlink{group__lwip__opts__ipv6_ga580039bf2baf49fcb9e504e5d2b40a03}{LWIP\+\_\+\+IPV6\+\_\+\+AUTOCONFIG}}}
+
+LWIP\+\_\+\+IPV6\+\_\+\+ADDRESS\+\_\+\+LIFETIMES==1\+: Keep valid and preferred lifetimes for each IPv6 address. Required for LWIP\+\_\+\+IPV6\+\_\+\+AUTOCONFIG. May still be enabled otherwise, in which case the application may assign address lifetimes with the appropriate macros. Addresses with no lifetime are assumed to be static. If this option is disabled, all addresses are assumed to be static. \mbox{\Hypertarget{group__lwip__opts__ipv6_ga580039bf2baf49fcb9e504e5d2b40a03}\label{group__lwip__opts__ipv6_ga580039bf2baf49fcb9e504e5d2b40a03}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6\_AUTOCONFIG@{LWIP\_IPV6\_AUTOCONFIG}}
+\index{LWIP\_IPV6\_AUTOCONFIG@{LWIP\_IPV6\_AUTOCONFIG}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_AUTOCONFIG}{LWIP\_IPV6\_AUTOCONFIG}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+AUTOCONFIG~\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}}}
+
+LWIP\+\_\+\+IPV6\+\_\+\+AUTOCONFIG==1\+: Enable stateless address autoconfiguration as per RFC 4862. \mbox{\Hypertarget{group__lwip__opts__ipv6_gad8489522d34f37e42b4001bab3781bcb}\label{group__lwip__opts__ipv6_gad8489522d34f37e42b4001bab3781bcb}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6\_DUP\_DETECT\_ATTEMPTS@{LWIP\_IPV6\_DUP\_DETECT\_ATTEMPTS}}
+\index{LWIP\_IPV6\_DUP\_DETECT\_ATTEMPTS@{LWIP\_IPV6\_DUP\_DETECT\_ATTEMPTS}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_DUP\_DETECT\_ATTEMPTS}{LWIP\_IPV6\_DUP\_DETECT\_ATTEMPTS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+DUP\+\_\+\+DETECT\+\_\+\+ATTEMPTS~1}
+
+LWIP\+\_\+\+IPV6\+\_\+\+DUP\+\_\+\+DETECT\+\_\+\+ATTEMPTS=\mbox{[}0..7\mbox{]}\+: Number of duplicate address detection attempts. \mbox{\Hypertarget{group__lwip__opts__ipv6_gac96c5802de6c75dd62ab38cff6d16a32}\label{group__lwip__opts__ipv6_gac96c5802de6c75dd62ab38cff6d16a32}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6\_FORWARD@{LWIP\_IPV6\_FORWARD}}
+\index{LWIP\_IPV6\_FORWARD@{LWIP\_IPV6\_FORWARD}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_FORWARD}{LWIP\_IPV6\_FORWARD}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+FORWARD~0}
+
+LWIP\+\_\+\+IPV6\+\_\+\+FORWARD==1\+: Forward IPv6 packets across netifs \mbox{\Hypertarget{group__lwip__opts__ipv6_ga9ab6269f3087f6d9f7b2c7181ef043c3}\label{group__lwip__opts__ipv6_ga9ab6269f3087f6d9f7b2c7181ef043c3}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6\_FRAG@{LWIP\_IPV6\_FRAG}}
+\index{LWIP\_IPV6\_FRAG@{LWIP\_IPV6\_FRAG}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_FRAG}{LWIP\_IPV6\_FRAG}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+FRAG~1}
+
+LWIP\+\_\+\+IPV6\+\_\+\+FRAG==1\+: Fragment outgoing IPv6 packets that are too big. \mbox{\Hypertarget{group__lwip__opts__ipv6_ga16c1b672604bfb0a66a6aeeb854589d3}\label{group__lwip__opts__ipv6_ga16c1b672604bfb0a66a6aeeb854589d3}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6\_NUM\_ADDRESSES@{LWIP\_IPV6\_NUM\_ADDRESSES}}
+\index{LWIP\_IPV6\_NUM\_ADDRESSES@{LWIP\_IPV6\_NUM\_ADDRESSES}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_NUM\_ADDRESSES}{LWIP\_IPV6\_NUM\_ADDRESSES}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+NUM\+\_\+\+ADDRESSES~3}
+
+LWIP\+\_\+\+IPV6\+\_\+\+NUM\+\_\+\+ADDRESSES\+: Number of IPv6 addresses per netif. \mbox{\Hypertarget{group__lwip__opts__ipv6_gad0ef160d72e63b02c5e875b06ec53864}\label{group__lwip__opts__ipv6_gad0ef160d72e63b02c5e875b06ec53864}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6\_REASS@{LWIP\_IPV6\_REASS}}
+\index{LWIP\_IPV6\_REASS@{LWIP\_IPV6\_REASS}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_REASS}{LWIP\_IPV6\_REASS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+REASS~\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}}}
+
+LWIP\+\_\+\+IPV6\+\_\+\+REASS==1\+: reassemble incoming IPv6 packets that fragmented \mbox{\Hypertarget{group__lwip__opts__ipv6_ga91d1e630059df3b3a296e2b6ff7aead5}\label{group__lwip__opts__ipv6_ga91d1e630059df3b3a296e2b6ff7aead5}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6\_SCOPES@{LWIP\_IPV6\_SCOPES}}
+\index{LWIP\_IPV6\_SCOPES@{LWIP\_IPV6\_SCOPES}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_SCOPES}{LWIP\_IPV6\_SCOPES}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+SCOPES~(\mbox{\hyperlink{group__lwip__opts__ipv6_ga872e3bb3fe2212156d66b18fccc9643f}{LWIP\+\_\+\+IPV6}} \&\& !\mbox{\hyperlink{group__lwip__opts__netif_ga943063b053eeac76b0b1bcef2ddd93be}{LWIP\+\_\+\+SINGLE\+\_\+\+NETIF}})}
+
+LWIP\+\_\+\+IPV6\+\_\+\+SCOPES==1\+: Enable support for IPv6 address scopes, ensuring that e.\+g. link-\/local addresses are really treated as link-\/local. Disable this setting only for single-\/interface configurations. All addresses that have a scope according to the default policy (link-\/local unicast addresses, interface-\/local and link-\/local multicast addresses) should now have a zone set on them before being passed to the core API, although lw\+IP will currently attempt to select a zone on the caller\textquotesingle{}s behalf when necessary. Applications that directly assign IPv6 addresses to interfaces (which is NOT recommended) must now ensure that link-\/local addresses carry the netif\textquotesingle{}s zone. See the new \mbox{\hyperlink{ip6__zone_8h}{ip6\+\_\+zone.\+h}} header file for more information and relevant macros. For now it is still possible to turn off scopes support through the new LWIP\+\_\+\+IPV6\+\_\+\+SCOPES option. When upgrading an implementation that uses the core API directly, it is highly recommended to enable LWIP\+\_\+\+IPV6\+\_\+\+SCOPES\+\_\+\+DEBUG at least for a while, to ensure e.\+g. proper address initialization. \mbox{\Hypertarget{group__lwip__opts__ipv6_ga623ef29d27d98fb7be8732730a5ddf4b}\label{group__lwip__opts__ipv6_ga623ef29d27d98fb7be8732730a5ddf4b}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6\_SCOPES\_DEBUG@{LWIP\_IPV6\_SCOPES\_DEBUG}}
+\index{LWIP\_IPV6\_SCOPES\_DEBUG@{LWIP\_IPV6\_SCOPES\_DEBUG}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_SCOPES\_DEBUG}{LWIP\_IPV6\_SCOPES\_DEBUG}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+SCOPES\+\_\+\+DEBUG~0}
+
+LWIP\+\_\+\+IPV6\+\_\+\+SCOPES\+\_\+\+DEBUG==1\+: Perform run-\/time checks to verify that addresses are properly zoned (see \mbox{\hyperlink{ip6__zone_8h}{ip6\+\_\+zone.\+h}} on what that means) where it matters. Enabling this setting is highly recommended when upgrading from an existing installation that is not yet scope-\/aware; otherwise it may be too expensive. \mbox{\Hypertarget{group__lwip__opts__ipv6_ga273ed2e1a4e6a43713a0e4a06a34ee5c}\label{group__lwip__opts__ipv6_ga273ed2e1a4e6a43713a0e4a06a34ee5c}} 
+\index{IPv6@{IPv6}!LWIP\_IPV6\_SEND\_ROUTER\_SOLICIT@{LWIP\_IPV6\_SEND\_ROUTER\_SOLICIT}}
+\index{LWIP\_IPV6\_SEND\_ROUTER\_SOLICIT@{LWIP\_IPV6\_SEND\_ROUTER\_SOLICIT}!IPv6@{IPv6}}
+\doxysubsubsection{\texorpdfstring{LWIP\_IPV6\_SEND\_ROUTER\_SOLICIT}{LWIP\_IPV6\_SEND\_ROUTER\_SOLICIT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+IPV6\+\_\+\+SEND\+\_\+\+ROUTER\+\_\+\+SOLICIT~1}
+
+LWIP\+\_\+\+IPV6\+\_\+\+SEND\+\_\+\+ROUTER\+\_\+\+SOLICIT==1\+: Send router solicitation messages during network startup. 

@@ -1,0 +1,52 @@
+\hypertarget{group__bridgeif__opts}{}\doxysection{Options}
+\label{group__bridgeif__opts}\index{Options@{Options}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__bridgeif__opts_ga5aed5cd9b01ba1345b47845cd04ca30d}{BRIDGEIF\+\_\+\+PORT\+\_\+\+NETIFS\+\_\+\+OUTPUT\+\_\+\+DIRECT}}~NO\+\_\+\+SYS
+\item 
+\#define \mbox{\hyperlink{group__bridgeif__opts_ga6fe03b84359150b7dea3dfca942b6414}{BRIDGEIF\+\_\+\+MAX\+\_\+\+PORTS}}~7
+\item 
+\#define \mbox{\hyperlink{group__bridgeif__opts_gaab45e20e9b09a98217994082968cec73}{BRIDGEIF\+\_\+\+DEBUG}}~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}
+\item 
+\#define \mbox{\hyperlink{group__bridgeif__opts_ga72e389f592470dc50288a68f3db70730}{BRIDGEIF\+\_\+\+FDB\+\_\+\+DEBUG}}~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}
+\item 
+\#define \mbox{\hyperlink{group__bridgeif__opts_gac456e97b1b0e9a57449596a2b229763a}{BRIDGEIF\+\_\+\+FW\+\_\+\+DEBUG}}~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__bridgeif__opts_gaab45e20e9b09a98217994082968cec73}\label{group__bridgeif__opts_gaab45e20e9b09a98217994082968cec73}} 
+\index{Options@{Options}!BRIDGEIF\_DEBUG@{BRIDGEIF\_DEBUG}}
+\index{BRIDGEIF\_DEBUG@{BRIDGEIF\_DEBUG}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{BRIDGEIF\_DEBUG}{BRIDGEIF\_DEBUG}}
+{\footnotesize\ttfamily \#define BRIDGEIF\+\_\+\+DEBUG~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}}
+
+BRIDGEIF\+\_\+\+DEBUG\+: Enable generic debugging in \mbox{\hyperlink{bridgeif_8c}{bridgeif.\+c}}. \mbox{\Hypertarget{group__bridgeif__opts_ga72e389f592470dc50288a68f3db70730}\label{group__bridgeif__opts_ga72e389f592470dc50288a68f3db70730}} 
+\index{Options@{Options}!BRIDGEIF\_FDB\_DEBUG@{BRIDGEIF\_FDB\_DEBUG}}
+\index{BRIDGEIF\_FDB\_DEBUG@{BRIDGEIF\_FDB\_DEBUG}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{BRIDGEIF\_FDB\_DEBUG}{BRIDGEIF\_FDB\_DEBUG}}
+{\footnotesize\ttfamily \#define BRIDGEIF\+\_\+\+FDB\+\_\+\+DEBUG~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}}
+
+BRIDGEIF\+\_\+\+DEBUG\+: Enable FDB debugging in \mbox{\hyperlink{bridgeif_8c}{bridgeif.\+c}}. \mbox{\Hypertarget{group__bridgeif__opts_gac456e97b1b0e9a57449596a2b229763a}\label{group__bridgeif__opts_gac456e97b1b0e9a57449596a2b229763a}} 
+\index{Options@{Options}!BRIDGEIF\_FW\_DEBUG@{BRIDGEIF\_FW\_DEBUG}}
+\index{BRIDGEIF\_FW\_DEBUG@{BRIDGEIF\_FW\_DEBUG}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{BRIDGEIF\_FW\_DEBUG}{BRIDGEIF\_FW\_DEBUG}}
+{\footnotesize\ttfamily \#define BRIDGEIF\+\_\+\+FW\+\_\+\+DEBUG~\mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}}
+
+BRIDGEIF\+\_\+\+DEBUG\+: Enable forwarding debugging in \mbox{\hyperlink{bridgeif_8c}{bridgeif.\+c}}. \mbox{\Hypertarget{group__bridgeif__opts_ga6fe03b84359150b7dea3dfca942b6414}\label{group__bridgeif__opts_ga6fe03b84359150b7dea3dfca942b6414}} 
+\index{Options@{Options}!BRIDGEIF\_MAX\_PORTS@{BRIDGEIF\_MAX\_PORTS}}
+\index{BRIDGEIF\_MAX\_PORTS@{BRIDGEIF\_MAX\_PORTS}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{BRIDGEIF\_MAX\_PORTS}{BRIDGEIF\_MAX\_PORTS}}
+{\footnotesize\ttfamily \#define BRIDGEIF\+\_\+\+MAX\+\_\+\+PORTS~7}
+
+BRIDGEIF\+\_\+\+MAX\+\_\+\+PORTS\+: this is used to create a typedef used for forwarding bit-\/fields\+: the number of bits required is this + 1 (for the internal/cpu port) (63 is the maximum, resulting in an u64\+\_\+t for the bit mask) ATTENTION\+: this controls the maximum number of the implementation only! The max. number of ports per bridge must still be passed via netif\+\_\+add parameter! \mbox{\Hypertarget{group__bridgeif__opts_ga5aed5cd9b01ba1345b47845cd04ca30d}\label{group__bridgeif__opts_ga5aed5cd9b01ba1345b47845cd04ca30d}} 
+\index{Options@{Options}!BRIDGEIF\_PORT\_NETIFS\_OUTPUT\_DIRECT@{BRIDGEIF\_PORT\_NETIFS\_OUTPUT\_DIRECT}}
+\index{BRIDGEIF\_PORT\_NETIFS\_OUTPUT\_DIRECT@{BRIDGEIF\_PORT\_NETIFS\_OUTPUT\_DIRECT}!Options@{Options}}
+\doxysubsubsection{\texorpdfstring{BRIDGEIF\_PORT\_NETIFS\_OUTPUT\_DIRECT}{BRIDGEIF\_PORT\_NETIFS\_OUTPUT\_DIRECT}}
+{\footnotesize\ttfamily \#define BRIDGEIF\+\_\+\+PORT\+\_\+\+NETIFS\+\_\+\+OUTPUT\+\_\+\+DIRECT~NO\+\_\+\+SYS}
+
+BRIDGEIF\+\_\+\+PORT\+\_\+\+NETIFS\+\_\+\+OUTPUT\+\_\+\+DIRECT==1\+: set port netif\textquotesingle{}s \textquotesingle{}input\textquotesingle{} function to call directly into bridgeif code and on top of that, directly call into the selected forwarding port\textquotesingle{}s \textquotesingle{}linkoutput\textquotesingle{} function. This means that the bridgeif input/output path is protected from concurrent access but as well, {\itshape all} bridge port netif\textquotesingle{}s drivers must correctly handle concurrent access! == 0\+: get into tcpip\+\_\+thread for every input packet (no multithreading) ATTENTION\+: as ==0 relies on \mbox{\hyperlink{tcpip_8h}{tcpip.\+h}}, the default depends on NO\+\_\+\+SYS setting 

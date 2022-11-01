@@ -1,0 +1,174 @@
+\hypertarget{group___m_d_m_a___exported___types}{}\doxysection{MDMA Exported Types}
+\label{group___m_d_m_a___exported___types}\index{MDMA Exported Types@{MDMA Exported Types}}
+
+
+MDMA Exported Types.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_m_d_m_a___init_type_def}{MDMA\+\_\+\+Init\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em MDMA Configuration Structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def}{MDMA\+\_\+\+Link\+Node\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em HAL MDMA linked list node structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_m_d_m_a___link_node_conf_type_def}{MDMA\+\_\+\+Link\+Node\+Conf\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em HAL MDMA linked list node configuration structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em MDMA handle Structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___m_d_m_a___exported___types_gae8e2befd2f94de51db90261afd6bf701}\label{group___m_d_m_a___exported___types_gae8e2befd2f94de51db90261afd6bf701}} 
+typedef struct \mbox{\hyperlink{struct_____m_d_m_a___handle_type_def}{\+\_\+\+\_\+\+MDMA\+\_\+\+Handle\+Type\+Def}} {\bfseries MDMA\+\_\+\+Handle\+Type\+Def}
+\begin{DoxyCompactList}\small\item\em MDMA handle Structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___m_d_m_a___exported___types_ga1e58ed6c9c6842db93575e2624537327}{HAL\+\_\+\+MDMA\+\_\+\+State\+Type\+Def}} \{ \newline
+\mbox{\hyperlink{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327a133025ddc8d943e8e87ad3a9c0207b6c}{HAL\+\_\+\+MDMA\+\_\+\+STATE\+\_\+\+RESET}} = 0x00U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327ad550a7332f8f9766be6d9426cc281ec0}{HAL\+\_\+\+MDMA\+\_\+\+STATE\+\_\+\+READY}} = 0x01U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327aa02dac31ae7054b3b22d77d03e531b0d}{HAL\+\_\+\+MDMA\+\_\+\+STATE\+\_\+\+BUSY}} = 0x02U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327af9dc95e8c8ccc82ead4fc2831d296413}{HAL\+\_\+\+MDMA\+\_\+\+STATE\+\_\+\+ERROR}} = 0x03U
+, \newline
+\mbox{\hyperlink{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327ad3a126a36381b9746a03bf81ad0f1d4d}{HAL\+\_\+\+MDMA\+\_\+\+STATE\+\_\+\+ABORT}} = 0x04U
+ \}
+\begin{DoxyCompactList}\small\item\em HAL MDMA State structure definition. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___m_d_m_a___exported___types_ga589cfedecc29440bc12c96a872c967d9}{HAL\+\_\+\+MDMA\+\_\+\+Level\+Complete\+Type\+Def}} \{ \mbox{\hyperlink{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9a4c610f559c818c0f79d7e9a1ac666ba0}{HAL\+\_\+\+MDMA\+\_\+\+FULL\+\_\+\+TRANSFER}} = 0x00U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9a667357341af0e9c8b0ec7d35fd6cbdde}{HAL\+\_\+\+MDMA\+\_\+\+BUFFER\+\_\+\+TRANSFER}} = 0x01U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9aadc788a52ebd23841f9862bddd2c864b}{HAL\+\_\+\+MDMA\+\_\+\+BLOCK\+\_\+\+TRANSFER}} = 0x02U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9ae827bd536e8e73b4ad46599a021c7aa4}{HAL\+\_\+\+MDMA\+\_\+\+REPEAT\+\_\+\+BLOCK\+\_\+\+TRANSFER}} = 0x03U
+ \}
+\begin{DoxyCompactList}\small\item\em HAL MDMA Level Complete structure definition. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{group___m_d_m_a___exported___types_gaa14c658f1c646dd585d64890b223ee93}{HAL\+\_\+\+MDMA\+\_\+\+Callback\+IDType\+Def}} \{ \newline
+\mbox{\hyperlink{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93a6405f80c812786d1fa74efcc2eda0987}{HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+CPLT\+\_\+\+CB\+\_\+\+ID}} = 0x00U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93acc13ed5a6210a479777628f7783cb854}{HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+BUFFERCPLT\+\_\+\+CB\+\_\+\+ID}} = 0x01U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ae680e40f6c4ccee9f35d060dfd71f01f}{HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+BLOCKCPLT\+\_\+\+CB\+\_\+\+ID}} = 0x02U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ac4ea2f1c2834e6f9f56e726d503a0acd}{HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+REPBLOCKCPLT\+\_\+\+CB\+\_\+\+ID}} = 0x03U
+, \newline
+\mbox{\hyperlink{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ad31282b254b5b23037f0e49c945e2d05}{HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+ERROR\+\_\+\+CB\+\_\+\+ID}} = 0x04U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93a6bc746242edf94b729a26e40fea4ddf1}{HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+ABORT\+\_\+\+CB\+\_\+\+ID}} = 0x05U
+, \mbox{\hyperlink{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ae6140f336cab2c55864a3ada4116e9b9}{HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+ALL\+\_\+\+CB\+\_\+\+ID}} = 0x06U
+ \}
+\begin{DoxyCompactList}\small\item\em HAL MDMA Callbacks IDs structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MDMA Exported Types. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___m_d_m_a___exported___types_gaa14c658f1c646dd585d64890b223ee93}\label{group___m_d_m_a___exported___types_gaa14c658f1c646dd585d64890b223ee93}} 
+\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_CallbackIDTypeDef@{HAL\_MDMA\_CallbackIDTypeDef}}
+\index{HAL\_MDMA\_CallbackIDTypeDef@{HAL\_MDMA\_CallbackIDTypeDef}!MDMA Exported Types@{MDMA Exported Types}}
+\doxysubsubsection{\texorpdfstring{HAL\_MDMA\_CallbackIDTypeDef}{HAL\_MDMA\_CallbackIDTypeDef}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___m_d_m_a___exported___types_gaa14c658f1c646dd585d64890b223ee93}{HAL\+\_\+\+MDMA\+\_\+\+Callback\+IDType\+Def}}}
+
+
+
+HAL MDMA Callbacks IDs structure definition. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_XFER\_CPLT\_CB\_ID@{HAL\_MDMA\_XFER\_CPLT\_CB\_ID}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_XFER\_CPLT\_CB\_ID@{HAL\_MDMA\_XFER\_CPLT\_CB\_ID}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93a6405f80c812786d1fa74efcc2eda0987}\label{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93a6405f80c812786d1fa74efcc2eda0987}} 
+HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+CPLT\+\_\+\+CB\+\_\+\+ID&Full transfer ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_XFER\_BUFFERCPLT\_CB\_ID@{HAL\_MDMA\_XFER\_BUFFERCPLT\_CB\_ID}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_XFER\_BUFFERCPLT\_CB\_ID@{HAL\_MDMA\_XFER\_BUFFERCPLT\_CB\_ID}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93acc13ed5a6210a479777628f7783cb854}\label{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93acc13ed5a6210a479777628f7783cb854}} 
+HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+BUFFERCPLT\+\_\+\+CB\+\_\+\+ID&Buffer Transfer ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_XFER\_BLOCKCPLT\_CB\_ID@{HAL\_MDMA\_XFER\_BLOCKCPLT\_CB\_ID}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_XFER\_BLOCKCPLT\_CB\_ID@{HAL\_MDMA\_XFER\_BLOCKCPLT\_CB\_ID}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ae680e40f6c4ccee9f35d060dfd71f01f}\label{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ae680e40f6c4ccee9f35d060dfd71f01f}} 
+HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+BLOCKCPLT\+\_\+\+CB\+\_\+\+ID&Block Transfer ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_XFER\_REPBLOCKCPLT\_CB\_ID@{HAL\_MDMA\_XFER\_REPBLOCKCPLT\_CB\_ID}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_XFER\_REPBLOCKCPLT\_CB\_ID@{HAL\_MDMA\_XFER\_REPBLOCKCPLT\_CB\_ID}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ac4ea2f1c2834e6f9f56e726d503a0acd}\label{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ac4ea2f1c2834e6f9f56e726d503a0acd}} 
+HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+REPBLOCKCPLT\+\_\+\+CB\+\_\+\+ID&Repeated Block Transfer \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_XFER\_ERROR\_CB\_ID@{HAL\_MDMA\_XFER\_ERROR\_CB\_ID}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_XFER\_ERROR\_CB\_ID@{HAL\_MDMA\_XFER\_ERROR\_CB\_ID}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ad31282b254b5b23037f0e49c945e2d05}\label{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ad31282b254b5b23037f0e49c945e2d05}} 
+HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+ERROR\+\_\+\+CB\+\_\+\+ID&Error ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_XFER\_ABORT\_CB\_ID@{HAL\_MDMA\_XFER\_ABORT\_CB\_ID}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_XFER\_ABORT\_CB\_ID@{HAL\_MDMA\_XFER\_ABORT\_CB\_ID}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93a6bc746242edf94b729a26e40fea4ddf1}\label{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93a6bc746242edf94b729a26e40fea4ddf1}} 
+HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+ABORT\+\_\+\+CB\+\_\+\+ID&Abort ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_XFER\_ALL\_CB\_ID@{HAL\_MDMA\_XFER\_ALL\_CB\_ID}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_XFER\_ALL\_CB\_ID@{HAL\_MDMA\_XFER\_ALL\_CB\_ID}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ae6140f336cab2c55864a3ada4116e9b9}\label{group___m_d_m_a___exported___types_ggaa14c658f1c646dd585d64890b223ee93ae6140f336cab2c55864a3ada4116e9b9}} 
+HAL\+\_\+\+MDMA\+\_\+\+XFER\+\_\+\+ALL\+\_\+\+CB\+\_\+\+ID&All ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group___m_d_m_a___exported___types_ga589cfedecc29440bc12c96a872c967d9}\label{group___m_d_m_a___exported___types_ga589cfedecc29440bc12c96a872c967d9}} 
+\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_LevelCompleteTypeDef@{HAL\_MDMA\_LevelCompleteTypeDef}}
+\index{HAL\_MDMA\_LevelCompleteTypeDef@{HAL\_MDMA\_LevelCompleteTypeDef}!MDMA Exported Types@{MDMA Exported Types}}
+\doxysubsubsection{\texorpdfstring{HAL\_MDMA\_LevelCompleteTypeDef}{HAL\_MDMA\_LevelCompleteTypeDef}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___m_d_m_a___exported___types_ga589cfedecc29440bc12c96a872c967d9}{HAL\+\_\+\+MDMA\+\_\+\+Level\+Complete\+Type\+Def}}}
+
+
+
+HAL MDMA Level Complete structure definition. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_FULL\_TRANSFER@{HAL\_MDMA\_FULL\_TRANSFER}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_FULL\_TRANSFER@{HAL\_MDMA\_FULL\_TRANSFER}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9a4c610f559c818c0f79d7e9a1ac666ba0}\label{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9a4c610f559c818c0f79d7e9a1ac666ba0}} 
+HAL\+\_\+\+MDMA\+\_\+\+FULL\+\_\+\+TRANSFER&Full transfer ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_BUFFER\_TRANSFER@{HAL\_MDMA\_BUFFER\_TRANSFER}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_BUFFER\_TRANSFER@{HAL\_MDMA\_BUFFER\_TRANSFER}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9a667357341af0e9c8b0ec7d35fd6cbdde}\label{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9a667357341af0e9c8b0ec7d35fd6cbdde}} 
+HAL\+\_\+\+MDMA\+\_\+\+BUFFER\+\_\+\+TRANSFER&Buffer Transfer ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_BLOCK\_TRANSFER@{HAL\_MDMA\_BLOCK\_TRANSFER}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_BLOCK\_TRANSFER@{HAL\_MDMA\_BLOCK\_TRANSFER}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9aadc788a52ebd23841f9862bddd2c864b}\label{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9aadc788a52ebd23841f9862bddd2c864b}} 
+HAL\+\_\+\+MDMA\+\_\+\+BLOCK\+\_\+\+TRANSFER&Block Transfer ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_REPEAT\_BLOCK\_TRANSFER@{HAL\_MDMA\_REPEAT\_BLOCK\_TRANSFER}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_REPEAT\_BLOCK\_TRANSFER@{HAL\_MDMA\_REPEAT\_BLOCK\_TRANSFER}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9ae827bd536e8e73b4ad46599a021c7aa4}\label{group___m_d_m_a___exported___types_gga589cfedecc29440bc12c96a872c967d9ae827bd536e8e73b4ad46599a021c7aa4}} 
+HAL\+\_\+\+MDMA\+\_\+\+REPEAT\+\_\+\+BLOCK\+\_\+\+TRANSFER&repeat block Transfer \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group___m_d_m_a___exported___types_ga1e58ed6c9c6842db93575e2624537327}\label{group___m_d_m_a___exported___types_ga1e58ed6c9c6842db93575e2624537327}} 
+\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_StateTypeDef@{HAL\_MDMA\_StateTypeDef}}
+\index{HAL\_MDMA\_StateTypeDef@{HAL\_MDMA\_StateTypeDef}!MDMA Exported Types@{MDMA Exported Types}}
+\doxysubsubsection{\texorpdfstring{HAL\_MDMA\_StateTypeDef}{HAL\_MDMA\_StateTypeDef}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___m_d_m_a___exported___types_ga1e58ed6c9c6842db93575e2624537327}{HAL\+\_\+\+MDMA\+\_\+\+State\+Type\+Def}}}
+
+
+
+HAL MDMA State structure definition. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_STATE\_RESET@{HAL\_MDMA\_STATE\_RESET}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_STATE\_RESET@{HAL\_MDMA\_STATE\_RESET}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327a133025ddc8d943e8e87ad3a9c0207b6c}\label{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327a133025ddc8d943e8e87ad3a9c0207b6c}} 
+HAL\+\_\+\+MDMA\+\_\+\+STATE\+\_\+\+RESET&MDMA not yet initialized or disabled \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_STATE\_READY@{HAL\_MDMA\_STATE\_READY}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_STATE\_READY@{HAL\_MDMA\_STATE\_READY}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327ad550a7332f8f9766be6d9426cc281ec0}\label{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327ad550a7332f8f9766be6d9426cc281ec0}} 
+HAL\+\_\+\+MDMA\+\_\+\+STATE\+\_\+\+READY&MDMA initialized and ready for use ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_STATE\_BUSY@{HAL\_MDMA\_STATE\_BUSY}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_STATE\_BUSY@{HAL\_MDMA\_STATE\_BUSY}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327aa02dac31ae7054b3b22d77d03e531b0d}\label{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327aa02dac31ae7054b3b22d77d03e531b0d}} 
+HAL\+\_\+\+MDMA\+\_\+\+STATE\+\_\+\+BUSY&MDMA process is ongoing ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_STATE\_ERROR@{HAL\_MDMA\_STATE\_ERROR}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_STATE\_ERROR@{HAL\_MDMA\_STATE\_ERROR}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327af9dc95e8c8ccc82ead4fc2831d296413}\label{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327af9dc95e8c8ccc82ead4fc2831d296413}} 
+HAL\+\_\+\+MDMA\+\_\+\+STATE\+\_\+\+ERROR&MDMA error state ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HAL\_MDMA\_STATE\_ABORT@{HAL\_MDMA\_STATE\_ABORT}!MDMA Exported Types@{MDMA Exported Types}}\index{MDMA Exported Types@{MDMA Exported Types}!HAL\_MDMA\_STATE\_ABORT@{HAL\_MDMA\_STATE\_ABORT}}}\mbox{\Hypertarget{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327ad3a126a36381b9746a03bf81ad0f1d4d}\label{group___m_d_m_a___exported___types_gga1e58ed6c9c6842db93575e2624537327ad3a126a36381b9746a03bf81ad0f1d4d}} 
+HAL\+\_\+\+MDMA\+\_\+\+STATE\+\_\+\+ABORT&MDMA Abort state ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}

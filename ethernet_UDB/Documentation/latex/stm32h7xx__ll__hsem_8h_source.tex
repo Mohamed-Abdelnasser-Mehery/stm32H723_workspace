@@ -1,0 +1,202 @@
+\hypertarget{stm32h7xx__ll__hsem_8h_source}{}\doxysection{stm32h7xx\+\_\+ll\+\_\+hsem.\+h}
+\label{stm32h7xx__ll__hsem_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_ll\_hsem.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_ll\_hsem.h}}
+\mbox{\hyperlink{stm32h7xx__ll__hsem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{19 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef STM32H7xx\_LL\_HSEM\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define STM32H7xx\_LL\_HSEM\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{24 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32h7xx_8h}{stm32h7xx.h}}"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#if defined(HSEM)}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{40 \textcolor{comment}{/* Private types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{41 \textcolor{comment}{/* Private variables -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{42 \textcolor{comment}{/* Private constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{43 \textcolor{comment}{/* Private macros -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{comment}{/* Exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{46 \textcolor{comment}{/* Exported constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define LL\_HSEM\_COREID\_NONE             0U}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define LL\_HSEM\_COREID\_CPU1             HSEM\_CR\_COREID\_CPU1}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define LL\_HSEM\_COREID\_CPU2             HSEM\_CR\_COREID\_CPU2}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define LL\_HSEM\_COREID                  HSEM\_CR\_COREID\_CURRENT}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_0                HSEM\_C1IER\_ISE0}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_1                HSEM\_C1IER\_ISE1}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_2                HSEM\_C1IER\_ISE2}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_3                HSEM\_C1IER\_ISE3}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_4                HSEM\_C1IER\_ISE4}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_5                HSEM\_C1IER\_ISE5}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_6                HSEM\_C1IER\_ISE6}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_7                HSEM\_C1IER\_ISE7}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_8                HSEM\_C1IER\_ISE8}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_9                HSEM\_C1IER\_ISE9}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_10               HSEM\_C1IER\_ISE10}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_11               HSEM\_C1IER\_ISE11}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_12               HSEM\_C1IER\_ISE12}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_13               HSEM\_C1IER\_ISE13}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_14               HSEM\_C1IER\_ISE14}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_15               HSEM\_C1IER\_ISE15}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#if (HSEM\_SEMID\_MAX == 15)}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_ALL              0x0000FFFFU}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* HSEM\_SEMID\_MAX == 31 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_16               HSEM\_C1IER\_ISE16}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_17               HSEM\_C1IER\_ISE17}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_18               HSEM\_C1IER\_ISE18}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_19               HSEM\_C1IER\_ISE19}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_20               HSEM\_C1IER\_ISE20}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_21               HSEM\_C1IER\_ISE21}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_22               HSEM\_C1IER\_ISE22}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_23               HSEM\_C1IER\_ISE23}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_24               HSEM\_C1IER\_ISE24}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_25               HSEM\_C1IER\_ISE25}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_26               HSEM\_C1IER\_ISE26}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_27               HSEM\_C1IER\_ISE27}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_28               HSEM\_C1IER\_ISE28}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_29               HSEM\_C1IER\_ISE29}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_30               HSEM\_C1IER\_ISE30}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_31               HSEM\_C1IER\_ISE31}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define LL\_HSEM\_SEMAPHORE\_ALL              0xFFFFFFFFU}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* HSEM\_SEMID\_MAX == 15 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{116 \textcolor{comment}{/* Exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define LL\_HSEM\_WriteReg(\_\_INSTANCE\_\_, \_\_REG\_\_, \_\_VALUE\_\_) WRITE\_REG(\_\_INSTANCE\_\_-\/>\_\_REG\_\_, (\_\_VALUE\_\_))}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define LL\_HSEM\_ReadReg(\_\_INSTANCE\_\_, \_\_REG\_\_) READ\_REG(\_\_INSTANCE\_\_-\/>\_\_REG\_\_)}}
+\DoxyCodeLine{149 \textcolor{comment}{/* Exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{166 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_IsSemaphoreLocked(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t Semaphore)}
+\DoxyCodeLine{167 \{}
+\DoxyCodeLine{168   \textcolor{keywordflow}{return} ((READ\_BIT(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_af1f7f7d51dacadf671ee868bdde0b4bd}{R}}[Semaphore], \mbox{\hyperlink{group___peripheral___registers___bits___definition_gacc121e0df98eda63c3060d308b3bee4e}{HSEM\_R\_LOCK}}) == (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gadc7080671de1ebec942cbefebba507c5}{HSEM\_R\_LOCK\_Msk}})) ? 1UL : 0UL);}
+\DoxyCodeLine{169 \}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{181 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_GetCoreId(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t Semaphore)}
+\DoxyCodeLine{182 \{}
+\DoxyCodeLine{183   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_af1f7f7d51dacadf671ee868bdde0b4bd}{R}}[Semaphore], \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga45b657d12a503dc9de0be96a2de549a9}{HSEM\_R\_COREID\_Msk}}));}
+\DoxyCodeLine{184 \}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{193 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_GetProcessId(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t Semaphore)}
+\DoxyCodeLine{194 \{}
+\DoxyCodeLine{195   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_af1f7f7d51dacadf671ee868bdde0b4bd}{R}}[Semaphore], \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2ae22c7391bb1fa8319194cacb9769d9}{HSEM\_R\_PROCID\_Msk}}));}
+\DoxyCodeLine{196 \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{209 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_HSEM\_SetLock(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t Semaphore, uint32\_t process)}
+\DoxyCodeLine{210 \{}
+\DoxyCodeLine{211   WRITE\_REG(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_af1f7f7d51dacadf671ee868bdde0b4bd}{R}}[Semaphore], (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gacc121e0df98eda63c3060d308b3bee4e}{HSEM\_R\_LOCK}} | LL\_HSEM\_COREID | process));}
+\DoxyCodeLine{212 \}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{224 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_2StepLock(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t Semaphore, uint32\_t process)}
+\DoxyCodeLine{225 \{}
+\DoxyCodeLine{226   WRITE\_REG(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_af1f7f7d51dacadf671ee868bdde0b4bd}{R}}[Semaphore], (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gacc121e0df98eda63c3060d308b3bee4e}{HSEM\_R\_LOCK}} | LL\_HSEM\_COREID | process));}
+\DoxyCodeLine{227   \textcolor{keywordflow}{return} ((HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_af1f7f7d51dacadf671ee868bdde0b4bd}{R}}[Semaphore] != (\mbox{\hyperlink{group___peripheral___registers___bits___definition_gacc121e0df98eda63c3060d308b3bee4e}{HSEM\_R\_LOCK}} | LL\_HSEM\_COREID | process)) ? 1UL : 0UL);}
+\DoxyCodeLine{228 \}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{239 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_1StepLock(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t Semaphore)}
+\DoxyCodeLine{240 \{}
+\DoxyCodeLine{241   \textcolor{keywordflow}{return} ((HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_a42679a11466d53bb84c0747d45a91f54}{RLR}}[Semaphore] != (\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga2f47112c5ceac25e97232be1d235d70b}{HSEM\_RLR\_LOCK}} | LL\_HSEM\_COREID)) ? 1UL : 0UL);}
+\DoxyCodeLine{242 \}}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{253 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_HSEM\_ReleaseLock(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t Semaphore, uint32\_t process)}
+\DoxyCodeLine{254 \{}
+\DoxyCodeLine{255   WRITE\_REG(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_af1f7f7d51dacadf671ee868bdde0b4bd}{R}}[Semaphore], (LL\_HSEM\_COREID | process));}
+\DoxyCodeLine{256 \}}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{264 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_GetStatus(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t Semaphore)}
+\DoxyCodeLine{265 \{}
+\DoxyCodeLine{266   \textcolor{keywordflow}{return} ((HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_af1f7f7d51dacadf671ee868bdde0b4bd}{R}}[Semaphore] != 0U) ? 1UL : 0UL);}
+\DoxyCodeLine{267 \}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{276 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_HSEM\_SetKey(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t key)}
+\DoxyCodeLine{277 \{}
+\DoxyCodeLine{278   WRITE\_REG(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_a84c491be6c66b1d5b6a2efd0740b3d0c}{KEYR}}, key << HSEM\_KEYR\_KEY\_Pos);}
+\DoxyCodeLine{279 \}}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{287 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_GetKey(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx)}
+\DoxyCodeLine{288 \{}
+\DoxyCodeLine{289   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_a84c491be6c66b1d5b6a2efd0740b3d0c}{KEYR}}, \mbox{\hyperlink{group___peripheral___registers___bits___definition_gac7c19a443bd3ad1018ae81494eff3d2f}{HSEM\_KEYR\_KEY}}) >> HSEM\_KEYR\_KEY\_Pos);}
+\DoxyCodeLine{290 \}}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{304 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_HSEM\_ResetAllLock(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t key, uint32\_t core)}
+\DoxyCodeLine{305 \{}
+\DoxyCodeLine{306   WRITE\_REG(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_ab40c89c59391aaa9d9a8ec011dd0907a}{CR}}, (key << HSEM\_CR\_KEY\_Pos) | core);}
+\DoxyCodeLine{307 \}}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{359 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_HSEM\_EnableIT\_C1IER(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{360 \{}
+\DoxyCodeLine{361   SET\_BIT(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_a4946861e406fb6bee3f60d697fbaf37b}{C1IER}}, SemaphoreMask);}
+\DoxyCodeLine{362 \}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{406 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_HSEM\_DisableIT\_C1IER(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{407 \{}
+\DoxyCodeLine{408   CLEAR\_BIT(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_a4946861e406fb6bee3f60d697fbaf37b}{C1IER}}, SemaphoreMask);}
+\DoxyCodeLine{409 \}}
+\DoxyCodeLine{410 }
+\DoxyCodeLine{453 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_IsEnabledIT\_C1IER(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{454 \{}
+\DoxyCodeLine{455   \textcolor{keywordflow}{return} ((READ\_BIT(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_a4946861e406fb6bee3f60d697fbaf37b}{C1IER}}, SemaphoreMask) == (SemaphoreMask)) ? 1UL : 0UL);}
+\DoxyCodeLine{456 \}}
+\DoxyCodeLine{457 }
+\DoxyCodeLine{458 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{499 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_HSEM\_EnableIT\_C2IER(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{500 \{}
+\DoxyCodeLine{501   SET\_BIT(HSEMx-\/>C2IER, SemaphoreMask);}
+\DoxyCodeLine{502 \}}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{544 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_HSEM\_DisableIT\_C2IER(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{545 \{}
+\DoxyCodeLine{546   CLEAR\_BIT(HSEMx-\/>C2IER, SemaphoreMask);}
+\DoxyCodeLine{547 \}}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{589 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_IsEnabledIT\_C2IER(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{590 \{}
+\DoxyCodeLine{591   \textcolor{keywordflow}{return} ((READ\_BIT(HSEMx-\/>C2IER, SemaphoreMask) == (SemaphoreMask)) ? 1UL : 0UL);}
+\DoxyCodeLine{592 \}}
+\DoxyCodeLine{593 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{594 }
+\DoxyCodeLine{645 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_HSEM\_ClearFlag\_C1ICR(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{646 \{}
+\DoxyCodeLine{647   WRITE\_REG(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_af3877a8db1cbed614cdbce2ee256b677}{C1ICR}}, SemaphoreMask);}
+\DoxyCodeLine{648 \}}
+\DoxyCodeLine{649 }
+\DoxyCodeLine{692 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_IsActiveFlag\_C1ISR(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{693 \{}
+\DoxyCodeLine{694   \textcolor{keywordflow}{return} ((READ\_BIT(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_a382114eb443044dc93476aabdd0b9d5b}{C1ISR}}, SemaphoreMask) == (SemaphoreMask)) ? 1UL : 0UL);}
+\DoxyCodeLine{695 \}}
+\DoxyCodeLine{696 }
+\DoxyCodeLine{739 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_IsActiveFlag\_C1MISR(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{740 \{}
+\DoxyCodeLine{741   \textcolor{keywordflow}{return} ((READ\_BIT(HSEMx-\/>\mbox{\hyperlink{struct_h_s_e_m___type_def_a95c2a920d6552f69191bf1d168dbdaad}{C1MISR}}, SemaphoreMask) == (SemaphoreMask)) ? 1UL : 0UL);}
+\DoxyCodeLine{742 \}}
+\DoxyCodeLine{743 }
+\DoxyCodeLine{744 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{785 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_HSEM\_ClearFlag\_C2ICR(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{786 \{}
+\DoxyCodeLine{787   WRITE\_REG(HSEMx-\/>C2ICR, SemaphoreMask);}
+\DoxyCodeLine{788 \}}
+\DoxyCodeLine{789 }
+\DoxyCodeLine{830 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_IsActiveFlag\_C2ISR(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{831 \{}
+\DoxyCodeLine{832   \textcolor{keywordflow}{return} ((READ\_BIT(HSEMx-\/>C2ISR, SemaphoreMask) == (SemaphoreMask)) ? 1UL : 0UL);}
+\DoxyCodeLine{833 \}}
+\DoxyCodeLine{834 }
+\DoxyCodeLine{875 \_\_STATIC\_INLINE uint32\_t LL\_HSEM\_IsActiveFlag\_C2MISR(\mbox{\hyperlink{struct_h_s_e_m___type_def}{HSEM\_TypeDef}} *HSEMx, uint32\_t SemaphoreMask)}
+\DoxyCodeLine{876 \{}
+\DoxyCodeLine{877   \textcolor{keywordflow}{return} ((READ\_BIT(HSEMx-\/>C2MISR, SemaphoreMask) == (SemaphoreMask)) ? 1UL : 0UL);}
+\DoxyCodeLine{878 \}}
+\DoxyCodeLine{879 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{892 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* defined(HSEM) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{893 }
+\DoxyCodeLine{898 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{899 \}}
+\DoxyCodeLine{900 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{901 }
+\DoxyCodeLine{902 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_STM32H7xx\_LL\_HSEM\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

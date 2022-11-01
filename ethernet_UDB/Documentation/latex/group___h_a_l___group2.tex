@@ -1,0 +1,823 @@
+\hypertarget{group___h_a_l___group2}{}\doxysection{HAL Control functions}
+\label{group___h_a_l___group2}\index{HAL Control functions@{HAL Control functions}}
+
+
+HAL Control functions.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{group___h_a_l___group2_gaba5b726bfedd013bf7bb5a51d5c4f188}{HAL\+\_\+\+Inc\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em This function is called to increment a global variable \char`\"{}uw\+Tick\char`\"{} used as application time base. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak uint32\+\_\+t \mbox{\hyperlink{group___h_a_l___group2_gac9b3a85a73735ac840d0dcb59bc0fdd6}{HAL\+\_\+\+Get\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em Provides a tick value in millisecond. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l___group2_gacdcc8b5d33b9f97fe1b0abd6a86a3d4b}{HAL\+\_\+\+Get\+Tick\+Prio}} (void)
+\begin{DoxyCompactList}\small\item\em This function returns a tick priority. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___h_a_l___group2_ga47f2dd240b2aed823a76b11496f37690}{HAL\+\_\+\+Set\+Tick\+Freq}} (HAL\+\_\+\+Tick\+Freq\+Type\+Def Freq)
+\begin{DoxyCompactList}\small\item\em Set new tick Freq. \end{DoxyCompactList}\item 
+HAL\+\_\+\+Tick\+Freq\+Type\+Def \mbox{\hyperlink{group___h_a_l___group2_ga803cdbcc0883bcf5f5c98c50024c97e6}{HAL\+\_\+\+Get\+Tick\+Freq}} (void)
+\begin{DoxyCompactList}\small\item\em Return tick frequency. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{group___h_a_l___group2_gab1dc1e6b438daacfe38a312a90221330}{HAL\+\_\+\+Delay}} (uint32\+\_\+t Delay)
+\begin{DoxyCompactList}\small\item\em This function provides minimum delay (in milliseconds) based on variable incremented. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{group___h_a_l___group2_ga84ae4b045c45d49d96b2b02e2dc516b6}{HAL\+\_\+\+Suspend\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em Suspend Tick increment. \end{DoxyCompactList}\item 
+\+\_\+\+\_\+weak void \mbox{\hyperlink{group___h_a_l___group2_gac3fa17aa85e357e3f1af56ad110d2e97}{HAL\+\_\+\+Resume\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em Resume Tick increment. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l___group2_gafb139b375512ad2a234e4619b129b966}{HAL\+\_\+\+Get\+Hal\+Version}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the HAL revision. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l___group2_gae051ef9e932404b21f5877c7186406b8}{HAL\+\_\+\+Get\+REVID}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the device revision identifier. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l___group2_gaff785f069ed650de77ff82ac407f7c84}{HAL\+\_\+\+Get\+DEVID}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the device identifier. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l___group2_gaf982aa0a575eef3758c0840a24077506}{HAL\+\_\+\+Get\+UIDw0}} (void)
+\begin{DoxyCompactList}\small\item\em Return the first word of the unique device identifier (UID based on 96 bits) \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l___group2_ga52720dd92ed2bd4314a2a129855d766c}{HAL\+\_\+\+Get\+UIDw1}} (void)
+\begin{DoxyCompactList}\small\item\em Return the second word of the unique device identifier (UID based on 96 bits) \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l___group2_ga5785ae5ec8d4c5a7dadb1359f0778700}{HAL\+\_\+\+Get\+UIDw2}} (void)
+\begin{DoxyCompactList}\small\item\em Return the third word of the unique device identifier (UID based on 96 bits) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga79b8e839deeb200f22ab3f6d21359338}{HAL\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+Voltage\+Scaling\+Config}} (uint32\+\_\+t Voltage\+Scaling)
+\begin{DoxyCompactList}\small\item\em Configure the internal voltage reference buffer voltage scale. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga7de0a1fcafa18030af600b0ed908b805}{HAL\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+High\+Impedance\+Config}} (uint32\+\_\+t Mode)
+\begin{DoxyCompactList}\small\item\em Configure the internal voltage reference buffer high impedance mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gae0317419d084f9d40b32c1dd6037925f}{HAL\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+Trimming\+Config}} (uint32\+\_\+t Trimming\+Value)
+\begin{DoxyCompactList}\small\item\em Tune the Internal Voltage Reference buffer (VREFBUF). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} \mbox{\hyperlink{group___h_a_l___group2_ga3a184f1a037585ba7a1d931abff30275}{HAL\+\_\+\+SYSCFG\+\_\+\+Enable\+VREFBUF}} (void)
+\begin{DoxyCompactList}\small\item\em Enable the Internal Voltage Reference buffer (VREFBUF). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga26991b4078e8f985b1caced43b6cfb9c}{HAL\+\_\+\+SYSCFG\+\_\+\+Disable\+VREFBUF}} (void)
+\begin{DoxyCompactList}\small\item\em Disable the Internal Voltage Reference buffer (VREFBUF). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gaf3cd66016fc04802f795b36f2f9a68d1}{HAL\+\_\+\+SYSCFG\+\_\+\+Analog\+Switch\+Config}} (uint32\+\_\+t SYSCFG\+\_\+\+Analog\+Switch, uint32\+\_\+t SYSCFG\+\_\+\+Switch\+State)
+\begin{DoxyCompactList}\small\item\em Analog Switch control for dual analog pads. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga20b6ca07582e10aec5e15ad2fda7dfc1}{HAL\+\_\+\+Enable\+Compensation\+Cell}} (void)
+\begin{DoxyCompactList}\small\item\em Enables the I/O Compensation Cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga653f1166b0e37afd40372550d806e667}{HAL\+\_\+\+Disable\+Compensation\+Cell}} (void)
+\begin{DoxyCompactList}\small\item\em Power-\/down the I/O Compensation Cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gaf917b7597a248de90f56f726d1a9d7fc}{HAL\+\_\+\+SYSCFG\+\_\+\+Enable\+IOSpeed\+Optimize}} (void)
+\begin{DoxyCompactList}\small\item\em To Enable optimize the I/O speed when the product voltage is low. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga7e66c046aca125b43632bd48062aa7e2}{HAL\+\_\+\+SYSCFG\+\_\+\+Disable\+IOSpeed\+Optimize}} (void)
+\begin{DoxyCompactList}\small\item\em To Disable optimize the I/O speed when the product voltage is low. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga1d50aaa188c9ac4f4d601f241a8dd0d8}{HAL\+\_\+\+SYSCFG\+\_\+\+Compensation\+Code\+Select}} (uint32\+\_\+t SYSCFG\+\_\+\+Comp\+Code)
+\begin{DoxyCompactList}\small\item\em Code selection for the I/O Compensation cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gad7601fc9520bc414a90ab50ff15aa0d5}{HAL\+\_\+\+SYSCFG\+\_\+\+Compensation\+Code\+Config}} (uint32\+\_\+t SYSCFG\+\_\+\+PMOSCode, uint32\+\_\+t SYSCFG\+\_\+\+NMOSCode)
+\begin{DoxyCompactList}\small\item\em Code selection for the I/O Compensation cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gaf031bcc71ebad9b7edf405547efd762b}{HAL\+\_\+\+DBGMCU\+\_\+\+Enable\+DBGSleep\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Enable the Debug Module during Domain1/\+CDomain SLEEP mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gac7820d0561f19999a68d714655b901b5}{HAL\+\_\+\+DBGMCU\+\_\+\+Disable\+DBGSleep\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Disable the Debug Module during Domain1/\+CDomain SLEEP mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gadf25043b17de4bef38a95a75fd03e5c4}{HAL\+\_\+\+DBGMCU\+\_\+\+Enable\+DBGStop\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Enable the Debug Module during Domain1/\+CDomain STOP mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga2c93dcee35e5983d74f1000de7c042d5}{HAL\+\_\+\+DBGMCU\+\_\+\+Disable\+DBGStop\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Disable the Debug Module during Domain1/\+CDomain STOP mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga28a1323b2eeb0a408c1cfdbfa0db5ead}{HAL\+\_\+\+DBGMCU\+\_\+\+Enable\+DBGStandby\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Enable the Debug Module during Domain1/\+CDomain STANDBY mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga7faa58d8508ea3123b9f247a70379779}{HAL\+\_\+\+DBGMCU\+\_\+\+Disable\+DBGStandby\+Mode}} (void)
+\begin{DoxyCompactList}\small\item\em Disable the Debug Module during Domain1/\+CDomain STANDBY mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga2ababe650b4698a325acb86a575e4cf0}{HAL\+\_\+\+Set\+FMCMemory\+Swapping\+Config}} (uint32\+\_\+t Bank\+Map\+Config)
+\begin{DoxyCompactList}\small\item\em Set the FMC Memory Mapping Swapping config. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___h_a_l___group2_gac3bf32c8fd5ae5ec50f5585190f39274}{HAL\+\_\+\+Get\+FMCMemory\+Swapping\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em Get FMC Bank mapping mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gac248995c863da942024d6fb556732027}{HAL\+\_\+\+EXTI\+\_\+\+Edge\+Config}} (uint32\+\_\+t EXTI\+\_\+\+Line, uint32\+\_\+t EXTI\+\_\+\+Edge)
+\begin{DoxyCompactList}\small\item\em Configure the EXTI input event line edge. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gaafbf043f6ed81243cf73194e394b104c}{HAL\+\_\+\+EXTI\+\_\+\+Generate\+SWInterrupt}} (uint32\+\_\+t EXTI\+\_\+\+Line)
+\begin{DoxyCompactList}\small\item\em Generates a Software interrupt on selected EXTI line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gaaa883ca7eecba560c8ac92a1b252ae88}{HAL\+\_\+\+EXTI\+\_\+\+D1\+\_\+\+Clear\+Flag}} (uint32\+\_\+t EXTI\+\_\+\+Line)
+\begin{DoxyCompactList}\small\item\em Clears the EXTI\textquotesingle{}s line pending flags for Domain D1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_gafc2445849507e5aeb7d48e77c278a604}{HAL\+\_\+\+EXTI\+\_\+\+D1\+\_\+\+Event\+Input\+Config}} (uint32\+\_\+t EXTI\+\_\+\+Line, uint32\+\_\+t EXTI\+\_\+\+Mode, uint32\+\_\+t EXTI\+\_\+\+Line\+Cmd)
+\begin{DoxyCompactList}\small\item\em Configure the EXTI input event line for Domain D1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___h_a_l___group2_ga16c56027a8671ff62a26204152aa8f95}{HAL\+\_\+\+EXTI\+\_\+\+D3\+\_\+\+Event\+Input\+Config}} (uint32\+\_\+t EXTI\+\_\+\+Line, uint32\+\_\+t EXTI\+\_\+\+Line\+Cmd, uint32\+\_\+t EXTI\+\_\+\+Clear\+Src)
+\begin{DoxyCompactList}\small\item\em Configure the EXTI input event line for Domain D3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+HAL Control functions. 
+
+\begin{DoxyVerb} ===============================================================================
+                      ##### HAL Control functions #####
+ ===============================================================================
+    [..]  This section provides functions allowing to:
+      (+) Provide a tick value in millisecond
+      (+) Provide a blocking delay in millisecond
+      (+) Suspend the time base source interrupt
+      (+) Resume the time base source interrupt
+      (+) Get the HAL API driver version
+      (+) Get the device identifier
+      (+) Get the device revision identifier
+      (+) Enable/Disable Debug module during SLEEP mode
+      (+) Enable/Disable Debug module during STOP mode
+      (+) Enable/Disable Debug module during STANDBY mode\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___h_a_l___group2_gac7820d0561f19999a68d714655b901b5}\label{group___h_a_l___group2_gac7820d0561f19999a68d714655b901b5}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_DBGMCU\_DisableDBGSleepMode@{HAL\_DBGMCU\_DisableDBGSleepMode}}
+\index{HAL\_DBGMCU\_DisableDBGSleepMode@{HAL\_DBGMCU\_DisableDBGSleepMode}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_DBGMCU\_DisableDBGSleepMode()}{HAL\_DBGMCU\_DisableDBGSleepMode()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+DBGMCU\+\_\+\+Disable\+DBGSleep\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Disable the Debug Module during Domain1/\+CDomain SLEEP mode. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga7faa58d8508ea3123b9f247a70379779}\label{group___h_a_l___group2_ga7faa58d8508ea3123b9f247a70379779}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_DBGMCU\_DisableDBGStandbyMode@{HAL\_DBGMCU\_DisableDBGStandbyMode}}
+\index{HAL\_DBGMCU\_DisableDBGStandbyMode@{HAL\_DBGMCU\_DisableDBGStandbyMode}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_DBGMCU\_DisableDBGStandbyMode()}{HAL\_DBGMCU\_DisableDBGStandbyMode()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+DBGMCU\+\_\+\+Disable\+DBGStandby\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Disable the Debug Module during Domain1/\+CDomain STANDBY mode. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga2c93dcee35e5983d74f1000de7c042d5}\label{group___h_a_l___group2_ga2c93dcee35e5983d74f1000de7c042d5}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_DBGMCU\_DisableDBGStopMode@{HAL\_DBGMCU\_DisableDBGStopMode}}
+\index{HAL\_DBGMCU\_DisableDBGStopMode@{HAL\_DBGMCU\_DisableDBGStopMode}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_DBGMCU\_DisableDBGStopMode()}{HAL\_DBGMCU\_DisableDBGStopMode()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+DBGMCU\+\_\+\+Disable\+DBGStop\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Disable the Debug Module during Domain1/\+CDomain STOP mode. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gaf031bcc71ebad9b7edf405547efd762b}\label{group___h_a_l___group2_gaf031bcc71ebad9b7edf405547efd762b}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_DBGMCU\_EnableDBGSleepMode@{HAL\_DBGMCU\_EnableDBGSleepMode}}
+\index{HAL\_DBGMCU\_EnableDBGSleepMode@{HAL\_DBGMCU\_EnableDBGSleepMode}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_DBGMCU\_EnableDBGSleepMode()}{HAL\_DBGMCU\_EnableDBGSleepMode()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+DBGMCU\+\_\+\+Enable\+DBGSleep\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enable the Debug Module during Domain1/\+CDomain SLEEP mode. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga28a1323b2eeb0a408c1cfdbfa0db5ead}\label{group___h_a_l___group2_ga28a1323b2eeb0a408c1cfdbfa0db5ead}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_DBGMCU\_EnableDBGStandbyMode@{HAL\_DBGMCU\_EnableDBGStandbyMode}}
+\index{HAL\_DBGMCU\_EnableDBGStandbyMode@{HAL\_DBGMCU\_EnableDBGStandbyMode}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_DBGMCU\_EnableDBGStandbyMode()}{HAL\_DBGMCU\_EnableDBGStandbyMode()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+DBGMCU\+\_\+\+Enable\+DBGStandby\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enable the Debug Module during Domain1/\+CDomain STANDBY mode. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gadf25043b17de4bef38a95a75fd03e5c4}\label{group___h_a_l___group2_gadf25043b17de4bef38a95a75fd03e5c4}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_DBGMCU\_EnableDBGStopMode@{HAL\_DBGMCU\_EnableDBGStopMode}}
+\index{HAL\_DBGMCU\_EnableDBGStopMode@{HAL\_DBGMCU\_EnableDBGStopMode}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_DBGMCU\_EnableDBGStopMode()}{HAL\_DBGMCU\_EnableDBGStopMode()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+DBGMCU\+\_\+\+Enable\+DBGStop\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enable the Debug Module during Domain1/\+CDomain STOP mode. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gab1dc1e6b438daacfe38a312a90221330}\label{group___h_a_l___group2_gab1dc1e6b438daacfe38a312a90221330}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_Delay@{HAL\_Delay}}
+\index{HAL\_Delay@{HAL\_Delay}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_Delay()}{HAL\_Delay()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void HAL\+\_\+\+Delay (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Delay }\end{DoxyParamCaption})}
+
+
+
+This function provides minimum delay (in milliseconds) based on variable incremented. 
+
+\begin{DoxyNote}{Note}
+In the default implementation , Sys\+Tick timer is the source of time base. It is used to generate interrupts at regular time intervals where uw\+Tick is incremented. 
+
+This function is declared as \+\_\+\+\_\+weak to be overwritten in case of other implementations in user file. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em Delay} & specifies the delay time length, in milliseconds. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga653f1166b0e37afd40372550d806e667}\label{group___h_a_l___group2_ga653f1166b0e37afd40372550d806e667}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_DisableCompensationCell@{HAL\_DisableCompensationCell}}
+\index{HAL\_DisableCompensationCell@{HAL\_DisableCompensationCell}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_DisableCompensationCell()}{HAL\_DisableCompensationCell()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+Disable\+Compensation\+Cell (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Power-\/down the I/O Compensation Cell. 
+
+\begin{DoxyNote}{Note}
+The I/O compensation cell can be used only when the device supply voltage ranges from 1.\+62 to 2.\+0 V and from 2.\+7 to 3.\+6 V. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga20b6ca07582e10aec5e15ad2fda7dfc1}\label{group___h_a_l___group2_ga20b6ca07582e10aec5e15ad2fda7dfc1}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_EnableCompensationCell@{HAL\_EnableCompensationCell}}
+\index{HAL\_EnableCompensationCell@{HAL\_EnableCompensationCell}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_EnableCompensationCell()}{HAL\_EnableCompensationCell()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+Enable\+Compensation\+Cell (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enables the I/O Compensation Cell. 
+
+\begin{DoxyNote}{Note}
+The I/O compensation cell can be used only when the device supply voltage ranges from 1.\+62 to 2.\+0 V and from 2.\+7 to 3.\+6 V. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gaaa883ca7eecba560c8ac92a1b252ae88}\label{group___h_a_l___group2_gaaa883ca7eecba560c8ac92a1b252ae88}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_EXTI\_D1\_ClearFlag@{HAL\_EXTI\_D1\_ClearFlag}}
+\index{HAL\_EXTI\_D1\_ClearFlag@{HAL\_EXTI\_D1\_ClearFlag}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_EXTI\_D1\_ClearFlag()}{HAL\_EXTI\_D1\_ClearFlag()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+EXTI\+\_\+\+D1\+\_\+\+Clear\+Flag (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{EXTI\+\_\+\+Line }\end{DoxyParamCaption})}
+
+
+
+Clears the EXTI\textquotesingle{}s line pending flags for Domain D1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em EXTI\+\_\+\+Line} & Specifies the EXTI LINE, it can be one of the following values, (EXTI\+\_\+\+LINE0....EXTI\+\_\+\+LINE87)excluding \+:line45, line81,line83 which are reserved \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gafc2445849507e5aeb7d48e77c278a604}\label{group___h_a_l___group2_gafc2445849507e5aeb7d48e77c278a604}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_EXTI\_D1\_EventInputConfig@{HAL\_EXTI\_D1\_EventInputConfig}}
+\index{HAL\_EXTI\_D1\_EventInputConfig@{HAL\_EXTI\_D1\_EventInputConfig}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_EXTI\_D1\_EventInputConfig()}{HAL\_EXTI\_D1\_EventInputConfig()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+EXTI\+\_\+\+D1\+\_\+\+Event\+Input\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{EXTI\+\_\+\+Line,  }\item[{uint32\+\_\+t}]{EXTI\+\_\+\+Mode,  }\item[{uint32\+\_\+t}]{EXTI\+\_\+\+Line\+Cmd }\end{DoxyParamCaption})}
+
+
+
+Configure the EXTI input event line for Domain D1. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em EXTI\+\_\+\+Line} & Specifies the EXTI LINE, it can be one of the following values, (EXTI\+\_\+\+LINE0....EXTI\+\_\+\+LINE87)excluding \+:line45, line81,line83 which are reserved \\
+\hline
+{\em EXTI\+\_\+\+Mode} & Specifies which EXTI line is used as interrupt or an event. This parameter can be one or a combination of the following values \+: \begin{DoxyItemize}
+\item EXTI\+\_\+\+MODE\+\_\+\+IT \+: Interrupt Mode selected \item EXTI\+\_\+\+MODE\+\_\+\+EVT \+: Event Mode selected \end{DoxyItemize}
+\\
+\hline
+{\em EXTI\+\_\+\+Line\+Cmd} & controls (Enable/\+Disable) the EXTI line.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga16c56027a8671ff62a26204152aa8f95}\label{group___h_a_l___group2_ga16c56027a8671ff62a26204152aa8f95}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_EXTI\_D3\_EventInputConfig@{HAL\_EXTI\_D3\_EventInputConfig}}
+\index{HAL\_EXTI\_D3\_EventInputConfig@{HAL\_EXTI\_D3\_EventInputConfig}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_EXTI\_D3\_EventInputConfig()}{HAL\_EXTI\_D3\_EventInputConfig()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+EXTI\+\_\+\+D3\+\_\+\+Event\+Input\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{EXTI\+\_\+\+Line,  }\item[{uint32\+\_\+t}]{EXTI\+\_\+\+Line\+Cmd,  }\item[{uint32\+\_\+t}]{EXTI\+\_\+\+Clear\+Src }\end{DoxyParamCaption})}
+
+
+
+Configure the EXTI input event line for Domain D3. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em EXTI\+\_\+\+Line} & Specifies the EXTI LINE, it can be one of the following values, (EXTI\+\_\+\+LINE0...EXTI\+\_\+\+LINE15),(EXTI\+\_\+\+LINE19...EXTI\+\_\+\+LINE21),EXTI\+\_\+\+LINE25, EXTI\+\_\+\+LINE34, EXTI\+\_\+\+LINE35,EXTI\+\_\+\+LINE41,(EXTI\+\_\+\+LINE48...EXTI\+\_\+\+LINE53) \\
+\hline
+{\em EXTI\+\_\+\+Line\+Cmd} & controls (Enable/\+Disable) the EXTI line. \\
+\hline
+{\em EXTI\+\_\+\+Clear\+Src} & Specifies the clear source of D3 pending event. This parameter can be one of the following values \+: \begin{DoxyItemize}
+\item BDMA\+\_\+\+CH6\+\_\+\+CLEAR \+: BDMA ch6 event selected as D3 domain pendclear source \item BDMA\+\_\+\+CH7\+\_\+\+CLEAR \+: BDMA ch7 event selected as D3 domain pendclear source \item LPTIM4\+\_\+\+OUT\+\_\+\+CLEAR \+: LPTIM4 out selected as D3 domain pendclear source \item LPTIM5\+\_\+\+OUT\+\_\+\+CLEAR \+: LPTIM5 out selected as D3 domain pendclear source \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gac248995c863da942024d6fb556732027}\label{group___h_a_l___group2_gac248995c863da942024d6fb556732027}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_EXTI\_EdgeConfig@{HAL\_EXTI\_EdgeConfig}}
+\index{HAL\_EXTI\_EdgeConfig@{HAL\_EXTI\_EdgeConfig}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_EXTI\_EdgeConfig()}{HAL\_EXTI\_EdgeConfig()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+EXTI\+\_\+\+Edge\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{EXTI\+\_\+\+Line,  }\item[{uint32\+\_\+t}]{EXTI\+\_\+\+Edge }\end{DoxyParamCaption})}
+
+
+
+Configure the EXTI input event line edge. 
+
+\begin{DoxyNote}{Note}
+No edge configuration for direct lines but for configurable lines\+:(EXTI\+\_\+\+LINE0..EXTI\+\_\+\+LINE21), EXTI\+\_\+\+LINE49,EXTI\+\_\+\+LINE51,EXTI\+\_\+\+LINE82,EXTI\+\_\+\+LINE84,EXTI\+\_\+\+LINE85 and EXTI\+\_\+\+LINE86. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em EXTI\+\_\+\+Line} & Specifies the EXTI LINE, it can be one of the following values, (EXTI\+\_\+\+LINE0....EXTI\+\_\+\+LINE87)excluding \+:line45, line81,line83 which are reserved \\
+\hline
+{\em EXTI\+\_\+\+Edge} & Specifies EXTI line Edge used. This parameter can be one of the following values \+: \begin{DoxyItemize}
+\item EXTI\+\_\+\+RISING\+\_\+\+EDGE \+: Configurable line, with Rising edge trigger detection \item EXTI\+\_\+\+FALLING\+\_\+\+EDGE\+: Configurable line, with Falling edge trigger detection \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gaafbf043f6ed81243cf73194e394b104c}\label{group___h_a_l___group2_gaafbf043f6ed81243cf73194e394b104c}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_EXTI\_GenerateSWInterrupt@{HAL\_EXTI\_GenerateSWInterrupt}}
+\index{HAL\_EXTI\_GenerateSWInterrupt@{HAL\_EXTI\_GenerateSWInterrupt}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_EXTI\_GenerateSWInterrupt()}{HAL\_EXTI\_GenerateSWInterrupt()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+EXTI\+\_\+\+Generate\+SWInterrupt (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{EXTI\+\_\+\+Line }\end{DoxyParamCaption})}
+
+
+
+Generates a Software interrupt on selected EXTI line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em EXTI\+\_\+\+Line} & Specifies the EXTI LINE, it can be one of the following values, (EXTI\+\_\+\+LINE0..EXTI\+\_\+\+LINE21),EXTI\+\_\+\+LINE49,EXTI\+\_\+\+LINE51,EXTI\+\_\+\+LINE82,EXTI\+\_\+\+LINE84,EXTI\+\_\+\+LINE85 and EXTI\+\_\+\+LINE86. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gaff785f069ed650de77ff82ac407f7c84}\label{group___h_a_l___group2_gaff785f069ed650de77ff82ac407f7c84}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_GetDEVID@{HAL\_GetDEVID}}
+\index{HAL\_GetDEVID@{HAL\_GetDEVID}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_GetDEVID()}{HAL\_GetDEVID()}}
+{\footnotesize\ttfamily uint32\+\_\+t HAL\+\_\+\+Get\+DEVID (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the device identifier. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Device} & identifier \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gac3bf32c8fd5ae5ec50f5585190f39274}\label{group___h_a_l___group2_gac3bf32c8fd5ae5ec50f5585190f39274}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_GetFMCMemorySwappingConfig@{HAL\_GetFMCMemorySwappingConfig}}
+\index{HAL\_GetFMCMemorySwappingConfig@{HAL\_GetFMCMemorySwappingConfig}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_GetFMCMemorySwappingConfig()}{HAL\_GetFMCMemorySwappingConfig()}}
+{\footnotesize\ttfamily uint32\+\_\+t HAL\+\_\+\+Get\+FMCMemory\+Swapping\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get FMC Bank mapping mode. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & FMC Bank mapping mode. This parameter can be FMC\+\_\+\+SWAPBMAP\+\_\+\+DISABLE, FMC\+\_\+\+SWAPBMAP\+\_\+\+SDRAM\+\_\+\+SRAM, FMC\+\_\+\+SWAPBMAP\+\_\+\+SDRAMB2 \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gafb139b375512ad2a234e4619b129b966}\label{group___h_a_l___group2_gafb139b375512ad2a234e4619b129b966}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_GetHalVersion@{HAL\_GetHalVersion}}
+\index{HAL\_GetHalVersion@{HAL\_GetHalVersion}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_GetHalVersion()}{HAL\_GetHalVersion()}}
+{\footnotesize\ttfamily uint32\+\_\+t HAL\+\_\+\+Get\+Hal\+Version (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the HAL revision. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em version} & \+: 0x\+XYZR (8bits for each decimal, R for RC) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gae051ef9e932404b21f5877c7186406b8}\label{group___h_a_l___group2_gae051ef9e932404b21f5877c7186406b8}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_GetREVID@{HAL\_GetREVID}}
+\index{HAL\_GetREVID@{HAL\_GetREVID}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_GetREVID()}{HAL\_GetREVID()}}
+{\footnotesize\ttfamily uint32\+\_\+t HAL\+\_\+\+Get\+REVID (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the device revision identifier. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Device} & revision identifier \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gac9b3a85a73735ac840d0dcb59bc0fdd6}\label{group___h_a_l___group2_gac9b3a85a73735ac840d0dcb59bc0fdd6}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_GetTick@{HAL\_GetTick}}
+\index{HAL\_GetTick@{HAL\_GetTick}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_GetTick()}{HAL\_GetTick()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak uint32\+\_\+t HAL\+\_\+\+Get\+Tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Provides a tick value in millisecond. 
+
+\begin{DoxyNote}{Note}
+This function is declared as \+\_\+\+\_\+weak to be overwritten in case of other implementations in user file. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em tick} & value \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga803cdbcc0883bcf5f5c98c50024c97e6}\label{group___h_a_l___group2_ga803cdbcc0883bcf5f5c98c50024c97e6}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_GetTickFreq@{HAL\_GetTickFreq}}
+\index{HAL\_GetTickFreq@{HAL\_GetTickFreq}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_GetTickFreq()}{HAL\_GetTickFreq()}}
+{\footnotesize\ttfamily HAL\+\_\+\+Tick\+Freq\+Type\+Def HAL\+\_\+\+Get\+Tick\+Freq (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return tick frequency. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em tick} & period in Hz \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gacdcc8b5d33b9f97fe1b0abd6a86a3d4b}\label{group___h_a_l___group2_gacdcc8b5d33b9f97fe1b0abd6a86a3d4b}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_GetTickPrio@{HAL\_GetTickPrio}}
+\index{HAL\_GetTickPrio@{HAL\_GetTickPrio}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_GetTickPrio()}{HAL\_GetTickPrio()}}
+{\footnotesize\ttfamily uint32\+\_\+t HAL\+\_\+\+Get\+Tick\+Prio (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function returns a tick priority. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em tick} & priority \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gaf982aa0a575eef3758c0840a24077506}\label{group___h_a_l___group2_gaf982aa0a575eef3758c0840a24077506}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_GetUIDw0@{HAL\_GetUIDw0}}
+\index{HAL\_GetUIDw0@{HAL\_GetUIDw0}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_GetUIDw0()}{HAL\_GetUIDw0()}}
+{\footnotesize\ttfamily uint32\+\_\+t HAL\+\_\+\+Get\+UIDw0 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return the first word of the unique device identifier (UID based on 96 bits) 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Device} & identifier \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga52720dd92ed2bd4314a2a129855d766c}\label{group___h_a_l___group2_ga52720dd92ed2bd4314a2a129855d766c}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_GetUIDw1@{HAL\_GetUIDw1}}
+\index{HAL\_GetUIDw1@{HAL\_GetUIDw1}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_GetUIDw1()}{HAL\_GetUIDw1()}}
+{\footnotesize\ttfamily uint32\+\_\+t HAL\+\_\+\+Get\+UIDw1 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return the second word of the unique device identifier (UID based on 96 bits) 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Device} & identifier \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga5785ae5ec8d4c5a7dadb1359f0778700}\label{group___h_a_l___group2_ga5785ae5ec8d4c5a7dadb1359f0778700}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_GetUIDw2@{HAL\_GetUIDw2}}
+\index{HAL\_GetUIDw2@{HAL\_GetUIDw2}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_GetUIDw2()}{HAL\_GetUIDw2()}}
+{\footnotesize\ttfamily uint32\+\_\+t HAL\+\_\+\+Get\+UIDw2 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Return the third word of the unique device identifier (UID based on 96 bits) 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Device} & identifier \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gaba5b726bfedd013bf7bb5a51d5c4f188}\label{group___h_a_l___group2_gaba5b726bfedd013bf7bb5a51d5c4f188}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_IncTick@{HAL\_IncTick}}
+\index{HAL\_IncTick@{HAL\_IncTick}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_IncTick()}{HAL\_IncTick()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void HAL\+\_\+\+Inc\+Tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is called to increment a global variable \char`\"{}uw\+Tick\char`\"{} used as application time base. 
+
+\begin{DoxyNote}{Note}
+In the default implementation, this variable is incremented each 1ms in Systick ISR. 
+
+This function is declared as \+\_\+\+\_\+weak to be overwritten in case of other implementations in user file. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gac3fa17aa85e357e3f1af56ad110d2e97}\label{group___h_a_l___group2_gac3fa17aa85e357e3f1af56ad110d2e97}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_ResumeTick@{HAL\_ResumeTick}}
+\index{HAL\_ResumeTick@{HAL\_ResumeTick}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_ResumeTick()}{HAL\_ResumeTick()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void HAL\+\_\+\+Resume\+Tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Resume Tick increment. 
+
+\begin{DoxyNote}{Note}
+In the default implementation , Sys\+Tick timer is the source of time base. It is used to generate interrupts at regular time intervals. Once \mbox{\hyperlink{group___h_a_l___group2_gac3fa17aa85e357e3f1af56ad110d2e97}{HAL\+\_\+\+Resume\+Tick()}} is called, the the Sys\+Tick interrupt will be enabled and so Tick increment is resumed. 
+
+This function is declared as \+\_\+\+\_\+weak to be overwritten in case of other implementations in user file. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga2ababe650b4698a325acb86a575e4cf0}\label{group___h_a_l___group2_ga2ababe650b4698a325acb86a575e4cf0}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SetFMCMemorySwappingConfig@{HAL\_SetFMCMemorySwappingConfig}}
+\index{HAL\_SetFMCMemorySwappingConfig@{HAL\_SetFMCMemorySwappingConfig}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SetFMCMemorySwappingConfig()}{HAL\_SetFMCMemorySwappingConfig()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+Set\+FMCMemory\+Swapping\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Bank\+Map\+Config }\end{DoxyParamCaption})}
+
+
+
+Set the FMC Memory Mapping Swapping config. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Bank\+Map\+Config} & Defines the FMC Bank mapping configuration. This parameter can be FMC\+\_\+\+SWAPBMAP\+\_\+\+DISABLE, FMC\+\_\+\+SWAPBMAP\+\_\+\+SDRAM\+\_\+\+SRAM, FMC\+\_\+\+SWAPBMAP\+\_\+\+SDRAMB2 \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em HAL} & state \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga47f2dd240b2aed823a76b11496f37690}\label{group___h_a_l___group2_ga47f2dd240b2aed823a76b11496f37690}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SetTickFreq@{HAL\_SetTickFreq}}
+\index{HAL\_SetTickFreq@{HAL\_SetTickFreq}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SetTickFreq()}{HAL\_SetTickFreq()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} HAL\+\_\+\+Set\+Tick\+Freq (\begin{DoxyParamCaption}\item[{HAL\+\_\+\+Tick\+Freq\+Type\+Def}]{Freq }\end{DoxyParamCaption})}
+
+
+
+Set new tick Freq. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Status} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga84ae4b045c45d49d96b2b02e2dc516b6}\label{group___h_a_l___group2_ga84ae4b045c45d49d96b2b02e2dc516b6}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SuspendTick@{HAL\_SuspendTick}}
+\index{HAL\_SuspendTick@{HAL\_SuspendTick}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SuspendTick()}{HAL\_SuspendTick()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+weak void HAL\+\_\+\+Suspend\+Tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Suspend Tick increment. 
+
+\begin{DoxyNote}{Note}
+In the default implementation , Sys\+Tick timer is the source of time base. It is used to generate interrupts at regular time intervals. Once \mbox{\hyperlink{group___h_a_l___group2_ga84ae4b045c45d49d96b2b02e2dc516b6}{HAL\+\_\+\+Suspend\+Tick()}} is called, the the Sys\+Tick interrupt will be disabled and so Tick increment is suspended. 
+
+This function is declared as \+\_\+\+\_\+weak to be overwritten in case of other implementations in user file. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gaf3cd66016fc04802f795b36f2f9a68d1}\label{group___h_a_l___group2_gaf3cd66016fc04802f795b36f2f9a68d1}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SYSCFG\_AnalogSwitchConfig@{HAL\_SYSCFG\_AnalogSwitchConfig}}
+\index{HAL\_SYSCFG\_AnalogSwitchConfig@{HAL\_SYSCFG\_AnalogSwitchConfig}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SYSCFG\_AnalogSwitchConfig()}{HAL\_SYSCFG\_AnalogSwitchConfig()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+SYSCFG\+\_\+\+Analog\+Switch\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{SYSCFG\+\_\+\+Analog\+Switch,  }\item[{uint32\+\_\+t}]{SYSCFG\+\_\+\+Switch\+State }\end{DoxyParamCaption})}
+
+
+
+Analog Switch control for dual analog pads. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em SYSCFG\+\_\+\+Analog\+Switch} & Selects the analog pad This parameter can be one or a combination of the following values\+: \begin{DoxyItemize}
+\item SYSCFG\+\_\+\+SWITCH\+\_\+\+PA0 \+: Select PA0 analog switch \item SYSCFG\+\_\+\+SWITCH\+\_\+\+PA1\+: Select PA1 analog switch \item SYSCFG\+\_\+\+SWITCH\+\_\+\+PC2 \+: Select PC2 analog switch \item SYSCFG\+\_\+\+SWITCH\+\_\+\+PC3\+: Select PC3 analog switch \end{DoxyItemize}
+\\
+\hline
+{\em SYSCFG\+\_\+\+Switch\+State} & Open or Close the analog switch between dual pads (PXn and PXn\+\_\+C) This parameter can be one or a combination of the following values\+: \begin{DoxyItemize}
+\item SYSCFG\+\_\+\+SWITCH\+\_\+\+PA0\+\_\+\+OPEN \item SYSCFG\+\_\+\+SWITCH\+\_\+\+PA0\+\_\+\+CLOSE \item SYSCFG\+\_\+\+SWITCH\+\_\+\+PA1\+\_\+\+OPEN \item SYSCFG\+\_\+\+SWITCH\+\_\+\+PA1\+\_\+\+CLOSE \item SYSCFG\+\_\+\+SWITCH\+\_\+\+PC2\+\_\+\+OPEN \item SYSCFG\+\_\+\+SWITCH\+\_\+\+PC2\+\_\+\+CLOSE \item SYSCFG\+\_\+\+SWITCH\+\_\+\+PC3\+\_\+\+OPEN \item SYSCFG\+\_\+\+SWITCH\+\_\+\+PC3\+\_\+\+CLOSE \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gad7601fc9520bc414a90ab50ff15aa0d5}\label{group___h_a_l___group2_gad7601fc9520bc414a90ab50ff15aa0d5}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SYSCFG\_CompensationCodeConfig@{HAL\_SYSCFG\_CompensationCodeConfig}}
+\index{HAL\_SYSCFG\_CompensationCodeConfig@{HAL\_SYSCFG\_CompensationCodeConfig}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SYSCFG\_CompensationCodeConfig()}{HAL\_SYSCFG\_CompensationCodeConfig()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+SYSCFG\+\_\+\+Compensation\+Code\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{SYSCFG\+\_\+\+PMOSCode,  }\item[{uint32\+\_\+t}]{SYSCFG\+\_\+\+NMOSCode }\end{DoxyParamCaption})}
+
+
+
+Code selection for the I/O Compensation cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em SYSCFG\+\_\+\+PMOSCode} & PMOS compensation code This code is applied to the I/O compensation cell when the CS bit of the SYSCFG\+\_\+\+CMPCR is set \\
+\hline
+{\em SYSCFG\+\_\+\+NMOSCode} & NMOS compensation code This code is applied to the I/O compensation cell when the CS bit of the SYSCFG\+\_\+\+CMPCR is set \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga1d50aaa188c9ac4f4d601f241a8dd0d8}\label{group___h_a_l___group2_ga1d50aaa188c9ac4f4d601f241a8dd0d8}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SYSCFG\_CompensationCodeSelect@{HAL\_SYSCFG\_CompensationCodeSelect}}
+\index{HAL\_SYSCFG\_CompensationCodeSelect@{HAL\_SYSCFG\_CompensationCodeSelect}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SYSCFG\_CompensationCodeSelect()}{HAL\_SYSCFG\_CompensationCodeSelect()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+SYSCFG\+\_\+\+Compensation\+Code\+Select (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{SYSCFG\+\_\+\+Comp\+Code }\end{DoxyParamCaption})}
+
+
+
+Code selection for the I/O Compensation cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em SYSCFG\+\_\+\+Comp\+Code} & Selects the code to be applied for the I/O compensation cell This parameter can be one of the following values\+: \begin{DoxyItemize}
+\item SYSCFG\+\_\+\+CELL\+\_\+\+CODE \+: Select Code from the cell (available in the SYSCFG\+\_\+\+CCVR) \item SYSCFG\+\_\+\+REGISTER\+\_\+\+CODE\+: Select Code from the SYSCFG compensation cell code register (SYSCFG\+\_\+\+CCCR) \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga7e66c046aca125b43632bd48062aa7e2}\label{group___h_a_l___group2_ga7e66c046aca125b43632bd48062aa7e2}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SYSCFG\_DisableIOSpeedOptimize@{HAL\_SYSCFG\_DisableIOSpeedOptimize}}
+\index{HAL\_SYSCFG\_DisableIOSpeedOptimize@{HAL\_SYSCFG\_DisableIOSpeedOptimize}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SYSCFG\_DisableIOSpeedOptimize()}{HAL\_SYSCFG\_DisableIOSpeedOptimize()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+SYSCFG\+\_\+\+Disable\+IOSpeed\+Optimize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+To Disable optimize the I/O speed when the product voltage is low. 
+
+\begin{DoxyNote}{Note}
+This bit is active only if PRODUCT\+\_\+\+BELOW\+\_\+25V user option bit is set. It must be used only if the product supply voltage is below 2.\+5 V. Setting this bit when VDD is higher than 2.\+5 V might be destructive. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga26991b4078e8f985b1caced43b6cfb9c}\label{group___h_a_l___group2_ga26991b4078e8f985b1caced43b6cfb9c}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SYSCFG\_DisableVREFBUF@{HAL\_SYSCFG\_DisableVREFBUF}}
+\index{HAL\_SYSCFG\_DisableVREFBUF@{HAL\_SYSCFG\_DisableVREFBUF}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SYSCFG\_DisableVREFBUF()}{HAL\_SYSCFG\_DisableVREFBUF()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+SYSCFG\+\_\+\+Disable\+VREFBUF (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Disable the Internal Voltage Reference buffer (VREFBUF). 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gaf917b7597a248de90f56f726d1a9d7fc}\label{group___h_a_l___group2_gaf917b7597a248de90f56f726d1a9d7fc}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SYSCFG\_EnableIOSpeedOptimize@{HAL\_SYSCFG\_EnableIOSpeedOptimize}}
+\index{HAL\_SYSCFG\_EnableIOSpeedOptimize@{HAL\_SYSCFG\_EnableIOSpeedOptimize}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SYSCFG\_EnableIOSpeedOptimize()}{HAL\_SYSCFG\_EnableIOSpeedOptimize()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+SYSCFG\+\_\+\+Enable\+IOSpeed\+Optimize (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+To Enable optimize the I/O speed when the product voltage is low. 
+
+\begin{DoxyNote}{Note}
+This bit is active only if PRODUCT\+\_\+\+BELOW\+\_\+25V user option bit is set. It must be used only if the product supply voltage is below 2.\+5 V. Setting this bit when VDD is higher than 2.\+5 V might be destructive. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga3a184f1a037585ba7a1d931abff30275}\label{group___h_a_l___group2_ga3a184f1a037585ba7a1d931abff30275}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SYSCFG\_EnableVREFBUF@{HAL\_SYSCFG\_EnableVREFBUF}}
+\index{HAL\_SYSCFG\_EnableVREFBUF@{HAL\_SYSCFG\_EnableVREFBUF}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SYSCFG\_EnableVREFBUF()}{HAL\_SYSCFG\_EnableVREFBUF()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} HAL\+\_\+\+SYSCFG\+\_\+\+Enable\+VREFBUF (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enable the Internal Voltage Reference buffer (VREFBUF). 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em HAL\+\_\+\+OK/\+HAL\+\_\+\+TIMEOUT} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga7de0a1fcafa18030af600b0ed908b805}\label{group___h_a_l___group2_ga7de0a1fcafa18030af600b0ed908b805}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SYSCFG\_VREFBUF\_HighImpedanceConfig@{HAL\_SYSCFG\_VREFBUF\_HighImpedanceConfig}}
+\index{HAL\_SYSCFG\_VREFBUF\_HighImpedanceConfig@{HAL\_SYSCFG\_VREFBUF\_HighImpedanceConfig}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SYSCFG\_VREFBUF\_HighImpedanceConfig()}{HAL\_SYSCFG\_VREFBUF\_HighImpedanceConfig()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+High\+Impedance\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Mode }\end{DoxyParamCaption})}
+
+
+
+Configure the internal voltage reference buffer high impedance mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Mode} & specifies the high impedance mode This parameter can be one of the following values\+: \begin{DoxyItemize}
+\item SYSCFG\+\_\+\+VREFBUF\+\_\+\+HIGH\+\_\+\+IMPEDANCE\+\_\+\+DISABLE\+: VREF+ pin is internally connect to VREFINT output. \item SYSCFG\+\_\+\+VREFBUF\+\_\+\+HIGH\+\_\+\+IMPEDANCE\+\_\+\+ENABLE\+: VREF+ pin is high impedance. \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_gae0317419d084f9d40b32c1dd6037925f}\label{group___h_a_l___group2_gae0317419d084f9d40b32c1dd6037925f}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SYSCFG\_VREFBUF\_TrimmingConfig@{HAL\_SYSCFG\_VREFBUF\_TrimmingConfig}}
+\index{HAL\_SYSCFG\_VREFBUF\_TrimmingConfig@{HAL\_SYSCFG\_VREFBUF\_TrimmingConfig}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SYSCFG\_VREFBUF\_TrimmingConfig()}{HAL\_SYSCFG\_VREFBUF\_TrimmingConfig()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+Trimming\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Trimming\+Value }\end{DoxyParamCaption})}
+
+
+
+Tune the Internal Voltage Reference buffer (VREFBUF). 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___h_a_l___group2_ga79b8e839deeb200f22ab3f6d21359338}\label{group___h_a_l___group2_ga79b8e839deeb200f22ab3f6d21359338}} 
+\index{HAL Control functions@{HAL Control functions}!HAL\_SYSCFG\_VREFBUF\_VoltageScalingConfig@{HAL\_SYSCFG\_VREFBUF\_VoltageScalingConfig}}
+\index{HAL\_SYSCFG\_VREFBUF\_VoltageScalingConfig@{HAL\_SYSCFG\_VREFBUF\_VoltageScalingConfig}!HAL Control functions@{HAL Control functions}}
+\doxysubsubsection{\texorpdfstring{HAL\_SYSCFG\_VREFBUF\_VoltageScalingConfig()}{HAL\_SYSCFG\_VREFBUF\_VoltageScalingConfig()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+SYSCFG\+\_\+\+VREFBUF\+\_\+\+Voltage\+Scaling\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{Voltage\+Scaling }\end{DoxyParamCaption})}
+
+
+
+Configure the internal voltage reference buffer voltage scale. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Voltage\+Scaling} & specifies the output voltage to achieve This parameter can be one of the following values\+: \begin{DoxyItemize}
+\item SYSCFG\+\_\+\+VREFBUF\+\_\+\+VOLTAGE\+\_\+\+SCALE0\+: VREF\+\_\+\+OUT1 around 2.\+5 V. This requires VDDA equal to or higher than 2.\+8 V. \item SYSCFG\+\_\+\+VREFBUF\+\_\+\+VOLTAGE\+\_\+\+SCALE1\+: VREF\+\_\+\+OUT2 around 2.\+048 V. This requires VDDA equal to or higher than 2.\+4 V. \item SYSCFG\+\_\+\+VREFBUF\+\_\+\+VOLTAGE\+\_\+\+SCALE2\+: VREF\+\_\+\+OUT3 around 1.\+8 V. This requires VDDA equal to or higher than 2.\+1 V. \item SYSCFG\+\_\+\+VREFBUF\+\_\+\+VOLTAGE\+\_\+\+SCALE3\+: VREF\+\_\+\+OUT4 around 1.\+5 V. This requires VDDA equal to or higher than 1.\+8 V. \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

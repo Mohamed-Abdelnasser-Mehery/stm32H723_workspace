@@ -1,0 +1,24 @@
+\hypertarget{group__rfc7668if}{}\doxysection{6Lo\+WPAN over BLE (RFC7668)}
+\label{group__rfc7668if}\index{6LoWPAN over BLE (RFC7668)@{6LoWPAN over BLE (RFC7668)}}
+This file implements a RFC7668 implementation for 6Lo\+WPAN over Bluetooth Low Energy. The specification is very similar to 6Lo\+WPAN, so most of the code is re-\/used. Compared to 6Lo\+WPAN, much functionality is already implemented in lower BLE layers (fragmenting, session management,...).
+
+Usage\+:
+\begin{DoxyItemize}
+\item add this netif
+\begin{DoxyItemize}
+\item don\textquotesingle{}t add IPv4 addresses (no IPv4 support in RFC7668), pass \textquotesingle{}NULL\textquotesingle{},\textquotesingle{}NULL\textquotesingle{},\textquotesingle{}NULL\textquotesingle{}
+\item use the BLE to EUI64 conversation util to create an IPv6 link-\/local address from the BLE MAC (ble\+\_\+addr\+\_\+to\+\_\+eui64)
+\item input function\+: rfc7668\+\_\+input
+\end{DoxyItemize}
+\item set the link output function, which transmits output data to an established L2\+CAP channel
+\item If data arrives (HCI event \char`\"{}\+L2\+CAP\+\_\+\+DATA\+\_\+\+PACKET\char`\"{})\+:
+\begin{DoxyItemize}
+\item allocate a \mbox{\hyperlink{group__pbuf_ggaee1baa59bb2f85ba575b5a8619ac1ebfa21116654fbab6d5a4dfeb87a1bb8f0ba}{PBUF\+\_\+\+RAW}} buffer
+\item let the pbuf struct point to the incoming data or copy it to the buffer
+\item call netif-\/\texorpdfstring{$>$}{>}input
+\end{DoxyItemize}
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000009}{Todo}}]\+:\end{DoxyRefDesc}
+
+\end{DoxyItemize}
