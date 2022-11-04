@@ -1,0 +1,659 @@
+\hypertarget{sockets_8h_source}{}\doxysection{sockets.\+h}
+\label{sockets_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/sockets.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/sockets.h}}
+\mbox{\hyperlink{sockets_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_SOCKETS\_H}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define LWIP\_HDR\_SOCKETS\_H}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#if LWIP\_SOCKET }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lwip_2inet_8h}{lwip/inet.h}}"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lwip_2errno_8h}{lwip/errno.h}}"{}}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#include <string.h>}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{55 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{comment}{/* If your port already typedef's sa\_family\_t, define SA\_FAMILY\_T\_DEFINED}}
+\DoxyCodeLine{59 \textcolor{comment}{   to prevent this code from redefining it. */}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#if !defined(sa\_family\_t) \&\& !defined(SA\_FAMILY\_T\_DEFINED)}}
+\DoxyCodeLine{61 \textcolor{keyword}{typedef} u8\_t sa\_family\_t;}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{63 \textcolor{comment}{/* If your port already typedef's in\_port\_t, define IN\_PORT\_T\_DEFINED}}
+\DoxyCodeLine{64 \textcolor{comment}{   to prevent this code from redefining it. */}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#if !defined(in\_port\_t) \&\& !defined(IN\_PORT\_T\_DEFINED)}}
+\DoxyCodeLine{66 \textcolor{keyword}{typedef} u16\_t in\_port\_t;}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{70 \textcolor{comment}{/* members are in network byte order */}}
+\DoxyCodeLine{71 \textcolor{keyword}{struct }sockaddr\_in \{}
+\DoxyCodeLine{72   u8\_t            sin\_len;}
+\DoxyCodeLine{73   sa\_family\_t     sin\_family;}
+\DoxyCodeLine{74   in\_port\_t       sin\_port;}
+\DoxyCodeLine{75   \textcolor{keyword}{struct }\mbox{\hyperlink{structin__addr}{in\_addr}}  sin\_addr;}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define SIN\_ZERO\_LEN 8}}
+\DoxyCodeLine{77   \textcolor{keywordtype}{char}            sin\_zero[SIN\_ZERO\_LEN];}
+\DoxyCodeLine{78 \};}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{82 \textcolor{keyword}{struct }sockaddr\_in6 \{}
+\DoxyCodeLine{83   u8\_t            sin6\_len;      \textcolor{comment}{/* length of this structure    */}}
+\DoxyCodeLine{84   sa\_family\_t     sin6\_family;   \textcolor{comment}{/* AF\_INET6                    */}}
+\DoxyCodeLine{85   in\_port\_t       sin6\_port;     \textcolor{comment}{/* Transport layer port \#      */}}
+\DoxyCodeLine{86   u32\_t           sin6\_flowinfo; \textcolor{comment}{/* IPv6 flow information       */}}
+\DoxyCodeLine{87   \textcolor{keyword}{struct }\mbox{\hyperlink{structin6__addr}{in6\_addr}} sin6\_addr;     \textcolor{comment}{/* IPv6 address                */}}
+\DoxyCodeLine{88   u32\_t           sin6\_scope\_id; \textcolor{comment}{/* Set of interfaces for scope */}}
+\DoxyCodeLine{89 \};}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{keyword}{struct }sockaddr \{}
+\DoxyCodeLine{93   u8\_t        sa\_len;}
+\DoxyCodeLine{94   sa\_family\_t sa\_family;}
+\DoxyCodeLine{95   \textcolor{keywordtype}{char}        sa\_data[14];}
+\DoxyCodeLine{96 \};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{struct }sockaddr\_storage \{}
+\DoxyCodeLine{99   u8\_t        s2\_len;}
+\DoxyCodeLine{100   sa\_family\_t ss\_family;}
+\DoxyCodeLine{101   \textcolor{keywordtype}{char}        s2\_data1[2];}
+\DoxyCodeLine{102   u32\_t       s2\_data2[3];}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{104   u32\_t       s2\_data3[3];}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{106 \};}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{comment}{/* If your port already typedef's socklen\_t, define SOCKLEN\_T\_DEFINED}}
+\DoxyCodeLine{109 \textcolor{comment}{   to prevent this code from redefining it. */}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#if !defined(socklen\_t) \&\& !defined(SOCKLEN\_T\_DEFINED)}}
+\DoxyCodeLine{111 \textcolor{keyword}{typedef} u32\_t socklen\_t;}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#if !defined IOV\_MAX}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define IOV\_MAX 0xFFFF}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#elif IOV\_MAX > 0xFFFF}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#error "{}IOV\_MAX larger than supported by LwIP"{}}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* IOV\_MAX */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#if !defined(iovec)}}
+\DoxyCodeLine{121 \textcolor{keyword}{struct }iovec \{}
+\DoxyCodeLine{122   \textcolor{keywordtype}{void}  *iov\_base;}
+\DoxyCodeLine{123   \textcolor{keywordtype}{size\_t} iov\_len;}
+\DoxyCodeLine{124 \};}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{keyword}{struct }msghdr \{}
+\DoxyCodeLine{128   \textcolor{keywordtype}{void}         *msg\_name;}
+\DoxyCodeLine{129   socklen\_t     msg\_namelen;}
+\DoxyCodeLine{130   \textcolor{keyword}{struct }iovec *msg\_iov;}
+\DoxyCodeLine{131   \textcolor{keywordtype}{int}           msg\_iovlen;}
+\DoxyCodeLine{132   \textcolor{keywordtype}{void}         *msg\_control;}
+\DoxyCodeLine{133   socklen\_t     msg\_controllen;}
+\DoxyCodeLine{134   \textcolor{keywordtype}{int}           msg\_flags;}
+\DoxyCodeLine{135 \};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{comment}{/* struct msghdr-\/>msg\_flags bit field values */}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#define MSG\_TRUNC   0x04}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define MSG\_CTRUNC  0x08}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{comment}{/* RFC 3542, Section 20: Ancillary Data */}}
+\DoxyCodeLine{142 \textcolor{keyword}{struct }cmsghdr \{}
+\DoxyCodeLine{143   socklen\_t  cmsg\_len;   \textcolor{comment}{/* number of bytes, including header */}}
+\DoxyCodeLine{144   \textcolor{keywordtype}{int}        cmsg\_level; \textcolor{comment}{/* originating protocol */}}
+\DoxyCodeLine{145   \textcolor{keywordtype}{int}        cmsg\_type;  \textcolor{comment}{/* protocol-\/specific type */}}
+\DoxyCodeLine{146 \};}
+\DoxyCodeLine{147 \textcolor{comment}{/* Data section follows header and possible padding, typically referred to as}}
+\DoxyCodeLine{148 \textcolor{comment}{      unsigned char cmsg\_data[]; */}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{comment}{/* cmsg header/data alignment. NOTE: we align to native word size (double word}}
+\DoxyCodeLine{151 \textcolor{comment}{size on 16-\/bit arch) so structures are not placed at an unaligned address.}}
+\DoxyCodeLine{152 \textcolor{comment}{16-\/bit arch needs double word to ensure 32-\/bit alignment because socklen\_t}}
+\DoxyCodeLine{153 \textcolor{comment}{could be 32 bits. If we ever have cmsg data with a 64-\/bit variable, alignment}}
+\DoxyCodeLine{154 \textcolor{comment}{will need to increase long long */}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define ALIGN\_H(size) (((size) + sizeof(long) -\/ 1U) \& \string~(sizeof(long)-\/1U))}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define ALIGN\_D(size) ALIGN\_H(size)}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define CMSG\_FIRSTHDR(mhdr) \(\backslash\)}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{          ((mhdr)-\/>msg\_controllen >= sizeof(struct cmsghdr) ? \(\backslash\)}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{           (struct cmsghdr *)(mhdr)-\/>msg\_control : \(\backslash\)}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{           (struct cmsghdr *)NULL)}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define CMSG\_NXTHDR(mhdr, cmsg) \(\backslash\)}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{        (((cmsg) == NULL) ? CMSG\_FIRSTHDR(mhdr) : \(\backslash\)}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{         (((u8\_t *)(cmsg) + ALIGN\_H((cmsg)-\/>cmsg\_len) \(\backslash\)}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{                            + ALIGN\_D(sizeof(struct cmsghdr)) > \(\backslash\)}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{           (u8\_t *)((mhdr)-\/>msg\_control) + (mhdr)-\/>msg\_controllen) ? \(\backslash\)}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{          (struct cmsghdr *)NULL : \(\backslash\)}}
+\DoxyCodeLine{169 \textcolor{preprocessor}{          (struct cmsghdr *)((void*)((u8\_t *)(cmsg) + \(\backslash\)}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{                                      ALIGN\_H((cmsg)-\/>cmsg\_len)))))}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#define CMSG\_DATA(cmsg) ((void*)((u8\_t *)(cmsg) + \(\backslash\)}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{                         ALIGN\_D(sizeof(struct cmsghdr))))}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#define CMSG\_SPACE(length) (ALIGN\_D(sizeof(struct cmsghdr)) + \(\backslash\)}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{                            ALIGN\_H(length))}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define CMSG\_LEN(length) (ALIGN\_D(sizeof(struct cmsghdr)) + \(\backslash\)}}
+\DoxyCodeLine{179 \textcolor{preprocessor}{                           length)}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{comment}{/* Set socket options argument */}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#define IFNAMSIZ NETIF\_NAMESIZE}}
+\DoxyCodeLine{183 \textcolor{keyword}{struct }ifreq \{}
+\DoxyCodeLine{184   \textcolor{keywordtype}{char} ifr\_name[IFNAMSIZ]; \textcolor{comment}{/* Interface name */}}
+\DoxyCodeLine{185 \};}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{comment}{/* Socket protocol types (TCP/UDP/RAW) */}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#define SOCK\_STREAM     1}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#define SOCK\_DGRAM      2}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define SOCK\_RAW        3}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{comment}{/*}}
+\DoxyCodeLine{193 \textcolor{comment}{ * Option flags per-\/socket. These must match the SOF\_ flags in ip.h (checked in init.c)}}
+\DoxyCodeLine{194 \textcolor{comment}{ */}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#define SO\_REUSEADDR   0x0004 }\textcolor{comment}{/* Allow local address reuse */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#define SO\_KEEPALIVE   0x0008 }\textcolor{comment}{/* keep connections alive */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#define SO\_BROADCAST   0x0020 }\textcolor{comment}{/* permit to send and to receive broadcast messages (see IP\_SOF\_BROADCAST option) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200 \textcolor{comment}{/*}}
+\DoxyCodeLine{201 \textcolor{comment}{ * Additional options, not kept in so\_options.}}
+\DoxyCodeLine{202 \textcolor{comment}{ */}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define SO\_DEBUG        0x0001 }\textcolor{comment}{/* Unimplemented: turn on debugging info recording */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#define SO\_ACCEPTCONN   0x0002 }\textcolor{comment}{/* socket has had listen() */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#define SO\_DONTROUTE    0x0010 }\textcolor{comment}{/* Unimplemented: just use interface addresses */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#define SO\_USELOOPBACK  0x0040 }\textcolor{comment}{/* Unimplemented: bypass hardware when possible */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#define SO\_LINGER       0x0080 }\textcolor{comment}{/* linger on close if data present */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#define SO\_DONTLINGER   ((int)(\string~SO\_LINGER))}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#define SO\_OOBINLINE    0x0100 }\textcolor{comment}{/* Unimplemented: leave received OOB data in line */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#define SO\_REUSEPORT    0x0200 }\textcolor{comment}{/* Unimplemented: allow local address \& port reuse */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#define SO\_SNDBUF       0x1001 }\textcolor{comment}{/* Unimplemented: send buffer size */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#define SO\_RCVBUF       0x1002 }\textcolor{comment}{/* receive buffer size */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#define SO\_SNDLOWAT     0x1003 }\textcolor{comment}{/* Unimplemented: send low-\/water mark */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#define SO\_RCVLOWAT     0x1004 }\textcolor{comment}{/* Unimplemented: receive low-\/water mark */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#define SO\_SNDTIMEO     0x1005 }\textcolor{comment}{/* send timeout */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{216 \textcolor{preprocessor}{\#define SO\_RCVTIMEO     0x1006 }\textcolor{comment}{/* receive timeout */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{217 \textcolor{preprocessor}{\#define SO\_ERROR        0x1007 }\textcolor{comment}{/* get error status and clear */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{218 \textcolor{preprocessor}{\#define SO\_TYPE         0x1008 }\textcolor{comment}{/* get socket type */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#define SO\_CONTIMEO     0x1009 }\textcolor{comment}{/* Unimplemented: connect timeout */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#define SO\_NO\_CHECK     0x100a }\textcolor{comment}{/* don't create UDP checksum */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#define SO\_BINDTODEVICE 0x100b }\textcolor{comment}{/* bind to device */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 \textcolor{comment}{/*}}
+\DoxyCodeLine{224 \textcolor{comment}{ * Structure used for manipulating linger option.}}
+\DoxyCodeLine{225 \textcolor{comment}{ */}}
+\DoxyCodeLine{226 \textcolor{keyword}{struct }linger \{}
+\DoxyCodeLine{227   \textcolor{keywordtype}{int} l\_onoff;                \textcolor{comment}{/* option on/off */}}
+\DoxyCodeLine{228   \textcolor{keywordtype}{int} l\_linger;               \textcolor{comment}{/* linger time in seconds */}}
+\DoxyCodeLine{229 \};}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231 \textcolor{comment}{/*}}
+\DoxyCodeLine{232 \textcolor{comment}{ * Level number for (get/set)sockopt() to apply to socket itself.}}
+\DoxyCodeLine{233 \textcolor{comment}{ */}}
+\DoxyCodeLine{234 \textcolor{preprocessor}{\#define  SOL\_SOCKET  0xfff    }\textcolor{comment}{/* options for socket level */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#define AF\_UNSPEC       0}}
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#define AF\_INET         2}}
+\DoxyCodeLine{239 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#define AF\_INET6        10}}
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#define AF\_INET6        AF\_UNSPEC}}
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#define PF\_INET         AF\_INET}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#define PF\_INET6        AF\_INET6}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#define PF\_UNSPEC       AF\_UNSPEC}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#define IPPROTO\_IP      0}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#define IPPROTO\_ICMP    1}}
+\DoxyCodeLine{250 \textcolor{preprocessor}{\#define IPPROTO\_TCP     6}}
+\DoxyCodeLine{251 \textcolor{preprocessor}{\#define IPPROTO\_UDP     17}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#define IPPROTO\_IPV6    41}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#define IPPROTO\_ICMPV6  58}}
+\DoxyCodeLine{255 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#define IPPROTO\_UDPLITE 136}}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#define IPPROTO\_RAW     255}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{comment}{/* Flags we can use with send and recv. */}}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#define MSG\_PEEK       0x01    }\textcolor{comment}{/* Peeks at an incoming message */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#define MSG\_WAITALL    0x02    }\textcolor{comment}{/* Unimplemented: Requests that the function block until the full amount of data requested can be returned */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#define MSG\_OOB        0x04    }\textcolor{comment}{/* Unimplemented: Requests out-\/of-\/band data. The significance and semantics of out-\/of-\/band data are protocol-\/specific */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#define MSG\_DONTWAIT   0x08    }\textcolor{comment}{/* Nonblocking i/o for this operation only */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#define MSG\_MORE       0x10    }\textcolor{comment}{/* Sender will send more */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#define MSG\_NOSIGNAL   0x20    }\textcolor{comment}{/* Uninmplemented: Requests not to send the SIGPIPE signal if an attempt to send is made on a stream-\/oriented socket that is no longer connected. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268 \textcolor{comment}{/*}}
+\DoxyCodeLine{269 \textcolor{comment}{ * Options for level IPPROTO\_IP}}
+\DoxyCodeLine{270 \textcolor{comment}{ */}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define IP\_TOS             1}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#define IP\_TTL             2}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{\#define IP\_PKTINFO         8}}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#if LWIP\_TCP}}
+\DoxyCodeLine{276 \textcolor{comment}{/*}}
+\DoxyCodeLine{277 \textcolor{comment}{ * Options for level IPPROTO\_TCP}}
+\DoxyCodeLine{278 \textcolor{comment}{ */}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#define TCP\_NODELAY    0x01    }\textcolor{comment}{/* don't delay send to coalesce packets */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#define TCP\_KEEPALIVE  0x02    }\textcolor{comment}{/* send KEEPALIVE probes when idle for pcb-\/>keep\_idle milliseconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#define TCP\_KEEPIDLE   0x03    }\textcolor{comment}{/* set pcb-\/>keep\_idle  -\/ Same as TCP\_KEEPALIVE, but use seconds for get/setsockopt */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{\#define TCP\_KEEPINTVL  0x04    }\textcolor{comment}{/* set pcb-\/>keep\_intvl -\/ Use seconds for get/setsockopt */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#define TCP\_KEEPCNT    0x05    }\textcolor{comment}{/* set pcb-\/>keep\_cnt   -\/ Use number of probes sent for get/setsockopt */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{287 \textcolor{comment}{/*}}
+\DoxyCodeLine{288 \textcolor{comment}{ * Options for level IPPROTO\_IPV6}}
+\DoxyCodeLine{289 \textcolor{comment}{ */}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#define IPV6\_CHECKSUM       7  }\textcolor{comment}{/* RFC3542: calculate and insert the ICMPv6 checksum for raw sockets. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#define IPV6\_V6ONLY         27 }\textcolor{comment}{/* RFC3493: boolean control to restrict AF\_INET6 sockets to IPv6 communications only. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#if LWIP\_UDP \&\& LWIP\_UDPLITE}}
+\DoxyCodeLine{295 \textcolor{comment}{/*}}
+\DoxyCodeLine{296 \textcolor{comment}{ * Options for level IPPROTO\_UDPLITE}}
+\DoxyCodeLine{297 \textcolor{comment}{ */}}
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#define UDPLITE\_SEND\_CSCOV 0x01 }\textcolor{comment}{/* sender checksum coverage */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{299 \textcolor{preprocessor}{\#define UDPLITE\_RECV\_CSCOV 0x02 }\textcolor{comment}{/* minimal receiver checksum coverage */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_UDP \&\& LWIP\_UDPLITE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303 \textcolor{preprocessor}{\#if LWIP\_MULTICAST\_TX\_OPTIONS}}
+\DoxyCodeLine{304 \textcolor{comment}{/*}}
+\DoxyCodeLine{305 \textcolor{comment}{ * Options and types for UDP multicast traffic handling}}
+\DoxyCodeLine{306 \textcolor{comment}{ */}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#define IP\_MULTICAST\_TTL   5}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{\#define IP\_MULTICAST\_IF    6}}
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#define IP\_MULTICAST\_LOOP  7}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MULTICAST\_TX\_OPTIONS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312 \textcolor{preprocessor}{\#if LWIP\_IGMP}}
+\DoxyCodeLine{313 \textcolor{comment}{/*}}
+\DoxyCodeLine{314 \textcolor{comment}{ * Options and types related to multicast membership}}
+\DoxyCodeLine{315 \textcolor{comment}{ */}}
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#define IP\_ADD\_MEMBERSHIP  3}}
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#define IP\_DROP\_MEMBERSHIP 4}}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ip\_mreq \{}
+\DoxyCodeLine{320     \textcolor{keyword}{struct }\mbox{\hyperlink{structin__addr}{in\_addr}} imr\_multiaddr; \textcolor{comment}{/* IP multicast address of group */}}
+\DoxyCodeLine{321     \textcolor{keyword}{struct }\mbox{\hyperlink{structin__addr}{in\_addr}} imr\_interface; \textcolor{comment}{/* local IP address of interface */}}
+\DoxyCodeLine{322 \} ip\_mreq;}
+\DoxyCodeLine{323 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IGMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{326 \textcolor{keyword}{struct }in\_pktinfo \{}
+\DoxyCodeLine{327   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}   ipi\_ifindex;  \textcolor{comment}{/* Interface index */}}
+\DoxyCodeLine{328   \textcolor{keyword}{struct }\mbox{\hyperlink{structin__addr}{in\_addr}} ipi\_addr;     \textcolor{comment}{/* Destination (from header) address */}}
+\DoxyCodeLine{329 \};}
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#if LWIP\_IPV6\_MLD}}
+\DoxyCodeLine{333 \textcolor{comment}{/*}}
+\DoxyCodeLine{334 \textcolor{comment}{ * Options and types related to IPv6 multicast membership}}
+\DoxyCodeLine{335 \textcolor{comment}{ */}}
+\DoxyCodeLine{336 \textcolor{preprocessor}{\#define IPV6\_JOIN\_GROUP      12}}
+\DoxyCodeLine{337 \textcolor{preprocessor}{\#define IPV6\_ADD\_MEMBERSHIP  IPV6\_JOIN\_GROUP}}
+\DoxyCodeLine{338 \textcolor{preprocessor}{\#define IPV6\_LEAVE\_GROUP     13}}
+\DoxyCodeLine{339 \textcolor{preprocessor}{\#define IPV6\_DROP\_MEMBERSHIP IPV6\_LEAVE\_GROUP}}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ipv6\_mreq \{}
+\DoxyCodeLine{342   \textcolor{keyword}{struct }\mbox{\hyperlink{structin6__addr}{in6\_addr}} ipv6mr\_multiaddr; \textcolor{comment}{/*  IPv6 multicast addr */}}
+\DoxyCodeLine{343   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}    ipv6mr\_interface; \textcolor{comment}{/*  interface index, or 0 */}}
+\DoxyCodeLine{344 \} ipv6\_mreq;}
+\DoxyCodeLine{345 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_MLD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347 \textcolor{comment}{/*}}
+\DoxyCodeLine{348 \textcolor{comment}{ * The Type of Service provides an indication of the abstract}}
+\DoxyCodeLine{349 \textcolor{comment}{ * parameters of the quality of service desired.  These parameters are}}
+\DoxyCodeLine{350 \textcolor{comment}{ * to be used to guide the selection of the actual service parameters}}
+\DoxyCodeLine{351 \textcolor{comment}{ * when transmitting a datagram through a particular network.  Several}}
+\DoxyCodeLine{352 \textcolor{comment}{ * networks offer service precedence, which somehow treats high}}
+\DoxyCodeLine{353 \textcolor{comment}{ * precedence traffic as more important than other traffic (generally}}
+\DoxyCodeLine{354 \textcolor{comment}{ * by accepting only traffic above a certain precedence at time of high}}
+\DoxyCodeLine{355 \textcolor{comment}{ * load).  The major choice is a three way tradeoff between low-\/delay,}}
+\DoxyCodeLine{356 \textcolor{comment}{ * high-\/reliability, and high-\/throughput.}}
+\DoxyCodeLine{357 \textcolor{comment}{ * The use of the Delay, Throughput, and Reliability indications may}}
+\DoxyCodeLine{358 \textcolor{comment}{ * increase the cost (in some sense) of the service.  In many networks}}
+\DoxyCodeLine{359 \textcolor{comment}{ * better performance for one of these parameters is coupled with worse}}
+\DoxyCodeLine{360 \textcolor{comment}{ * performance on another.  Except for very unusual cases at most two}}
+\DoxyCodeLine{361 \textcolor{comment}{ * of these three indications should be set.}}
+\DoxyCodeLine{362 \textcolor{comment}{ */}}
+\DoxyCodeLine{363 \textcolor{preprocessor}{\#define IPTOS\_TOS\_MASK          0x1E}}
+\DoxyCodeLine{364 \textcolor{preprocessor}{\#define IPTOS\_TOS(tos)          ((tos) \& IPTOS\_TOS\_MASK)}}
+\DoxyCodeLine{365 \textcolor{preprocessor}{\#define IPTOS\_LOWDELAY          0x10}}
+\DoxyCodeLine{366 \textcolor{preprocessor}{\#define IPTOS\_THROUGHPUT        0x08}}
+\DoxyCodeLine{367 \textcolor{preprocessor}{\#define IPTOS\_RELIABILITY       0x04}}
+\DoxyCodeLine{368 \textcolor{preprocessor}{\#define IPTOS\_LOWCOST           0x02}}
+\DoxyCodeLine{369 \textcolor{preprocessor}{\#define IPTOS\_MINCOST           IPTOS\_LOWCOST}}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371 \textcolor{comment}{/*}}
+\DoxyCodeLine{372 \textcolor{comment}{ * The Network Control precedence designation is intended to be used}}
+\DoxyCodeLine{373 \textcolor{comment}{ * within a network only.  The actual use and control of that}}
+\DoxyCodeLine{374 \textcolor{comment}{ * designation is up to each network. The Internetwork Control}}
+\DoxyCodeLine{375 \textcolor{comment}{ * designation is intended for use by gateway control originators only.}}
+\DoxyCodeLine{376 \textcolor{comment}{ * If the actual use of these precedence designations is of concern to}}
+\DoxyCodeLine{377 \textcolor{comment}{ * a particular network, it is the responsibility of that network to}}
+\DoxyCodeLine{378 \textcolor{comment}{ * control the access to, and use of, those precedence designations.}}
+\DoxyCodeLine{379 \textcolor{comment}{ */}}
+\DoxyCodeLine{380 \textcolor{preprocessor}{\#define IPTOS\_PREC\_MASK                 0xe0}}
+\DoxyCodeLine{381 \textcolor{preprocessor}{\#define IPTOS\_PREC(tos)                ((tos) \& IPTOS\_PREC\_MASK)}}
+\DoxyCodeLine{382 \textcolor{preprocessor}{\#define IPTOS\_PREC\_NETCONTROL           0xe0}}
+\DoxyCodeLine{383 \textcolor{preprocessor}{\#define IPTOS\_PREC\_INTERNETCONTROL      0xc0}}
+\DoxyCodeLine{384 \textcolor{preprocessor}{\#define IPTOS\_PREC\_CRITIC\_ECP           0xa0}}
+\DoxyCodeLine{385 \textcolor{preprocessor}{\#define IPTOS\_PREC\_FLASHOVERRIDE        0x80}}
+\DoxyCodeLine{386 \textcolor{preprocessor}{\#define IPTOS\_PREC\_FLASH                0x60}}
+\DoxyCodeLine{387 \textcolor{preprocessor}{\#define IPTOS\_PREC\_IMMEDIATE            0x40}}
+\DoxyCodeLine{388 \textcolor{preprocessor}{\#define IPTOS\_PREC\_PRIORITY             0x20}}
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#define IPTOS\_PREC\_ROUTINE              0x00}}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392 \textcolor{comment}{/*}}
+\DoxyCodeLine{393 \textcolor{comment}{ * Commands for ioctlsocket(),  taken from the BSD file fcntl.h.}}
+\DoxyCodeLine{394 \textcolor{comment}{ * lwip\_ioctl only supports FIONREAD and FIONBIO, for now}}
+\DoxyCodeLine{395 \textcolor{comment}{ *}}
+\DoxyCodeLine{396 \textcolor{comment}{ * Ioctl's have the command encoded in the lower word,}}
+\DoxyCodeLine{397 \textcolor{comment}{ * and the size of any in or out parameters in the upper}}
+\DoxyCodeLine{398 \textcolor{comment}{ * word.  The high 2 bits of the upper word are used}}
+\DoxyCodeLine{399 \textcolor{comment}{ * to encode the in/out status of the parameter; for now}}
+\DoxyCodeLine{400 \textcolor{comment}{ * we restrict parameters to at most 128 bytes.}}
+\DoxyCodeLine{401 \textcolor{comment}{ */}}
+\DoxyCodeLine{402 \textcolor{preprocessor}{\#if !defined(FIONREAD) || !defined(FIONBIO)}}
+\DoxyCodeLine{403 \textcolor{preprocessor}{\#define IOCPARM\_MASK    0x7fU           }\textcolor{comment}{/* parameters must be < 128 bytes */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{404 \textcolor{preprocessor}{\#define IOC\_VOID        0x20000000UL    }\textcolor{comment}{/* no parameters */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{405 \textcolor{preprocessor}{\#define IOC\_OUT         0x40000000UL    }\textcolor{comment}{/* copy out parameters */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{406 \textcolor{preprocessor}{\#define IOC\_IN          0x80000000UL    }\textcolor{comment}{/* copy in parameters */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{407 \textcolor{preprocessor}{\#define IOC\_INOUT       (IOC\_IN|IOC\_OUT)}}
+\DoxyCodeLine{408                                         \textcolor{comment}{/* 0x20000000 distinguishes new \&}}
+\DoxyCodeLine{409 \textcolor{comment}{                                           old ioctl's */}}
+\DoxyCodeLine{410 \textcolor{preprocessor}{\#define \_IO(x,y)        ((long)(IOC\_VOID|((x)<<8)|(y)))}}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412 \textcolor{preprocessor}{\#define \_IOR(x,y,t)     ((long)(IOC\_OUT|((sizeof(t)\&IOCPARM\_MASK)<<16)|((x)<<8)|(y)))}}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{414 \textcolor{preprocessor}{\#define \_IOW(x,y,t)     ((long)(IOC\_IN|((sizeof(t)\&IOCPARM\_MASK)<<16)|((x)<<8)|(y)))}}
+\DoxyCodeLine{415 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !defined(FIONREAD) || !defined(FIONBIO) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{416 }
+\DoxyCodeLine{417 \textcolor{preprocessor}{\#ifndef FIONREAD}}
+\DoxyCodeLine{418 \textcolor{preprocessor}{\#define FIONREAD    \_IOR('f', 127, unsigned long) }\textcolor{comment}{/* get \# bytes to read */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{419 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{420 \textcolor{preprocessor}{\#ifndef FIONBIO}}
+\DoxyCodeLine{421 \textcolor{preprocessor}{\#define FIONBIO     \_IOW('f', 126, unsigned long) }\textcolor{comment}{/* set/clear non-\/blocking i/o */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{422 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424 \textcolor{comment}{/* Socket I/O Controls: unimplemented */}}
+\DoxyCodeLine{425 \textcolor{preprocessor}{\#ifndef SIOCSHIWAT}}
+\DoxyCodeLine{426 \textcolor{preprocessor}{\#define SIOCSHIWAT  \_IOW('s',  0, unsigned long)  }\textcolor{comment}{/* set high watermark */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{427 \textcolor{preprocessor}{\#define SIOCGHIWAT  \_IOR('s',  1, unsigned long)  }\textcolor{comment}{/* get high watermark */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{428 \textcolor{preprocessor}{\#define SIOCSLOWAT  \_IOW('s',  2, unsigned long)  }\textcolor{comment}{/* set low watermark */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{429 \textcolor{preprocessor}{\#define SIOCGLOWAT  \_IOR('s',  3, unsigned long)  }\textcolor{comment}{/* get low watermark */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{430 \textcolor{preprocessor}{\#define SIOCATMARK  \_IOR('s',  7, unsigned long)  }\textcolor{comment}{/* at oob mark? */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{431 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{433 \textcolor{comment}{/* commands for fnctl */}}
+\DoxyCodeLine{434 \textcolor{preprocessor}{\#ifndef F\_GETFL}}
+\DoxyCodeLine{435 \textcolor{preprocessor}{\#define F\_GETFL 3}}
+\DoxyCodeLine{436 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{437 \textcolor{preprocessor}{\#ifndef F\_SETFL}}
+\DoxyCodeLine{438 \textcolor{preprocessor}{\#define F\_SETFL 4}}
+\DoxyCodeLine{439 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{440 }
+\DoxyCodeLine{441 \textcolor{comment}{/* File status flags and file access modes for fnctl,}}
+\DoxyCodeLine{442 \textcolor{comment}{   these are bits in an int. */}}
+\DoxyCodeLine{443 \textcolor{preprocessor}{\#ifndef O\_NONBLOCK}}
+\DoxyCodeLine{444 \textcolor{preprocessor}{\#define O\_NONBLOCK  1 }\textcolor{comment}{/* nonblocking I/O */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{445 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{446 \textcolor{preprocessor}{\#ifndef O\_NDELAY}}
+\DoxyCodeLine{447 \textcolor{preprocessor}{\#define O\_NDELAY    O\_NONBLOCK }\textcolor{comment}{/* same as O\_NONBLOCK, for compatibility */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{448 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{449 \textcolor{preprocessor}{\#ifndef O\_RDONLY}}
+\DoxyCodeLine{450 \textcolor{preprocessor}{\#define O\_RDONLY    2}}
+\DoxyCodeLine{451 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{452 \textcolor{preprocessor}{\#ifndef O\_WRONLY}}
+\DoxyCodeLine{453 \textcolor{preprocessor}{\#define O\_WRONLY    4}}
+\DoxyCodeLine{454 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{455 \textcolor{preprocessor}{\#ifndef O\_RDWR}}
+\DoxyCodeLine{456 \textcolor{preprocessor}{\#define O\_RDWR      (O\_RDONLY|O\_WRONLY)}}
+\DoxyCodeLine{457 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{459 \textcolor{preprocessor}{\#ifndef SHUT\_RD}}
+\DoxyCodeLine{460 \textcolor{preprocessor}{  \#define SHUT\_RD   0}}
+\DoxyCodeLine{461 \textcolor{preprocessor}{  \#define SHUT\_WR   1}}
+\DoxyCodeLine{462 \textcolor{preprocessor}{  \#define SHUT\_RDWR 2}}
+\DoxyCodeLine{463 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{465 \textcolor{comment}{/* FD\_SET used for lwip\_select */}}
+\DoxyCodeLine{466 \textcolor{preprocessor}{\#ifndef FD\_SET}}
+\DoxyCodeLine{467 \textcolor{preprocessor}{\#undef  FD\_SETSIZE}}
+\DoxyCodeLine{468 \textcolor{comment}{/* Make FD\_SETSIZE match NUM\_SOCKETS in socket.c */}}
+\DoxyCodeLine{469 \textcolor{preprocessor}{\#define FD\_SETSIZE    MEMP\_NUM\_NETCONN}}
+\DoxyCodeLine{470 \textcolor{preprocessor}{\#define LWIP\_SELECT\_MAXNFDS (FD\_SETSIZE + LWIP\_SOCKET\_OFFSET)}}
+\DoxyCodeLine{471 \textcolor{preprocessor}{\#define FDSETSAFESET(n, code) do \{ \(\backslash\)}}
+\DoxyCodeLine{472 \textcolor{preprocessor}{  if (((n) -\/ LWIP\_SOCKET\_OFFSET < MEMP\_NUM\_NETCONN) \&\& (((int)(n) -\/ LWIP\_SOCKET\_OFFSET) >= 0)) \{ \(\backslash\)}}
+\DoxyCodeLine{473 \textcolor{preprocessor}{  code; \}\} while(0)}}
+\DoxyCodeLine{474 \textcolor{preprocessor}{\#define FDSETSAFEGET(n, code) (((n) -\/ LWIP\_SOCKET\_OFFSET < MEMP\_NUM\_NETCONN) \&\& (((int)(n) -\/ LWIP\_SOCKET\_OFFSET) >= 0) ?\(\backslash\)}}
+\DoxyCodeLine{475 \textcolor{preprocessor}{  (code) : 0)}}
+\DoxyCodeLine{476 \textcolor{preprocessor}{\#define FD\_SET(n, p)  FDSETSAFESET(n, (p)-\/>fd\_bits[((n)-\/LWIP\_SOCKET\_OFFSET)/8] = (u8\_t)((p)-\/>fd\_bits[((n)-\/LWIP\_SOCKET\_OFFSET)/8] |  (1 << (((n)-\/LWIP\_SOCKET\_OFFSET) \& 7))))}}
+\DoxyCodeLine{477 \textcolor{preprocessor}{\#define FD\_CLR(n, p)  FDSETSAFESET(n, (p)-\/>fd\_bits[((n)-\/LWIP\_SOCKET\_OFFSET)/8] = (u8\_t)((p)-\/>fd\_bits[((n)-\/LWIP\_SOCKET\_OFFSET)/8] \& \string~(1 << (((n)-\/LWIP\_SOCKET\_OFFSET) \& 7))))}}
+\DoxyCodeLine{478 \textcolor{preprocessor}{\#define FD\_ISSET(n,p) FDSETSAFEGET(n, (p)-\/>fd\_bits[((n)-\/LWIP\_SOCKET\_OFFSET)/8] \&   (1 << (((n)-\/LWIP\_SOCKET\_OFFSET) \& 7)))}}
+\DoxyCodeLine{479 \textcolor{preprocessor}{\#define FD\_ZERO(p)    memset((void*)(p), 0, sizeof(*(p)))}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{481 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }fd\_set}
+\DoxyCodeLine{482 \{}
+\DoxyCodeLine{483   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} fd\_bits [(FD\_SETSIZE+7)/8];}
+\DoxyCodeLine{484 \} fd\_set;}
+\DoxyCodeLine{485 }
+\DoxyCodeLine{486 \textcolor{preprocessor}{\#elif FD\_SETSIZE < (LWIP\_SOCKET\_OFFSET + MEMP\_NUM\_NETCONN)}}
+\DoxyCodeLine{487 \textcolor{preprocessor}{\#error "{}external FD\_SETSIZE too small for number of sockets"{}}}
+\DoxyCodeLine{488 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{489 \textcolor{preprocessor}{\#define LWIP\_SELECT\_MAXNFDS FD\_SETSIZE}}
+\DoxyCodeLine{490 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* FD\_SET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{491 }
+\DoxyCodeLine{492 \textcolor{comment}{/* poll-\/related defines and types */}}
+\DoxyCodeLine{493 \textcolor{comment}{/* @todo: find a better way to guard the definition of these defines and types if already defined */}}
+\DoxyCodeLine{494 \textcolor{preprocessor}{\#if !defined(POLLIN) \&\& !defined(POLLOUT)}}
+\DoxyCodeLine{495 \textcolor{preprocessor}{\#define POLLIN     0x1}}
+\DoxyCodeLine{496 \textcolor{preprocessor}{\#define POLLOUT    0x2}}
+\DoxyCodeLine{497 \textcolor{preprocessor}{\#define POLLERR    0x4}}
+\DoxyCodeLine{498 \textcolor{preprocessor}{\#define POLLNVAL   0x8}}
+\DoxyCodeLine{499 \textcolor{comment}{/* Below values are unimplemented */}}
+\DoxyCodeLine{500 \textcolor{preprocessor}{\#define POLLRDNORM 0x10}}
+\DoxyCodeLine{501 \textcolor{preprocessor}{\#define POLLRDBAND 0x20}}
+\DoxyCodeLine{502 \textcolor{preprocessor}{\#define POLLPRI    0x40}}
+\DoxyCodeLine{503 \textcolor{preprocessor}{\#define POLLWRNORM 0x80}}
+\DoxyCodeLine{504 \textcolor{preprocessor}{\#define POLLWRBAND 0x100}}
+\DoxyCodeLine{505 \textcolor{preprocessor}{\#define POLLHUP    0x200}}
+\DoxyCodeLine{506 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nfds\_t;}
+\DoxyCodeLine{507 \textcolor{keyword}{struct }pollfd}
+\DoxyCodeLine{508 \{}
+\DoxyCodeLine{509   \textcolor{keywordtype}{int} fd;}
+\DoxyCodeLine{510   \textcolor{keywordtype}{short} events;}
+\DoxyCodeLine{511   \textcolor{keywordtype}{short} revents;}
+\DoxyCodeLine{512 \};}
+\DoxyCodeLine{513 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{514 }
+\DoxyCodeLine{517 \textcolor{preprocessor}{\#ifndef LWIP\_TIMEVAL\_PRIVATE}}
+\DoxyCodeLine{518 \textcolor{preprocessor}{\#define LWIP\_TIMEVAL\_PRIVATE 1}}
+\DoxyCodeLine{519 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{520 }
+\DoxyCodeLine{521 \textcolor{preprocessor}{\#if LWIP\_TIMEVAL\_PRIVATE}}
+\DoxyCodeLine{522 \textcolor{keyword}{struct }timeval \{}
+\DoxyCodeLine{523   \textcolor{keywordtype}{long}    tv\_sec;         \textcolor{comment}{/* seconds */}}
+\DoxyCodeLine{524   \textcolor{keywordtype}{long}    tv\_usec;        \textcolor{comment}{/* and microseconds */}}
+\DoxyCodeLine{525 \};}
+\DoxyCodeLine{526 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TIMEVAL\_PRIVATE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{528 \textcolor{preprocessor}{\#define lwip\_socket\_init() }\textcolor{comment}{/* Compatibility define, no init needed. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{529 \textcolor{keywordtype}{void} lwip\_socket\_thread\_init(\textcolor{keywordtype}{void}); \textcolor{comment}{/* LWIP\_NETCONN\_SEM\_PER\_THREAD==1: initialize thread-\/local semaphore */}}
+\DoxyCodeLine{530 \textcolor{keywordtype}{void} lwip\_socket\_thread\_cleanup(\textcolor{keywordtype}{void}); \textcolor{comment}{/* LWIP\_NETCONN\_SEM\_PER\_THREAD==1: destroy thread-\/local semaphore */}}
+\DoxyCodeLine{531 }
+\DoxyCodeLine{532 \textcolor{preprocessor}{\#if LWIP\_COMPAT\_SOCKETS == 2}}
+\DoxyCodeLine{533 \textcolor{comment}{/* This helps code parsers/code completion by not having the COMPAT functions as defines */}}
+\DoxyCodeLine{534 \textcolor{preprocessor}{\#define lwip\_accept       accept}}
+\DoxyCodeLine{535 \textcolor{preprocessor}{\#define lwip\_bind         bind}}
+\DoxyCodeLine{536 \textcolor{preprocessor}{\#define lwip\_shutdown     shutdown}}
+\DoxyCodeLine{537 \textcolor{preprocessor}{\#define lwip\_getpeername  getpeername}}
+\DoxyCodeLine{538 \textcolor{preprocessor}{\#define lwip\_getsockname  getsockname}}
+\DoxyCodeLine{539 \textcolor{preprocessor}{\#define lwip\_setsockopt   setsockopt}}
+\DoxyCodeLine{540 \textcolor{preprocessor}{\#define lwip\_getsockopt   getsockopt}}
+\DoxyCodeLine{541 \textcolor{preprocessor}{\#define lwip\_close        closesocket}}
+\DoxyCodeLine{542 \textcolor{preprocessor}{\#define lwip\_connect      connect}}
+\DoxyCodeLine{543 \textcolor{preprocessor}{\#define lwip\_listen       listen}}
+\DoxyCodeLine{544 \textcolor{preprocessor}{\#define lwip\_recv         recv}}
+\DoxyCodeLine{545 \textcolor{preprocessor}{\#define lwip\_recvmsg      recvmsg}}
+\DoxyCodeLine{546 \textcolor{preprocessor}{\#define lwip\_recvfrom     recvfrom}}
+\DoxyCodeLine{547 \textcolor{preprocessor}{\#define lwip\_send         send}}
+\DoxyCodeLine{548 \textcolor{preprocessor}{\#define lwip\_sendmsg      sendmsg}}
+\DoxyCodeLine{549 \textcolor{preprocessor}{\#define lwip\_sendto       sendto}}
+\DoxyCodeLine{550 \textcolor{preprocessor}{\#define lwip\_socket       socket}}
+\DoxyCodeLine{551 \textcolor{preprocessor}{\#if LWIP\_SOCKET\_SELECT}}
+\DoxyCodeLine{552 \textcolor{preprocessor}{\#define lwip\_select       select}}
+\DoxyCodeLine{553 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{554 \textcolor{preprocessor}{\#if LWIP\_SOCKET\_POLL}}
+\DoxyCodeLine{555 \textcolor{preprocessor}{\#define lwip\_poll         poll}}
+\DoxyCodeLine{556 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{557 \textcolor{preprocessor}{\#define lwip\_ioctl        ioctlsocket}}
+\DoxyCodeLine{558 \textcolor{preprocessor}{\#define lwip\_inet\_ntop    inet\_ntop}}
+\DoxyCodeLine{559 \textcolor{preprocessor}{\#define lwip\_inet\_pton    inet\_pton}}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{561 \textcolor{preprocessor}{\#if LWIP\_POSIX\_SOCKETS\_IO\_NAMES}}
+\DoxyCodeLine{562 \textcolor{preprocessor}{\#define lwip\_read         read}}
+\DoxyCodeLine{563 \textcolor{preprocessor}{\#define lwip\_readv        readv}}
+\DoxyCodeLine{564 \textcolor{preprocessor}{\#define lwip\_write        write}}
+\DoxyCodeLine{565 \textcolor{preprocessor}{\#define lwip\_writev       writev}}
+\DoxyCodeLine{566 \textcolor{preprocessor}{\#undef lwip\_close}}
+\DoxyCodeLine{567 \textcolor{preprocessor}{\#define lwip\_close        close}}
+\DoxyCodeLine{568 \textcolor{preprocessor}{\#define closesocket(s)    close(s)}}
+\DoxyCodeLine{569 \textcolor{keywordtype}{int} fcntl(\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{int} cmd, ...);}
+\DoxyCodeLine{570 \textcolor{preprocessor}{\#undef lwip\_ioctl}}
+\DoxyCodeLine{571 \textcolor{preprocessor}{\#define lwip\_ioctl        ioctl}}
+\DoxyCodeLine{572 \textcolor{preprocessor}{\#define ioctlsocket       ioctl}}
+\DoxyCodeLine{573 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_POSIX\_SOCKETS\_IO\_NAMES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{574 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_COMPAT\_SOCKETS == 2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{576 \textcolor{keywordtype}{int} lwip\_accept(\textcolor{keywordtype}{int} s, \textcolor{keyword}{struct} sockaddr *addr, socklen\_t *addrlen);}
+\DoxyCodeLine{577 \textcolor{keywordtype}{int} lwip\_bind(\textcolor{keywordtype}{int} s, \textcolor{keyword}{const} \textcolor{keyword}{struct} sockaddr *name, socklen\_t namelen);}
+\DoxyCodeLine{578 \textcolor{keywordtype}{int} lwip\_shutdown(\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{int} how);}
+\DoxyCodeLine{579 \textcolor{keywordtype}{int} lwip\_getpeername (\textcolor{keywordtype}{int} s, \textcolor{keyword}{struct} sockaddr *name, socklen\_t *namelen);}
+\DoxyCodeLine{580 \textcolor{keywordtype}{int} lwip\_getsockname (\textcolor{keywordtype}{int} s, \textcolor{keyword}{struct} sockaddr *name, socklen\_t *namelen);}
+\DoxyCodeLine{581 \textcolor{keywordtype}{int} lwip\_getsockopt (\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{int} level, \textcolor{keywordtype}{int} optname, \textcolor{keywordtype}{void} *optval, socklen\_t *optlen);}
+\DoxyCodeLine{582 \textcolor{keywordtype}{int} lwip\_setsockopt (\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{int} level, \textcolor{keywordtype}{int} optname, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *optval, socklen\_t optlen);}
+\DoxyCodeLine{583  \textcolor{keywordtype}{int} lwip\_close(\textcolor{keywordtype}{int} s);}
+\DoxyCodeLine{584 \textcolor{keywordtype}{int} lwip\_connect(\textcolor{keywordtype}{int} s, \textcolor{keyword}{const} \textcolor{keyword}{struct} sockaddr *name, socklen\_t namelen);}
+\DoxyCodeLine{585 \textcolor{keywordtype}{int} lwip\_listen(\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{int} backlog);}
+\DoxyCodeLine{586 ssize\_t lwip\_recv(\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{void} *mem, \textcolor{keywordtype}{size\_t} len, \textcolor{keywordtype}{int} flags);}
+\DoxyCodeLine{587 ssize\_t lwip\_read(\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{void} *mem, \textcolor{keywordtype}{size\_t} len);}
+\DoxyCodeLine{588 ssize\_t lwip\_readv(\textcolor{keywordtype}{int} s, \textcolor{keyword}{const} \textcolor{keyword}{struct} iovec *iov, \textcolor{keywordtype}{int} iovcnt);}
+\DoxyCodeLine{589 ssize\_t lwip\_recvfrom(\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{void} *mem, \textcolor{keywordtype}{size\_t} len, \textcolor{keywordtype}{int} flags,}
+\DoxyCodeLine{590       \textcolor{keyword}{struct} sockaddr *from, socklen\_t *fromlen);}
+\DoxyCodeLine{591 ssize\_t lwip\_recvmsg(\textcolor{keywordtype}{int} s, \textcolor{keyword}{struct} msghdr *message, \textcolor{keywordtype}{int} flags);}
+\DoxyCodeLine{592 ssize\_t lwip\_send(\textcolor{keywordtype}{int} s, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *dataptr, \textcolor{keywordtype}{size\_t} size, \textcolor{keywordtype}{int} flags);}
+\DoxyCodeLine{593 ssize\_t lwip\_sendmsg(\textcolor{keywordtype}{int} s, \textcolor{keyword}{const} \textcolor{keyword}{struct} msghdr *message, \textcolor{keywordtype}{int} flags);}
+\DoxyCodeLine{594 ssize\_t lwip\_sendto(\textcolor{keywordtype}{int} s, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *dataptr, \textcolor{keywordtype}{size\_t} size, \textcolor{keywordtype}{int} flags,}
+\DoxyCodeLine{595     \textcolor{keyword}{const} \textcolor{keyword}{struct} sockaddr *to, socklen\_t tolen);}
+\DoxyCodeLine{596 \textcolor{keywordtype}{int} lwip\_socket(\textcolor{keywordtype}{int} domain, \textcolor{keywordtype}{int} type, \textcolor{keywordtype}{int} protocol);}
+\DoxyCodeLine{597 ssize\_t lwip\_write(\textcolor{keywordtype}{int} s, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *dataptr, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{598 ssize\_t lwip\_writev(\textcolor{keywordtype}{int} s, \textcolor{keyword}{const} \textcolor{keyword}{struct} iovec *iov, \textcolor{keywordtype}{int} iovcnt);}
+\DoxyCodeLine{599 \textcolor{preprocessor}{\#if LWIP\_SOCKET\_SELECT}}
+\DoxyCodeLine{600 \textcolor{keywordtype}{int} lwip\_select(\textcolor{keywordtype}{int} maxfdp1, fd\_set *readset, fd\_set *writeset, fd\_set *exceptset,}
+\DoxyCodeLine{601                 \textcolor{keyword}{struct} timeval *timeout);}
+\DoxyCodeLine{602 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{603 \textcolor{preprocessor}{\#if LWIP\_SOCKET\_POLL}}
+\DoxyCodeLine{604 \textcolor{keywordtype}{int} lwip\_poll(\textcolor{keyword}{struct} pollfd *fds, nfds\_t nfds, \textcolor{keywordtype}{int} timeout);}
+\DoxyCodeLine{605 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{606 \textcolor{keywordtype}{int} lwip\_ioctl(\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{long} cmd, \textcolor{keywordtype}{void} *argp);}
+\DoxyCodeLine{607 \textcolor{keywordtype}{int} lwip\_fcntl(\textcolor{keywordtype}{int} s, \textcolor{keywordtype}{int} cmd, \textcolor{keywordtype}{int} val);}
+\DoxyCodeLine{608 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *lwip\_inet\_ntop(\textcolor{keywordtype}{int} af, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src, \textcolor{keywordtype}{char} *dst, socklen\_t size);}
+\DoxyCodeLine{609 \textcolor{keywordtype}{int} lwip\_inet\_pton(\textcolor{keywordtype}{int} af, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *src, \textcolor{keywordtype}{void} *dst);}
+\DoxyCodeLine{610 }
+\DoxyCodeLine{611 \textcolor{preprocessor}{\#if LWIP\_COMPAT\_SOCKETS}}
+\DoxyCodeLine{612 \textcolor{preprocessor}{\#if LWIP\_COMPAT\_SOCKETS != 2}}
+\DoxyCodeLine{614 \textcolor{preprocessor}{\#define accept(s,addr,addrlen)                    lwip\_accept(s,addr,addrlen)}}
+\DoxyCodeLine{616 \textcolor{preprocessor}{\#define bind(s,name,namelen)                      lwip\_bind(s,name,namelen)}}
+\DoxyCodeLine{618 \textcolor{preprocessor}{\#define shutdown(s,how)                           lwip\_shutdown(s,how)}}
+\DoxyCodeLine{620 \textcolor{preprocessor}{\#define getpeername(s,name,namelen)               lwip\_getpeername(s,name,namelen)}}
+\DoxyCodeLine{622 \textcolor{preprocessor}{\#define getsockname(s,name,namelen)               lwip\_getsockname(s,name,namelen)}}
+\DoxyCodeLine{624 \textcolor{preprocessor}{\#define setsockopt(s,level,optname,opval,optlen)  lwip\_setsockopt(s,level,optname,opval,optlen)}}
+\DoxyCodeLine{626 \textcolor{preprocessor}{\#define getsockopt(s,level,optname,opval,optlen)  lwip\_getsockopt(s,level,optname,opval,optlen)}}
+\DoxyCodeLine{628 \textcolor{preprocessor}{\#define closesocket(s)                            lwip\_close(s)}}
+\DoxyCodeLine{630 \textcolor{preprocessor}{\#define connect(s,name,namelen)                   lwip\_connect(s,name,namelen)}}
+\DoxyCodeLine{632 \textcolor{preprocessor}{\#define listen(s,backlog)                         lwip\_listen(s,backlog)}}
+\DoxyCodeLine{634 \textcolor{preprocessor}{\#define recv(s,mem,len,flags)                     lwip\_recv(s,mem,len,flags)}}
+\DoxyCodeLine{636 \textcolor{preprocessor}{\#define recvmsg(s,message,flags)                  lwip\_recvmsg(s,message,flags)}}
+\DoxyCodeLine{638 \textcolor{preprocessor}{\#define recvfrom(s,mem,len,flags,from,fromlen)    lwip\_recvfrom(s,mem,len,flags,from,fromlen)}}
+\DoxyCodeLine{640 \textcolor{preprocessor}{\#define send(s,dataptr,size,flags)                lwip\_send(s,dataptr,size,flags)}}
+\DoxyCodeLine{642 \textcolor{preprocessor}{\#define sendmsg(s,message,flags)                  lwip\_sendmsg(s,message,flags)}}
+\DoxyCodeLine{644 \textcolor{preprocessor}{\#define sendto(s,dataptr,size,flags,to,tolen)     lwip\_sendto(s,dataptr,size,flags,to,tolen)}}
+\DoxyCodeLine{646 \textcolor{preprocessor}{\#define socket(domain,type,protocol)              lwip\_socket(domain,type,protocol)}}
+\DoxyCodeLine{647 \textcolor{preprocessor}{\#if LWIP\_SOCKET\_SELECT}}
+\DoxyCodeLine{649 \textcolor{preprocessor}{\#define select(maxfdp1,readset,writeset,exceptset,timeout)     lwip\_select(maxfdp1,readset,writeset,exceptset,timeout)}}
+\DoxyCodeLine{650 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{651 \textcolor{preprocessor}{\#if LWIP\_SOCKET\_POLL}}
+\DoxyCodeLine{653 \textcolor{preprocessor}{\#define poll(fds,nfds,timeout)                    lwip\_poll(fds,nfds,timeout)}}
+\DoxyCodeLine{654 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{656 \textcolor{preprocessor}{\#define ioctlsocket(s,cmd,argp)                   lwip\_ioctl(s,cmd,argp)}}
+\DoxyCodeLine{658 \textcolor{preprocessor}{\#define inet\_ntop(af,src,dst,size)                lwip\_inet\_ntop(af,src,dst,size)}}
+\DoxyCodeLine{660 \textcolor{preprocessor}{\#define inet\_pton(af,src,dst)                     lwip\_inet\_pton(af,src,dst)}}
+\DoxyCodeLine{661 }
+\DoxyCodeLine{662 \textcolor{preprocessor}{\#if LWIP\_POSIX\_SOCKETS\_IO\_NAMES}}
+\DoxyCodeLine{664 \textcolor{preprocessor}{\#define read(s,mem,len)                           lwip\_read(s,mem,len)}}
+\DoxyCodeLine{666 \textcolor{preprocessor}{\#define readv(s,iov,iovcnt)                       lwip\_readv(s,iov,iovcnt)}}
+\DoxyCodeLine{668 \textcolor{preprocessor}{\#define write(s,dataptr,len)                      lwip\_write(s,dataptr,len)}}
+\DoxyCodeLine{670 \textcolor{preprocessor}{\#define writev(s,iov,iovcnt)                      lwip\_writev(s,iov,iovcnt)}}
+\DoxyCodeLine{672 \textcolor{preprocessor}{\#define close(s)                                  lwip\_close(s)}}
+\DoxyCodeLine{674 \textcolor{preprocessor}{\#define fcntl(s,cmd,val)                          lwip\_fcntl(s,cmd,val)}}
+\DoxyCodeLine{676 \textcolor{preprocessor}{\#define ioctl(s,cmd,argp)                         lwip\_ioctl(s,cmd,argp)}}
+\DoxyCodeLine{677 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_POSIX\_SOCKETS\_IO\_NAMES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{678 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_COMPAT\_SOCKETS != 2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{679 }
+\DoxyCodeLine{680 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_COMPAT\_SOCKETS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{681 }
+\DoxyCodeLine{682 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{683 \}}
+\DoxyCodeLine{684 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{685 }
+\DoxyCodeLine{686 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SOCKET */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{687 }
+\DoxyCodeLine{688 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_SOCKETS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

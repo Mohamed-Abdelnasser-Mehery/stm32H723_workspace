@@ -1,0 +1,124 @@
+\hypertarget{group__lwip__opts__mem}{}\doxysection{Heap and memory pools}
+\label{group__lwip__opts__mem}\index{Heap and memory pools@{Heap and memory pools}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_ga4ef345cc270912bd2230b1c5ec51dfc8}{MEM\+\_\+\+LIBC\+\_\+\+MALLOC}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_gae93af697d27bbcefa6a28052d90f2f38}{MEMP\+\_\+\+MEM\+\_\+\+MALLOC}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_gaa2f25586972d1cbc1ff0dcdc6f15a1b0}{MEMP\+\_\+\+MEM\+\_\+\+INIT}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_ga97343214666ee6dcb18c0bd77b441ea7}{MEM\+\_\+\+ALIGNMENT}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_ga2dcf8c45f945dd0c4301a94700f2112c}{MEM\+\_\+\+SIZE}}~1600
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_ga27fdd01194a42fc41a7716b72cdb49e3}{MEMP\+\_\+\+OVERFLOW\+\_\+\+CHECK}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_ga0838947193e222a9f46b582e01e5beff}{MEMP\+\_\+\+SANITY\+\_\+\+CHECK}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_gae331a198bd06100b90ea020cd5f07f4e}{MEM\+\_\+\+OVERFLOW\+\_\+\+CHECK}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_ga90b17afabb93986a162c327ed30bb4d3}{MEM\+\_\+\+SANITY\+\_\+\+CHECK}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_gaddca3141bc7037241769eb152b6f89ba}{MEM\+\_\+\+USE\+\_\+\+POOLS}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_gaba8be68e8fd0716b723ce4569ed89f82}{MEM\+\_\+\+USE\+\_\+\+POOLS\+\_\+\+TRY\+\_\+\+BIGGER\+\_\+\+POOL}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_ga69de593b8ffd4f1c249f03e48e11983b}{MEMP\+\_\+\+USE\+\_\+\+CUSTOM\+\_\+\+POOLS}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__mem_ga0a3ef6098813c103e5aba07da76e15e2}{LWIP\+\_\+\+ALLOW\+\_\+\+MEM\+\_\+\+FREE\+\_\+\+FROM\+\_\+\+OTHER\+\_\+\+CONTEXT}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__mem_ga0a3ef6098813c103e5aba07da76e15e2}\label{group__lwip__opts__mem_ga0a3ef6098813c103e5aba07da76e15e2}} 
+\index{Heap and memory pools@{Heap and memory pools}!LWIP\_ALLOW\_MEM\_FREE\_FROM\_OTHER\_CONTEXT@{LWIP\_ALLOW\_MEM\_FREE\_FROM\_OTHER\_CONTEXT}}
+\index{LWIP\_ALLOW\_MEM\_FREE\_FROM\_OTHER\_CONTEXT@{LWIP\_ALLOW\_MEM\_FREE\_FROM\_OTHER\_CONTEXT}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ALLOW\_MEM\_FREE\_FROM\_OTHER\_CONTEXT}{LWIP\_ALLOW\_MEM\_FREE\_FROM\_OTHER\_CONTEXT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ALLOW\+\_\+\+MEM\+\_\+\+FREE\+\_\+\+FROM\+\_\+\+OTHER\+\_\+\+CONTEXT~0}
+
+Set this to 1 if you want to free PBUF\+\_\+\+RAM pbufs (or call \mbox{\hyperlink{mem_8c_a65169147c44e9db60d997819af9b455c}{mem\+\_\+free()}}) from interrupt context (or another context that doesn\textquotesingle{}t allow waiting for a semaphore). If set to 1, mem\+\_\+malloc will be protected by a semaphore and SYS\+\_\+\+ARCH\+\_\+\+PROTECT, while mem\+\_\+free will only use SYS\+\_\+\+ARCH\+\_\+\+PROTECT. mem\+\_\+malloc SYS\+\_\+\+ARCH\+\_\+\+UNPROTECTs with each loop so that mem\+\_\+free can run.
+
+ATTENTION\+: As you can see from the above description, this leads to dis-\// enabling interrupts often, which can be slow! Also, on low memory, mem\+\_\+malloc can need longer.
+
+If you don\textquotesingle{}t want that, at least for NO\+\_\+\+SYS=0, you can still use the following functions to enqueue a deallocation call which then runs in the tcpip\+\_\+thread context\+:
+\begin{DoxyItemize}
+\item pbuf\+\_\+free\+\_\+callback(p);
+\item mem\+\_\+free\+\_\+callback(m); 
+\end{DoxyItemize}\mbox{\Hypertarget{group__lwip__opts__mem_ga97343214666ee6dcb18c0bd77b441ea7}\label{group__lwip__opts__mem_ga97343214666ee6dcb18c0bd77b441ea7}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEM\_ALIGNMENT@{MEM\_ALIGNMENT}}
+\index{MEM\_ALIGNMENT@{MEM\_ALIGNMENT}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEM\_ALIGNMENT}{MEM\_ALIGNMENT}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+ALIGNMENT~1}
+
+MEM\+\_\+\+ALIGNMENT\+: should be set to the alignment of the CPU 4 byte alignment -\/\texorpdfstring{$>$}{>} \#define MEM\+\_\+\+ALIGNMENT 4 2 byte alignment -\/\texorpdfstring{$>$}{>} \#define MEM\+\_\+\+ALIGNMENT 2 \mbox{\Hypertarget{group__lwip__opts__mem_ga4ef345cc270912bd2230b1c5ec51dfc8}\label{group__lwip__opts__mem_ga4ef345cc270912bd2230b1c5ec51dfc8}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEM\_LIBC\_MALLOC@{MEM\_LIBC\_MALLOC}}
+\index{MEM\_LIBC\_MALLOC@{MEM\_LIBC\_MALLOC}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEM\_LIBC\_MALLOC}{MEM\_LIBC\_MALLOC}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+LIBC\+\_\+\+MALLOC~0}
+
+MEM\+\_\+\+LIBC\+\_\+\+MALLOC==1\+: Use malloc/free/realloc provided by your C-\/library instead of the lwip internal allocator. Can save code size if you already use it. \mbox{\Hypertarget{group__lwip__opts__mem_gae331a198bd06100b90ea020cd5f07f4e}\label{group__lwip__opts__mem_gae331a198bd06100b90ea020cd5f07f4e}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEM\_OVERFLOW\_CHECK@{MEM\_OVERFLOW\_CHECK}}
+\index{MEM\_OVERFLOW\_CHECK@{MEM\_OVERFLOW\_CHECK}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEM\_OVERFLOW\_CHECK}{MEM\_OVERFLOW\_CHECK}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+OVERFLOW\+\_\+\+CHECK~0}
+
+MEM\+\_\+\+OVERFLOW\+\_\+\+CHECK\+: mem overflow protection reserves a configurable amount of bytes before and after each heap allocation chunk and fills it with a prominent default value. MEM\+\_\+\+OVERFLOW\+\_\+\+CHECK == 0 no checking MEM\+\_\+\+OVERFLOW\+\_\+\+CHECK == 1 checks each element when it is freed MEM\+\_\+\+OVERFLOW\+\_\+\+CHECK \texorpdfstring{$>$}{>}= 2 checks all heap elements every time \mbox{\hyperlink{mem_8c_ae2190f95ae9c46bb99ec0be4f4e4e5e4}{mem\+\_\+malloc()}} or \mbox{\hyperlink{mem_8c_a65169147c44e9db60d997819af9b455c}{mem\+\_\+free()}} is called (useful but slow!) \mbox{\Hypertarget{group__lwip__opts__mem_ga90b17afabb93986a162c327ed30bb4d3}\label{group__lwip__opts__mem_ga90b17afabb93986a162c327ed30bb4d3}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEM\_SANITY\_CHECK@{MEM\_SANITY\_CHECK}}
+\index{MEM\_SANITY\_CHECK@{MEM\_SANITY\_CHECK}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEM\_SANITY\_CHECK}{MEM\_SANITY\_CHECK}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+SANITY\+\_\+\+CHECK~0}
+
+MEM\+\_\+\+SANITY\+\_\+\+CHECK==1\+: run a sanity check after each \mbox{\hyperlink{mem_8c_a65169147c44e9db60d997819af9b455c}{mem\+\_\+free()}} to make sure that the linked list of heap elements is not corrupted. \mbox{\Hypertarget{group__lwip__opts__mem_ga2dcf8c45f945dd0c4301a94700f2112c}\label{group__lwip__opts__mem_ga2dcf8c45f945dd0c4301a94700f2112c}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEM\_SIZE@{MEM\_SIZE}}
+\index{MEM\_SIZE@{MEM\_SIZE}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEM\_SIZE}{MEM\_SIZE}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+SIZE~1600}
+
+MEM\+\_\+\+SIZE\+: the size of the heap memory. If the application will send a lot of data that needs to be copied, this should be set high. \mbox{\Hypertarget{group__lwip__opts__mem_gaddca3141bc7037241769eb152b6f89ba}\label{group__lwip__opts__mem_gaddca3141bc7037241769eb152b6f89ba}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEM\_USE\_POOLS@{MEM\_USE\_POOLS}}
+\index{MEM\_USE\_POOLS@{MEM\_USE\_POOLS}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEM\_USE\_POOLS}{MEM\_USE\_POOLS}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+USE\+\_\+\+POOLS~0}
+
+MEM\+\_\+\+USE\+\_\+\+POOLS==1\+: Use an alternative to malloc() by allocating from a set of memory pools of various sizes. When mem\+\_\+malloc is called, an element of the smallest pool that can provide the length needed is returned. To use this, MEMP\+\_\+\+USE\+\_\+\+CUSTOM\+\_\+\+POOLS also has to be enabled. \mbox{\Hypertarget{group__lwip__opts__mem_gaba8be68e8fd0716b723ce4569ed89f82}\label{group__lwip__opts__mem_gaba8be68e8fd0716b723ce4569ed89f82}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEM\_USE\_POOLS\_TRY\_BIGGER\_POOL@{MEM\_USE\_POOLS\_TRY\_BIGGER\_POOL}}
+\index{MEM\_USE\_POOLS\_TRY\_BIGGER\_POOL@{MEM\_USE\_POOLS\_TRY\_BIGGER\_POOL}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEM\_USE\_POOLS\_TRY\_BIGGER\_POOL}{MEM\_USE\_POOLS\_TRY\_BIGGER\_POOL}}
+{\footnotesize\ttfamily \#define MEM\+\_\+\+USE\+\_\+\+POOLS\+\_\+\+TRY\+\_\+\+BIGGER\+\_\+\+POOL~0}
+
+MEM\+\_\+\+USE\+\_\+\+POOLS\+\_\+\+TRY\+\_\+\+BIGGER\+\_\+\+POOL==1\+: if one malloc-\/pool is empty, try the next bigger pool -\/ WARNING\+: THIS MIGHT WASTE MEMORY but it can make a system more reliable. \mbox{\Hypertarget{group__lwip__opts__mem_gaa2f25586972d1cbc1ff0dcdc6f15a1b0}\label{group__lwip__opts__mem_gaa2f25586972d1cbc1ff0dcdc6f15a1b0}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEMP\_MEM\_INIT@{MEMP\_MEM\_INIT}}
+\index{MEMP\_MEM\_INIT@{MEMP\_MEM\_INIT}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEMP\_MEM\_INIT}{MEMP\_MEM\_INIT}}
+{\footnotesize\ttfamily \#define MEMP\+\_\+\+MEM\+\_\+\+INIT~0}
+
+MEMP\+\_\+\+MEM\+\_\+\+INIT==1\+: Force use of memset to initialize pool memory. Useful if pool are moved in uninitialized section of memory. This will ensure default values in pcbs struct are well initialized in all conditions. \mbox{\Hypertarget{group__lwip__opts__mem_gae93af697d27bbcefa6a28052d90f2f38}\label{group__lwip__opts__mem_gae93af697d27bbcefa6a28052d90f2f38}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEMP\_MEM\_MALLOC@{MEMP\_MEM\_MALLOC}}
+\index{MEMP\_MEM\_MALLOC@{MEMP\_MEM\_MALLOC}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEMP\_MEM\_MALLOC}{MEMP\_MEM\_MALLOC}}
+{\footnotesize\ttfamily \#define MEMP\+\_\+\+MEM\+\_\+\+MALLOC~0}
+
+MEMP\+\_\+\+MEM\+\_\+\+MALLOC==1\+: Use mem\+\_\+malloc/mem\+\_\+free instead of the lwip pool allocator. Especially useful with MEM\+\_\+\+LIBC\+\_\+\+MALLOC but handle with care regarding execution speed (heap alloc can be much slower than pool alloc) and usage from interrupts (especially if your netif driver allocates PBUF\+\_\+\+POOL pbufs for received frames from interrupt)! ATTENTION\+: Currently, this uses the heap for ALL pools (also for private pools, not only for internal pools defined in \mbox{\hyperlink{memp__std_8h}{memp\+\_\+std.\+h}})! \mbox{\Hypertarget{group__lwip__opts__mem_ga27fdd01194a42fc41a7716b72cdb49e3}\label{group__lwip__opts__mem_ga27fdd01194a42fc41a7716b72cdb49e3}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEMP\_OVERFLOW\_CHECK@{MEMP\_OVERFLOW\_CHECK}}
+\index{MEMP\_OVERFLOW\_CHECK@{MEMP\_OVERFLOW\_CHECK}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEMP\_OVERFLOW\_CHECK}{MEMP\_OVERFLOW\_CHECK}}
+{\footnotesize\ttfamily \#define MEMP\+\_\+\+OVERFLOW\+\_\+\+CHECK~0}
+
+MEMP\+\_\+\+OVERFLOW\+\_\+\+CHECK\+: memp overflow protection reserves a configurable amount of bytes before and after each memp element in every pool and fills it with a prominent default value. MEMP\+\_\+\+OVERFLOW\+\_\+\+CHECK == 0 no checking MEMP\+\_\+\+OVERFLOW\+\_\+\+CHECK == 1 checks each element when it is freed MEMP\+\_\+\+OVERFLOW\+\_\+\+CHECK \texorpdfstring{$>$}{>}= 2 checks each element in every pool every time \mbox{\hyperlink{memp_8c_ac49689457203bfb872adf5428f96a3e7}{memp\+\_\+malloc()}} or \mbox{\hyperlink{memp_8c_aecd94926b7c2a0e23ae195f4ae97581f}{memp\+\_\+free()}} is called (useful but slow!) \mbox{\Hypertarget{group__lwip__opts__mem_ga0838947193e222a9f46b582e01e5beff}\label{group__lwip__opts__mem_ga0838947193e222a9f46b582e01e5beff}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEMP\_SANITY\_CHECK@{MEMP\_SANITY\_CHECK}}
+\index{MEMP\_SANITY\_CHECK@{MEMP\_SANITY\_CHECK}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEMP\_SANITY\_CHECK}{MEMP\_SANITY\_CHECK}}
+{\footnotesize\ttfamily \#define MEMP\+\_\+\+SANITY\+\_\+\+CHECK~0}
+
+MEMP\+\_\+\+SANITY\+\_\+\+CHECK==1\+: run a sanity check after each \mbox{\hyperlink{memp_8c_aecd94926b7c2a0e23ae195f4ae97581f}{memp\+\_\+free()}} to make sure that there are no cycles in the linked lists. \mbox{\Hypertarget{group__lwip__opts__mem_ga69de593b8ffd4f1c249f03e48e11983b}\label{group__lwip__opts__mem_ga69de593b8ffd4f1c249f03e48e11983b}} 
+\index{Heap and memory pools@{Heap and memory pools}!MEMP\_USE\_CUSTOM\_POOLS@{MEMP\_USE\_CUSTOM\_POOLS}}
+\index{MEMP\_USE\_CUSTOM\_POOLS@{MEMP\_USE\_CUSTOM\_POOLS}!Heap and memory pools@{Heap and memory pools}}
+\doxysubsubsection{\texorpdfstring{MEMP\_USE\_CUSTOM\_POOLS}{MEMP\_USE\_CUSTOM\_POOLS}}
+{\footnotesize\ttfamily \#define MEMP\+\_\+\+USE\+\_\+\+CUSTOM\+\_\+\+POOLS~0}
+
+MEMP\+\_\+\+USE\+\_\+\+CUSTOM\+\_\+\+POOLS==1\+: whether to include a user file lwippools.\+h that defines additional pools beyond the \char`\"{}standard\char`\"{} ones required by lw\+IP. If you set this to 1, you must have lwippools.\+h in your include path somewhere. 

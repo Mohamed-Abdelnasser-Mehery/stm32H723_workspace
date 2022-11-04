@@ -1,0 +1,231 @@
+\hypertarget{group___m_d_m_a___exported___macros}{}\doxysection{MDMA Exported Macros}
+\label{group___m_d_m_a___exported___macros}\index{MDMA Exported Macros@{MDMA Exported Macros}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___exported___macros_gad30da19e61d20a68a2042ce6d3e279cb}{\+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+ENABLE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CCR $\vert$=  \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7a3a8b196868241058a5e099e9cda1ef}{MDMA\+\_\+\+CCR\+\_\+\+EN}})
+\begin{DoxyCompactList}\small\item\em Enable the specified MDMA Channel. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___exported___macros_gad2ac8ed9c01bcf349eb8add659be6eb8}{\+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+DISABLE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CCR \&=  $\sim$\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7a3a8b196868241058a5e099e9cda1ef}{MDMA\+\_\+\+CCR\+\_\+\+EN}})
+\begin{DoxyCompactList}\small\item\em Disable the specified MDMA Channel. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___exported___macros_gaaf946c0dd2867f0dc7fd2148a0d9a3d5}{\+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+GET\+\_\+\+FLAG}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+FLAG\+\_\+\+\_\+)~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CISR \& (\+\_\+\+\_\+\+FLAG\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Get the MDMA Channel pending flags. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___exported___macros_ga38421dfadb7647e35c8cc4dbf8473577}{\+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+CLEAR\+\_\+\+FLAG}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+FLAG\+\_\+\+\_\+)~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CIFCR = (\+\_\+\+\_\+\+FLAG\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Clear the MDMA Stream pending flags. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___exported___macros_ga37da617c45501f5276f4142cb78f0010}{\+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+ENABLE\+\_\+\+IT}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+)~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CCR $\vert$= (\+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Enables the specified MDMA Channel interrupts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___exported___macros_gacd4f04feebf750c9c5507af35c13f1ab}{\+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+DISABLE\+\_\+\+IT}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+)~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CCR \&= $\sim$(\+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Disables the specified MDMA Channel interrupts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___exported___macros_ga474bb60ada428a8409bbb0a16637eed8}{\+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+GET\+\_\+\+IT\+\_\+\+SOURCE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+)~(((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CCR \& (\+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+)))
+\begin{DoxyCompactList}\small\item\em Checks whether the specified MDMA Channel interrupt is enabled or not. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___exported___macros_ga74127222885888d75a35a24fe6ae38b9}{\+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+SET\+\_\+\+COUNTER}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+\_\+\+COUNTER\+\_\+\+\_\+)~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CBNDTR $\vert$= ((\+\_\+\+\_\+\+COUNTER\+\_\+\+\_\+) \& \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae96b367fad972829944458d72e7f445e}{MDMA\+\_\+\+CBNDTR\+\_\+\+BNDT}}))
+\begin{DoxyCompactList}\small\item\em Writes the number of data in bytes to be transferred on the MDMA Channelx. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___m_d_m_a___exported___macros_ga12a0d1d4b2f117ec26ef436b905b64e1}{\+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+GET\+\_\+\+COUNTER}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CBNDTR \& \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae96b367fad972829944458d72e7f445e}{MDMA\+\_\+\+CBNDTR\+\_\+\+BNDT}})
+\begin{DoxyCompactList}\small\item\em Returns the number of remaining data in bytes in the current MDMA Channelx transfer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___m_d_m_a___exported___macros_ga38421dfadb7647e35c8cc4dbf8473577}\label{group___m_d_m_a___exported___macros_ga38421dfadb7647e35c8cc4dbf8473577}} 
+\index{MDMA Exported Macros@{MDMA Exported Macros}!\_\_HAL\_MDMA\_CLEAR\_FLAG@{\_\_HAL\_MDMA\_CLEAR\_FLAG}}
+\index{\_\_HAL\_MDMA\_CLEAR\_FLAG@{\_\_HAL\_MDMA\_CLEAR\_FLAG}!MDMA Exported Macros@{MDMA Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_MDMA\_CLEAR\_FLAG}{\_\_HAL\_MDMA\_CLEAR\_FLAG}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+CLEAR\+\_\+\+FLAG(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+FLAG\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CIFCR = (\+\_\+\+\_\+\+FLAG\+\_\+\+\_\+))}
+
+
+
+Clear the MDMA Stream pending flags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & MDMA handle \\
+\hline
+{\em \+\_\+\+\_\+\+FLAG\+\_\+\+\_\+} & specifies the flag to clear. This parameter can be any combination of the following values\+: \begin{DoxyItemize}
+\item MDMA\+\_\+\+FLAG\+\_\+\+TE \+: Transfer Error flag. \item MDMA\+\_\+\+FLAG\+\_\+\+CTC \+: Channel Transfer Complete flag. \item MDMA\+\_\+\+FLAG\+\_\+\+BRT \+: Block Repeat Transfer flag. \item MDMA\+\_\+\+FLAG\+\_\+\+BT \+: Block Transfer complete flag. \item MDMA\+\_\+\+FLAG\+\_\+\+BFTC \+: Bu\+Ffer Transfer Complete flag. \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___m_d_m_a___exported___macros_gad2ac8ed9c01bcf349eb8add659be6eb8}\label{group___m_d_m_a___exported___macros_gad2ac8ed9c01bcf349eb8add659be6eb8}} 
+\index{MDMA Exported Macros@{MDMA Exported Macros}!\_\_HAL\_MDMA\_DISABLE@{\_\_HAL\_MDMA\_DISABLE}}
+\index{\_\_HAL\_MDMA\_DISABLE@{\_\_HAL\_MDMA\_DISABLE}!MDMA Exported Macros@{MDMA Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_MDMA\_DISABLE}{\_\_HAL\_MDMA\_DISABLE}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+DISABLE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CCR \&=  $\sim$\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7a3a8b196868241058a5e099e9cda1ef}{MDMA\+\_\+\+CCR\+\_\+\+EN}})}
+
+
+
+Disable the specified MDMA Channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & MDMA handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___m_d_m_a___exported___macros_gacd4f04feebf750c9c5507af35c13f1ab}\label{group___m_d_m_a___exported___macros_gacd4f04feebf750c9c5507af35c13f1ab}} 
+\index{MDMA Exported Macros@{MDMA Exported Macros}!\_\_HAL\_MDMA\_DISABLE\_IT@{\_\_HAL\_MDMA\_DISABLE\_IT}}
+\index{\_\_HAL\_MDMA\_DISABLE\_IT@{\_\_HAL\_MDMA\_DISABLE\_IT}!MDMA Exported Macros@{MDMA Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_MDMA\_DISABLE\_IT}{\_\_HAL\_MDMA\_DISABLE\_IT}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+DISABLE\+\_\+\+IT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CCR \&= $\sim$(\+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+))}
+
+
+
+Disables the specified MDMA Channel interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & MDMA handle \\
+\hline
+{\em \+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+} & specifies the MDMA interrupt sources to be enabled or disabled. This parameter can be any combination of the following values\+: \begin{DoxyItemize}
+\item MDMA\+\_\+\+IT\+\_\+\+TE \+: Transfer Error interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+CTC \+: Channel Transfer Complete interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+BRT \+: Block Repeat Transfer interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+BT \+: Block Transfer interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+BFTC \+: Bu\+Ffer Transfer Complete interrupt mask \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___m_d_m_a___exported___macros_gad30da19e61d20a68a2042ce6d3e279cb}\label{group___m_d_m_a___exported___macros_gad30da19e61d20a68a2042ce6d3e279cb}} 
+\index{MDMA Exported Macros@{MDMA Exported Macros}!\_\_HAL\_MDMA\_ENABLE@{\_\_HAL\_MDMA\_ENABLE}}
+\index{\_\_HAL\_MDMA\_ENABLE@{\_\_HAL\_MDMA\_ENABLE}!MDMA Exported Macros@{MDMA Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_MDMA\_ENABLE}{\_\_HAL\_MDMA\_ENABLE}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+ENABLE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CCR $\vert$=  \mbox{\hyperlink{group___peripheral___registers___bits___definition_ga7a3a8b196868241058a5e099e9cda1ef}{MDMA\+\_\+\+CCR\+\_\+\+EN}})}
+
+
+
+Enable the specified MDMA Channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & MDMA handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___m_d_m_a___exported___macros_ga37da617c45501f5276f4142cb78f0010}\label{group___m_d_m_a___exported___macros_ga37da617c45501f5276f4142cb78f0010}} 
+\index{MDMA Exported Macros@{MDMA Exported Macros}!\_\_HAL\_MDMA\_ENABLE\_IT@{\_\_HAL\_MDMA\_ENABLE\_IT}}
+\index{\_\_HAL\_MDMA\_ENABLE\_IT@{\_\_HAL\_MDMA\_ENABLE\_IT}!MDMA Exported Macros@{MDMA Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_MDMA\_ENABLE\_IT}{\_\_HAL\_MDMA\_ENABLE\_IT}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+ENABLE\+\_\+\+IT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CCR $\vert$= (\+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+))}
+
+
+
+Enables the specified MDMA Channel interrupts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & MDMA handle \\
+\hline
+{\em \+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+} & specifies the DMA interrupt sources to be enabled or disabled. This parameter can be any combination of the following values\+: \begin{DoxyItemize}
+\item MDMA\+\_\+\+IT\+\_\+\+TE \+: Transfer Error interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+CTC \+: Channel Transfer Complete interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+BRT \+: Block Repeat Transfer interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+BT \+: Block Transfer interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+BFTC \+: Bu\+Ffer Transfer Complete interrupt mask \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___m_d_m_a___exported___macros_ga12a0d1d4b2f117ec26ef436b905b64e1}\label{group___m_d_m_a___exported___macros_ga12a0d1d4b2f117ec26ef436b905b64e1}} 
+\index{MDMA Exported Macros@{MDMA Exported Macros}!\_\_HAL\_MDMA\_GET\_COUNTER@{\_\_HAL\_MDMA\_GET\_COUNTER}}
+\index{\_\_HAL\_MDMA\_GET\_COUNTER@{\_\_HAL\_MDMA\_GET\_COUNTER}!MDMA Exported Macros@{MDMA Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_MDMA\_GET\_COUNTER}{\_\_HAL\_MDMA\_GET\_COUNTER}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+GET\+\_\+\+COUNTER(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CBNDTR \& \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae96b367fad972829944458d72e7f445e}{MDMA\+\_\+\+CBNDTR\+\_\+\+BNDT}})}
+
+
+
+Returns the number of remaining data in bytes in the current MDMA Channelx transfer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & \+: MDMA handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & number of remaining data in bytes in the current MDMA Channelx transfer. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___m_d_m_a___exported___macros_gaaf946c0dd2867f0dc7fd2148a0d9a3d5}\label{group___m_d_m_a___exported___macros_gaaf946c0dd2867f0dc7fd2148a0d9a3d5}} 
+\index{MDMA Exported Macros@{MDMA Exported Macros}!\_\_HAL\_MDMA\_GET\_FLAG@{\_\_HAL\_MDMA\_GET\_FLAG}}
+\index{\_\_HAL\_MDMA\_GET\_FLAG@{\_\_HAL\_MDMA\_GET\_FLAG}!MDMA Exported Macros@{MDMA Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_MDMA\_GET\_FLAG}{\_\_HAL\_MDMA\_GET\_FLAG}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+GET\+\_\+\+FLAG(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+FLAG\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CISR \& (\+\_\+\+\_\+\+FLAG\+\_\+\+\_\+))}
+
+
+
+Get the MDMA Channel pending flags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & MDMA handle \\
+\hline
+{\em \+\_\+\+\_\+\+FLAG\+\_\+\+\_\+} & Get the specified flag. This parameter can be any combination of the following values\+: \begin{DoxyItemize}
+\item MDMA\+\_\+\+FLAG\+\_\+\+TE \+: Transfer Error flag. \item MDMA\+\_\+\+FLAG\+\_\+\+CTC \+: Channel Transfer Complete flag. \item MDMA\+\_\+\+FLAG\+\_\+\+BRT \+: Block Repeat Transfer flag. \item MDMA\+\_\+\+FLAG\+\_\+\+BT \+: Block Transfer complete flag. \item MDMA\+\_\+\+FLAG\+\_\+\+BFTC \+: Bu\+Ffer Transfer Complete flag. \item MDMA\+\_\+\+FLAG\+\_\+\+CRQA \+: Channel request Active flag. \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & state of FLAG (SET or RESET). \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___m_d_m_a___exported___macros_ga474bb60ada428a8409bbb0a16637eed8}\label{group___m_d_m_a___exported___macros_ga474bb60ada428a8409bbb0a16637eed8}} 
+\index{MDMA Exported Macros@{MDMA Exported Macros}!\_\_HAL\_MDMA\_GET\_IT\_SOURCE@{\_\_HAL\_MDMA\_GET\_IT\_SOURCE}}
+\index{\_\_HAL\_MDMA\_GET\_IT\_SOURCE@{\_\_HAL\_MDMA\_GET\_IT\_SOURCE}!MDMA Exported Macros@{MDMA Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_MDMA\_GET\_IT\_SOURCE}{\_\_HAL\_MDMA\_GET\_IT\_SOURCE}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+GET\+\_\+\+IT\+\_\+\+SOURCE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+ }\end{DoxyParamCaption})~(((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CCR \& (\+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+)))}
+
+
+
+Checks whether the specified MDMA Channel interrupt is enabled or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & MDMA handle \\
+\hline
+{\em \+\_\+\+\_\+\+INTERRUPT\+\_\+\+\_\+} & specifies the MDMA interrupt source to check. \begin{DoxyItemize}
+\item MDMA\+\_\+\+IT\+\_\+\+TE \+: Transfer Error interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+CTC \+: Channel Transfer Complete interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+BRT \+: Block Repeat Transfer interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+BT \+: Block Transfer interrupt mask \item MDMA\+\_\+\+IT\+\_\+\+BFTC \+: Bu\+Ffer Transfer Complete interrupt mask \end{DoxyItemize}
+\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em The} & state of MDMA\+\_\+\+IT (SET or RESET). \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group___m_d_m_a___exported___macros_ga74127222885888d75a35a24fe6ae38b9}\label{group___m_d_m_a___exported___macros_ga74127222885888d75a35a24fe6ae38b9}} 
+\index{MDMA Exported Macros@{MDMA Exported Macros}!\_\_HAL\_MDMA\_SET\_COUNTER@{\_\_HAL\_MDMA\_SET\_COUNTER}}
+\index{\_\_HAL\_MDMA\_SET\_COUNTER@{\_\_HAL\_MDMA\_SET\_COUNTER}!MDMA Exported Macros@{MDMA Exported Macros}}
+\doxysubsubsection{\texorpdfstring{\_\_HAL\_MDMA\_SET\_COUNTER}{\_\_HAL\_MDMA\_SET\_COUNTER}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+HAL\+\_\+\+MDMA\+\_\+\+SET\+\_\+\+COUNTER(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  }\item[{}]{\+\_\+\+\_\+\+COUNTER\+\_\+\+\_\+ }\end{DoxyParamCaption})~((\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)-\/$>$Instance-\/$>$CBNDTR $\vert$= ((\+\_\+\+\_\+\+COUNTER\+\_\+\+\_\+) \& \mbox{\hyperlink{group___peripheral___registers___bits___definition_gae96b367fad972829944458d72e7f445e}{MDMA\+\_\+\+CBNDTR\+\_\+\+BNDT}}))}
+
+
+
+Writes the number of data in bytes to be transferred on the MDMA Channelx. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & \+: MDMA handle \\
+\hline
+{\em \+\_\+\+\_\+\+COUNTER\+\_\+\+\_\+} & Number of data in bytes to be transferred. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

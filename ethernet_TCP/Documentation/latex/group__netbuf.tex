@@ -1,0 +1,4 @@
+\hypertarget{group__netbuf}{}\doxysection{Network buffers}
+\label{group__netbuf}\index{Network buffers@{Network buffers}}
+Network buffer descriptor for \mbox{\hyperlink{group__netconn}{Netconn API}}. Based on \mbox{\hyperlink{group__pbuf}{Packet buffers (PBUF)}} internally to avoid copying data around.~\newline
+Buffers must not be shared accross multiple threads, all functions except netbuf\+\_\+new() and netbuf\+\_\+delete() are not thread-\/safe. 

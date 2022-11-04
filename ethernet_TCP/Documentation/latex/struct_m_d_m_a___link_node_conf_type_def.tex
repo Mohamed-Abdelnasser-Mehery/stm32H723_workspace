@@ -1,0 +1,92 @@
+\hypertarget{struct_m_d_m_a___link_node_conf_type_def}{}\doxysection{MDMA\+\_\+\+Link\+Node\+Conf\+Type\+Def Struct Reference}
+\label{struct_m_d_m_a___link_node_conf_type_def}\index{MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}}
+
+
+HAL MDMA linked list node configuration structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32h7xx\+\_\+hal\+\_\+mdma.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_m_d_m_a___init_type_def}{MDMA\+\_\+\+Init\+Type\+Def}} \mbox{\hyperlink{struct_m_d_m_a___link_node_conf_type_def_aebdee5bd1e5cd41e9e50f973977ae569}{Init}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_conf_type_def_aee80d6e0ad229d97471150173c3b18e7}{Src\+Address}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_conf_type_def_a277fbedea45ce5c44f402ff8d64f639c}{Dst\+Address}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_conf_type_def_a1f4ec1f93005eb81767b4dc4430d2032}{Block\+Data\+Length}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_conf_type_def_a1ef0815a72f7fb693a902e4a737a13c9}{Block\+Count}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_conf_type_def_abb82d0d48e00a90eb4c3711a817754b7}{Post\+Request\+Mask\+Address}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_conf_type_def_a475e655130bc553dee02409093898aca}{Post\+Request\+Mask\+Data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+HAL MDMA linked list node configuration structure definition. 
+
+\begin{DoxyNote}{Note}
+used with HAL\+\_\+\+MDMA\+\_\+\+Linked\+List\+\_\+\+Create\+Node function 
+\end{DoxyNote}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_m_d_m_a___link_node_conf_type_def_a1ef0815a72f7fb693a902e4a737a13c9}\label{struct_m_d_m_a___link_node_conf_type_def_a1ef0815a72f7fb693a902e4a737a13c9}} 
+\index{MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}!BlockCount@{BlockCount}}
+\index{BlockCount@{BlockCount}!MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}}
+\doxysubsubsection{\texorpdfstring{BlockCount}{BlockCount}}
+{\footnotesize\ttfamily uint32\+\_\+t Block\+Count}
+
+The number of blocks to be transferred ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_conf_type_def_a1f4ec1f93005eb81767b4dc4430d2032}\label{struct_m_d_m_a___link_node_conf_type_def_a1f4ec1f93005eb81767b4dc4430d2032}} 
+\index{MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}!BlockDataLength@{BlockDataLength}}
+\index{BlockDataLength@{BlockDataLength}!MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}}
+\doxysubsubsection{\texorpdfstring{BlockDataLength}{BlockDataLength}}
+{\footnotesize\ttfamily uint32\+\_\+t Block\+Data\+Length}
+
+The data length of a block in bytes ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_conf_type_def_a277fbedea45ce5c44f402ff8d64f639c}\label{struct_m_d_m_a___link_node_conf_type_def_a277fbedea45ce5c44f402ff8d64f639c}} 
+\index{MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}!DstAddress@{DstAddress}}
+\index{DstAddress@{DstAddress}!MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}}
+\doxysubsubsection{\texorpdfstring{DstAddress}{DstAddress}}
+{\footnotesize\ttfamily uint32\+\_\+t Dst\+Address}
+
+The destination memory address for the Linked list Node \mbox{\Hypertarget{struct_m_d_m_a___link_node_conf_type_def_aebdee5bd1e5cd41e9e50f973977ae569}\label{struct_m_d_m_a___link_node_conf_type_def_aebdee5bd1e5cd41e9e50f973977ae569}} 
+\index{MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}!Init@{Init}}
+\index{Init@{Init}!MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}}
+\doxysubsubsection{\texorpdfstring{Init}{Init}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_m_d_m_a___init_type_def}{MDMA\+\_\+\+Init\+Type\+Def}} Init}
+
+configuration of the specified MDMA Linked List Node ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_conf_type_def_abb82d0d48e00a90eb4c3711a817754b7}\label{struct_m_d_m_a___link_node_conf_type_def_abb82d0d48e00a90eb4c3711a817754b7}} 
+\index{MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}!PostRequestMaskAddress@{PostRequestMaskAddress}}
+\index{PostRequestMaskAddress@{PostRequestMaskAddress}!MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}}
+\doxysubsubsection{\texorpdfstring{PostRequestMaskAddress}{PostRequestMaskAddress}}
+{\footnotesize\ttfamily uint32\+\_\+t Post\+Request\+Mask\+Address}
+
+specifies the address to be updated (written) with Post\+Request\+Mask\+Data after a request is served. Post\+Request\+Mask\+Address and Post\+Request\+Mask\+Data could be used to automatically clear a peripheral flag when the request is served ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_conf_type_def_a475e655130bc553dee02409093898aca}\label{struct_m_d_m_a___link_node_conf_type_def_a475e655130bc553dee02409093898aca}} 
+\index{MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}!PostRequestMaskData@{PostRequestMaskData}}
+\index{PostRequestMaskData@{PostRequestMaskData}!MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}}
+\doxysubsubsection{\texorpdfstring{PostRequestMaskData}{PostRequestMaskData}}
+{\footnotesize\ttfamily uint32\+\_\+t Post\+Request\+Mask\+Data}
+
+specifies the value to be written to Post\+Request\+Mask\+Address after a request is served. Post\+Request\+Mask\+Address and Post\+Request\+Mask\+Data could be used to automatically clear a peripheral flag when the request is served ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_conf_type_def_aee80d6e0ad229d97471150173c3b18e7}\label{struct_m_d_m_a___link_node_conf_type_def_aee80d6e0ad229d97471150173c3b18e7}} 
+\index{MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}!SrcAddress@{SrcAddress}}
+\index{SrcAddress@{SrcAddress}!MDMA\_LinkNodeConfTypeDef@{MDMA\_LinkNodeConfTypeDef}}
+\doxysubsubsection{\texorpdfstring{SrcAddress}{SrcAddress}}
+{\footnotesize\ttfamily uint32\+\_\+t Src\+Address}
+
+The source memory address for the Linked list Node ~\newline
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32h7xx__hal__mdma_8h}{stm32h7xx\+\_\+hal\+\_\+mdma.\+h}}\end{DoxyCompactItemize}

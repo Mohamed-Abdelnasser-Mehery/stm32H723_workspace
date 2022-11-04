@@ -1,0 +1,37 @@
+\hypertarget{group__tcp__raw}{}\doxysection{TCP}
+\label{group__tcp__raw}\index{TCP@{TCP}}
+Transmission Control Protocol for IP~\newline
+\begin{DoxySeeAlso}{See also}
+api
+\end{DoxySeeAlso}
+Common functions for the TCP implementation, such as functions for manipulating the data structures and the TCP timer functions. TCP functions related to input and output is found in \mbox{\hyperlink{tcp__in_8c}{tcp\+\_\+in.\+c}} and \mbox{\hyperlink{tcp__out_8c}{tcp\+\_\+out.\+c}} respectively.~\newline
+ \hypertarget{group__tcp__raw_autotoc_md7}{}\doxysubsubsection{TCP connection setup}\label{group__tcp__raw_autotoc_md7}
+The functions used for setting up connections is similar to that of the sequential API and of the BSD socket API. A new TCP connection identifier (i.\+e., a protocol control block -\/ PCB) is created with the tcp\+\_\+new() function. This PCB can then be either set to listen for new incoming connections or be explicitly connected to another host.
+\begin{DoxyItemize}
+\item tcp\+\_\+new()
+\item tcp\+\_\+bind()
+\item tcp\+\_\+listen() and tcp\+\_\+listen\+\_\+with\+\_\+backlog()
+\item tcp\+\_\+accept()
+\item tcp\+\_\+connect()
+\end{DoxyItemize}\hypertarget{group__tcp__raw_autotoc_md8}{}\doxysubsubsection{Sending TCP data}\label{group__tcp__raw_autotoc_md8}
+TCP data is sent by enqueueing the data with a call to tcp\+\_\+write() and triggering to send by calling tcp\+\_\+output(). When the data is successfully transmitted to the remote host, the application will be notified with a call to a specified callback function.
+\begin{DoxyItemize}
+\item tcp\+\_\+write()
+\item tcp\+\_\+output()
+\item tcp\+\_\+sent()
+\end{DoxyItemize}\hypertarget{group__tcp__raw_autotoc_md9}{}\doxysubsubsection{Receiving TCP data}\label{group__tcp__raw_autotoc_md9}
+TCP data reception is callback based -\/ an application specified callback function is called when new data arrives. When the application has taken the data, it has to call the tcp\+\_\+recved() function to indicate that TCP can advertise increase the receive window.
+\begin{DoxyItemize}
+\item tcp\+\_\+recv()
+\item tcp\+\_\+recved()
+\end{DoxyItemize}\hypertarget{group__tcp__raw_autotoc_md10}{}\doxysubsubsection{Application polling}\label{group__tcp__raw_autotoc_md10}
+When a connection is idle (i.\+e., no data is either transmitted or received), lw\+IP will repeatedly poll the application by calling a specified callback function. This can be used either as a watchdog timer for killing connections that have stayed idle for too long, or as a method of waiting for memory to become available. For instance, if a call to tcp\+\_\+write() has failed because memory wasn\textquotesingle{}t available, the application may use the polling functionality to call tcp\+\_\+write() again when the connection has been idle for a while.
+\begin{DoxyItemize}
+\item tcp\+\_\+poll()
+\end{DoxyItemize}\hypertarget{group__tcp__raw_autotoc_md11}{}\doxysubsubsection{Closing and aborting connections}\label{group__tcp__raw_autotoc_md11}
+
+\begin{DoxyItemize}
+\item tcp\+\_\+close()
+\item tcp\+\_\+abort()
+\item tcp\+\_\+err() 
+\end{DoxyItemize}

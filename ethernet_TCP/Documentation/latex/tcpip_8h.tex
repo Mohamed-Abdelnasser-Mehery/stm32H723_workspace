@@ -1,0 +1,283 @@
+\hypertarget{tcpip_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/tcpip.h File Reference}
+\label{tcpip_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/tcpip.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/tcpip.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/timeouts.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/netif.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tcpip_8h_a4700525e737fc025fea4887b172e0c95}\label{tcpip_8h_a4700525e737fc025fea4887b172e0c95}} 
+\#define {\bfseries LOCK\+\_\+\+TCPIP\+\_\+\+CORE}()
+\item 
+\mbox{\Hypertarget{tcpip_8h_a915effea029b9c4891e1ec635eb1826d}\label{tcpip_8h_a915effea029b9c4891e1ec635eb1826d}} 
+\#define {\bfseries UNLOCK\+\_\+\+TCPIP\+\_\+\+CORE}()
+\item 
+\#define \mbox{\hyperlink{tcpip_8h_acd0a865623921ada2dd08962eb82c9df}{tcpip\+\_\+callback\+\_\+with\+\_\+block}}(function,  ctx,  block)~((block != 0)? \mbox{\hyperlink{tcpip_8c_aab838fe3417ab3a1f61f0728009a0c2a}{tcpip\+\_\+callback}}(function, ctx) \+: \mbox{\hyperlink{tcpip_8c_aeb7b3c7414c76ad8dde14d2fba6cb020}{tcpip\+\_\+try\+\_\+callback}}(function, ctx))
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{tcpip_8h_a5fe07216c441e27c3028bcac60fa0992}{tcpip\+\_\+init\+\_\+done\+\_\+fn}}) (void $\ast$arg)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\+\_\+callback\+\_\+fn}}) (void $\ast$ctx)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tcpip_8h_ac104b53faf0e3905ad0e970866835661}{tcpip\+\_\+init}} (\mbox{\hyperlink{tcpip_8h_a5fe07216c441e27c3028bcac60fa0992}{tcpip\+\_\+init\+\_\+done\+\_\+fn}} tcpip\+\_\+init\+\_\+done, void $\ast$arg)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{tcpip_8h_a93043b3c66dbe4a15a60299c6199d102}{tcpip\+\_\+inpkt}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, struct \mbox{\hyperlink{structnetif}{netif}} $\ast$inp, \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}} input\+\_\+fn)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{tcpip_8h_ae510f195171bed8499ae94e264a92717}{tcpip\+\_\+input}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, struct \mbox{\hyperlink{structnetif}{netif}} $\ast$inp)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{tcpip_8h_aeb7b3c7414c76ad8dde14d2fba6cb020}{tcpip\+\_\+try\+\_\+callback}} (\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\+\_\+callback\+\_\+fn}} function, void $\ast$ctx)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{tcpip_8h_aab838fe3417ab3a1f61f0728009a0c2a}{tcpip\+\_\+callback}} (\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\+\_\+callback\+\_\+fn}} function, void $\ast$ctx)
+\item 
+struct tcpip\+\_\+callback\+\_\+msg $\ast$ \mbox{\hyperlink{tcpip_8h_a07de8751452a8886de85849f79fe23a1}{tcpip\+\_\+callbackmsg\+\_\+new}} (\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\+\_\+callback\+\_\+fn}} function, void $\ast$ctx)
+\item 
+void \mbox{\hyperlink{tcpip_8h_ac5b7a59f4c3f5f721ab9ee81f231c9fd}{tcpip\+\_\+callbackmsg\+\_\+delete}} (struct tcpip\+\_\+callback\+\_\+msg $\ast$msg)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{tcpip_8h_a83fe5fb2ea33e8c262567ac46f4db3f8}{tcpip\+\_\+callbackmsg\+\_\+trycallback}} (struct tcpip\+\_\+callback\+\_\+msg $\ast$msg)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{tcpip_8h_a56a234f3d895791225c3c850bfadb666}{tcpip\+\_\+callbackmsg\+\_\+trycallback\+\_\+fromisr}} (struct tcpip\+\_\+callback\+\_\+msg $\ast$msg)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{tcpip_8h_a5cdcb6b784fe0e8736a5b31a5cfbed6c}{pbuf\+\_\+free\+\_\+callback}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{tcpip_8h_a55b4de3765c6a37b3f2b26a11603771c}{mem\+\_\+free\+\_\+callback}} (void $\ast$m)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions to sync with TCPIP thread 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{tcpip_8h_acd0a865623921ada2dd08962eb82c9df}\label{tcpip_8h_acd0a865623921ada2dd08962eb82c9df}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_callback\_with\_block@{tcpip\_callback\_with\_block}}
+\index{tcpip\_callback\_with\_block@{tcpip\_callback\_with\_block}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_callback\_with\_block}{tcpip\_callback\_with\_block}}
+{\footnotesize\ttfamily \#define tcpip\+\_\+callback\+\_\+with\+\_\+block(\begin{DoxyParamCaption}\item[{}]{function,  }\item[{}]{ctx,  }\item[{}]{block }\end{DoxyParamCaption})~((block != 0)? \mbox{\hyperlink{tcpip_8c_aab838fe3417ab3a1f61f0728009a0c2a}{tcpip\+\_\+callback}}(function, ctx) \+: \mbox{\hyperlink{tcpip_8c_aeb7b3c7414c76ad8dde14d2fba6cb020}{tcpip\+\_\+try\+\_\+callback}}(function, ctx))}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\mbox{\hyperlink{deprecated__deprecated000043}{Deprecated}}]use \mbox{\hyperlink{tcpip_8h_aeb7b3c7414c76ad8dde14d2fba6cb020}{tcpip\+\_\+try\+\_\+callback()}} or \mbox{\hyperlink{tcpip_8h_aab838fe3417ab3a1f61f0728009a0c2a}{tcpip\+\_\+callback()}} instead \end{DoxyRefDesc}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}\label{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_callback\_fn@{tcpip\_callback\_fn}}
+\index{tcpip\_callback\_fn@{tcpip\_callback\_fn}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_callback\_fn}{tcpip\_callback\_fn}}
+{\footnotesize\ttfamily typedef void($\ast$ tcpip\+\_\+callback\+\_\+fn) (void $\ast$ctx)}
+
+Function prototype for functions passed to \mbox{\hyperlink{tcpip_8h_aab838fe3417ab3a1f61f0728009a0c2a}{tcpip\+\_\+callback()}} \mbox{\Hypertarget{tcpip_8h_a5fe07216c441e27c3028bcac60fa0992}\label{tcpip_8h_a5fe07216c441e27c3028bcac60fa0992}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_init\_done\_fn@{tcpip\_init\_done\_fn}}
+\index{tcpip\_init\_done\_fn@{tcpip\_init\_done\_fn}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_init\_done\_fn}{tcpip\_init\_done\_fn}}
+{\footnotesize\ttfamily typedef void($\ast$ tcpip\+\_\+init\+\_\+done\+\_\+fn) (void $\ast$arg)}
+
+Function prototype for the init\+\_\+done function passed to tcpip\+\_\+init 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{tcpip_8h_a55b4de3765c6a37b3f2b26a11603771c}\label{tcpip_8h_a55b4de3765c6a37b3f2b26a11603771c}} 
+\index{tcpip.h@{tcpip.h}!mem\_free\_callback@{mem\_free\_callback}}
+\index{mem\_free\_callback@{mem\_free\_callback}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{mem\_free\_callback()}{mem\_free\_callback()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} mem\+\_\+free\+\_\+callback (\begin{DoxyParamCaption}\item[{void $\ast$}]{m }\end{DoxyParamCaption})}
+
+A simple wrapper function that allows you to free heap memory from interrupt context.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & the heap memory to free \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if callback could be enqueued, an err\+\_\+t if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tcpip_8h_a5cdcb6b784fe0e8736a5b31a5cfbed6c}\label{tcpip_8h_a5cdcb6b784fe0e8736a5b31a5cfbed6c}} 
+\index{tcpip.h@{tcpip.h}!pbuf\_free\_callback@{pbuf\_free\_callback}}
+\index{pbuf\_free\_callback@{pbuf\_free\_callback}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{pbuf\_free\_callback()}{pbuf\_free\_callback()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} pbuf\+\_\+free\+\_\+callback (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+A simple wrapper function that allows you to free a pbuf from interrupt context.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The pbuf (chain) to be dereferenced. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if callback could be enqueued, an err\+\_\+t if not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tcpip_8h_aab838fe3417ab3a1f61f0728009a0c2a}\label{tcpip_8h_aab838fe3417ab3a1f61f0728009a0c2a}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_callback@{tcpip\_callback}}
+\index{tcpip\_callback@{tcpip\_callback}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_callback()}{tcpip\_callback()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} tcpip\+\_\+callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\+\_\+callback\+\_\+fn}}}]{function,  }\item[{void $\ast$}]{ctx }\end{DoxyParamCaption})}
+
+Call a specific function in the thread context of tcpip\+\_\+thread for easy access synchronization. A function called in that way may access lw\+IP core code without fearing concurrent access. Blocks until the request is posted. Must not be called from interrupt context!
+
+
+\begin{DoxyParams}{Parameters}
+{\em function} & the function to call \\
+\hline
+{\em ctx} & parameter passed to f \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if the function was called, another err\+\_\+t if not
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{tcpip_8c_aeb7b3c7414c76ad8dde14d2fba6cb020}{tcpip\+\_\+try\+\_\+callback}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{tcpip_8h_ac5b7a59f4c3f5f721ab9ee81f231c9fd}\label{tcpip_8h_ac5b7a59f4c3f5f721ab9ee81f231c9fd}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_callbackmsg\_delete@{tcpip\_callbackmsg\_delete}}
+\index{tcpip\_callbackmsg\_delete@{tcpip\_callbackmsg\_delete}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_callbackmsg\_delete()}{tcpip\_callbackmsg\_delete()}}
+{\footnotesize\ttfamily void tcpip\+\_\+callbackmsg\+\_\+delete (\begin{DoxyParamCaption}\item[{struct tcpip\+\_\+callback\+\_\+msg $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Free a callback message allocated by \mbox{\hyperlink{tcpip_8c_a07de8751452a8886de85849f79fe23a1}{tcpip\+\_\+callbackmsg\+\_\+new()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the message to free\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{tcpip_8c_a07de8751452a8886de85849f79fe23a1}{tcpip\+\_\+callbackmsg\+\_\+new()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{tcpip_8h_a07de8751452a8886de85849f79fe23a1}\label{tcpip_8h_a07de8751452a8886de85849f79fe23a1}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_callbackmsg\_new@{tcpip\_callbackmsg\_new}}
+\index{tcpip\_callbackmsg\_new@{tcpip\_callbackmsg\_new}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_callbackmsg\_new()}{tcpip\_callbackmsg\_new()}}
+{\footnotesize\ttfamily struct tcpip\+\_\+callback\+\_\+msg $\ast$ tcpip\+\_\+callbackmsg\+\_\+new (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\+\_\+callback\+\_\+fn}}}]{function,  }\item[{void $\ast$}]{ctx }\end{DoxyParamCaption})}
+
+Allocate a structure for a static callback message and initialize it. The message has a special type such that lw\+IP never frees it. This is intended to be used to send \char`\"{}static\char`\"{} messages from interrupt context, e.\+g. the message is allocated once and posted several times from an IRQ using \mbox{\hyperlink{tcpip_8c_a83fe5fb2ea33e8c262567ac46f4db3f8}{tcpip\+\_\+callbackmsg\+\_\+trycallback()}}. Example usage\+: Trigger execution of an ethernet IRQ DPC routine in lw\+IP thread context.
+
+
+\begin{DoxyParams}{Parameters}
+{\em function} & the function to call \\
+\hline
+{\em ctx} & parameter passed to function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a struct pointer to pass to \mbox{\hyperlink{tcpip_8c_a83fe5fb2ea33e8c262567ac46f4db3f8}{tcpip\+\_\+callbackmsg\+\_\+trycallback()}}.
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{tcpip_8c_a83fe5fb2ea33e8c262567ac46f4db3f8}{tcpip\+\_\+callbackmsg\+\_\+trycallback()}} 
+
+\mbox{\hyperlink{tcpip_8c_ac5b7a59f4c3f5f721ab9ee81f231c9fd}{tcpip\+\_\+callbackmsg\+\_\+delete()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{tcpip_8h_a83fe5fb2ea33e8c262567ac46f4db3f8}\label{tcpip_8h_a83fe5fb2ea33e8c262567ac46f4db3f8}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_callbackmsg\_trycallback@{tcpip\_callbackmsg\_trycallback}}
+\index{tcpip\_callbackmsg\_trycallback@{tcpip\_callbackmsg\_trycallback}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_callbackmsg\_trycallback()}{tcpip\_callbackmsg\_trycallback()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} tcpip\+\_\+callbackmsg\+\_\+trycallback (\begin{DoxyParamCaption}\item[{struct tcpip\+\_\+callback\+\_\+msg $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Try to post a callback-\/message to the tcpip\+\_\+thread tcpip\+\_\+mbox.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & pointer to the message to post \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group__sys__mbox_gaa36345e48a49d67cbb0878cd4cbd2195}{sys\+\_\+mbox\+\_\+trypost()}} return code
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{tcpip_8c_a07de8751452a8886de85849f79fe23a1}{tcpip\+\_\+callbackmsg\+\_\+new()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{tcpip_8h_a56a234f3d895791225c3c850bfadb666}\label{tcpip_8h_a56a234f3d895791225c3c850bfadb666}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_callbackmsg\_trycallback\_fromisr@{tcpip\_callbackmsg\_trycallback\_fromisr}}
+\index{tcpip\_callbackmsg\_trycallback\_fromisr@{tcpip\_callbackmsg\_trycallback\_fromisr}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_callbackmsg\_trycallback\_fromisr()}{tcpip\_callbackmsg\_trycallback\_fromisr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} tcpip\+\_\+callbackmsg\+\_\+trycallback\+\_\+fromisr (\begin{DoxyParamCaption}\item[{struct tcpip\+\_\+callback\+\_\+msg $\ast$}]{msg }\end{DoxyParamCaption})}
+
+Try to post a callback-\/message to the tcpip\+\_\+thread mbox. Same as \mbox{\hyperlink{tcpip_8c_a83fe5fb2ea33e8c262567ac46f4db3f8}{tcpip\+\_\+callbackmsg\+\_\+trycallback}} but calls \mbox{\hyperlink{group__sys__mbox_gaf677a6e76adb7650a3020fdb3cb8429a}{sys\+\_\+mbox\+\_\+trypost\+\_\+fromisr()}}, mainly to help Free\+RTOS, where calls differ between task level and ISR level.
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & pointer to the message to post \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group__sys__mbox_gaf677a6e76adb7650a3020fdb3cb8429a}{sys\+\_\+mbox\+\_\+trypost\+\_\+fromisr()}} return code (without change, so this knowledge can be used to e.\+g. propagate \char`\"{}bool needs\+\_\+scheduling\char`\"{})
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{tcpip_8c_a07de8751452a8886de85849f79fe23a1}{tcpip\+\_\+callbackmsg\+\_\+new()}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{tcpip_8h_ac104b53faf0e3905ad0e970866835661}\label{tcpip_8h_ac104b53faf0e3905ad0e970866835661}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_init@{tcpip\_init}}
+\index{tcpip\_init@{tcpip\_init}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_init()}{tcpip\_init()}}
+{\footnotesize\ttfamily void tcpip\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tcpip_8h_a5fe07216c441e27c3028bcac60fa0992}{tcpip\+\_\+init\+\_\+done\+\_\+fn}}}]{initfunc,  }\item[{void $\ast$}]{arg }\end{DoxyParamCaption})}
+
+Initialize this module\+:
+\begin{DoxyItemize}
+\item initialize all sub modules
+\item start the tcpip\+\_\+thread
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em initfunc} & a function to call when tcpip\+\_\+thread is running and finished initializing \\
+\hline
+{\em arg} & argument to pass to initfunc \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tcpip_8h_a93043b3c66dbe4a15a60299c6199d102}\label{tcpip_8h_a93043b3c66dbe4a15a60299c6199d102}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_inpkt@{tcpip\_inpkt}}
+\index{tcpip\_inpkt@{tcpip\_inpkt}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_inpkt()}{tcpip\_inpkt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} tcpip\+\_\+inpkt (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{inp,  }\item[{\mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}}}]{input\+\_\+fn }\end{DoxyParamCaption})}
+
+Pass a received packet to tcpip\+\_\+thread for input processing
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & the received packet \\
+\hline
+{\em inp} & the network interface on which the packet was received \\
+\hline
+{\em input\+\_\+fn} & input function to call \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tcpip_8h_ae510f195171bed8499ae94e264a92717}\label{tcpip_8h_ae510f195171bed8499ae94e264a92717}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_input@{tcpip\_input}}
+\index{tcpip\_input@{tcpip\_input}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_input()}{tcpip\_input()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} tcpip\+\_\+input (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{inp }\end{DoxyParamCaption})}
+
+Pass a received packet to tcpip\+\_\+thread for input processing with ethernet\+\_\+input or ip\+\_\+input. Don\textquotesingle{}t call directly, pass to \mbox{\hyperlink{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}{netif\+\_\+add()}} and call netif-\/\texorpdfstring{$>$}{>}input().
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & the received packet, p-\/\texorpdfstring{$>$}{>}payload pointing to the Ethernet header or to an IP header (if inp doesn\textquotesingle{}t have NETIF\+\_\+\+FLAG\+\_\+\+ETHARP or NETIF\+\_\+\+FLAG\+\_\+\+ETHERNET flags) \\
+\hline
+{\em inp} & the network interface on which the packet was received \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tcpip_8h_aeb7b3c7414c76ad8dde14d2fba6cb020}\label{tcpip_8h_aeb7b3c7414c76ad8dde14d2fba6cb020}} 
+\index{tcpip.h@{tcpip.h}!tcpip\_try\_callback@{tcpip\_try\_callback}}
+\index{tcpip\_try\_callback@{tcpip\_try\_callback}!tcpip.h@{tcpip.h}}
+\doxysubsubsection{\texorpdfstring{tcpip\_try\_callback()}{tcpip\_try\_callback()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} tcpip\+\_\+try\+\_\+callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\+\_\+callback\+\_\+fn}}}]{function,  }\item[{void $\ast$}]{ctx }\end{DoxyParamCaption})}
+
+Call a specific function in the thread context of tcpip\+\_\+thread for easy access synchronization. A function called in that way may access lw\+IP core code without fearing concurrent access. Does NOT block when the request cannot be posted because the tcpip\+\_\+mbox is full, but returns ERR\+\_\+\+MEM instead. Can be called from interrupt context.
+
+
+\begin{DoxyParams}{Parameters}
+{\em function} & the function to call \\
+\hline
+{\em ctx} & parameter passed to f \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if the function was called, another err\+\_\+t if not
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{tcpip_8c_aab838fe3417ab3a1f61f0728009a0c2a}{tcpip\+\_\+callback}} 
+\end{DoxySeeAlso}

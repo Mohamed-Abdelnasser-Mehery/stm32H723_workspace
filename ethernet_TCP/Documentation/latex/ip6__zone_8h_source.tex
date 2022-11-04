@@ -1,0 +1,147 @@
+\hypertarget{ip6__zone_8h_source}{}\doxysection{ip6\+\_\+zone.\+h}
+\label{ip6__zone_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip6\_zone.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip6\_zone.h}}
+\mbox{\hyperlink{ip6__zone_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{54 \textcolor{comment}{/*}}
+\DoxyCodeLine{55 \textcolor{comment}{ * Copyright (c) 2017 The MINIX 3 Project.}}
+\DoxyCodeLine{56 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{57 \textcolor{comment}{ *}}
+\DoxyCodeLine{58 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{59 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{60 \textcolor{comment}{ *}}
+\DoxyCodeLine{61 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{62 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{63 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{64 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{65 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{66 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{67 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{68 \textcolor{comment}{ *}}
+\DoxyCodeLine{69 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{70 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{71 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{72 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{73 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{74 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{75 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{76 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{77 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{78 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{79 \textcolor{comment}{ *}}
+\DoxyCodeLine{80 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{81 \textcolor{comment}{ *}}
+\DoxyCodeLine{82 \textcolor{comment}{ * Author: David van Moolenbroek <david@minix3.org>}}
+\DoxyCodeLine{83 \textcolor{comment}{ *}}
+\DoxyCodeLine{84 \textcolor{comment}{ */}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_IP6\_ZONE\_H}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define LWIP\_HDR\_IP6\_ZONE\_H}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{89 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#if LWIP\_IPV6  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define IP6\_NO\_ZONE 0}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#if LWIP\_IPV6\_SCOPES}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define IPADDR6\_ZONE\_INIT , IP6\_NO\_ZONE}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define ip6\_addr\_zone(ip6addr) ((ip6addr)-\/>zone)}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define ip6\_addr\_has\_zone(ip6addr) (ip6\_addr\_zone(ip6addr) != IP6\_NO\_ZONE)}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define ip6\_addr\_set\_zone(ip6addr, zone\_idx) ((ip6addr)-\/>zone = (zone\_idx))}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define ip6\_addr\_clear\_zone(ip6addr) ((ip6addr)-\/>zone = IP6\_NO\_ZONE)}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define ip6\_addr\_copy\_zone(ip6addr1, ip6addr2) ((ip6addr1).zone = (ip6addr2).zone)}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define ip6\_addr\_equals\_zone(ip6addr, zone\_idx) ((ip6addr)-\/>zone == (zone\_idx))}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define ip6\_addr\_cmp\_zone(ip6addr1, ip6addr2) ((ip6addr1)-\/>zone == (ip6addr2)-\/>zone)}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{136 \textcolor{keyword}{enum} lwip\_ipv6\_scope\_type}
+\DoxyCodeLine{137 \{}
+\DoxyCodeLine{139   IP6\_UNKNOWN   = 0,}
+\DoxyCodeLine{141   IP6\_UNICAST   = 1,}
+\DoxyCodeLine{143   IP6\_MULTICAST = 2}
+\DoxyCodeLine{144 \};}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#ifndef IPV6\_CUSTOM\_SCOPES}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define IPV6\_CUSTOM\_SCOPES 0}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !IPV6\_CUSTOM\_SCOPES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#if !IPV6\_CUSTOM\_SCOPES}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define ip6\_addr\_has\_scope(ip6addr, type) \(\backslash\)}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{  (ip6\_addr\_islinklocal(ip6addr) || (((type) != IP6\_UNICAST) \&\& \(\backslash\)}}
+\DoxyCodeLine{179 \textcolor{preprocessor}{   (ip6\_addr\_ismulticast\_iflocal(ip6addr) || \(\backslash\)}}
+\DoxyCodeLine{180 \textcolor{preprocessor}{    ip6\_addr\_ismulticast\_linklocal(ip6addr))))}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#define ip6\_addr\_assign\_zone(ip6addr, type, netif) \(\backslash\)}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{    (ip6\_addr\_set\_zone((ip6addr), \(\backslash\)}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{      ip6\_addr\_has\_scope((ip6addr), (type)) ? netif\_get\_index(netif) : 0))}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#define ip6\_addr\_test\_zone(ip6addr, netif) \(\backslash\)}}
+\DoxyCodeLine{222 \textcolor{preprocessor}{    (ip6\_addr\_equals\_zone((ip6addr), netif\_get\_index(netif)))}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !IPV6\_CUSTOM\_SCOPES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#define ip6\_addr\_lacks\_zone(ip6addr, type) \(\backslash\)}}
+\DoxyCodeLine{229 \textcolor{preprocessor}{    (!ip6\_addr\_has\_zone(ip6addr) \&\& ip6\_addr\_has\_scope((ip6addr), (type)))}}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#define ip6\_addr\_select\_zone(dest, src) do \{ struct netif *selected\_netif; \(\backslash\)}}
+\DoxyCodeLine{250 \textcolor{preprocessor}{  selected\_netif = ip6\_route((src), (dest)); \(\backslash\)}}
+\DoxyCodeLine{251 \textcolor{preprocessor}{  if (selected\_netif != NULL) \{ \(\backslash\)}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{    ip6\_addr\_assign\_zone((dest), IP6\_UNKNOWN, selected\_netif); \(\backslash\)}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{  \} \} while (0)}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_IPV6\_SCOPES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#define IPADDR6\_ZONE\_INIT}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#define ip6\_addr\_zone(ip6addr) (IP6\_NO\_ZONE)}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#define ip6\_addr\_has\_zone(ip6addr) (0)}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#define ip6\_addr\_set\_zone(ip6addr, zone\_idx)}}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#define ip6\_addr\_clear\_zone(ip6addr)}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#define ip6\_addr\_copy\_zone(ip6addr1, ip6addr2)}}
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#define ip6\_addr\_equals\_zone(ip6addr, zone\_idx) (1)}}
+\DoxyCodeLine{268 \textcolor{preprocessor}{\#define ip6\_addr\_cmp\_zone(ip6addr1, ip6addr2) (1)}}
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#define IPV6\_CUSTOM\_SCOPES 0}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#define ip6\_addr\_has\_scope(ip6addr, type) (0)}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define ip6\_addr\_assign\_zone(ip6addr, type, netif)}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#define ip6\_addr\_test\_zone(ip6addr, netif) (1)}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{\#define ip6\_addr\_lacks\_zone(ip6addr, type) (0)}}
+\DoxyCodeLine{274 \textcolor{preprocessor}{\#define ip6\_addr\_select\_zone(ip6addr, src)}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_SCOPES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#if LWIP\_IPV6\_SCOPES \&\& LWIP\_IPV6\_SCOPES\_DEBUG}}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#define IP6\_ADDR\_ZONECHECK(ip6addr) LWIP\_ASSERT("{}IPv6 zone check failed"{}}, \(\backslash\)}
+\DoxyCodeLine{282     ip6\_addr\_has\_scope(ip6addr, IP6\_UNKNOWN) == ip6\_addr\_has\_zone(ip6addr))}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#define IP6\_ADDR\_ZONECHECK\_NETIF(ip6addr, netif) LWIP\_ASSERT("{}IPv6 netif zone check failed"{}}, \(\backslash\)}
+\DoxyCodeLine{286     ip6\_addr\_has\_scope(ip6addr, IP6\_UNKNOWN) ? \(\backslash\)}
+\DoxyCodeLine{287     (ip6\_addr\_has\_zone(ip6addr) \&\& \(\backslash\)}
+\DoxyCodeLine{288      (((netif) == NULL) || ip6\_addr\_test\_zone((ip6addr), (netif)))) : \(\backslash\)}
+\DoxyCodeLine{289     !ip6\_addr\_has\_zone(ip6addr))}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_IPV6\_SCOPES \&\& LWIP\_IPV6\_SCOPES\_DEBUG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#define IP6\_ADDR\_ZONECHECK(ip6addr)}}
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#define IP6\_ADDR\_ZONECHECK\_NETIF(ip6addr, netif)}}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_SCOPES \&\& LWIP\_IPV6\_SCOPES\_DEBUG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{301 \}}
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_IP6\_ZONE\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

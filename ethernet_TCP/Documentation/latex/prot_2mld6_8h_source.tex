@@ -1,0 +1,72 @@
+\hypertarget{prot_2mld6_8h_source}{}\doxysection{mld6.\+h}
+\label{prot_2mld6_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/mld6.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/mld6.h}}
+\mbox{\hyperlink{prot_2mld6_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_PROT\_MLD6\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_PROT\_MLD6\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{arch_8h}{lwip/arch.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{prot_2ip6_8h}{lwip/prot/ip6.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define MLD6\_HBH\_HLEN 8}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{52 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{53 \textcolor{keyword}{struct }\mbox{\hyperlink{structmld__header}{mld\_header}} \{}
+\DoxyCodeLine{54   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t type);}
+\DoxyCodeLine{55   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t code);}
+\DoxyCodeLine{56   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t chksum);}
+\DoxyCodeLine{57   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t max\_resp\_delay);}
+\DoxyCodeLine{58   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t reserved);}
+\DoxyCodeLine{59   \mbox{\hyperlink{group__compiler__abstraction_gacc89e224363eb0ebca24b64d925c3cb7}{PACK\_STRUCT\_FLD\_S}}(ip6\_addr\_p\_t multicast\_address);}
+\DoxyCodeLine{60   \textcolor{comment}{/* Options follow. */}}
+\DoxyCodeLine{61 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{62 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{68 \}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_PROT\_MLD6\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,105 @@
+\hypertarget{netifapi_8h_source}{}\doxysection{netifapi.\+h}
+\label{netifapi_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/netifapi.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/netifapi.h}}
+\mbox{\hyperlink{netifapi_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{8 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{12 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{13 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{17 \textcolor{comment}{ *}}
+\DoxyCodeLine{18 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{19 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{20 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{21 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{22 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{23 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{24 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{25 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{26 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{27 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{28 \textcolor{comment}{ *}}
+\DoxyCodeLine{29 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{30 \textcolor{comment}{ *}}
+\DoxyCodeLine{31 \textcolor{comment}{ */}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_NETIFAPI\_H}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define LWIP\_HDR\_NETIFAPI\_H}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#if LWIP\_NETIF\_API }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{sys_8h}{lwip/sys.h}}"{}}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dhcp_8h}{lwip/dhcp.h}}"{}}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{autoip_8h}{lwip/autoip.h}}"{}}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{tcpip__priv_8h}{lwip/priv/tcpip\_priv.h}}"{}}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{api__msg_8h}{lwip/priv/api\_msg.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lwip_2prot_2ethernet_8h}{lwip/prot/ethernet.h}}"{}}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{48 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{comment}{/* API for application */}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#if LWIP\_ARP \&\& LWIP\_IPV4}}
+\DoxyCodeLine{53 \textcolor{comment}{/* Used for netfiapi\_arp\_* APIs */}}
+\DoxyCodeLine{54 \textcolor{keyword}{enum} netifapi\_arp\_entry \{}
+\DoxyCodeLine{55   NETIFAPI\_ARP\_PERM \textcolor{comment}{/* Permanent entry */}}
+\DoxyCodeLine{56   \textcolor{comment}{/* Other entry types can be added here */}}
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{60 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} netifapi\_arp\_add(\textcolor{keyword}{const} ip4\_addr\_t *ipaddr, \textcolor{keyword}{struct} \mbox{\hyperlink{structeth__addr}{eth\_addr}} *ethaddr, \textcolor{keyword}{enum} netifapi\_arp\_entry type);}
+\DoxyCodeLine{62 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} netifapi\_arp\_remove(\textcolor{keyword}{const} ip4\_addr\_t *ipaddr, \textcolor{keyword}{enum} netifapi\_arp\_entry type);}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_ARP \&\& LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} netifapi\_netif\_add(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}},}
+\DoxyCodeLine{66 \#\textcolor{keywordflow}{if} \mbox{\hyperlink{group__lwip__opts__ipv4_ga429e811a80ebb5157e14a854870c4410}{LWIP\_IPV4}}}
+\DoxyCodeLine{67                          \textcolor{keyword}{const} ip4\_addr\_t *ipaddr, \textcolor{keyword}{const} ip4\_addr\_t *netmask, \textcolor{keyword}{const} ip4\_addr\_t *gw,}
+\DoxyCodeLine{68 \#endif \textcolor{comment}{/* LWIP\_IPV4 */}}
+\DoxyCodeLine{69                          \textcolor{keywordtype}{void} *state, \mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\_init\_fn}} init, \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\_input\_fn}} input);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{72 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} netifapi\_netif\_set\_addr(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip4\_addr\_t *ipaddr,}
+\DoxyCodeLine{73                               \textcolor{keyword}{const} ip4\_addr\_t *netmask, \textcolor{keyword}{const} ip4\_addr\_t *gw);}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} netifapi\_netif\_common(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, netifapi\_void\_fn voidfunc,}
+\DoxyCodeLine{77                             netifapi\_errt\_fn errtfunc);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{80 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} netifapi\_netif\_name\_to\_index(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *name, u8\_t *index);}
+\DoxyCodeLine{82 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} netifapi\_netif\_index\_to\_name(u8\_t index, \textcolor{keywordtype}{char} *name);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define netifapi\_netif\_remove(n)        netifapi\_netif\_common(n, netif\_remove, NULL)}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define netifapi\_netif\_set\_up(n)        netifapi\_netif\_common(n, netif\_set\_up, NULL)}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define netifapi\_netif\_set\_down(n)      netifapi\_netif\_common(n, netif\_set\_down, NULL)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define netifapi\_netif\_set\_default(n)   netifapi\_netif\_common(n, netif\_set\_default, NULL)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define netifapi\_netif\_set\_link\_up(n)   netifapi\_netif\_common(n, netif\_set\_link\_up, NULL)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define netifapi\_netif\_set\_link\_down(n) netifapi\_netif\_common(n, netif\_set\_link\_down, NULL)}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define netifapi\_dhcp\_start(n)            netifapi\_netif\_common(n, NULL, dhcp\_start)}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define netifapi\_dhcp\_stop(n)             netifapi\_netif\_common(n, dhcp\_stop, NULL)}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define netifapi\_dhcp\_inform(n)           netifapi\_netif\_common(n, dhcp\_inform, NULL)}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#define netifapi\_dhcp\_renew(n)            netifapi\_netif\_common(n, NULL, dhcp\_renew)}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define netifapi\_dhcp\_release(n)          netifapi\_netif\_common(n, NULL, dhcp\_release)}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define netifapi\_dhcp\_release\_and\_stop(n) netifapi\_netif\_common(n, dhcp\_release\_and\_stop, NULL)}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#define netifapi\_autoip\_start(n)      netifapi\_netif\_common(n, NULL, autoip\_start)}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define netifapi\_autoip\_stop(n)       netifapi\_netif\_common(n, NULL, autoip\_stop)}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{156 \}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_API */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_NETIFAPI\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

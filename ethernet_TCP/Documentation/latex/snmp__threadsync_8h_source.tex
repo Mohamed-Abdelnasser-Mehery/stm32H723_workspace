@@ -1,0 +1,111 @@
+\hypertarget{snmp__threadsync_8h_source}{}\doxysection{snmp\+\_\+threadsync.\+h}
+\label{snmp__threadsync_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/snmp\_threadsync.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/snmp\_threadsync.h}}
+\mbox{\hyperlink{snmp__threadsync_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Dirk Ziegelmeier <dziegel@gmx.de>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_SNMP\_THREADSYNC\_H}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_SNMP\_THREADSYNC\_H}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{snmp__opts_8h}{lwip/apps/snmp\_opts.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#if LWIP\_SNMP }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{snmp__core_8h}{lwip/apps/snmp\_core.h}}"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{sys_8h}{lwip/sys.h}}"{}}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{typedef} void (*snmp\_threadsync\_called\_fn)(\textcolor{keywordtype}{void}* arg);}
+\DoxyCodeLine{53 \textcolor{keyword}{typedef} void (*snmp\_threadsync\_synchronizer\_fn)(snmp\_threadsync\_called\_fn fn, \textcolor{keywordtype}{void}* arg);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{57 \textcolor{keyword}{struct }threadsync\_data}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{59   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{60     snmp\_err\_t err;}
+\DoxyCodeLine{61     s16\_t s16;}
+\DoxyCodeLine{62   \} retval;}
+\DoxyCodeLine{63   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{64     \textcolor{keyword}{const} u32\_t *root\_oid;}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} *value;}
+\DoxyCodeLine{66   \} arg1;}
+\DoxyCodeLine{67   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{68     u8\_t root\_oid\_len;}
+\DoxyCodeLine{69     u16\_t len;}
+\DoxyCodeLine{70   \} arg2;}
+\DoxyCodeLine{71   \textcolor{keyword}{const} \textcolor{keyword}{struct }snmp\_threadsync\_node *threadsync\_node;}
+\DoxyCodeLine{72   \textcolor{keyword}{struct }snmp\_node\_instance proxy\_instance;}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{76 \textcolor{keyword}{struct }snmp\_threadsync\_instance}
+\DoxyCodeLine{77 \{}
+\DoxyCodeLine{78   sys\_sem\_t                       sem;}
+\DoxyCodeLine{79   sys\_mutex\_t                     sem\_usage\_mutex;}
+\DoxyCodeLine{80   snmp\_threadsync\_synchronizer\_fn sync\_fn;}
+\DoxyCodeLine{81   \textcolor{keyword}{struct }threadsync\_data          data;}
+\DoxyCodeLine{82 \};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{85 \textcolor{keyword}{struct }snmp\_threadsync\_node}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87   \textcolor{comment}{/* inherited "{}base class"{} members */}}
+\DoxyCodeLine{88   \textcolor{keyword}{struct }snmp\_leaf\_node           node;}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90   \textcolor{keyword}{const} \textcolor{keyword}{struct }snmp\_leaf\_node     *target;}
+\DoxyCodeLine{91   \textcolor{keyword}{struct }snmp\_threadsync\_instance *instance;}
+\DoxyCodeLine{92 \};}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 snmp\_err\_t snmp\_threadsync\_get\_instance(\textcolor{keyword}{const} u32\_t *root\_oid, u8\_t root\_oid\_len, \textcolor{keyword}{struct} snmp\_node\_instance* instance);}
+\DoxyCodeLine{95 snmp\_err\_t snmp\_threadsync\_get\_next\_instance(\textcolor{keyword}{const} u32\_t *root\_oid, u8\_t root\_oid\_len, \textcolor{keyword}{struct} snmp\_node\_instance* instance);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define SNMP\_CREATE\_THREAD\_SYNC\_NODE(oid, target\_leaf\_node, threadsync\_instance) \(\backslash\)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{  \{\{\{ SNMP\_NODE\_THREADSYNC, (oid) \}, \(\backslash\)}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{    snmp\_threadsync\_get\_instance, \(\backslash\)}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{    snmp\_threadsync\_get\_next\_instance \}, \(\backslash\)}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{    (target\_leaf\_node), \(\backslash\)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{    (threadsync\_instance) \}}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{106 \textcolor{keywordtype}{void} snmp\_threadsync\_init(\textcolor{keyword}{struct} snmp\_threadsync\_instance *instance, snmp\_threadsync\_synchronizer\_fn sync\_fn);}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SNMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{111 \}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_SNMP\_THREADSYNC\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

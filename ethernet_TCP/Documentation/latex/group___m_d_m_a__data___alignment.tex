@@ -1,0 +1,55 @@
+\hypertarget{group___m_d_m_a__data___alignment}{}\doxysection{MDMA data alignment}
+\label{group___m_d_m_a__data___alignment}\index{MDMA data alignment@{MDMA data alignment}}
+
+
+MDMA data alignment.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a__data___alignment_gabbaf37c894719c7ba65a99f2a00a3648}{MDMA\+\_\+\+DATAALIGN\+\_\+\+PACKENABLE}}~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad19fb353f1a866c419780dc63408fd32}{MDMA\+\_\+\+CTCR\+\_\+\+PKE}})
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a__data___alignment_ga1187c5ce45017e0322a60ff575c13ff5}{MDMA\+\_\+\+DATAALIGN\+\_\+\+RIGHT}}~((uint32\+\_\+t)0x00000000U)
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a__data___alignment_gac595b2688fd03d599c468cced4db133b}{MDMA\+\_\+\+DATAALIGN\+\_\+\+RIGHT\+\_\+\+SIGNED}}~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga40ebc64d84e372dc70980e52079b8659}{MDMA\+\_\+\+CTCR\+\_\+\+PAM\+\_\+0}})
+\item 
+\#define \mbox{\hyperlink{group___m_d_m_a__data___alignment_gaa068720a5bee6c21bc90e295edf28ee2}{MDMA\+\_\+\+DATAALIGN\+\_\+\+LEFT}}~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad0f4b8dc457aa6bdfcff92047c9c15a6}{MDMA\+\_\+\+CTCR\+\_\+\+PAM\+\_\+1}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MDMA data alignment. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___m_d_m_a__data___alignment_gaa068720a5bee6c21bc90e295edf28ee2}\label{group___m_d_m_a__data___alignment_gaa068720a5bee6c21bc90e295edf28ee2}} 
+\index{MDMA data alignment@{MDMA data alignment}!MDMA\_DATAALIGN\_LEFT@{MDMA\_DATAALIGN\_LEFT}}
+\index{MDMA\_DATAALIGN\_LEFT@{MDMA\_DATAALIGN\_LEFT}!MDMA data alignment@{MDMA data alignment}}
+\doxysubsubsection{\texorpdfstring{MDMA\_DATAALIGN\_LEFT}{MDMA\_DATAALIGN\_LEFT}}
+{\footnotesize\ttfamily \#define MDMA\+\_\+\+DATAALIGN\+\_\+\+LEFT~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad0f4b8dc457aa6bdfcff92047c9c15a6}{MDMA\+\_\+\+CTCR\+\_\+\+PAM\+\_\+1}})}
+
+Left Aligned (padded with 0s) ~\newline
+ \mbox{\Hypertarget{group___m_d_m_a__data___alignment_gabbaf37c894719c7ba65a99f2a00a3648}\label{group___m_d_m_a__data___alignment_gabbaf37c894719c7ba65a99f2a00a3648}} 
+\index{MDMA data alignment@{MDMA data alignment}!MDMA\_DATAALIGN\_PACKENABLE@{MDMA\_DATAALIGN\_PACKENABLE}}
+\index{MDMA\_DATAALIGN\_PACKENABLE@{MDMA\_DATAALIGN\_PACKENABLE}!MDMA data alignment@{MDMA data alignment}}
+\doxysubsubsection{\texorpdfstring{MDMA\_DATAALIGN\_PACKENABLE}{MDMA\_DATAALIGN\_PACKENABLE}}
+{\footnotesize\ttfamily \#define MDMA\+\_\+\+DATAALIGN\+\_\+\+PACKENABLE~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_gad19fb353f1a866c419780dc63408fd32}{MDMA\+\_\+\+CTCR\+\_\+\+PKE}})}
+
+The source data is packed/un-\/packed into the destination data size All data are right aligned, in Little Endien mode. ~\newline
+ \mbox{\Hypertarget{group___m_d_m_a__data___alignment_ga1187c5ce45017e0322a60ff575c13ff5}\label{group___m_d_m_a__data___alignment_ga1187c5ce45017e0322a60ff575c13ff5}} 
+\index{MDMA data alignment@{MDMA data alignment}!MDMA\_DATAALIGN\_RIGHT@{MDMA\_DATAALIGN\_RIGHT}}
+\index{MDMA\_DATAALIGN\_RIGHT@{MDMA\_DATAALIGN\_RIGHT}!MDMA data alignment@{MDMA data alignment}}
+\doxysubsubsection{\texorpdfstring{MDMA\_DATAALIGN\_RIGHT}{MDMA\_DATAALIGN\_RIGHT}}
+{\footnotesize\ttfamily \#define MDMA\+\_\+\+DATAALIGN\+\_\+\+RIGHT~((uint32\+\_\+t)0x00000000U)}
+
+Right Aligned, padded w/ 0s (default) ~\newline
+ \mbox{\Hypertarget{group___m_d_m_a__data___alignment_gac595b2688fd03d599c468cced4db133b}\label{group___m_d_m_a__data___alignment_gac595b2688fd03d599c468cced4db133b}} 
+\index{MDMA data alignment@{MDMA data alignment}!MDMA\_DATAALIGN\_RIGHT\_SIGNED@{MDMA\_DATAALIGN\_RIGHT\_SIGNED}}
+\index{MDMA\_DATAALIGN\_RIGHT\_SIGNED@{MDMA\_DATAALIGN\_RIGHT\_SIGNED}!MDMA data alignment@{MDMA data alignment}}
+\doxysubsubsection{\texorpdfstring{MDMA\_DATAALIGN\_RIGHT\_SIGNED}{MDMA\_DATAALIGN\_RIGHT\_SIGNED}}
+{\footnotesize\ttfamily \#define MDMA\+\_\+\+DATAALIGN\+\_\+\+RIGHT\+\_\+\+SIGNED~((uint32\+\_\+t)\mbox{\hyperlink{group___peripheral___registers___bits___definition_ga40ebc64d84e372dc70980e52079b8659}{MDMA\+\_\+\+CTCR\+\_\+\+PAM\+\_\+0}})}
+
+Right Aligned, Sign extended , Note \+: this mode is allowed only if the Source data size is smaller than Destination data size ~\newline
+ 

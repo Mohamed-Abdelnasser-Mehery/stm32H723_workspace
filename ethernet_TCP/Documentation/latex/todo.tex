@@ -1,0 +1,49 @@
+
+\begin{DoxyRefList}
+\item[Module \mbox{\hyperlink{group__bridgeif}{bridgeif}} ]\label{todo__todo000007}%
+\Hypertarget{todo__todo000007}%
+\+:
+\begin{DoxyItemize}
+\item compact static FDB entries (instead of walking the whole array)
+\item add FDB query/read access
+\item add FDB change callback (when learning or dropping auto-\/learned entries)
+\item prefill FDB with MAC classes that should never be forwarded
+\item multicast snooping? (and only forward group addresses to interested ports)
+\item support removing ports
+\item check SNMP integration
+\item VLAN handling / trunk ports
+\item priority handling? (although that largely depends on TX queue limitations and lw\+IP doesn\textquotesingle{}t provide tx-\/done handling)  
+\end{DoxyItemize}
+\item[Module \mbox{\hyperlink{group__dhcp4}{dhcp4}} ]\label{todo__todo000005}%
+\Hypertarget{todo__todo000005}%
+\+:
+\begin{DoxyItemize}
+\item Support for interfaces other than Ethernet (SLIP, PPP, ...) 
+\end{DoxyItemize}
+\item[File \mbox{\hyperlink{lowpan6_8c}{lowpan6.c}} ]\label{todo__todo000008}%
+\Hypertarget{todo__todo000008}%
+\+: RFC 6775.  
+\item[File \mbox{\hyperlink{lowpan6__common_8c}{lowpan6\+\_\+common.c}} ]\label{todo__todo000010}%
+\Hypertarget{todo__todo000010}%
+\+: RFC 6775.  
+\item[Module \mbox{\hyperlink{group__rfc7668if}{rfc7668if}} ]\label{todo__todo000009}%
+\Hypertarget{todo__todo000009}%
+\+:
+\begin{DoxyItemize}
+\item further testing
+\item support compression contexts
+\item support multiple addresses
+\item support multicast
+\item support neighbor discovery  
+\end{DoxyItemize}
+\item[Global \mbox{\hyperlink{group__sntp__opts_ga7d4e12d90912d486e64f289d7f3ca446}{SNTP\+\_\+\+CHECK\+\_\+\+RESPONSE}} ]\label{todo__todo000006}%
+\Hypertarget{todo__todo000006}%
+\+: discard reply if any of the VN, Stratum, or Transmit Timestamp fields is 0 or the Mode field is not 4 (unicast) or 5 (broadcast).
+\begin{DoxyItemize}
+\item \texorpdfstring{$>$}{>}= 4 
+\end{DoxyItemize}
+
+
+
+\+: to check that the Root Delay and Root Dispersion fields are each greater than or equal to 0 and less than infinity, where infinity is currently a cozy number like one second. This check avoids using a server whose synchronization source has expired for a very long time. 
+\end{DoxyRefList}

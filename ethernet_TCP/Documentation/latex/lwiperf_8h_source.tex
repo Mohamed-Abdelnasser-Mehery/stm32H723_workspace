@@ -1,0 +1,88 @@
+\hypertarget{lwiperf_8h_source}{}\doxysection{lwiperf.\+h}
+\label{lwiperf_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/lwiperf.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/lwiperf.h}}
+\mbox{\hyperlink{lwiperf_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2014 Simon Goldschmidt}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Simon Goldschmidt}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_LWIPERF\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_LWIPERF\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define LWIPERF\_TCP\_PORT\_DEFAULT  5001}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{50 \textcolor{keyword}{enum} \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6}{lwiperf\_report\_type}}}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{53   \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6aa52255236ad2983346311ce7f28210e5}{LWIPERF\_TCP\_DONE\_SERVER}},}
+\DoxyCodeLine{55   \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6a4f9bde0cad305eaab25d2c1d0196677b}{LWIPERF\_TCP\_DONE\_CLIENT}},}
+\DoxyCodeLine{57   \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6abee2bf6da51a0845c15ac52b280203cb}{LWIPERF\_TCP\_ABORTED\_LOCAL}},}
+\DoxyCodeLine{59   \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6adda7e5dbaf1e04eb04ec0fd2b05584a5}{LWIPERF\_TCP\_ABORTED\_LOCAL\_DATAERROR}},}
+\DoxyCodeLine{61   \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6a3d4e1f5742d80aeafb6b22aa74d93e40}{LWIPERF\_TCP\_ABORTED\_LOCAL\_TXERROR}},}
+\DoxyCodeLine{63   \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6ae664c0f987584f07fb0f6f8896aada0d}{LWIPERF\_TCP\_ABORTED\_REMOTE}}}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{67 \textcolor{keyword}{enum} \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76c}{lwiperf\_client\_type}}}
+\DoxyCodeLine{68 \{}
+\DoxyCodeLine{70   \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76cae1862655ebaaea2e7e0261dff0173110}{LWIPERF\_CLIENT}},}
+\DoxyCodeLine{72   \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76cab0381feca6655968e7380622e7a63ede}{LWIPERF\_DUAL}},}
+\DoxyCodeLine{74   \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76caccdab7ee6e1b0981861e66f0755f7964}{LWIPERF\_TRADEOFF}}}
+\DoxyCodeLine{75 \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{80 \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}{lwiperf\_report\_fn}})(\textcolor{keywordtype}{void} *arg, \textcolor{keyword}{enum} \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6}{lwiperf\_report\_type}} report\_type,}
+\DoxyCodeLine{81   \textcolor{keyword}{const} ip\_addr\_t* local\_addr, u16\_t local\_port, \textcolor{keyword}{const} ip\_addr\_t* remote\_addr, u16\_t remote\_port,}
+\DoxyCodeLine{82   u32\_t bytes\_transferred, u32\_t ms\_duration, u32\_t bandwidth\_kbitpsec);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keywordtype}{void}* lwiperf\_start\_tcp\_server(\textcolor{keyword}{const} ip\_addr\_t* local\_addr, u16\_t local\_port,}
+\DoxyCodeLine{85                                \mbox{\hyperlink{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}{lwiperf\_report\_fn}} report\_fn, \textcolor{keywordtype}{void}* report\_arg);}
+\DoxyCodeLine{86 \textcolor{keywordtype}{void}* lwiperf\_start\_tcp\_server\_default(\mbox{\hyperlink{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}{lwiperf\_report\_fn}} report\_fn, \textcolor{keywordtype}{void}* report\_arg);}
+\DoxyCodeLine{87 \textcolor{keywordtype}{void}* lwiperf\_start\_tcp\_client(\textcolor{keyword}{const} ip\_addr\_t* remote\_addr, u16\_t remote\_port,}
+\DoxyCodeLine{88                                \textcolor{keyword}{enum} \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76c}{lwiperf\_client\_type}} type,}
+\DoxyCodeLine{89                                \mbox{\hyperlink{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}{lwiperf\_report\_fn}} report\_fn, \textcolor{keywordtype}{void}* report\_arg);}
+\DoxyCodeLine{90 \textcolor{keywordtype}{void}* lwiperf\_start\_tcp\_client\_default(\textcolor{keyword}{const} ip\_addr\_t* remote\_addr,}
+\DoxyCodeLine{91                                \mbox{\hyperlink{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}{lwiperf\_report\_fn}} report\_fn, \textcolor{keywordtype}{void}* report\_arg);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{keywordtype}{void}  lwiperf\_abort(\textcolor{keywordtype}{void}* lwiperf\_session);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{97 \}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_LWIPERF\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

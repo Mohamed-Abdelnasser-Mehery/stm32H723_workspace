@@ -1,0 +1,897 @@
+\hypertarget{stm32h7xx__hal_8h_source}{}\doxysection{stm32h7xx\+\_\+hal.\+h}
+\label{stm32h7xx__hal_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal.h}}
+\mbox{\hyperlink{stm32h7xx__hal_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{20 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#ifndef STM32H7xx\_HAL\_H}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define STM32H7xx\_HAL\_H}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{25  \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32h7xx__hal__conf_8h}{stm32h7xx\_hal\_conf.h}}"{}}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{39 \textcolor{comment}{/* Exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{43 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45   HAL\_TICK\_FREQ\_10HZ         = 100U,}
+\DoxyCodeLine{46   HAL\_TICK\_FREQ\_100HZ        = 10U,}
+\DoxyCodeLine{47   HAL\_TICK\_FREQ\_1KHZ         = 1U,}
+\DoxyCodeLine{48   HAL\_TICK\_FREQ\_DEFAULT      = HAL\_TICK\_FREQ\_1KHZ}
+\DoxyCodeLine{49 \} HAL\_TickFreqTypeDef;}
+\DoxyCodeLine{54 \textcolor{comment}{/* Exported constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define REV\_ID\_Y ((uint32\_t)0x1003)  }}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define REV\_ID\_B ((uint32\_t)0x2000)  }}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define REV\_ID\_X ((uint32\_t)0x2001)  }}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define REV\_ID\_V ((uint32\_t)0x2003)  }}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define SYSCFG\_VREFBUF\_VOLTAGE\_SCALE0   VREFBUF\_CSR\_VRS\_OUT1   }}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define SYSCFG\_VREFBUF\_VOLTAGE\_SCALE1   VREFBUF\_CSR\_VRS\_OUT2   }}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define SYSCFG\_VREFBUF\_VOLTAGE\_SCALE2   VREFBUF\_CSR\_VRS\_OUT3   }}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define SYSCFG\_VREFBUF\_VOLTAGE\_SCALE3   VREFBUF\_CSR\_VRS\_OUT4   }}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define IS\_SYSCFG\_VREFBUF\_VOLTAGE\_SCALE(\_\_SCALE\_\_)  (((\_\_SCALE\_\_) == SYSCFG\_VREFBUF\_VOLTAGE\_SCALE0) || \(\backslash\)}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{                                                     ((\_\_SCALE\_\_) == SYSCFG\_VREFBUF\_VOLTAGE\_SCALE1) || \(\backslash\)}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{                                                     ((\_\_SCALE\_\_) == SYSCFG\_VREFBUF\_VOLTAGE\_SCALE2) || \(\backslash\)}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{                                                     ((\_\_SCALE\_\_) == SYSCFG\_VREFBUF\_VOLTAGE\_SCALE3))}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define SYSCFG\_VREFBUF\_HIGH\_IMPEDANCE\_DISABLE  ((uint32\_t)0x00000000) }}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define SYSCFG\_VREFBUF\_HIGH\_IMPEDANCE\_ENABLE   VREFBUF\_CSR\_HIZ        }}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define IS\_SYSCFG\_VREFBUF\_HIGH\_IMPEDANCE(\_\_VALUE\_\_)  (((\_\_VALUE\_\_) == SYSCFG\_VREFBUF\_HIGH\_IMPEDANCE\_DISABLE) || \(\backslash\)}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{                                                      ((\_\_VALUE\_\_) == SYSCFG\_VREFBUF\_HIGH\_IMPEDANCE\_ENABLE))}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define IS\_SYSCFG\_VREFBUF\_TRIMMING(\_\_VALUE\_\_)  (((\_\_VALUE\_\_) > 0UL) \&\& ((\_\_VALUE\_\_) <= VREFBUF\_CCR\_TRIM))}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#if !defined(SYSCFG\_PMCR\_BOOSTEN)}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define SYSCFG\_FASTMODEPLUS\_PB6        SYSCFG\_PMCR\_I2C\_PB6\_FMP  }}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define SYSCFG\_FASTMODEPLUS\_PB7        SYSCFG\_PMCR\_I2C\_PB7\_FMP  }}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define SYSCFG\_FASTMODEPLUS\_PB8        SYSCFG\_PMCR\_I2C\_PB8\_FMP  }}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define SYSCFG\_FASTMODEPLUS\_PB9        SYSCFG\_PMCR\_I2C\_PB9\_FMP  }}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define IS\_SYSCFG\_FASTMODEPLUS(\_\_PIN\_\_) ((((\_\_PIN\_\_) \& SYSCFG\_FASTMODEPLUS\_PB6) == SYSCFG\_FASTMODEPLUS\_PB6) || \(\backslash\)}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{                                         (((\_\_PIN\_\_) \& SYSCFG\_FASTMODEPLUS\_PB7) == SYSCFG\_FASTMODEPLUS\_PB7) || \(\backslash\)}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{                                         (((\_\_PIN\_\_) \& SYSCFG\_FASTMODEPLUS\_PB8) == SYSCFG\_FASTMODEPLUS\_PB8) || \(\backslash\)}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{                                         (((\_\_PIN\_\_) \& SYSCFG\_FASTMODEPLUS\_PB9) == SYSCFG\_FASTMODEPLUS\_PB9))}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ! SYSCFG\_PMCR\_BOOSTEN */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#if defined(SYSCFG\_ADC2ALT\_ADC2\_ROUT0) || defined(SYSCFG\_ADC2ALT\_ADC2\_ROUT1)}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define SYSCFG\_ADC2\_ROUT0\_DAC1\_1       ((uint32\_t)0x00000000)      }}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define SYSCFG\_ADC2\_ROUT0\_VBAT4         SYSCFG\_ADC2ALT\_ADC2\_ROUT0  }}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define SYSCFG\_ADC2\_ROUT1\_DAC1\_2        ((uint32\_t)0x00000000)     }}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define SYSCFG\_ADC2\_ROUT1\_VREFINT       SYSCFG\_ADC2ALT\_ADC2\_ROUT1  }}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define IS\_SYSCFG\_ADC2ALT\_ROUT0(\_\_VALUE\_\_)  (((\_\_VALUE\_\_) == SYSCFG\_ADC2\_ROUT0\_DAC1\_1) || \(\backslash\)}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{                                             ((\_\_VALUE\_\_) == SYSCFG\_ADC2\_ROUT0\_VBAT4))}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define IS\_SYSCFG\_ADC2ALT\_ROUT1(\_\_VALUE\_\_)  (((\_\_VALUE\_\_) == SYSCFG\_ADC2\_ROUT1\_DAC1\_2) || \(\backslash\)}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{                                             ((\_\_VALUE\_\_) == SYSCFG\_ADC2\_ROUT1\_VREFINT))}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*SYSCFG\_ADC2ALT\_ADC2\_ROUT0 || SYSCFG\_ADC2ALT\_ADC2\_ROUT1*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 }
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define SYSCFG\_ETH\_MII                      ((uint32\_t)0x00000000)  }}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#define SYSCFG\_ETH\_RMII                     SYSCFG\_PMCR\_EPIS\_SEL\_2  }}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define IS\_SYSCFG\_ETHERNET\_CONFIG(CONFIG) (((CONFIG) == SYSCFG\_ETH\_MII)        || \(\backslash\)}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{                                          ((CONFIG) == SYSCFG\_ETH\_RMII))}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PA0                       SYSCFG\_PMCR\_PA0SO  }}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PA1                       SYSCFG\_PMCR\_PA1SO  }}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PC2                       SYSCFG\_PMCR\_PC2SO  }}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PC3                       SYSCFG\_PMCR\_PC3SO  }}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PA0\_OPEN                       SYSCFG\_PMCR\_PA0SO       }}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PA0\_CLOSE                      ((uint32\_t)0x00000000)  }}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PA1\_OPEN                       SYSCFG\_PMCR\_PA1SO       }}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PA1\_CLOSE                      ((uint32\_t)0x00000000)  }}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PC2\_OPEN                       SYSCFG\_PMCR\_PC2SO       }}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PC2\_CLOSE                      ((uint32\_t)0x00000000)  }}
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PC3\_OPEN                       SYSCFG\_PMCR\_PC3SO       }}
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#define SYSCFG\_SWITCH\_PC3\_CLOSE                      ((uint32\_t)0x00000000)  }}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define IS\_SYSCFG\_ANALOG\_SWITCH(SWITCH)    ((((SWITCH) \& SYSCFG\_SWITCH\_PA0) == SYSCFG\_SWITCH\_PA0)|| \(\backslash\)}}
+\DoxyCodeLine{187 \textcolor{preprocessor}{                                           (((SWITCH) \& SYSCFG\_SWITCH\_PA1) == SYSCFG\_SWITCH\_PA1) || \(\backslash\)}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{                                           (((SWITCH) \& SYSCFG\_SWITCH\_PC2) == SYSCFG\_SWITCH\_PC2) || \(\backslash\)}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{                                           (((SWITCH) \& SYSCFG\_SWITCH\_PC3) == SYSCFG\_SWITCH\_PC3))}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#define IS\_SYSCFG\_SWITCH\_STATE(STATE)      ((((STATE) \& SYSCFG\_SWITCH\_PA0\_OPEN) == SYSCFG\_SWITCH\_PA0\_OPEN)    || \(\backslash\)}}
+\DoxyCodeLine{193 \textcolor{preprocessor}{                                           (((STATE) \& SYSCFG\_SWITCH\_PA0\_CLOSE) == SYSCFG\_SWITCH\_PA0\_CLOSE)   || \(\backslash\)}}
+\DoxyCodeLine{194 \textcolor{preprocessor}{                                           (((STATE) \& SYSCFG\_SWITCH\_PA1\_OPEN) == SYSCFG\_SWITCH\_PA1\_OPEN)     || \(\backslash\)}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{                                           (((STATE) \& SYSCFG\_SWITCH\_PA1\_CLOSE) == SYSCFG\_SWITCH\_PA1\_CLOSE)   || \(\backslash\)}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{                                           (((STATE) \& SYSCFG\_SWITCH\_PC2\_OPEN) == SYSCFG\_SWITCH\_PC2\_OPEN)     || \(\backslash\)}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{                                           (((STATE) \& SYSCFG\_SWITCH\_PC2\_CLOSE) == SYSCFG\_SWITCH\_PC2\_CLOSE)   || \(\backslash\)}}
+\DoxyCodeLine{198 \textcolor{preprocessor}{                                           (((STATE) \& SYSCFG\_SWITCH\_PC3\_OPEN) == SYSCFG\_SWITCH\_PC3\_OPEN)     || \(\backslash\)}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{                                           (((STATE) \& SYSCFG\_SWITCH\_PC3\_CLOSE) == SYSCFG\_SWITCH\_PC3\_CLOSE))}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 }
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#define SYSCFG\_BOOT\_ADDR0                    ((uint32\_t)0x00000000)  }}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#define SYSCFG\_BOOT\_ADDR1                    ((uint32\_t)0x00000001)  }}
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#define IS\_SYSCFG\_BOOT\_REGISTER(REGISTER) (((REGISTER) == SYSCFG\_BOOT\_ADDR0)|| \(\backslash\)}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{                                          ((REGISTER) == SYSCFG\_BOOT\_ADDR1))}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#define IS\_SYSCFG\_BOOT\_ADDRESS(ADDRESS) ((ADDRESS) < PERIPH\_BASE)}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#define SYSCFG\_CELL\_CODE                    ((uint32\_t)0x00000000)  }}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#define SYSCFG\_REGISTER\_CODE                 SYSCFG\_CCCSR\_CS        }}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#define IS\_SYSCFG\_CODE\_SELECT(SELECT) (((SELECT) == SYSCFG\_CELL\_CODE)|| \(\backslash\)}}
+\DoxyCodeLine{225 \textcolor{preprocessor}{                                        ((SELECT) == SYSCFG\_REGISTER\_CODE))}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#define IS\_SYSCFG\_CODE\_CONFIG(CONFIG) ((CONFIG) < (0x10UL))}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#define EXTI\_MODE\_IT          ((uint32\_t)0x00010000)}}
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#define EXTI\_MODE\_EVT         ((uint32\_t)0x00020000)}}
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#define EXTI\_RISING\_EDGE      ((uint32\_t)0x00100000)}}
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#define EXTI\_FALLING\_EDGE     ((uint32\_t)0x00200000)}}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#define IS\_EXTI\_EDGE\_LINE(EDGE) (((EDGE) == EXTI\_RISING\_EDGE) || ((EDGE) == EXTI\_FALLING\_EDGE))}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#define IS\_EXTI\_MODE\_LINE(MODE) (((MODE) == EXTI\_MODE\_IT) || ((MODE) == EXTI\_MODE\_EVT))}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#define EXTI\_LINE0       ((uint32\_t)0x00)  }}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#define EXTI\_LINE1       ((uint32\_t)0x01)  }}
+\DoxyCodeLine{250 \textcolor{preprocessor}{\#define EXTI\_LINE2       ((uint32\_t)0x02)  }}
+\DoxyCodeLine{251 \textcolor{preprocessor}{\#define EXTI\_LINE3       ((uint32\_t)0x03)  }}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#define EXTI\_LINE4       ((uint32\_t)0x04)  }}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#define EXTI\_LINE5       ((uint32\_t)0x05)  }}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#define EXTI\_LINE6       ((uint32\_t)0x06)  }}
+\DoxyCodeLine{255 \textcolor{preprocessor}{\#define EXTI\_LINE7       ((uint32\_t)0x07)  }}
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#define EXTI\_LINE8       ((uint32\_t)0x08)  }}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#define EXTI\_LINE9       ((uint32\_t)0x09)  }}
+\DoxyCodeLine{258 \textcolor{preprocessor}{\#define EXTI\_LINE10      ((uint32\_t)0x0A)  }}
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#define EXTI\_LINE11      ((uint32\_t)0x0B)  }}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#define EXTI\_LINE12      ((uint32\_t)0x0C)  }}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#define EXTI\_LINE13      ((uint32\_t)0x0D)  }}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#define EXTI\_LINE14      ((uint32\_t)0x0E)  }}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#define EXTI\_LINE15      ((uint32\_t)0x0F)  }}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#define EXTI\_LINE16      ((uint32\_t)0x10)}}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#define EXTI\_LINE17      ((uint32\_t)0x11)}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#define EXTI\_LINE18      ((uint32\_t)0x12)}}
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#define EXTI\_LINE19      ((uint32\_t)0x13)}}
+\DoxyCodeLine{268 \textcolor{preprocessor}{\#define EXTI\_LINE20      ((uint32\_t)0x14)}}
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#define EXTI\_LINE21      ((uint32\_t)0x15)}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#define EXTI\_LINE22      ((uint32\_t)0x16)}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define EXTI\_LINE23      ((uint32\_t)0x17)}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#define EXTI\_LINE24      ((uint32\_t)0x18)}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{\#define EXTI\_LINE25      ((uint32\_t)0x19)}}
+\DoxyCodeLine{274 \textcolor{preprocessor}{\#define EXTI\_LINE26      ((uint32\_t)0x1A)}}
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#define EXTI\_LINE27      ((uint32\_t)0x1B)}}
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#define EXTI\_LINE28      ((uint32\_t)0x1C)}}
+\DoxyCodeLine{277 \textcolor{preprocessor}{\#define EXTI\_LINE29      ((uint32\_t)0x1D)}}
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#define EXTI\_LINE30      ((uint32\_t)0x1E)}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#define EXTI\_LINE31      ((uint32\_t)0x1F)}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#define EXTI\_LINE32      ((uint32\_t)0x20)}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#define EXTI\_LINE33      ((uint32\_t)0x21)}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{\#define EXTI\_LINE34      ((uint32\_t)0x22)}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#define EXTI\_LINE35      ((uint32\_t)0x23)}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#define EXTI\_LINE36      ((uint32\_t)0x24)}}
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#define EXTI\_LINE37      ((uint32\_t)0x25)}}
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#define EXTI\_LINE38      ((uint32\_t)0x26)}}
+\DoxyCodeLine{287 \textcolor{preprocessor}{\#define EXTI\_LINE39      ((uint32\_t)0x27)}}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#define EXTI\_LINE40      ((uint32\_t)0x28)}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#define EXTI\_LINE41      ((uint32\_t)0x29)}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#define EXTI\_LINE42      ((uint32\_t)0x2A)}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#define EXTI\_LINE43      ((uint32\_t)0x2B)}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#define EXTI\_LINE44      ((uint32\_t)0x2C)  }\textcolor{comment}{/* Not available in all family lines */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{294 \textcolor{comment}{/* EXTI\_LINE45 Reserved */}}
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#define EXTI\_LINE46      ((uint32\_t)0x2E)}}
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{298 \textcolor{comment}{/* EXTI\_LINE46 Reserved */}}
+\DoxyCodeLine{299 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#define EXTI\_LINE47      ((uint32\_t)0x2F)}}
+\DoxyCodeLine{301 \textcolor{preprocessor}{\#define EXTI\_LINE48      ((uint32\_t)0x30)}}
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#define EXTI\_LINE49      ((uint32\_t)0x31)}}
+\DoxyCodeLine{303 \textcolor{preprocessor}{\#define EXTI\_LINE50      ((uint32\_t)0x32)}}
+\DoxyCodeLine{304 \textcolor{preprocessor}{\#define EXTI\_LINE51      ((uint32\_t)0x33)}}
+\DoxyCodeLine{305 \textcolor{preprocessor}{\#define EXTI\_LINE52      ((uint32\_t)0x34)}}
+\DoxyCodeLine{306 \textcolor{preprocessor}{\#define EXTI\_LINE53      ((uint32\_t)0x35)}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#define EXTI\_LINE54      ((uint32\_t)0x36)}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{\#define EXTI\_LINE55      ((uint32\_t)0x37)}}
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#define EXTI\_LINE56      ((uint32\_t)0x38)}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#define EXTI\_LINE57      ((uint32\_t)0x39)}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#define EXTI\_LINE58      ((uint32\_t)0x3A)}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{\#define EXTI\_LINE59      ((uint32\_t)0x3B)}}
+\DoxyCodeLine{313 \textcolor{preprocessor}{\#define EXTI\_LINE60      ((uint32\_t)0x3C)}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{\#define EXTI\_LINE61      ((uint32\_t)0x3D)}}
+\DoxyCodeLine{315 \textcolor{preprocessor}{\#define EXTI\_LINE62      ((uint32\_t)0x3E)}}
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#define EXTI\_LINE63      ((uint32\_t)0x3F)}}
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#define EXTI\_LINE64      ((uint32\_t)0x40)}}
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#define EXTI\_LINE65      ((uint32\_t)0x41)}}
+\DoxyCodeLine{319 \textcolor{preprocessor}{\#define EXTI\_LINE66      ((uint32\_t)0x42)}}
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#define EXTI\_LINE67      ((uint32\_t)0x43)}}
+\DoxyCodeLine{321 \textcolor{preprocessor}{\#define EXTI\_LINE68      ((uint32\_t)0x44)}}
+\DoxyCodeLine{322 \textcolor{preprocessor}{\#define EXTI\_LINE69      ((uint32\_t)0x45)}}
+\DoxyCodeLine{323 \textcolor{preprocessor}{\#define EXTI\_LINE70      ((uint32\_t)0x46)}}
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#define EXTI\_LINE71      ((uint32\_t)0x47)}}
+\DoxyCodeLine{325 \textcolor{preprocessor}{\#define EXTI\_LINE72      ((uint32\_t)0x48)}}
+\DoxyCodeLine{326 \textcolor{preprocessor}{\#define EXTI\_LINE73      ((uint32\_t)0x49)}}
+\DoxyCodeLine{327 \textcolor{preprocessor}{\#define EXTI\_LINE74      ((uint32\_t)0x4A)}}
+\DoxyCodeLine{328 \textcolor{preprocessor}{\#define EXTI\_LINE75      ((uint32\_t)0x4B)  }\textcolor{comment}{/* Not available in all family lines */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{329 \textcolor{preprocessor}{\#define EXTI\_LINE76      ((uint32\_t)0x4C)  }\textcolor{comment}{/* Not available in all family lines */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{331 \textcolor{preprocessor}{\#define EXTI\_LINE77      ((uint32\_t)0x4D)}}
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#define EXTI\_LINE78      ((uint32\_t)0x4E)}}
+\DoxyCodeLine{333 \textcolor{preprocessor}{\#define EXTI\_LINE79      ((uint32\_t)0x4F)}}
+\DoxyCodeLine{334 \textcolor{preprocessor}{\#define EXTI\_LINE80      ((uint32\_t)0x50)}}
+\DoxyCodeLine{335 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{336 \textcolor{comment}{/* EXTI\_LINE77 Reserved */}}
+\DoxyCodeLine{337 \textcolor{comment}{/* EXTI\_LINE78 Reserved */}}
+\DoxyCodeLine{338 \textcolor{comment}{/* EXTI\_LINE79 Reserved */}}
+\DoxyCodeLine{339 \textcolor{comment}{/* EXTI\_LINE80 Reserved */}}
+\DoxyCodeLine{340 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{341 \textcolor{comment}{/* EXTI\_LINE81   Reserved */}}
+\DoxyCodeLine{342 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{343 \textcolor{preprocessor}{\#define EXTI\_LINE82      ((uint32\_t)0x52)}}
+\DoxyCodeLine{344 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{345 \textcolor{comment}{/* EXTI\_LINE82 Reserved */}}
+\DoxyCodeLine{346 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{347 \textcolor{comment}{/* EXTI\_LINE83   Reserved */}}
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{349 \textcolor{preprocessor}{\#define EXTI\_LINE84      ((uint32\_t)0x54)}}
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{351 \textcolor{comment}{/* EXTI\_LINE84 Reserved */}}
+\DoxyCodeLine{352 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{353 \textcolor{preprocessor}{\#define EXTI\_LINE85      ((uint32\_t)0x55)}}
+\DoxyCodeLine{354 \textcolor{preprocessor}{\#define EXTI\_LINE86      ((uint32\_t)0x56)  }\textcolor{comment}{/* Not available in all family lines */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{355 \textcolor{preprocessor}{\#define EXTI\_LINE87      ((uint32\_t)0x57)}}
+\DoxyCodeLine{356 \textcolor{preprocessor}{\#define EXTI\_LINE88      ((uint32\_t)0x58)  }\textcolor{comment}{/* Not available in all family lines */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#define EXTI\_LINE89      ((uint32\_t)0x59)  }\textcolor{comment}{/* Not available in all family lines */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#define EXTI\_LINE90      ((uint32\_t)0x5A)  }\textcolor{comment}{/* Not available in all family lines */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{359 \textcolor{preprocessor}{\#define EXTI\_LINE91      ((uint32\_t)0x5B)  }\textcolor{comment}{/* Not available in all family lines */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{362 \textcolor{preprocessor}{\#define IS\_HAL\_EXTI\_CONFIG\_LINE(LINE) (((LINE) == EXTI\_LINE0) || ((LINE) == EXTI\_LINE1) || \(\backslash\)}}
+\DoxyCodeLine{363 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE2)  || ((LINE) == EXTI\_LINE3)   || \(\backslash\)}}
+\DoxyCodeLine{364 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE4)  || ((LINE) == EXTI\_LINE5)   || \(\backslash\)}}
+\DoxyCodeLine{365 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE6)  || ((LINE) == EXTI\_LINE7)   || \(\backslash\)}}
+\DoxyCodeLine{366 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE8)  || ((LINE) == EXTI\_LINE9)   || \(\backslash\)}}
+\DoxyCodeLine{367 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE10) || ((LINE) == EXTI\_LINE11)  || \(\backslash\)}}
+\DoxyCodeLine{368 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE12) || ((LINE) == EXTI\_LINE13)  || \(\backslash\)}}
+\DoxyCodeLine{369 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE14) || ((LINE) == EXTI\_LINE15)  || \(\backslash\)}}
+\DoxyCodeLine{370 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE16) || ((LINE) == EXTI\_LINE17)  || \(\backslash\)}}
+\DoxyCodeLine{371 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE18) || ((LINE) == EXTI\_LINE19)  || \(\backslash\)}}
+\DoxyCodeLine{372 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE20) || ((LINE) == EXTI\_LINE21)  || \(\backslash\)}}
+\DoxyCodeLine{373 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE51)  || \(\backslash\)}}
+\DoxyCodeLine{374 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE82) || ((LINE) == EXTI\_LINE84)  || \(\backslash\)}}
+\DoxyCodeLine{375 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE85) || ((LINE) == EXTI\_LINE86))}}
+\DoxyCodeLine{376 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{377 \textcolor{preprocessor}{\#define IS\_HAL\_EXTI\_CONFIG\_LINE(LINE) (((LINE) == EXTI\_LINE0) || ((LINE) == EXTI\_LINE1)|| \(\backslash\)}}
+\DoxyCodeLine{378 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE2)  || ((LINE) == EXTI\_LINE3)   || \(\backslash\)}}
+\DoxyCodeLine{379 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE4)  || ((LINE) == EXTI\_LINE5)   || \(\backslash\)}}
+\DoxyCodeLine{380 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE6)  || ((LINE) == EXTI\_LINE7)   || \(\backslash\)}}
+\DoxyCodeLine{381 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE8)  || ((LINE) == EXTI\_LINE9)   || \(\backslash\)}}
+\DoxyCodeLine{382 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE10) || ((LINE) == EXTI\_LINE11)  || \(\backslash\)}}
+\DoxyCodeLine{383 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE12) || ((LINE) == EXTI\_LINE13)  || \(\backslash\)}}
+\DoxyCodeLine{384 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE14) || ((LINE) == EXTI\_LINE15)  || \(\backslash\)}}
+\DoxyCodeLine{385 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE16) || ((LINE) == EXTI\_LINE17)  || \(\backslash\)}}
+\DoxyCodeLine{386 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE18) || ((LINE) == EXTI\_LINE19)  || \(\backslash\)}}
+\DoxyCodeLine{387 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE20) || ((LINE) == EXTI\_LINE21)  || \(\backslash\)}}
+\DoxyCodeLine{388 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE51)  || \(\backslash\)}}
+\DoxyCodeLine{389 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE85) || ((LINE) == EXTI\_LINE86))}}
+\DoxyCodeLine{390 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{393 \textcolor{preprocessor}{\#define IS\_EXTI\_ALL\_LINE(LINE) (((LINE) == EXTI\_LINE0)  || ((LINE) == EXTI\_LINE1)  || \(\backslash\)}}
+\DoxyCodeLine{394 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE2)  || ((LINE) == EXTI\_LINE3)  || \(\backslash\)}}
+\DoxyCodeLine{395 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE4)  || ((LINE) == EXTI\_LINE5)  || \(\backslash\)}}
+\DoxyCodeLine{396 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE6)  || ((LINE) == EXTI\_LINE7)  || \(\backslash\)}}
+\DoxyCodeLine{397 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE8)  || ((LINE) == EXTI\_LINE9)  || \(\backslash\)}}
+\DoxyCodeLine{398 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE10) || ((LINE) == EXTI\_LINE11) || \(\backslash\)}}
+\DoxyCodeLine{399 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE12) || ((LINE) == EXTI\_LINE13) || \(\backslash\)}}
+\DoxyCodeLine{400 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE14) || ((LINE) == EXTI\_LINE15) || \(\backslash\)}}
+\DoxyCodeLine{401 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE16) || ((LINE) == EXTI\_LINE17) || \(\backslash\)}}
+\DoxyCodeLine{402 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE18) || ((LINE) == EXTI\_LINE19) || \(\backslash\)}}
+\DoxyCodeLine{403 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE20) || ((LINE) == EXTI\_LINE21) || \(\backslash\)}}
+\DoxyCodeLine{404 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE22) || ((LINE) == EXTI\_LINE23) || \(\backslash\)}}
+\DoxyCodeLine{405 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE24) || ((LINE) == EXTI\_LINE25) || \(\backslash\)}}
+\DoxyCodeLine{406 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE26) || ((LINE) == EXTI\_LINE27) || \(\backslash\)}}
+\DoxyCodeLine{407 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE28) || ((LINE) == EXTI\_LINE29) || \(\backslash\)}}
+\DoxyCodeLine{408 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE30) || ((LINE) == EXTI\_LINE31) || \(\backslash\)}}
+\DoxyCodeLine{409 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE32) || ((LINE) == EXTI\_LINE33) || \(\backslash\)}}
+\DoxyCodeLine{410 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE34) || ((LINE) == EXTI\_LINE35) || \(\backslash\)}}
+\DoxyCodeLine{411 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE36) || ((LINE) == EXTI\_LINE37) || \(\backslash\)}}
+\DoxyCodeLine{412 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE38) || ((LINE) == EXTI\_LINE39) || \(\backslash\)}}
+\DoxyCodeLine{413 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE40) || ((LINE) == EXTI\_LINE41) || \(\backslash\)}}
+\DoxyCodeLine{414 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE42) || ((LINE) == EXTI\_LINE43) || \(\backslash\)}}
+\DoxyCodeLine{415 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE44) || ((LINE) == EXTI\_LINE46) || \(\backslash\)}}
+\DoxyCodeLine{416 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE47) || ((LINE) == EXTI\_LINE48) || \(\backslash\)}}
+\DoxyCodeLine{417 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE50) || \(\backslash\)}}
+\DoxyCodeLine{418 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE51) || ((LINE) == EXTI\_LINE52) || \(\backslash\)}}
+\DoxyCodeLine{419 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE53) || ((LINE) == EXTI\_LINE54) || \(\backslash\)}}
+\DoxyCodeLine{420 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE55) || ((LINE) == EXTI\_LINE56) || \(\backslash\)}}
+\DoxyCodeLine{421 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE57) || ((LINE) == EXTI\_LINE58) || \(\backslash\)}}
+\DoxyCodeLine{422 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE59) || ((LINE) == EXTI\_LINE60) || \(\backslash\)}}
+\DoxyCodeLine{423 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE61) || ((LINE) == EXTI\_LINE62) || \(\backslash\)}}
+\DoxyCodeLine{424 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE63) || ((LINE) == EXTI\_LINE64) || \(\backslash\)}}
+\DoxyCodeLine{425 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE65) || ((LINE) == EXTI\_LINE66) || \(\backslash\)}}
+\DoxyCodeLine{426 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE67) || ((LINE) == EXTI\_LINE68) || \(\backslash\)}}
+\DoxyCodeLine{427 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE69) || ((LINE) == EXTI\_LINE70) || \(\backslash\)}}
+\DoxyCodeLine{428 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE71) || ((LINE) == EXTI\_LINE72) || \(\backslash\)}}
+\DoxyCodeLine{429 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE73) || ((LINE) == EXTI\_LINE74) || \(\backslash\)}}
+\DoxyCodeLine{430 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE75) || ((LINE) == EXTI\_LINE76) || \(\backslash\)}}
+\DoxyCodeLine{431 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE77) || ((LINE) == EXTI\_LINE79) || \(\backslash\)}}
+\DoxyCodeLine{432 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE84) || ((LINE) == EXTI\_LINE85) || \(\backslash\)}}
+\DoxyCodeLine{433 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE86) || ((LINE) == EXTI\_LINE87) || \(\backslash\)}}
+\DoxyCodeLine{434 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE78) || \(\backslash\)}}
+\DoxyCodeLine{435 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE80) || ((LINE) == EXTI\_LINE82))}}
+\DoxyCodeLine{436 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{437 \textcolor{preprocessor}{\#define IS\_EXTI\_ALL\_LINE(LINE) (((LINE) == EXTI\_LINE0)  || ((LINE) == EXTI\_LINE1)  || \(\backslash\)}}
+\DoxyCodeLine{438 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE2)  || ((LINE) == EXTI\_LINE3)  || \(\backslash\)}}
+\DoxyCodeLine{439 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE4)  || ((LINE) == EXTI\_LINE5)  || \(\backslash\)}}
+\DoxyCodeLine{440 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE6)  || ((LINE) == EXTI\_LINE7)  || \(\backslash\)}}
+\DoxyCodeLine{441 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE8)  || ((LINE) == EXTI\_LINE9)  || \(\backslash\)}}
+\DoxyCodeLine{442 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE10) || ((LINE) == EXTI\_LINE11) || \(\backslash\)}}
+\DoxyCodeLine{443 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE12) || ((LINE) == EXTI\_LINE13) || \(\backslash\)}}
+\DoxyCodeLine{444 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE14) || ((LINE) == EXTI\_LINE15) || \(\backslash\)}}
+\DoxyCodeLine{445 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE16) || ((LINE) == EXTI\_LINE17) || \(\backslash\)}}
+\DoxyCodeLine{446 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE18) || ((LINE) == EXTI\_LINE19) || \(\backslash\)}}
+\DoxyCodeLine{447 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE20) || ((LINE) == EXTI\_LINE21) || \(\backslash\)}}
+\DoxyCodeLine{448 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE22) || ((LINE) == EXTI\_LINE23) || \(\backslash\)}}
+\DoxyCodeLine{449 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE24) || ((LINE) == EXTI\_LINE25) || \(\backslash\)}}
+\DoxyCodeLine{450 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE26) || ((LINE) == EXTI\_LINE27) || \(\backslash\)}}
+\DoxyCodeLine{451 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE28) || ((LINE) == EXTI\_LINE29) || \(\backslash\)}}
+\DoxyCodeLine{452 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE30) || ((LINE) == EXTI\_LINE31) || \(\backslash\)}}
+\DoxyCodeLine{453 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE32) || ((LINE) == EXTI\_LINE33) || \(\backslash\)}}
+\DoxyCodeLine{454 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE34) || ((LINE) == EXTI\_LINE35) || \(\backslash\)}}
+\DoxyCodeLine{455 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE36) || ((LINE) == EXTI\_LINE37) || \(\backslash\)}}
+\DoxyCodeLine{456 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE38) || ((LINE) == EXTI\_LINE39) || \(\backslash\)}}
+\DoxyCodeLine{457 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE40) || ((LINE) == EXTI\_LINE41) || \(\backslash\)}}
+\DoxyCodeLine{458 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE42) || ((LINE) == EXTI\_LINE43) || \(\backslash\)}}
+\DoxyCodeLine{459 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE44) || \(\backslash\)}}
+\DoxyCodeLine{460 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE47) || ((LINE) == EXTI\_LINE48) || \(\backslash\)}}
+\DoxyCodeLine{461 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE50) || \(\backslash\)}}
+\DoxyCodeLine{462 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE51) || ((LINE) == EXTI\_LINE52) || \(\backslash\)}}
+\DoxyCodeLine{463 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE53) || ((LINE) == EXTI\_LINE54) || \(\backslash\)}}
+\DoxyCodeLine{464 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE55) || ((LINE) == EXTI\_LINE56) || \(\backslash\)}}
+\DoxyCodeLine{465 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE57) || ((LINE) == EXTI\_LINE58) || \(\backslash\)}}
+\DoxyCodeLine{466 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE59) || ((LINE) == EXTI\_LINE60) || \(\backslash\)}}
+\DoxyCodeLine{467 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE61) || ((LINE) == EXTI\_LINE62) || \(\backslash\)}}
+\DoxyCodeLine{468 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE63) || ((LINE) == EXTI\_LINE64) || \(\backslash\)}}
+\DoxyCodeLine{469 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE65) || ((LINE) == EXTI\_LINE66) || \(\backslash\)}}
+\DoxyCodeLine{470 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE67) || ((LINE) == EXTI\_LINE68) || \(\backslash\)}}
+\DoxyCodeLine{471 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE69) || ((LINE) == EXTI\_LINE70) || \(\backslash\)}}
+\DoxyCodeLine{472 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE71) || ((LINE) == EXTI\_LINE72) || \(\backslash\)}}
+\DoxyCodeLine{473 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE73) || ((LINE) == EXTI\_LINE74) || \(\backslash\)}}
+\DoxyCodeLine{474 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE75) || ((LINE) == EXTI\_LINE76) || \(\backslash\)}}
+\DoxyCodeLine{475 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE85) || \(\backslash\)}}
+\DoxyCodeLine{476 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE86) || ((LINE) == EXTI\_LINE87) || \(\backslash\)}}
+\DoxyCodeLine{477 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE88) || ((LINE) == EXTI\_LINE89) || \(\backslash\)}}
+\DoxyCodeLine{478 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE90) || ((LINE) == EXTI\_LINE91))}}
+\DoxyCodeLine{479 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DUAL\_CORE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{480 }
+\DoxyCodeLine{481 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{482 \textcolor{preprocessor}{\#define IS\_EXTI\_D1\_LINE(LINE) (((LINE) == EXTI\_LINE0)  || ((LINE) == EXTI\_LINE1)  || \(\backslash\)}}
+\DoxyCodeLine{483 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE2)  || ((LINE) == EXTI\_LINE3)  || \(\backslash\)}}
+\DoxyCodeLine{484 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE4)  || ((LINE) == EXTI\_LINE5)  || \(\backslash\)}}
+\DoxyCodeLine{485 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE6)  || ((LINE) == EXTI\_LINE7)  || \(\backslash\)}}
+\DoxyCodeLine{486 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE8)  || ((LINE) == EXTI\_LINE9)  || \(\backslash\)}}
+\DoxyCodeLine{487 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE10) || ((LINE) == EXTI\_LINE11) || \(\backslash\)}}
+\DoxyCodeLine{488 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE12) || ((LINE) == EXTI\_LINE13) || \(\backslash\)}}
+\DoxyCodeLine{489 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE14) || ((LINE) == EXTI\_LINE15) || \(\backslash\)}}
+\DoxyCodeLine{490 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE16) || ((LINE) == EXTI\_LINE17) || \(\backslash\)}}
+\DoxyCodeLine{491 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE18) || ((LINE) == EXTI\_LINE19) || \(\backslash\)}}
+\DoxyCodeLine{492 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE20) || ((LINE) == EXTI\_LINE21) || \(\backslash\)}}
+\DoxyCodeLine{493 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE22) || ((LINE) == EXTI\_LINE23) || \(\backslash\)}}
+\DoxyCodeLine{494 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE24) || ((LINE) == EXTI\_LINE25) || \(\backslash\)}}
+\DoxyCodeLine{495 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE26) || ((LINE) == EXTI\_LINE27) || \(\backslash\)}}
+\DoxyCodeLine{496 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE28) || ((LINE) == EXTI\_LINE29) || \(\backslash\)}}
+\DoxyCodeLine{497 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE30) || ((LINE) == EXTI\_LINE31) || \(\backslash\)}}
+\DoxyCodeLine{498 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE32) || ((LINE) == EXTI\_LINE33) || \(\backslash\)}}
+\DoxyCodeLine{499 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE34) || ((LINE) == EXTI\_LINE35) || \(\backslash\)}}
+\DoxyCodeLine{500 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE36) || ((LINE) == EXTI\_LINE37) || \(\backslash\)}}
+\DoxyCodeLine{501 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE38) || ((LINE) == EXTI\_LINE39) || \(\backslash\)}}
+\DoxyCodeLine{502 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE40) || ((LINE) == EXTI\_LINE41) || \(\backslash\)}}
+\DoxyCodeLine{503 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE42) || ((LINE) == EXTI\_LINE43) || \(\backslash\)}}
+\DoxyCodeLine{504 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE44) || ((LINE) == EXTI\_LINE46) || \(\backslash\)}}
+\DoxyCodeLine{505 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE47) || ((LINE) == EXTI\_LINE48) || \(\backslash\)}}
+\DoxyCodeLine{506 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE50) || \(\backslash\)}}
+\DoxyCodeLine{507 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE51) || ((LINE) == EXTI\_LINE52) || \(\backslash\)}}
+\DoxyCodeLine{508 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE53) || ((LINE) == EXTI\_LINE54) || \(\backslash\)}}
+\DoxyCodeLine{509 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE55) || ((LINE) == EXTI\_LINE56) || \(\backslash\)}}
+\DoxyCodeLine{510 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE57) || ((LINE) == EXTI\_LINE58) || \(\backslash\)}}
+\DoxyCodeLine{511 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE59) || ((LINE) == EXTI\_LINE60) || \(\backslash\)}}
+\DoxyCodeLine{512 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE61) || ((LINE) == EXTI\_LINE62) || \(\backslash\)}}
+\DoxyCodeLine{513 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE63) || ((LINE) == EXTI\_LINE64) || \(\backslash\)}}
+\DoxyCodeLine{514 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE65) || ((LINE) == EXTI\_LINE66) || \(\backslash\)}}
+\DoxyCodeLine{515 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE67) || ((LINE) == EXTI\_LINE68) || \(\backslash\)}}
+\DoxyCodeLine{516 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE69) || ((LINE) == EXTI\_LINE70) || \(\backslash\)}}
+\DoxyCodeLine{517 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE71) || ((LINE) == EXTI\_LINE72) || \(\backslash\)}}
+\DoxyCodeLine{518 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE73) || ((LINE) == EXTI\_LINE74) || \(\backslash\)}}
+\DoxyCodeLine{519 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE75) || ((LINE) == EXTI\_LINE76) || \(\backslash\)}}
+\DoxyCodeLine{520 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE77) || ((LINE) == EXTI\_LINE79) || \(\backslash\)}}
+\DoxyCodeLine{521 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE84) || ((LINE) == EXTI\_LINE85) || \(\backslash\)}}
+\DoxyCodeLine{522 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE86) || ((LINE) == EXTI\_LINE87))}}
+\DoxyCodeLine{523 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{524 \textcolor{preprocessor}{\#define IS\_EXTI\_D1\_LINE(LINE) (((LINE) == EXTI\_LINE0)  || ((LINE) == EXTI\_LINE1)  || \(\backslash\)}}
+\DoxyCodeLine{525 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE2)  || ((LINE) == EXTI\_LINE3)  || \(\backslash\)}}
+\DoxyCodeLine{526 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE4)  || ((LINE) == EXTI\_LINE5)  || \(\backslash\)}}
+\DoxyCodeLine{527 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE6)  || ((LINE) == EXTI\_LINE7)  || \(\backslash\)}}
+\DoxyCodeLine{528 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE8)  || ((LINE) == EXTI\_LINE9)  || \(\backslash\)}}
+\DoxyCodeLine{529 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE10) || ((LINE) == EXTI\_LINE11) || \(\backslash\)}}
+\DoxyCodeLine{530 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE12) || ((LINE) == EXTI\_LINE13) || \(\backslash\)}}
+\DoxyCodeLine{531 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE14) || ((LINE) == EXTI\_LINE15) || \(\backslash\)}}
+\DoxyCodeLine{532 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE16) || ((LINE) == EXTI\_LINE17) || \(\backslash\)}}
+\DoxyCodeLine{533 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE18) || ((LINE) == EXTI\_LINE19) || \(\backslash\)}}
+\DoxyCodeLine{534 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE20) || ((LINE) == EXTI\_LINE21) || \(\backslash\)}}
+\DoxyCodeLine{535 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE22) || ((LINE) == EXTI\_LINE23) || \(\backslash\)}}
+\DoxyCodeLine{536 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE24) || ((LINE) == EXTI\_LINE25) || \(\backslash\)}}
+\DoxyCodeLine{537 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE26) || ((LINE) == EXTI\_LINE27) || \(\backslash\)}}
+\DoxyCodeLine{538 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE28) || ((LINE) == EXTI\_LINE29) || \(\backslash\)}}
+\DoxyCodeLine{539 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE30) || ((LINE) == EXTI\_LINE31) || \(\backslash\)}}
+\DoxyCodeLine{540 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE32) || ((LINE) == EXTI\_LINE33) || \(\backslash\)}}
+\DoxyCodeLine{541 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE34) || ((LINE) == EXTI\_LINE35) || \(\backslash\)}}
+\DoxyCodeLine{542 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE36) || ((LINE) == EXTI\_LINE37) || \(\backslash\)}}
+\DoxyCodeLine{543 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE38) || ((LINE) == EXTI\_LINE39) || \(\backslash\)}}
+\DoxyCodeLine{544 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE40) || ((LINE) == EXTI\_LINE41) || \(\backslash\)}}
+\DoxyCodeLine{545 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE42) || ((LINE) == EXTI\_LINE43) || \(\backslash\)}}
+\DoxyCodeLine{546 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE44) || \(\backslash\)}}
+\DoxyCodeLine{547 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE47) || ((LINE) == EXTI\_LINE48) || \(\backslash\)}}
+\DoxyCodeLine{548 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE50) || \(\backslash\)}}
+\DoxyCodeLine{549 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE51) || ((LINE) == EXTI\_LINE52) || \(\backslash\)}}
+\DoxyCodeLine{550 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE53) || ((LINE) == EXTI\_LINE54) || \(\backslash\)}}
+\DoxyCodeLine{551 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE55) || ((LINE) == EXTI\_LINE56) || \(\backslash\)}}
+\DoxyCodeLine{552 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE57) || ((LINE) == EXTI\_LINE58) || \(\backslash\)}}
+\DoxyCodeLine{553 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE59) || ((LINE) == EXTI\_LINE60) || \(\backslash\)}}
+\DoxyCodeLine{554 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE61) || ((LINE) == EXTI\_LINE62) || \(\backslash\)}}
+\DoxyCodeLine{555 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE63) || ((LINE) == EXTI\_LINE64) || \(\backslash\)}}
+\DoxyCodeLine{556 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE65) || ((LINE) == EXTI\_LINE66) || \(\backslash\)}}
+\DoxyCodeLine{557 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE67) || ((LINE) == EXTI\_LINE68) || \(\backslash\)}}
+\DoxyCodeLine{558 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE69) || ((LINE) == EXTI\_LINE70) || \(\backslash\)}}
+\DoxyCodeLine{559 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE71) || ((LINE) == EXTI\_LINE72) || \(\backslash\)}}
+\DoxyCodeLine{560 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE73) || ((LINE) == EXTI\_LINE74) || \(\backslash\)}}
+\DoxyCodeLine{561 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE75) || ((LINE) == EXTI\_LINE76) || \(\backslash\)}}
+\DoxyCodeLine{562 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE85) || \(\backslash\)}}
+\DoxyCodeLine{563 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE86) || ((LINE) == EXTI\_LINE87) || \(\backslash\)}}
+\DoxyCodeLine{564 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE88) || ((LINE) == EXTI\_LINE89) || \(\backslash\)}}
+\DoxyCodeLine{565 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE90) || ((LINE) == EXTI\_LINE91))}}
+\DoxyCodeLine{566 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DUAL\_CORE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{568 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{569 \textcolor{preprocessor}{\#define IS\_EXTI\_D2\_LINE(LINE) (((LINE) == EXTI\_LINE0)  || ((LINE) == EXTI\_LINE1)    || \(\backslash\)}}
+\DoxyCodeLine{570 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE2) || ((LINE) == EXTI\_LINE3)   || \(\backslash\)}}
+\DoxyCodeLine{571 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE4) || ((LINE) == EXTI\_LINE5)   || \(\backslash\)}}
+\DoxyCodeLine{572 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE6) || ((LINE) == EXTI\_LINE7)   || \(\backslash\)}}
+\DoxyCodeLine{573 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE8) || ((LINE) == EXTI\_LINE9)   || \(\backslash\)}}
+\DoxyCodeLine{574 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE10) || ((LINE) == EXTI\_LINE11) || \(\backslash\)}}
+\DoxyCodeLine{575 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE12) || ((LINE) == EXTI\_LINE13) || \(\backslash\)}}
+\DoxyCodeLine{576 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE14) || ((LINE) == EXTI\_LINE15) || \(\backslash\)}}
+\DoxyCodeLine{577 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE16) || ((LINE) == EXTI\_LINE17) || \(\backslash\)}}
+\DoxyCodeLine{578 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE18) || ((LINE) == EXTI\_LINE19) || \(\backslash\)}}
+\DoxyCodeLine{579 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE20) || ((LINE) == EXTI\_LINE21) || \(\backslash\)}}
+\DoxyCodeLine{580 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE22) || ((LINE) == EXTI\_LINE23) || \(\backslash\)}}
+\DoxyCodeLine{581 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE24) || ((LINE) == EXTI\_LINE25) || \(\backslash\)}}
+\DoxyCodeLine{582 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE26) || ((LINE) == EXTI\_LINE27) || \(\backslash\)}}
+\DoxyCodeLine{583 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE28) || ((LINE) == EXTI\_LINE29) || \(\backslash\)}}
+\DoxyCodeLine{584 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE30) || ((LINE) == EXTI\_LINE31) || \(\backslash\)}}
+\DoxyCodeLine{585 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE32) || ((LINE) == EXTI\_LINE33) || \(\backslash\)}}
+\DoxyCodeLine{586 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE34) || ((LINE) == EXTI\_LINE35) || \(\backslash\)}}
+\DoxyCodeLine{587 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE36) || ((LINE) == EXTI\_LINE37) || \(\backslash\)}}
+\DoxyCodeLine{588 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE38) || ((LINE) == EXTI\_LINE39) || \(\backslash\)}}
+\DoxyCodeLine{589 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE40) || ((LINE) == EXTI\_LINE41) || \(\backslash\)}}
+\DoxyCodeLine{590 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE42) || ((LINE) == EXTI\_LINE43) || \(\backslash\)}}
+\DoxyCodeLine{591 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE44) || ((LINE) == EXTI\_LINE46) || \(\backslash\)}}
+\DoxyCodeLine{592 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE47) || ((LINE) == EXTI\_LINE48) || \(\backslash\)}}
+\DoxyCodeLine{593 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE50) || \(\backslash\)}}
+\DoxyCodeLine{594 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE51) || ((LINE) == EXTI\_LINE52) || \(\backslash\)}}
+\DoxyCodeLine{595 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE53) || ((LINE) == EXTI\_LINE54) || \(\backslash\)}}
+\DoxyCodeLine{596 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE55) || ((LINE) == EXTI\_LINE56) || \(\backslash\)}}
+\DoxyCodeLine{597 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE57) || ((LINE) == EXTI\_LINE58) || \(\backslash\)}}
+\DoxyCodeLine{598 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE59) || ((LINE) == EXTI\_LINE60) || \(\backslash\)}}
+\DoxyCodeLine{599 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE61) || ((LINE) == EXTI\_LINE62) || \(\backslash\)}}
+\DoxyCodeLine{600 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE63) || ((LINE) == EXTI\_LINE64) || \(\backslash\)}}
+\DoxyCodeLine{601 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE65) || ((LINE) == EXTI\_LINE66) || \(\backslash\)}}
+\DoxyCodeLine{602 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE67) || ((LINE) == EXTI\_LINE68) || \(\backslash\)}}
+\DoxyCodeLine{603 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE69) || ((LINE) == EXTI\_LINE70) || \(\backslash\)}}
+\DoxyCodeLine{604 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE71) || ((LINE) == EXTI\_LINE72) || \(\backslash\)}}
+\DoxyCodeLine{605 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE73) || ((LINE) == EXTI\_LINE74) || \(\backslash\)}}
+\DoxyCodeLine{606 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE75) || ((LINE) == EXTI\_LINE76) || \(\backslash\)}}
+\DoxyCodeLine{607 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE78) || ((LINE) == EXTI\_LINE80) || \(\backslash\)}}
+\DoxyCodeLine{608 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE82) || ((LINE) == EXTI\_LINE85) || \(\backslash\)}}
+\DoxyCodeLine{609 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE86) || ((LINE) == EXTI\_LINE87))}}
+\DoxyCodeLine{610 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DUAL\_CORE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{611 }
+\DoxyCodeLine{612 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{613 \textcolor{preprocessor}{\#define IS\_EXTI\_D3\_LINE(LINE) (((LINE) == EXTI\_LINE0) || ((LINE) == EXTI\_LINE1)    || \(\backslash\)}}
+\DoxyCodeLine{614 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE2) || ((LINE) == EXTI\_LINE3)   || \(\backslash\)}}
+\DoxyCodeLine{615 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE4) || ((LINE) == EXTI\_LINE5)   || \(\backslash\)}}
+\DoxyCodeLine{616 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE6) || ((LINE) == EXTI\_LINE7)   || \(\backslash\)}}
+\DoxyCodeLine{617 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE8) || ((LINE) == EXTI\_LINE9)   || \(\backslash\)}}
+\DoxyCodeLine{618 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE10) || ((LINE) == EXTI\_LINE11) || \(\backslash\)}}
+\DoxyCodeLine{619 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE12) || ((LINE) == EXTI\_LINE13) || \(\backslash\)}}
+\DoxyCodeLine{620 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE14) || ((LINE) == EXTI\_LINE15) || \(\backslash\)}}
+\DoxyCodeLine{621 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE19) || ((LINE) == EXTI\_LINE20) || \(\backslash\)}}
+\DoxyCodeLine{622 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE21) || ((LINE) == EXTI\_LINE25) || \(\backslash\)}}
+\DoxyCodeLine{623 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE34) || ((LINE) == EXTI\_LINE35) || \(\backslash\)}}
+\DoxyCodeLine{624 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE41) || ((LINE) == EXTI\_LINE48) || \(\backslash\)}}
+\DoxyCodeLine{625 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE50) || \(\backslash\)}}
+\DoxyCodeLine{626 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE51) || ((LINE) == EXTI\_LINE52) || \(\backslash\)}}
+\DoxyCodeLine{627 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE53))}}
+\DoxyCodeLine{628 \textcolor{preprocessor}{\#elif (POWER\_DOMAINS\_NUMBER == 3U)}}
+\DoxyCodeLine{629 \textcolor{preprocessor}{\#define IS\_EXTI\_D3\_LINE(LINE) (((LINE) == EXTI\_LINE0) || ((LINE) == EXTI\_LINE1)    || \(\backslash\)}}
+\DoxyCodeLine{630 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE2) || ((LINE) == EXTI\_LINE3)   || \(\backslash\)}}
+\DoxyCodeLine{631 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE4) || ((LINE) == EXTI\_LINE5)   || \(\backslash\)}}
+\DoxyCodeLine{632 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE6) || ((LINE) == EXTI\_LINE7)   || \(\backslash\)}}
+\DoxyCodeLine{633 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE8) || ((LINE) == EXTI\_LINE9)   || \(\backslash\)}}
+\DoxyCodeLine{634 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE10) || ((LINE) == EXTI\_LINE11) || \(\backslash\)}}
+\DoxyCodeLine{635 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE12) || ((LINE) == EXTI\_LINE13) || \(\backslash\)}}
+\DoxyCodeLine{636 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE14) || ((LINE) == EXTI\_LINE15) || \(\backslash\)}}
+\DoxyCodeLine{637 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE19) || ((LINE) == EXTI\_LINE20) || \(\backslash\)}}
+\DoxyCodeLine{638 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE21) || ((LINE) == EXTI\_LINE25) || \(\backslash\)}}
+\DoxyCodeLine{639 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE34) || ((LINE) == EXTI\_LINE35) || \(\backslash\)}}
+\DoxyCodeLine{640 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE41) || ((LINE) == EXTI\_LINE48) || \(\backslash\)}}
+\DoxyCodeLine{641 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE50) || \(\backslash\)}}
+\DoxyCodeLine{642 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE51) || ((LINE) == EXTI\_LINE52) || \(\backslash\)}}
+\DoxyCodeLine{643 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE53) || ((LINE) == EXTI\_LINE88))}}
+\DoxyCodeLine{644 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{645 \textcolor{preprocessor}{\#define IS\_EXTI\_D3\_LINE(LINE) (((LINE) == EXTI\_LINE0) || ((LINE) == EXTI\_LINE1)    || \(\backslash\)}}
+\DoxyCodeLine{646 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE2) || ((LINE) == EXTI\_LINE3)   || \(\backslash\)}}
+\DoxyCodeLine{647 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE4) || ((LINE) == EXTI\_LINE5)   || \(\backslash\)}}
+\DoxyCodeLine{648 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE6) || ((LINE) == EXTI\_LINE7)   || \(\backslash\)}}
+\DoxyCodeLine{649 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE8) || ((LINE) == EXTI\_LINE9)   || \(\backslash\)}}
+\DoxyCodeLine{650 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE10) || ((LINE) == EXTI\_LINE11) || \(\backslash\)}}
+\DoxyCodeLine{651 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE12) || ((LINE) == EXTI\_LINE13) || \(\backslash\)}}
+\DoxyCodeLine{652 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE14) || ((LINE) == EXTI\_LINE15) || \(\backslash\)}}
+\DoxyCodeLine{653 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE19) || ((LINE) == EXTI\_LINE20) || \(\backslash\)}}
+\DoxyCodeLine{654 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE21) || ((LINE) == EXTI\_LINE25) || \(\backslash\)}}
+\DoxyCodeLine{655 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE34) || ((LINE) == EXTI\_LINE35) || \(\backslash\)}}
+\DoxyCodeLine{656 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE41) || ((LINE) == EXTI\_LINE48) || \(\backslash\)}}
+\DoxyCodeLine{657 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE50) || \(\backslash\)}}
+\DoxyCodeLine{658 \textcolor{preprocessor}{                                ((LINE) == EXTI\_LINE51) || ((LINE) == EXTI\_LINE88))}}
+\DoxyCodeLine{659 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DUAL\_CORE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{660 }
+\DoxyCodeLine{661 }
+\DoxyCodeLine{662 \textcolor{preprocessor}{\#define  BDMA\_CH6\_CLEAR           ((uint32\_t)0x00000000)   }}
+\DoxyCodeLine{663 \textcolor{preprocessor}{\#define  BDMA\_CH7\_CLEAR           ((uint32\_t)0x00000001)   }}
+\DoxyCodeLine{664 \textcolor{preprocessor}{\#if defined (LPTIM4)}}
+\DoxyCodeLine{665 \textcolor{preprocessor}{\#define  LPTIM4\_OUT\_CLEAR         ((uint32\_t)0x00000002)   }}
+\DoxyCodeLine{666 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{667 \textcolor{preprocessor}{\#define  LPTIM2\_OUT\_CLEAR         ((uint32\_t)0x00000002)   }}
+\DoxyCodeLine{668 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LPTIM4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{669 \textcolor{preprocessor}{\#if defined (LPTIM5)}}
+\DoxyCodeLine{670 \textcolor{preprocessor}{\#define  LPTIM5\_OUT\_CLEAR         ((uint32\_t)0x00000003)   }}
+\DoxyCodeLine{671 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{672 \textcolor{preprocessor}{\#define  LPTIM3\_OUT\_CLEAR         ((uint32\_t)0x00000003)   }}
+\DoxyCodeLine{673 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LPTIM5 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{674 \textcolor{preprocessor}{\#if defined (LPTIM4) \&\& defined (LPTIM5)}}
+\DoxyCodeLine{675 \textcolor{preprocessor}{\#define IS\_EXTI\_D3\_CLEAR(SOURCE) (((SOURCE) == BDMA\_CH6\_CLEAR) || ((SOURCE) == BDMA\_CH7\_CLEAR)    || \(\backslash\)}}
+\DoxyCodeLine{676 \textcolor{preprocessor}{                                 ((SOURCE) == LPTIM4\_OUT\_CLEAR) || ((SOURCE) == LPTIM5\_OUT\_CLEAR))}}
+\DoxyCodeLine{677 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{678 \textcolor{preprocessor}{\#define IS\_EXTI\_D3\_CLEAR(SOURCE) (((SOURCE) == BDMA\_CH6\_CLEAR) || ((SOURCE) == BDMA\_CH7\_CLEAR)    || \(\backslash\)}}
+\DoxyCodeLine{679 \textcolor{preprocessor}{                                 ((SOURCE) == LPTIM2\_OUT\_CLEAR) || ((SOURCE) == LPTIM3\_OUT\_CLEAR))}}
+\DoxyCodeLine{680 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LPTIM4 LPTIM5 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{689 \textcolor{preprocessor}{\#define FMC\_SWAPBMAP\_DISABLE             (0x00000000U)}}
+\DoxyCodeLine{690 \textcolor{preprocessor}{\#define FMC\_SWAPBMAP\_SDRAM\_SRAM          FMC\_BCR1\_BMAP\_0}}
+\DoxyCodeLine{691 \textcolor{preprocessor}{\#define FMC\_SWAPBMAP\_SDRAMB2             FMC\_BCR1\_BMAP\_1}}
+\DoxyCodeLine{692 }
+\DoxyCodeLine{693 \textcolor{preprocessor}{\#define IS\_FMC\_SWAPBMAP\_MODE(\_\_MODE\_\_) (((\_\_MODE\_\_) == FMC\_SWAPBMAP\_DISABLE)    || \(\backslash\)}}
+\DoxyCodeLine{694 \textcolor{preprocessor}{                                        ((\_\_MODE\_\_) == FMC\_SWAPBMAP\_SDRAM\_SRAM) || \(\backslash\)}}
+\DoxyCodeLine{695 \textcolor{preprocessor}{                                        ((\_\_MODE\_\_) == FMC\_SWAPBMAP\_SDRAMB2))}}
+\DoxyCodeLine{701 \textcolor{comment}{/* Exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{702 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{710 \textcolor{preprocessor}{\#define \_\_HAL\_ART\_ENABLE()   SET\_BIT(ART-\/>CTR, ART\_CTR\_EN)}}
+\DoxyCodeLine{711 }
+\DoxyCodeLine{715 \textcolor{preprocessor}{\#define \_\_HAL\_ART\_DISABLE()   CLEAR\_BIT(ART-\/>CTR, ART\_CTR\_EN)}}
+\DoxyCodeLine{716 }
+\DoxyCodeLine{720 \textcolor{preprocessor}{\#define \_\_HAL\_ART\_CONFIG\_BASE\_ADDRESS(\_\_BASE\_ADDRESS\_\_)   MODIFY\_REG(ART-\/>CTR, ART\_CTR\_PCACHEADDR, (((\_\_BASE\_ADDRESS\_\_) >> 12U) \& 0x000FFF00UL))}}
+\DoxyCodeLine{721 }
+\DoxyCodeLine{725 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{726 }
+\DoxyCodeLine{736 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_AXISRAM\_DBL\_ECC\_LOCK()     SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_AXISRAML)}}
+\DoxyCodeLine{737 }
+\DoxyCodeLine{743 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_ITCM\_DBL\_ECC\_LOCK()        SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_ITCML)}}
+\DoxyCodeLine{744 }
+\DoxyCodeLine{750 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_DTCM\_DBL\_ECC\_LOCK()        SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_DTCML)}}
+\DoxyCodeLine{751 }
+\DoxyCodeLine{757 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_SRAM1\_DBL\_ECC\_LOCK()       SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_SRAM1L)}}
+\DoxyCodeLine{758 }
+\DoxyCodeLine{764 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_SRAM2\_DBL\_ECC\_LOCK()       SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_SRAM2L)}}
+\DoxyCodeLine{765 }
+\DoxyCodeLine{771 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_SRAM3\_DBL\_ECC\_LOCK()       SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_SRAM3L)}}
+\DoxyCodeLine{772 }
+\DoxyCodeLine{778 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_SRAM4\_DBL\_ECC\_LOCK()       SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_SRAM4L)}}
+\DoxyCodeLine{779 }
+\DoxyCodeLine{785 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_BKRAM\_DBL\_ECC\_LOCK()       SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_BKRAML)}}
+\DoxyCodeLine{786 }
+\DoxyCodeLine{792 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_CM7\_LOCKUP\_LOCK()          SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_CM7L)}}
+\DoxyCodeLine{793 }
+\DoxyCodeLine{799 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_FLASH\_DBL\_ECC\_LOCK()       SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_FLASHL)}}
+\DoxyCodeLine{800 }
+\DoxyCodeLine{806 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_PVD\_LOCK()                 SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_PVDL)}}
+\DoxyCodeLine{807 }
+\DoxyCodeLine{808 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{814 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_BREAK\_CM4\_LOCKUP\_LOCK()          SET\_BIT(SYSCFG-\/>CFGR, SYSCFG\_CFGR\_CM4L)}}
+\DoxyCodeLine{815 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{816 }
+\DoxyCodeLine{817 \textcolor{preprocessor}{\#if !defined(SYSCFG\_PMCR\_BOOSTEN)}}
+\DoxyCodeLine{825 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_FASTMODEPLUS\_ENABLE(\_\_FASTMODEPLUS\_\_)  do \{assert\_param(IS\_SYSCFG\_FASTMODEPLUS((\_\_FASTMODEPLUS\_\_)));\(\backslash\)}}
+\DoxyCodeLine{826 \textcolor{preprocessor}{                                                                SET\_BIT(SYSCFG-\/>PMCR, (\_\_FASTMODEPLUS\_\_));\(\backslash\)}}
+\DoxyCodeLine{827 \textcolor{preprocessor}{                                                               \}while(0)}}
+\DoxyCodeLine{828 }
+\DoxyCodeLine{829 \textcolor{preprocessor}{\#define \_\_HAL\_SYSCFG\_FASTMODEPLUS\_DISABLE(\_\_FASTMODEPLUS\_\_) do \{assert\_param(IS\_SYSCFG\_FASTMODEPLUS((\_\_FASTMODEPLUS\_\_)));\(\backslash\)}}
+\DoxyCodeLine{830 \textcolor{preprocessor}{                                                                CLEAR\_BIT(SYSCFG-\/>PMCR, (\_\_FASTMODEPLUS\_\_));\(\backslash\)}}
+\DoxyCodeLine{831 \textcolor{preprocessor}{                                                               \}while(0)}}
+\DoxyCodeLine{832 }
+\DoxyCodeLine{833 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !SYSCFG\_PMCR\_BOOSTEN */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{840 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_WWDG1()          (DBGMCU-\/>APB3FZ1 |= (DBGMCU\_APB3FZ1\_DBG\_WWDG1))}}
+\DoxyCodeLine{841 }
+\DoxyCodeLine{842 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM2()           (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_TIM2))}}
+\DoxyCodeLine{843 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM3()           (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_TIM3))}}
+\DoxyCodeLine{844 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM4()           (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_TIM4))}}
+\DoxyCodeLine{845 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM5()           (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_TIM5))}}
+\DoxyCodeLine{846 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM6()           (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_TIM6))}}
+\DoxyCodeLine{847 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM7()           (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_TIM7))}}
+\DoxyCodeLine{848 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM12()          (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_TIM12))}}
+\DoxyCodeLine{849 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM13()          (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_TIM13))}}
+\DoxyCodeLine{850 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM14()          (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_TIM14))}}
+\DoxyCodeLine{851 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_LPTIM1()         (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_LPTIM1))}}
+\DoxyCodeLine{852 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_I2C1()           (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_I2C1))}}
+\DoxyCodeLine{853 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_I2C2()           (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_I2C2))}}
+\DoxyCodeLine{854 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_I2C3()           (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_I2C3))}}
+\DoxyCodeLine{855 \textcolor{preprocessor}{\#if defined(I2C5)}}
+\DoxyCodeLine{856 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_I2C5()           (DBGMCU-\/>APB1LFZ1 |= (DBGMCU\_APB1LFZ1\_DBG\_I2C5))}}
+\DoxyCodeLine{857 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*I2C5*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{858 \textcolor{preprocessor}{\#if defined(DBGMCU\_APB1HFZ1\_DBG\_FDCAN)}}
+\DoxyCodeLine{859 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_FDCAN()          (DBGMCU-\/>APB1HFZ1 |= (DBGMCU\_APB1HFZ1\_DBG\_FDCAN))}}
+\DoxyCodeLine{860 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DBGMCU\_APB1HFZ1\_DBG\_FDCAN*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{861 }
+\DoxyCodeLine{862 \textcolor{preprocessor}{\#if defined(TIM23)}}
+\DoxyCodeLine{863 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM23()           (DBGMCU-\/>APB1HFZ1 |= (DBGMCU\_APB1HFZ1\_DBG\_TIM23))}}
+\DoxyCodeLine{864 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*TIM23*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{865 \textcolor{preprocessor}{\#if defined(TIM24)}}
+\DoxyCodeLine{866 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM24()           (DBGMCU-\/>APB1HFZ1 |= (DBGMCU\_APB1HFZ1\_DBG\_TIM24))}}
+\DoxyCodeLine{867 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*TIM24*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{868 }
+\DoxyCodeLine{869 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM1()           (DBGMCU-\/>APB2FZ1 |= (DBGMCU\_APB2FZ1\_DBG\_TIM1))}}
+\DoxyCodeLine{870 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM8()           (DBGMCU-\/>APB2FZ1 |= (DBGMCU\_APB2FZ1\_DBG\_TIM8))}}
+\DoxyCodeLine{871 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM15()          (DBGMCU-\/>APB2FZ1 |= (DBGMCU\_APB2FZ1\_DBG\_TIM15))}}
+\DoxyCodeLine{872 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM16()          (DBGMCU-\/>APB2FZ1 |= (DBGMCU\_APB2FZ1\_DBG\_TIM16))}}
+\DoxyCodeLine{873 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_TIM17()          (DBGMCU-\/>APB2FZ1 |= (DBGMCU\_APB2FZ1\_DBG\_TIM17))}}
+\DoxyCodeLine{874 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_HRTIM()          (DBGMCU-\/>APB2FZ1 |= (DBGMCU\_APB2FZ1\_DBG\_HRTIM))}}
+\DoxyCodeLine{875 }
+\DoxyCodeLine{876 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_I2C4()           (DBGMCU-\/>APB4FZ1 |= (DBGMCU\_APB4FZ1\_DBG\_I2C4))}}
+\DoxyCodeLine{877 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_LPTIM2()         (DBGMCU-\/>APB4FZ1 |= (DBGMCU\_APB4FZ1\_DBG\_LPTIM2))}}
+\DoxyCodeLine{878 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_LPTIM3()         (DBGMCU-\/>APB4FZ1 |= (DBGMCU\_APB4FZ1\_DBG\_LPTIM3))}}
+\DoxyCodeLine{879 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_LPTIM4()         (DBGMCU-\/>APB4FZ1 |= (DBGMCU\_APB4FZ1\_DBG\_LPTIM4))}}
+\DoxyCodeLine{880 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_LPTIM5()         (DBGMCU-\/>APB4FZ1 |= (DBGMCU\_APB4FZ1\_DBG\_LPTIM5))}}
+\DoxyCodeLine{881 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_RTC()            (DBGMCU-\/>APB4FZ1 |= (DBGMCU\_APB4FZ1\_DBG\_RTC))}}
+\DoxyCodeLine{882 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE\_IWDG1()          (DBGMCU-\/>APB4FZ1 |= (DBGMCU\_APB4FZ1\_DBG\_IWDG1))}}
+\DoxyCodeLine{883 }
+\DoxyCodeLine{884 }
+\DoxyCodeLine{885 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_WWDG1()          (DBGMCU-\/>APB3FZ1  \&= \string~ (DBGMCU\_APB3FZ1\_DBG\_WWDG1))}}
+\DoxyCodeLine{886 }
+\DoxyCodeLine{887 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM2()           (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_TIM2))}}
+\DoxyCodeLine{888 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM3()           (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_TIM3))}}
+\DoxyCodeLine{889 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM4()           (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_TIM4))}}
+\DoxyCodeLine{890 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM5()           (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_TIM5))}}
+\DoxyCodeLine{891 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM6()           (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_TIM6))}}
+\DoxyCodeLine{892 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM7()           (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_TIM7))}}
+\DoxyCodeLine{893 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM12()          (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_TIM12))}}
+\DoxyCodeLine{894 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM13()          (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_TIM13))}}
+\DoxyCodeLine{895 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM14()          (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_TIM14))}}
+\DoxyCodeLine{896 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_LPTIM1()         (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_LPTIM1))}}
+\DoxyCodeLine{897 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_I2C1()           (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_I2C1))}}
+\DoxyCodeLine{898 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_I2C2()           (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_I2C2))}}
+\DoxyCodeLine{899 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_I2C3()           (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_I2C3))}}
+\DoxyCodeLine{900 \textcolor{preprocessor}{\#if defined(I2C5)}}
+\DoxyCodeLine{901 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_I2C5()           (DBGMCU-\/>APB1LFZ1  \&= \string~ (DBGMCU\_APB1LFZ1\_DBG\_I2C5))}}
+\DoxyCodeLine{902 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*I2C5*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{903 \textcolor{preprocessor}{\#if defined(DBGMCU\_APB1HFZ1\_DBG\_FDCAN)}}
+\DoxyCodeLine{904 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_FDCAN()          (DBGMCU-\/>APB1HFZ1  \&= \string~ (DBGMCU\_APB1HFZ1\_DBG\_FDCAN))}}
+\DoxyCodeLine{905 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DBGMCU\_APB1HFZ1\_DBG\_FDCAN*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{906 }
+\DoxyCodeLine{907 \textcolor{preprocessor}{\#if defined(TIM23)}}
+\DoxyCodeLine{908 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM23()          (DBGMCU-\/>APB1HFZ1 \&= \string~ (DBGMCU\_APB1HFZ1\_DBG\_TIM23))}}
+\DoxyCodeLine{909 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*TIM23*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{910 \textcolor{preprocessor}{\#if defined(TIM24)}}
+\DoxyCodeLine{911 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM24()          (DBGMCU-\/>APB1HFZ1 \&= \string~ (DBGMCU\_APB1HFZ1\_DBG\_TIM24))}}
+\DoxyCodeLine{912 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*TIM24*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{913 }
+\DoxyCodeLine{914 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM1()           (DBGMCU-\/>APB2FZ1  \&= \string~ (DBGMCU\_APB2FZ1\_DBG\_TIM1))}}
+\DoxyCodeLine{915 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM8()           (DBGMCU-\/>APB2FZ1  \&= \string~ (DBGMCU\_APB2FZ1\_DBG\_TIM8))}}
+\DoxyCodeLine{916 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM15()          (DBGMCU-\/>APB2FZ1  \&= \string~ (DBGMCU\_APB2FZ1\_DBG\_TIM15))}}
+\DoxyCodeLine{917 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM16()          (DBGMCU-\/>APB2FZ1  \&= \string~ (DBGMCU\_APB2FZ1\_DBG\_TIM16))}}
+\DoxyCodeLine{918 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_TIM17()          (DBGMCU-\/>APB2FZ1  \&= \string~ (DBGMCU\_APB2FZ1\_DBG\_TIM17))}}
+\DoxyCodeLine{919 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_HRTIM()          (DBGMCU-\/>APB2FZ1  \&= \string~ (DBGMCU\_APB2FZ1\_DBG\_HRTIM))}}
+\DoxyCodeLine{920 }
+\DoxyCodeLine{921 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_I2C4()           (DBGMCU-\/>APB4FZ1  \&= \string~ (DBGMCU\_APB4FZ1\_DBG\_I2C4))}}
+\DoxyCodeLine{922 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_LPTIM2()         (DBGMCU-\/>APB4FZ1  \&= \string~ (DBGMCU\_APB4FZ1\_DBG\_LPTIM2))}}
+\DoxyCodeLine{923 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_LPTIM3()         (DBGMCU-\/>APB4FZ1  \&= \string~ (DBGMCU\_APB4FZ1\_DBG\_LPTIM3))}}
+\DoxyCodeLine{924 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_LPTIM4()         (DBGMCU-\/>APB4FZ1  \&= \string~ (DBGMCU\_APB4FZ1\_DBG\_LPTIM4))}}
+\DoxyCodeLine{925 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_LPTIM5()         (DBGMCU-\/>APB4FZ1  \&= \string~ (DBGMCU\_APB4FZ1\_DBG\_LPTIM5))}}
+\DoxyCodeLine{926 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_RTC()            (DBGMCU-\/>APB4FZ1  \&= \string~ (DBGMCU\_APB4FZ1\_DBG\_RTC))}}
+\DoxyCodeLine{927 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze\_IWDG1()          (DBGMCU-\/>APB4FZ1  \&= \string~ (DBGMCU\_APB4FZ1\_DBG\_IWDG1))}}
+\DoxyCodeLine{928 }
+\DoxyCodeLine{929 }
+\DoxyCodeLine{930 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{931 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_IWDG2()          (DBGMCU-\/>APB4FZ2  |= (DBGMCU\_APB4FZ2\_DBG\_IWDG2))}}
+\DoxyCodeLine{932 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_WWDG2()          (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_WWDG2))}}
+\DoxyCodeLine{933 }
+\DoxyCodeLine{934 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_IWDG2()        (DBGMCU-\/>APB4FZ2  \&= \string~ (DBGMCU\_APB4FZ2\_DBG\_IWDG2))}}
+\DoxyCodeLine{935 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_WWDG2()        (DBGMCU-\/>APB1LFZ2 \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_WWDG2))}}
+\DoxyCodeLine{936 }
+\DoxyCodeLine{937 }
+\DoxyCodeLine{938 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_WWDG1()          (DBGMCU-\/>APB3FZ2 |= (DBGMCU\_APB3FZ2\_DBG\_WWDG1))}}
+\DoxyCodeLine{939 }
+\DoxyCodeLine{940 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM2()           (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_TIM2))}}
+\DoxyCodeLine{941 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM3()           (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_TIM3))}}
+\DoxyCodeLine{942 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM4()           (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_TIM4))}}
+\DoxyCodeLine{943 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM5()           (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_TIM5))}}
+\DoxyCodeLine{944 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM6()           (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_TIM6))}}
+\DoxyCodeLine{945 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM7()           (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_TIM7))}}
+\DoxyCodeLine{946 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM12()          (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_TIM12))}}
+\DoxyCodeLine{947 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM13()          (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_TIM13))}}
+\DoxyCodeLine{948 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM14()          (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_TIM14))}}
+\DoxyCodeLine{949 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_LPTIM1()         (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_LPTIM1))}}
+\DoxyCodeLine{950 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_I2C1()           (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_I2C1))}}
+\DoxyCodeLine{951 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_I2C2()           (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_I2C2))}}
+\DoxyCodeLine{952 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_I2C3()           (DBGMCU-\/>APB1LFZ2 |= (DBGMCU\_APB1LFZ2\_DBG\_I2C3))}}
+\DoxyCodeLine{953 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_FDCAN()          (DBGMCU-\/>APB1HFZ2 |= (DBGMCU\_APB1HFZ2\_DBG\_FDCAN))}}
+\DoxyCodeLine{954 }
+\DoxyCodeLine{955 }
+\DoxyCodeLine{956 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM1()           (DBGMCU-\/>APB2FZ2 |= (DBGMCU\_APB2FZ2\_DBG\_TIM1))}}
+\DoxyCodeLine{957 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM8()           (DBGMCU-\/>APB2FZ2 |= (DBGMCU\_APB2FZ2\_DBG\_TIM8))}}
+\DoxyCodeLine{958 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM15()          (DBGMCU-\/>APB2FZ2 |= (DBGMCU\_APB2FZ2\_DBG\_TIM15))}}
+\DoxyCodeLine{959 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM16()          (DBGMCU-\/>APB2FZ2 |= (DBGMCU\_APB2FZ2\_DBG\_TIM16))}}
+\DoxyCodeLine{960 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_TIM17()          (DBGMCU-\/>APB2FZ2 |= (DBGMCU\_APB2FZ2\_DBG\_TIM17))}}
+\DoxyCodeLine{961 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_HRTIM()          (DBGMCU-\/>APB2FZ2 |= (DBGMCU\_APB2FZ2\_DBG\_HRTIM))}}
+\DoxyCodeLine{962 }
+\DoxyCodeLine{963 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_I2C4()           (DBGMCU-\/>APB4FZ2 |= (DBGMCU\_APB4FZ2\_DBG\_I2C4))}}
+\DoxyCodeLine{964 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_LPTIM2()         (DBGMCU-\/>APB4FZ2 |= (DBGMCU\_APB4FZ2\_DBG\_LPTIM2))}}
+\DoxyCodeLine{965 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_LPTIM3()         (DBGMCU-\/>APB4FZ2 |= (DBGMCU\_APB4FZ2\_DBG\_LPTIM3))}}
+\DoxyCodeLine{966 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_LPTIM4()         (DBGMCU-\/>APB4FZ2 |= (DBGMCU\_APB4FZ2\_DBG\_LPTIM4))}}
+\DoxyCodeLine{967 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_LPTIM5()         (DBGMCU-\/>APB4FZ2 |= (DBGMCU\_APB4FZ2\_DBG\_LPTIM5))}}
+\DoxyCodeLine{968 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_RTC()            (DBGMCU-\/>APB4FZ2 |= (DBGMCU\_APB4FZ2\_DBG\_RTC))}}
+\DoxyCodeLine{969 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_FREEZE2\_IWDG1()          (DBGMCU-\/>APB4FZ2 |= (DBGMCU\_APB4FZ2\_DBG\_IWDG1))}}
+\DoxyCodeLine{970 }
+\DoxyCodeLine{971 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_WWDG1()          (DBGMCU-\/>APB3FZ2  \&= \string~ (DBGMCU\_APB3FZ2\_DBG\_WWDG1))}}
+\DoxyCodeLine{972 }
+\DoxyCodeLine{973 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM2()           (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_TIM2))}}
+\DoxyCodeLine{974 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM3()           (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_TIM3))}}
+\DoxyCodeLine{975 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM4()           (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_TIM4))}}
+\DoxyCodeLine{976 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM5()           (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_TIM5))}}
+\DoxyCodeLine{977 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM6()           (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_TIM6))}}
+\DoxyCodeLine{978 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM7()           (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_TIM7))}}
+\DoxyCodeLine{979 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM12()          (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_TIM12))}}
+\DoxyCodeLine{980 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM13()          (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_TIM13))}}
+\DoxyCodeLine{981 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM14()          (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_TIM14))}}
+\DoxyCodeLine{982 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_LPTIM1()         (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_LPTIM1))}}
+\DoxyCodeLine{983 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_I2C1()           (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_I2C1))}}
+\DoxyCodeLine{984 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_I2C2()           (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_I2C2))}}
+\DoxyCodeLine{985 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_I2C3()           (DBGMCU-\/>APB1LFZ2  \&= \string~ (DBGMCU\_APB1LFZ2\_DBG\_I2C3))}}
+\DoxyCodeLine{986 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_FDCAN()          (DBGMCU-\/>APB1HFZ2  \&= \string~ (DBGMCU\_APB1HFZ2\_DBG\_FDCAN))}}
+\DoxyCodeLine{987 }
+\DoxyCodeLine{988 }
+\DoxyCodeLine{989 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM1()           (DBGMCU-\/>APB2FZ2  \&= \string~ (DBGMCU\_APB2FZ2\_DBG\_TIM1))}}
+\DoxyCodeLine{990 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM8()           (DBGMCU-\/>APB2FZ2  \&= \string~ (DBGMCU\_APB2FZ2\_DBG\_TIM8))}}
+\DoxyCodeLine{991 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM15()          (DBGMCU-\/>APB2FZ2  \&= \string~ (DBGMCU\_APB2FZ2\_DBG\_TIM15))}}
+\DoxyCodeLine{992 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM16()          (DBGMCU-\/>APB2FZ2  \&= \string~ (DBGMCU\_APB2FZ2\_DBG\_TIM16))}}
+\DoxyCodeLine{993 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_TIM17()          (DBGMCU-\/>APB2FZ2  \&= \string~ (DBGMCU\_APB2FZ2\_DBG\_TIM17))}}
+\DoxyCodeLine{994 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_HRTIM()          (DBGMCU-\/>APB2FZ2  \&= \string~ (DBGMCU\_APB2FZ2\_DBG\_HRTIM))}}
+\DoxyCodeLine{995 }
+\DoxyCodeLine{996 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_I2C4()           (DBGMCU-\/>APB4FZ2  \&= \string~ (DBGMCU\_APB4FZ2\_DBG\_I2C4))}}
+\DoxyCodeLine{997 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_LPTIM2()         (DBGMCU-\/>APB4FZ2  \&= \string~ (DBGMCU\_APB4FZ2\_DBG\_LPTIM2))}}
+\DoxyCodeLine{998 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_LPTIM3()         (DBGMCU-\/>APB4FZ2  \&= \string~ (DBGMCU\_APB4FZ2\_DBG\_LPTIM3))}}
+\DoxyCodeLine{999 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_LPTIM4()         (DBGMCU-\/>APB4FZ2  \&= \string~ (DBGMCU\_APB4FZ2\_DBG\_LPTIM4))}}
+\DoxyCodeLine{1000 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_LPTIM5()         (DBGMCU-\/>APB4FZ2  \&= \string~ (DBGMCU\_APB4FZ2\_DBG\_LPTIM5))}}
+\DoxyCodeLine{1001 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_RTC()            (DBGMCU-\/>APB4FZ2  \&= \string~ (DBGMCU\_APB4FZ2\_DBG\_RTC))}}
+\DoxyCodeLine{1002 \textcolor{preprocessor}{\#define \_\_HAL\_DBGMCU\_UnFreeze2\_IWDG1()          (DBGMCU-\/>APB4FZ2  \&= \string~ (DBGMCU\_APB4FZ2\_DBG\_IWDG1))}}
+\DoxyCodeLine{1003 }
+\DoxyCodeLine{1004 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DUAL\_CORE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1005 }
+\DoxyCodeLine{1009 \textcolor{preprocessor}{\#define IS\_TICKFREQ(FREQ) (((FREQ) == HAL\_TICK\_FREQ\_10HZ)  || \(\backslash\)}}
+\DoxyCodeLine{1010 \textcolor{preprocessor}{                           ((FREQ) == HAL\_TICK\_FREQ\_100HZ) || \(\backslash\)}}
+\DoxyCodeLine{1011 \textcolor{preprocessor}{                           ((FREQ) == HAL\_TICK\_FREQ\_1KHZ))}}
+\DoxyCodeLine{1016 \textcolor{comment}{/* Exported variables -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{1017 }
+\DoxyCodeLine{1021 \textcolor{keyword}{extern} \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t uwTick;}
+\DoxyCodeLine{1022 \textcolor{keyword}{extern} uint32\_t uwTickPrio;}
+\DoxyCodeLine{1023 \textcolor{keyword}{extern} HAL\_TickFreqTypeDef uwTickFreq;}
+\DoxyCodeLine{1028 \textcolor{comment}{/* Exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{1029 }
+\DoxyCodeLine{1030 \textcolor{comment}{/* Initialization and de-\/initialization functions  ******************************/}}
+\DoxyCodeLine{1031 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} \mbox{\hyperlink{group___h_a_l_gaecac54d350c3730e6831eb404e557dc4}{HAL\_Init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1032 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} \mbox{\hyperlink{group___h_a_l_ga95911129a26afb05232caaaefa31956f}{HAL\_DeInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1033 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gae4fb8e66865c87d0ebab74a726a6891f}{HAL\_MspInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1034 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gadd10d026ef02d00e32e80c9eab9db830}{HAL\_MspDeInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1035 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} \mbox{\hyperlink{group___h_a_l_ga879cdb21ef051eb81ec51c18147397d5}{HAL\_InitTick}} (uint32\_t TickPriority);}
+\DoxyCodeLine{1036 }
+\DoxyCodeLine{1037 \textcolor{comment}{/* Peripheral Control functions  ************************************************/}}
+\DoxyCodeLine{1038 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gaa8361d44d76b7f6256834f828165837a}{HAL\_IncTick}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1039 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gae63b34eea12780ca2e1100c2402da18e}{HAL\_Delay}}(uint32\_t Delay);}
+\DoxyCodeLine{1040 uint32\_t \mbox{\hyperlink{group___h_a_l_gaf2c4f03d53e997a54e1fd5e80daa55c4}{HAL\_GetTick}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1041 uint32\_t \mbox{\hyperlink{group___h_a_l_gacdcc8b5d33b9f97fe1b0abd6a86a3d4b}{HAL\_GetTickPrio}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1042 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} \mbox{\hyperlink{group___h_a_l_ga47f2dd240b2aed823a76b11496f37690}{HAL\_SetTickFreq}}(HAL\_TickFreqTypeDef Freq);}
+\DoxyCodeLine{1043 HAL\_TickFreqTypeDef \mbox{\hyperlink{group___h_a_l_ga803cdbcc0883bcf5f5c98c50024c97e6}{HAL\_GetTickFreq}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1044 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gaaf651af2afe688a991c657f64f8fa5f9}{HAL\_SuspendTick}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1045 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga24e0ee9dae1ec0f9d19200f5575ff790}{HAL\_ResumeTick}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1046 uint32\_t \mbox{\hyperlink{group___h_a_l_gafb139b375512ad2a234e4619b129b966}{HAL\_GetHalVersion}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1047 uint32\_t \mbox{\hyperlink{group___h_a_l_gae051ef9e932404b21f5877c7186406b8}{HAL\_GetREVID}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1048 uint32\_t \mbox{\hyperlink{group___h_a_l_gaff785f069ed650de77ff82ac407f7c84}{HAL\_GetDEVID}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1049 uint32\_t \mbox{\hyperlink{group___h_a_l_gaf982aa0a575eef3758c0840a24077506}{HAL\_GetUIDw0}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1050 uint32\_t \mbox{\hyperlink{group___h_a_l_ga52720dd92ed2bd4314a2a129855d766c}{HAL\_GetUIDw1}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1051 uint32\_t \mbox{\hyperlink{group___h_a_l_ga5785ae5ec8d4c5a7dadb1359f0778700}{HAL\_GetUIDw2}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1052 \textcolor{preprocessor}{\#if defined(SYSCFG\_PMCR\_EPIS\_SEL)}}
+\DoxyCodeLine{1053 \textcolor{keywordtype}{void} HAL\_SYSCFG\_ETHInterfaceSelect(uint32\_t SYSCFG\_ETHInterface);}
+\DoxyCodeLine{1054 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYSCFG\_PMCR\_EPIS\_SEL */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1055 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gaf3cd66016fc04802f795b36f2f9a68d1}{HAL\_SYSCFG\_AnalogSwitchConfig}}(uint32\_t SYSCFG\_AnalogSwitch , uint32\_t SYSCFG\_SwitchState );}
+\DoxyCodeLine{1056 \textcolor{preprocessor}{\#if defined(SYSCFG\_PMCR\_BOOSTEN)}}
+\DoxyCodeLine{1057 \textcolor{keywordtype}{void} HAL\_SYSCFG\_EnableBOOST(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1058 \textcolor{keywordtype}{void} HAL\_SYSCFG\_DisableBOOST(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1059 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYSCFG\_PMCR\_BOOSTEN */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1060 }
+\DoxyCodeLine{1061 \textcolor{preprocessor}{\#if defined (SYSCFG\_UR2\_BOOT\_ADD0) ||  defined (SYSCFG\_UR2\_BCM7\_ADD0)}}
+\DoxyCodeLine{1062 \textcolor{keywordtype}{void} HAL\_SYSCFG\_CM7BootAddConfig(uint32\_t BootRegister, uint32\_t BootAddress);}
+\DoxyCodeLine{1063 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYSCFG\_UR2\_BOOT\_ADD0 || SYSCFG\_UR2\_BCM7\_ADD0*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1064 }
+\DoxyCodeLine{1065 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{1066 \textcolor{keywordtype}{void} HAL\_SYSCFG\_CM4BootAddConfig(uint32\_t BootRegister, uint32\_t BootAddress);}
+\DoxyCodeLine{1067 \textcolor{keywordtype}{void} HAL\_SYSCFG\_EnableCM7BOOT(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1068 \textcolor{keywordtype}{void} HAL\_SYSCFG\_DisableCM7BOOT(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1069 \textcolor{keywordtype}{void} HAL\_SYSCFG\_EnableCM4BOOT(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1070 \textcolor{keywordtype}{void} HAL\_SYSCFG\_DisableCM4BOOT(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1071 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DUAL\_CORE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1072 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga20b6ca07582e10aec5e15ad2fda7dfc1}{HAL\_EnableCompensationCell}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1073 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga653f1166b0e37afd40372550d806e667}{HAL\_DisableCompensationCell}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1074 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gaf917b7597a248de90f56f726d1a9d7fc}{HAL\_SYSCFG\_EnableIOSpeedOptimize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1075 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga7e66c046aca125b43632bd48062aa7e2}{HAL\_SYSCFG\_DisableIOSpeedOptimize}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1076 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga1d50aaa188c9ac4f4d601f241a8dd0d8}{HAL\_SYSCFG\_CompensationCodeSelect}}(uint32\_t SYSCFG\_CompCode);}
+\DoxyCodeLine{1077 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gad7601fc9520bc414a90ab50ff15aa0d5}{HAL\_SYSCFG\_CompensationCodeConfig}}(uint32\_t SYSCFG\_PMOSCode, uint32\_t SYSCFG\_NMOSCode);}
+\DoxyCodeLine{1078 \textcolor{preprocessor}{\#if defined(SYSCFG\_CCCR\_NCC\_MMC)}}
+\DoxyCodeLine{1079 \textcolor{keywordtype}{void} HAL\_SYSCFG\_VDDMMC\_CompensationCodeConfig(uint32\_t SYSCFG\_PMOSCode, uint32\_t SYSCFG\_NMOSCode);}
+\DoxyCodeLine{1080 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SYSCFG\_CCCR\_NCC\_MMC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1081 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gaf031bcc71ebad9b7edf405547efd762b}{HAL\_DBGMCU\_EnableDBGSleepMode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1082 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gac7820d0561f19999a68d714655b901b5}{HAL\_DBGMCU\_DisableDBGSleepMode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1083 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gadf25043b17de4bef38a95a75fd03e5c4}{HAL\_DBGMCU\_EnableDBGStopMode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1084 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga2c93dcee35e5983d74f1000de7c042d5}{HAL\_DBGMCU\_DisableDBGStopMode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1085 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga28a1323b2eeb0a408c1cfdbfa0db5ead}{HAL\_DBGMCU\_EnableDBGStandbyMode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1086 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga7faa58d8508ea3123b9f247a70379779}{HAL\_DBGMCU\_DisableDBGStandbyMode}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1087 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{1088 \textcolor{keywordtype}{void} HAL\_EnableDomain2DBGSleepMode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1089 \textcolor{keywordtype}{void} HAL\_DisableDomain2DBGSleepMode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1090 \textcolor{keywordtype}{void} HAL\_EnableDomain2DBGStopMode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1091 \textcolor{keywordtype}{void} HAL\_DisableDomain2DBGStopMode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1092 \textcolor{keywordtype}{void} HAL\_EnableDomain2DBGStandbyMode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1093 \textcolor{keywordtype}{void} HAL\_DisableDomain2DBGStandbyMode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1094 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DUAL\_CORE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1095 \textcolor{preprocessor}{\#if defined(DBGMCU\_CR\_DBG\_STOPD3)}}
+\DoxyCodeLine{1096 \textcolor{keywordtype}{void} HAL\_EnableDomain3DBGStopMode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1097 \textcolor{keywordtype}{void} HAL\_DisableDomain3DBGStopMode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1098 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DBGMCU\_CR\_DBG\_STOPD3*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1099 \textcolor{preprocessor}{\#if defined(DBGMCU\_CR\_DBG\_STANDBYD3)}}
+\DoxyCodeLine{1100 \textcolor{keywordtype}{void} HAL\_EnableDomain3DBGStandbyMode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1101 \textcolor{keywordtype}{void} HAL\_DisableDomain3DBGStandbyMode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1102 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DBGMCU\_CR\_DBG\_STANDBYD3*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1103 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gac248995c863da942024d6fb556732027}{HAL\_EXTI\_EdgeConfig}}(uint32\_t EXTI\_Line , uint32\_t EXTI\_Edge );}
+\DoxyCodeLine{1104 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gaafbf043f6ed81243cf73194e394b104c}{HAL\_EXTI\_GenerateSWInterrupt}}(uint32\_t EXTI\_Line);}
+\DoxyCodeLine{1105 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{1106 \textcolor{keywordtype}{void} HAL\_EXTI\_D2\_ClearFlag(uint32\_t EXTI\_Line);}
+\DoxyCodeLine{1107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DUAL\_CORE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1108 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gaaa883ca7eecba560c8ac92a1b252ae88}{HAL\_EXTI\_D1\_ClearFlag}}(uint32\_t EXTI\_Line);}
+\DoxyCodeLine{1109 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gafc2445849507e5aeb7d48e77c278a604}{HAL\_EXTI\_D1\_EventInputConfig}}(uint32\_t EXTI\_Line , uint32\_t EXTI\_Mode,  uint32\_t EXTI\_LineCmd);}
+\DoxyCodeLine{1110 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{1111 \textcolor{keywordtype}{void} HAL\_EXTI\_D2\_EventInputConfig(uint32\_t EXTI\_Line , uint32\_t EXTI\_Mode,  uint32\_t EXTI\_LineCmd);}
+\DoxyCodeLine{1112 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*DUAL\_CORE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1113 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga16c56027a8671ff62a26204152aa8f95}{HAL\_EXTI\_D3\_EventInputConfig}}(uint32\_t EXTI\_Line, uint32\_t EXTI\_LineCmd , uint32\_t EXTI\_ClearSrc);}
+\DoxyCodeLine{1114 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga2ababe650b4698a325acb86a575e4cf0}{HAL\_SetFMCMemorySwappingConfig}}(uint32\_t BankMapConfig);}
+\DoxyCodeLine{1115 uint32\_t \mbox{\hyperlink{group___h_a_l_gac3bf32c8fd5ae5ec50f5585190f39274}{HAL\_GetFMCMemorySwappingConfig}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1116 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga79b8e839deeb200f22ab3f6d21359338}{HAL\_SYSCFG\_VREFBUF\_VoltageScalingConfig}}(uint32\_t VoltageScaling);}
+\DoxyCodeLine{1117 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga7de0a1fcafa18030af600b0ed908b805}{HAL\_SYSCFG\_VREFBUF\_HighImpedanceConfig}}(uint32\_t Mode);}
+\DoxyCodeLine{1118 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_gae0317419d084f9d40b32c1dd6037925f}{HAL\_SYSCFG\_VREFBUF\_TrimmingConfig}}(uint32\_t TrimmingValue);}
+\DoxyCodeLine{1119 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} \mbox{\hyperlink{group___h_a_l_ga3a184f1a037585ba7a1d931abff30275}{HAL\_SYSCFG\_EnableVREFBUF}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1120 \textcolor{keywordtype}{void} \mbox{\hyperlink{group___h_a_l_ga26991b4078e8f985b1caced43b6cfb9c}{HAL\_SYSCFG\_DisableVREFBUF}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{1121 \textcolor{preprocessor}{\#if defined(SYSCFG\_ADC2ALT\_ADC2\_ROUT0)}}
+\DoxyCodeLine{1122 \textcolor{keywordtype}{void} HAL\_SYSCFG\_ADC2ALT\_Rout0Config(uint32\_t Adc2AltRout0);}
+\DoxyCodeLine{1123 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*SYSCFG\_ADC2ALT\_ADC2\_ROUT0*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1124 \textcolor{preprocessor}{\#if defined(SYSCFG\_ADC2ALT\_ADC2\_ROUT1)}}
+\DoxyCodeLine{1125 \textcolor{keywordtype}{void} HAL\_SYSCFG\_ADC2ALT\_Rout1Config(uint32\_t Adc2AltRout1);}
+\DoxyCodeLine{1126 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*SYSCFG\_ADC2ALT\_ADC2\_ROUT1*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1127 }
+\DoxyCodeLine{1136 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{1137 \}}
+\DoxyCodeLine{1138 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1139 }
+\DoxyCodeLine{1140 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STM32H7xx\_HAL\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1141 }
+\DoxyCodeLine{1142 }
+
+\end{DoxyCode}

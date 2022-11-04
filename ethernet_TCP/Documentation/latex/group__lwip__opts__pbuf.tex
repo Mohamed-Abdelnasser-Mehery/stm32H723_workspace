@@ -1,0 +1,44 @@
+\hypertarget{group__lwip__opts__pbuf}{}\doxysection{PBUF}
+\label{group__lwip__opts__pbuf}\index{PBUF@{PBUF}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__pbuf_ga35998a3d56af9940e6a80bb372597685}{PBUF\+\_\+\+LINK\+\_\+\+HLEN}}~(14 + \mbox{\hyperlink{group__lwip__opts__arp_gad7fa3b356ca7e603e848b069c4cc6276}{ETH\+\_\+\+PAD\+\_\+\+SIZE}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__pbuf_ga6e1ba1875ae5168a17b53d83597bc1de}{PBUF\+\_\+\+LINK\+\_\+\+ENCAPSULATION\+\_\+\+HLEN}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__pbuf_gae61f4491d56e805e79b79eb5d35a00e5}{PBUF\+\_\+\+POOL\+\_\+\+BUFSIZE}}~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(\mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}}+40+\mbox{\hyperlink{group__lwip__opts__pbuf_ga6e1ba1875ae5168a17b53d83597bc1de}{PBUF\+\_\+\+LINK\+\_\+\+ENCAPSULATION\+\_\+\+HLEN}}+\mbox{\hyperlink{group__lwip__opts__pbuf_ga35998a3d56af9940e6a80bb372597685}{PBUF\+\_\+\+LINK\+\_\+\+HLEN}})
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__pbuf_gaaefb80d6bf9257c0f4322c36e1272c38}{LWIP\+\_\+\+PBUF\+\_\+\+REF\+\_\+T}}~u8\+\_\+t
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__pbuf_gaaefb80d6bf9257c0f4322c36e1272c38}\label{group__lwip__opts__pbuf_gaaefb80d6bf9257c0f4322c36e1272c38}} 
+\index{PBUF@{PBUF}!LWIP\_PBUF\_REF\_T@{LWIP\_PBUF\_REF\_T}}
+\index{LWIP\_PBUF\_REF\_T@{LWIP\_PBUF\_REF\_T}!PBUF@{PBUF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_PBUF\_REF\_T}{LWIP\_PBUF\_REF\_T}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+PBUF\+\_\+\+REF\+\_\+T~u8\+\_\+t}
+
+LWIP\+\_\+\+PBUF\+\_\+\+REF\+\_\+T\+: Refcount type in pbuf. Default width of u8\+\_\+t can be increased if 255 refs are not enough for you. \mbox{\Hypertarget{group__lwip__opts__pbuf_ga6e1ba1875ae5168a17b53d83597bc1de}\label{group__lwip__opts__pbuf_ga6e1ba1875ae5168a17b53d83597bc1de}} 
+\index{PBUF@{PBUF}!PBUF\_LINK\_ENCAPSULATION\_HLEN@{PBUF\_LINK\_ENCAPSULATION\_HLEN}}
+\index{PBUF\_LINK\_ENCAPSULATION\_HLEN@{PBUF\_LINK\_ENCAPSULATION\_HLEN}!PBUF@{PBUF}}
+\doxysubsubsection{\texorpdfstring{PBUF\_LINK\_ENCAPSULATION\_HLEN}{PBUF\_LINK\_ENCAPSULATION\_HLEN}}
+{\footnotesize\ttfamily \#define PBUF\+\_\+\+LINK\+\_\+\+ENCAPSULATION\+\_\+\+HLEN~0}
+
+PBUF\+\_\+\+LINK\+\_\+\+ENCAPSULATION\+\_\+\+HLEN\+: the number of bytes that should be allocated for an additional encapsulation header before ethernet headers (e.\+g. 802.\+11) \mbox{\Hypertarget{group__lwip__opts__pbuf_ga35998a3d56af9940e6a80bb372597685}\label{group__lwip__opts__pbuf_ga35998a3d56af9940e6a80bb372597685}} 
+\index{PBUF@{PBUF}!PBUF\_LINK\_HLEN@{PBUF\_LINK\_HLEN}}
+\index{PBUF\_LINK\_HLEN@{PBUF\_LINK\_HLEN}!PBUF@{PBUF}}
+\doxysubsubsection{\texorpdfstring{PBUF\_LINK\_HLEN}{PBUF\_LINK\_HLEN}}
+{\footnotesize\ttfamily \#define PBUF\+\_\+\+LINK\+\_\+\+HLEN~(14 + \mbox{\hyperlink{group__lwip__opts__arp_gad7fa3b356ca7e603e848b069c4cc6276}{ETH\+\_\+\+PAD\+\_\+\+SIZE}})}
+
+PBUF\+\_\+\+LINK\+\_\+\+HLEN\+: the number of bytes that should be allocated for a link level header. The default is 14, the standard value for Ethernet. \mbox{\Hypertarget{group__lwip__opts__pbuf_gae61f4491d56e805e79b79eb5d35a00e5}\label{group__lwip__opts__pbuf_gae61f4491d56e805e79b79eb5d35a00e5}} 
+\index{PBUF@{PBUF}!PBUF\_POOL\_BUFSIZE@{PBUF\_POOL\_BUFSIZE}}
+\index{PBUF\_POOL\_BUFSIZE@{PBUF\_POOL\_BUFSIZE}!PBUF@{PBUF}}
+\doxysubsubsection{\texorpdfstring{PBUF\_POOL\_BUFSIZE}{PBUF\_POOL\_BUFSIZE}}
+{\footnotesize\ttfamily \#define PBUF\+\_\+\+POOL\+\_\+\+BUFSIZE~\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(\mbox{\hyperlink{group__lwip__opts__tcp_gaf1ab7bb27860aa3677c387a2f3ba317b}{TCP\+\_\+\+MSS}}+40+\mbox{\hyperlink{group__lwip__opts__pbuf_ga6e1ba1875ae5168a17b53d83597bc1de}{PBUF\+\_\+\+LINK\+\_\+\+ENCAPSULATION\+\_\+\+HLEN}}+\mbox{\hyperlink{group__lwip__opts__pbuf_ga35998a3d56af9940e6a80bb372597685}{PBUF\+\_\+\+LINK\+\_\+\+HLEN}})}
+
+PBUF\+\_\+\+POOL\+\_\+\+BUFSIZE\+: the size of each pbuf in the pbuf pool. The default is designed to accommodate single full size TCP frame in one pbuf, including TCP\+\_\+\+MSS, IP header, and link header. 

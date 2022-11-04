@@ -1,0 +1,185 @@
+\hypertarget{lcp_8h_source}{}\doxysection{lcp.\+h}
+\label{lcp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/lcp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/lcp.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * lcp.h -\/ Link Control Protocol definitions.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 1984-\/2000 Carnegie Mellon University. All rights reserved.}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{7 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{8 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    the documentation and/or other materials provided with the}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    distribution.}}
+\DoxyCodeLine{17 \textcolor{comment}{ *}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name "{}Carnegie Mellon University"{} must not be used to}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    prior written permission. For permission or any legal}}
+\DoxyCodeLine{21 \textcolor{comment}{ *    details, please contact}}
+\DoxyCodeLine{22 \textcolor{comment}{ *      Office of Technology Transfer}}
+\DoxyCodeLine{23 \textcolor{comment}{ *      Carnegie Mellon University}}
+\DoxyCodeLine{24 \textcolor{comment}{ *      5000 Forbes Avenue}}
+\DoxyCodeLine{25 \textcolor{comment}{ *      Pittsburgh, PA  15213-\/3890}}
+\DoxyCodeLine{26 \textcolor{comment}{ *      (412) 268-\/4387, fax: (412) 268-\/7395}}
+\DoxyCodeLine{27 \textcolor{comment}{ *      tech-\/transfer@andrew.cmu.edu}}
+\DoxyCodeLine{28 \textcolor{comment}{ *}}
+\DoxyCodeLine{29 \textcolor{comment}{ * 4. Redistributions of any form whatsoever must retain the following}}
+\DoxyCodeLine{30 \textcolor{comment}{ *    acknowledgment:}}
+\DoxyCodeLine{31 \textcolor{comment}{ *    "{}This product includes software developed by Computing Services}}
+\DoxyCodeLine{32 \textcolor{comment}{ *     at Carnegie Mellon University (http://www.cmu.edu/computing/)."{}}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * CARNEGIE MELLON UNIVERSITY DISCLAIMS ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{35 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{36 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL CARNEGIE MELLON UNIVERSITY BE LIABLE}}
+\DoxyCodeLine{37 \textcolor{comment}{ * FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{38 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{39 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{40 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{41 \textcolor{comment}{ *}}
+\DoxyCodeLine{42 \textcolor{comment}{ * \$Id: lcp.h,v 1.20 2004/11/14 22:53:42 carlsonj Exp \$}}
+\DoxyCodeLine{43 \textcolor{comment}{ */}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#if PPP\_SUPPORT }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifndef LCP\_H}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define LCP\_H}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#include "{}ppp.h"{}}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{54 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{comment}{/*}}
+\DoxyCodeLine{58 \textcolor{comment}{ * Options.}}
+\DoxyCodeLine{59 \textcolor{comment}{ */}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define CI\_VENDOR   0   }\textcolor{comment}{/* Vendor Specific */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define CI\_MRU      1   }\textcolor{comment}{/* Maximum Receive Unit */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define CI\_ASYNCMAP 2   }\textcolor{comment}{/* Async Control Character Map */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define CI\_AUTHTYPE 3   }\textcolor{comment}{/* Authentication Type */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define CI\_QUALITY  4   }\textcolor{comment}{/* Quality Protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define CI\_MAGICNUMBER  5   }\textcolor{comment}{/* Magic Number */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define CI\_PCOMPRESSION 7   }\textcolor{comment}{/* Protocol Field Compression */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define CI\_ACCOMPRESSION 8  }\textcolor{comment}{/* Address/Control Field Compression */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define CI\_FCSALTERN    9   }\textcolor{comment}{/* FCS-\/Alternatives */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define CI\_SDP      10  }\textcolor{comment}{/* Self-\/Describing-\/Pad */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define CI\_NUMBERED 11  }\textcolor{comment}{/* Numbered-\/Mode */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define CI\_CALLBACK 13  }\textcolor{comment}{/* callback */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define CI\_MRRU     17  }\textcolor{comment}{/* max reconstructed receive unit; multilink */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define CI\_SSNHF    18  }\textcolor{comment}{/* short sequence numbers for multilink */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define CI\_EPDISC   19  }\textcolor{comment}{/* endpoint discriminator */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define CI\_MPPLUS   22  }\textcolor{comment}{/* Multi-\/Link-\/Plus-\/Procedure */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define CI\_LDISC    23  }\textcolor{comment}{/* Link-\/Discriminator */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define CI\_LCPAUTH  24  }\textcolor{comment}{/* LCP Authentication */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define CI\_COBS     25  }\textcolor{comment}{/* Consistent Overhead Byte Stuffing */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define CI\_PREFELIS 26  }\textcolor{comment}{/* Prefix Elision */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define CI\_MPHDRFMT 27  }\textcolor{comment}{/* MP Header Format */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define CI\_I18N     28  }\textcolor{comment}{/* Internationalization */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define CI\_SDL      29  }\textcolor{comment}{/* Simple Data Link */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{comment}{/*}}
+\DoxyCodeLine{85 \textcolor{comment}{ * LCP-\/specific packet types (code numbers).}}
+\DoxyCodeLine{86 \textcolor{comment}{ */}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define PROTREJ     8   }\textcolor{comment}{/* Protocol Reject */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define ECHOREQ     9   }\textcolor{comment}{/* Echo Request */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define ECHOREP     10  }\textcolor{comment}{/* Echo Reply */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define DISCREQ     11  }\textcolor{comment}{/* Discard Request */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define IDENTIF     12  }\textcolor{comment}{/* Identification */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define TIMEREM     13  }\textcolor{comment}{/* Time Remaining */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{comment}{/* Value used as data for CI\_CALLBACK option */}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define CBCP\_OPT    6   }\textcolor{comment}{/* Use callback control protocol */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* moved to ppp\_opts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define DEFMRU  1500        }\textcolor{comment}{/* Try for this */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define MINMRU  128     }\textcolor{comment}{/* No MRUs below this */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define MAXMRU  16384       }\textcolor{comment}{/* Normally limit MRU to this */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* moved to ppp\_opts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{comment}{/* An endpoint discriminator, used with multilink. */}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define MAX\_ENDP\_LEN    20  }\textcolor{comment}{/* maximum length of discriminator value */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{105 \textcolor{keyword}{struct }epdisc \{}
+\DoxyCodeLine{106     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}   class\_; \textcolor{comment}{/* -\/-\/ The word "{}class"{} is reserved in C++. */}}
+\DoxyCodeLine{107     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}   length;}
+\DoxyCodeLine{108     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}   value[MAX\_ENDP\_LEN];}
+\DoxyCodeLine{109 \};}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{comment}{/*}}
+\DoxyCodeLine{112 \textcolor{comment}{ * The state of options is described by an lcp\_options structure.}}
+\DoxyCodeLine{113 \textcolor{comment}{ */}}
+\DoxyCodeLine{114 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }lcp\_options \{}
+\DoxyCodeLine{115     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} passive           :1; \textcolor{comment}{/* Don't die if we don't get a response */}}
+\DoxyCodeLine{116     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} silent            :1; \textcolor{comment}{/* Wait for the other end to start first */}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* UNUSED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{118     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} restart           :1; \textcolor{comment}{/* Restart vs. exit after close */}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UNUSED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{120     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_mru           :1; \textcolor{comment}{/* Negotiate the MRU? */}}
+\DoxyCodeLine{121     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_asyncmap      :1; \textcolor{comment}{/* Negotiate the async map? */}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#if PAP\_SUPPORT}}
+\DoxyCodeLine{123     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_upap          :1; \textcolor{comment}{/* Ask for UPAP authentication? */}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#if CHAP\_SUPPORT}}
+\DoxyCodeLine{126     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_chap          :1; \textcolor{comment}{/* Ask for CHAP authentication? */}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#if EAP\_SUPPORT}}
+\DoxyCodeLine{129     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_eap           :1; \textcolor{comment}{/* Ask for EAP authentication? */}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* EAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{131     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_magicnumber   :1; \textcolor{comment}{/* Ask for magic number? */}}
+\DoxyCodeLine{132     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_pcompression  :1; \textcolor{comment}{/* HDLC Protocol Field Compression? */}}
+\DoxyCodeLine{133     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_accompression :1; \textcolor{comment}{/* HDLC Address/Control Field Compression? */}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#if LQR\_SUPPORT}}
+\DoxyCodeLine{135     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_lqr           :1; \textcolor{comment}{/* Negotiate use of Link Quality Reports */}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LQR\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{137     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_cbcp          :1; \textcolor{comment}{/* Negotiate use of CBCP */}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#ifdef HAVE\_MULTILINK}}
+\DoxyCodeLine{139     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_mrru          :1; \textcolor{comment}{/* negotiate multilink MRRU */}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* HAVE\_MULTILINK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{141     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_ssnhf         :1; \textcolor{comment}{/* negotiate short sequence numbers */}}
+\DoxyCodeLine{142     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_endpoint      :1; \textcolor{comment}{/* negotiate endpoint discriminator */}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     u16\_t mru;          \textcolor{comment}{/* Value of MRU */}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#ifdef HAVE\_MULTILINK}}
+\DoxyCodeLine{146     u16\_t mrru;         \textcolor{comment}{/* Value of MRRU, and multilink enable */}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MULTILINK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#if CHAP\_SUPPORT}}
+\DoxyCodeLine{149     u8\_t chap\_mdtype;       \textcolor{comment}{/* which MD types (hashing algorithm) */}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{151     u32\_t asyncmap;     \textcolor{comment}{/* Value of async map */}}
+\DoxyCodeLine{152     u32\_t magicnumber;}
+\DoxyCodeLine{153     u8\_t  numloops;     \textcolor{comment}{/* Number of loops during magic number neg. */}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#if LQR\_SUPPORT}}
+\DoxyCodeLine{155     u32\_t lqr\_period;   \textcolor{comment}{/* Reporting period for LQR 1/100ths second */}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LQR\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{157     \textcolor{keyword}{struct }epdisc endpoint; \textcolor{comment}{/* endpoint discriminator */}}
+\DoxyCodeLine{158 \} lcp\_options;}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{keywordtype}{void} lcp\_open(ppp\_pcb *pcb);}
+\DoxyCodeLine{161 \textcolor{keywordtype}{void} lcp\_close(ppp\_pcb *pcb, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *reason);}
+\DoxyCodeLine{162 \textcolor{keywordtype}{void} lcp\_lowerup(ppp\_pcb *pcb);}
+\DoxyCodeLine{163 \textcolor{keywordtype}{void} lcp\_lowerdown(ppp\_pcb *pcb);}
+\DoxyCodeLine{164 \textcolor{keywordtype}{void} lcp\_sprotrej(ppp\_pcb *pcb, u\_char *p, \textcolor{keywordtype}{int} len);    \textcolor{comment}{/* send protocol reject */}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }protent lcp\_protent;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* moved to ppp\_opts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{169 \textcolor{comment}{/* Default number of times we receive our magic number from the peer}}
+\DoxyCodeLine{170 \textcolor{comment}{   before deciding the link is looped-\/back. */}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define DEFLOOPBACKFAIL 10}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* moved to ppp\_opts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{175 \}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LCP\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

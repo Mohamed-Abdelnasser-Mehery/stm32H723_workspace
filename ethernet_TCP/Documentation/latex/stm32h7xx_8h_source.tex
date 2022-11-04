@@ -1,0 +1,219 @@
+\hypertarget{stm32h7xx_8h_source}{}\doxysection{stm32h7xx.\+h}
+\label{stm32h7xx_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h}}
+\mbox{\hyperlink{stm32h7xx_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef STM32H7xx\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define STM32H7xx\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{41  \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#if !defined  (STM32H7)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define STM32H7}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STM32H7 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{comment}{/* Uncomment the line below according to the target STM32H7 device used in your}}
+\DoxyCodeLine{57 \textcolor{comment}{   application}}
+\DoxyCodeLine{58 \textcolor{comment}{  */}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#if !defined (STM32H743xx) \&\& !defined (STM32H753xx)  \&\& !defined (STM32H750xx) \&\& !defined (STM32H742xx) \&\& \(\backslash\)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{    !defined (STM32H745xx) \&\& !defined (STM32H745xG)  \&\& !defined (STM32H755xx)  \&\& !defined (STM32H747xx) \&\& !defined (STM32H747xG)\&\& !defined (STM32H757xx) \&\& \(\backslash\)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{    !defined (STM32H7A3xx) \&\& !defined (STM32H7A3xxQ) \&\& !defined (STM32H7B3xx) \&\& !defined (STM32H7B3xxQ) \&\& !defined (STM32H7B0xx)  \&\& !defined (STM32H7B0xxQ) \&\& \(\backslash\)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{    !defined (STM32H735xx) \&\& !defined (STM32H733xx)  \&\& !defined (STM32H730xx) \&\& !defined (STM32H730xxQ)  \&\& !defined (STM32H725xx) \&\& !defined (STM32H723xx)}}
+\DoxyCodeLine{64   \textcolor{comment}{/* \#define STM32H742xx */}   }
+\DoxyCodeLine{65   \textcolor{comment}{/* \#define STM32H743xx */}   }
+\DoxyCodeLine{66   \textcolor{comment}{/* \#define STM32H753xx */}   }
+\DoxyCodeLine{67   \textcolor{comment}{/* \#define STM32H750xx */}   }
+\DoxyCodeLine{68   \textcolor{comment}{/* \#define STM32H747xx */}   }
+\DoxyCodeLine{69   \textcolor{comment}{/* \#define STM32H747xG */}   }
+\DoxyCodeLine{70   \textcolor{comment}{/* \#define STM32H757xx */}   }
+\DoxyCodeLine{71   \textcolor{comment}{/* \#define STM32H745xx */}   }
+\DoxyCodeLine{72   \textcolor{comment}{/* \#define STM32H745xG */}   }
+\DoxyCodeLine{73   \textcolor{comment}{/* \#define STM32H755xx */}   }
+\DoxyCodeLine{74   \textcolor{comment}{/* \#define STM32H7B0xx */}   }
+\DoxyCodeLine{75   \textcolor{comment}{/* \#define STM32H7A3xx */}   }
+\DoxyCodeLine{76   \textcolor{comment}{/* \#define STM32H7A3xxQ */}  }
+\DoxyCodeLine{77   \textcolor{comment}{/* \#define STM32H7B3xx */}   }
+\DoxyCodeLine{78   \textcolor{comment}{/* \#define STM32H7B3xxQ */}  }
+\DoxyCodeLine{79   \textcolor{comment}{/* \#define STM32H735xx */}   }
+\DoxyCodeLine{80   \textcolor{comment}{/* \#define STM32H733xx */}   }
+\DoxyCodeLine{81   \textcolor{comment}{/* \#define STM32H730xx */}   }
+\DoxyCodeLine{82   \textcolor{comment}{/* \#define STM32H730xxQ */}  }
+\DoxyCodeLine{83   \textcolor{comment}{/* \#define STM32H725xx */}   }
+\DoxyCodeLine{84   \textcolor{comment}{/* \#define STM32H723xx */}   }
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{comment}{/*  Tip: To avoid modifying this file each time you need to switch between these}}
+\DoxyCodeLine{88 \textcolor{comment}{        devices, you can define the device in your toolchain compiler preprocessor.}}
+\DoxyCodeLine{89 \textcolor{comment}{  */}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#if defined(DUAL\_CORE) \&\& !defined(CORE\_CM4) \&\& !defined(CORE\_CM7)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{ \#error "{}Dual core device, please select CORE\_CM4 or CORE\_CM7"{}}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#if !defined  (USE\_HAL\_DRIVER)}}
+\DoxyCodeLine{101   \textcolor{comment}{/*\#define USE\_HAL\_DRIVER */}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* USE\_HAL\_DRIVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define \_\_STM32H7xx\_CMSIS\_DEVICE\_VERSION\_MAIN   (0x01) }}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define \_\_STM32H7xx\_CMSIS\_DEVICE\_VERSION\_SUB1   (0x0A) }}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define \_\_STM32H7xx\_CMSIS\_DEVICE\_VERSION\_SUB2   (0x02) }}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define \_\_STM32H7xx\_CMSIS\_DEVICE\_VERSION\_RC     (0x00) }}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define \_\_STM32H7xx\_CMSIS\_DEVICE\_VERSION        ((\_\_STM32H7xx\_CMSIS\_DEVICE\_VERSION\_MAIN     << 24)\(\backslash\)}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{                                      |(\_\_STM32H7xx\_CMSIS\_DEVICE\_VERSION\_SUB1 << 16)\(\backslash\)}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{                                      |(\_\_STM32H7xx\_CMSIS\_DEVICE\_VERSION\_SUB2 << 8 )\(\backslash\)}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{                                      |(\_\_STM32H7xx\_CMSIS\_DEVICE\_VERSION\_RC))}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#if defined(STM32H743xx)}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{  \#include "{}stm32h743xx.h"{}}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#elif defined(STM32H753xx)}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{  \#include "{}stm32h753xx.h"{}}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#elif defined(STM32H750xx)}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{  \#include "{}stm32h750xx.h"{}}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#elif defined(STM32H742xx)}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{  \#include "{}stm32h742xx.h"{}}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#elif defined(STM32H745xx)}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{  \#include "{}stm32h745xx.h"{}}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#elif defined(STM32H745xG)}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{  \#include "{}stm32h745xg.h"{}}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#elif defined(STM32H755xx)}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{  \#include "{}stm32h755xx.h"{}}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#elif defined(STM32H747xx)}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{  \#include "{}stm32h747xx.h"{}}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#elif defined(STM32H747xG)}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{  \#include "{}stm32h747xg.h"{}}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#elif defined(STM32H757xx)}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{  \#include "{}stm32h757xx.h"{}}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#elif defined(STM32H7B0xx)}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{  \#include "{}stm32h7b0xx.h"{}}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#elif defined(STM32H7B0xxQ)}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{  \#include "{}stm32h7b0xxq.h"{}}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#elif defined(STM32H7A3xx)}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{  \#include "{}stm32h7a3xx.h"{}}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#elif defined(STM32H7B3xx)}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{  \#include "{}stm32h7b3xx.h"{}}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#elif defined(STM32H7A3xxQ)}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{  \#include "{}stm32h7a3xxq.h"{}}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#elif defined(STM32H7B3xxQ)}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{  \#include "{}stm32h7b3xxq.h"{}}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#elif defined(STM32H735xx)}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{  \#include "{}stm32h735xx.h"{}}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#elif defined(STM32H733xx)}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{  \#include "{}stm32h733xx.h"{}}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#elif defined(STM32H730xx)}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{  \#include "{}stm32h730xx.h"{}}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#elif defined(STM32H730xxQ)}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{  \#include "{}stm32h730xxq.h"{}}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#elif defined(STM32H725xx)}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{  \#include "{}stm32h725xx.h"{}}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#elif defined(STM32H723xx)}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{  \#include "{}\mbox{\hyperlink{stm32h723xx_8h}{stm32h723xx.h}}"{}}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{169 \textcolor{preprocessor}{ \#error "{}Please select first the target STM32H7xx device used in your application (in stm32h7xx.h file)"{}}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{179 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{180 \{}
+\DoxyCodeLine{181   RESET = 0,}
+\DoxyCodeLine{182   SET = !RESET}
+\DoxyCodeLine{183 \} FlagStatus, ITStatus;}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{186 \{}
+\DoxyCodeLine{187   DISABLE = 0,}
+\DoxyCodeLine{188   ENABLE = !DISABLE}
+\DoxyCodeLine{189 \} FunctionalState;}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define IS\_FUNCTIONAL\_STATE(STATE) (((STATE) == DISABLE) || ((STATE) == ENABLE))}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{193 \{}
+\DoxyCodeLine{194   SUCCESS = 0,}
+\DoxyCodeLine{195   ERROR = !SUCCESS}
+\DoxyCodeLine{196 \} ErrorStatus;}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#define SET\_BIT(REG, BIT)     ((REG) |= (BIT))}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#define CLEAR\_BIT(REG, BIT)   ((REG) \&= \string~(BIT))}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#define READ\_BIT(REG, BIT)    ((REG) \& (BIT))}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#define CLEAR\_REG(REG)        ((REG) = (0x0))}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#define WRITE\_REG(REG, VAL)   ((REG) = (VAL))}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216 \textcolor{preprocessor}{\#define READ\_REG(REG)         ((REG))}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218 \textcolor{preprocessor}{\#define MODIFY\_REG(REG, CLEARMASK, SETMASK)  WRITE\_REG((REG), (((READ\_REG(REG)) \& (\string~(CLEARMASK))) | (SETMASK)))}}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#define POSITION\_VAL(VAL)     (\_\_CLZ(\_\_RBIT(VAL)))}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222 \textcolor{comment}{/* Use of CMSIS compiler intrinsics for register exclusive access */}}
+\DoxyCodeLine{223 \textcolor{comment}{/* Atomic 32-\/bit register access macro to set one or several bits */}}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#define ATOMIC\_SET\_BIT(REG, BIT)                             \(\backslash\)}}
+\DoxyCodeLine{225 \textcolor{preprocessor}{  do \{                                                       \(\backslash\)}}
+\DoxyCodeLine{226 \textcolor{preprocessor}{    uint32\_t val;                                            \(\backslash\)}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{    do \{                                                     \(\backslash\)}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{      val = \_\_LDREXW((\_\_IO uint32\_t *)\&(REG)) | (BIT);       \(\backslash\)}}
+\DoxyCodeLine{229 \textcolor{preprocessor}{    \} while ((\_\_STREXW(val,(\_\_IO uint32\_t *)\&(REG))) != 0U); \(\backslash\)}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{  \} while(0)}}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232 \textcolor{comment}{/* Atomic 32-\/bit register access macro to clear one or several bits */}}
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#define ATOMIC\_CLEAR\_BIT(REG, BIT)                           \(\backslash\)}}
+\DoxyCodeLine{234 \textcolor{preprocessor}{  do \{                                                       \(\backslash\)}}
+\DoxyCodeLine{235 \textcolor{preprocessor}{    uint32\_t val;                                            \(\backslash\)}}
+\DoxyCodeLine{236 \textcolor{preprocessor}{    do \{                                                     \(\backslash\)}}
+\DoxyCodeLine{237 \textcolor{preprocessor}{      val = \_\_LDREXW((\_\_IO uint32\_t *)\&(REG)) \& \string~(BIT);      \(\backslash\)}}
+\DoxyCodeLine{238 \textcolor{preprocessor}{    \} while ((\_\_STREXW(val,(\_\_IO uint32\_t *)\&(REG))) != 0U); \(\backslash\)}}
+\DoxyCodeLine{239 \textcolor{preprocessor}{  \} while(0)}}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241 \textcolor{comment}{/* Atomic 32-\/bit register access macro to clear and set one or several bits */}}
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#define ATOMIC\_MODIFY\_REG(REG, CLEARMSK, SETMASK)                          \(\backslash\)}}
+\DoxyCodeLine{243 \textcolor{preprocessor}{  do \{                                                                     \(\backslash\)}}
+\DoxyCodeLine{244 \textcolor{preprocessor}{    uint32\_t val;                                                          \(\backslash\)}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{    do \{                                                                   \(\backslash\)}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{      val = (\_\_LDREXW((\_\_IO uint32\_t *)\&(REG)) \& \string~(CLEARMSK)) | (SETMASK); \(\backslash\)}}
+\DoxyCodeLine{247 \textcolor{preprocessor}{    \} while ((\_\_STREXW(val,(\_\_IO uint32\_t *)\&(REG))) != 0U);               \(\backslash\)}}
+\DoxyCodeLine{248 \textcolor{preprocessor}{  \} while(0)}}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250 \textcolor{comment}{/* Atomic 16-\/bit register access macro to set one or several bits */}}
+\DoxyCodeLine{251 \textcolor{preprocessor}{\#define ATOMIC\_SETH\_BIT(REG, BIT)                            \(\backslash\)}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{  do \{                                                       \(\backslash\)}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{    uint16\_t val;                                            \(\backslash\)}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{    do \{                                                     \(\backslash\)}}
+\DoxyCodeLine{255 \textcolor{preprocessor}{      val = \_\_LDREXH((\_\_IO uint16\_t *)\&(REG)) | (BIT);       \(\backslash\)}}
+\DoxyCodeLine{256 \textcolor{preprocessor}{    \} while ((\_\_STREXH(val,(\_\_IO uint16\_t *)\&(REG))) != 0U); \(\backslash\)}}
+\DoxyCodeLine{257 \textcolor{preprocessor}{  \} while(0)}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{comment}{/* Atomic 16-\/bit register access macro to clear one or several bits */}}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#define ATOMIC\_CLEARH\_BIT(REG, BIT)                          \(\backslash\)}}
+\DoxyCodeLine{261 \textcolor{preprocessor}{  do \{                                                       \(\backslash\)}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{    uint16\_t val;                                            \(\backslash\)}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{    do \{                                                     \(\backslash\)}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{      val = \_\_LDREXH((\_\_IO uint16\_t *)\&(REG)) \& \string~(BIT);      \(\backslash\)}}
+\DoxyCodeLine{265 \textcolor{preprocessor}{    \} while ((\_\_STREXH(val,(\_\_IO uint16\_t *)\&(REG))) != 0U); \(\backslash\)}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{  \} while(0)}}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268 \textcolor{comment}{/* Atomic 16-\/bit register access macro to clear and set one or several bits */}}
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#define ATOMIC\_MODIFYH\_REG(REG, CLEARMSK, SETMASK)                         \(\backslash\)}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{  do \{                                                                     \(\backslash\)}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{    uint16\_t val;                                                          \(\backslash\)}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{    do \{                                                                   \(\backslash\)}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{      val = (\_\_LDREXH((\_\_IO uint16\_t *)\&(REG)) \& \string~(CLEARMSK)) | (SETMASK); \(\backslash\)}}
+\DoxyCodeLine{274 \textcolor{preprocessor}{    \} while ((\_\_STREXH(val,(\_\_IO uint16\_t *)\&(REG))) != 0U);               \(\backslash\)}}
+\DoxyCodeLine{275 \textcolor{preprocessor}{  \} while(0)}}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#if defined (USE\_HAL\_DRIVER)}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{ \#include "{}\mbox{\hyperlink{stm32h7xx__hal_8h}{stm32h7xx\_hal.h}}"{}}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* USE\_HAL\_DRIVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{287 \}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_cplusplus */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{289 }
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STM32H7xx\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

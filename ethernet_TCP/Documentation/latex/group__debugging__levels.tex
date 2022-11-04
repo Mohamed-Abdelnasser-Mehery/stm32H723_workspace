@@ -1,0 +1,107 @@
+\hypertarget{group__debugging__levels}{}\doxysection{LWIP\+\_\+\+DBG\+\_\+\+MIN\+\_\+\+LEVEL and LWIP\+\_\+\+DBG\+\_\+\+TYPES\+\_\+\+ON values}
+\label{group__debugging__levels}\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group__debugging__levels_gad64836d29d071e1db104f49a01c951f1}\label{group__debugging__levels_gad64836d29d071e1db104f49a01c951f1}} 
+\#define {\bfseries LWIP\+\_\+\+DBG\+\_\+\+MASK\+\_\+\+LEVEL}~0x03
+\item 
+\mbox{\Hypertarget{group__debugging__levels_gac2faac6759cbe02e4f1f9f27edbed78e}\label{group__debugging__levels_gac2faac6759cbe02e4f1f9f27edbed78e}} 
+\#define {\bfseries LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+OFF}~\mbox{\hyperlink{group__debugging__levels_ga8ebaeb006b43f55897f3196b3617dc87}{LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+ALL}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Debug level (LWIP\+\_\+\+DBG\+\_\+\+MIN\+\_\+\+LEVEL)}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga8ebaeb006b43f55897f3196b3617dc87}{LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+ALL}}~0x00
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga77c491e468bf7d9a1bc48430c1866a96}{LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+WARNING}}~0x01
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga0269bdc51f1e8a5ecf9af72c6e1c996c}{LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+SERIOUS}}~0x02
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_gaab41143277cd38047b6660d90e9cec3b}{LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+SEVERE}}~0x03
+\end{DoxyCompactItemize}
+\doxysubsection*{Enable/disable debug messages completely (LWIP\+\_\+\+DBG\+\_\+\+TYPES\+\_\+\+ON)}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga9e31b7cbbc8f46af8e62b548079acd4e}{LWIP\+\_\+\+DBG\+\_\+\+ON}}~0x80U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}{LWIP\+\_\+\+DBG\+\_\+\+OFF}}~0x00U
+\end{DoxyCompactItemize}
+\doxysubsection*{Debug message types (LWIP\+\_\+\+DBG\+\_\+\+TYPES\+\_\+\+ON)}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga988147559b78642ac881815b66023646}{LWIP\+\_\+\+DBG\+\_\+\+TRACE}}~0x40U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga511ee3deb3240635f5ec6a1709c6d741}{LWIP\+\_\+\+DBG\+\_\+\+STATE}}~0x20U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_ga7d44d1804fa5e747aed86816e2a6cae0}{LWIP\+\_\+\+DBG\+\_\+\+FRESH}}~0x10U
+\item 
+\#define \mbox{\hyperlink{group__debugging__levels_gab0a296414983155b30ad51871606b90f}{LWIP\+\_\+\+DBG\+\_\+\+HALT}}~0x08U
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__debugging__levels_ga7d44d1804fa5e747aed86816e2a6cae0}\label{group__debugging__levels_ga7d44d1804fa5e747aed86816e2a6cae0}} 
+\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}!LWIP\_DBG\_FRESH@{LWIP\_DBG\_FRESH}}
+\index{LWIP\_DBG\_FRESH@{LWIP\_DBG\_FRESH}!LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DBG\_FRESH}{LWIP\_DBG\_FRESH}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DBG\+\_\+\+FRESH~0x10U}
+
+flag for LWIP\+\_\+\+DEBUGF indicating newly added code, not thoroughly tested yet \mbox{\Hypertarget{group__debugging__levels_gab0a296414983155b30ad51871606b90f}\label{group__debugging__levels_gab0a296414983155b30ad51871606b90f}} 
+\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}!LWIP\_DBG\_HALT@{LWIP\_DBG\_HALT}}
+\index{LWIP\_DBG\_HALT@{LWIP\_DBG\_HALT}!LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DBG\_HALT}{LWIP\_DBG\_HALT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DBG\+\_\+\+HALT~0x08U}
+
+flag for LWIP\+\_\+\+DEBUGF to halt after printing this debug message \mbox{\Hypertarget{group__debugging__levels_ga8ebaeb006b43f55897f3196b3617dc87}\label{group__debugging__levels_ga8ebaeb006b43f55897f3196b3617dc87}} 
+\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}!LWIP\_DBG\_LEVEL\_ALL@{LWIP\_DBG\_LEVEL\_ALL}}
+\index{LWIP\_DBG\_LEVEL\_ALL@{LWIP\_DBG\_LEVEL\_ALL}!LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DBG\_LEVEL\_ALL}{LWIP\_DBG\_LEVEL\_ALL}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+ALL~0x00}
+
+Debug level\+: ALL messages \mbox{\Hypertarget{group__debugging__levels_ga0269bdc51f1e8a5ecf9af72c6e1c996c}\label{group__debugging__levels_ga0269bdc51f1e8a5ecf9af72c6e1c996c}} 
+\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}!LWIP\_DBG\_LEVEL\_SERIOUS@{LWIP\_DBG\_LEVEL\_SERIOUS}}
+\index{LWIP\_DBG\_LEVEL\_SERIOUS@{LWIP\_DBG\_LEVEL\_SERIOUS}!LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DBG\_LEVEL\_SERIOUS}{LWIP\_DBG\_LEVEL\_SERIOUS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+SERIOUS~0x02}
+
+Debug level\+: Serious. memory allocation failures, ... \mbox{\Hypertarget{group__debugging__levels_gaab41143277cd38047b6660d90e9cec3b}\label{group__debugging__levels_gaab41143277cd38047b6660d90e9cec3b}} 
+\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}!LWIP\_DBG\_LEVEL\_SEVERE@{LWIP\_DBG\_LEVEL\_SEVERE}}
+\index{LWIP\_DBG\_LEVEL\_SEVERE@{LWIP\_DBG\_LEVEL\_SEVERE}!LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DBG\_LEVEL\_SEVERE}{LWIP\_DBG\_LEVEL\_SEVERE}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+SEVERE~0x03}
+
+Debug level\+: Severe \mbox{\Hypertarget{group__debugging__levels_ga77c491e468bf7d9a1bc48430c1866a96}\label{group__debugging__levels_ga77c491e468bf7d9a1bc48430c1866a96}} 
+\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}!LWIP\_DBG\_LEVEL\_WARNING@{LWIP\_DBG\_LEVEL\_WARNING}}
+\index{LWIP\_DBG\_LEVEL\_WARNING@{LWIP\_DBG\_LEVEL\_WARNING}!LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DBG\_LEVEL\_WARNING}{LWIP\_DBG\_LEVEL\_WARNING}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DBG\+\_\+\+LEVEL\+\_\+\+WARNING~0x01}
+
+Debug level\+: Warnings. bad checksums, dropped packets, ... \mbox{\Hypertarget{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}\label{group__debugging__levels_gadab1cdc3f45939a3a5c9a3d7e04987e1}} 
+\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}!LWIP\_DBG\_OFF@{LWIP\_DBG\_OFF}}
+\index{LWIP\_DBG\_OFF@{LWIP\_DBG\_OFF}!LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DBG\_OFF}{LWIP\_DBG\_OFF}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DBG\+\_\+\+OFF~0x00U}
+
+flag for LWIP\+\_\+\+DEBUGF to disable that debug message \mbox{\Hypertarget{group__debugging__levels_ga9e31b7cbbc8f46af8e62b548079acd4e}\label{group__debugging__levels_ga9e31b7cbbc8f46af8e62b548079acd4e}} 
+\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}!LWIP\_DBG\_ON@{LWIP\_DBG\_ON}}
+\index{LWIP\_DBG\_ON@{LWIP\_DBG\_ON}!LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DBG\_ON}{LWIP\_DBG\_ON}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DBG\+\_\+\+ON~0x80U}
+
+flag for LWIP\+\_\+\+DEBUGF to enable that debug message \mbox{\Hypertarget{group__debugging__levels_ga511ee3deb3240635f5ec6a1709c6d741}\label{group__debugging__levels_ga511ee3deb3240635f5ec6a1709c6d741}} 
+\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}!LWIP\_DBG\_STATE@{LWIP\_DBG\_STATE}}
+\index{LWIP\_DBG\_STATE@{LWIP\_DBG\_STATE}!LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DBG\_STATE}{LWIP\_DBG\_STATE}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DBG\+\_\+\+STATE~0x20U}
+
+flag for LWIP\+\_\+\+DEBUGF indicating a state debug message (to follow module states) \mbox{\Hypertarget{group__debugging__levels_ga988147559b78642ac881815b66023646}\label{group__debugging__levels_ga988147559b78642ac881815b66023646}} 
+\index{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}!LWIP\_DBG\_TRACE@{LWIP\_DBG\_TRACE}}
+\index{LWIP\_DBG\_TRACE@{LWIP\_DBG\_TRACE}!LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values@{LWIP\_DBG\_MIN\_LEVEL and LWIP\_DBG\_TYPES\_ON values}}
+\doxysubsubsection{\texorpdfstring{LWIP\_DBG\_TRACE}{LWIP\_DBG\_TRACE}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+DBG\+\_\+\+TRACE~0x40U}
+
+flag for LWIP\+\_\+\+DEBUGF indicating a tracing message (to follow program flow) 

@@ -1,0 +1,171 @@
+\hypertarget{snmp__opts_8h_source}{}\doxysection{snmp\+\_\+opts.\+h}
+\label{snmp__opts_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/snmp\_opts.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/snmp\_opts.h}}
+\mbox{\hyperlink{snmp__opts_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2015 Dirk Ziegelmeier}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Dirk Ziegelmeier}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_SNMP\_OPTS\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_SNMP\_OPTS\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#if !defined LWIP\_SNMP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define LWIP\_SNMP                       0}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#if !defined SNMP\_USE\_NETCONN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define SNMP\_USE\_NETCONN           0}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#if !defined SNMP\_USE\_RAW || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define SNMP\_USE\_RAW               1}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#if SNMP\_USE\_NETCONN \&\& SNMP\_USE\_RAW}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#error SNMP stack can use only one of the APIs \{raw, netconn\}}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#if LWIP\_SNMP \&\& !SNMP\_USE\_NETCONN \&\& !SNMP\_USE\_RAW}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#error SNMP stack needs a receive API and UDP \{raw, netconn\}}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#if SNMP\_USE\_NETCONN}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#if !defined SNMP\_STACK\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define SNMP\_STACK\_SIZE            DEFAULT\_THREAD\_STACKSIZE}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#if !defined SNMP\_THREAD\_PRIO || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define SNMP\_THREAD\_PRIO           DEFAULT\_THREAD\_PRIO}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SNMP\_USE\_NETCONN */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#if !defined SNMP\_TRAP\_DESTINATIONS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define SNMP\_TRAP\_DESTINATIONS          1}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#if !defined SNMP\_SAFE\_REQUESTS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define SNMP\_SAFE\_REQUESTS              1}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#if !defined SNMP\_MAX\_OCTET\_STRING\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define SNMP\_MAX\_OCTET\_STRING\_LEN       127}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#if !defined SNMP\_MAX\_OBJ\_ID\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define SNMP\_MAX\_OBJ\_ID\_LEN             50}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#if !defined SNMP\_MAX\_VALUE\_SIZE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#define SNMP\_MIN\_VALUE\_SIZE             (2 * sizeof(u32\_t*)) }\textcolor{comment}{/* size required to store the basic types (8 bytes for counter64) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define SNMP\_MAX\_VALUE\_SIZE             LWIP\_MAX(LWIP\_MAX((SNMP\_MAX\_OCTET\_STRING\_LEN), sizeof(u32\_t)*(SNMP\_MAX\_OBJ\_ID\_LEN)), SNMP\_MIN\_VALUE\_SIZE)}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#if !defined SNMP\_COMMUNITY || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define SNMP\_COMMUNITY                  "{}public"{}}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#if !defined SNMP\_COMMUNITY\_WRITE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define SNMP\_COMMUNITY\_WRITE            "{}private"{}}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#if !defined SNMP\_COMMUNITY\_TRAP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define SNMP\_COMMUNITY\_TRAP             "{}public"{}}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#if !defined SNMP\_MAX\_COMMUNITY\_STR\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define SNMP\_MAX\_COMMUNITY\_STR\_LEN LWIP\_MAX(LWIP\_MAX(sizeof(SNMP\_COMMUNITY), sizeof(SNMP\_COMMUNITY\_WRITE)), sizeof(SNMP\_COMMUNITY\_TRAP))}}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#if !defined SNMP\_DEVICE\_ENTERPRISE\_OID || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#define SNMP\_LWIP\_ENTERPRISE\_OID 26381}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#define SNMP\_DEVICE\_ENTERPRISE\_OID \{1, 3, 6, 1, 4, 1, SNMP\_LWIP\_ENTERPRISE\_OID\}}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define SNMP\_DEVICE\_ENTERPRISE\_OID\_LEN 7}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#if !defined SNMP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#define SNMP\_DEBUG                      LWIP\_DBG\_OFF}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#if !defined SNMP\_MIB\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#define SNMP\_MIB\_DEBUG                  LWIP\_DBG\_OFF}}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#if !defined SNMP\_LWIP\_MIB2 || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#define SNMP\_LWIP\_MIB2                      LWIP\_SNMP}}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#if !defined SNMP\_LWIP\_MIB2\_SYSDESC || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#define SNMP\_LWIP\_MIB2\_SYSDESC              "{}lwIP"{}}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{234 \textcolor{preprocessor}{\#if !defined SNMP\_LWIP\_MIB2\_SYSNAME || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#define SNMP\_LWIP\_MIB2\_SYSNAME              "{}FQDN-\/unk"{}}}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#if !defined SNMP\_LWIP\_MIB2\_SYSCONTACT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#define SNMP\_LWIP\_MIB2\_SYSCONTACT           "{}"{}}}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{250 \textcolor{preprocessor}{\#if !defined SNMP\_LWIP\_MIB2\_SYSLOCATION || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{251 \textcolor{preprocessor}{\#define SNMP\_LWIP\_MIB2\_SYSLOCATION          "{}"{}}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#if !defined SNMP\_LWIP\_GETBULK\_MAX\_REPETITIONS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#define SNMP\_LWIP\_GETBULK\_MAX\_REPETITIONS 0}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{270 \textcolor{comment}{/*}}
+\DoxyCodeLine{271 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{272 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ SNMPv3 options -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{273 \textcolor{comment}{   -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{274 \textcolor{comment}{*/}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#ifndef LWIP\_SNMP\_V3}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{\#define LWIP\_SNMP\_V3               0}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#ifndef LWIP\_SNMP\_V3\_MBEDTLS}}
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#define LWIP\_SNMP\_V3\_MBEDTLS       LWIP\_SNMP\_V3}}
+\DoxyCodeLine{287 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#ifndef LWIP\_SNMP\_V3\_CRYPTO}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#define LWIP\_SNMP\_V3\_CRYPTO        LWIP\_SNMP\_V3\_MBEDTLS}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#ifndef LWIP\_SNMP\_CONFIGURE\_VERSIONS}}
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#define LWIP\_SNMP\_CONFIGURE\_VERSIONS 0}}
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_SNMP\_OPTS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

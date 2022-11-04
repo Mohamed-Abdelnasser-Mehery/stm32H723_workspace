@@ -1,0 +1,124 @@
+\hypertarget{memp_8h_source}{}\doxysection{memp.\+h}
+\label{memp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/memp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/memp.h}}
+\mbox{\hyperlink{memp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_MEMP\_H}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define LWIP\_HDR\_MEMP\_H}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/* run once with empty definition to handle all custom includes in lwippools.h */}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define LWIP\_MEMPOOL(name,num,size,desc)}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memp__std_8h}{lwip/priv/memp\_std.h}}"{}}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{52 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define LWIP\_MEMPOOL(name,num,size,desc)  MEMP\_\#\#name,}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memp__std_8h}{lwip/priv/memp\_std.h}}"{}}}
+\DoxyCodeLine{55   MEMP\_MAX}
+\DoxyCodeLine{56 \} \mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\_t}};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memp__priv_8h}{lwip/priv/memp\_priv.h}}"{}}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stats_8h}{lwip/stats.h}}"{}}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }\mbox{\hyperlink{structmemp__desc}{memp\_desc}}* \textcolor{keyword}{const} memp\_pools[MEMP\_MAX];}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define LWIP\_MEMPOOL\_PROTOTYPE(name) extern const struct memp\_desc memp\_ \#\# name}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#if MEMP\_MEM\_MALLOC}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define LWIP\_MEMPOOL\_DECLARE(name,num,size,desc) \(\backslash\)}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{  LWIP\_MEMPOOL\_DECLARE\_STATS\_INSTANCE(memp\_stats\_ \#\# name) \(\backslash\)}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{  const struct memp\_desc memp\_ \#\# name = \{ \(\backslash\)}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{    DECLARE\_LWIP\_MEMPOOL\_DESC(desc) \(\backslash\)}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{    LWIP\_MEMPOOL\_DECLARE\_STATS\_REFERENCE(memp\_stats\_ \#\# name) \(\backslash\)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{    LWIP\_MEM\_ALIGN\_SIZE(size) \(\backslash\)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{  \};}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* MEMP\_MEM\_MALLOC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define LWIP\_MEMPOOL\_DECLARE(name,num,size,desc) \(\backslash\)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{  LWIP\_DECLARE\_MEMORY\_ALIGNED(memp\_memory\_ \#\# name \#\# \_base, ((num) * (MEMP\_SIZE + MEMP\_ALIGN\_SIZE(size)))); \(\backslash\)}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{    \(\backslash\)}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{  LWIP\_MEMPOOL\_DECLARE\_STATS\_INSTANCE(memp\_stats\_ \#\# name) \(\backslash\)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{    \(\backslash\)}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{  static struct memp *memp\_tab\_ \#\# name; \(\backslash\)}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{    \(\backslash\)}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{  const struct memp\_desc memp\_ \#\# name = \{ \(\backslash\)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{    DECLARE\_LWIP\_MEMPOOL\_DESC(desc) \(\backslash\)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{    LWIP\_MEMPOOL\_DECLARE\_STATS\_REFERENCE(memp\_stats\_ \#\# name) \(\backslash\)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{    LWIP\_MEM\_ALIGN\_SIZE(size), \(\backslash\)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{    (num), \(\backslash\)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{    memp\_memory\_ \#\# name \#\# \_base, \(\backslash\)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{    \&memp\_tab\_ \#\# name \(\backslash\)}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{  \};}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MEMP\_MEM\_MALLOC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define LWIP\_MEMPOOL\_INIT(name)    memp\_init\_pool(\&memp\_ \#\# name)}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define LWIP\_MEMPOOL\_ALLOC(name)   memp\_malloc\_pool(\&memp\_ \#\# name)}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define LWIP\_MEMPOOL\_FREE(name, x) memp\_free\_pool(\&memp\_ \#\# name, (x))}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#if MEM\_USE\_POOLS}}
+\DoxyCodeLine{132 \textcolor{keyword}{struct }memp\_malloc\_helper}
+\DoxyCodeLine{133 \{}
+\DoxyCodeLine{134    \mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\_t}} poolnr;}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#if MEMP\_OVERFLOW\_CHECK || (LWIP\_STATS \&\& MEM\_STATS)}}
+\DoxyCodeLine{136    u16\_t size;}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MEMP\_OVERFLOW\_CHECK || (LWIP\_STATS \&\& MEM\_STATS) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{138 \};}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MEM\_USE\_POOLS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{keywordtype}{void}  \mbox{\hyperlink{memp_8h_a9693e5b1ac2c6b9c0e7870522d45efa2}{memp\_init}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#if MEMP\_OVERFLOW\_CHECK}}
+\DoxyCodeLine{144 \textcolor{keywordtype}{void} *memp\_malloc\_fn(\mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\_t}} type, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file, \textcolor{keyword}{const} \textcolor{keywordtype}{int} line);}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define memp\_malloc(t) memp\_malloc\_fn((t), \_\_FILE\_\_, \_\_LINE\_\_)}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{147 \textcolor{keywordtype}{void} *\mbox{\hyperlink{memp_8h_ac49689457203bfb872adf5428f96a3e7}{memp\_malloc}}(\mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\_t}} type);}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{149 \textcolor{keywordtype}{void}  \mbox{\hyperlink{memp_8h_aecd94926b7c2a0e23ae195f4ae97581f}{memp\_free}}(\mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\_t}} type, \textcolor{keywordtype}{void} *mem);}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{152 \}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_MEMP\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

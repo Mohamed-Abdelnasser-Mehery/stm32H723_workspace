@@ -1,0 +1,69 @@
+\hypertarget{tftp__opts_8h_source}{}\doxysection{tftp\+\_\+opts.\+h}
+\label{tftp__opts_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/tftp\_opts.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/tftp\_opts.h}}
+\mbox{\hyperlink{tftp__opts_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{14 \textcolor{comment}{/* }}
+\DoxyCodeLine{15 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{16 \textcolor{comment}{ * modification,are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{17 \textcolor{comment}{ *}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{20 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{21 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{22 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{23 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{24 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{25 \textcolor{comment}{ *}}
+\DoxyCodeLine{26 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{27 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{28 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO}}
+\DoxyCodeLine{29 \textcolor{comment}{ * EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,}}
+\DoxyCodeLine{30 \textcolor{comment}{ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED}}
+\DoxyCodeLine{31 \textcolor{comment}{ * TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR}}
+\DoxyCodeLine{32 \textcolor{comment}{ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF}}
+\DoxyCodeLine{33 \textcolor{comment}{ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING}}
+\DoxyCodeLine{34 \textcolor{comment}{ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS}}
+\DoxyCodeLine{35 \textcolor{comment}{ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ * Author: Logan Gunthorpe <logang@deltatee.com>}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ */}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_TFTP\_OPTS\_H}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_TFTP\_OPTS\_H}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{iana_8h}{lwip/prot/iana.h}}"{}}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#if !defined TFTP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define TFTP\_DEBUG            LWIP\_DBG\_OFF}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#if !defined TFTP\_PORT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define TFTP\_PORT             LWIP\_IANA\_PORT\_TFTP}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#if !defined TFTP\_TIMEOUT\_MSECS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define TFTP\_TIMEOUT\_MSECS    10000}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#if !defined TFTP\_MAX\_RETRIES || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define TFTP\_MAX\_RETRIES      5}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#if !defined TFTP\_TIMER\_MSECS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define TFTP\_TIMER\_MSECS      (TFTP\_TIMEOUT\_MSECS / 10)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#if !defined TFTP\_MAX\_FILENAME\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define TFTP\_MAX\_FILENAME\_LEN 20}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#if !defined TFTP\_MAX\_MODE\_LEN || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define TFTP\_MAX\_MODE\_LEN     7}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_TFTP\_OPTS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

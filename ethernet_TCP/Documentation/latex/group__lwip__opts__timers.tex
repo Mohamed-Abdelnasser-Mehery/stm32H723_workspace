@@ -1,0 +1,28 @@
+\hypertarget{group__lwip__opts__timers}{}\doxysection{Timers}
+\label{group__lwip__opts__timers}\index{Timers@{Timers}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__timers_ga25a41610055f91cbd0960256240b8f2c}{LWIP\+\_\+\+TIMERS}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__timers_gaff0ea56f3e3d8e86c49b50557bc13815}{LWIP\+\_\+\+TIMERS\+\_\+\+CUSTOM}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__timers_ga25a41610055f91cbd0960256240b8f2c}\label{group__lwip__opts__timers_ga25a41610055f91cbd0960256240b8f2c}} 
+\index{Timers@{Timers}!LWIP\_TIMERS@{LWIP\_TIMERS}}
+\index{LWIP\_TIMERS@{LWIP\_TIMERS}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TIMERS}{LWIP\_TIMERS}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TIMERS~1}
+
+LWIP\+\_\+\+TIMERS==0\+: Drop support for sys\+\_\+timeout and lwip-\/internal cyclic timers. (the array of lwip-\/internal cyclic timers is still provided) (check NO\+\_\+\+SYS\+\_\+\+NO\+\_\+\+TIMERS for compatibility to old versions) \mbox{\Hypertarget{group__lwip__opts__timers_gaff0ea56f3e3d8e86c49b50557bc13815}\label{group__lwip__opts__timers_gaff0ea56f3e3d8e86c49b50557bc13815}} 
+\index{Timers@{Timers}!LWIP\_TIMERS\_CUSTOM@{LWIP\_TIMERS\_CUSTOM}}
+\index{LWIP\_TIMERS\_CUSTOM@{LWIP\_TIMERS\_CUSTOM}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TIMERS\_CUSTOM}{LWIP\_TIMERS\_CUSTOM}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TIMERS\+\_\+\+CUSTOM~0}
+
+LWIP\+\_\+\+TIMERS\+\_\+\+CUSTOM==1\+: Provide your own timer implementation. Function prototypes in \mbox{\hyperlink{timeouts_8h}{timeouts.\+h}} and the array of lwip-\/internal cyclic timers are still included, but the implementation is not. The following functions will be required\+: sys\+\_\+timeouts\+\_\+init(), sys\+\_\+timeout(), sys\+\_\+untimeout(), sys\+\_\+timeouts\+\_\+mbox\+\_\+fetch() 

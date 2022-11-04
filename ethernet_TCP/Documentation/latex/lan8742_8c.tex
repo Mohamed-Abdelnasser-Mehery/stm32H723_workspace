@@ -1,0 +1,62 @@
+\hypertarget{lan8742_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+BSP/\+Components/lan8742/lan8742.c File Reference}
+\label{lan8742_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/BSP/Components/lan8742/lan8742.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/BSP/Components/lan8742/lan8742.c}}
+
+
+This file provides a set of functions needed to manage the LAN742 PHY devices.  
+
+
+{\ttfamily \#include \char`\"{}lan8742.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries LAN8742\+\_\+\+SW\+\_\+\+RESET\+\_\+\+TO}~((uint32\+\_\+t)500U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+INIT\+\_\+\+TO}~((uint32\+\_\+t)2000U)
+\item 
+\#define {\bfseries LAN8742\+\_\+\+MAX\+\_\+\+DEV\+\_\+\+ADDR}~((uint32\+\_\+t)31U)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_gafeca65505e1d55842af42870ce9ce415}{LAN8742\+\_\+\+Register\+Bus\+IO}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, \mbox{\hyperlink{structlan8742___i_o_ctx__t}{lan8742\+\_\+\+IOCtx\+\_\+t}} $\ast$ioctx)
+\begin{DoxyCompactList}\small\item\em Register IO functions to component object. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_gaab94fc962bd0e87bee6a0982746294c9}{LAN8742\+\_\+\+Init}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Initialize the lan8742 and configure the needed hardware resources. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_ga64b2e8a9f84fdaf708e2cbba649fd42a}{LAN8742\+\_\+\+De\+Init}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em De-\/\+Initialize the lan8742 and it\textquotesingle{}s hardware resources. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_ga956e4cce08951849c76ca295419f7de2}{LAN8742\+\_\+\+Disable\+Power\+Down\+Mode}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Disable the LAN8742 power down mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_ga4b3c4b90282412cc8e6c78c2bedd95e7}{LAN8742\+\_\+\+Enable\+Power\+Down\+Mode}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Enable the LAN8742 power down mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_ga6e7011f1fafafe4b4f7fb5749a40c2fd}{LAN8742\+\_\+\+Start\+Auto\+Nego}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Start the auto negotiation process. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_ga62d39c03000882625bf58fb113b4e2ea}{LAN8742\+\_\+\+Get\+Link\+State}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Get the link state of LAN8742 device. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_ga8453fd5dc383dc78db8b5ece11c30e15}{LAN8742\+\_\+\+Set\+Link\+State}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, uint32\+\_\+t Link\+State)
+\begin{DoxyCompactList}\small\item\em Set the link state of LAN8742 device. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_gaf9cc68679bf682461be50a98d3dce213}{LAN8742\+\_\+\+Enable\+Loopback\+Mode}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Enable loopback mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_ga0075022dcabad1959e6584b41d3965ba}{LAN8742\+\_\+\+Disable\+Loopback\+Mode}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj)
+\begin{DoxyCompactList}\small\item\em Disable loopback mode. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_gae4c8f24f0acdb4ba7776813eb044afde}{LAN8742\+\_\+\+Enable\+IT}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, uint32\+\_\+t Interrupt)
+\begin{DoxyCompactList}\small\item\em Enable IT source. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_ga4be402b5189a70a81fe48f0d17bd8718}{LAN8742\+\_\+\+Disable\+IT}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, uint32\+\_\+t Interrupt)
+\begin{DoxyCompactList}\small\item\em Disable IT source. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_ga2b1c58036084c36e643fb72779b90e47}{LAN8742\+\_\+\+Clear\+IT}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, uint32\+\_\+t Interrupt)
+\begin{DoxyCompactList}\small\item\em Clear IT flag. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{group___l_a_n8742___private___functions_ga2c3d66c4f76ca99aa4b3a8d6feae71ae}{LAN8742\+\_\+\+Get\+ITStatus}} (\mbox{\hyperlink{structlan8742___object__t}{lan8742\+\_\+\+Object\+\_\+t}} $\ast$p\+Obj, uint32\+\_\+t Interrupt)
+\begin{DoxyCompactList}\small\item\em Get IT Flag status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file provides a set of functions needed to manage the LAN742 PHY devices. 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+\doxysubsubsection*{\begin{center}\copyright{} Copyright (c) 2017 STMicroelectronics. All rights reserved.\end{center} }
+
+This software component is licensed by ST under BSD 3-\/Clause license, the \char`\"{}\+License\char`\"{}; You may not use this file except in compliance with the License. You may obtain a copy of the License at\+: opensource.\+org/licenses/\+BSD-\/3-\/\+Clause 

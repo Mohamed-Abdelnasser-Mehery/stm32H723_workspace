@@ -1,0 +1,311 @@
+\hypertarget{ip6__addr_8h_source}{}\doxysection{ip6\+\_\+addr.\+h}
+\label{ip6__addr_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip6\_addr.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip6\_addr.h}}
+\mbox{\hyperlink{ip6__addr_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{comment}{/*}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Copyright (c) 2010 Inico Technologies Ltd.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{12 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{19 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{23 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{24 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{25 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{26 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{27 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{28 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{29 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{30 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{31 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{32 \textcolor{comment}{ *}}
+\DoxyCodeLine{33 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * Author: Ivan Delamer <delamer@inicotech.com>}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ * Structs and macros for handling IPv6 addresses.}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ * Please coordinate changes and requests with Ivan Delamer}}
+\DoxyCodeLine{40 \textcolor{comment}{ * <delamer@inicotech.com>}}
+\DoxyCodeLine{41 \textcolor{comment}{ */}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_IP6\_ADDR\_H}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define LWIP\_HDR\_IP6\_ADDR\_H}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{def_8h}{def.h}}"{}}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#if LWIP\_IPV6  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip6__zone_8h}{lwip/ip6\_zone.h}}"{}}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{53 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{59 \textcolor{keyword}{struct }ip6\_addr \{}
+\DoxyCodeLine{60   u32\_t addr[4];}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#if LWIP\_IPV6\_SCOPES}}
+\DoxyCodeLine{62   u8\_t zone;}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_SCOPES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{67 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ip6\_addr ip6\_addr\_t;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define IP6\_ADDR\_PART(ip6addr, index, a,b,c,d) \(\backslash\)}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{  (ip6addr)-\/>addr[index] = PP\_HTONL(LWIP\_MAKEU32(a,b,c,d))}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define IP6\_ADDR(ip6addr, idx0, idx1, idx2, idx3) do \{ \(\backslash\)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{  (ip6addr)-\/>addr[0] = idx0; \(\backslash\)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{  (ip6addr)-\/>addr[1] = idx1; \(\backslash\)}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{  (ip6addr)-\/>addr[2] = idx2; \(\backslash\)}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{  (ip6addr)-\/>addr[3] = idx3; \(\backslash\)}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{  ip6\_addr\_clear\_zone(ip6addr); \} while(0)}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define IP6\_ADDR\_BLOCK1(ip6addr) ((u16\_t)((lwip\_htonl((ip6addr)-\/>addr[0]) >> 16) \& 0xffff))}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define IP6\_ADDR\_BLOCK2(ip6addr) ((u16\_t)((lwip\_htonl((ip6addr)-\/>addr[0])) \& 0xffff))}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define IP6\_ADDR\_BLOCK3(ip6addr) ((u16\_t)((lwip\_htonl((ip6addr)-\/>addr[1]) >> 16) \& 0xffff))}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define IP6\_ADDR\_BLOCK4(ip6addr) ((u16\_t)((lwip\_htonl((ip6addr)-\/>addr[1])) \& 0xffff))}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define IP6\_ADDR\_BLOCK5(ip6addr) ((u16\_t)((lwip\_htonl((ip6addr)-\/>addr[2]) >> 16) \& 0xffff))}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define IP6\_ADDR\_BLOCK6(ip6addr) ((u16\_t)((lwip\_htonl((ip6addr)-\/>addr[2])) \& 0xffff))}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define IP6\_ADDR\_BLOCK7(ip6addr) ((u16\_t)((lwip\_htonl((ip6addr)-\/>addr[3]) >> 16) \& 0xffff))}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define IP6\_ADDR\_BLOCK8(ip6addr) ((u16\_t)((lwip\_htonl((ip6addr)-\/>addr[3])) \& 0xffff))}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define ip6\_addr\_copy(dest, src) do\{(dest).addr[0] = (src).addr[0]; \(\backslash\)}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{                                    (dest).addr[1] = (src).addr[1]; \(\backslash\)}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{                                    (dest).addr[2] = (src).addr[2]; \(\backslash\)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{                                    (dest).addr[3] = (src).addr[3]; \(\backslash\)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{                                    ip6\_addr\_copy\_zone((dest), (src)); \}while(0)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define ip6\_addr\_set(dest, src) do\{(dest)-\/>addr[0] = (src) == NULL ? 0 : (src)-\/>addr[0]; \(\backslash\)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{                                   (dest)-\/>addr[1] = (src) == NULL ? 0 : (src)-\/>addr[1]; \(\backslash\)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{                                   (dest)-\/>addr[2] = (src) == NULL ? 0 : (src)-\/>addr[2]; \(\backslash\)}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{                                   (dest)-\/>addr[3] = (src) == NULL ? 0 : (src)-\/>addr[3]; \(\backslash\)}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{                                   ip6\_addr\_set\_zone((dest), (src) == NULL ? IP6\_NO\_ZONE : ip6\_addr\_zone(src)); \}while(0)}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define ip6\_addr\_copy\_from\_packed(dest, src) do\{(dest).addr[0] = (src).addr[0]; \(\backslash\)}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{                                    (dest).addr[1] = (src).addr[1]; \(\backslash\)}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{                                    (dest).addr[2] = (src).addr[2]; \(\backslash\)}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{                                    (dest).addr[3] = (src).addr[3]; \(\backslash\)}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{                                    ip6\_addr\_clear\_zone(\&dest); \}while(0)}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define ip6\_addr\_copy\_to\_packed(dest, src) do\{(dest).addr[0] = (src).addr[0]; \(\backslash\)}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{                                    (dest).addr[1] = (src).addr[1]; \(\backslash\)}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{                                    (dest).addr[2] = (src).addr[2]; \(\backslash\)}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{                                    (dest).addr[3] = (src).addr[3]; \}while(0)}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define ip6\_addr\_set\_zero(ip6addr)    do\{(ip6addr)-\/>addr[0] = 0; \(\backslash\)}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{                                         (ip6addr)-\/>addr[1] = 0; \(\backslash\)}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{                                         (ip6addr)-\/>addr[2] = 0; \(\backslash\)}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{                                         (ip6addr)-\/>addr[3] = 0; \(\backslash\)}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{                                         ip6\_addr\_clear\_zone(ip6addr);\}while(0)}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define ip6\_addr\_set\_any(ip6addr)       ip6\_addr\_set\_zero(ip6addr)}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define ip6\_addr\_set\_loopback(ip6addr) do\{(ip6addr)-\/>addr[0] = 0; \(\backslash\)}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{                                          (ip6addr)-\/>addr[1] = 0; \(\backslash\)}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{                                          (ip6addr)-\/>addr[2] = 0; \(\backslash\)}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{                                          (ip6addr)-\/>addr[3] = PP\_HTONL(0x00000001UL); \(\backslash\)}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{                                          ip6\_addr\_clear\_zone(ip6addr);\}while(0)}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define ip6\_addr\_set\_hton(dest, src) do\{(dest)-\/>addr[0] = (src) == NULL ? 0 : lwip\_htonl((src)-\/>addr[0]); \(\backslash\)}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{                                        (dest)-\/>addr[1] = (src) == NULL ? 0 : lwip\_htonl((src)-\/>addr[1]); \(\backslash\)}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{                                        (dest)-\/>addr[2] = (src) == NULL ? 0 : lwip\_htonl((src)-\/>addr[2]); \(\backslash\)}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{                                        (dest)-\/>addr[3] = (src) == NULL ? 0 : lwip\_htonl((src)-\/>addr[3]); \(\backslash\)}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{                                        ip6\_addr\_set\_zone((dest), (src) == NULL ? IP6\_NO\_ZONE : ip6\_addr\_zone(src));\}while(0)}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 }
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define ip6\_addr\_netcmp\_zoneless(addr1, addr2) (((addr1)-\/>addr[0] == (addr2)-\/>addr[0]) \&\& \(\backslash\)}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{                                               ((addr1)-\/>addr[1] == (addr2)-\/>addr[1]))}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define ip6\_addr\_netcmp(addr1, addr2) (ip6\_addr\_netcmp\_zoneless((addr1), (addr2)) \&\& \(\backslash\)}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{                                       ip6\_addr\_cmp\_zone((addr1), (addr2)))}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{comment}{/* Exact-\/host comparison *after* ip6\_addr\_netcmp() succeeded, for efficiency. */}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define ip6\_addr\_nethostcmp(addr1, addr2) (((addr1)-\/>addr[2] == (addr2)-\/>addr[2]) \&\& \(\backslash\)}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{                                           ((addr1)-\/>addr[3] == (addr2)-\/>addr[3]))}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define ip6\_addr\_cmp\_zoneless(addr1, addr2) (((addr1)-\/>addr[0] == (addr2)-\/>addr[0]) \&\& \(\backslash\)}}
+\DoxyCodeLine{169 \textcolor{preprocessor}{                                    ((addr1)-\/>addr[1] == (addr2)-\/>addr[1]) \&\& \(\backslash\)}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{                                    ((addr1)-\/>addr[2] == (addr2)-\/>addr[2]) \&\& \(\backslash\)}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{                                    ((addr1)-\/>addr[3] == (addr2)-\/>addr[3]))}}
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#define ip6\_addr\_cmp(addr1, addr2) (ip6\_addr\_cmp\_zoneless((addr1), (addr2)) \&\& \(\backslash\)}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{                                    ip6\_addr\_cmp\_zone((addr1), (addr2)))}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#define ip6\_addr\_cmp\_packed(ip6addr, paddr, zone\_idx) (((ip6addr)-\/>addr[0] == (paddr)-\/>addr[0]) \&\& \(\backslash\)}}
+\DoxyCodeLine{185 \textcolor{preprocessor}{                                    ((ip6addr)-\/>addr[1] == (paddr)-\/>addr[1]) \&\& \(\backslash\)}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{                                    ((ip6addr)-\/>addr[2] == (paddr)-\/>addr[2]) \&\& \(\backslash\)}}
+\DoxyCodeLine{187 \textcolor{preprocessor}{                                    ((ip6addr)-\/>addr[3] == (paddr)-\/>addr[3]) \&\& \(\backslash\)}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{                                    ip6\_addr\_equals\_zone((ip6addr), (zone\_idx)))}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define ip6\_get\_subnet\_id(ip6addr)   (lwip\_htonl((ip6addr)-\/>addr[2]) \& 0x0000ffffUL)}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#define ip6\_addr\_isany\_val(ip6addr) (((ip6addr).addr[0] == 0) \&\& \(\backslash\)}}
+\DoxyCodeLine{193 \textcolor{preprocessor}{                                     ((ip6addr).addr[1] == 0) \&\& \(\backslash\)}}
+\DoxyCodeLine{194 \textcolor{preprocessor}{                                     ((ip6addr).addr[2] == 0) \&\& \(\backslash\)}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{                                     ((ip6addr).addr[3] == 0))}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#define ip6\_addr\_isany(ip6addr) (((ip6addr) == NULL) || ip6\_addr\_isany\_val(*(ip6addr)))}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#define ip6\_addr\_isloopback(ip6addr) (((ip6addr)-\/>addr[0] == 0UL) \&\& \(\backslash\)}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{                                      ((ip6addr)-\/>addr[1] == 0UL) \&\& \(\backslash\)}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{                                      ((ip6addr)-\/>addr[2] == 0UL) \&\& \(\backslash\)}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{                                      ((ip6addr)-\/>addr[3] == PP\_HTONL(0x00000001UL)))}}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define ip6\_addr\_isglobal(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xe0000000UL)) == PP\_HTONL(0x20000000UL))}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#define ip6\_addr\_islinklocal(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xffc00000UL)) == PP\_HTONL(0xfe800000UL))}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#define ip6\_addr\_issitelocal(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xffc00000UL)) == PP\_HTONL(0xfec00000UL))}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#define ip6\_addr\_isuniquelocal(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xfe000000UL)) == PP\_HTONL(0xfc000000UL))}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#define ip6\_addr\_isipv4mappedipv6(ip6addr) (((ip6addr)-\/>addr[0] == 0) \&\& ((ip6addr)-\/>addr[1] == 0) \&\& (((ip6addr)-\/>addr[2]) == PP\_HTONL(0x0000FFFFUL)))}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#define ip6\_addr\_ismulticast(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xff000000UL)) == PP\_HTONL(0xff000000UL))}}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#define ip6\_addr\_multicast\_transient\_flag(ip6addr)  ((ip6addr)-\/>addr[0] \& PP\_HTONL(0x00100000UL))}}
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#define ip6\_addr\_multicast\_prefix\_flag(ip6addr)     ((ip6addr)-\/>addr[0] \& PP\_HTONL(0x00200000UL))}}
+\DoxyCodeLine{216 \textcolor{preprocessor}{\#define ip6\_addr\_multicast\_rendezvous\_flag(ip6addr) ((ip6addr)-\/>addr[0] \& PP\_HTONL(0x00400000UL))}}
+\DoxyCodeLine{217 \textcolor{preprocessor}{\#define ip6\_addr\_multicast\_scope(ip6addr) ((lwip\_htonl((ip6addr)-\/>addr[0]) >> 16) \& 0xf)}}
+\DoxyCodeLine{218 \textcolor{preprocessor}{\#define IP6\_MULTICAST\_SCOPE\_RESERVED            0x0}}
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#define IP6\_MULTICAST\_SCOPE\_RESERVED0           0x0}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#define IP6\_MULTICAST\_SCOPE\_INTERFACE\_LOCAL     0x1}}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#define IP6\_MULTICAST\_SCOPE\_LINK\_LOCAL          0x2}}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#define IP6\_MULTICAST\_SCOPE\_RESERVED3           0x3}}
+\DoxyCodeLine{223 \textcolor{preprocessor}{\#define IP6\_MULTICAST\_SCOPE\_ADMIN\_LOCAL         0x4}}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#define IP6\_MULTICAST\_SCOPE\_SITE\_LOCAL          0x5}}
+\DoxyCodeLine{225 \textcolor{preprocessor}{\#define IP6\_MULTICAST\_SCOPE\_ORGANIZATION\_LOCAL  0x8}}
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#define IP6\_MULTICAST\_SCOPE\_GLOBAL              0xe}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#define IP6\_MULTICAST\_SCOPE\_RESERVEDF           0xf}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#define ip6\_addr\_ismulticast\_iflocal(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xff8f0000UL)) == PP\_HTONL(0xff010000UL))}}
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#define ip6\_addr\_ismulticast\_linklocal(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xff8f0000UL)) == PP\_HTONL(0xff020000UL))}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#define ip6\_addr\_ismulticast\_adminlocal(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xff8f0000UL)) == PP\_HTONL(0xff040000UL))}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#define ip6\_addr\_ismulticast\_sitelocal(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xff8f0000UL)) == PP\_HTONL(0xff050000UL))}}
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#define ip6\_addr\_ismulticast\_orglocal(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xff8f0000UL)) == PP\_HTONL(0xff080000UL))}}
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#define ip6\_addr\_ismulticast\_global(ip6addr) (((ip6addr)-\/>addr[0] \& PP\_HTONL(0xff8f0000UL)) == PP\_HTONL(0xff0e0000UL))}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235 \textcolor{comment}{/* Scoping note: while interface-\/local and link-\/local multicast addresses do}}
+\DoxyCodeLine{236 \textcolor{comment}{ * have a scope (i.e., they are meaningful only in the context of a particular}}
+\DoxyCodeLine{237 \textcolor{comment}{ * interface), the following functions are not assigning or comparing zone}}
+\DoxyCodeLine{238 \textcolor{comment}{ * indices. The reason for this is backward compatibility. Any call site that}}
+\DoxyCodeLine{239 \textcolor{comment}{ * produces a non-\/global multicast address must assign a multicast address as}}
+\DoxyCodeLine{240 \textcolor{comment}{ * appropriate itself. */}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#define ip6\_addr\_isallnodes\_iflocal(ip6addr) (((ip6addr)-\/>addr[0] == PP\_HTONL(0xff010000UL)) \&\& \(\backslash\)}}
+\DoxyCodeLine{243 \textcolor{preprocessor}{    ((ip6addr)-\/>addr[1] == 0UL) \&\& \(\backslash\)}}
+\DoxyCodeLine{244 \textcolor{preprocessor}{    ((ip6addr)-\/>addr[2] == 0UL) \&\& \(\backslash\)}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{    ((ip6addr)-\/>addr[3] == PP\_HTONL(0x00000001UL)))}}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247 \textcolor{preprocessor}{\#define ip6\_addr\_isallnodes\_linklocal(ip6addr) (((ip6addr)-\/>addr[0] == PP\_HTONL(0xff020000UL)) \&\& \(\backslash\)}}
+\DoxyCodeLine{248 \textcolor{preprocessor}{    ((ip6addr)-\/>addr[1] == 0UL) \&\& \(\backslash\)}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{    ((ip6addr)-\/>addr[2] == 0UL) \&\& \(\backslash\)}}
+\DoxyCodeLine{250 \textcolor{preprocessor}{    ((ip6addr)-\/>addr[3] == PP\_HTONL(0x00000001UL)))}}
+\DoxyCodeLine{251 \textcolor{preprocessor}{\#define ip6\_addr\_set\_allnodes\_linklocal(ip6addr) do\{(ip6addr)-\/>addr[0] = PP\_HTONL(0xff020000UL); \(\backslash\)}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{                (ip6addr)-\/>addr[1] = 0; \(\backslash\)}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{                (ip6addr)-\/>addr[2] = 0; \(\backslash\)}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{                (ip6addr)-\/>addr[3] = PP\_HTONL(0x00000001UL); \(\backslash\)}}
+\DoxyCodeLine{255 \textcolor{preprocessor}{                ip6\_addr\_clear\_zone(ip6addr); \}while(0)}}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#define ip6\_addr\_isallrouters\_linklocal(ip6addr) (((ip6addr)-\/>addr[0] == PP\_HTONL(0xff020000UL)) \&\& \(\backslash\)}}
+\DoxyCodeLine{258 \textcolor{preprocessor}{    ((ip6addr)-\/>addr[1] == 0UL) \&\& \(\backslash\)}}
+\DoxyCodeLine{259 \textcolor{preprocessor}{    ((ip6addr)-\/>addr[2] == 0UL) \&\& \(\backslash\)}}
+\DoxyCodeLine{260 \textcolor{preprocessor}{    ((ip6addr)-\/>addr[3] == PP\_HTONL(0x00000002UL)))}}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#define ip6\_addr\_set\_allrouters\_linklocal(ip6addr) do\{(ip6addr)-\/>addr[0] = PP\_HTONL(0xff020000UL); \(\backslash\)}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{                (ip6addr)-\/>addr[1] = 0; \(\backslash\)}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{                (ip6addr)-\/>addr[2] = 0; \(\backslash\)}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{                (ip6addr)-\/>addr[3] = PP\_HTONL(0x00000002UL); \(\backslash\)}}
+\DoxyCodeLine{265 \textcolor{preprocessor}{                ip6\_addr\_clear\_zone(ip6addr); \}while(0)}}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#define ip6\_addr\_issolicitednode(ip6addr) ( ((ip6addr)-\/>addr[0] == PP\_HTONL(0xff020000UL)) \&\& \(\backslash\)}}
+\DoxyCodeLine{268 \textcolor{preprocessor}{        ((ip6addr)-\/>addr[2] == PP\_HTONL(0x00000001UL)) \&\& \(\backslash\)}}
+\DoxyCodeLine{269 \textcolor{preprocessor}{        (((ip6addr)-\/>addr[3] \& PP\_HTONL(0xff000000UL)) == PP\_HTONL(0xff000000UL)) )}}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define ip6\_addr\_set\_solicitednode(ip6addr, if\_id) do\{(ip6addr)-\/>addr[0] = PP\_HTONL(0xff020000UL); \(\backslash\)}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{                (ip6addr)-\/>addr[1] = 0; \(\backslash\)}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{                (ip6addr)-\/>addr[2] = PP\_HTONL(0x00000001UL); \(\backslash\)}}
+\DoxyCodeLine{274 \textcolor{preprocessor}{                (ip6addr)-\/>addr[3] = (PP\_HTONL(0xff000000UL) | (if\_id)); \(\backslash\)}}
+\DoxyCodeLine{275 \textcolor{preprocessor}{                ip6\_addr\_clear\_zone(ip6addr); \}while(0)}}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277 \textcolor{preprocessor}{\#define ip6\_addr\_cmp\_solicitednode(ip6addr, sn\_addr) (((ip6addr)-\/>addr[0] == PP\_HTONL(0xff020000UL)) \&\& \(\backslash\)}}
+\DoxyCodeLine{278 \textcolor{preprocessor}{                                    ((ip6addr)-\/>addr[1] == 0) \&\& \(\backslash\)}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{                                    ((ip6addr)-\/>addr[2] == PP\_HTONL(0x00000001UL)) \&\& \(\backslash\)}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{                                    ((ip6addr)-\/>addr[3] == (PP\_HTONL(0xff000000UL) | (sn\_addr)-\/>addr[3])))}}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282 \textcolor{comment}{/* IPv6 address states. */}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#define IP6\_ADDR\_INVALID      0x00}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#define IP6\_ADDR\_TENTATIVE    0x08}}
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#define IP6\_ADDR\_TENTATIVE\_1  0x09 }\textcolor{comment}{/* 1 probe sent */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#define IP6\_ADDR\_TENTATIVE\_2  0x0a }\textcolor{comment}{/* 2 probes sent */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{287 \textcolor{preprocessor}{\#define IP6\_ADDR\_TENTATIVE\_3  0x0b }\textcolor{comment}{/* 3 probes sent */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#define IP6\_ADDR\_TENTATIVE\_4  0x0c }\textcolor{comment}{/* 4 probes sent */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#define IP6\_ADDR\_TENTATIVE\_5  0x0d }\textcolor{comment}{/* 5 probes sent */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#define IP6\_ADDR\_TENTATIVE\_6  0x0e }\textcolor{comment}{/* 6 probes sent */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#define IP6\_ADDR\_TENTATIVE\_7  0x0f }\textcolor{comment}{/* 7 probes sent */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#define IP6\_ADDR\_VALID        0x10 }\textcolor{comment}{/* This bit marks an address as valid (preferred or deprecated) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#define IP6\_ADDR\_PREFERRED    0x30}}
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#define IP6\_ADDR\_DEPRECATED   0x10 }\textcolor{comment}{/* Same as VALID (valid but not preferred) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#define IP6\_ADDR\_DUPLICATED   0x40 }\textcolor{comment}{/* Failed DAD test, not valid */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#define IP6\_ADDR\_TENTATIVE\_COUNT\_MASK 0x07 }\textcolor{comment}{/* 1-\/7 probes sent */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299 \textcolor{preprocessor}{\#define ip6\_addr\_isinvalid(addr\_state) (addr\_state == IP6\_ADDR\_INVALID)}}
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#define ip6\_addr\_istentative(addr\_state) (addr\_state \& IP6\_ADDR\_TENTATIVE)}}
+\DoxyCodeLine{301 \textcolor{preprocessor}{\#define ip6\_addr\_isvalid(addr\_state) (addr\_state \& IP6\_ADDR\_VALID) }\textcolor{comment}{/* Include valid, preferred, and deprecated. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#define ip6\_addr\_ispreferred(addr\_state) (addr\_state == IP6\_ADDR\_PREFERRED)}}
+\DoxyCodeLine{303 \textcolor{preprocessor}{\#define ip6\_addr\_isdeprecated(addr\_state) (addr\_state == IP6\_ADDR\_DEPRECATED)}}
+\DoxyCodeLine{304 \textcolor{preprocessor}{\#define ip6\_addr\_isduplicated(addr\_state) (addr\_state == IP6\_ADDR\_DUPLICATED)}}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306 \textcolor{preprocessor}{\#if LWIP\_IPV6\_ADDRESS\_LIFETIMES}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#define IP6\_ADDR\_LIFE\_STATIC   (0)}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{\#define IP6\_ADDR\_LIFE\_INFINITE (0xffffffffUL)}}
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#define ip6\_addr\_life\_isstatic(addr\_life) ((addr\_life) == IP6\_ADDR\_LIFE\_STATIC)}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#define ip6\_addr\_life\_isinfinite(addr\_life) ((addr\_life) == IP6\_ADDR\_LIFE\_INFINITE)}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_ADDRESS\_LIFETIMES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313 \textcolor{preprocessor}{\#define ip6\_addr\_debug\_print\_parts(debug, a, b, c, d, e, f, g, h) \(\backslash\)}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{  LWIP\_DEBUGF(debug, ("{}\%"{}} X16\_F "{}:\%"{} X16\_F "{}:\%"{} X16\_F "{}:\%"{} X16\_F "{}:\%"{} X16\_F "{}:\%"{} X16\_F "{}:\%"{} X16\_F "{}:\%"{} X16\_F, \(\backslash\)}
+\DoxyCodeLine{315                       a, b, c, d, e, f, g, h))}
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#define ip6\_addr\_debug\_print(debug, ipaddr) \(\backslash\)}}
+\DoxyCodeLine{317 \textcolor{preprocessor}{  ip6\_addr\_debug\_print\_parts(debug, \(\backslash\)}}
+\DoxyCodeLine{318 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? IP6\_ADDR\_BLOCK1(ipaddr) : 0),    \(\backslash\)}}
+\DoxyCodeLine{319 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? IP6\_ADDR\_BLOCK2(ipaddr) : 0),    \(\backslash\)}}
+\DoxyCodeLine{320 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? IP6\_ADDR\_BLOCK3(ipaddr) : 0),    \(\backslash\)}}
+\DoxyCodeLine{321 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? IP6\_ADDR\_BLOCK4(ipaddr) : 0),    \(\backslash\)}}
+\DoxyCodeLine{322 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? IP6\_ADDR\_BLOCK5(ipaddr) : 0),    \(\backslash\)}}
+\DoxyCodeLine{323 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? IP6\_ADDR\_BLOCK6(ipaddr) : 0),    \(\backslash\)}}
+\DoxyCodeLine{324 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? IP6\_ADDR\_BLOCK7(ipaddr) : 0),    \(\backslash\)}}
+\DoxyCodeLine{325 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? IP6\_ADDR\_BLOCK8(ipaddr) : 0))}}
+\DoxyCodeLine{326 \textcolor{preprocessor}{\#define ip6\_addr\_debug\_print\_val(debug, ipaddr) \(\backslash\)}}
+\DoxyCodeLine{327 \textcolor{preprocessor}{  ip6\_addr\_debug\_print\_parts(debug, \(\backslash\)}}
+\DoxyCodeLine{328 \textcolor{preprocessor}{                      IP6\_ADDR\_BLOCK1(\&(ipaddr)),    \(\backslash\)}}
+\DoxyCodeLine{329 \textcolor{preprocessor}{                      IP6\_ADDR\_BLOCK2(\&(ipaddr)),    \(\backslash\)}}
+\DoxyCodeLine{330 \textcolor{preprocessor}{                      IP6\_ADDR\_BLOCK3(\&(ipaddr)),    \(\backslash\)}}
+\DoxyCodeLine{331 \textcolor{preprocessor}{                      IP6\_ADDR\_BLOCK4(\&(ipaddr)),    \(\backslash\)}}
+\DoxyCodeLine{332 \textcolor{preprocessor}{                      IP6\_ADDR\_BLOCK5(\&(ipaddr)),    \(\backslash\)}}
+\DoxyCodeLine{333 \textcolor{preprocessor}{                      IP6\_ADDR\_BLOCK6(\&(ipaddr)),    \(\backslash\)}}
+\DoxyCodeLine{334 \textcolor{preprocessor}{                      IP6\_ADDR\_BLOCK7(\&(ipaddr)),    \(\backslash\)}}
+\DoxyCodeLine{335 \textcolor{preprocessor}{                      IP6\_ADDR\_BLOCK8(\&(ipaddr)))}}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337 \textcolor{preprocessor}{\#define IP6ADDR\_STRLEN\_MAX    46}}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339 \textcolor{keywordtype}{int} ip6addr\_aton(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *cp, ip6\_addr\_t *addr);}
+\DoxyCodeLine{341 \textcolor{keywordtype}{char} *ip6addr\_ntoa(\textcolor{keyword}{const} ip6\_addr\_t *addr);}
+\DoxyCodeLine{342 \textcolor{keywordtype}{char} *ip6addr\_ntoa\_r(\textcolor{keyword}{const} ip6\_addr\_t *addr, \textcolor{keywordtype}{char} *buf, \textcolor{keywordtype}{int} buflen);}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344 }
+\DoxyCodeLine{345 }
+\DoxyCodeLine{346 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{347 \}}
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{349 }
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{351 }
+\DoxyCodeLine{352 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_IP6\_ADDR\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

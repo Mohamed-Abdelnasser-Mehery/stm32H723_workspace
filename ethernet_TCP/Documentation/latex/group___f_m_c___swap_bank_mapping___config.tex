@@ -1,0 +1,35 @@
+\hypertarget{group___f_m_c___swap_bank_mapping___config}{}\doxysection{Swap\+Bank\+Mapping Config}
+\label{group___f_m_c___swap_bank_mapping___config}\index{SwapBankMapping Config@{SwapBankMapping Config}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___f_m_c___swap_bank_mapping___config_ga9d3a16fef65ae2e7e7134fee8a836741}\label{group___f_m_c___swap_bank_mapping___config_ga9d3a16fef65ae2e7e7134fee8a836741}} 
+\#define {\bfseries FMC\+\_\+\+SWAPBMAP\+\_\+\+DISABLE}~(0x00000000U)
+\item 
+\mbox{\Hypertarget{group___f_m_c___swap_bank_mapping___config_gac880c482a5742d3893066795c91c7cef}\label{group___f_m_c___swap_bank_mapping___config_gac880c482a5742d3893066795c91c7cef}} 
+\#define {\bfseries FMC\+\_\+\+SWAPBMAP\+\_\+\+SDRAM\+\_\+\+SRAM}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gaddd6e921ed3ad9c1f72dd4a97faa1d93}{FMC\+\_\+\+BCR1\+\_\+\+BMAP\+\_\+0}}
+\item 
+\mbox{\Hypertarget{group___f_m_c___swap_bank_mapping___config_gafdc29e22f3ee62cbe55d93c824542fa0}\label{group___f_m_c___swap_bank_mapping___config_gafdc29e22f3ee62cbe55d93c824542fa0}} 
+\#define {\bfseries FMC\+\_\+\+SWAPBMAP\+\_\+\+SDRAMB2}~\mbox{\hyperlink{group___peripheral___registers___bits___definition_gae4e91362757afb6bcbf492dc512fd245}{FMC\+\_\+\+BCR1\+\_\+\+BMAP\+\_\+1}}
+\item 
+\#define \mbox{\hyperlink{group___f_m_c___swap_bank_mapping___config_ga8053e7710f6402a6e3d284dfaa05affb}{IS\+\_\+\+FMC\+\_\+\+SWAPBMAP\+\_\+\+MODE}}(\+\_\+\+\_\+\+MODE\+\_\+\+\_\+)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___f_m_c___swap_bank_mapping___config_ga8053e7710f6402a6e3d284dfaa05affb}\label{group___f_m_c___swap_bank_mapping___config_ga8053e7710f6402a6e3d284dfaa05affb}} 
+\index{SwapBankMapping Config@{SwapBankMapping Config}!IS\_FMC\_SWAPBMAP\_MODE@{IS\_FMC\_SWAPBMAP\_MODE}}
+\index{IS\_FMC\_SWAPBMAP\_MODE@{IS\_FMC\_SWAPBMAP\_MODE}!SwapBankMapping Config@{SwapBankMapping Config}}
+\doxysubsubsection{\texorpdfstring{IS\_FMC\_SWAPBMAP\_MODE}{IS\_FMC\_SWAPBMAP\_MODE}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+FMC\+\_\+\+SWAPBMAP\+\_\+\+MODE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+MODE\+\_\+\+\_\+ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                        (((\_\_MODE\_\_) == FMC\_SWAPBMAP\_DISABLE)    || \(\backslash\)}
+\DoxyCodeLine{                                        ((\_\_MODE\_\_) == FMC\_SWAPBMAP\_SDRAM\_SRAM) || \(\backslash\)}
+\DoxyCodeLine{                                        ((\_\_MODE\_\_) == FMC\_SWAPBMAP\_SDRAMB2))}
+
+\end{DoxyCode}

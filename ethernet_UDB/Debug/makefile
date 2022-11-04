@@ -70,8 +70,8 @@ all: main-build
 main-build: ethernet_UDB.elf secondary-outputs
 
 # Tool invocations
-ethernet_UDB.elf ethernet_UDB.map: $(OBJS) $(USER_OBJS) C:\Users\User_4\STM32CubeIDE\workspace_1.10.1\ethernet_UDB\STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "ethernet_UDB.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\User_4\STM32CubeIDE\workspace_1.10.1\ethernet_UDB\STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ethernet_UDB.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+ethernet_UDB.elf ethernet_UDB.map: $(OBJS) $(USER_OBJS) C:\Users\User_4\Downloads\stm32H723_workspace-main\ethernet_UDB\STM32H723ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "ethernet_UDB.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\User_4\Downloads\stm32H723_workspace-main\ethernet_UDB\STM32H723ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ethernet_UDB.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

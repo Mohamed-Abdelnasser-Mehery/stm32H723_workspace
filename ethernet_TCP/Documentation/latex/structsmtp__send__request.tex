@@ -1,0 +1,48 @@
+\hypertarget{structsmtp__send__request}{}\doxysection{smtp\+\_\+send\+\_\+request Struct Reference}
+\label{structsmtp__send__request}\index{smtp\_send\_request@{smtp\_send\_request}}
+
+
+{\ttfamily \#include $<$smtp.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structsmtp__send__request_af9f143e62cdad4afb8a53a21b8b8fcfd}\label{structsmtp__send__request_af9f143e62cdad4afb8a53a21b8b8fcfd}} 
+const char $\ast$ {\bfseries from}
+\item 
+\mbox{\Hypertarget{structsmtp__send__request_a5d467a63df9ff99d33d6749038f6f421}\label{structsmtp__send__request_a5d467a63df9ff99d33d6749038f6f421}} 
+const char $\ast$ {\bfseries to}
+\item 
+\mbox{\Hypertarget{structsmtp__send__request_a14a8b5919aee932a01b9acab3cd79efd}\label{structsmtp__send__request_a14a8b5919aee932a01b9acab3cd79efd}} 
+const char $\ast$ {\bfseries subject}
+\item 
+\mbox{\Hypertarget{structsmtp__send__request_a99b2e5aac697cbafd4528834535ab3f7}\label{structsmtp__send__request_a99b2e5aac697cbafd4528834535ab3f7}} 
+const char $\ast$ {\bfseries body}
+\item 
+\mbox{\Hypertarget{structsmtp__send__request_abdf6fc4264675ea4d15024435101a5b2}\label{structsmtp__send__request_abdf6fc4264675ea4d15024435101a5b2}} 
+smtp\+\_\+result\+\_\+fn {\bfseries callback\+\_\+fn}
+\item 
+\mbox{\Hypertarget{structsmtp__send__request_a4947fb8b1992cb4b7104b45fc4080e12}\label{structsmtp__send__request_a4947fb8b1992cb4b7104b45fc4080e12}} 
+void $\ast$ {\bfseries callback\+\_\+arg}
+\item 
+u8\+\_\+t \mbox{\hyperlink{structsmtp__send__request_a30a20123291fcf62371572c15ffbe3a5}{static\+\_\+data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This structure is used as argument for smtp\+\_\+send\+\_\+mail\+\_\+int(), which in turn can be used with \mbox{\hyperlink{tcpip_8c_aab838fe3417ab3a1f61f0728009a0c2a}{tcpip\+\_\+callback()}} to send mail from interrupt context, e.\+g. like this\+: struct \mbox{\hyperlink{structsmtp__send__request}{smtp\+\_\+send\+\_\+request}} {\itshape req; (to be filled) tcpip\+\_\+try\+\_\+callback(smtp\+\_\+send\+\_\+mail\+\_\+int, (void})req);
+
+For member description, see parameter description of smtp\+\_\+send\+\_\+mail(). When using with tcpip\+\_\+callback, this structure has to stay allocated (e.\+g. using mem\+\_\+malloc/mem\+\_\+free) until its \textquotesingle{}callback\+\_\+fn\textquotesingle{} is called. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structsmtp__send__request_a30a20123291fcf62371572c15ffbe3a5}\label{structsmtp__send__request_a30a20123291fcf62371572c15ffbe3a5}} 
+\index{smtp\_send\_request@{smtp\_send\_request}!static\_data@{static\_data}}
+\index{static\_data@{static\_data}!smtp\_send\_request@{smtp\_send\_request}}
+\doxysubsubsection{\texorpdfstring{static\_data}{static\_data}}
+{\footnotesize\ttfamily u8\+\_\+t static\+\_\+data}
+
+If this is != 0, data is {\itshape not} copied into an extra buffer but used from the pointers supplied in this struct. This means less memory usage, but data must stay untouched until the callback function is called. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/apps/smtp.\+h\end{DoxyCompactItemize}

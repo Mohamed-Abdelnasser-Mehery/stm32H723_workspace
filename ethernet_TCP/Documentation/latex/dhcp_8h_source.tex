@@ -1,0 +1,130 @@
+\hypertarget{dhcp_8h_source}{}\doxysection{dhcp.\+h}
+\label{dhcp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/dhcp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/dhcp.h}}
+\mbox{\hyperlink{dhcp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Leon Woestenberg <leon.woestenberg@gmx.net>}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Axon Digital Design B.V., The Netherlands.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{12 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{19 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{23 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{24 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{25 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{26 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{27 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{28 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{29 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{30 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{31 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{32 \textcolor{comment}{ *}}
+\DoxyCodeLine{33 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * Author: Leon Woestenberg <leon.woestenberg@gmx.net>}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ */}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_DHCP\_H}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define LWIP\_HDR\_DHCP\_H}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#if LWIP\_DHCP }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{udp_8h}{lwip/udp.h}}"{}}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{49 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define DHCP\_COARSE\_TIMER\_SECS  60}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define DHCP\_COARSE\_TIMER\_MSECS (DHCP\_COARSE\_TIMER\_SECS * 1000UL)}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define DHCP\_FINE\_TIMER\_MSECS   500}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define DHCP\_BOOT\_FILE\_LEN      128U}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{comment}{/* AutoIP cooperation flags (struct dhcp.autoip\_coop\_state) */}}
+\DoxyCodeLine{62 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{63   DHCP\_AUTOIP\_COOP\_STATE\_OFF  = 0,}
+\DoxyCodeLine{64   DHCP\_AUTOIP\_COOP\_STATE\_ON   = 1}
+\DoxyCodeLine{65 \} dhcp\_autoip\_coop\_state\_enum\_t;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keyword}{struct }dhcp}
+\DoxyCodeLine{68 \{}
+\DoxyCodeLine{70   u32\_t xid;}
+\DoxyCodeLine{72   u8\_t pcb\_allocated;}
+\DoxyCodeLine{74   u8\_t state;}
+\DoxyCodeLine{76   u8\_t tries;}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#if LWIP\_DHCP\_AUTOIP\_COOP}}
+\DoxyCodeLine{78   u8\_t autoip\_coop\_state;}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{80   u8\_t subnet\_mask\_given;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82   u16\_t request\_timeout; \textcolor{comment}{/* \#ticks with period DHCP\_FINE\_TIMER\_SECS for request timeout */}}
+\DoxyCodeLine{83   u16\_t t1\_timeout;  \textcolor{comment}{/* \#ticks with period DHCP\_COARSE\_TIMER\_SECS for renewal time */}}
+\DoxyCodeLine{84   u16\_t t2\_timeout;  \textcolor{comment}{/* \#ticks with period DHCP\_COARSE\_TIMER\_SECS for rebind time */}}
+\DoxyCodeLine{85   u16\_t t1\_renew\_time;  \textcolor{comment}{/* \#ticks with period DHCP\_COARSE\_TIMER\_SECS until next renew try */}}
+\DoxyCodeLine{86   u16\_t t2\_rebind\_time; \textcolor{comment}{/* \#ticks with period DHCP\_COARSE\_TIMER\_SECS until next rebind try */}}
+\DoxyCodeLine{87   u16\_t lease\_used; \textcolor{comment}{/* \#ticks with period DHCP\_COARSE\_TIMER\_SECS since last received DHCP ack */}}
+\DoxyCodeLine{88   u16\_t t0\_timeout; \textcolor{comment}{/* \#ticks with period DHCP\_COARSE\_TIMER\_SECS for lease time */}}
+\DoxyCodeLine{89   ip\_addr\_t server\_ip\_addr; \textcolor{comment}{/* dhcp server address that offered this lease (ip\_addr\_t because passed to UDP) */}}
+\DoxyCodeLine{90   ip4\_addr\_t offered\_ip\_addr;}
+\DoxyCodeLine{91   ip4\_addr\_t offered\_sn\_mask;}
+\DoxyCodeLine{92   ip4\_addr\_t offered\_gw\_addr;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94   u32\_t offered\_t0\_lease; \textcolor{comment}{/* lease period (in seconds) */}}
+\DoxyCodeLine{95   u32\_t offered\_t1\_renew; \textcolor{comment}{/* recommended renew time (usually 50\% of lease period) */}}
+\DoxyCodeLine{96   u32\_t offered\_t2\_rebind; \textcolor{comment}{/* recommended rebind time (usually 87.5 of lease period)  */}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#if LWIP\_DHCP\_BOOTP\_FILE}}
+\DoxyCodeLine{98   ip4\_addr\_t offered\_si\_addr;}
+\DoxyCodeLine{99   \textcolor{keywordtype}{char} boot\_file\_name[DHCP\_BOOT\_FILE\_LEN];}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DHCP\_BOOTPFILE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{101 \};}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{keywordtype}{void} dhcp\_set\_struct(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{struct} dhcp *dhcp);}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define dhcp\_remove\_struct(netif) netif\_set\_client\_data(netif, LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_DHCP, NULL)}}
+\DoxyCodeLine{107 \textcolor{keywordtype}{void} dhcp\_cleanup(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{108 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} dhcp\_start(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{109 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} dhcp\_renew(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{110 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} dhcp\_release(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{111 \textcolor{keywordtype}{void} dhcp\_stop(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{112 \textcolor{keywordtype}{void} dhcp\_release\_and\_stop(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{113 \textcolor{keywordtype}{void} dhcp\_inform(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{114 \textcolor{keywordtype}{void} dhcp\_network\_changed(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#if DHCP\_DOES\_ARP\_CHECK}}
+\DoxyCodeLine{116 \textcolor{keywordtype}{void} dhcp\_arp\_reply(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip4\_addr\_t *addr);}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{118 u8\_t dhcp\_supplied\_address(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{119 \textcolor{comment}{/* to be called every minute */}}
+\DoxyCodeLine{120 \textcolor{keywordtype}{void} dhcp\_coarse\_tmr(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{121 \textcolor{comment}{/* to be called every half second */}}
+\DoxyCodeLine{122 \textcolor{keywordtype}{void} dhcp\_fine\_tmr(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#if LWIP\_DHCP\_GET\_NTP\_SRV}}
+\DoxyCodeLine{128 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} dhcp\_set\_ntp\_servers(u8\_t num\_ntp\_servers, \textcolor{keyword}{const} ip4\_addr\_t* ntp\_server\_addrs);}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DHCP\_GET\_NTP\_SRV */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define netif\_dhcp\_data(netif) ((struct dhcp*)netif\_get\_client\_data(netif, LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_DHCP))}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{134 \}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DHCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*LWIP\_HDR\_DHCP\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

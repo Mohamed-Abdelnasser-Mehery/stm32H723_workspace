@@ -1,0 +1,73 @@
+\hypertarget{group__lwip__opts__lock}{}\doxysection{Core locking and MPU}
+\label{group__lwip__opts__lock}\index{Core locking and MPU@{Core locking and MPU}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__lock_gae9afcefa5d233372abb9413188dd98c9}{LWIP\+\_\+\+MPU\+\_\+\+COMPATIBLE}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__lock_ga8e46232794349c209e8ed4e9e7e4f011}{LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__lock_ga351beb1c06affe49e717bc9f76c66acf}{LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING\+\_\+\+INPUT}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__lock_gae85efb3a5fcf8585c94b3c2669978959}{SYS\+\_\+\+LIGHTWEIGHT\+\_\+\+PROT}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__lock_ga6a30040db307b3459fc11906bd433f75}{LWIP\+\_\+\+ASSERT\+\_\+\+CORE\+\_\+\+LOCKED}}()
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__lock_gab97d014f7ecf3b20f9d5abc2d0a79a3e}{LWIP\+\_\+\+MARK\+\_\+\+TCPIP\+\_\+\+THREAD}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__lock_ga6a30040db307b3459fc11906bd433f75}\label{group__lwip__opts__lock_ga6a30040db307b3459fc11906bd433f75}} 
+\index{Core locking and MPU@{Core locking and MPU}!LWIP\_ASSERT\_CORE\_LOCKED@{LWIP\_ASSERT\_CORE\_LOCKED}}
+\index{LWIP\_ASSERT\_CORE\_LOCKED@{LWIP\_ASSERT\_CORE\_LOCKED}!Core locking and MPU@{Core locking and MPU}}
+\doxysubsubsection{\texorpdfstring{LWIP\_ASSERT\_CORE\_LOCKED}{LWIP\_ASSERT\_CORE\_LOCKED}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+ASSERT\+\_\+\+CORE\+\_\+\+LOCKED(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Macro/function to check whether lw\+IP\textquotesingle{}s threading/locking requirements are satisfied during current function call. This macro usually calls a function that is implemented in the OS-\/dependent sys layer and performs the following checks\+:
+\begin{DoxyItemize}
+\item Not in ISR (this should be checked for NO\+\_\+\+SYS==1, too!)
+\item If \mbox{\hyperlink{group__lwip__opts__lock_ga8e46232794349c209e8ed4e9e7e4f011}{LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING}} = 1\+: TCPIP core lock is held
+\item If \mbox{\hyperlink{group__lwip__opts__lock_ga8e46232794349c209e8ed4e9e7e4f011}{LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING}} = 0\+: function is called from TCPIP thread \begin{DoxySeeAlso}{See also}
+multithreading 
+\end{DoxySeeAlso}
+
+\end{DoxyItemize}\mbox{\Hypertarget{group__lwip__opts__lock_gab97d014f7ecf3b20f9d5abc2d0a79a3e}\label{group__lwip__opts__lock_gab97d014f7ecf3b20f9d5abc2d0a79a3e}} 
+\index{Core locking and MPU@{Core locking and MPU}!LWIP\_MARK\_TCPIP\_THREAD@{LWIP\_MARK\_TCPIP\_THREAD}}
+\index{LWIP\_MARK\_TCPIP\_THREAD@{LWIP\_MARK\_TCPIP\_THREAD}!Core locking and MPU@{Core locking and MPU}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MARK\_TCPIP\_THREAD}{LWIP\_MARK\_TCPIP\_THREAD}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+MARK\+\_\+\+TCPIP\+\_\+\+THREAD(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Called as first thing in the lw\+IP TCPIP thread. Can be used in conjunction with \mbox{\hyperlink{group__lwip__opts__lock_ga6a30040db307b3459fc11906bd433f75}{LWIP\+\_\+\+ASSERT\+\_\+\+CORE\+\_\+\+LOCKED}} to check core locking. \begin{DoxySeeAlso}{See also}
+multithreading 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__lwip__opts__lock_gae9afcefa5d233372abb9413188dd98c9}\label{group__lwip__opts__lock_gae9afcefa5d233372abb9413188dd98c9}} 
+\index{Core locking and MPU@{Core locking and MPU}!LWIP\_MPU\_COMPATIBLE@{LWIP\_MPU\_COMPATIBLE}}
+\index{LWIP\_MPU\_COMPATIBLE@{LWIP\_MPU\_COMPATIBLE}!Core locking and MPU@{Core locking and MPU}}
+\doxysubsubsection{\texorpdfstring{LWIP\_MPU\_COMPATIBLE}{LWIP\_MPU\_COMPATIBLE}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+MPU\+\_\+\+COMPATIBLE~0}
+
+LWIP\+\_\+\+MPU\+\_\+\+COMPATIBLE\+: enables special memory management mechanism which makes lwip able to work on MPU (Memory Protection Unit) system by not passing stack-\/pointers to other threads (this decreases performance as memory is allocated from pools instead of keeping it on the stack) \mbox{\Hypertarget{group__lwip__opts__lock_ga8e46232794349c209e8ed4e9e7e4f011}\label{group__lwip__opts__lock_ga8e46232794349c209e8ed4e9e7e4f011}} 
+\index{Core locking and MPU@{Core locking and MPU}!LWIP\_TCPIP\_CORE\_LOCKING@{LWIP\_TCPIP\_CORE\_LOCKING}}
+\index{LWIP\_TCPIP\_CORE\_LOCKING@{LWIP\_TCPIP\_CORE\_LOCKING}!Core locking and MPU@{Core locking and MPU}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCPIP\_CORE\_LOCKING}{LWIP\_TCPIP\_CORE\_LOCKING}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING~1}
+
+LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING Creates a global mutex that is held during TCPIP thread operations. Can be locked by client code to perform lw\+IP operations without changing into TCPIP thread using callbacks. See LOCK\+\_\+\+TCPIP\+\_\+\+CORE() and UNLOCK\+\_\+\+TCPIP\+\_\+\+CORE(). Your system should provide mutexes supporting priority inversion to use this. \mbox{\Hypertarget{group__lwip__opts__lock_ga351beb1c06affe49e717bc9f76c66acf}\label{group__lwip__opts__lock_ga351beb1c06affe49e717bc9f76c66acf}} 
+\index{Core locking and MPU@{Core locking and MPU}!LWIP\_TCPIP\_CORE\_LOCKING\_INPUT@{LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}}
+\index{LWIP\_TCPIP\_CORE\_LOCKING\_INPUT@{LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}!Core locking and MPU@{Core locking and MPU}}
+\doxysubsubsection{\texorpdfstring{LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}{LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING\+\_\+\+INPUT~0}
+
+LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING\+\_\+\+INPUT\+: when LWIP\+\_\+\+TCPIP\+\_\+\+CORE\+\_\+\+LOCKING is enabled, this lets \mbox{\hyperlink{tcpip_8c_ae510f195171bed8499ae94e264a92717}{tcpip\+\_\+input()}} grab the mutex for input packets as well, instead of allocating a message and passing it to tcpip\+\_\+thread.
+
+ATTENTION\+: this does not work when \mbox{\hyperlink{tcpip_8c_ae510f195171bed8499ae94e264a92717}{tcpip\+\_\+input()}} is called from interrupt context! \mbox{\Hypertarget{group__lwip__opts__lock_gae85efb3a5fcf8585c94b3c2669978959}\label{group__lwip__opts__lock_gae85efb3a5fcf8585c94b3c2669978959}} 
+\index{Core locking and MPU@{Core locking and MPU}!SYS\_LIGHTWEIGHT\_PROT@{SYS\_LIGHTWEIGHT\_PROT}}
+\index{SYS\_LIGHTWEIGHT\_PROT@{SYS\_LIGHTWEIGHT\_PROT}!Core locking and MPU@{Core locking and MPU}}
+\doxysubsubsection{\texorpdfstring{SYS\_LIGHTWEIGHT\_PROT}{SYS\_LIGHTWEIGHT\_PROT}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+LIGHTWEIGHT\+\_\+\+PROT~1}
+
+SYS\+\_\+\+LIGHTWEIGHT\+\_\+\+PROT==1\+: enable inter-\/task protection (and task-\/vs-\/interrupt protection) for certain critical regions during buffer allocation, deallocation and memory allocation and deallocation. ATTENTION\+: This is required when using lw\+IP from more than one context! If you disable this, you must be sure what you are doing! 

@@ -1,0 +1,63 @@
+\hypertarget{slipif_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/netif/slipif.c File Reference}
+\label{slipif_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/netif/slipif.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/netif/slipif.c}}
+{\ttfamily \#include \char`\"{}netif/slipif.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/def.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/pbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/stats.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/snmp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sio.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{slipif_8c_ac08c4b8e75c6456f5654145f8b001005}\label{slipif_8c_ac08c4b8e75c6456f5654145f8b001005}} 
+\#define {\bfseries SLIP\+\_\+\+END}~0x\+C0 /$\ast$ 0300\+: start and end of every packet $\ast$/
+\item 
+\mbox{\Hypertarget{slipif_8c_a379cfa838122508f0e88fbbe8ce80c47}\label{slipif_8c_a379cfa838122508f0e88fbbe8ce80c47}} 
+\#define {\bfseries SLIP\+\_\+\+ESC}~0x\+DB /$\ast$ 0333\+: escape start (one byte escaped data follows) $\ast$/
+\item 
+\mbox{\Hypertarget{slipif_8c_a660be27a37d4105d47000a333dd26c1a}\label{slipif_8c_a660be27a37d4105d47000a333dd26c1a}} 
+\#define {\bfseries SLIP\+\_\+\+ESC\+\_\+\+END}~0x\+DC /$\ast$ 0334\+: following escape\+: original byte is 0x\+C0 (END) $\ast$/
+\item 
+\mbox{\Hypertarget{slipif_8c_a75cd5d5e3cdfa54f2a7c6d137406bb72}\label{slipif_8c_a75cd5d5e3cdfa54f2a7c6d137406bb72}} 
+\#define {\bfseries SLIP\+\_\+\+ESC\+\_\+\+ESC}~0x\+DD /$\ast$ 0335\+: following escape\+: original byte is 0x\+DB (ESC) $\ast$/
+\item 
+\#define \mbox{\hyperlink{slipif_8c_accf448f9dabb0f33ef46b40355691cab}{SLIP\+\_\+\+MAX\+\_\+\+SIZE}}~1500
+\item 
+\#define \mbox{\hyperlink{slipif_8c_a2a9e9ed81732a6794a9b9a712f75a1cc}{SLIP\+\_\+\+SIO\+\_\+\+SPEED}}(sio\+\_\+fd)~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{slipif_8c_ad55f60b1f38e904fddc564c425f2eade}\label{slipif_8c_ad55f60b1f38e904fddc564c425f2eade}} 
+enum {\bfseries slipif\+\_\+recv\+\_\+state} \{ {\bfseries SLIP\+\_\+\+RECV\+\_\+\+NORMAL}
+, {\bfseries SLIP\+\_\+\+RECV\+\_\+\+ESCAPE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__slipif_ga687973ba82dab13a5b9d38d7399aeee3}{slipif\+\_\+init}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__slipif_ga7b036fd1cde9b299139cac62f52d15a6}{slipif\+\_\+poll}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SLIP Interface 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{slipif_8c_accf448f9dabb0f33ef46b40355691cab}\label{slipif_8c_accf448f9dabb0f33ef46b40355691cab}} 
+\index{slipif.c@{slipif.c}!SLIP\_MAX\_SIZE@{SLIP\_MAX\_SIZE}}
+\index{SLIP\_MAX\_SIZE@{SLIP\_MAX\_SIZE}!slipif.c@{slipif.c}}
+\doxysubsubsection{\texorpdfstring{SLIP\_MAX\_SIZE}{SLIP\_MAX\_SIZE}}
+{\footnotesize\ttfamily \#define SLIP\+\_\+\+MAX\+\_\+\+SIZE~1500}
+
+Maximum packet size that is received by this netif \mbox{\Hypertarget{slipif_8c_a2a9e9ed81732a6794a9b9a712f75a1cc}\label{slipif_8c_a2a9e9ed81732a6794a9b9a712f75a1cc}} 
+\index{slipif.c@{slipif.c}!SLIP\_SIO\_SPEED@{SLIP\_SIO\_SPEED}}
+\index{SLIP\_SIO\_SPEED@{SLIP\_SIO\_SPEED}!slipif.c@{slipif.c}}
+\doxysubsubsection{\texorpdfstring{SLIP\_SIO\_SPEED}{SLIP\_SIO\_SPEED}}
+{\footnotesize\ttfamily \#define SLIP\+\_\+\+SIO\+\_\+\+SPEED(\begin{DoxyParamCaption}\item[{}]{sio\+\_\+fd }\end{DoxyParamCaption})~0}
+
+Define this to the interface speed for SNMP (sio\+\_\+fd is the sio\+\_\+fd\+\_\+t returned by sio\+\_\+open). The default value of zero means \textquotesingle{}unknown\textquotesingle{}. 

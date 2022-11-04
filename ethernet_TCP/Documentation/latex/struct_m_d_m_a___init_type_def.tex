@@ -1,0 +1,144 @@
+\hypertarget{struct_m_d_m_a___init_type_def}{}\doxysection{MDMA\+\_\+\+Init\+Type\+Def Struct Reference}
+\label{struct_m_d_m_a___init_type_def}\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+
+
+MDMA Configuration Structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32h7xx\+\_\+hal\+\_\+mdma.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a59f46df02cf1237d6888518fe2100209}{Request}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a6b7bd2e8af190bff0f71b3c86bcb9533}{Transfer\+Trigger\+Mode}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a72acf77c0b19359eb70764505ae4bd70}{Priority}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a6ccfa2b157b318deb40af30e47d91b7b}{Endianness}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a5c7005deccd141199b2203951b256a54}{Source\+Inc}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_ad51589de0051b1153b616482742abcc7}{Destination\+Inc}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a6ae5e07ceae31572507d93e9674205d3}{Source\+Data\+Size}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a641ddf55f6d545b2cc6d6a7648bc25ff}{Dest\+Data\+Size}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a2c1f5e9242046a0068e3d7765ed161a8}{Data\+Alignment}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_adc66fde203577ac6beaa36ea6f5e4f2f}{Buffer\+Transfer\+Length}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_acf3dfc3bd59834c2a53b1df7b55dfdba}{Source\+Burst}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a737f54af9db81e2cf8b809e10da37a39}{Dest\+Burst}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a9bd140e4129e7a31c0c639d318d6013f}{Source\+Block\+Address\+Offset}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___init_type_def_a6c00f4a5ca117749552dba6b5030efb1}{Dest\+Block\+Address\+Offset}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+MDMA Configuration Structure definition. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_m_d_m_a___init_type_def_adc66fde203577ac6beaa36ea6f5e4f2f}\label{struct_m_d_m_a___init_type_def_adc66fde203577ac6beaa36ea6f5e4f2f}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!BufferTransferLength@{BufferTransferLength}}
+\index{BufferTransferLength@{BufferTransferLength}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{BufferTransferLength}{BufferTransferLength}}
+{\footnotesize\ttfamily uint32\+\_\+t Buffer\+Transfer\+Length}
+
+Specifies the buffer Transfer Length (number of bytes), this is the number of bytes to be transferred in a single transfer (1 byte to 128 bytes) \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a2c1f5e9242046a0068e3d7765ed161a8}\label{struct_m_d_m_a___init_type_def_a2c1f5e9242046a0068e3d7765ed161a8}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!DataAlignment@{DataAlignment}}
+\index{DataAlignment@{DataAlignment}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{DataAlignment}{DataAlignment}}
+{\footnotesize\ttfamily uint32\+\_\+t Data\+Alignment}
+
+Specifies the source to destination Memory data packing/padding mode. This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a__data___alignment}{MDMA data alignment}} \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a6c00f4a5ca117749552dba6b5030efb1}\label{struct_m_d_m_a___init_type_def_a6c00f4a5ca117749552dba6b5030efb1}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!DestBlockAddressOffset@{DestBlockAddressOffset}}
+\index{DestBlockAddressOffset@{DestBlockAddressOffset}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{DestBlockAddressOffset}{DestBlockAddressOffset}}
+{\footnotesize\ttfamily int32\+\_\+t Dest\+Block\+Address\+Offset}
+
+this field specifies the Next block destination address offset signed value \+: if \texorpdfstring{$>$}{>} 0 then increment the next block destination Address by offset from where the last block ends if \texorpdfstring{$<$}{<} 0 then decrement the next block destination Address by offset from where the last block ends if == 0, the next block destination address starts from where the last block ends \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a737f54af9db81e2cf8b809e10da37a39}\label{struct_m_d_m_a___init_type_def_a737f54af9db81e2cf8b809e10da37a39}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!DestBurst@{DestBurst}}
+\index{DestBurst@{DestBurst}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{DestBurst}{DestBurst}}
+{\footnotesize\ttfamily uint32\+\_\+t Dest\+Burst}
+
+Specifies the Burst transfer configuration for the destination memory transfers. It specifies the amount of data to be transferred in a single non interruptible transaction. This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a___destination__burst}{MDMA Destination burst}} \begin{DoxyNote}{Note}
+\+: the burst may be FIXED/\+INCR based on Destination\+Inc value , the BURST must be programmed as to ensure that the burst size will be lower than than Buffer\+Transfer\+Length 
+\end{DoxyNote}
+\mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a641ddf55f6d545b2cc6d6a7648bc25ff}\label{struct_m_d_m_a___init_type_def_a641ddf55f6d545b2cc6d6a7648bc25ff}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!DestDataSize@{DestDataSize}}
+\index{DestDataSize@{DestDataSize}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{DestDataSize}{DestDataSize}}
+{\footnotesize\ttfamily uint32\+\_\+t Dest\+Data\+Size}
+
+Specifies the destination data size. This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a___destination__data__size}{MDMA Destination data size}} \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_ad51589de0051b1153b616482742abcc7}\label{struct_m_d_m_a___init_type_def_ad51589de0051b1153b616482742abcc7}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!DestinationInc@{DestinationInc}}
+\index{DestinationInc@{DestinationInc}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{DestinationInc}{DestinationInc}}
+{\footnotesize\ttfamily uint32\+\_\+t Destination\+Inc}
+
+Specifies if the Destination increment mode . This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a___destination__increment__mode}{MDMA Destination increment mode}} \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a6ccfa2b157b318deb40af30e47d91b7b}\label{struct_m_d_m_a___init_type_def_a6ccfa2b157b318deb40af30e47d91b7b}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!Endianness@{Endianness}}
+\index{Endianness@{Endianness}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{Endianness}{Endianness}}
+{\footnotesize\ttfamily uint32\+\_\+t Endianness}
+
+Specifies if the MDMA transactions preserve the Little endianness. This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a___endianness}{MDMA Endianness}} \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a72acf77c0b19359eb70764505ae4bd70}\label{struct_m_d_m_a___init_type_def_a72acf77c0b19359eb70764505ae4bd70}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!Priority@{Priority}}
+\index{Priority@{Priority}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{Priority}{Priority}}
+{\footnotesize\ttfamily uint32\+\_\+t Priority}
+
+Specifies the software priority for the MDMAy channelx. This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a___priority__level}{MDMA Priority level}} \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a59f46df02cf1237d6888518fe2100209}\label{struct_m_d_m_a___init_type_def_a59f46df02cf1237d6888518fe2100209}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!Request@{Request}}
+\index{Request@{Request}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{Request}{Request}}
+{\footnotesize\ttfamily uint32\+\_\+t Request}
+
+Specifies the MDMA request. This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a___request__selection}{MDMA Request selection}} \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a9bd140e4129e7a31c0c639d318d6013f}\label{struct_m_d_m_a___init_type_def_a9bd140e4129e7a31c0c639d318d6013f}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!SourceBlockAddressOffset@{SourceBlockAddressOffset}}
+\index{SourceBlockAddressOffset@{SourceBlockAddressOffset}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{SourceBlockAddressOffset}{SourceBlockAddressOffset}}
+{\footnotesize\ttfamily int32\+\_\+t Source\+Block\+Address\+Offset}
+
+this field specifies the Next block source address offset signed value \+: if \texorpdfstring{$>$}{>} 0 then increment the next block source Address by offset from where the last block ends if \texorpdfstring{$<$}{<} 0 then decrement the next block source Address by offset from where the last block ends if == 0, the next block source address starts from where the last block ends \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_acf3dfc3bd59834c2a53b1df7b55dfdba}\label{struct_m_d_m_a___init_type_def_acf3dfc3bd59834c2a53b1df7b55dfdba}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!SourceBurst@{SourceBurst}}
+\index{SourceBurst@{SourceBurst}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{SourceBurst}{SourceBurst}}
+{\footnotesize\ttfamily uint32\+\_\+t Source\+Burst}
+
+Specifies the Burst transfer configuration for the source memory transfers. It specifies the amount of data to be transferred in a single non interruptible transaction. This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a___source__burst}{MDMA Source burst}} \begin{DoxyNote}{Note}
+\+: the burst may be FIXED/\+INCR based on Source\+Inc value , the BURST must be programmed as to ensure that the burst size will be lower than than Buffer\+Transfer\+Length 
+\end{DoxyNote}
+\mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a6ae5e07ceae31572507d93e9674205d3}\label{struct_m_d_m_a___init_type_def_a6ae5e07ceae31572507d93e9674205d3}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!SourceDataSize@{SourceDataSize}}
+\index{SourceDataSize@{SourceDataSize}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{SourceDataSize}{SourceDataSize}}
+{\footnotesize\ttfamily uint32\+\_\+t Source\+Data\+Size}
+
+Specifies the source data size. This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a___source__data__size}{MDMA Source data size}} \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a5c7005deccd141199b2203951b256a54}\label{struct_m_d_m_a___init_type_def_a5c7005deccd141199b2203951b256a54}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!SourceInc@{SourceInc}}
+\index{SourceInc@{SourceInc}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{SourceInc}{SourceInc}}
+{\footnotesize\ttfamily uint32\+\_\+t Source\+Inc}
+
+Specifies if the Source increment mode . This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a___source__increment__mode}{MDMA Source increment mode}} \mbox{\Hypertarget{struct_m_d_m_a___init_type_def_a6b7bd2e8af190bff0f71b3c86bcb9533}\label{struct_m_d_m_a___init_type_def_a6b7bd2e8af190bff0f71b3c86bcb9533}} 
+\index{MDMA\_InitTypeDef@{MDMA\_InitTypeDef}!TransferTriggerMode@{TransferTriggerMode}}
+\index{TransferTriggerMode@{TransferTriggerMode}!MDMA\_InitTypeDef@{MDMA\_InitTypeDef}}
+\doxysubsubsection{\texorpdfstring{TransferTriggerMode}{TransferTriggerMode}}
+{\footnotesize\ttfamily uint32\+\_\+t Transfer\+Trigger\+Mode}
+
+Specifies the Trigger Transfer mode \+: each request triggers a \+: a buffer transfer, a block transfer, a repeated block transfer or a linked list transfer This parameter can be a value of \mbox{\hyperlink{group___m_d_m_a___transfer___trigger_mode}{MDMA Transfer Trigger Mode}} ~\newline
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32h7xx__hal__mdma_8h}{stm32h7xx\+\_\+hal\+\_\+mdma.\+h}}\end{DoxyCompactItemize}

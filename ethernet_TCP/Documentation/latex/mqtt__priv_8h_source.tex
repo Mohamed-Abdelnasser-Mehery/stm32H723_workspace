@@ -1,0 +1,89 @@
+\hypertarget{mqtt__priv_8h_source}{}\doxysection{mqtt\+\_\+priv.\+h}
+\label{mqtt__priv_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/mqtt\_priv.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/mqtt\_priv.h}}
+\mbox{\hyperlink{mqtt__priv_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2016 Erik Andersson}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Erik Andersson}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_MQTT\_PRIV\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_MQTT\_PRIV\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mqtt_8h}{lwip/apps/mqtt.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{altcp_8h}{lwip/altcp.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{48 \textcolor{keyword}{struct }\mbox{\hyperlink{structmqtt__request__t}{mqtt\_request\_t}}}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{52   \textcolor{keyword}{struct }\mbox{\hyperlink{structmqtt__request__t}{mqtt\_request\_t}} *\mbox{\hyperlink{structmqtt__request__t_adb6d1bb24d209947eb28f28cdbcc314b}{next}};}
+\DoxyCodeLine{54   \mbox{\hyperlink{group__mqtt_gacad2bbe2cee76eaa120cc63e2f6094fd}{mqtt\_request\_cb\_t}} \mbox{\hyperlink{structmqtt__request__t_ad9b30e05e1499bb3550ec67d2a42d105}{cb}};}
+\DoxyCodeLine{55   \textcolor{keywordtype}{void} *arg;}
+\DoxyCodeLine{57   u16\_t \mbox{\hyperlink{structmqtt__request__t_a0553c7577ed50fca43b91e7638003a39}{pkt\_id}};}
+\DoxyCodeLine{59   u16\_t \mbox{\hyperlink{structmqtt__request__t_a92613c0fb7f4e6afb3a10e271b3296e9}{timeout\_diff}};}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{63 \textcolor{keyword}{struct }\mbox{\hyperlink{structmqtt__ringbuf__t}{mqtt\_ringbuf\_t}} \{}
+\DoxyCodeLine{64   u16\_t put;}
+\DoxyCodeLine{65   u16\_t get;}
+\DoxyCodeLine{66   u8\_t buf[\mbox{\hyperlink{group__mqtt__opts_ga70627bafaffa071875cee9edc38d942b}{MQTT\_OUTPUT\_RINGBUF\_SIZE}}];}
+\DoxyCodeLine{67 \};}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{70 \textcolor{keyword}{struct }\mbox{\hyperlink{structmqtt__client__s}{mqtt\_client\_s}}}
+\DoxyCodeLine{71 \{}
+\DoxyCodeLine{73   u16\_t \mbox{\hyperlink{structmqtt__client__s_af4fff42812fad5345aa4aa5e7fe1e20f}{cyclic\_tick}};}
+\DoxyCodeLine{74   u16\_t keep\_alive;}
+\DoxyCodeLine{75   u16\_t server\_watchdog;}
+\DoxyCodeLine{77   u16\_t \mbox{\hyperlink{structmqtt__client__s_af9f4387901e503337d03a6f4c7c984b9}{pkt\_id\_seq}};}
+\DoxyCodeLine{79   u16\_t \mbox{\hyperlink{structmqtt__client__s_a41341f8208bcb7edd60f09c8750e1410}{inpub\_pkt\_id}};}
+\DoxyCodeLine{81   u8\_t \mbox{\hyperlink{structmqtt__client__s_a519a47c0271b0c01480c317c2ceb1a5e}{conn\_state}};}
+\DoxyCodeLine{82   \textcolor{keyword}{struct }altcp\_pcb *conn;}
+\DoxyCodeLine{84   \textcolor{keywordtype}{void} *\mbox{\hyperlink{structmqtt__client__s_a527fa5dc423fcb91cdf9a02ff6de26d7}{connect\_arg}};}
+\DoxyCodeLine{85   \mbox{\hyperlink{group__mqtt_ga8558743bdb7d599a93844fbc56c9029f}{mqtt\_connection\_cb\_t}} connect\_cb;}
+\DoxyCodeLine{87   \textcolor{keyword}{struct }\mbox{\hyperlink{structmqtt__request__t}{mqtt\_request\_t}} *\mbox{\hyperlink{structmqtt__client__s_a6d2a5349b1e66530f348424fdc77a7e8}{pend\_req\_queue}};}
+\DoxyCodeLine{88   \textcolor{keyword}{struct }\mbox{\hyperlink{structmqtt__request__t}{mqtt\_request\_t}} req\_list[\mbox{\hyperlink{group__mqtt__opts_gae82460b35de2291e9661e440c3458e8f}{MQTT\_REQ\_MAX\_IN\_FLIGHT}}];}
+\DoxyCodeLine{89   \textcolor{keywordtype}{void} *inpub\_arg;}
+\DoxyCodeLine{91   \mbox{\hyperlink{group__mqtt_gafec7e75fe6a746eef9ca411463446c81}{mqtt\_incoming\_data\_cb\_t}} \mbox{\hyperlink{structmqtt__client__s_a2c6215fc032cdd9a410d4a117b04c13b}{data\_cb}};}
+\DoxyCodeLine{92   \mbox{\hyperlink{group__mqtt_ga7116bb85255394cec4b1d9fa38842c29}{mqtt\_incoming\_publish\_cb\_t}} pub\_cb;}
+\DoxyCodeLine{94   u32\_t \mbox{\hyperlink{structmqtt__client__s_a027107d33cebcbc9215dda1c5a091183}{msg\_idx}};}
+\DoxyCodeLine{95   u8\_t rx\_buffer[\mbox{\hyperlink{group__mqtt__opts_ga8275ef78a85fb14c3ac1423c70e45805}{MQTT\_VAR\_HEADER\_BUFFER\_LEN}}];}
+\DoxyCodeLine{97   \textcolor{keyword}{struct }\mbox{\hyperlink{structmqtt__ringbuf__t}{mqtt\_ringbuf\_t}} \mbox{\hyperlink{structmqtt__client__s_a3e567b3827366b1361b9e348cdc610ad}{output}};}
+\DoxyCodeLine{98 \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{101 \}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_MQTT\_PRIV\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,61 @@
+\hypertarget{init_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/core/init.c File Reference}
+\label{init_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/core/init.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/core/init.c}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/stats.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/mem.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/memp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/pbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/netif.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sockets.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/raw.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/udp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/priv/tcp\+\_\+priv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/igmp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/dns.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/timeouts.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/etharp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/nd6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/mld6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/api.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}netif/ppp/ppp\+\_\+opts.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}netif/ppp/ppp\+\_\+impl.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{init_8c_afa3b6d3e87614ea5ab1aa9e7ac00cda4}\label{init_8c_afa3b6d3e87614ea5ab1aa9e7ac00cda4}} 
+\#define {\bfseries PACKED\+\_\+\+STRUCT\+\_\+\+TEST\+\_\+\+EXPECTED\+\_\+\+SIZE}~5
+\item 
+\mbox{\Hypertarget{init_8c_a2fd90dfd6cee216d4a316078cc0ec2b9}\label{init_8c_a2fd90dfd6cee216d4a316078cc0ec2b9}} 
+\#define {\bfseries LWIP\+\_\+\+DISABLE\+\_\+\+TCP\+\_\+\+SANITY\+\_\+\+CHECKS}~0
+\item 
+\mbox{\Hypertarget{init_8c_ad76cb551defb63d2352d696afcb8ade6}\label{init_8c_ad76cb551defb63d2352d696afcb8ade6}} 
+\#define {\bfseries LWIP\+\_\+\+DISABLE\+\_\+\+MEMP\+\_\+\+SANITY\+\_\+\+CHECKS}~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{init_8c_a0c1a18439524d2f4a5e51d25c0ca2ce9}{lwip\+\_\+init}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{init_8c_a8219fca3b963990c2168421fe05bd54e}\label{init_8c_a8219fca3b963990c2168421fe05bd54e}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\+\_\+\+STRUCT\+\_\+\+BEGIN}} struct packed\+\_\+struct\+\_\+test {\bfseries PACK\+\_\+\+STRUCT\+\_\+\+STRUCT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Modules initialization 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{init_8c_a0c1a18439524d2f4a5e51d25c0ca2ce9}\label{init_8c_a0c1a18439524d2f4a5e51d25c0ca2ce9}} 
+\index{init.c@{init.c}!lwip\_init@{lwip\_init}}
+\index{lwip\_init@{lwip\_init}!init.c@{init.c}}
+\doxysubsubsection{\texorpdfstring{lwip\_init()}{lwip\_init()}}
+{\footnotesize\ttfamily void lwip\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize all modules. Use this in NO\+\_\+\+SYS mode. Use \mbox{\hyperlink{tcpip_8c_a1f3a88b8df6ba3b9ed1c00e0a305e3db}{tcpip\+\_\+init()}} otherwise. 

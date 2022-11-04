@@ -1,0 +1,108 @@
+\hypertarget{eui64_8h_source}{}\doxysection{eui64.\+h}
+\label{eui64_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/eui64.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/eui64.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * eui64.h -\/ EUI64 routines for IPv6CP.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 1999 Tommi Komulainen.  All rights reserved.}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{7 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{8 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    the documentation and/or other materials provided with the}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    distribution.}}
+\DoxyCodeLine{17 \textcolor{comment}{ *}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name(s) of the authors of this software must not be used to}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    prior written permission.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * 4. Redistributions of any form whatsoever must retain the following}}
+\DoxyCodeLine{23 \textcolor{comment}{ *    acknowledgment:}}
+\DoxyCodeLine{24 \textcolor{comment}{ *    "{}This product includes software developed by Tommi Komulainen}}
+\DoxyCodeLine{25 \textcolor{comment}{ *     <Tommi.Komulainen@iki.fi>"{}.}}
+\DoxyCodeLine{26 \textcolor{comment}{ *}}
+\DoxyCodeLine{27 \textcolor{comment}{ * THE AUTHORS OF THIS SOFTWARE DISCLAIM ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{28 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{29 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{31 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{32 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{33 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * \$Id: eui64.h,v 1.6 2002/12/04 23:03:32 paulus Exp \$}}
+\DoxyCodeLine{36 \textcolor{comment}{*/}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& PPP\_IPV6\_SUPPORT  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#ifndef EUI64\_H}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define EUI64\_H}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{45 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{comment}{/*}}
+\DoxyCodeLine{49 \textcolor{comment}{ * @todo:}}
+\DoxyCodeLine{50 \textcolor{comment}{ *}}
+\DoxyCodeLine{51 \textcolor{comment}{ * Maybe this should be done by processing struct in6\_addr directly...}}
+\DoxyCodeLine{52 \textcolor{comment}{ */}}
+\DoxyCodeLine{53 \textcolor{keyword}{typedef} \textcolor{keyword}{union}}
+\DoxyCodeLine{54 \{}
+\DoxyCodeLine{55     u8\_t e8[8];}
+\DoxyCodeLine{56     u16\_t e16[4];}
+\DoxyCodeLine{57     u32\_t e32[2];}
+\DoxyCodeLine{58 \} eui64\_t;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define eui64\_iszero(e)     (((e).e32[0] | (e).e32[1]) == 0)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define eui64\_equals(e, o)  (((e).e32[0] == (o).e32[0]) \&\& \(\backslash\)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{                ((e).e32[1] == (o).e32[1]))}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define eui64\_zero(e)       (e).e32[0] = (e).e32[1] = 0;}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define eui64\_copy(s, d)    memcpy(\&(d), \&(s), sizeof(eui64\_t))}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define eui64\_magic(e)      do \{            \(\backslash\)}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{                (e).e32[0] = magic();   \(\backslash\)}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{                (e).e32[1] = magic();   \(\backslash\)}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{                (e).e8[0] \&= \string~2;    \(\backslash\)}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{                \} while (0)}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define eui64\_magic\_nz(x)   do \{                \(\backslash\)}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{                eui64\_magic(x);         \(\backslash\)}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{                \} while (eui64\_iszero(x))}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define eui64\_magic\_ne(x, y)    do \{                \(\backslash\)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{                eui64\_magic(x);         \(\backslash\)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{                \} while (eui64\_equals(x, y))}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define eui64\_get(ll, cp)   do \{                \(\backslash\)}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{                eui64\_copy((*cp), (ll));    \(\backslash\)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{                (cp) += sizeof(eui64\_t);    \(\backslash\)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{                \} while (0)}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define eui64\_put(ll, cp)   do \{                \(\backslash\)}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{                eui64\_copy((ll), (*cp));    \(\backslash\)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{                (cp) += sizeof(eui64\_t);    \(\backslash\)}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{                \} while (0)}}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define eui64\_set32(e, l)   do \{            \(\backslash\)}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{                (e).e32[0] = 0;     \(\backslash\)}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{                (e).e32[1] = lwip\_htonl(l); \(\backslash\)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{                \} while (0)}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define eui64\_setlo32(e, l) eui64\_set32(e, l)}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{keywordtype}{char} *eui64\_ntoa(eui64\_t);  \textcolor{comment}{/* Returns ascii representation of id */}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{98 \}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* EUI64\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& PPP\_IPV6\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

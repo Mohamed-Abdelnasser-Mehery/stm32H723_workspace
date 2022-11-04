@@ -1,0 +1,175 @@
+\hypertarget{vj_8h_source}{}\doxysection{vj.\+h}
+\label{vj_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/vj.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/vj.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Definitions for tcp compression routines.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * \$Id: vj.h,v 1.7 2010/02/22 17:52:09 goldsimon Exp \$}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Copyright (c) 1989 Regents of the University of California.}}
+\DoxyCodeLine{7 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * Redistribution and use in source and binary forms are permitted}}
+\DoxyCodeLine{10 \textcolor{comment}{ * provided that the above copyright notice and this paragraph are}}
+\DoxyCodeLine{11 \textcolor{comment}{ * duplicated in all such forms and that any documentation,}}
+\DoxyCodeLine{12 \textcolor{comment}{ * advertising materials, and other materials related to such}}
+\DoxyCodeLine{13 \textcolor{comment}{ * distribution and use acknowledge that the software was developed}}
+\DoxyCodeLine{14 \textcolor{comment}{ * by the University of California, Berkeley.  The name of the}}
+\DoxyCodeLine{15 \textcolor{comment}{ * University may not be used to endorse or promote products derived}}
+\DoxyCodeLine{16 \textcolor{comment}{ * from this software without specific prior written permission.}}
+\DoxyCodeLine{17 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR}}
+\DoxyCodeLine{18 \textcolor{comment}{ * IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED}}
+\DoxyCodeLine{19 \textcolor{comment}{ * WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * Van Jacobson (van@helios.ee.lbl.gov), Dec 31, 1989:}}
+\DoxyCodeLine{22 \textcolor{comment}{ * -\/ Initial distribution.}}
+\DoxyCodeLine{23 \textcolor{comment}{ */}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& VJ\_SUPPORT }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#ifndef VJ\_H}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define VJ\_H}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip_8h}{lwip/ip.h}}"{}}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{tcp__priv_8h}{lwip/priv/tcp\_priv.h}}"{}}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{35 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define MAX\_SLOTS 16 }\textcolor{comment}{/* must be > 2 and < 256 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define MAX\_HDR   128}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{/*}}
+\DoxyCodeLine{42 \textcolor{comment}{ * Compressed packet format:}}
+\DoxyCodeLine{43 \textcolor{comment}{ *}}
+\DoxyCodeLine{44 \textcolor{comment}{ * The first octet contains the packet type (top 3 bits), TCP}}
+\DoxyCodeLine{45 \textcolor{comment}{ * 'push' bit, and flags that indicate which of the 4 TCP sequence}}
+\DoxyCodeLine{46 \textcolor{comment}{ * numbers have changed (bottom 5 bits).  The next octet is a}}
+\DoxyCodeLine{47 \textcolor{comment}{ * conversation number that associates a saved IP/TCP header with}}
+\DoxyCodeLine{48 \textcolor{comment}{ * the compressed packet.  The next two octets are the TCP checksum}}
+\DoxyCodeLine{49 \textcolor{comment}{ * from the original datagram.  The next 0 to 15 octets are}}
+\DoxyCodeLine{50 \textcolor{comment}{ * sequence number changes, one change per bit set in the header}}
+\DoxyCodeLine{51 \textcolor{comment}{ * (there may be no changes and there are two special cases where}}
+\DoxyCodeLine{52 \textcolor{comment}{ * the receiver implicitly knows what changed -\/-\/ see below).}}
+\DoxyCodeLine{53 \textcolor{comment}{ *}}
+\DoxyCodeLine{54 \textcolor{comment}{ * There are 5 numbers which can change (they are always inserted}}
+\DoxyCodeLine{55 \textcolor{comment}{ * in the following order): TCP urgent pointer, window,}}
+\DoxyCodeLine{56 \textcolor{comment}{ * acknowlegement, sequence number and IP ID.  (The urgent pointer}}
+\DoxyCodeLine{57 \textcolor{comment}{ * is different from the others in that its value is sent, not the}}
+\DoxyCodeLine{58 \textcolor{comment}{ * change in value.)  Since typical use of SLIP links is biased}}
+\DoxyCodeLine{59 \textcolor{comment}{ * toward small packets (see comments on MTU/MSS below), changes}}
+\DoxyCodeLine{60 \textcolor{comment}{ * use a variable length coding with one octet for numbers in the}}
+\DoxyCodeLine{61 \textcolor{comment}{ * range 1 -\/ 255 and 3 octets (0, MSB, LSB) for numbers in the}}
+\DoxyCodeLine{62 \textcolor{comment}{ * range 256 -\/ 65535 or 0.  (If the change in sequence number or}}
+\DoxyCodeLine{63 \textcolor{comment}{ * ack is more than 65535, an uncompressed packet is sent.)}}
+\DoxyCodeLine{64 \textcolor{comment}{ */}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{comment}{/*}}
+\DoxyCodeLine{67 \textcolor{comment}{ * Packet types (must not conflict with IP protocol version)}}
+\DoxyCodeLine{68 \textcolor{comment}{ *}}
+\DoxyCodeLine{69 \textcolor{comment}{ * The top nibble of the first octet is the packet type.  There are}}
+\DoxyCodeLine{70 \textcolor{comment}{ * three possible types: IP (not proto TCP or tcp with one of the}}
+\DoxyCodeLine{71 \textcolor{comment}{ * control flags set); uncompressed TCP (a normal IP/TCP packet but}}
+\DoxyCodeLine{72 \textcolor{comment}{ * with the 8-\/bit protocol field replaced by an 8-\/bit connection id -\/-\/}}
+\DoxyCodeLine{73 \textcolor{comment}{ * this type of packet syncs the sender \& receiver); and compressed}}
+\DoxyCodeLine{74 \textcolor{comment}{ * TCP (described above).}}
+\DoxyCodeLine{75 \textcolor{comment}{ *}}
+\DoxyCodeLine{76 \textcolor{comment}{ * LSB of 4-\/bit field is TCP "{}PUSH"{} bit (a worthless anachronism) and}}
+\DoxyCodeLine{77 \textcolor{comment}{ * is logically part of the 4-\/bit "{}changes"{} field that follows.  Top}}
+\DoxyCodeLine{78 \textcolor{comment}{ * three bits are actual packet type.  For backward compatibility}}
+\DoxyCodeLine{79 \textcolor{comment}{ * and in the interest of conserving bits, numbers are chosen so the}}
+\DoxyCodeLine{80 \textcolor{comment}{ * IP protocol version number (4) which normally appears in this nibble}}
+\DoxyCodeLine{81 \textcolor{comment}{ * means "{}IP packet"{}.}}
+\DoxyCodeLine{82 \textcolor{comment}{ */}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{comment}{/* packet types */}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define TYPE\_IP               0x40}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define TYPE\_UNCOMPRESSED\_TCP 0x70}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define TYPE\_COMPRESSED\_TCP   0x80}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define TYPE\_ERROR            0x00}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{comment}{/* Bits in first octet of compressed packet */}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define NEW\_C 0x40 }\textcolor{comment}{/* flag bits for what changed in a packet */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define NEW\_I 0x20}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define NEW\_S 0x08}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define NEW\_A 0x04}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define NEW\_W 0x02}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define NEW\_U 0x01}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{comment}{/* reserved, special-\/case values of above */}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define SPECIAL\_I (NEW\_S|NEW\_W|NEW\_U) }\textcolor{comment}{/* echoed interactive traffic */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define SPECIAL\_D (NEW\_S|NEW\_A|NEW\_W|NEW\_U) }\textcolor{comment}{/* unidirectional data */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define SPECIALS\_MASK (NEW\_S|NEW\_A|NEW\_W|NEW\_U)}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define TCP\_PUSH\_BIT 0x10}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{comment}{/*}}
+\DoxyCodeLine{107 \textcolor{comment}{ * "{}state"{} data for each active tcp conversation on the wire.  This is}}
+\DoxyCodeLine{108 \textcolor{comment}{ * basically a copy of the entire IP/TCP header from the last packet}}
+\DoxyCodeLine{109 \textcolor{comment}{ * we saw from the conversation together with a small identifier}}
+\DoxyCodeLine{110 \textcolor{comment}{ * the transmit \& receive ends of the line use to locate saved header.}}
+\DoxyCodeLine{111 \textcolor{comment}{ */}}
+\DoxyCodeLine{112 \textcolor{keyword}{struct }cstate \{}
+\DoxyCodeLine{113   \textcolor{keyword}{struct }cstate *cs\_next; \textcolor{comment}{/* next most recently used state (xmit only) */}}
+\DoxyCodeLine{114   u16\_t cs\_hlen;        \textcolor{comment}{/* size of hdr (receive only) */}}
+\DoxyCodeLine{115   u8\_t cs\_id;           \textcolor{comment}{/* connection \# associated with this state */}}
+\DoxyCodeLine{116   u8\_t cs\_filler;}
+\DoxyCodeLine{117   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{118     \textcolor{keywordtype}{char} csu\_hdr[MAX\_HDR];}
+\DoxyCodeLine{119     \textcolor{keyword}{struct }\mbox{\hyperlink{structip__hdr}{ip\_hdr}} csu\_ip;     \textcolor{comment}{/* ip/tcp hdr from most recent packet */}}
+\DoxyCodeLine{120   \} vjcs\_u;}
+\DoxyCodeLine{121 \};}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define cs\_ip vjcs\_u.csu\_ip}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define cs\_hdr vjcs\_u.csu\_hdr}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{keyword}{struct }vjstat \{}
+\DoxyCodeLine{127   u32\_t vjs\_packets;        \textcolor{comment}{/* outbound packets */}}
+\DoxyCodeLine{128   u32\_t vjs\_compressed;     \textcolor{comment}{/* outbound compressed packets */}}
+\DoxyCodeLine{129   u32\_t vjs\_searches;       \textcolor{comment}{/* searches for connection state */}}
+\DoxyCodeLine{130   u32\_t vjs\_misses;         \textcolor{comment}{/* times couldn't find conn. state */}}
+\DoxyCodeLine{131   u32\_t vjs\_uncompressedin; \textcolor{comment}{/* inbound uncompressed packets */}}
+\DoxyCodeLine{132   u32\_t vjs\_compressedin;   \textcolor{comment}{/* inbound compressed packets */}}
+\DoxyCodeLine{133   u32\_t vjs\_errorin;        \textcolor{comment}{/* inbound unknown type packets */}}
+\DoxyCodeLine{134   u32\_t vjs\_tossed;         \textcolor{comment}{/* inbound packets tossed because of error */}}
+\DoxyCodeLine{135 \};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{comment}{/*}}
+\DoxyCodeLine{138 \textcolor{comment}{ * all the state data for one serial line (we need one of these per line).}}
+\DoxyCodeLine{139 \textcolor{comment}{ */}}
+\DoxyCodeLine{140 \textcolor{keyword}{struct }vjcompress \{}
+\DoxyCodeLine{141   \textcolor{keyword}{struct }cstate *last\_cs;          \textcolor{comment}{/* most recently used tstate */}}
+\DoxyCodeLine{142   u8\_t last\_recv;                \textcolor{comment}{/* last rcvd conn. id */}}
+\DoxyCodeLine{143   u8\_t last\_xmit;                \textcolor{comment}{/* last sent conn. id */}}
+\DoxyCodeLine{144   u16\_t flags;}
+\DoxyCodeLine{145   u8\_t maxSlotIndex;}
+\DoxyCodeLine{146   u8\_t compressSlot;             \textcolor{comment}{/* Flag indicating OK to compress slot ID. */}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#if LINK\_STATS}}
+\DoxyCodeLine{148   \textcolor{keyword}{struct }vjstat stats;}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{150   \textcolor{keyword}{struct }cstate tstate[MAX\_SLOTS]; \textcolor{comment}{/* xmit connection states */}}
+\DoxyCodeLine{151   \textcolor{keyword}{struct }cstate rstate[MAX\_SLOTS]; \textcolor{comment}{/* receive connection states */}}
+\DoxyCodeLine{152 \};}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{comment}{/* flag values */}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define VJF\_TOSS 1U }\textcolor{comment}{/* tossing rcvd frames because of input err */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{keyword}{extern} \textcolor{keywordtype}{void}  vj\_compress\_init    (\textcolor{keyword}{struct} vjcompress *comp);}
+\DoxyCodeLine{158 \textcolor{keyword}{extern} u8\_t  vj\_compress\_tcp     (\textcolor{keyword}{struct} vjcompress *comp, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} **pb);}
+\DoxyCodeLine{159 \textcolor{keyword}{extern} \textcolor{keywordtype}{void}  vj\_uncompress\_err   (\textcolor{keyword}{struct} vjcompress *comp);}
+\DoxyCodeLine{160 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}   vj\_uncompress\_uncomp(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *nb, \textcolor{keyword}{struct} vjcompress *comp);}
+\DoxyCodeLine{161 \textcolor{keyword}{extern} \textcolor{keywordtype}{int}   vj\_uncompress\_tcp   (\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} **nb, \textcolor{keyword}{struct} vjcompress *comp);}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{164 \}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* VJ\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& VJ\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,52 @@
+\hypertarget{src_2include_2lwip_2init_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/init.h File Reference}
+\label{src_2include_2lwip_2init_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/init.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/init.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga4308c06ef36496e00c798d96d7d03246}{LWIP\+\_\+\+VERSION\+\_\+\+MAJOR}}~2
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga1e596388c15ba81e753c5633fad1c034}{LWIP\+\_\+\+VERSION\+\_\+\+MINOR}}~1
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga0a57983df1b199cf39a2e6a2d90e3d50}{LWIP\+\_\+\+VERSION\+\_\+\+REVISION}}~2
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_gac1dc92d8f453a98560de7e2e00a221a1}{LWIP\+\_\+\+VERSION\+\_\+\+RC}}~\mbox{\hyperlink{group__lwip__version_ga375ee868e76ed7c458cdf249387bd469}{LWIP\+\_\+\+RC\+\_\+\+RELEASE}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga375ee868e76ed7c458cdf249387bd469}{LWIP\+\_\+\+RC\+\_\+\+RELEASE}}~255
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga9ca69b1a453eb72efd0bbda333f2a33b}{LWIP\+\_\+\+RC\+\_\+\+DEVELOPMENT}}~0
+\item 
+\#define {\bfseries LWIP\+\_\+\+VERSION\+\_\+\+IS\+\_\+\+RELEASE}~(\mbox{\hyperlink{group__lwip__version_gac1dc92d8f453a98560de7e2e00a221a1}{LWIP\+\_\+\+VERSION\+\_\+\+RC}} == \mbox{\hyperlink{group__lwip__version_ga375ee868e76ed7c458cdf249387bd469}{LWIP\+\_\+\+RC\+\_\+\+RELEASE}})
+\item 
+\#define {\bfseries LWIP\+\_\+\+VERSION\+\_\+\+IS\+\_\+\+DEVELOPMENT}~(\mbox{\hyperlink{group__lwip__version_gac1dc92d8f453a98560de7e2e00a221a1}{LWIP\+\_\+\+VERSION\+\_\+\+RC}} == \mbox{\hyperlink{group__lwip__version_ga9ca69b1a453eb72efd0bbda333f2a33b}{LWIP\+\_\+\+RC\+\_\+\+DEVELOPMENT}})
+\item 
+\#define {\bfseries LWIP\+\_\+\+VERSION\+\_\+\+IS\+\_\+\+RC}~((\mbox{\hyperlink{group__lwip__version_gac1dc92d8f453a98560de7e2e00a221a1}{LWIP\+\_\+\+VERSION\+\_\+\+RC}} != \mbox{\hyperlink{group__lwip__version_ga375ee868e76ed7c458cdf249387bd469}{LWIP\+\_\+\+RC\+\_\+\+RELEASE}}) \&\& (\mbox{\hyperlink{group__lwip__version_gac1dc92d8f453a98560de7e2e00a221a1}{LWIP\+\_\+\+VERSION\+\_\+\+RC}} != \mbox{\hyperlink{group__lwip__version_ga9ca69b1a453eb72efd0bbda333f2a33b}{LWIP\+\_\+\+RC\+\_\+\+DEVELOPMENT}}))
+\item 
+\#define {\bfseries LWIP\+\_\+\+VERSTR2}(x)~\#x
+\item 
+\#define {\bfseries LWIP\+\_\+\+VERSTR}(x)~LWIP\+\_\+\+VERSTR2(x)
+\item 
+\#define {\bfseries LWIP\+\_\+\+VERSION\+\_\+\+STRING\+\_\+\+SUFFIX}~\char`\"{}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_ga0a0d322fad0a67aa5b8f1b8c9dfcfe59}{LWIP\+\_\+\+VERSION}}
+\item 
+\#define \mbox{\hyperlink{group__lwip__version_gab47e87bc38eef94486db402813183ba7}{LWIP\+\_\+\+VERSION\+\_\+\+STRING}}~LWIP\+\_\+\+VERSTR(\mbox{\hyperlink{group__lwip__version_ga4308c06ef36496e00c798d96d7d03246}{LWIP\+\_\+\+VERSION\+\_\+\+MAJOR}}) \char`\"{}.\char`\"{} LWIP\+\_\+\+VERSTR(\mbox{\hyperlink{group__lwip__version_ga1e596388c15ba81e753c5633fad1c034}{LWIP\+\_\+\+VERSION\+\_\+\+MINOR}}) \char`\"{}.\char`\"{} LWIP\+\_\+\+VERSTR(\mbox{\hyperlink{group__lwip__version_ga0a57983df1b199cf39a2e6a2d90e3d50}{LWIP\+\_\+\+VERSION\+\_\+\+REVISION}}) LWIP\+\_\+\+VERSION\+\_\+\+STRING\+\_\+\+SUFFIX
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{src_2include_2lwip_2init_8h_a0c1a18439524d2f4a5e51d25c0ca2ce9}{lwip\+\_\+init}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+lw\+IP initialization API 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{src_2include_2lwip_2init_8h_a0c1a18439524d2f4a5e51d25c0ca2ce9}\label{src_2include_2lwip_2init_8h_a0c1a18439524d2f4a5e51d25c0ca2ce9}} 
+\index{init.h@{init.h}!lwip\_init@{lwip\_init}}
+\index{lwip\_init@{lwip\_init}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{lwip\_init()}{lwip\_init()}}
+{\footnotesize\ttfamily void lwip\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize all modules. Use this in NO\+\_\+\+SYS mode. Use \mbox{\hyperlink{tcpip_8c_a1f3a88b8df6ba3b9ed1c00e0a305e3db}{tcpip\+\_\+init()}} otherwise. 

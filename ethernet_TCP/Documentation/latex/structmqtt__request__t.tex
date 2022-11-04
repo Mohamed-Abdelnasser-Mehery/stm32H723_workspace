@@ -1,0 +1,56 @@
+\hypertarget{structmqtt__request__t}{}\doxysection{mqtt\+\_\+request\+\_\+t Struct Reference}
+\label{structmqtt__request__t}\index{mqtt\_request\_t@{mqtt\_request\_t}}
+
+
+{\ttfamily \#include $<$mqtt\+\_\+priv.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmqtt__request__t}{mqtt\+\_\+request\+\_\+t}} $\ast$ \mbox{\hyperlink{structmqtt__request__t_adb6d1bb24d209947eb28f28cdbcc314b}{next}}
+\item 
+\mbox{\hyperlink{group__mqtt_gacad2bbe2cee76eaa120cc63e2f6094fd}{mqtt\+\_\+request\+\_\+cb\+\_\+t}} \mbox{\hyperlink{structmqtt__request__t_ad9b30e05e1499bb3550ec67d2a42d105}{cb}}
+\item 
+\mbox{\Hypertarget{structmqtt__request__t_a9ce2ec4812a92cb6ab39f6e81e9173a9}\label{structmqtt__request__t_a9ce2ec4812a92cb6ab39f6e81e9173a9}} 
+void $\ast$ {\bfseries arg}
+\item 
+u16\+\_\+t \mbox{\hyperlink{structmqtt__request__t_a0553c7577ed50fca43b91e7638003a39}{pkt\+\_\+id}}
+\item 
+u16\+\_\+t \mbox{\hyperlink{structmqtt__request__t_a92613c0fb7f4e6afb3a10e271b3296e9}{timeout\+\_\+diff}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Pending request item, binds application callback to pending server requests 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structmqtt__request__t_ad9b30e05e1499bb3550ec67d2a42d105}\label{structmqtt__request__t_ad9b30e05e1499bb3550ec67d2a42d105}} 
+\index{mqtt\_request\_t@{mqtt\_request\_t}!cb@{cb}}
+\index{cb@{cb}!mqtt\_request\_t@{mqtt\_request\_t}}
+\doxysubsubsection{\texorpdfstring{cb}{cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__mqtt_gacad2bbe2cee76eaa120cc63e2f6094fd}{mqtt\+\_\+request\+\_\+cb\+\_\+t}} cb}
+
+Callback to upper layer \mbox{\Hypertarget{structmqtt__request__t_adb6d1bb24d209947eb28f28cdbcc314b}\label{structmqtt__request__t_adb6d1bb24d209947eb28f28cdbcc314b}} 
+\index{mqtt\_request\_t@{mqtt\_request\_t}!next@{next}}
+\index{next@{next}!mqtt\_request\_t@{mqtt\_request\_t}}
+\doxysubsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structmqtt__request__t}{mqtt\+\_\+request\+\_\+t}}$\ast$ next}
+
+Next item in list, NULL means this is the last in chain, next pointing at itself means request is unallocated \mbox{\Hypertarget{structmqtt__request__t_a0553c7577ed50fca43b91e7638003a39}\label{structmqtt__request__t_a0553c7577ed50fca43b91e7638003a39}} 
+\index{mqtt\_request\_t@{mqtt\_request\_t}!pkt\_id@{pkt\_id}}
+\index{pkt\_id@{pkt\_id}!mqtt\_request\_t@{mqtt\_request\_t}}
+\doxysubsubsection{\texorpdfstring{pkt\_id}{pkt\_id}}
+{\footnotesize\ttfamily u16\+\_\+t pkt\+\_\+id}
+
+MQTT packet identifier \mbox{\Hypertarget{structmqtt__request__t_a92613c0fb7f4e6afb3a10e271b3296e9}\label{structmqtt__request__t_a92613c0fb7f4e6afb3a10e271b3296e9}} 
+\index{mqtt\_request\_t@{mqtt\_request\_t}!timeout\_diff@{timeout\_diff}}
+\index{timeout\_diff@{timeout\_diff}!mqtt\_request\_t@{mqtt\_request\_t}}
+\doxysubsubsection{\texorpdfstring{timeout\_diff}{timeout\_diff}}
+{\footnotesize\ttfamily u16\+\_\+t timeout\+\_\+diff}
+
+Expire time relative to element before this ~\newline
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/apps/\mbox{\hyperlink{mqtt__priv_8h}{mqtt\+\_\+priv.\+h}}\end{DoxyCompactItemize}

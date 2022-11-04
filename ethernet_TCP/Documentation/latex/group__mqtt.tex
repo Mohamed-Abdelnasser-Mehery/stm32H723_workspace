@@ -1,0 +1,212 @@
+\hypertarget{group__mqtt}{}\doxysection{MQTT client}
+\label{group__mqtt}\index{MQTT client@{MQTT client}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__mqtt__opts}{Options}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmqtt__connect__client__info__t}{mqtt\+\_\+connect\+\_\+client\+\_\+info\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__mqtt_gaa8632baff6bbb5004385998918f1e6bd}{MQTT\+\_\+\+PORT}}~\mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0a172d486d82c552ef3540cf8d61b14b22}{LWIP\+\_\+\+IANA\+\_\+\+PORT\+\_\+\+MQTT}}
+\item 
+\#define \mbox{\hyperlink{group__mqtt_ga6610174f17b9ecbcf2bc66a4fd5a6b0f}{MQTT\+\_\+\+TLS\+\_\+\+PORT}}~\mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0ab833e9dc7646bd7affde45691bc66601}{LWIP\+\_\+\+IANA\+\_\+\+PORT\+\_\+\+SECURE\+\_\+\+MQTT}}
+\item 
+\#define \mbox{\hyperlink{group__mqtt_ga83d6a6d811b201a74d793bc1b5d4e029}{mqtt\+\_\+subscribe}}(client,  topic,  qos,  cb,  arg)~mqtt\+\_\+sub\+\_\+unsub(client, topic, qos, cb, arg, 1)
+\item 
+\#define \mbox{\hyperlink{group__mqtt_ga0f133ef09cbe56c46ebe2cc21afccf3f}{mqtt\+\_\+unsubscribe}}(client,  topic,  cb,  arg)~mqtt\+\_\+sub\+\_\+unsub(client, topic, 0, cb, arg, 0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{group__mqtt_ga8558743bdb7d599a93844fbc56c9029f}{mqtt\+\_\+connection\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{structmqtt__client__s}{mqtt\+\_\+client\+\_\+t}} $\ast$client, void $\ast$arg, \mbox{\hyperlink{group__mqtt_ga8cf0f360ab20343af37e1d124395a77d}{mqtt\+\_\+connection\+\_\+status\+\_\+t}} status)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{group__mqtt_gafec7e75fe6a746eef9ca411463446c81}{mqtt\+\_\+incoming\+\_\+data\+\_\+cb\+\_\+t}}) (void $\ast$arg, const u8\+\_\+t $\ast$data, u16\+\_\+t len, u8\+\_\+t flags)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{group__mqtt_ga7116bb85255394cec4b1d9fa38842c29}{mqtt\+\_\+incoming\+\_\+publish\+\_\+cb\+\_\+t}}) (void $\ast$arg, const char $\ast$topic, u32\+\_\+t tot\+\_\+len)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{group__mqtt_gacad2bbe2cee76eaa120cc63e2f6094fd}{mqtt\+\_\+request\+\_\+cb\+\_\+t}}) (void $\ast$arg, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} err)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group__mqtt_ga8cf0f360ab20343af37e1d124395a77d}{mqtt\+\_\+connection\+\_\+status\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da074dc1d289b8e8d4aad91f6a2cb93dc1}{MQTT\+\_\+\+CONNECT\+\_\+\+ACCEPTED}} = 0
+, \mbox{\hyperlink{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da41f8aa97142be337cb639f94d9145190}{MQTT\+\_\+\+CONNECT\+\_\+\+REFUSED\+\_\+\+PROTOCOL\+\_\+\+VERSION}} = 1
+, \mbox{\hyperlink{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da28ffe49b0175adaa2b9a27cb4873224a}{MQTT\+\_\+\+CONNECT\+\_\+\+REFUSED\+\_\+\+IDENTIFIER}} = 2
+, \mbox{\hyperlink{group__mqtt_gga8cf0f360ab20343af37e1d124395a77dade28ec1c2ce3d874e91251d683c92b2a}{MQTT\+\_\+\+CONNECT\+\_\+\+REFUSED\+\_\+\+SERVER}} = 3
+, \newline
+\mbox{\hyperlink{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da290cf9037054c42022cc864cfade896a}{MQTT\+\_\+\+CONNECT\+\_\+\+REFUSED\+\_\+\+USERNAME\+\_\+\+PASS}} = 4
+, \mbox{\hyperlink{group__mqtt_gga8cf0f360ab20343af37e1d124395a77dafc4888158dd6ee84269a5f0bfdc12b17}{MQTT\+\_\+\+CONNECT\+\_\+\+REFUSED\+\_\+\+NOT\+\_\+\+AUTHORIZED\+\_\+}} = 5
+, \mbox{\hyperlink{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da321f5ce31b173f235de1a517fcfd00dd}{MQTT\+\_\+\+CONNECT\+\_\+\+DISCONNECTED}} = 256
+, \mbox{\hyperlink{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da57153f2ab4331c6f76a9ee74e1bcfc62}{MQTT\+\_\+\+CONNECT\+\_\+\+TIMEOUT}} = 257
+ \}
+\item 
+enum \{ \mbox{\hyperlink{group__mqtt_gga9334a5b9057f32da96db9b5c6a045d67a79cd00d0a5a8df13207e0c49447df87f}{MQTT\+\_\+\+DATA\+\_\+\+FLAG\+\_\+\+LAST}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyVerbInclude}
+\end{DoxyVerbInclude}
+ 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__mqtt_gaa8632baff6bbb5004385998918f1e6bd}\label{group__mqtt_gaa8632baff6bbb5004385998918f1e6bd}} 
+\index{MQTT client@{MQTT client}!MQTT\_PORT@{MQTT\_PORT}}
+\index{MQTT\_PORT@{MQTT\_PORT}!MQTT client@{MQTT client}}
+\doxysubsubsection{\texorpdfstring{MQTT\_PORT}{MQTT\_PORT}}
+{\footnotesize\ttfamily \#define MQTT\+\_\+\+PORT~\mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0a172d486d82c552ef3540cf8d61b14b22}{LWIP\+\_\+\+IANA\+\_\+\+PORT\+\_\+\+MQTT}}}
+
+Default MQTT port (non-\/\+TLS) \mbox{\Hypertarget{group__mqtt_ga83d6a6d811b201a74d793bc1b5d4e029}\label{group__mqtt_ga83d6a6d811b201a74d793bc1b5d4e029}} 
+\index{MQTT client@{MQTT client}!mqtt\_subscribe@{mqtt\_subscribe}}
+\index{mqtt\_subscribe@{mqtt\_subscribe}!MQTT client@{MQTT client}}
+\doxysubsubsection{\texorpdfstring{mqtt\_subscribe}{mqtt\_subscribe}}
+{\footnotesize\ttfamily \#define mqtt\+\_\+subscribe(\begin{DoxyParamCaption}\item[{}]{client,  }\item[{}]{topic,  }\item[{}]{qos,  }\item[{}]{cb,  }\item[{}]{arg }\end{DoxyParamCaption})~mqtt\+\_\+sub\+\_\+unsub(client, topic, qos, cb, arg, 1)}
+
+Subscribe to topic \mbox{\Hypertarget{group__mqtt_ga6610174f17b9ecbcf2bc66a4fd5a6b0f}\label{group__mqtt_ga6610174f17b9ecbcf2bc66a4fd5a6b0f}} 
+\index{MQTT client@{MQTT client}!MQTT\_TLS\_PORT@{MQTT\_TLS\_PORT}}
+\index{MQTT\_TLS\_PORT@{MQTT\_TLS\_PORT}!MQTT client@{MQTT client}}
+\doxysubsubsection{\texorpdfstring{MQTT\_TLS\_PORT}{MQTT\_TLS\_PORT}}
+{\footnotesize\ttfamily \#define MQTT\+\_\+\+TLS\+\_\+\+PORT~\mbox{\hyperlink{group__iana_ggac9396d90585e49e9a287179bf5aa9ba0ab833e9dc7646bd7affde45691bc66601}{LWIP\+\_\+\+IANA\+\_\+\+PORT\+\_\+\+SECURE\+\_\+\+MQTT}}}
+
+Default MQTT TLS port \mbox{\Hypertarget{group__mqtt_ga0f133ef09cbe56c46ebe2cc21afccf3f}\label{group__mqtt_ga0f133ef09cbe56c46ebe2cc21afccf3f}} 
+\index{MQTT client@{MQTT client}!mqtt\_unsubscribe@{mqtt\_unsubscribe}}
+\index{mqtt\_unsubscribe@{mqtt\_unsubscribe}!MQTT client@{MQTT client}}
+\doxysubsubsection{\texorpdfstring{mqtt\_unsubscribe}{mqtt\_unsubscribe}}
+{\footnotesize\ttfamily \#define mqtt\+\_\+unsubscribe(\begin{DoxyParamCaption}\item[{}]{client,  }\item[{}]{topic,  }\item[{}]{cb,  }\item[{}]{arg }\end{DoxyParamCaption})~mqtt\+\_\+sub\+\_\+unsub(client, topic, 0, cb, arg, 0)}
+
+Unsubscribe to topic 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{group__mqtt_ga8558743bdb7d599a93844fbc56c9029f}\label{group__mqtt_ga8558743bdb7d599a93844fbc56c9029f}} 
+\index{MQTT client@{MQTT client}!mqtt\_connection\_cb\_t@{mqtt\_connection\_cb\_t}}
+\index{mqtt\_connection\_cb\_t@{mqtt\_connection\_cb\_t}!MQTT client@{MQTT client}}
+\doxysubsubsection{\texorpdfstring{mqtt\_connection\_cb\_t}{mqtt\_connection\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ mqtt\+\_\+connection\+\_\+cb\+\_\+t) (\mbox{\hyperlink{structmqtt__client__s}{mqtt\+\_\+client\+\_\+t}} $\ast$client, void $\ast$arg, \mbox{\hyperlink{group__mqtt_ga8cf0f360ab20343af37e1d124395a77d}{mqtt\+\_\+connection\+\_\+status\+\_\+t}} status)}
+
+Function prototype for mqtt connection status callback. Called when client has connected to the server after initiating a mqtt connection attempt by calling mqtt\+\_\+client\+\_\+connect() or when connection is closed by server or an error
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & MQTT client itself \\
+\hline
+{\em arg} & Additional argument to pass to the callback function \\
+\hline
+{\em status} & Connect result code or disconnection notification \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mqtt_ga8cf0f360ab20343af37e1d124395a77d}{mqtt\+\_\+connection\+\_\+status\+\_\+t}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__mqtt_gafec7e75fe6a746eef9ca411463446c81}\label{group__mqtt_gafec7e75fe6a746eef9ca411463446c81}} 
+\index{MQTT client@{MQTT client}!mqtt\_incoming\_data\_cb\_t@{mqtt\_incoming\_data\_cb\_t}}
+\index{mqtt\_incoming\_data\_cb\_t@{mqtt\_incoming\_data\_cb\_t}!MQTT client@{MQTT client}}
+\doxysubsubsection{\texorpdfstring{mqtt\_incoming\_data\_cb\_t}{mqtt\_incoming\_data\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ mqtt\+\_\+incoming\+\_\+data\+\_\+cb\+\_\+t) (void $\ast$arg, const u8\+\_\+t $\ast$data, u16\+\_\+t len, u8\+\_\+t flags)}
+
+Function prototype for MQTT incoming publish data callback function. Called when data arrives to a subscribed topic \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mqtt_ga83d6a6d811b201a74d793bc1b5d4e029}{mqtt\+\_\+subscribe}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Additional argument to pass to the callback function \\
+\hline
+{\em data} & User data, pointed object, data may not be referenced after callback return, NULL is passed when all publish data are delivered \\
+\hline
+{\em len} & Length of publish data fragment \\
+\hline
+{\em flags} & MQTT\+\_\+\+DATA\+\_\+\+FLAG\+\_\+\+LAST set when this call contains the last part of data from publish message \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__mqtt_ga7116bb85255394cec4b1d9fa38842c29}\label{group__mqtt_ga7116bb85255394cec4b1d9fa38842c29}} 
+\index{MQTT client@{MQTT client}!mqtt\_incoming\_publish\_cb\_t@{mqtt\_incoming\_publish\_cb\_t}}
+\index{mqtt\_incoming\_publish\_cb\_t@{mqtt\_incoming\_publish\_cb\_t}!MQTT client@{MQTT client}}
+\doxysubsubsection{\texorpdfstring{mqtt\_incoming\_publish\_cb\_t}{mqtt\_incoming\_publish\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ mqtt\+\_\+incoming\+\_\+publish\+\_\+cb\+\_\+t) (void $\ast$arg, const char $\ast$topic, u32\+\_\+t tot\+\_\+len)}
+
+Function prototype for MQTT incoming publish function. Called when an incoming publish arrives to a subscribed topic \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group__mqtt_ga83d6a6d811b201a74d793bc1b5d4e029}{mqtt\+\_\+subscribe}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Additional argument to pass to the callback function \\
+\hline
+{\em topic} & Zero terminated Topic text string, topic may not be referenced after callback return \\
+\hline
+{\em tot\+\_\+len} & Total length of publish data, if set to 0 (no publish payload) data callback will not be invoked \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__mqtt_gacad2bbe2cee76eaa120cc63e2f6094fd}\label{group__mqtt_gacad2bbe2cee76eaa120cc63e2f6094fd}} 
+\index{MQTT client@{MQTT client}!mqtt\_request\_cb\_t@{mqtt\_request\_cb\_t}}
+\index{mqtt\_request\_cb\_t@{mqtt\_request\_cb\_t}!MQTT client@{MQTT client}}
+\doxysubsubsection{\texorpdfstring{mqtt\_request\_cb\_t}{mqtt\_request\_cb\_t}}
+{\footnotesize\ttfamily typedef void($\ast$ mqtt\+\_\+request\+\_\+cb\+\_\+t) (void $\ast$arg, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} err)}
+
+Function prototype for mqtt request callback. Called when a subscribe, unsubscribe or publish request has completed 
+\begin{DoxyParams}{Parameters}
+{\em arg} & Pointer to user data supplied when invoking request \\
+\hline
+{\em err} & ERR\+\_\+\+OK on success ERR\+\_\+\+TIMEOUT if no response was received within timeout, ERR\+\_\+\+ABRT if (un)subscribe was denied \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__mqtt_ga9334a5b9057f32da96db9b5c6a045d67}\label{group__mqtt_ga9334a5b9057f32da96db9b5c6a045d67}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+Data callback flags \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MQTT\_DATA\_FLAG\_LAST@{MQTT\_DATA\_FLAG\_LAST}!MQTT client@{MQTT client}}\index{MQTT client@{MQTT client}!MQTT\_DATA\_FLAG\_LAST@{MQTT\_DATA\_FLAG\_LAST}}}\mbox{\Hypertarget{group__mqtt_gga9334a5b9057f32da96db9b5c6a045d67a79cd00d0a5a8df13207e0c49447df87f}\label{group__mqtt_gga9334a5b9057f32da96db9b5c6a045d67a79cd00d0a5a8df13207e0c49447df87f}} 
+MQTT\+\_\+\+DATA\+\_\+\+FLAG\+\_\+\+LAST&Flag set when last fragment of data arrives in data callback \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__mqtt_ga8cf0f360ab20343af37e1d124395a77d}\label{group__mqtt_ga8cf0f360ab20343af37e1d124395a77d}} 
+\index{MQTT client@{MQTT client}!mqtt\_connection\_status\_t@{mqtt\_connection\_status\_t}}
+\index{mqtt\_connection\_status\_t@{mqtt\_connection\_status\_t}!MQTT client@{MQTT client}}
+\doxysubsubsection{\texorpdfstring{mqtt\_connection\_status\_t}{mqtt\_connection\_status\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group__mqtt_ga8cf0f360ab20343af37e1d124395a77d}{mqtt\+\_\+connection\+\_\+status\+\_\+t}}}
+
+Connection status codes \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MQTT\_CONNECT\_ACCEPTED@{MQTT\_CONNECT\_ACCEPTED}!MQTT client@{MQTT client}}\index{MQTT client@{MQTT client}!MQTT\_CONNECT\_ACCEPTED@{MQTT\_CONNECT\_ACCEPTED}}}\mbox{\Hypertarget{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da074dc1d289b8e8d4aad91f6a2cb93dc1}\label{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da074dc1d289b8e8d4aad91f6a2cb93dc1}} 
+MQTT\+\_\+\+CONNECT\+\_\+\+ACCEPTED&Accepted \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MQTT\_CONNECT\_REFUSED\_PROTOCOL\_VERSION@{MQTT\_CONNECT\_REFUSED\_PROTOCOL\_VERSION}!MQTT client@{MQTT client}}\index{MQTT client@{MQTT client}!MQTT\_CONNECT\_REFUSED\_PROTOCOL\_VERSION@{MQTT\_CONNECT\_REFUSED\_PROTOCOL\_VERSION}}}\mbox{\Hypertarget{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da41f8aa97142be337cb639f94d9145190}\label{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da41f8aa97142be337cb639f94d9145190}} 
+MQTT\+\_\+\+CONNECT\+\_\+\+REFUSED\+\_\+\+PROTOCOL\+\_\+\+VERSION&Refused protocol version \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MQTT\_CONNECT\_REFUSED\_IDENTIFIER@{MQTT\_CONNECT\_REFUSED\_IDENTIFIER}!MQTT client@{MQTT client}}\index{MQTT client@{MQTT client}!MQTT\_CONNECT\_REFUSED\_IDENTIFIER@{MQTT\_CONNECT\_REFUSED\_IDENTIFIER}}}\mbox{\Hypertarget{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da28ffe49b0175adaa2b9a27cb4873224a}\label{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da28ffe49b0175adaa2b9a27cb4873224a}} 
+MQTT\+\_\+\+CONNECT\+\_\+\+REFUSED\+\_\+\+IDENTIFIER&Refused identifier \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MQTT\_CONNECT\_REFUSED\_SERVER@{MQTT\_CONNECT\_REFUSED\_SERVER}!MQTT client@{MQTT client}}\index{MQTT client@{MQTT client}!MQTT\_CONNECT\_REFUSED\_SERVER@{MQTT\_CONNECT\_REFUSED\_SERVER}}}\mbox{\Hypertarget{group__mqtt_gga8cf0f360ab20343af37e1d124395a77dade28ec1c2ce3d874e91251d683c92b2a}\label{group__mqtt_gga8cf0f360ab20343af37e1d124395a77dade28ec1c2ce3d874e91251d683c92b2a}} 
+MQTT\+\_\+\+CONNECT\+\_\+\+REFUSED\+\_\+\+SERVER&Refused server \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MQTT\_CONNECT\_REFUSED\_USERNAME\_PASS@{MQTT\_CONNECT\_REFUSED\_USERNAME\_PASS}!MQTT client@{MQTT client}}\index{MQTT client@{MQTT client}!MQTT\_CONNECT\_REFUSED\_USERNAME\_PASS@{MQTT\_CONNECT\_REFUSED\_USERNAME\_PASS}}}\mbox{\Hypertarget{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da290cf9037054c42022cc864cfade896a}\label{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da290cf9037054c42022cc864cfade896a}} 
+MQTT\+\_\+\+CONNECT\+\_\+\+REFUSED\+\_\+\+USERNAME\+\_\+\+PASS&Refused user credentials \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MQTT\_CONNECT\_REFUSED\_NOT\_AUTHORIZED\_@{MQTT\_CONNECT\_REFUSED\_NOT\_AUTHORIZED\_}!MQTT client@{MQTT client}}\index{MQTT client@{MQTT client}!MQTT\_CONNECT\_REFUSED\_NOT\_AUTHORIZED\_@{MQTT\_CONNECT\_REFUSED\_NOT\_AUTHORIZED\_}}}\mbox{\Hypertarget{group__mqtt_gga8cf0f360ab20343af37e1d124395a77dafc4888158dd6ee84269a5f0bfdc12b17}\label{group__mqtt_gga8cf0f360ab20343af37e1d124395a77dafc4888158dd6ee84269a5f0bfdc12b17}} 
+MQTT\+\_\+\+CONNECT\+\_\+\+REFUSED\+\_\+\+NOT\+\_\+\+AUTHORIZED\+\_\+&Refused not authorized \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MQTT\_CONNECT\_DISCONNECTED@{MQTT\_CONNECT\_DISCONNECTED}!MQTT client@{MQTT client}}\index{MQTT client@{MQTT client}!MQTT\_CONNECT\_DISCONNECTED@{MQTT\_CONNECT\_DISCONNECTED}}}\mbox{\Hypertarget{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da321f5ce31b173f235de1a517fcfd00dd}\label{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da321f5ce31b173f235de1a517fcfd00dd}} 
+MQTT\+\_\+\+CONNECT\+\_\+\+DISCONNECTED&Disconnected \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MQTT\_CONNECT\_TIMEOUT@{MQTT\_CONNECT\_TIMEOUT}!MQTT client@{MQTT client}}\index{MQTT client@{MQTT client}!MQTT\_CONNECT\_TIMEOUT@{MQTT\_CONNECT\_TIMEOUT}}}\mbox{\Hypertarget{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da57153f2ab4331c6f76a9ee74e1bcfc62}\label{group__mqtt_gga8cf0f360ab20343af37e1d124395a77da57153f2ab4331c6f76a9ee74e1bcfc62}} 
+MQTT\+\_\+\+CONNECT\+\_\+\+TIMEOUT&Timeout \\
+\hline
+
+\end{DoxyEnumFields}

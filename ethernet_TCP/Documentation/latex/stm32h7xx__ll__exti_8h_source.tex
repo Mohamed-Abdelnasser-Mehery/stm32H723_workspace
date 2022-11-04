@@ -1,0 +1,711 @@
+\hypertarget{stm32h7xx__ll__exti_8h_source}{}\doxysection{stm32h7xx\+\_\+ll\+\_\+exti.\+h}
+\label{stm32h7xx__ll__exti_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_ll\_exti.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_ll\_exti.h}}
+\mbox{\hyperlink{stm32h7xx__ll__exti_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{19 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef \_\_STM32H7xx\_LL\_EXTI\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define \_\_STM32H7xx\_LL\_EXTI\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{24 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32h7xx_8h}{stm32h7xx.h}}"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#if defined (EXTI)}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{40 \textcolor{comment}{/* Private types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{41 \textcolor{comment}{/* Private variables -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{42 \textcolor{comment}{/* Private constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{43 \textcolor{comment}{/* Private Macros -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#if defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*USE\_FULL\_LL\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{52 \textcolor{comment}{/* Exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#if defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{57 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60   uint32\_t Line\_0\_31;           }
+\DoxyCodeLine{63   uint32\_t Line\_32\_63;          }
+\DoxyCodeLine{66   uint32\_t Line\_64\_95;          }
+\DoxyCodeLine{69   FunctionalState LineCommand;  }
+\DoxyCodeLine{72   uint8\_t Mode;                 }
+\DoxyCodeLine{75   uint8\_t Trigger;              }
+\DoxyCodeLine{77 \} LL\_EXTI\_InitTypeDef;}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*USE\_FULL\_LL\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{comment}{/* Exported constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_0                 EXTI\_IMR1\_IM0           }}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_1                 EXTI\_IMR1\_IM1           }}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_2                 EXTI\_IMR1\_IM2           }}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_3                 EXTI\_IMR1\_IM3           }}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_4                 EXTI\_IMR1\_IM4           }}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_5                 EXTI\_IMR1\_IM5           }}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_6                 EXTI\_IMR1\_IM6           }}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_7                 EXTI\_IMR1\_IM7           }}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_8                 EXTI\_IMR1\_IM8           }}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_9                 EXTI\_IMR1\_IM9           }}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_10                EXTI\_IMR1\_IM10          }}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_11                EXTI\_IMR1\_IM11          }}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_12                EXTI\_IMR1\_IM12          }}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_13                EXTI\_IMR1\_IM13          }}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_14                EXTI\_IMR1\_IM14          }}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_15                EXTI\_IMR1\_IM15          }}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_16                EXTI\_IMR1\_IM16          }}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_17                EXTI\_IMR1\_IM17          }}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_18                EXTI\_IMR1\_IM18          }}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_19                EXTI\_IMR1\_IM19          }}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_20                EXTI\_IMR1\_IM20          }}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_21                EXTI\_IMR1\_IM21          }}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_22                EXTI\_IMR1\_IM22          }}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_23                EXTI\_IMR1\_IM23          }}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_24                EXTI\_IMR1\_IM24          }}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_25                EXTI\_IMR1\_IM25          }}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_26                EXTI\_IMR1\_IM26          }}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_27                EXTI\_IMR1\_IM27          }}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_28                EXTI\_IMR1\_IM28          }}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_29                EXTI\_IMR1\_IM29          }}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_30                EXTI\_IMR1\_IM30          }}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_31                EXTI\_IMR1\_IM31          }}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_ALL\_0\_31          EXTI\_IMR1\_IM            }}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_32                EXTI\_IMR2\_IM32          }}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_33                EXTI\_IMR2\_IM33          }}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_34                EXTI\_IMR2\_IM34          }}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_35                EXTI\_IMR2\_IM35          }}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_36                EXTI\_IMR2\_IM36          }}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_37                EXTI\_IMR2\_IM37          }}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_38                EXTI\_IMR2\_IM38          }}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_39                EXTI\_IMR2\_IM39          }}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_40                EXTI\_IMR2\_IM40          }}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_41                EXTI\_IMR2\_IM41          }}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_42                EXTI\_IMR2\_IM42          }}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_43                EXTI\_IMR2\_IM43          }}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#if defined(USB2\_OTG\_FS)}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_44                EXTI\_IMR2\_IM44          }}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* USB2\_OTG\_FS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#if defined(DSI)}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_46                EXTI\_IMR2\_IM46          }}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DSI */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_47                EXTI\_IMR2\_IM47          }}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_48                EXTI\_IMR2\_IM48          }}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_49                EXTI\_IMR2\_IM49          }}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_50                EXTI\_IMR2\_IM50          }}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_51                EXTI\_IMR2\_IM51          }}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_52                EXTI\_IMR2\_IM52          }}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_53                EXTI\_IMR2\_IM53          }}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_54                EXTI\_IMR2\_IM54          }}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_55                EXTI\_IMR2\_IM55          }}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_56                EXTI\_IMR2\_IM56          }}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#if defined(EXTI\_IMR2\_IM57)}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_57                EXTI\_IMR2\_IM57          }}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*EXTI\_IMR2\_IM57*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_58                EXTI\_IMR2\_IM58          }}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#if defined(EXTI\_IMR2\_IM59)}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_59                EXTI\_IMR2\_IM59          }}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*EXTI\_IMR2\_IM59*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_60                EXTI\_IMR2\_IM60          }}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_61                EXTI\_IMR2\_IM61          }}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_62                EXTI\_IMR2\_IM62          }}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_63                EXTI\_IMR2\_IM63          }}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_ALL\_32\_63         EXTI\_IMR2\_IM            }}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_64                EXTI\_IMR3\_IM64          }}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_65                EXTI\_IMR3\_IM65          }}
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_66                EXTI\_IMR3\_IM66          }}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_67                EXTI\_IMR3\_IM67          }}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_68                EXTI\_IMR3\_IM68          }}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_69                EXTI\_IMR3\_IM69          }}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_70                EXTI\_IMR3\_IM70          }}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_71                EXTI\_IMR3\_IM71          }}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_72                EXTI\_IMR3\_IM72          }}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_73                EXTI\_IMR3\_IM73          }}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_74                EXTI\_IMR3\_IM74          }}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#if defined(ADC3)}}
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_75                EXTI\_IMR3\_IM75          }}
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ADC3 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#if defined(SAI4)}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_76                EXTI\_IMR3\_IM76          }}
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SAI4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_77                EXTI\_IMR3\_IM77          }}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_78                EXTI\_IMR3\_IM78          }}
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_79                EXTI\_IMR3\_IM79          }}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_80                EXTI\_IMR3\_IM80          }}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_82                EXTI\_IMR3\_IM82          }}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_84                EXTI\_IMR3\_IM84          }}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_85                EXTI\_IMR3\_IM85          }}
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#if defined(ETH)}}
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_86                EXTI\_IMR3\_IM86          }}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ETH */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_87                EXTI\_IMR3\_IM87          }}
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#if defined(DTS)}}
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_88                EXTI\_IMR3\_IM88          }}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DTS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#if defined(EXTI\_IMR3\_IM89)}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_89                EXTI\_IMR3\_IM89          }}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* EXTI\_IMR3\_IM89 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#if defined(EXTI\_IMR3\_IM90)}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_90                EXTI\_IMR3\_IM90          }}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* EXTI\_IMR3\_IM90 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#if defined(I2C5)}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_91                EXTI\_IMR3\_IM91          }}
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* I2C5 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_ALL\_64\_95         EXTI\_IMR3\_IM            }}
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_ALL               (0xFFFFFFFFU)  }}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#if defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#define LL\_EXTI\_LINE\_NONE              (0x00000000U)  }}
+\DoxyCodeLine{216 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*USE\_FULL\_LL\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#if defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#define LL\_EXTI\_MODE\_IT               ((uint8\_t)0x01U)      }}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#define LL\_EXTI\_MODE\_EVENT            ((uint8\_t)0x02U)      }}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#define LL\_EXTI\_MODE\_IT\_EVENT         ((uint8\_t)0x03U)      }}
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#define LL\_EXTI\_MODE\_C1\_IT            LL\_EXTI\_MODE\_IT       }}
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#define LL\_EXTI\_MODE\_C1\_EVENT         LL\_EXTI\_MODE\_EVENT    }}
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#define LL\_EXTI\_MODE\_C1\_IT\_EVENT      LL\_EXTI\_MODE\_IT\_EVENT }}
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#define LL\_EXTI\_MODE\_C2\_IT            ((uint8\_t)0x10U)      }}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#define LL\_EXTI\_MODE\_C2\_EVENT         ((uint8\_t)0x20U)      }}
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#define LL\_EXTI\_MODE\_C2\_IT\_EVENT      ((uint8\_t)0x30U)      }}
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{247 \textcolor{preprocessor}{\#define LL\_EXTI\_TRIGGER\_NONE            ((uint8\_t)0x00U) }}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#define LL\_EXTI\_TRIGGER\_RISING          ((uint8\_t)0x01U) }}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#define LL\_EXTI\_TRIGGER\_FALLING         ((uint8\_t)0x02U) }}
+\DoxyCodeLine{250 \textcolor{preprocessor}{\#define LL\_EXTI\_TRIGGER\_RISING\_FALLING  ((uint8\_t)0x03U) }}
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#define LL\_EXTI\_D3\_PEND\_CLR\_DMACH6      ((uint8\_t)0x00U) }}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#define LL\_EXTI\_D3\_PEND\_CLR\_DMACH7      ((uint8\_t)0x01U) }}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#if defined (LPTIM4)}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#define LL\_EXTI\_D3\_PEND\_CLR\_LPTIM4      ((uint8\_t)0x02U) }}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#define LL\_EXTI\_D3\_PEND\_CLR\_LPTIM2      ((uint8\_t)0x02U) }}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*LPTIM4*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#if defined (LPTIM5)}}
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#define LL\_EXTI\_D3\_PEND\_CLR\_LPTIM5      ((uint8\_t)0x03U) }}
+\DoxyCodeLine{268 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#define LL\_EXTI\_D3\_PEND\_CLR\_LPTIM3      ((uint8\_t)0x02U) }}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*LPTIM5*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*USE\_FULL\_LL\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278 }
+\DoxyCodeLine{283 \textcolor{comment}{/* Exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#define LL\_EXTI\_WriteReg(\_\_REG\_\_, \_\_VALUE\_\_) WRITE\_REG(EXTI-\/>\_\_REG\_\_, (\_\_VALUE\_\_))}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{305 \textcolor{preprocessor}{\#define LL\_EXTI\_ReadReg(\_\_REG\_\_) READ\_REG(EXTI-\/>\_\_REG\_\_)}}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{318 \textcolor{comment}{/* Exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{365 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableIT\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{366 \{}
+\DoxyCodeLine{367   SET\_BIT(EXTI-\/>IMR1, ExtiLine);}
+\DoxyCodeLine{368 \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{410 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableIT\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{411 \{}
+\DoxyCodeLine{412   SET\_BIT(EXTI-\/>IMR2, ExtiLine);}
+\DoxyCodeLine{413 \}}
+\DoxyCodeLine{414 }
+\DoxyCodeLine{415 }
+\DoxyCodeLine{452 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableIT\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{453 \{}
+\DoxyCodeLine{454   SET\_BIT(EXTI-\/>IMR3, ExtiLine);}
+\DoxyCodeLine{455 \}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457 }
+\DoxyCodeLine{497 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableIT\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{498 \{}
+\DoxyCodeLine{499   CLEAR\_BIT(EXTI-\/>IMR1, ExtiLine);}
+\DoxyCodeLine{500 \}}
+\DoxyCodeLine{501 }
+\DoxyCodeLine{502 }
+\DoxyCodeLine{543 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableIT\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{544 \{}
+\DoxyCodeLine{545   CLEAR\_BIT(EXTI-\/>IMR2, ExtiLine);}
+\DoxyCodeLine{546 \}}
+\DoxyCodeLine{547 }
+\DoxyCodeLine{584 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableIT\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{585 \{}
+\DoxyCodeLine{586   CLEAR\_BIT(EXTI-\/>IMR3, ExtiLine);}
+\DoxyCodeLine{587 \}}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{589 }
+\DoxyCodeLine{629 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledIT\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{630 \{}
+\DoxyCodeLine{631   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>IMR1, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{632 \}}
+\DoxyCodeLine{633 }
+\DoxyCodeLine{634 }
+\DoxyCodeLine{675 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledIT\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{676 \{}
+\DoxyCodeLine{677   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>IMR2, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{678 \}}
+\DoxyCodeLine{679 }
+\DoxyCodeLine{680 }
+\DoxyCodeLine{717 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledIT\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{718 \{}
+\DoxyCodeLine{719   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>IMR3, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{720 \}}
+\DoxyCodeLine{721 }
+\DoxyCodeLine{722 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{762 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_EnableIT\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{763 \{}
+\DoxyCodeLine{764   SET\_BIT(EXTI-\/>C2IMR1, ExtiLine);}
+\DoxyCodeLine{765 \}}
+\DoxyCodeLine{766 }
+\DoxyCodeLine{767 }
+\DoxyCodeLine{806 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_EnableIT\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{807 \{}
+\DoxyCodeLine{808   SET\_BIT(EXTI-\/>C2IMR2, ExtiLine);}
+\DoxyCodeLine{809 \}}
+\DoxyCodeLine{810 }
+\DoxyCodeLine{811 }
+\DoxyCodeLine{841 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_EnableIT\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{842 \{}
+\DoxyCodeLine{843   SET\_BIT(EXTI-\/>C2IMR3, ExtiLine);}
+\DoxyCodeLine{844 \}}
+\DoxyCodeLine{845 }
+\DoxyCodeLine{846 }
+\DoxyCodeLine{886 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_DisableIT\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{887 \{}
+\DoxyCodeLine{888   CLEAR\_BIT(EXTI-\/>C2IMR1, ExtiLine);}
+\DoxyCodeLine{889 \}}
+\DoxyCodeLine{890 }
+\DoxyCodeLine{891 }
+\DoxyCodeLine{892 }
+\DoxyCodeLine{931 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_DisableIT\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{932 \{}
+\DoxyCodeLine{933   CLEAR\_BIT(EXTI-\/>C2IMR2, ExtiLine);}
+\DoxyCodeLine{934 \}}
+\DoxyCodeLine{935 }
+\DoxyCodeLine{936 }
+\DoxyCodeLine{966 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_DisableIT\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{967 \{}
+\DoxyCodeLine{968   CLEAR\_BIT(EXTI-\/>C2IMR3, ExtiLine);}
+\DoxyCodeLine{969 \}}
+\DoxyCodeLine{970 }
+\DoxyCodeLine{971 }
+\DoxyCodeLine{1011 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_IsEnabledIT\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{1012 \{}
+\DoxyCodeLine{1013   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>C2IMR1, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{1014 \}}
+\DoxyCodeLine{1015 }
+\DoxyCodeLine{1016 }
+\DoxyCodeLine{1055 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_IsEnabledIT\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{1056 \{}
+\DoxyCodeLine{1057   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>C2IMR2, ExtiLine) == (ExtiLine))? 1U : 0U);}
+\DoxyCodeLine{1058 \}}
+\DoxyCodeLine{1059 }
+\DoxyCodeLine{1060 }
+\DoxyCodeLine{1090 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_IsEnabledIT\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{1091 \{}
+\DoxyCodeLine{1092   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>C2IMR3, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{1093 \}}
+\DoxyCodeLine{1094 }
+\DoxyCodeLine{1095 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1096 }
+\DoxyCodeLine{1097 }
+\DoxyCodeLine{1145 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableEvent\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{1146 \{}
+\DoxyCodeLine{1147   SET\_BIT(EXTI-\/>EMR1, ExtiLine);}
+\DoxyCodeLine{1148 \}}
+\DoxyCodeLine{1149 }
+\DoxyCodeLine{1190 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableEvent\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{1191 \{}
+\DoxyCodeLine{1192   SET\_BIT(EXTI-\/>EMR2, ExtiLine);}
+\DoxyCodeLine{1193 \}}
+\DoxyCodeLine{1194 }
+\DoxyCodeLine{1231 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableEvent\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{1232 \{}
+\DoxyCodeLine{1233   SET\_BIT(EXTI-\/>EMR3, ExtiLine);}
+\DoxyCodeLine{1234 \}}
+\DoxyCodeLine{1235 }
+\DoxyCodeLine{1275 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableEvent\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{1276 \{}
+\DoxyCodeLine{1277   CLEAR\_BIT(EXTI-\/>EMR1, ExtiLine);}
+\DoxyCodeLine{1278 \}}
+\DoxyCodeLine{1279 }
+\DoxyCodeLine{1320 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableEvent\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{1321 \{}
+\DoxyCodeLine{1322   CLEAR\_BIT(EXTI-\/>EMR2, ExtiLine);}
+\DoxyCodeLine{1323 \}}
+\DoxyCodeLine{1324 }
+\DoxyCodeLine{1361 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableEvent\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{1362 \{}
+\DoxyCodeLine{1363   CLEAR\_BIT(EXTI-\/>EMR3, ExtiLine);}
+\DoxyCodeLine{1364 \}}
+\DoxyCodeLine{1365 }
+\DoxyCodeLine{1406 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledEvent\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{1407 \{}
+\DoxyCodeLine{1408   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>EMR1, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{1409 \}}
+\DoxyCodeLine{1410 }
+\DoxyCodeLine{1451 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledEvent\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{1452 \{}
+\DoxyCodeLine{1453   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>EMR2, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{1454 \}}
+\DoxyCodeLine{1455 }
+\DoxyCodeLine{1492 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledEvent\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{1493 \{}
+\DoxyCodeLine{1494   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>EMR3, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{1495 \}}
+\DoxyCodeLine{1496 }
+\DoxyCodeLine{1497 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{1498 }
+\DoxyCodeLine{1538 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_EnableEvent\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{1539 \{}
+\DoxyCodeLine{1540   SET\_BIT(EXTI-\/>C2EMR1, ExtiLine);}
+\DoxyCodeLine{1541 \}}
+\DoxyCodeLine{1542 }
+\DoxyCodeLine{1543 }
+\DoxyCodeLine{1582 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_EnableEvent\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{1583 \{}
+\DoxyCodeLine{1584   SET\_BIT(EXTI-\/>C2EMR2, ExtiLine);}
+\DoxyCodeLine{1585 \}}
+\DoxyCodeLine{1586 }
+\DoxyCodeLine{1616 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_EnableEvent\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{1617 \{}
+\DoxyCodeLine{1618   SET\_BIT(EXTI-\/>C2EMR3, ExtiLine);}
+\DoxyCodeLine{1619 \}}
+\DoxyCodeLine{1620 }
+\DoxyCodeLine{1621 }
+\DoxyCodeLine{1661 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_DisableEvent\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{1662 \{}
+\DoxyCodeLine{1663   CLEAR\_BIT(EXTI-\/>C2EMR1, ExtiLine);}
+\DoxyCodeLine{1664 \}}
+\DoxyCodeLine{1665 }
+\DoxyCodeLine{1666 }
+\DoxyCodeLine{1705 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_DisableEvent\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{1706 \{}
+\DoxyCodeLine{1707   CLEAR\_BIT(EXTI-\/>C2EMR2, ExtiLine);}
+\DoxyCodeLine{1708 \}}
+\DoxyCodeLine{1709 }
+\DoxyCodeLine{1710 }
+\DoxyCodeLine{1740 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_DisableEvent\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{1741 \{}
+\DoxyCodeLine{1742   CLEAR\_BIT(EXTI-\/>C2EMR3, ExtiLine);}
+\DoxyCodeLine{1743 \}}
+\DoxyCodeLine{1744 }
+\DoxyCodeLine{1745 }
+\DoxyCodeLine{1786 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_IsEnabledEvent\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{1787 \{}
+\DoxyCodeLine{1788   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>C2EMR1, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{1789 \}}
+\DoxyCodeLine{1790 }
+\DoxyCodeLine{1791 }
+\DoxyCodeLine{1830 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_IsEnabledEvent\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{1831 \{}
+\DoxyCodeLine{1832   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>C2EMR2, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{1833 \}}
+\DoxyCodeLine{1834 }
+\DoxyCodeLine{1835 }
+\DoxyCodeLine{1865 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_IsEnabledEvent\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{1866 \{}
+\DoxyCodeLine{1867   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>C2EMR3, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{1868 \}}
+\DoxyCodeLine{1869 }
+\DoxyCodeLine{1870 }
+\DoxyCodeLine{1871 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1872 }
+\DoxyCodeLine{1916 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableRisingTrig\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{1917 \{}
+\DoxyCodeLine{1918   SET\_BIT(EXTI-\/>RTSR1, ExtiLine);}
+\DoxyCodeLine{1919 }
+\DoxyCodeLine{1920 \}}
+\DoxyCodeLine{1921 }
+\DoxyCodeLine{1936 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableRisingTrig\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{1937 \{}
+\DoxyCodeLine{1938   SET\_BIT(EXTI-\/>RTSR2, ExtiLine);}
+\DoxyCodeLine{1939 \}}
+\DoxyCodeLine{1940 }
+\DoxyCodeLine{1960 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableRisingTrig\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{1961 \{}
+\DoxyCodeLine{1962   SET\_BIT(EXTI-\/>RTSR3, ExtiLine);}
+\DoxyCodeLine{1963 \}}
+\DoxyCodeLine{1964 }
+\DoxyCodeLine{2000 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableRisingTrig\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2001 \{}
+\DoxyCodeLine{2002   CLEAR\_BIT(EXTI-\/>RTSR1, ExtiLine);}
+\DoxyCodeLine{2003 }
+\DoxyCodeLine{2004 \}}
+\DoxyCodeLine{2005 }
+\DoxyCodeLine{2021 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableRisingTrig\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2022 \{}
+\DoxyCodeLine{2023   CLEAR\_BIT(EXTI-\/>RTSR2, ExtiLine);}
+\DoxyCodeLine{2024 \}}
+\DoxyCodeLine{2025 }
+\DoxyCodeLine{2046 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableRisingTrig\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2047 \{}
+\DoxyCodeLine{2048   CLEAR\_BIT(EXTI-\/>RTSR3, ExtiLine);}
+\DoxyCodeLine{2049 \}}
+\DoxyCodeLine{2050 }
+\DoxyCodeLine{2079 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledRisingTrig\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2080 \{}
+\DoxyCodeLine{2081   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>RTSR1, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2082 \}}
+\DoxyCodeLine{2083 }
+\DoxyCodeLine{2084 }
+\DoxyCodeLine{2093 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledRisingTrig\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2094 \{}
+\DoxyCodeLine{2095   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>RTSR2, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2096 \}}
+\DoxyCodeLine{2097 }
+\DoxyCodeLine{2111 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledRisingTrig\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2112 \{}
+\DoxyCodeLine{2113   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>RTSR3, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2114 \}}
+\DoxyCodeLine{2115 }
+\DoxyCodeLine{2159 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableFallingTrig\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2160 \{}
+\DoxyCodeLine{2161   SET\_BIT(EXTI-\/>FTSR1, ExtiLine);}
+\DoxyCodeLine{2162 \}}
+\DoxyCodeLine{2163 }
+\DoxyCodeLine{2179 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableFallingTrig\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2180 \{}
+\DoxyCodeLine{2181   SET\_BIT(EXTI-\/>FTSR2, ExtiLine);}
+\DoxyCodeLine{2182 \}}
+\DoxyCodeLine{2183 }
+\DoxyCodeLine{2204 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_EnableFallingTrig\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2205 \{}
+\DoxyCodeLine{2206   SET\_BIT(EXTI-\/>FTSR3, ExtiLine);}
+\DoxyCodeLine{2207 \}}
+\DoxyCodeLine{2208 }
+\DoxyCodeLine{2209 }
+\DoxyCodeLine{2244 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableFallingTrig\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2245 \{}
+\DoxyCodeLine{2246   CLEAR\_BIT(EXTI-\/>FTSR1, ExtiLine);}
+\DoxyCodeLine{2247 \}}
+\DoxyCodeLine{2248 }
+\DoxyCodeLine{2263 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableFallingTrig\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2264 \{}
+\DoxyCodeLine{2265   CLEAR\_BIT(EXTI-\/>FTSR2, ExtiLine);}
+\DoxyCodeLine{2266 \}}
+\DoxyCodeLine{2267 }
+\DoxyCodeLine{2287 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_DisableFallingTrig\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2288 \{}
+\DoxyCodeLine{2289   CLEAR\_BIT(EXTI-\/>FTSR3, ExtiLine);}
+\DoxyCodeLine{2290 \}}
+\DoxyCodeLine{2291 }
+\DoxyCodeLine{2292 }
+\DoxyCodeLine{2321 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledFallingTrig\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2322 \{}
+\DoxyCodeLine{2323   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>FTSR1, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2324 \}}
+\DoxyCodeLine{2325 }
+\DoxyCodeLine{2334 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledFallingTrig\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2335 \{}
+\DoxyCodeLine{2336   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>FTSR2, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2337 \}}
+\DoxyCodeLine{2338 }
+\DoxyCodeLine{2352 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsEnabledFallingTrig\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2353 \{}
+\DoxyCodeLine{2354   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>FTSR3, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2355 \}}
+\DoxyCodeLine{2356 }
+\DoxyCodeLine{2357 }
+\DoxyCodeLine{2399 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_GenerateSWI\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2400 \{}
+\DoxyCodeLine{2401   SET\_BIT(EXTI-\/>SWIER1, ExtiLine);}
+\DoxyCodeLine{2402 \}}
+\DoxyCodeLine{2403 }
+\DoxyCodeLine{2417 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_GenerateSWI\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2418 \{}
+\DoxyCodeLine{2419   SET\_BIT(EXTI-\/>SWIER2, ExtiLine);}
+\DoxyCodeLine{2420 \}}
+\DoxyCodeLine{2421 }
+\DoxyCodeLine{2440 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_GenerateSWI\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2441 \{}
+\DoxyCodeLine{2442   SET\_BIT(EXTI-\/>SWIER3, ExtiLine);}
+\DoxyCodeLine{2443 \}}
+\DoxyCodeLine{2444 }
+\DoxyCodeLine{2445 }
+\DoxyCodeLine{2485 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsActiveFlag\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2486 \{}
+\DoxyCodeLine{2487   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>PR1, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2488 \}}
+\DoxyCodeLine{2489 }
+\DoxyCodeLine{2501 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsActiveFlag\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2502 \{}
+\DoxyCodeLine{2503   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>PR2, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2504 \}}
+\DoxyCodeLine{2505 }
+\DoxyCodeLine{2521 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_IsActiveFlag\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2522 \{}
+\DoxyCodeLine{2523   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>PR3, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2524 \}}
+\DoxyCodeLine{2525 }
+\DoxyCodeLine{2526 }
+\DoxyCodeLine{2557 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_ReadFlag\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2558 \{}
+\DoxyCodeLine{2559   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(EXTI-\/>PR1, ExtiLine));}
+\DoxyCodeLine{2560 \}}
+\DoxyCodeLine{2561 }
+\DoxyCodeLine{2562 }
+\DoxyCodeLine{2573 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_ReadFlag\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2574 \{}
+\DoxyCodeLine{2575   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(EXTI-\/>PR2, ExtiLine));}
+\DoxyCodeLine{2576 \}}
+\DoxyCodeLine{2577 }
+\DoxyCodeLine{2578 }
+\DoxyCodeLine{2594 \_\_STATIC\_INLINE uint32\_t LL\_EXTI\_ReadFlag\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2595 \{}
+\DoxyCodeLine{2596   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(EXTI-\/>PR3, ExtiLine));}
+\DoxyCodeLine{2597 \}}
+\DoxyCodeLine{2598 }
+\DoxyCodeLine{2629 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_ClearFlag\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2630 \{}
+\DoxyCodeLine{2631   WRITE\_REG(EXTI-\/>PR1, ExtiLine);}
+\DoxyCodeLine{2632 \}}
+\DoxyCodeLine{2633 }
+\DoxyCodeLine{2644 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_ClearFlag\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2645 \{}
+\DoxyCodeLine{2646   WRITE\_REG(EXTI-\/>PR2, ExtiLine);}
+\DoxyCodeLine{2647 \}}
+\DoxyCodeLine{2648 }
+\DoxyCodeLine{2664 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_EXTI\_ClearFlag\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2665 \{}
+\DoxyCodeLine{2666   WRITE\_REG(EXTI-\/>PR3, ExtiLine);}
+\DoxyCodeLine{2667 \}}
+\DoxyCodeLine{2668 }
+\DoxyCodeLine{2669 \textcolor{preprocessor}{\#if defined(DUAL\_CORE)}}
+\DoxyCodeLine{2670 }
+\DoxyCodeLine{2702 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_IsActiveFlag\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2703 \{}
+\DoxyCodeLine{2704   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>C2PR1, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2705 \}}
+\DoxyCodeLine{2706 }
+\DoxyCodeLine{2718 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_IsActiveFlag\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2719 \{}
+\DoxyCodeLine{2720   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>C2PR2, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2721 \}}
+\DoxyCodeLine{2722 }
+\DoxyCodeLine{2736 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_IsActiveFlag\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2737 \{}
+\DoxyCodeLine{2738   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>C2PR3, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{2739 \}}
+\DoxyCodeLine{2740 }
+\DoxyCodeLine{2771 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_ReadFlag\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2772 \{}
+\DoxyCodeLine{2773   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(EXTI-\/>C2PR1, ExtiLine));}
+\DoxyCodeLine{2774 \}}
+\DoxyCodeLine{2775 }
+\DoxyCodeLine{2786 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_ReadFlag\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2787 \{}
+\DoxyCodeLine{2788   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(EXTI-\/>C2PR2, ExtiLine));}
+\DoxyCodeLine{2789 \}}
+\DoxyCodeLine{2790 }
+\DoxyCodeLine{2791 }
+\DoxyCodeLine{2804 \_\_STATIC\_INLINE uint32\_t LL\_C2\_EXTI\_ReadFlag\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2805 \{}
+\DoxyCodeLine{2806   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(EXTI-\/>C2PR3, ExtiLine));}
+\DoxyCodeLine{2807 \}}
+\DoxyCodeLine{2838 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_ClearFlag\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2839 \{}
+\DoxyCodeLine{2840   WRITE\_REG(EXTI-\/>C2PR1, ExtiLine);}
+\DoxyCodeLine{2841 \}}
+\DoxyCodeLine{2842 }
+\DoxyCodeLine{2853 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_ClearFlag\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2854 \{}
+\DoxyCodeLine{2855   WRITE\_REG(EXTI-\/>C2PR2, ExtiLine);}
+\DoxyCodeLine{2856 \}}
+\DoxyCodeLine{2857 }
+\DoxyCodeLine{2870 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_C2\_EXTI\_ClearFlag\_64\_95(uint32\_t ExtiLine)}
+\DoxyCodeLine{2871 \{}
+\DoxyCodeLine{2872   WRITE\_REG(EXTI-\/>C2PR3, ExtiLine);}
+\DoxyCodeLine{2873 \}}
+\DoxyCodeLine{2874 }
+\DoxyCodeLine{2875 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DUAL\_CORE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{2876 }
+\DoxyCodeLine{2903 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_D3\_EXTI\_EnablePendMask\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2904 \{}
+\DoxyCodeLine{2905   SET\_BIT(EXTI-\/>D3PMR1, ExtiLine);}
+\DoxyCodeLine{2906 \}}
+\DoxyCodeLine{2907 }
+\DoxyCodeLine{2923 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_D3\_EXTI\_EnablePendMask\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2924 \{}
+\DoxyCodeLine{2925   SET\_BIT(EXTI-\/>D3PMR2, ExtiLine);}
+\DoxyCodeLine{2926 \}}
+\DoxyCodeLine{2927 }
+\DoxyCodeLine{2954 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_D3\_EXTI\_DisablePendMask\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{2955 \{}
+\DoxyCodeLine{2956   CLEAR\_BIT(EXTI-\/>D3PMR1, ExtiLine);}
+\DoxyCodeLine{2957 \}}
+\DoxyCodeLine{2958 }
+\DoxyCodeLine{2974 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_D3\_EXTI\_DisablePendMask\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{2975 \{}
+\DoxyCodeLine{2976   CLEAR\_BIT(EXTI-\/>D3PMR2, ExtiLine);}
+\DoxyCodeLine{2977 \}}
+\DoxyCodeLine{2978 }
+\DoxyCodeLine{3005 \_\_STATIC\_INLINE uint32\_t LL\_D3\_EXTI\_IsEnabledPendMask\_0\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{3006 \{}
+\DoxyCodeLine{3007   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>D3PMR1, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{3008 \}}
+\DoxyCodeLine{3009 }
+\DoxyCodeLine{3025 \_\_STATIC\_INLINE uint32\_t LL\_D3\_EXTI\_IsEnabledPendMask\_32\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{3026 \{}
+\DoxyCodeLine{3027   \textcolor{keywordflow}{return} ((READ\_BIT(EXTI-\/>D3PMR2, ExtiLine) == (ExtiLine)) ? 1U : 0U);}
+\DoxyCodeLine{3028 \}}
+\DoxyCodeLine{3029 }
+\DoxyCodeLine{3061 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_D3\_EXTI\_SetPendClearSel\_0\_15(uint32\_t ExtiLine, uint32\_t ClrSrc)}
+\DoxyCodeLine{3062 \{}
+\DoxyCodeLine{3063   MODIFY\_REG(EXTI-\/>D3PCR1L, ((ExtiLine * ExtiLine) * 3UL), ((ExtiLine * ExtiLine) * ClrSrc));}
+\DoxyCodeLine{3064 \}}
+\DoxyCodeLine{3065 }
+\DoxyCodeLine{3085 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_D3\_EXTI\_SetPendClearSel\_16\_31(uint32\_t ExtiLine, uint32\_t ClrSrc)}
+\DoxyCodeLine{3086 \{}
+\DoxyCodeLine{3087   MODIFY\_REG(EXTI-\/>D3PCR1H, (((ExtiLine >> EXTI\_IMR1\_IM16\_Pos) * (ExtiLine >> EXTI\_IMR1\_IM16\_Pos)) * 3UL), (((ExtiLine >> EXTI\_IMR1\_IM16\_Pos) * (ExtiLine >> EXTI\_IMR1\_IM16\_Pos)) * ClrSrc));}
+\DoxyCodeLine{3088 \}}
+\DoxyCodeLine{3089 }
+\DoxyCodeLine{3090 }
+\DoxyCodeLine{3109 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_D3\_EXTI\_SetPendClearSel\_32\_47(uint32\_t ExtiLine, uint32\_t ClrSrc)}
+\DoxyCodeLine{3110 \{}
+\DoxyCodeLine{3111   MODIFY\_REG(EXTI-\/>D3PCR2L, ((ExtiLine * ExtiLine) * 3UL), ((ExtiLine * ExtiLine) * ClrSrc));}
+\DoxyCodeLine{3112 \}}
+\DoxyCodeLine{3113 }
+\DoxyCodeLine{3135 \_\_STATIC\_INLINE \textcolor{keywordtype}{void} LL\_D3\_EXTI\_SetPendClearSel\_48\_63(uint32\_t ExtiLine, uint32\_t ClrSrc)}
+\DoxyCodeLine{3136 \{}
+\DoxyCodeLine{3137   MODIFY\_REG(EXTI-\/>D3PCR2H, (((ExtiLine >> EXTI\_IMR2\_IM48\_Pos) * (ExtiLine >> EXTI\_IMR2\_IM48\_Pos)) * 3UL), (((ExtiLine >> EXTI\_IMR2\_IM48\_Pos) * (ExtiLine >> EXTI\_IMR2\_IM48\_Pos)) * ClrSrc));}
+\DoxyCodeLine{3138 \}}
+\DoxyCodeLine{3139 }
+\DoxyCodeLine{3170 \_\_STATIC\_INLINE uint32\_t LL\_D3\_EXTI\_GetPendClearSel\_0\_15(uint32\_t ExtiLine)}
+\DoxyCodeLine{3171 \{}
+\DoxyCodeLine{3172   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(EXTI-\/>D3PCR1L, ((ExtiLine * ExtiLine) * 3UL)) / (ExtiLine * ExtiLine));}
+\DoxyCodeLine{3173 \}}
+\DoxyCodeLine{3174 }
+\DoxyCodeLine{3193 \_\_STATIC\_INLINE uint32\_t LL\_D3\_EXTI\_GetPendClearSel\_16\_31(uint32\_t ExtiLine)}
+\DoxyCodeLine{3194 \{}
+\DoxyCodeLine{3195   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(EXTI-\/>D3PCR1H, (((ExtiLine >> EXTI\_IMR1\_IM16\_Pos) * (ExtiLine >> EXTI\_IMR1\_IM16\_Pos)) * 3UL)) / ((ExtiLine >> EXTI\_IMR1\_IM16\_Pos) * (ExtiLine >> EXTI\_IMR1\_IM16\_Pos)));}
+\DoxyCodeLine{3196 \}}
+\DoxyCodeLine{3197 }
+\DoxyCodeLine{3215 \_\_STATIC\_INLINE uint32\_t LL\_D3\_EXTI\_GetPendClearSel\_32\_47(uint32\_t ExtiLine)}
+\DoxyCodeLine{3216 \{}
+\DoxyCodeLine{3217   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(EXTI-\/>D3PCR2L, ((ExtiLine * ExtiLine) * 3UL)) / (ExtiLine * ExtiLine));}
+\DoxyCodeLine{3218 \}}
+\DoxyCodeLine{3219 }
+\DoxyCodeLine{3240 \_\_STATIC\_INLINE uint32\_t LL\_D3\_EXTI\_GetPendClearSel\_48\_63(uint32\_t ExtiLine)}
+\DoxyCodeLine{3241 \{}
+\DoxyCodeLine{3242   \textcolor{keywordflow}{return} (uint32\_t)(READ\_BIT(EXTI-\/>D3PCR2H, (((ExtiLine >> EXTI\_IMR2\_IM48\_Pos) * (ExtiLine >> EXTI\_IMR2\_IM48\_Pos)) * 3UL)) / ((ExtiLine >> EXTI\_IMR2\_IM48\_Pos) * (ExtiLine >> EXTI\_IMR2\_IM48\_Pos)));}
+\DoxyCodeLine{3243 \}}
+\DoxyCodeLine{3244 }
+\DoxyCodeLine{3245 }
+\DoxyCodeLine{3246 }
+\DoxyCodeLine{3251 \textcolor{preprocessor}{\#if defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{3256 ErrorStatus LL\_EXTI\_Init(LL\_EXTI\_InitTypeDef *EXTI\_InitStruct);}
+\DoxyCodeLine{3257 ErrorStatus LL\_EXTI\_DeInit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{3258 \textcolor{keywordtype}{void} LL\_EXTI\_StructInit(LL\_EXTI\_InitTypeDef *EXTI\_InitStruct);}
+\DoxyCodeLine{3259 }
+\DoxyCodeLine{3260 }
+\DoxyCodeLine{3264 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* USE\_FULL\_LL\_DRIVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{3265 }
+\DoxyCodeLine{3274 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* EXTI */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{3275 }
+\DoxyCodeLine{3280 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{3281 \}}
+\DoxyCodeLine{3282 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{3283 }
+\DoxyCodeLine{3284 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_STM32H7xx\_LL\_EXTI\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{3285 }
+
+\end{DoxyCode}

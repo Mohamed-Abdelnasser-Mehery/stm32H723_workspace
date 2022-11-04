@@ -1,0 +1,20 @@
+\hypertarget{group__autoip}{}\doxysection{AUTOIP}
+\label{group__autoip}\index{AUTOIP@{AUTOIP}}
+AUTOIP related functions USAGE\+:
+
+define \mbox{\hyperlink{group__lwip__opts__autoip_gaaf1b3a089827223589baf1b7f4f57069}{LWIP\+\_\+\+AUTOIP}} 1 in your \mbox{\hyperlink{lwipopts_8h_source}{lwipopts.\+h}} Options\+: AUTOIP\+\_\+\+TMR\+\_\+\+INTERVAL msecs, I recommend a value of 100. The value must divide 1000 with a remainder almost 0. Possible values are 1000, 500, 333, 250, 200, 166, 142, 125, 111, 100 ....
+
+Without DHCP\+:
+\begin{DoxyItemize}
+\item Call autoip\+\_\+start() after \mbox{\hyperlink{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}{netif\+\_\+add()}}.
+\end{DoxyItemize}
+
+With DHCP\+:
+\begin{DoxyItemize}
+\item define \mbox{\hyperlink{group__lwip__opts__autoip_ga1a91e18dbb9777bc6e3963f52cb5f9fe}{LWIP\+\_\+\+DHCP\+\_\+\+AUTOIP\+\_\+\+COOP}} 1 in your \mbox{\hyperlink{lwipopts_8h_source}{lwipopts.\+h}}.
+\item Configure your DHCP Client.
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+netifapi\+\_\+autoip 
+\end{DoxySeeAlso}

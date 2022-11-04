@@ -1,0 +1,350 @@
+\hypertarget{stm32h7xx__hal__exti_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/stm32h7xx\+\_\+hal\+\_\+exti.h File Reference}
+\label{stm32h7xx__hal__exti_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_exti.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_exti.h}}
+
+
+Header file of EXTI HAL module.  
+
+
+{\ttfamily \#include \char`\"{}stm32h7xx\+\_\+hal\+\_\+def.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\+\_\+\+Handle\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em EXTI Handle structure definition. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_e_x_t_i___config_type_def}{EXTI\+\_\+\+Config\+Type\+Def}}
+\begin{DoxyCompactList}\small\item\em EXTI Configuration structure definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+0}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x00U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+1}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x01U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+2}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x02U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+3}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x03U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+4}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x04U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+5}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x05U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+6}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x06U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+7}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x07U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+8}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x08U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+9}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x09U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+10}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x0\+AU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+11}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x0\+BU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+12}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x0\+CU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+13}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x0\+DU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+14}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x0\+EU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+15}~(EXTI\+\_\+\+GPIO     $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x0\+FU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+16}~(EXTI\+\_\+\+CONFIG   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x10U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+17}~(EXTI\+\_\+\+CONFIG   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x11U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+18}~(EXTI\+\_\+\+CONFIG   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x12U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+19}~(EXTI\+\_\+\+CONFIG   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x13U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+20}~(EXTI\+\_\+\+CONFIG   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x14U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+21}~(EXTI\+\_\+\+CONFIG   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x15U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+22}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x16U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+23}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x17U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+24}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x18U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+25}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x19U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+26}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+AU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+27}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+BU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+28}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+CU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+29}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+DU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+30}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+EU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+31}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+FU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+32}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x00U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+33}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x01U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+34}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x02U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+35}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x03U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+36}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x04U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+37}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x05U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+38}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x06U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+39}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x07U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+40}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x08U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+41}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x09U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+42}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x0\+AU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+43}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x0\+BU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+44}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE    $\vert$ 0x0\+CU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+45}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE    $\vert$ 0x0\+DU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+46}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE    $\vert$ 0x0\+EU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+47}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x0\+FU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+48}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x10U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+49}~(EXTI\+\_\+\+CONFIG   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x11U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+50}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x12U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+51}~(EXTI\+\_\+\+CONFIG   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL     $\vert$ 0x13U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+52}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x14U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+53}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x15U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+54}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x16U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+55}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x17U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+56}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x18U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+57}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE    $\vert$ 0x19U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+58}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+AU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+59}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE    $\vert$ 0x1\+BU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+60}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+CU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+61}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+DU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+62}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+EU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+63}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x1\+FU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+64}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x00U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+65}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x01U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+66}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x02U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+67}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x03U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+68}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x04U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+69}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x05U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+70}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x06U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+71}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x07U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+72}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x08U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+73}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x09U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+74}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x0\+AU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+75}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$  EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE   $\vert$ 0x0\+BU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+76}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$  EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE   $\vert$ 0x0\+CU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+77}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE$\vert$ 0x0\+DU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+78}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE$\vert$ 0x0\+EU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+79}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE$\vert$ 0x0\+FU)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+80}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE$\vert$ 0x10U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+81}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE$\vert$ 0x11U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+82}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE$\vert$ 0x12U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+83}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE$\vert$ 0x13U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+84}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE$\vert$ 0x14U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+85}~(EXTI\+\_\+\+CONFIG   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x15U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+86}~(EXTI\+\_\+\+RESERVED $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE$\vert$ 0x16U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+87}~(EXTI\+\_\+\+DIRECT   $\vert$ EXTI\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+REG3 $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU $\vert$ 0x17U)
+\item 
+\#define {\bfseries EXTI\+\_\+\+MODE\+\_\+\+NONE}~0x00000000U
+\item 
+\#define {\bfseries EXTI\+\_\+\+MODE\+\_\+\+INTERRUPT}~0x00000001U
+\item 
+\#define {\bfseries EXTI\+\_\+\+MODE\+\_\+\+EVENT}~0x00000002U
+\item 
+\#define {\bfseries EXTI\+\_\+\+TRIGGER\+\_\+\+NONE}~0x00000000U
+\item 
+\#define {\bfseries EXTI\+\_\+\+TRIGGER\+\_\+\+RISING}~0x00000001U
+\item 
+\#define {\bfseries EXTI\+\_\+\+TRIGGER\+\_\+\+FALLING}~0x00000002U
+\item 
+\#define {\bfseries EXTI\+\_\+\+TRIGGER\+\_\+\+RISING\+\_\+\+FALLING}~(EXTI\+\_\+\+TRIGGER\+\_\+\+RISING $\vert$ EXTI\+\_\+\+TRIGGER\+\_\+\+FALLING)
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIOA}~0x00000000U
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIOB}~0x00000001U
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIOC}~0x00000002U
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIOD}~0x00000003U
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIOE}~0x00000004U
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIOF}~0x00000005U
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIOG}~0x00000006U
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIOH}~0x00000007U
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIOJ}~0x00000009U
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIOK}~0x0000000\+AU
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___pend_clear___source_ga6512ad64dab648b08f16bef682b25fa2}{EXTI\+\_\+\+D3\+\_\+\+PENDCLR\+\_\+\+SRC\+\_\+\+NONE}}~0x00000000U
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___pend_clear___source_ga037c1e37b50bd1c1177730d10b42618f}{EXTI\+\_\+\+D3\+\_\+\+PENDCLR\+\_\+\+SRC\+\_\+\+DMACH6}}~0x00000001U
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___pend_clear___source_ga57d95bda6b65c18b66070235d449b2eb}{EXTI\+\_\+\+D3\+\_\+\+PENDCLR\+\_\+\+SRC\+\_\+\+DMACH7}}~0x00000002U
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___pend_clear___source_ga46436667a7fd7bc61d64ea242cb98ab7}{EXTI\+\_\+\+D3\+\_\+\+PENDCLR\+\_\+\+SRC\+\_\+\+LPTIM2}}~0x00000003U
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___pend_clear___source_ga99713f52778a89dad25653c167b50dab}{EXTI\+\_\+\+D3\+\_\+\+PENDCLR\+\_\+\+SRC\+\_\+\+LPTIM3}}~0x00000004U
+\item 
+\#define {\bfseries EXTI\+\_\+\+PROPERTY\+\_\+\+SHIFT}~24U
+\begin{DoxyCompactList}\small\item\em EXTI Line property definition. \end{DoxyCompactList}\item 
+\#define {\bfseries EXTI\+\_\+\+DIRECT}~(0x01\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga508bbe670f4f32775988b55e6914b6ec}{EXTI\+\_\+\+PROPERTY\+\_\+\+SHIFT}})
+\item 
+\#define {\bfseries EXTI\+\_\+\+CONFIG}~(0x02\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga508bbe670f4f32775988b55e6914b6ec}{EXTI\+\_\+\+PROPERTY\+\_\+\+SHIFT}})
+\item 
+\#define {\bfseries EXTI\+\_\+\+GPIO}~((0x04\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga508bbe670f4f32775988b55e6914b6ec}{EXTI\+\_\+\+PROPERTY\+\_\+\+SHIFT}}) $\vert$ EXTI\+\_\+\+CONFIG)
+\item 
+\#define {\bfseries EXTI\+\_\+\+RESERVED}~(0x08\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga508bbe670f4f32775988b55e6914b6ec}{EXTI\+\_\+\+PROPERTY\+\_\+\+SHIFT}})
+\item 
+\#define {\bfseries EXTI\+\_\+\+PROPERTY\+\_\+\+MASK}~(EXTI\+\_\+\+DIRECT $\vert$ EXTI\+\_\+\+CONFIG $\vert$ EXTI\+\_\+\+GPIO)
+\item 
+\#define {\bfseries EXTI\+\_\+\+EVENT\+\_\+\+PRESENCE\+\_\+\+SHIFT}~28U
+\begin{DoxyCompactList}\small\item\em EXTI Event presence definition. \end{DoxyCompactList}\item 
+\#define {\bfseries EXTI\+\_\+\+EVENT}~(0x01\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_gaeafd5ba0336cfb4b095151c0797b347e}{EXTI\+\_\+\+EVENT\+\_\+\+PRESENCE\+\_\+\+SHIFT}})
+\item 
+\#define {\bfseries EXTI\+\_\+\+EVENT\+\_\+\+PRESENCE\+\_\+\+MASK}~(EXTI\+\_\+\+EVENT)
+\item 
+\#define {\bfseries EXTI\+\_\+\+REG\+\_\+\+SHIFT}~16U
+\begin{DoxyCompactList}\small\item\em EXTI Register and bit usage. \end{DoxyCompactList}\item 
+\#define {\bfseries EXTI\+\_\+\+REG1}~(0x00\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga187f8b65fedba7cc4a5662552dd0eb40}{EXTI\+\_\+\+REG\+\_\+\+SHIFT}})
+\item 
+\#define {\bfseries EXTI\+\_\+\+REG2}~(0x01\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga187f8b65fedba7cc4a5662552dd0eb40}{EXTI\+\_\+\+REG\+\_\+\+SHIFT}})
+\item 
+\#define {\bfseries EXTI\+\_\+\+REG3}~(0x02\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_ga187f8b65fedba7cc4a5662552dd0eb40}{EXTI\+\_\+\+REG\+\_\+\+SHIFT}})
+\item 
+\#define {\bfseries EXTI\+\_\+\+REG\+\_\+\+MASK}~(EXTI\+\_\+\+REG1 $\vert$ EXTI\+\_\+\+REG2 $\vert$ EXTI\+\_\+\+REG3)
+\item 
+\#define {\bfseries EXTI\+\_\+\+PIN\+\_\+\+MASK}~0x0000001\+FUL
+\item 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+SHIFT}~20U
+\begin{DoxyCompactList}\small\item\em EXTI Target and bit usage. \end{DoxyCompactList}\item 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+NONE}~(0x00\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_gaa824366c2fa58a4333ff25642bbd5273}{EXTI\+\_\+\+TARGET\+\_\+\+SHIFT}})
+\item 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+D3\+SRD}~(0x01\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_gaa824366c2fa58a4333ff25642bbd5273}{EXTI\+\_\+\+TARGET\+\_\+\+SHIFT}})
+\item 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+CPU1}~(0x02\+UL $<$$<$ \mbox{\hyperlink{group___e_x_t_i___private___constants_gaa824366c2fa58a4333ff25642bbd5273}{EXTI\+\_\+\+TARGET\+\_\+\+SHIFT}})
+\item 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MASK}~(EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+D3\+SRD $\vert$ EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+CPU1)
+\item 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL\+\_\+\+CPU}~EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+CPU1
+\item 
+\#define {\bfseries EXTI\+\_\+\+TARGET\+\_\+\+MSK\+\_\+\+ALL}~EXTI\+\_\+\+TARGET\+\_\+\+MASK
+\item 
+\#define {\bfseries EXTI\+\_\+\+MODE\+\_\+\+MASK}~(EXTI\+\_\+\+MODE\+\_\+\+EVENT $\vert$ EXTI\+\_\+\+MODE\+\_\+\+INTERRUPT)
+\begin{DoxyCompactList}\small\item\em EXTI Mask for interrupt \& event mode. \end{DoxyCompactList}\item 
+\#define {\bfseries EXTI\+\_\+\+TRIGGER\+\_\+\+MASK}~(EXTI\+\_\+\+TRIGGER\+\_\+\+RISING $\vert$ EXTI\+\_\+\+TRIGGER\+\_\+\+FALLING)
+\begin{DoxyCompactList}\small\item\em EXTI Mask for trigger possibilities. \end{DoxyCompactList}\item 
+\#define {\bfseries EXTI\+\_\+\+LINE\+\_\+\+NB}~88UL
+\begin{DoxyCompactList}\small\item\em EXTI Line number. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___private___macros_ga72eeb9e3c17ca0951406b4d4e0ec1b91}{IS\+\_\+\+EXTI\+\_\+\+PROPERTY}}(\+\_\+\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___private___macros_ga553255e4390a0d1e8d150be2125e331e}{IS\+\_\+\+EXTI\+\_\+\+TARGET}}(\+\_\+\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___private___macros_gad1612a68c70ca4cdd0cbd3554e359af5}{IS\+\_\+\+EXTI\+\_\+\+LINE}}(\+\_\+\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+\_\+)
+\item 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+MODE}(\+\_\+\+\_\+\+MODE\+\_\+\+\_\+)~(((\+\_\+\+\_\+\+MODE\+\_\+\+\_\+) \& $\sim$\mbox{\hyperlink{group___e_x_t_i___private___constants_ga657f081646b552ee10bdfc7af94b5cdf}{EXTI\+\_\+\+MODE\+\_\+\+MASK}}) == 0x00\+UL)
+\item 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+TRIGGER}(\+\_\+\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+\_\+)~(((\+\_\+\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+\_\+) \& $\sim$\mbox{\hyperlink{group___e_x_t_i___private___constants_ga3e14df666414849fd5a3907a96a2a892}{EXTI\+\_\+\+TRIGGER\+\_\+\+MASK}}) == 0x00\+UL)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___private___macros_ga8fc9a0110e16df06c61b51d46e50eb3f}{IS\+\_\+\+EXTI\+\_\+\+PENDING\+\_\+\+EDGE}}(\+\_\+\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+\_\+)
+\item 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+CONFIG\+\_\+\+LINE}(\+\_\+\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+\_\+)~(((\+\_\+\+\_\+\+EXTI\+\_\+\+LINE\+\_\+\+\_\+) \& EXTI\+\_\+\+CONFIG) != 0x00\+UL)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___private___macros_ga839c895e37f0e74052194d91ad68a3ae}{IS\+\_\+\+EXTI\+\_\+\+GPIO\+\_\+\+PORT}}(\+\_\+\+\_\+\+PORT\+\_\+\+\_\+)
+\item 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+GPIO\+\_\+\+PIN}(\+\_\+\+\_\+\+PIN\+\_\+\+\_\+)~((\+\_\+\+\_\+\+PIN\+\_\+\+\_\+) $<$ 16UL)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___private___macros_gaf711effc1468c3ee0bbb617e245bc5f0}{IS\+\_\+\+EXTI\+\_\+\+D3\+\_\+\+PENDCLR\+\_\+\+SRC}}(\+\_\+\+\_\+\+SRC\+\_\+\+\_\+)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___exported___types_ga0ff36e8796a6ad3f2fc211e534c54c0e}\label{group___e_x_t_i___exported___types_ga0ff36e8796a6ad3f2fc211e534c54c0e}} 
+enum {\bfseries EXTI\+\_\+\+Callback\+IDType\+Def} \{ {\bfseries HAL\+\_\+\+EXTI\+\_\+\+COMMON\+\_\+\+CB\+\_\+\+ID} = 0x00U
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+EXTI\+\_\+\+Set\+Config\+Line} (\mbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\+\_\+\+Handle\+Type\+Def}} $\ast$hexti, \mbox{\hyperlink{struct_e_x_t_i___config_type_def}{EXTI\+\_\+\+Config\+Type\+Def}} $\ast$p\+Exti\+Config)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+EXTI\+\_\+\+Get\+Config\+Line} (\mbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\+\_\+\+Handle\+Type\+Def}} $\ast$hexti, \mbox{\hyperlink{struct_e_x_t_i___config_type_def}{EXTI\+\_\+\+Config\+Type\+Def}} $\ast$p\+Exti\+Config)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+EXTI\+\_\+\+Clear\+Config\+Line} (\mbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\+\_\+\+Handle\+Type\+Def}} $\ast$hexti)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+EXTI\+\_\+\+Register\+Callback} (\mbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\+\_\+\+Handle\+Type\+Def}} $\ast$hexti, EXTI\+\_\+\+Callback\+IDType\+Def Callback\+ID, void($\ast$p\+Pending\+Cbfn)(void))
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+EXTI\+\_\+\+Get\+Handle} (\mbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\+\_\+\+Handle\+Type\+Def}} $\ast$hexti, uint32\+\_\+t Exti\+Line)
+\item 
+void {\bfseries HAL\+\_\+\+EXTI\+\_\+\+IRQHandler} (\mbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\+\_\+\+Handle\+Type\+Def}} $\ast$hexti)
+\item 
+uint32\+\_\+t {\bfseries HAL\+\_\+\+EXTI\+\_\+\+Get\+Pending} (\mbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\+\_\+\+Handle\+Type\+Def}} $\ast$hexti, uint32\+\_\+t Edge)
+\item 
+void {\bfseries HAL\+\_\+\+EXTI\+\_\+\+Clear\+Pending} (\mbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\+\_\+\+Handle\+Type\+Def}} $\ast$hexti, uint32\+\_\+t Edge)
+\item 
+void {\bfseries HAL\+\_\+\+EXTI\+\_\+\+Generate\+SWI} (\mbox{\hyperlink{struct_e_x_t_i___handle_type_def}{EXTI\+\_\+\+Handle\+Type\+Def}} $\ast$hexti)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of EXTI HAL module. 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2017 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 

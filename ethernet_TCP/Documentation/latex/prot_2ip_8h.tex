@@ -1,0 +1,36 @@
+\hypertarget{prot_2ip_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/prot/ip.h File Reference}
+\label{prot_2ip_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/ip.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/ip.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2ip_8h_aacaea7b8c4c8a5229c02b653766b4793}\label{prot_2ip_8h_aacaea7b8c4c8a5229c02b653766b4793}} 
+\#define {\bfseries IP\+\_\+\+PROTO\+\_\+\+ICMP}~1
+\item 
+\mbox{\Hypertarget{prot_2ip_8h_a4f8609139fce15ace0c6d117021e29a4}\label{prot_2ip_8h_a4f8609139fce15ace0c6d117021e29a4}} 
+\#define {\bfseries IP\+\_\+\+PROTO\+\_\+\+IGMP}~2
+\item 
+\mbox{\Hypertarget{prot_2ip_8h_a76212e7ef71a99646040d2e454388bed}\label{prot_2ip_8h_a76212e7ef71a99646040d2e454388bed}} 
+\#define {\bfseries IP\+\_\+\+PROTO\+\_\+\+UDP}~17
+\item 
+\mbox{\Hypertarget{prot_2ip_8h_a3ef2b8a1cb4f7acee3142337438dfd0d}\label{prot_2ip_8h_a3ef2b8a1cb4f7acee3142337438dfd0d}} 
+\#define {\bfseries IP\+\_\+\+PROTO\+\_\+\+UDPLITE}~136
+\item 
+\mbox{\Hypertarget{prot_2ip_8h_a634284ee3a136d6ad61bc5d917ebb82f}\label{prot_2ip_8h_a634284ee3a136d6ad61bc5d917ebb82f}} 
+\#define {\bfseries IP\+\_\+\+PROTO\+\_\+\+TCP}~6
+\item 
+\#define \mbox{\hyperlink{prot_2ip_8h_afc29766fb0707c63b64568c5fa44a374}{IP\+\_\+\+HDR\+\_\+\+GET\+\_\+\+VERSION}}(ptr)~(($\ast$(u8\+\_\+t$\ast$)(ptr)) $>$$>$ 4)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+IP protocol definitions 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{prot_2ip_8h_afc29766fb0707c63b64568c5fa44a374}\label{prot_2ip_8h_afc29766fb0707c63b64568c5fa44a374}} 
+\index{ip.h@{ip.h}!IP\_HDR\_GET\_VERSION@{IP\_HDR\_GET\_VERSION}}
+\index{IP\_HDR\_GET\_VERSION@{IP\_HDR\_GET\_VERSION}!ip.h@{ip.h}}
+\doxysubsubsection{\texorpdfstring{IP\_HDR\_GET\_VERSION}{IP\_HDR\_GET\_VERSION}}
+{\footnotesize\ttfamily \#define IP\+\_\+\+HDR\+\_\+\+GET\+\_\+\+VERSION(\begin{DoxyParamCaption}\item[{}]{ptr }\end{DoxyParamCaption})~(($\ast$(u8\+\_\+t$\ast$)(ptr)) $>$$>$ 4)}
+
+This operates on a void$\ast$ by loading the first byte 

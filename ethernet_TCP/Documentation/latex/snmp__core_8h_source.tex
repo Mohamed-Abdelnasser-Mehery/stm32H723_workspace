@@ -1,0 +1,347 @@
+\hypertarget{snmp__core_8h_source}{}\doxysection{snmp\+\_\+core.\+h}
+\label{snmp__core_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/snmp\_core.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/snmp\_core.h}}
+\mbox{\hyperlink{snmp__core_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2006 Axon Digital Design B.V., The Netherlands.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * Author: Christiaan Simons <christiaan.simons@axon.tv>}}
+\DoxyCodeLine{33 \textcolor{comment}{ *         Martin Hentschel <info@cl-\/soft.de>}}
+\DoxyCodeLine{34 \textcolor{comment}{ */}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_SNMP\_CORE\_H}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_SNMP\_CORE\_H}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{snmp__opts_8h}{lwip/apps/snmp\_opts.h}}"{}}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#if LWIP\_SNMP }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{47 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{/* basic ASN1 defines */}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define SNMP\_ASN1\_CLASS\_UNIVERSAL   0x00}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define SNMP\_ASN1\_CLASS\_APPLICATION 0x40}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define SNMP\_ASN1\_CLASS\_CONTEXT     0x80}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define SNMP\_ASN1\_CLASS\_PRIVATE     0xC0}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE   0x00}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define SNMP\_ASN1\_CONTENTTYPE\_CONSTRUCTED 0x20}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{comment}{/* universal tags (from ASN.1 spec.) */}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define SNMP\_ASN1\_UNIVERSAL\_END\_OF\_CONTENT  0}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define SNMP\_ASN1\_UNIVERSAL\_INTEGER         2}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define SNMP\_ASN1\_UNIVERSAL\_OCTET\_STRING    4}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define SNMP\_ASN1\_UNIVERSAL\_NULL            5}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define SNMP\_ASN1\_UNIVERSAL\_OBJECT\_ID       6}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define SNMP\_ASN1\_UNIVERSAL\_SEQUENCE\_OF    16}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{comment}{/* application specific (SNMP) tags (from SNMPv2-\/SMI) */}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define SNMP\_ASN1\_APPLICATION\_IPADDR    0  }\textcolor{comment}{/* [APPLICATION 0] IMPLICIT OCTET STRING (SIZE (4)) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define SNMP\_ASN1\_APPLICATION\_COUNTER   1  }\textcolor{comment}{/* [APPLICATION 1] IMPLICIT INTEGER (0..4294967295) => u32\_t */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define SNMP\_ASN1\_APPLICATION\_GAUGE     2  }\textcolor{comment}{/* [APPLICATION 2] IMPLICIT INTEGER (0..4294967295) => u32\_t */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define SNMP\_ASN1\_APPLICATION\_TIMETICKS 3  }\textcolor{comment}{/* [APPLICATION 3] IMPLICIT INTEGER (0..4294967295) => u32\_t */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define SNMP\_ASN1\_APPLICATION\_OPAQUE    4  }\textcolor{comment}{/* [APPLICATION 4] IMPLICIT OCTET STRING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define SNMP\_ASN1\_APPLICATION\_COUNTER64 6  }\textcolor{comment}{/* [APPLICATION 6] IMPLICIT INTEGER (0..18446744073709551615) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{comment}{/* context specific (SNMP) tags (from RFC 1905) */}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define SNMP\_ASN1\_CONTEXT\_VARBIND\_NO\_SUCH\_INSTANCE 1}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{comment}{/* full ASN1 type defines */}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_END\_OF\_CONTENT (SNMP\_ASN1\_CLASS\_UNIVERSAL | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_UNIVERSAL\_END\_OF\_CONTENT)}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_INTEGER        (SNMP\_ASN1\_CLASS\_UNIVERSAL | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_UNIVERSAL\_INTEGER)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_OCTET\_STRING   (SNMP\_ASN1\_CLASS\_UNIVERSAL | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_UNIVERSAL\_OCTET\_STRING)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_NULL           (SNMP\_ASN1\_CLASS\_UNIVERSAL | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_UNIVERSAL\_NULL)}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_OBJECT\_ID      (SNMP\_ASN1\_CLASS\_UNIVERSAL | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_UNIVERSAL\_OBJECT\_ID)}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_SEQUENCE       (SNMP\_ASN1\_CLASS\_UNIVERSAL | SNMP\_ASN1\_CONTENTTYPE\_CONSTRUCTED | SNMP\_ASN1\_UNIVERSAL\_SEQUENCE\_OF)}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_IPADDR         (SNMP\_ASN1\_CLASS\_APPLICATION | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_APPLICATION\_IPADDR)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_IPADDRESS      SNMP\_ASN1\_TYPE\_IPADDR}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_COUNTER        (SNMP\_ASN1\_CLASS\_APPLICATION | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_APPLICATION\_COUNTER)}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_COUNTER32      SNMP\_ASN1\_TYPE\_COUNTER}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_GAUGE          (SNMP\_ASN1\_CLASS\_APPLICATION | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_APPLICATION\_GAUGE)}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_GAUGE32        SNMP\_ASN1\_TYPE\_GAUGE}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_UNSIGNED32     SNMP\_ASN1\_TYPE\_GAUGE}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_TIMETICKS      (SNMP\_ASN1\_CLASS\_APPLICATION | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_APPLICATION\_TIMETICKS)}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_OPAQUE         (SNMP\_ASN1\_CLASS\_APPLICATION | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_APPLICATION\_OPAQUE)}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#if LWIP\_HAVE\_INT64}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define SNMP\_ASN1\_TYPE\_COUNTER64      (SNMP\_ASN1\_CLASS\_APPLICATION | SNMP\_ASN1\_CONTENTTYPE\_PRIMITIVE | SNMP\_ASN1\_APPLICATION\_COUNTER64)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define SNMP\_VARBIND\_EXCEPTION\_OFFSET 0xF0}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define SNMP\_VARBIND\_EXCEPTION\_MASK   0x0F}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{102 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{103   SNMP\_ERR\_NOERROR             = 0,}
+\DoxyCodeLine{104 \textcolor{comment}{/* }}
+\DoxyCodeLine{105 \textcolor{comment}{outdated v1 error codes. do not use anmore!}}
+\DoxyCodeLine{106 \textcolor{comment}{\#define SNMP\_ERR\_NOSUCHNAME 2  use SNMP\_ERR\_NOSUCHINSTANCE instead}}
+\DoxyCodeLine{107 \textcolor{comment}{\#define SNMP\_ERR\_BADVALUE   3  use SNMP\_ERR\_WRONGTYPE,SNMP\_ERR\_WRONGLENGTH,SNMP\_ERR\_WRONGENCODING or SNMP\_ERR\_WRONGVALUE instead}}
+\DoxyCodeLine{108 \textcolor{comment}{\#define SNMP\_ERR\_READONLY   4  use SNMP\_ERR\_NOTWRITABLE instead}}
+\DoxyCodeLine{109 \textcolor{comment}{*/}}
+\DoxyCodeLine{110   SNMP\_ERR\_GENERROR            = 5,}
+\DoxyCodeLine{111   SNMP\_ERR\_NOACCESS            = 6,}
+\DoxyCodeLine{112   SNMP\_ERR\_WRONGTYPE           = 7,}
+\DoxyCodeLine{113   SNMP\_ERR\_WRONGLENGTH         = 8,}
+\DoxyCodeLine{114   SNMP\_ERR\_WRONGENCODING       = 9,}
+\DoxyCodeLine{115   SNMP\_ERR\_WRONGVALUE          = 10,}
+\DoxyCodeLine{116   SNMP\_ERR\_NOCREATION          = 11,}
+\DoxyCodeLine{117   SNMP\_ERR\_INCONSISTENTVALUE   = 12,}
+\DoxyCodeLine{118   SNMP\_ERR\_RESOURCEUNAVAILABLE = 13,}
+\DoxyCodeLine{119   SNMP\_ERR\_COMMITFAILED        = 14,}
+\DoxyCodeLine{120   SNMP\_ERR\_UNDOFAILED          = 15,}
+\DoxyCodeLine{121   SNMP\_ERR\_NOTWRITABLE         = 17,}
+\DoxyCodeLine{122   SNMP\_ERR\_INCONSISTENTNAME    = 18,}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124   SNMP\_ERR\_NOSUCHINSTANCE      = SNMP\_VARBIND\_EXCEPTION\_OFFSET + SNMP\_ASN1\_CONTEXT\_VARBIND\_NO\_SUCH\_INSTANCE}
+\DoxyCodeLine{125 \} snmp\_err\_t;}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{128 \textcolor{keyword}{struct }snmp\_obj\_id}
+\DoxyCodeLine{129 \{}
+\DoxyCodeLine{130   u8\_t len;}
+\DoxyCodeLine{131   u32\_t \textcolor{keywordtype}{id}[\mbox{\hyperlink{group__snmp__opts_ga3ad9d293f90e3c885c4e3263a9064a41}{SNMP\_MAX\_OBJ\_ID\_LEN}}];}
+\DoxyCodeLine{132 \};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{keyword}{struct }snmp\_obj\_id\_const\_ref}
+\DoxyCodeLine{135 \{}
+\DoxyCodeLine{136   u8\_t len;}
+\DoxyCodeLine{137   \textcolor{keyword}{const} u32\_t* id;}
+\DoxyCodeLine{138 \};}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }snmp\_obj\_id\_const\_ref snmp\_zero\_dot\_zero; \textcolor{comment}{/* administrative identifier from SNMPv2-\/SMI */}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{143 \textcolor{keyword}{union }snmp\_variant\_value}
+\DoxyCodeLine{144 \{}
+\DoxyCodeLine{145   \textcolor{keywordtype}{void}* ptr;}
+\DoxyCodeLine{146   \textcolor{keyword}{const} \textcolor{keywordtype}{void}* const\_ptr;}
+\DoxyCodeLine{147   u32\_t u32;}
+\DoxyCodeLine{148   s32\_t s32;}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#if LWIP\_HAVE\_INT64}}
+\DoxyCodeLine{150   u64\_t u64;}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{152 \};}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 }
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#define SNMP\_NODE\_TREE         0x00}}
+\DoxyCodeLine{162 \textcolor{comment}{/* predefined leaf node types */}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define SNMP\_NODE\_SCALAR       0x01}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define SNMP\_NODE\_SCALAR\_ARRAY 0x02}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define SNMP\_NODE\_TABLE        0x03}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#define SNMP\_NODE\_THREADSYNC   0x04}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{169 \textcolor{keyword}{struct }snmp\_node}
+\DoxyCodeLine{170 \{}
+\DoxyCodeLine{172   u8\_t node\_type;}
+\DoxyCodeLine{174   u32\_t oid;}
+\DoxyCodeLine{175 \};}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{178 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{179   SNMP\_NODE\_INSTANCE\_ACCESS\_READ    = 1,}
+\DoxyCodeLine{180   SNMP\_NODE\_INSTANCE\_ACCESS\_WRITE   = 2,}
+\DoxyCodeLine{181   SNMP\_NODE\_INSTANCE\_READ\_ONLY      = SNMP\_NODE\_INSTANCE\_ACCESS\_READ,}
+\DoxyCodeLine{182   SNMP\_NODE\_INSTANCE\_READ\_WRITE     = (SNMP\_NODE\_INSTANCE\_ACCESS\_READ | SNMP\_NODE\_INSTANCE\_ACCESS\_WRITE),}
+\DoxyCodeLine{183   SNMP\_NODE\_INSTANCE\_WRITE\_ONLY     = SNMP\_NODE\_INSTANCE\_ACCESS\_WRITE,}
+\DoxyCodeLine{184   SNMP\_NODE\_INSTANCE\_NOT\_ACCESSIBLE = 0}
+\DoxyCodeLine{185 \} snmp\_access\_t;}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{keyword}{struct }snmp\_node\_instance;}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189 \textcolor{keyword}{typedef} s16\_t (*node\_instance\_get\_value\_method)(\textcolor{keyword}{struct }snmp\_node\_instance*, \textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{190 \textcolor{keyword}{typedef} snmp\_err\_t (*node\_instance\_set\_test\_method)(\textcolor{keyword}{struct }snmp\_node\_instance*, u16\_t, \textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{191 \textcolor{keyword}{typedef} snmp\_err\_t (*node\_instance\_set\_value\_method)(\textcolor{keyword}{struct }snmp\_node\_instance*, u16\_t, \textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{192 \textcolor{keyword}{typedef} void (*node\_instance\_release\_method)(\textcolor{keyword}{struct }snmp\_node\_instance*);}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#define SNMP\_GET\_VALUE\_RAW\_DATA 0x4000  }\textcolor{comment}{/* do not use 0x8000 because return value of node\_instance\_get\_value\_method is signed16 and 0x8000 would be the signed bit */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{197 \textcolor{keyword}{struct }snmp\_node\_instance}
+\DoxyCodeLine{198 \{}
+\DoxyCodeLine{200   \textcolor{keyword}{const} \textcolor{keyword}{struct }snmp\_node* node;}
+\DoxyCodeLine{202   \textcolor{keyword}{struct }snmp\_obj\_id instance\_oid;}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{205   u8\_t asn1\_type;}
+\DoxyCodeLine{207   snmp\_access\_t access;}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{210   node\_instance\_get\_value\_method get\_value;}
+\DoxyCodeLine{212   node\_instance\_set\_test\_method set\_test;}
+\DoxyCodeLine{214   node\_instance\_set\_value\_method set\_value;}
+\DoxyCodeLine{216   node\_instance\_release\_method release\_instance;}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{219   \textcolor{keyword}{union }snmp\_variant\_value reference;}
+\DoxyCodeLine{221   u32\_t reference\_len;}
+\DoxyCodeLine{222 \};}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 }
+\DoxyCodeLine{226 \textcolor{keyword}{struct }snmp\_tree\_node}
+\DoxyCodeLine{227 \{}
+\DoxyCodeLine{229   \textcolor{keyword}{struct }snmp\_node node;}
+\DoxyCodeLine{230   u16\_t subnode\_count;}
+\DoxyCodeLine{231   \textcolor{keyword}{const} \textcolor{keyword}{struct }snmp\_node* \textcolor{keyword}{const} *subnodes;}
+\DoxyCodeLine{232 \};}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234 \textcolor{preprocessor}{\#define SNMP\_CREATE\_TREE\_NODE(oid, subnodes) \(\backslash\)}}
+\DoxyCodeLine{235 \textcolor{preprocessor}{  \{\{ SNMP\_NODE\_TREE, (oid) \}, \(\backslash\)}}
+\DoxyCodeLine{236 \textcolor{preprocessor}{  (u16\_t)LWIP\_ARRAYSIZE(subnodes), (subnodes) \}}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#define SNMP\_CREATE\_EMPTY\_TREE\_NODE(oid) \(\backslash\)}}
+\DoxyCodeLine{239 \textcolor{preprocessor}{  \{\{ SNMP\_NODE\_TREE, (oid) \}, \(\backslash\)}}
+\DoxyCodeLine{240 \textcolor{preprocessor}{  0, NULL \}}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{243 \textcolor{keyword}{struct }snmp\_leaf\_node}
+\DoxyCodeLine{244 \{}
+\DoxyCodeLine{246   \textcolor{keyword}{struct }snmp\_node node;}
+\DoxyCodeLine{247   snmp\_err\_t (*get\_instance)(\textcolor{keyword}{const} u32\_t *root\_oid, u8\_t root\_oid\_len, \textcolor{keyword}{struct }snmp\_node\_instance* instance);}
+\DoxyCodeLine{248   snmp\_err\_t (*get\_next\_instance)(\textcolor{keyword}{const} u32\_t *root\_oid, u8\_t root\_oid\_len, \textcolor{keyword}{struct }snmp\_node\_instance* instance);}
+\DoxyCodeLine{249 \};}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{252 \textcolor{keyword}{struct }snmp\_mib}
+\DoxyCodeLine{253 \{}
+\DoxyCodeLine{254   \textcolor{keyword}{const} u32\_t *base\_oid;}
+\DoxyCodeLine{255   u8\_t base\_oid\_len;}
+\DoxyCodeLine{256   \textcolor{keyword}{const} \textcolor{keyword}{struct }snmp\_node *root\_node;}
+\DoxyCodeLine{257 \};}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#define SNMP\_MIB\_CREATE(oid\_list, root\_node) \{ (oid\_list), (u8\_t)LWIP\_ARRAYSIZE(oid\_list), root\_node \}}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{262 \textcolor{keyword}{struct }snmp\_oid\_range}
+\DoxyCodeLine{263 \{}
+\DoxyCodeLine{264   u32\_t min;}
+\DoxyCodeLine{265   u32\_t max;}
+\DoxyCodeLine{266 \};}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{269 u8\_t snmp\_oid\_in\_range(\textcolor{keyword}{const} u32\_t *oid\_in, u8\_t oid\_len, \textcolor{keyword}{const} \textcolor{keyword}{struct} snmp\_oid\_range *oid\_ranges, u8\_t oid\_ranges\_len);}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{272   SNMP\_NEXT\_OID\_STATUS\_SUCCESS,}
+\DoxyCodeLine{273   SNMP\_NEXT\_OID\_STATUS\_NO\_MATCH,}
+\DoxyCodeLine{274   SNMP\_NEXT\_OID\_STATUS\_BUF\_TO\_SMALL}
+\DoxyCodeLine{275 \} snmp\_next\_oid\_status\_t;}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{278 \textcolor{keyword}{struct }snmp\_next\_oid\_state}
+\DoxyCodeLine{279 \{}
+\DoxyCodeLine{280   \textcolor{keyword}{const} u32\_t* start\_oid;}
+\DoxyCodeLine{281   u8\_t start\_oid\_len;}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283   u32\_t* next\_oid;}
+\DoxyCodeLine{284   u8\_t next\_oid\_len;}
+\DoxyCodeLine{285   u8\_t next\_oid\_max\_len;}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287   snmp\_next\_oid\_status\_t status;}
+\DoxyCodeLine{288   \textcolor{keywordtype}{void}* reference;}
+\DoxyCodeLine{289 \};}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291 \textcolor{keywordtype}{void} snmp\_next\_oid\_init(\textcolor{keyword}{struct} snmp\_next\_oid\_state *state,}
+\DoxyCodeLine{292   \textcolor{keyword}{const} u32\_t *start\_oid, u8\_t start\_oid\_len,}
+\DoxyCodeLine{293   u32\_t *next\_oid\_buf, u8\_t next\_oid\_max\_len);}
+\DoxyCodeLine{294 u8\_t snmp\_next\_oid\_precheck(\textcolor{keyword}{struct} snmp\_next\_oid\_state *state, \textcolor{keyword}{const} u32\_t *oid, u8\_t oid\_len);}
+\DoxyCodeLine{295 u8\_t snmp\_next\_oid\_check(\textcolor{keyword}{struct} snmp\_next\_oid\_state *state, \textcolor{keyword}{const} u32\_t *oid, u8\_t oid\_len, \textcolor{keywordtype}{void}* reference);}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 \textcolor{keywordtype}{void} snmp\_oid\_assign(\textcolor{keyword}{struct} snmp\_obj\_id* target, \textcolor{keyword}{const} u32\_t *oid, u8\_t oid\_len);}
+\DoxyCodeLine{298 \textcolor{keywordtype}{void} snmp\_oid\_combine(\textcolor{keyword}{struct} snmp\_obj\_id* target, \textcolor{keyword}{const} u32\_t *oid1, u8\_t oid1\_len, \textcolor{keyword}{const} u32\_t *oid2, u8\_t oid2\_len);}
+\DoxyCodeLine{299 \textcolor{keywordtype}{void} snmp\_oid\_prefix(\textcolor{keyword}{struct} snmp\_obj\_id* target, \textcolor{keyword}{const} u32\_t *oid, u8\_t oid\_len);}
+\DoxyCodeLine{300 \textcolor{keywordtype}{void} snmp\_oid\_append(\textcolor{keyword}{struct} snmp\_obj\_id* target, \textcolor{keyword}{const} u32\_t *oid, u8\_t oid\_len);}
+\DoxyCodeLine{301 u8\_t snmp\_oid\_equal(\textcolor{keyword}{const} u32\_t *oid1, u8\_t oid1\_len, \textcolor{keyword}{const} u32\_t *oid2, u8\_t oid2\_len);}
+\DoxyCodeLine{302 s8\_t snmp\_oid\_compare(\textcolor{keyword}{const} u32\_t *oid1, u8\_t oid1\_len, \textcolor{keyword}{const} u32\_t *oid2, u8\_t oid2\_len);}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{305 u8\_t snmp\_oid\_to\_ip4(\textcolor{keyword}{const} u32\_t *oid, ip4\_addr\_t *ip);}
+\DoxyCodeLine{306 \textcolor{keywordtype}{void} snmp\_ip4\_to\_oid(\textcolor{keyword}{const} ip4\_addr\_t *ip, u32\_t *oid);}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{309 u8\_t snmp\_oid\_to\_ip6(\textcolor{keyword}{const} u32\_t *oid, ip6\_addr\_t *ip);}
+\DoxyCodeLine{310 \textcolor{keywordtype}{void} snmp\_ip6\_to\_oid(\textcolor{keyword}{const} ip6\_addr\_t *ip, u32\_t *oid);}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{\#if LWIP\_IPV4 || LWIP\_IPV6}}
+\DoxyCodeLine{313 u8\_t snmp\_ip\_to\_oid(\textcolor{keyword}{const} ip\_addr\_t *ip, u32\_t *oid);}
+\DoxyCodeLine{314 u8\_t snmp\_ip\_port\_to\_oid(\textcolor{keyword}{const} ip\_addr\_t *ip, u16\_t port, u32\_t *oid);}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316 u8\_t snmp\_oid\_to\_ip(\textcolor{keyword}{const} u32\_t *oid, u8\_t oid\_len, ip\_addr\_t *ip);}
+\DoxyCodeLine{317 u8\_t snmp\_oid\_to\_ip\_port(\textcolor{keyword}{const} u32\_t *oid, u8\_t oid\_len, ip\_addr\_t *ip, u16\_t *port);}
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 || LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}};}
+\DoxyCodeLine{321 u8\_t netif\_to\_num(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323 snmp\_err\_t snmp\_set\_test\_ok(\textcolor{keyword}{struct} snmp\_node\_instance* instance, u16\_t value\_len, \textcolor{keywordtype}{void}* value); \textcolor{comment}{/* generic function which can be used if test is always successful */}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} snmp\_decode\_bits(\textcolor{keyword}{const} u8\_t *buf, u32\_t buf\_len, u32\_t *bit\_value);}
+\DoxyCodeLine{326 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} snmp\_decode\_truthvalue(\textcolor{keyword}{const} s32\_t *asn1\_value, u8\_t *bool\_value);}
+\DoxyCodeLine{327 u8\_t  snmp\_encode\_bits(u8\_t *buf, u32\_t buf\_len, u32\_t bit\_value, u8\_t bit\_count);}
+\DoxyCodeLine{328 u8\_t  snmp\_encode\_truthvalue(s32\_t *asn1\_value, u32\_t bool\_value);}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 \textcolor{keyword}{struct }snmp\_statistics}
+\DoxyCodeLine{331 \{}
+\DoxyCodeLine{332   u32\_t inpkts;}
+\DoxyCodeLine{333   u32\_t outpkts;}
+\DoxyCodeLine{334   u32\_t inbadversions;}
+\DoxyCodeLine{335   u32\_t inbadcommunitynames;}
+\DoxyCodeLine{336   u32\_t inbadcommunityuses;}
+\DoxyCodeLine{337   u32\_t inasnparseerrs;}
+\DoxyCodeLine{338   u32\_t intoobigs;}
+\DoxyCodeLine{339   u32\_t innosuchnames;}
+\DoxyCodeLine{340   u32\_t inbadvalues;}
+\DoxyCodeLine{341   u32\_t inreadonlys;}
+\DoxyCodeLine{342   u32\_t ingenerrs;}
+\DoxyCodeLine{343   u32\_t intotalreqvars;}
+\DoxyCodeLine{344   u32\_t intotalsetvars;}
+\DoxyCodeLine{345   u32\_t ingetrequests;}
+\DoxyCodeLine{346   u32\_t ingetnexts;}
+\DoxyCodeLine{347   u32\_t insetrequests;}
+\DoxyCodeLine{348   u32\_t ingetresponses;}
+\DoxyCodeLine{349   u32\_t intraps;}
+\DoxyCodeLine{350   u32\_t outtoobigs;}
+\DoxyCodeLine{351   u32\_t outnosuchnames;}
+\DoxyCodeLine{352   u32\_t outbadvalues;}
+\DoxyCodeLine{353   u32\_t outgenerrs;}
+\DoxyCodeLine{354   u32\_t outgetrequests;}
+\DoxyCodeLine{355   u32\_t outgetnexts;}
+\DoxyCodeLine{356   u32\_t outsetrequests;}
+\DoxyCodeLine{357   u32\_t outgetresponses;}
+\DoxyCodeLine{358   u32\_t outtraps;}
+\DoxyCodeLine{359 \textcolor{preprocessor}{\#if LWIP\_SNMP\_V3}}
+\DoxyCodeLine{360   u32\_t unsupportedseclevels;}
+\DoxyCodeLine{361   u32\_t notintimewindows;}
+\DoxyCodeLine{362   u32\_t unknownusernames;}
+\DoxyCodeLine{363   u32\_t unknownengineids;}
+\DoxyCodeLine{364   u32\_t wrongdigests;}
+\DoxyCodeLine{365   u32\_t decryptionerrors;}
+\DoxyCodeLine{366 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{367 \};}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369 \textcolor{keyword}{extern} \textcolor{keyword}{struct }snmp\_statistics snmp\_stats;}
+\DoxyCodeLine{370 }
+\DoxyCodeLine{371 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{372 \}}
+\DoxyCodeLine{373 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SNMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{376 }
+\DoxyCodeLine{377 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_SNMP\_CORE\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

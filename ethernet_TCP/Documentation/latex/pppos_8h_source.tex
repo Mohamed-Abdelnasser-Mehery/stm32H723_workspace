@@ -1,0 +1,127 @@
+\hypertarget{pppos_8h_source}{}\doxysection{pppos.\+h}
+\label{pppos_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/pppos.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/pppos.h}}
+\mbox{\hyperlink{pppos_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{comment}{/*}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{9 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{12 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{18 \textcolor{comment}{ *}}
+\DoxyCodeLine{19 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{20 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{21 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{22 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{23 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{25 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{26 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{27 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{28 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{29 \textcolor{comment}{ *}}
+\DoxyCodeLine{30 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ */}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& PPPOS\_SUPPORT }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef PPPOS\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define PPPOS\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{sys_8h}{lwip/sys.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}ppp.h"{}}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}vj.h"{}}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{46 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{comment}{/* PPP packet parser states.  Current state indicates operation yet to be}}
+\DoxyCodeLine{50 \textcolor{comment}{ * completed. */}}
+\DoxyCodeLine{51 \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{52   PDIDLE = 0,  \textcolor{comment}{/* Idle state -\/ waiting. */}}
+\DoxyCodeLine{53   PDSTART,     \textcolor{comment}{/* Process start flag. */}}
+\DoxyCodeLine{54   PDADDRESS,   \textcolor{comment}{/* Process address field. */}}
+\DoxyCodeLine{55   PDCONTROL,   \textcolor{comment}{/* Process control field. */}}
+\DoxyCodeLine{56   PDPROTOCOL1, \textcolor{comment}{/* Process protocol field 1. */}}
+\DoxyCodeLine{57   PDPROTOCOL2, \textcolor{comment}{/* Process protocol field 2. */}}
+\DoxyCodeLine{58   PDDATA       \textcolor{comment}{/* Process data byte. */}}
+\DoxyCodeLine{59 \};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{comment}{/* PPPoS serial output callback function prototype */}}
+\DoxyCodeLine{62 \textcolor{keyword}{typedef} u32\_t (*pppos\_output\_cb\_fn)(ppp\_pcb *pcb, u8\_t *data, u32\_t len, \textcolor{keywordtype}{void} *ctx);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{comment}{/*}}
+\DoxyCodeLine{65 \textcolor{comment}{ * Extended asyncmap -\/ allows any character to be escaped.}}
+\DoxyCodeLine{66 \textcolor{comment}{ */}}
+\DoxyCodeLine{67 \textcolor{keyword}{typedef} u8\_t ext\_accm[32];}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{comment}{/*}}
+\DoxyCodeLine{70 \textcolor{comment}{ * PPPoS interface control block.}}
+\DoxyCodeLine{71 \textcolor{comment}{ */}}
+\DoxyCodeLine{72 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }pppos\_pcb\_s pppos\_pcb;}
+\DoxyCodeLine{73 \textcolor{keyword}{struct }pppos\_pcb\_s \{}
+\DoxyCodeLine{74   \textcolor{comment}{/* -\/-\/ below are data that will NOT be cleared between two sessions */}}
+\DoxyCodeLine{75   ppp\_pcb *ppp;                    \textcolor{comment}{/* PPP PCB */}}
+\DoxyCodeLine{76   pppos\_output\_cb\_fn output\_cb;    \textcolor{comment}{/* PPP serial output callback */}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78   \textcolor{comment}{/* -\/-\/ below are data that will be cleared between two sessions}}
+\DoxyCodeLine{79 \textcolor{comment}{   *}}
+\DoxyCodeLine{80 \textcolor{comment}{   * last\_xmit must be the first member of cleared members, because it is}}
+\DoxyCodeLine{81 \textcolor{comment}{   * used to know which part must not be cleared.}}
+\DoxyCodeLine{82 \textcolor{comment}{   */}}
+\DoxyCodeLine{83   u32\_t last\_xmit;                 \textcolor{comment}{/* Time of last transmission. */}}
+\DoxyCodeLine{84   ext\_accm out\_accm;               \textcolor{comment}{/* Async-\/Ctl-\/Char-\/Map for output. */}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86   \textcolor{comment}{/* flags */}}
+\DoxyCodeLine{87   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} open            :1; \textcolor{comment}{/* Set if PPPoS is open */}}
+\DoxyCodeLine{88   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} pcomp           :1; \textcolor{comment}{/* Does peer accept protocol compression? */}}
+\DoxyCodeLine{89   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} accomp          :1; \textcolor{comment}{/* Does peer accept addr/ctl compression? */}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91   \textcolor{comment}{/* PPPoS rx */}}
+\DoxyCodeLine{92   ext\_accm in\_accm;                \textcolor{comment}{/* Async-\/Ctl-\/Char-\/Map for input. */}}
+\DoxyCodeLine{93   \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *in\_head, *in\_tail;  \textcolor{comment}{/* The input packet. */}}
+\DoxyCodeLine{94   u16\_t in\_protocol;               \textcolor{comment}{/* The input protocol code. */}}
+\DoxyCodeLine{95   u16\_t in\_fcs;                    \textcolor{comment}{/* Input Frame Check Sequence value. */}}
+\DoxyCodeLine{96   u8\_t in\_state;                   \textcolor{comment}{/* The input process state. */}}
+\DoxyCodeLine{97   u8\_t in\_escaped;                 \textcolor{comment}{/* Escape next character. */}}
+\DoxyCodeLine{98 \};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{comment}{/* Create a new PPPoS session. */}}
+\DoxyCodeLine{101 ppp\_pcb *pppos\_create(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *pppif, pppos\_output\_cb\_fn output\_cb,}
+\DoxyCodeLine{102        ppp\_link\_status\_cb\_fn link\_status\_cb, \textcolor{keywordtype}{void} *ctx\_cb);}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#if !NO\_SYS \&\& !PPP\_INPROC\_IRQ\_SAFE}}
+\DoxyCodeLine{105 \textcolor{comment}{/* Pass received raw characters to PPPoS to be decoded through lwIP TCPIP thread. */}}
+\DoxyCodeLine{106 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} pppos\_input\_tcpip(ppp\_pcb *ppp, u8\_t *s, \textcolor{keywordtype}{int} l);}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !NO\_SYS \&\& !PPP\_INPROC\_IRQ\_SAFE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{comment}{/* PPP over Serial: this is the input function to be called for received data. */}}
+\DoxyCodeLine{110 \textcolor{keywordtype}{void} pppos\_input(ppp\_pcb *ppp, u8\_t* data, \textcolor{keywordtype}{int} \mbox{\hyperlink{structpbuf_a8ce64dec181e5de8d865dee387e25f76}{len}});}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{comment}{/*}}
+\DoxyCodeLine{114 \textcolor{comment}{ * Functions called from lwIP}}
+\DoxyCodeLine{115 \textcolor{comment}{ * DO NOT CALL FROM lwIP USER APPLICATION.}}
+\DoxyCodeLine{116 \textcolor{comment}{ */}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#if !NO\_SYS \&\& !PPP\_INPROC\_IRQ\_SAFE}}
+\DoxyCodeLine{118 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} pppos\_input\_sys(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *inp);}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !NO\_SYS \&\& !PPP\_INPROC\_IRQ\_SAFE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{122 \}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPPOS\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& PPPOL2TP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

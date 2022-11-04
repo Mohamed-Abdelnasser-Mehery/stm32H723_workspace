@@ -1,0 +1,210 @@
+\hypertarget{pppol2tp_8h_source}{}\doxysection{pppol2tp.\+h}
+\label{pppol2tp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/pppol2tp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/pppol2tp.h}}
+\mbox{\hyperlink{pppol2tp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{comment}{/*}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{9 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{12 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{18 \textcolor{comment}{ *}}
+\DoxyCodeLine{19 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{20 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{21 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{22 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{23 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{25 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{26 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{27 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{28 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{29 \textcolor{comment}{ *}}
+\DoxyCodeLine{30 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ */}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& PPPOL2TP\_SUPPORT }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef PPPOL2TP\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define PPPOL2TP\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}ppp.h"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{43 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{comment}{/* Timeout */}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define PPPOL2TP\_CONTROL\_TIMEOUT         (5*1000)  }\textcolor{comment}{/* base for quick timeout calculation */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define PPPOL2TP\_SLOW\_RETRY              (60*1000) }\textcolor{comment}{/* persistent retry interval */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define PPPOL2TP\_MAXSCCRQ                4         }\textcolor{comment}{/* retry SCCRQ four times (quickly) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define PPPOL2TP\_MAXICRQ                 4         }\textcolor{comment}{/* retry IRCQ four times */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define PPPOL2TP\_MAXICCN                 4         }\textcolor{comment}{/* retry ICCN four times */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{comment}{/* L2TP header flags */}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define PPPOL2TP\_HEADERFLAG\_CONTROL      0x8000}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define PPPOL2TP\_HEADERFLAG\_LENGTH       0x4000}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define PPPOL2TP\_HEADERFLAG\_SEQUENCE     0x0800}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define PPPOL2TP\_HEADERFLAG\_OFFSET       0x0200}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define PPPOL2TP\_HEADERFLAG\_PRIORITY     0x0100}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define PPPOL2TP\_HEADERFLAG\_VERSION      0x0002}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{comment}{/* Mandatory bits for control: Control, Length, Sequence, Version 2 */}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define PPPOL2TP\_HEADERFLAG\_CONTROL\_MANDATORY     (PPPOL2TP\_HEADERFLAG\_CONTROL|PPPOL2TP\_HEADERFLAG\_LENGTH|PPPOL2TP\_HEADERFLAG\_SEQUENCE|PPPOL2TP\_HEADERFLAG\_VERSION)}}
+\DoxyCodeLine{64 \textcolor{comment}{/* Forbidden bits for control: Offset, Priority */}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define PPPOL2TP\_HEADERFLAG\_CONTROL\_FORBIDDEN     (PPPOL2TP\_HEADERFLAG\_OFFSET|PPPOL2TP\_HEADERFLAG\_PRIORITY)}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{comment}{/* Mandatory bits for data: Version 2 */}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define PPPOL2TP\_HEADERFLAG\_DATA\_MANDATORY        (PPPOL2TP\_HEADERFLAG\_VERSION)}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{comment}{/* AVP (Attribute Value Pair) header */}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPHEADERFLAG\_MANDATORY  0x8000}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPHEADERFLAG\_HIDDEN     0x4000}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPHEADERFLAG\_LENGTHMASK 0x03ff}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{comment}{/* -\/-\/ AVP -\/ Message type */}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_MESSAGE      0 }\textcolor{comment}{/* Message type */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{comment}{/* Control Connection Management */}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_SCCRQ    1 }\textcolor{comment}{/* Start Control Connection Request */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_SCCRP    2 }\textcolor{comment}{/* Start Control Connection Reply */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_SCCCN    3 }\textcolor{comment}{/* Start Control Connection Connected */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_STOPCCN  4 }\textcolor{comment}{/* Stop Control Connection Notification */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_HELLO    6 }\textcolor{comment}{/* Hello */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{84 \textcolor{comment}{/* Call Management */}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_OCRQ     7 }\textcolor{comment}{/* Outgoing Call Request */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_OCRP     8 }\textcolor{comment}{/* Outgoing Call Reply */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_OCCN     9 }\textcolor{comment}{/* Outgoing Call Connected */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_ICRQ    10 }\textcolor{comment}{/* Incoming Call Request */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_ICRP    11 }\textcolor{comment}{/* Incoming Call Reply */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_ICCN    12 }\textcolor{comment}{/* Incoming Call Connected */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_CDN     14 }\textcolor{comment}{/* Call Disconnect Notify */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{92 \textcolor{comment}{/* Error reporting */}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_WEN     15 }\textcolor{comment}{/* WAN Error Notify */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{94 \textcolor{comment}{/* PPP Session Control */}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define PPPOL2TP\_MESSAGETYPE\_SLI     16 }\textcolor{comment}{/* Set Link Info */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{comment}{/* -\/-\/ AVP -\/ Result code */}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_RESULTCODE   1 }\textcolor{comment}{/* Result code */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define PPPOL2TP\_RESULTCODE           1 }\textcolor{comment}{/* General request to clear control connection */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{comment}{/* -\/-\/ AVP -\/ Protocol version (!= L2TP Header version) */}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_VERSION      2}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define PPPOL2TP\_VERSION         0x0100 }\textcolor{comment}{/* L2TP Protocol version 1, revision 0 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{comment}{/* -\/-\/ AVP -\/ Framing capabilities */}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_FRAMINGCAPABILITIES           3 }\textcolor{comment}{/* Bearer capabilities */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define PPPOL2TP\_FRAMINGCAPABILITIES          0x00000003 }\textcolor{comment}{/* Async + Sync framing */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{comment}{/* -\/-\/ AVP -\/ Bearer capabilities */}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_BEARERCAPABILITIES           4 }\textcolor{comment}{/* Bearer capabilities */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define PPPOL2TP\_BEARERCAPABILITIES          0x00000003 }\textcolor{comment}{/* Analog + Digital Access */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{comment}{/* -\/-\/ AVP -\/ Tie breaker */}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_TIEBREAKER   5}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{comment}{/* -\/-\/ AVP -\/ Host name */}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_HOSTNAME     7 }\textcolor{comment}{/* Host name */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define PPPOL2TP\_HOSTNAME        "{}lwIP"{}} \textcolor{comment}{/* FIXME: make it configurable */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 \textcolor{comment}{/* -\/-\/ AVP -\/ Vendor name */}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_VENDORNAME   8 }\textcolor{comment}{/* Vendor name */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define PPPOL2TP\_VENDORNAME      "{}lwIP"{}} \textcolor{comment}{/* FIXME: make it configurable */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{comment}{/* -\/-\/ AVP -\/ Assign tunnel ID */}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_TUNNELID     9 }\textcolor{comment}{/* Assign Tunnel ID */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{comment}{/* -\/-\/ AVP -\/ Receive window size */}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_RECEIVEWINDOWSIZE  10 }\textcolor{comment}{/* Receive window size */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define PPPOL2TP\_RECEIVEWINDOWSIZE           8 }\textcolor{comment}{/* FIXME: make it configurable */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{comment}{/* -\/-\/ AVP -\/ Challenge */}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_CHALLENGE   11 }\textcolor{comment}{/* Challenge */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{comment}{/* -\/-\/ AVP -\/ Cause code */}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_CAUSECODE   12 }\textcolor{comment}{/* Cause code*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{comment}{/* -\/-\/ AVP -\/ Challenge response */}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_CHALLENGERESPONSE   13 }\textcolor{comment}{/* Challenge response */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_CHALLENGERESPONSE\_SIZE  16}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{comment}{/* -\/-\/ AVP -\/ Assign session ID */}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_SESSIONID   14 }\textcolor{comment}{/* Assign Session ID */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{comment}{/* -\/-\/ AVP -\/ Call serial number */}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_CALLSERIALNUMBER   15 }\textcolor{comment}{/* Call Serial Number */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{comment}{/* -\/-\/ AVP -\/ Framing type */}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_FRAMINGTYPE         19 }\textcolor{comment}{/* Framing Type */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#define PPPOL2TP\_FRAMINGTYPE         0x00000001 }\textcolor{comment}{/* Sync framing */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{comment}{/* -\/-\/ AVP -\/ TX Connect Speed */}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#define PPPOL2TP\_AVPTYPE\_TXCONNECTSPEED      24 }\textcolor{comment}{/* TX Connect Speed */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define PPPOL2TP\_TXCONNECTSPEED       100000000 }\textcolor{comment}{/* Connect speed: 100 Mbits/s */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{comment}{/* L2TP Session state */}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define PPPOL2TP\_STATE\_INITIAL     0}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define PPPOL2TP\_STATE\_SCCRQ\_SENT  1}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define PPPOL2TP\_STATE\_ICRQ\_SENT   2}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define PPPOL2TP\_STATE\_ICCN\_SENT   3}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define PPPOL2TP\_STATE\_DATA        4}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define PPPOL2TP\_OUTPUT\_DATA\_HEADER\_LEN   6 }\textcolor{comment}{/* Our data header len */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{comment}{/*}}
+\DoxyCodeLine{165 \textcolor{comment}{ * PPPoL2TP interface control block.}}
+\DoxyCodeLine{166 \textcolor{comment}{ */}}
+\DoxyCodeLine{167 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }pppol2tp\_pcb\_s pppol2tp\_pcb;}
+\DoxyCodeLine{168 \textcolor{keyword}{struct }pppol2tp\_pcb\_s \{}
+\DoxyCodeLine{169   ppp\_pcb *ppp;                \textcolor{comment}{/* PPP PCB */}}
+\DoxyCodeLine{170   u8\_t phase;                  \textcolor{comment}{/* L2TP phase */}}
+\DoxyCodeLine{171   \textcolor{keyword}{struct }udp\_pcb *udp;         \textcolor{comment}{/* UDP L2TP Socket */}}
+\DoxyCodeLine{172   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}};         \textcolor{comment}{/* Output interface, used as a default route */}}
+\DoxyCodeLine{173   ip\_addr\_t remote\_ip;         \textcolor{comment}{/* LNS IP Address */}}
+\DoxyCodeLine{174   u16\_t remote\_port;           \textcolor{comment}{/* LNS port */}}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#if PPPOL2TP\_AUTH\_SUPPORT}}
+\DoxyCodeLine{176   \textcolor{keyword}{const} u8\_t *secret;          \textcolor{comment}{/* Secret string */}}
+\DoxyCodeLine{177   u8\_t secret\_len;             \textcolor{comment}{/* Secret string length */}}
+\DoxyCodeLine{178   u8\_t secret\_rv[16];          \textcolor{comment}{/* Random vector */}}
+\DoxyCodeLine{179   u8\_t challenge\_hash[16];     \textcolor{comment}{/* Challenge response */}}
+\DoxyCodeLine{180   u8\_t send\_challenge;         \textcolor{comment}{/* Boolean whether the next sent packet should contains a challenge response */}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPPOL2TP\_AUTH\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183   u16\_t tunnel\_port;           \textcolor{comment}{/* Tunnel port */}}
+\DoxyCodeLine{184   u16\_t our\_ns;                \textcolor{comment}{/* NS to peer */}}
+\DoxyCodeLine{185   u16\_t peer\_nr;               \textcolor{comment}{/* NR from peer */}}
+\DoxyCodeLine{186   u16\_t peer\_ns;               \textcolor{comment}{/* Expected NS from peer */}}
+\DoxyCodeLine{187   u16\_t source\_tunnel\_id;      \textcolor{comment}{/* Tunnel ID assigned by peer */}}
+\DoxyCodeLine{188   u16\_t remote\_tunnel\_id;      \textcolor{comment}{/* Tunnel ID assigned to peer */}}
+\DoxyCodeLine{189   u16\_t source\_session\_id;     \textcolor{comment}{/* Session ID assigned by peer */}}
+\DoxyCodeLine{190   u16\_t remote\_session\_id;     \textcolor{comment}{/* Session ID assigned to peer */}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192   u8\_t sccrq\_retried;          \textcolor{comment}{/* number of SCCRQ retries already done */}}
+\DoxyCodeLine{193   u8\_t icrq\_retried;           \textcolor{comment}{/* number of ICRQ retries already done */}}
+\DoxyCodeLine{194   u8\_t iccn\_retried;           \textcolor{comment}{/* number of ICCN retries already done */}}
+\DoxyCodeLine{195 \};}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 \textcolor{comment}{/* Create a new L2TP session. */}}
+\DoxyCodeLine{199 ppp\_pcb *pppol2tp\_create(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *pppif,}
+\DoxyCodeLine{200        \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip\_addr\_t *ipaddr, u16\_t port,}
+\DoxyCodeLine{201        \textcolor{keyword}{const} u8\_t *secret, u8\_t secret\_len,}
+\DoxyCodeLine{202        ppp\_link\_status\_cb\_fn link\_status\_cb, \textcolor{keywordtype}{void} *ctx\_cb);}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{205 \}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPPOL2TP\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& PPPOL2TP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

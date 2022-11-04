@@ -1,0 +1,20 @@
+\hypertarget{group__dhcp6}{}\doxysection{DHCPv6}
+\label{group__dhcp6}\index{DHCPv6@{DHCPv6}}
+DHCPv6 client\+: IPv6 address autoconfiguration as per RFC 3315 (stateful DHCPv6) and RFC 3736 (stateless DHCPv6).
+
+For now, only stateless DHCPv6 is implemented!
+
+TODO\+:
+\begin{DoxyItemize}
+\item enable/disable API to not always start when RA is received
+\item stateful DHCPv6 (for now, only stateless DHCPv6 for DNS and NTP servers works)
+\item create Client Identifier?
+\item only start requests if a valid local address is available on the netif
+\item only start information requests if required (not for every RA)
+\end{DoxyItemize}
+
+dhcp6\+\_\+enable\+\_\+stateful() enables stateful DHCPv6 for a netif (stateless disabled)~\newline
+dhcp6\+\_\+enable\+\_\+stateless() enables stateless DHCPv6 for a netif (stateful disabled)~\newline
+dhcp6\+\_\+disable() disable DHCPv6 for a netif
+
+When enabled, requests are only issued after receipt of RA with the corresponding bits set. 

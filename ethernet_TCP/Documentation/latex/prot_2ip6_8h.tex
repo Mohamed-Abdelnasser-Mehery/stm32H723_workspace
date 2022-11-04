@@ -1,0 +1,187 @@
+\hypertarget{prot_2ip6_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/prot/ip6.h File Reference}
+\label{prot_2ip6_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/ip6.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/ip6.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip6\+\_\+addr.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structip6__addr__packed}{ip6\+\_\+addr\+\_\+packed}}
+\item 
+struct \mbox{\hyperlink{structip6__hdr}{ip6\+\_\+hdr}}
+\item 
+struct \mbox{\hyperlink{structip6__opt__hdr}{ip6\+\_\+opt\+\_\+hdr}}
+\item 
+struct \mbox{\hyperlink{structip6__hbh__hdr}{ip6\+\_\+hbh\+\_\+hdr}}
+\item 
+struct \mbox{\hyperlink{structip6__dest__hdr}{ip6\+\_\+dest\+\_\+hdr}}
+\item 
+struct \mbox{\hyperlink{structip6__rout__hdr}{ip6\+\_\+rout\+\_\+hdr}}
+\item 
+struct \mbox{\hyperlink{structip6__frag__hdr}{ip6\+\_\+frag\+\_\+hdr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_afb4c1dc527be76d8f27591dfb726c023}\label{prot_2ip6_8h_afb4c1dc527be76d8f27591dfb726c023}} 
+\#define {\bfseries IP6\+\_\+\+HLEN}~40
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a27db49d05c2230c085c04e766267ed38}\label{prot_2ip6_8h_a27db49d05c2230c085c04e766267ed38}} 
+\#define {\bfseries IP6\+\_\+\+NEXTH\+\_\+\+HOPBYHOP}~0
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a748b24c4f1ae5bbeecaa34e066cb3f8c}\label{prot_2ip6_8h_a748b24c4f1ae5bbeecaa34e066cb3f8c}} 
+\#define {\bfseries IP6\+\_\+\+NEXTH\+\_\+\+TCP}~6
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a0159bb5b3af8ea1e203d543c0f3c17c2}\label{prot_2ip6_8h_a0159bb5b3af8ea1e203d543c0f3c17c2}} 
+\#define {\bfseries IP6\+\_\+\+NEXTH\+\_\+\+UDP}~17
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a203e1cfca6330ec95bcdbe2418587f65}\label{prot_2ip6_8h_a203e1cfca6330ec95bcdbe2418587f65}} 
+\#define {\bfseries IP6\+\_\+\+NEXTH\+\_\+\+ENCAPS}~41
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a4d9e6542b73b17c81b56808e1ffd5b27}\label{prot_2ip6_8h_a4d9e6542b73b17c81b56808e1ffd5b27}} 
+\#define {\bfseries IP6\+\_\+\+NEXTH\+\_\+\+ROUTING}~43
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a1a72bdc1494ea84cbf16424e9aedcd79}\label{prot_2ip6_8h_a1a72bdc1494ea84cbf16424e9aedcd79}} 
+\#define {\bfseries IP6\+\_\+\+NEXTH\+\_\+\+FRAGMENT}~44
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_ab277ee09b6e7200fc1cfe28482b886a6}\label{prot_2ip6_8h_ab277ee09b6e7200fc1cfe28482b886a6}} 
+\#define {\bfseries IP6\+\_\+\+NEXTH\+\_\+\+ICMP6}~58
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a654fbd4bb77707859b16f6935f2ba4c7}\label{prot_2ip6_8h_a654fbd4bb77707859b16f6935f2ba4c7}} 
+\#define {\bfseries IP6\+\_\+\+NEXTH\+\_\+\+NONE}~59
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_af01cb063f723d79e1c34a8e95a93a2c0}\label{prot_2ip6_8h_af01cb063f723d79e1c34a8e95a93a2c0}} 
+\#define {\bfseries IP6\+\_\+\+NEXTH\+\_\+\+DESTOPTS}~60
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a6e4afde135c71a3b194b68add3d9138c}\label{prot_2ip6_8h_a6e4afde135c71a3b194b68add3d9138c}} 
+\#define {\bfseries IP6\+\_\+\+NEXTH\+\_\+\+UDPLITE}~136
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a90f24cf50dee93e0729a1fc1d05374e3}\label{prot_2ip6_8h_a90f24cf50dee93e0729a1fc1d05374e3}} 
+\#define {\bfseries IP6\+H\+\_\+V}(hdr)~((lwip\+\_\+ntohl((hdr)-\/$>$\+\_\+v\+\_\+tc\+\_\+fl) $>$$>$ 28) \& 0x0f)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a09221519353bd18683c39a37905af968}\label{prot_2ip6_8h_a09221519353bd18683c39a37905af968}} 
+\#define {\bfseries IP6\+H\+\_\+\+TC}(hdr)~((lwip\+\_\+ntohl((hdr)-\/$>$\+\_\+v\+\_\+tc\+\_\+fl) $>$$>$ 20) \& 0xff)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_aca05b52650fd3d7d7806b7aaf3fe4aaf}\label{prot_2ip6_8h_aca05b52650fd3d7d7806b7aaf3fe4aaf}} 
+\#define {\bfseries IP6\+H\+\_\+\+FL}(hdr)~(lwip\+\_\+ntohl((hdr)-\/$>$\+\_\+v\+\_\+tc\+\_\+fl) \& 0x000fffff)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_ac672706ee00b07f263dad7dcf116d351}\label{prot_2ip6_8h_ac672706ee00b07f263dad7dcf116d351}} 
+\#define {\bfseries IP6\+H\+\_\+\+PLEN}(hdr)~(lwip\+\_\+ntohs((hdr)-\/$>$\+\_\+plen))
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a11009a147aa680a6a486ded85382aff1}\label{prot_2ip6_8h_a11009a147aa680a6a486ded85382aff1}} 
+\#define {\bfseries IP6\+H\+\_\+\+NEXTH}(hdr)~((hdr)-\/$>$\+\_\+nexth)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_adc6c59e0bfc927c6770d7b01323a87d5}\label{prot_2ip6_8h_adc6c59e0bfc927c6770d7b01323a87d5}} 
+\#define {\bfseries IP6\+H\+\_\+\+NEXTH\+\_\+P}(hdr)~((u8\+\_\+t $\ast$)(hdr) + 6)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a4f8209d53443b50770e57426d027de28}\label{prot_2ip6_8h_a4f8209d53443b50770e57426d027de28}} 
+\#define {\bfseries IP6\+H\+\_\+\+HOPLIM}(hdr)~((hdr)-\/$>$\+\_\+hoplim)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a932e7c887bb04691075a8c36c61736e4}\label{prot_2ip6_8h_a932e7c887bb04691075a8c36c61736e4}} 
+\#define {\bfseries IP6\+H\+\_\+\+VTCFL\+\_\+\+SET}(hdr,  v,  tc,  fl)~(hdr)-\/$>$\+\_\+v\+\_\+tc\+\_\+fl = (lwip\+\_\+htonl((((u32\+\_\+t)(v)) $<$$<$ 28) $\vert$ (((u32\+\_\+t)(tc)) $<$$<$ 20) $\vert$ (fl)))
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a2d727ccfecc56fb1e35ea4f7249f399b}\label{prot_2ip6_8h_a2d727ccfecc56fb1e35ea4f7249f399b}} 
+\#define {\bfseries IP6\+H\+\_\+\+PLEN\+\_\+\+SET}(hdr,  plen)~(hdr)-\/$>$\+\_\+plen = lwip\+\_\+htons(plen)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a85d62e6278b0bed9e3b88df777be612c}\label{prot_2ip6_8h_a85d62e6278b0bed9e3b88df777be612c}} 
+\#define {\bfseries IP6\+H\+\_\+\+NEXTH\+\_\+\+SET}(hdr,  nexth)~(hdr)-\/$>$\+\_\+nexth = (nexth)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_aaa72852834526961a3fb2cbc07fe602d}\label{prot_2ip6_8h_aaa72852834526961a3fb2cbc07fe602d}} 
+\#define {\bfseries IP6\+H\+\_\+\+HOPLIM\+\_\+\+SET}(hdr,  hl)~(hdr)-\/$>$\+\_\+hoplim = (u8\+\_\+t)(hl)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a792e3f1465395652f1df6dd41cfa089a}\label{prot_2ip6_8h_a792e3f1465395652f1df6dd41cfa089a}} 
+\#define {\bfseries IP6\+\_\+\+PAD1\+\_\+\+OPTION}~0
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a355e86d35b58d9a7c75241adbd6716a9}\label{prot_2ip6_8h_a355e86d35b58d9a7c75241adbd6716a9}} 
+\#define {\bfseries IP6\+\_\+\+PADN\+\_\+\+OPTION}~1
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a02ac672111b898fe0ab527329b05ce57}\label{prot_2ip6_8h_a02ac672111b898fe0ab527329b05ce57}} 
+\#define {\bfseries IP6\+\_\+\+ROUTER\+\_\+\+ALERT\+\_\+\+OPTION}~5
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a550792d9be8e9e670248dc0982c2e267}\label{prot_2ip6_8h_a550792d9be8e9e670248dc0982c2e267}} 
+\#define {\bfseries IP6\+\_\+\+JUMBO\+\_\+\+OPTION}~194
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a09d6a96b6582c8ebbb394b0245e69ef4}\label{prot_2ip6_8h_a09d6a96b6582c8ebbb394b0245e69ef4}} 
+\#define {\bfseries IP6\+\_\+\+HOME\+\_\+\+ADDRESS\+\_\+\+OPTION}~201
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a1a076124fc12b7963388c74f9ba05611}\label{prot_2ip6_8h_a1a076124fc12b7963388c74f9ba05611}} 
+\#define {\bfseries IP6\+\_\+\+ROUTER\+\_\+\+ALERT\+\_\+\+DLEN}~2
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_afb8daf0c5217efe957cd809074ca5f0b}\label{prot_2ip6_8h_afb8daf0c5217efe957cd809074ca5f0b}} 
+\#define {\bfseries IP6\+\_\+\+ROUTER\+\_\+\+ALERT\+\_\+\+VALUE\+\_\+\+MLD}~0
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a1edfa644e99b6c84a87aed515d6a7ca4}\label{prot_2ip6_8h_a1edfa644e99b6c84a87aed515d6a7ca4}} 
+\#define {\bfseries IP6\+\_\+\+OPT\+\_\+\+HLEN}~2
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a764fec48743846f0a42e42de94d65fce}\label{prot_2ip6_8h_a764fec48743846f0a42e42de94d65fce}} 
+\#define {\bfseries IP6\+\_\+\+OPT\+\_\+\+TYPE\+\_\+\+ACTION}(hdr)~((((hdr)-\/$>$\+\_\+opt\+\_\+type) $>$$>$ 6) \& 0x3)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a55e0dcb20cbae355e6709a82fa49c135}\label{prot_2ip6_8h_a55e0dcb20cbae355e6709a82fa49c135}} 
+\#define {\bfseries IP6\+\_\+\+OPT\+\_\+\+TYPE\+\_\+\+CHANGE}(hdr)~((((hdr)-\/$>$\+\_\+opt\+\_\+type) $>$$>$ 5) \& 0x1)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a5ff2d14ecb0ed6d1e30e04292871fee6}\label{prot_2ip6_8h_a5ff2d14ecb0ed6d1e30e04292871fee6}} 
+\#define {\bfseries IP6\+\_\+\+OPT\+\_\+\+TYPE}(hdr)~((hdr)-\/$>$\+\_\+opt\+\_\+type)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_ab0961d44df747d21b210bb43b44d5878}\label{prot_2ip6_8h_ab0961d44df747d21b210bb43b44d5878}} 
+\#define {\bfseries IP6\+\_\+\+OPT\+\_\+\+DLEN}(hdr)~((hdr)-\/$>$\+\_\+opt\+\_\+dlen)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a3c07dfc39f03801b78ea2b5e882feaa5}\label{prot_2ip6_8h_a3c07dfc39f03801b78ea2b5e882feaa5}} 
+\#define {\bfseries IP6\+\_\+\+HBH\+\_\+\+HLEN}~2
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a0e2851e68c8f6b527ab2d665d9879817}\label{prot_2ip6_8h_a0e2851e68c8f6b527ab2d665d9879817}} 
+\#define {\bfseries IP6\+\_\+\+HBH\+\_\+\+NEXTH}(hdr)~((hdr)-\/$>$\+\_\+nexth)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a74314ba0b02532df2b937badffb9f862}\label{prot_2ip6_8h_a74314ba0b02532df2b937badffb9f862}} 
+\#define {\bfseries IP6\+\_\+\+DEST\+\_\+\+HLEN}~2
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a0c6fdb8e52959117afa0ac72025245e3}\label{prot_2ip6_8h_a0c6fdb8e52959117afa0ac72025245e3}} 
+\#define {\bfseries IP6\+\_\+\+DEST\+\_\+\+NEXTH}(hdr)~((hdr)-\/$>$\+\_\+nexth)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a0f1ab894913c6bce30054a2bbfda660b}\label{prot_2ip6_8h_a0f1ab894913c6bce30054a2bbfda660b}} 
+\#define {\bfseries IP6\+\_\+\+ROUT\+\_\+\+TYPE2}~2
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a78fc2444a3640607761da8db19e419be}\label{prot_2ip6_8h_a78fc2444a3640607761da8db19e419be}} 
+\#define {\bfseries IP6\+\_\+\+ROUT\+\_\+\+RPL}~3
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a778fb50cf5564fdeb5e2ad4ad89a127f}\label{prot_2ip6_8h_a778fb50cf5564fdeb5e2ad4ad89a127f}} 
+\#define {\bfseries IP6\+\_\+\+ROUT\+\_\+\+NEXTH}(hdr)~((hdr)-\/$>$\+\_\+nexth)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_acc524435a944adec5c028fb8346b894a}\label{prot_2ip6_8h_acc524435a944adec5c028fb8346b894a}} 
+\#define {\bfseries IP6\+\_\+\+ROUT\+\_\+\+TYPE}(hdr)~((hdr)-\/$>$\+\_\+routing\+\_\+type)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a471d6308a62ce4c3973ae0955b5cf68d}\label{prot_2ip6_8h_a471d6308a62ce4c3973ae0955b5cf68d}} 
+\#define {\bfseries IP6\+\_\+\+ROUT\+\_\+\+SEG\+\_\+\+LEFT}(hdr)~((hdr)-\/$>$\+\_\+segments\+\_\+left)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_aacda00cc76d9e7f9f3197de3b27089ea}\label{prot_2ip6_8h_aacda00cc76d9e7f9f3197de3b27089ea}} 
+\#define {\bfseries IP6\+\_\+\+FRAG\+\_\+\+HLEN}~8
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a4ada75ee94d08af1a0d2656e6d14d7d9}\label{prot_2ip6_8h_a4ada75ee94d08af1a0d2656e6d14d7d9}} 
+\#define {\bfseries IP6\+\_\+\+FRAG\+\_\+\+OFFSET\+\_\+\+MASK}~0xfff8
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a4e60dc945c0061d3d4dc4a84132a506b}\label{prot_2ip6_8h_a4e60dc945c0061d3d4dc4a84132a506b}} 
+\#define {\bfseries IP6\+\_\+\+FRAG\+\_\+\+MORE\+\_\+\+FLAG}~0x0001
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_aa1e675ab500c34a7cac03b2b155f5f8d}\label{prot_2ip6_8h_aa1e675ab500c34a7cac03b2b155f5f8d}} 
+\#define {\bfseries IP6\+\_\+\+FRAG\+\_\+\+NEXTH}(hdr)~((hdr)-\/$>$\+\_\+nexth)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a17dcce9ad6fd5c70b7e61d083221fb92}\label{prot_2ip6_8h_a17dcce9ad6fd5c70b7e61d083221fb92}} 
+\#define {\bfseries IP6\+\_\+\+FRAG\+\_\+\+MBIT}(hdr)~(lwip\+\_\+ntohs((hdr)-\/$>$\+\_\+fragment\+\_\+offset) \& 0x1)
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a3834b98699f8e24c467639368c29d59c}\label{prot_2ip6_8h_a3834b98699f8e24c467639368c29d59c}} 
+\#define {\bfseries IP6\+\_\+\+FRAG\+\_\+\+ID}(hdr)~(lwip\+\_\+ntohl((hdr)-\/$>$\+\_\+identification))
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_a560932a657f17ec5a0a3a78a1ce7e60a}\label{prot_2ip6_8h_a560932a657f17ec5a0a3a78a1ce7e60a}} 
+typedef typedef\+PACK\+\_\+\+STRUCT\+\_\+\+END struct \mbox{\hyperlink{structip6__addr__packed}{ip6\+\_\+addr\+\_\+packed}} {\bfseries ip6\+\_\+addr\+\_\+p\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2ip6_8h_addb5927a9bf4526a9d9da1a477f3fb9b}\label{prot_2ip6_8h_addb5927a9bf4526a9d9da1a477f3fb9b}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\+\_\+\+STRUCT\+\_\+\+BEGIN}} struct \mbox{\hyperlink{structip6__addr__packed}{ip6\+\_\+addr\+\_\+packed}} {\bfseries PACK\+\_\+\+STRUCT\+\_\+\+STRUCT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+IPv6 protocol definitions 

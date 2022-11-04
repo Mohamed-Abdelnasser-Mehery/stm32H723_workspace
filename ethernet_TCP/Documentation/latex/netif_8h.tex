@@ -1,0 +1,377 @@
+\hypertarget{netif_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/netif.h File Reference}
+\label{netif_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/netif.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/netif.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip\+\_\+addr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/def.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/pbuf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/stats.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}}
+\item 
+union \mbox{\hyperlink{unionnetif__ext__callback__args__t}{netif\+\_\+ext\+\_\+callback\+\_\+args\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1link__changed__s}{netif\+\_\+ext\+\_\+callback\+\_\+args\+\_\+t\+::link\+\_\+changed\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1status__changed__s}{netif\+\_\+ext\+\_\+callback\+\_\+args\+\_\+t\+::status\+\_\+changed\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv4__changed__s}{netif\+\_\+ext\+\_\+callback\+\_\+args\+\_\+t\+::ipv4\+\_\+changed\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv6__set__s}{netif\+\_\+ext\+\_\+callback\+\_\+args\+\_\+t\+::ipv6\+\_\+set\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv6__addr__state__changed__s}{netif\+\_\+ext\+\_\+callback\+\_\+args\+\_\+t\+::ipv6\+\_\+addr\+\_\+state\+\_\+changed\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{netif_8h_a53a4d9ad0bbe679841b5ff3f6906076c}\label{netif_8h_a53a4d9ad0bbe679841b5ff3f6906076c}} 
+\#define {\bfseries ENABLE\+\_\+\+LOOPBACK}~(\mbox{\hyperlink{group__lwip__opts__loop_ga724a0ea765d5a47d026d529725f31c01}{LWIP\+\_\+\+NETIF\+\_\+\+LOOPBACK}} $\vert$$\vert$ \mbox{\hyperlink{group__lwip__opts__loop_gaa2b1f736373cd896e212644aa453fbaf}{LWIP\+\_\+\+HAVE\+\_\+\+LOOPIF}})
+\item 
+\#define \mbox{\hyperlink{netif_8h_ab887a8ec553de1be1d04cf2961c63c41}{NETIF\+\_\+\+MAX\+\_\+\+HWADDR\+\_\+\+LEN}}~6U
+\item 
+\#define \mbox{\hyperlink{netif_8h_a302f24fbfe883ee4840ffc71f267ae2a}{NETIF\+\_\+\+NAMESIZE}}~6
+\item 
+\#define \mbox{\hyperlink{group__netif__flags_gab47d7d130693dc155f480a5bf447725e}{NETIF\+\_\+\+FLAG\+\_\+\+UP}}~0x01U
+\item 
+\#define \mbox{\hyperlink{group__netif__flags_gaef64fe15c82bc7b235366923e517104e}{NETIF\+\_\+\+FLAG\+\_\+\+BROADCAST}}~0x02U
+\item 
+\#define \mbox{\hyperlink{group__netif__flags_ga75f5a2b9276c93e3bd18a568459fd2d8}{NETIF\+\_\+\+FLAG\+\_\+\+LINK\+\_\+\+UP}}~0x04U
+\item 
+\#define \mbox{\hyperlink{group__netif__flags_ga92448dc510bc8d700c09e5c971ef0676}{NETIF\+\_\+\+FLAG\+\_\+\+ETHARP}}~0x08U
+\item 
+\#define \mbox{\hyperlink{group__netif__flags_ga76ad9d0cf9f029df0ab2a998c64040dc}{NETIF\+\_\+\+FLAG\+\_\+\+ETHERNET}}~0x10U
+\item 
+\#define \mbox{\hyperlink{group__netif__flags_gac9493b923d733c73f6006d9714826558}{NETIF\+\_\+\+FLAG\+\_\+\+IGMP}}~0x20U
+\item 
+\#define \mbox{\hyperlink{group__netif__flags_gab14fbe1447d2fdbdf5abc87f51eb6508}{NETIF\+\_\+\+FLAG\+\_\+\+MLD6}}~0x40U
+\item 
+\mbox{\Hypertarget{netif_8h_a2cd57019ab4be33240e98b2604ef6e24}\label{netif_8h_a2cd57019ab4be33240e98b2604ef6e24}} 
+\#define {\bfseries NETIF\+\_\+\+ADDR\+\_\+\+IDX\+\_\+\+MAX}~0x7F
+\item 
+\mbox{\Hypertarget{netif_8h_ae1dfda7e25d08a07507b859dea9b73bf}\label{netif_8h_ae1dfda7e25d08a07507b859dea9b73bf}} 
+\#define {\bfseries LWIP\+\_\+\+NETIF\+\_\+\+USE\+\_\+\+HINTS}~0
+\item 
+\mbox{\Hypertarget{netif_8h_ac0aca2a2d3c7d7095939d818acf4dbd2}\label{netif_8h_ac0aca2a2d3c7d7095939d818acf4dbd2}} 
+\#define {\bfseries NETIF\+\_\+\+SET\+\_\+\+CHECKSUM\+\_\+\+CTRL}(\mbox{\hyperlink{structnetif}{netif}},  chksumflags)
+\item 
+\mbox{\Hypertarget{netif_8h_ad968df1b35c2fae368e087966e3bc677}\label{netif_8h_ad968df1b35c2fae368e087966e3bc677}} 
+\#define {\bfseries IF\+\_\+\+\_\+\+NETIF\+\_\+\+CHECKSUM\+\_\+\+ENABLED}(\mbox{\hyperlink{structnetif}{netif}},  chksumflag)
+\item 
+\mbox{\Hypertarget{netif_8h_a90abf9f882ac77e12f1c35f01e81b910}\label{netif_8h_a90abf9f882ac77e12f1c35f01e81b910}} 
+\#define {\bfseries NETIF\+\_\+\+FOREACH}(\mbox{\hyperlink{structnetif}{netif}})~for ((\mbox{\hyperlink{structnetif}{netif}}) = \mbox{\hyperlink{netif_8c_a1c8141eaa98f6dc6dfddbb23a706656c}{netif\+\_\+list}}; (\mbox{\hyperlink{structnetif}{netif}}) != NULL; (\mbox{\hyperlink{structnetif}{netif}}) = (\mbox{\hyperlink{structnetif}{netif}})-\/$>$next)
+\item 
+\mbox{\Hypertarget{netif_8h_a418c504b96d92bc76fabc1209c4b0cf5}\label{netif_8h_a418c504b96d92bc76fabc1209c4b0cf5}} 
+\#define {\bfseries netif\+\_\+set\+\_\+flags}(\mbox{\hyperlink{structnetif}{netif}},  set\+\_\+flags)~do \{ (\mbox{\hyperlink{structnetif}{netif}})-\/$>$flags = (u8\+\_\+t)((\mbox{\hyperlink{structnetif}{netif}})-\/$>$flags $\vert$  (set\+\_\+flags)); \} while(0)
+\item 
+\mbox{\Hypertarget{netif_8h_ad27859f6ccc8cfca1b8a3fee403e9e57}\label{netif_8h_ad27859f6ccc8cfca1b8a3fee403e9e57}} 
+\#define {\bfseries netif\+\_\+clear\+\_\+flags}(\mbox{\hyperlink{structnetif}{netif}},  clr\+\_\+flags)~do \{ (\mbox{\hyperlink{structnetif}{netif}})-\/$>$flags = (u8\+\_\+t)((\mbox{\hyperlink{structnetif}{netif}})-\/$>$flags \& (u8\+\_\+t)($\sim$(clr\+\_\+flags) \& 0xff)); \} while(0)
+\item 
+\mbox{\Hypertarget{netif_8h_ac125ce3a1646612c3cd7479007f225a9}\label{netif_8h_ac125ce3a1646612c3cd7479007f225a9}} 
+\#define {\bfseries netif\+\_\+is\+\_\+flag\+\_\+set}(nefif,  flag)~(((\mbox{\hyperlink{structnetif}{netif}})-\/$>$flags \& (flag)) != 0)
+\item 
+\#define \mbox{\hyperlink{group__netif_ga94a4c24c988afc0a577387730f303b19}{netif\+\_\+is\+\_\+up}}(\mbox{\hyperlink{structnetif}{netif}})~(((\mbox{\hyperlink{structnetif}{netif}})-\/$>$flags \& \mbox{\hyperlink{group__netif__flags_gab47d7d130693dc155f480a5bf447725e}{NETIF\+\_\+\+FLAG\+\_\+\+UP}}) ? (u8\+\_\+t)1 \+: (u8\+\_\+t)0)
+\item 
+\#define \mbox{\hyperlink{netif_8h_a780be4c3fa9f7f2534f7865666c3a1b8}{netif\+\_\+is\+\_\+link\+\_\+up}}(\mbox{\hyperlink{structnetif}{netif}})~(((\mbox{\hyperlink{structnetif}{netif}})-\/$>$flags \& \mbox{\hyperlink{group__netif__flags_ga75f5a2b9276c93e3bd18a568459fd2d8}{NETIF\+\_\+\+FLAG\+\_\+\+LINK\+\_\+\+UP}}) ? (u8\+\_\+t)1 \+: (u8\+\_\+t)0)
+\item 
+\mbox{\Hypertarget{netif_8h_ae1533d6ae34e75f855e3a0dd5f3b806a}\label{netif_8h_ae1533d6ae34e75f855e3a0dd5f3b806a}} 
+\#define {\bfseries NETIF\+\_\+\+SET\+\_\+\+HINTS}(\mbox{\hyperlink{structnetif}{netif}},  netifhint)
+\item 
+\mbox{\Hypertarget{netif_8h_a94bf864d707d0ebdcd9a85246786b08c}\label{netif_8h_a94bf864d707d0ebdcd9a85246786b08c}} 
+\#define {\bfseries NETIF\+\_\+\+RESET\+\_\+\+HINTS}(\mbox{\hyperlink{structnetif}{netif}})
+\item 
+\mbox{\Hypertarget{netif_8h_acdcf7cad6198e80d93863f4842a2f962}\label{netif_8h_acdcf7cad6198e80d93863f4842a2f962}} 
+\#define {\bfseries netif\+\_\+get\+\_\+index}(\mbox{\hyperlink{structnetif}{netif}})~((u8\+\_\+t)((\mbox{\hyperlink{structnetif}{netif}})-\/$>$num + 1))
+\item 
+\mbox{\Hypertarget{netif_8h_a94e185a36327073a3d40ff5e9ec9acd9}\label{netif_8h_a94e185a36327073a3d40ff5e9ec9acd9}} 
+\#define {\bfseries NETIF\+\_\+\+NO\+\_\+\+INDEX}~(0)
+\item 
+\mbox{\Hypertarget{netif_8h_a41d7c258c2eeb299ba21c5d8ed0c67be}\label{netif_8h_a41d7c258c2eeb299ba21c5d8ed0c67be}} 
+\#define {\bfseries LWIP\+\_\+\+NSC\+\_\+\+NONE}~0x0000
+\item 
+\#define \mbox{\hyperlink{netif_8h_adbfecb47897cfe63d4f6366c1fed23b2}{LWIP\+\_\+\+NSC\+\_\+\+NETIF\+\_\+\+ADDED}}~0x0001
+\item 
+\#define \mbox{\hyperlink{netif_8h_ae8e2dc87c19a03d481ae37bcf7ced5c9}{LWIP\+\_\+\+NSC\+\_\+\+NETIF\+\_\+\+REMOVED}}~0x0002
+\item 
+\#define \mbox{\hyperlink{netif_8h_a5ad7308195c0581680dd62fb148501cd}{LWIP\+\_\+\+NSC\+\_\+\+LINK\+\_\+\+CHANGED}}~0x0004
+\item 
+\#define \mbox{\hyperlink{netif_8h_a6f406ee3ab60e8a4f27ae2483c96b8e2}{LWIP\+\_\+\+NSC\+\_\+\+STATUS\+\_\+\+CHANGED}}~0x0008
+\item 
+\#define \mbox{\hyperlink{netif_8h_aeb4e790199b02469aa04c044ef5cfa32}{LWIP\+\_\+\+NSC\+\_\+\+IPV4\+\_\+\+ADDRESS\+\_\+\+CHANGED}}~0x0010
+\item 
+\#define \mbox{\hyperlink{netif_8h_a22400d2202581b4a7273cded712adf49}{LWIP\+\_\+\+NSC\+\_\+\+IPV4\+\_\+\+GATEWAY\+\_\+\+CHANGED}}~0x0020
+\item 
+\#define \mbox{\hyperlink{netif_8h_ad747072771a887443ab33f90a12077d4}{LWIP\+\_\+\+NSC\+\_\+\+IPV4\+\_\+\+NETMASK\+\_\+\+CHANGED}}~0x0040
+\item 
+\#define \mbox{\hyperlink{netif_8h_a4ff19a6f3045f65d0397d30b6609660a}{LWIP\+\_\+\+NSC\+\_\+\+IPV4\+\_\+\+SETTINGS\+\_\+\+CHANGED}}~0x0080
+\item 
+\#define \mbox{\hyperlink{netif_8h_a8fb4317a77ee2e3848be80db15618666}{LWIP\+\_\+\+NSC\+\_\+\+IPV6\+\_\+\+SET}}~0x0100
+\item 
+\#define \mbox{\hyperlink{netif_8h_a0d70fe11cac43c8fa35827b8e607ccf6}{LWIP\+\_\+\+NSC\+\_\+\+IPV6\+\_\+\+ADDR\+\_\+\+STATE\+\_\+\+CHANGED}}~0x0200
+\item 
+\mbox{\Hypertarget{netif_8h_a5efc70b0f218c446f535d34903363aa2}\label{netif_8h_a5efc70b0f218c446f535d34903363aa2}} 
+\#define {\bfseries NETIF\+\_\+\+DECLARE\+\_\+\+EXT\+\_\+\+CALLBACK}(name)
+\item 
+\mbox{\Hypertarget{netif_8h_a7cdb234cf0a61a2f79247f6b398470ba}\label{netif_8h_a7cdb234cf0a61a2f79247f6b398470ba}} 
+\#define {\bfseries netif\+\_\+add\+\_\+ext\+\_\+callback}(callback,  fn)
+\item 
+\mbox{\Hypertarget{netif_8h_ae8cdb74300cf636a243a9558d74066dd}\label{netif_8h_ae8cdb74300cf636a243a9558d74066dd}} 
+\#define {\bfseries netif\+\_\+remove\+\_\+ext\+\_\+callback}(callback)
+\item 
+\mbox{\Hypertarget{netif_8h_a5f943e7d57a920bd6ab9ce4b8cbb637f}\label{netif_8h_a5f943e7d57a920bd6ab9ce4b8cbb637f}} 
+\#define {\bfseries netif\+\_\+invoke\+\_\+ext\+\_\+callback}(\mbox{\hyperlink{structnetif}{netif}},  reason,  args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}}($\ast$ \mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\+\_\+init\+\_\+fn}}) (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+typedef \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}}($\ast$ \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}}) (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, struct \mbox{\hyperlink{structnetif}{netif}} $\ast$inp)
+\item 
+typedef \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}}($\ast$ \mbox{\hyperlink{netif_8h_ab75e9d808bc1b788bea84213e6a111ed}{netif\+\_\+linkoutput\+\_\+fn}}) (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}}, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{netif_8h_a447d0a7e7c6e2396557c287b8b8c9436}{netif\+\_\+status\+\_\+callback\+\_\+fn}}) (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+\mbox{\Hypertarget{netif_8h_ad2fb8f1b77341ee5fb94b48c5e6793df}\label{netif_8h_ad2fb8f1b77341ee5fb94b48c5e6793df}} 
+typedef u8\+\_\+t {\bfseries netif\+\_\+addr\+\_\+idx\+\_\+t}
+\item 
+typedef u16\+\_\+t \mbox{\hyperlink{group__netif_gab2b9387389513a02027c62e246723808}{netif\+\_\+nsc\+\_\+reason\+\_\+t}}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{group__netif_ga5ee213cea065424c89c66f138c008da1}{netif\+\_\+ext\+\_\+callback\+\_\+fn}}) (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}}, \mbox{\hyperlink{group__netif_gab2b9387389513a02027c62e246723808}{netif\+\_\+nsc\+\_\+reason\+\_\+t}} reason, const \mbox{\hyperlink{unionnetif__ext__callback__args__t}{netif\+\_\+ext\+\_\+callback\+\_\+args\+\_\+t}} $\ast$args)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{netif_8h_a528ae27498af778f808a930469d98308}\label{netif_8h_a528ae27498af778f808a930469d98308}} 
+enum {\bfseries lwip\+\_\+internal\+\_\+netif\+\_\+client\+\_\+data\+\_\+index} \{ {\bfseries LWIP\+\_\+\+NETIF\+\_\+\+CLIENT\+\_\+\+DATA\+\_\+\+INDEX\+\_\+\+MAX}
+ \}
+\item 
+enum \mbox{\hyperlink{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0}{netif\+\_\+mac\+\_\+filter\+\_\+action}} \{ \mbox{\hyperlink{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0a7ad3406353906deb4e64ebeed349e07e}{NETIF\+\_\+\+DEL\+\_\+\+MAC\+\_\+\+FILTER}} = 0
+, \mbox{\hyperlink{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0a4186fbaf94be956ea1a3b02cd1cccb1f}{NETIF\+\_\+\+ADD\+\_\+\+MAC\+\_\+\+FILTER}} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{netif_8h_a0f4a53e47c840904f824a2a1c0d4ebf4}\label{netif_8h_a0f4a53e47c840904f824a2a1c0d4ebf4}} 
+void {\bfseries netif\+\_\+init} (void)
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{group__netif_gafcb3925fb117375739abf97f3a856bcd}{netif\+\_\+add\+\_\+noaddr}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}}, void $\ast$state, \mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\+\_\+init\+\_\+fn}} init, \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}} input)
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}{netif\+\_\+add}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}}, void $\ast$state, \mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\+\_\+init\+\_\+fn}} init, \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\+\_\+input\+\_\+fn}} input)
+\item 
+void \mbox{\hyperlink{group__netif_ga9c6e541f0c184e1ea61a5cd8afe3e979}{netif\+\_\+remove}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{group__netif_ga3c82d1c742338828b2f4349a75bb84de}{netif\+\_\+find}} (const char $\ast$name)
+\item 
+void \mbox{\hyperlink{group__netif_gac90f290edd005238d62aa94c4ac9dea3}{netif\+\_\+set\+\_\+default}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__netif_gaf19693be401a265a52d2a56c65753121}{netif\+\_\+set\+\_\+up}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__netif_ga641d07ed8c31fe5306bc01605a6790cf}{netif\+\_\+set\+\_\+down}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__netif_gae0d2975f189277990e9d5276fdd9e9ea}{netif\+\_\+set\+\_\+link\+\_\+up}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+void \mbox{\hyperlink{group__netif_ga34e37a1e8e358760dc1c43887922c7db}{netif\+\_\+set\+\_\+link\+\_\+down}} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{netif_8h_a5532f93d68c874fb99c681bff2165385}{netif\+\_\+input}} (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, struct \mbox{\hyperlink{structnetif}{netif}} $\ast$inp)
+\item 
+u8\+\_\+t \mbox{\hyperlink{group__netif_gac763a1f647fb9e8af4254418e813a6ae}{netif\+\_\+name\+\_\+to\+\_\+index}} (const char $\ast$name)
+\item 
+char $\ast$ \mbox{\hyperlink{group__netif_ga0e755cb6624d3365551eeed5430fa226}{netif\+\_\+index\+\_\+to\+\_\+name}} (u8\+\_\+t idx, char $\ast$name)
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{group__netif_gaa934434420c0dea7b5cfe6df67f8c77a}{netif\+\_\+get\+\_\+by\+\_\+index}} (u8\+\_\+t idx)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{netif_8h_a1c8141eaa98f6dc6dfddbb23a706656c}{netif\+\_\+list}}
+\item 
+struct \mbox{\hyperlink{structnetif}{netif}} $\ast$ \mbox{\hyperlink{netif_8h_a3d0925cbce550ed461907aee816713ba}{netif\+\_\+default}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+netif API (to be used from TCPIP thread) 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{netif_8h_aeb4e790199b02469aa04c044ef5cfa32}\label{netif_8h_aeb4e790199b02469aa04c044ef5cfa32}} 
+\index{netif.h@{netif.h}!LWIP\_NSC\_IPV4\_ADDRESS\_CHANGED@{LWIP\_NSC\_IPV4\_ADDRESS\_CHANGED}}
+\index{LWIP\_NSC\_IPV4\_ADDRESS\_CHANGED@{LWIP\_NSC\_IPV4\_ADDRESS\_CHANGED}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NSC\_IPV4\_ADDRESS\_CHANGED}{LWIP\_NSC\_IPV4\_ADDRESS\_CHANGED}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NSC\+\_\+\+IPV4\+\_\+\+ADDRESS\+\_\+\+CHANGED~0x0010}
+
+IPv4 address has changed \mbox{\Hypertarget{netif_8h_a22400d2202581b4a7273cded712adf49}\label{netif_8h_a22400d2202581b4a7273cded712adf49}} 
+\index{netif.h@{netif.h}!LWIP\_NSC\_IPV4\_GATEWAY\_CHANGED@{LWIP\_NSC\_IPV4\_GATEWAY\_CHANGED}}
+\index{LWIP\_NSC\_IPV4\_GATEWAY\_CHANGED@{LWIP\_NSC\_IPV4\_GATEWAY\_CHANGED}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NSC\_IPV4\_GATEWAY\_CHANGED}{LWIP\_NSC\_IPV4\_GATEWAY\_CHANGED}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NSC\+\_\+\+IPV4\+\_\+\+GATEWAY\+\_\+\+CHANGED~0x0020}
+
+IPv4 gateway has changed \mbox{\Hypertarget{netif_8h_ad747072771a887443ab33f90a12077d4}\label{netif_8h_ad747072771a887443ab33f90a12077d4}} 
+\index{netif.h@{netif.h}!LWIP\_NSC\_IPV4\_NETMASK\_CHANGED@{LWIP\_NSC\_IPV4\_NETMASK\_CHANGED}}
+\index{LWIP\_NSC\_IPV4\_NETMASK\_CHANGED@{LWIP\_NSC\_IPV4\_NETMASK\_CHANGED}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NSC\_IPV4\_NETMASK\_CHANGED}{LWIP\_NSC\_IPV4\_NETMASK\_CHANGED}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NSC\+\_\+\+IPV4\+\_\+\+NETMASK\+\_\+\+CHANGED~0x0040}
+
+IPv4 netmask has changed \mbox{\Hypertarget{netif_8h_a4ff19a6f3045f65d0397d30b6609660a}\label{netif_8h_a4ff19a6f3045f65d0397d30b6609660a}} 
+\index{netif.h@{netif.h}!LWIP\_NSC\_IPV4\_SETTINGS\_CHANGED@{LWIP\_NSC\_IPV4\_SETTINGS\_CHANGED}}
+\index{LWIP\_NSC\_IPV4\_SETTINGS\_CHANGED@{LWIP\_NSC\_IPV4\_SETTINGS\_CHANGED}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NSC\_IPV4\_SETTINGS\_CHANGED}{LWIP\_NSC\_IPV4\_SETTINGS\_CHANGED}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NSC\+\_\+\+IPV4\+\_\+\+SETTINGS\+\_\+\+CHANGED~0x0080}
+
+called AFTER IPv4 address/gateway/netmask changes have been applied \mbox{\Hypertarget{netif_8h_a0d70fe11cac43c8fa35827b8e607ccf6}\label{netif_8h_a0d70fe11cac43c8fa35827b8e607ccf6}} 
+\index{netif.h@{netif.h}!LWIP\_NSC\_IPV6\_ADDR\_STATE\_CHANGED@{LWIP\_NSC\_IPV6\_ADDR\_STATE\_CHANGED}}
+\index{LWIP\_NSC\_IPV6\_ADDR\_STATE\_CHANGED@{LWIP\_NSC\_IPV6\_ADDR\_STATE\_CHANGED}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NSC\_IPV6\_ADDR\_STATE\_CHANGED}{LWIP\_NSC\_IPV6\_ADDR\_STATE\_CHANGED}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NSC\+\_\+\+IPV6\+\_\+\+ADDR\+\_\+\+STATE\+\_\+\+CHANGED~0x0200}
+
+IPv6 address state has changed \mbox{\Hypertarget{netif_8h_a8fb4317a77ee2e3848be80db15618666}\label{netif_8h_a8fb4317a77ee2e3848be80db15618666}} 
+\index{netif.h@{netif.h}!LWIP\_NSC\_IPV6\_SET@{LWIP\_NSC\_IPV6\_SET}}
+\index{LWIP\_NSC\_IPV6\_SET@{LWIP\_NSC\_IPV6\_SET}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NSC\_IPV6\_SET}{LWIP\_NSC\_IPV6\_SET}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NSC\+\_\+\+IPV6\+\_\+\+SET~0x0100}
+
+IPv6 address was added \mbox{\Hypertarget{netif_8h_a5ad7308195c0581680dd62fb148501cd}\label{netif_8h_a5ad7308195c0581680dd62fb148501cd}} 
+\index{netif.h@{netif.h}!LWIP\_NSC\_LINK\_CHANGED@{LWIP\_NSC\_LINK\_CHANGED}}
+\index{LWIP\_NSC\_LINK\_CHANGED@{LWIP\_NSC\_LINK\_CHANGED}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NSC\_LINK\_CHANGED}{LWIP\_NSC\_LINK\_CHANGED}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NSC\+\_\+\+LINK\+\_\+\+CHANGED~0x0004}
+
+link changed \mbox{\Hypertarget{netif_8h_adbfecb47897cfe63d4f6366c1fed23b2}\label{netif_8h_adbfecb47897cfe63d4f6366c1fed23b2}} 
+\index{netif.h@{netif.h}!LWIP\_NSC\_NETIF\_ADDED@{LWIP\_NSC\_NETIF\_ADDED}}
+\index{LWIP\_NSC\_NETIF\_ADDED@{LWIP\_NSC\_NETIF\_ADDED}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NSC\_NETIF\_ADDED}{LWIP\_NSC\_NETIF\_ADDED}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NSC\+\_\+\+NETIF\+\_\+\+ADDED~0x0001}
+
+netif was added. arg\+: NULL. Called AFTER netif was added. \mbox{\Hypertarget{netif_8h_ae8e2dc87c19a03d481ae37bcf7ced5c9}\label{netif_8h_ae8e2dc87c19a03d481ae37bcf7ced5c9}} 
+\index{netif.h@{netif.h}!LWIP\_NSC\_NETIF\_REMOVED@{LWIP\_NSC\_NETIF\_REMOVED}}
+\index{LWIP\_NSC\_NETIF\_REMOVED@{LWIP\_NSC\_NETIF\_REMOVED}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NSC\_NETIF\_REMOVED}{LWIP\_NSC\_NETIF\_REMOVED}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NSC\+\_\+\+NETIF\+\_\+\+REMOVED~0x0002}
+
+netif was removed. arg\+: NULL. Called BEFORE netif is removed. \mbox{\Hypertarget{netif_8h_a6f406ee3ab60e8a4f27ae2483c96b8e2}\label{netif_8h_a6f406ee3ab60e8a4f27ae2483c96b8e2}} 
+\index{netif.h@{netif.h}!LWIP\_NSC\_STATUS\_CHANGED@{LWIP\_NSC\_STATUS\_CHANGED}}
+\index{LWIP\_NSC\_STATUS\_CHANGED@{LWIP\_NSC\_STATUS\_CHANGED}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NSC\_STATUS\_CHANGED}{LWIP\_NSC\_STATUS\_CHANGED}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NSC\+\_\+\+STATUS\+\_\+\+CHANGED~0x0008}
+
+netif administrative status changed.~\newline
+up is called AFTER netif is set up.~\newline
+down is called BEFORE the netif is actually set down. \mbox{\Hypertarget{netif_8h_a780be4c3fa9f7f2534f7865666c3a1b8}\label{netif_8h_a780be4c3fa9f7f2534f7865666c3a1b8}} 
+\index{netif.h@{netif.h}!netif\_is\_link\_up@{netif\_is\_link\_up}}
+\index{netif\_is\_link\_up@{netif\_is\_link\_up}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{netif\_is\_link\_up}{netif\_is\_link\_up}}
+{\footnotesize\ttfamily \#define netif\+\_\+is\+\_\+link\+\_\+up(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{structnetif}{netif}} }\end{DoxyParamCaption})~(((\mbox{\hyperlink{structnetif}{netif}})-\/$>$flags \& \mbox{\hyperlink{group__netif__flags_ga75f5a2b9276c93e3bd18a568459fd2d8}{NETIF\+\_\+\+FLAG\+\_\+\+LINK\+\_\+\+UP}}) ? (u8\+\_\+t)1 \+: (u8\+\_\+t)0)}
+
+Ask if a link is up \mbox{\Hypertarget{netif_8h_ab887a8ec553de1be1d04cf2961c63c41}\label{netif_8h_ab887a8ec553de1be1d04cf2961c63c41}} 
+\index{netif.h@{netif.h}!NETIF\_MAX\_HWADDR\_LEN@{NETIF\_MAX\_HWADDR\_LEN}}
+\index{NETIF\_MAX\_HWADDR\_LEN@{NETIF\_MAX\_HWADDR\_LEN}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{NETIF\_MAX\_HWADDR\_LEN}{NETIF\_MAX\_HWADDR\_LEN}}
+{\footnotesize\ttfamily \#define NETIF\+\_\+\+MAX\+\_\+\+HWADDR\+\_\+\+LEN~6U}
+
+Must be the maximum of all used hardware address lengths across all types of interfaces in use. This does not have to be changed, normally. \mbox{\Hypertarget{netif_8h_a302f24fbfe883ee4840ffc71f267ae2a}\label{netif_8h_a302f24fbfe883ee4840ffc71f267ae2a}} 
+\index{netif.h@{netif.h}!NETIF\_NAMESIZE@{NETIF\_NAMESIZE}}
+\index{NETIF\_NAMESIZE@{NETIF\_NAMESIZE}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{NETIF\_NAMESIZE}{NETIF\_NAMESIZE}}
+{\footnotesize\ttfamily \#define NETIF\+\_\+\+NAMESIZE~6}
+
+The size of a fully constructed netif name which the netif can be identified by in APIs. Composed of 2 chars, 3 (max) digits, and 1 \textbackslash{}0 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}\label{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}} 
+\index{netif.h@{netif.h}!netif\_init\_fn@{netif\_init\_fn}}
+\index{netif\_init\_fn@{netif\_init\_fn}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{netif\_init\_fn}{netif\_init\_fn}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}}($\ast$ netif\+\_\+init\+\_\+fn) (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})}
+
+Function prototype for netif init functions. Set up flags and output/linkoutput callback functions in this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em netif} & The netif to initialize \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}\label{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}} 
+\index{netif.h@{netif.h}!netif\_input\_fn@{netif\_input\_fn}}
+\index{netif\_input\_fn@{netif\_input\_fn}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{netif\_input\_fn}{netif\_input\_fn}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}}($\ast$ netif\+\_\+input\+\_\+fn) (struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p, struct \mbox{\hyperlink{structnetif}{netif}} $\ast$inp)}
+
+Function prototype for netif-\/\texorpdfstring{$>$}{>}input functions. This function is saved as \textquotesingle{}input\textquotesingle{} callback function in the netif struct. Call it when a packet has been received.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The received packet, copied into a pbuf \\
+\hline
+{\em inp} & The netif which received the packet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ERR\+\_\+\+OK if the packet was handled != ERR\+\_\+\+OK is the packet was NOT handled, in this case, the caller has to free the pbuf 
+\end{DoxyReturn}
+\mbox{\Hypertarget{netif_8h_ab75e9d808bc1b788bea84213e6a111ed}\label{netif_8h_ab75e9d808bc1b788bea84213e6a111ed}} 
+\index{netif.h@{netif.h}!netif\_linkoutput\_fn@{netif\_linkoutput\_fn}}
+\index{netif\_linkoutput\_fn@{netif\_linkoutput\_fn}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{netif\_linkoutput\_fn}{netif\_linkoutput\_fn}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}}($\ast$ netif\+\_\+linkoutput\+\_\+fn) (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}}, struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$p)}
+
+Function prototype for netif-\/\texorpdfstring{$>$}{>}linkoutput functions. Only used for ethernet netifs. This function is called by ARP when a packet shall be sent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em netif} & The netif which shall send a packet \\
+\hline
+{\em p} & The packet to send (raw ethernet packet) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{netif_8h_a447d0a7e7c6e2396557c287b8b8c9436}\label{netif_8h_a447d0a7e7c6e2396557c287b8b8c9436}} 
+\index{netif.h@{netif.h}!netif\_status\_callback\_fn@{netif\_status\_callback\_fn}}
+\index{netif\_status\_callback\_fn@{netif\_status\_callback\_fn}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{netif\_status\_callback\_fn}{netif\_status\_callback\_fn}}
+{\footnotesize\ttfamily typedef void($\ast$ netif\+\_\+status\+\_\+callback\+\_\+fn) (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})}
+
+Function prototype for netif status-\/ or link-\/callback functions. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0}\label{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0}} 
+\index{netif.h@{netif.h}!netif\_mac\_filter\_action@{netif\_mac\_filter\_action}}
+\index{netif\_mac\_filter\_action@{netif\_mac\_filter\_action}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{netif\_mac\_filter\_action}{netif\_mac\_filter\_action}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0}{netif\+\_\+mac\+\_\+filter\+\_\+action}}}
+
+MAC Filter Actions, these are passed to a netif\textquotesingle{}s igmp\+\_\+mac\+\_\+filter or mld\+\_\+mac\+\_\+filter callback function. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NETIF\_DEL\_MAC\_FILTER@{NETIF\_DEL\_MAC\_FILTER}!netif.h@{netif.h}}\index{netif.h@{netif.h}!NETIF\_DEL\_MAC\_FILTER@{NETIF\_DEL\_MAC\_FILTER}}}\mbox{\Hypertarget{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0a7ad3406353906deb4e64ebeed349e07e}\label{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0a7ad3406353906deb4e64ebeed349e07e}} 
+NETIF\+\_\+\+DEL\+\_\+\+MAC\+\_\+\+FILTER&Delete a filter entry \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NETIF\_ADD\_MAC\_FILTER@{NETIF\_ADD\_MAC\_FILTER}!netif.h@{netif.h}}\index{netif.h@{netif.h}!NETIF\_ADD\_MAC\_FILTER@{NETIF\_ADD\_MAC\_FILTER}}}\mbox{\Hypertarget{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0a4186fbaf94be956ea1a3b02cd1cccb1f}\label{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0a4186fbaf94be956ea1a3b02cd1cccb1f}} 
+NETIF\+\_\+\+ADD\+\_\+\+MAC\+\_\+\+FILTER&Add a filter entry \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{netif_8h_a5532f93d68c874fb99c681bff2165385}\label{netif_8h_a5532f93d68c874fb99c681bff2165385}} 
+\index{netif.h@{netif.h}!netif\_input@{netif\_input}}
+\index{netif\_input@{netif\_input}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{netif\_input()}{netif\_input()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} netif\+\_\+input (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structpbuf}{pbuf}} $\ast$}]{p,  }\item[{struct \mbox{\hyperlink{structnetif}{netif}} $\ast$}]{inp }\end{DoxyParamCaption})}
+
+Forwards a received packet for input processing with ethernet\+\_\+input() or ip\+\_\+input() depending on netif flags. Don\textquotesingle{}t call directly, pass to \mbox{\hyperlink{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}{netif\+\_\+add()}} and call netif-\/\texorpdfstring{$>$}{>}input(). Only works if the netif driver correctly sets NETIF\+\_\+\+FLAG\+\_\+\+ETHARP and/or NETIF\+\_\+\+FLAG\+\_\+\+ETHERNET flag! 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{netif_8h_a3d0925cbce550ed461907aee816713ba}\label{netif_8h_a3d0925cbce550ed461907aee816713ba}} 
+\index{netif.h@{netif.h}!netif\_default@{netif\_default}}
+\index{netif\_default@{netif\_default}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{netif\_default}{netif\_default}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structnetif}{netif}}$\ast$ netif\+\_\+default\hspace{0.3cm}{\ttfamily [extern]}}
+
+The default network interface. \mbox{\Hypertarget{netif_8h_a1c8141eaa98f6dc6dfddbb23a706656c}\label{netif_8h_a1c8141eaa98f6dc6dfddbb23a706656c}} 
+\index{netif.h@{netif.h}!netif\_list@{netif\_list}}
+\index{netif\_list@{netif\_list}!netif.h@{netif.h}}
+\doxysubsubsection{\texorpdfstring{netif\_list}{netif\_list}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structnetif}{netif}}$\ast$ netif\+\_\+list\hspace{0.3cm}{\ttfamily [extern]}}
+
+The list of network interfaces. 

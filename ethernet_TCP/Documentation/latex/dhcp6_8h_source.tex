@@ -1,0 +1,92 @@
+\hypertarget{dhcp6_8h_source}{}\doxysection{dhcp6.\+h}
+\label{dhcp6_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/dhcp6.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/dhcp6.h}}
+\mbox{\hyperlink{dhcp6_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (c) 2018 Simon Goldschmidt}}
+\DoxyCodeLine{11 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{14 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{21 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{22 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{23 \textcolor{comment}{ *}}
+\DoxyCodeLine{24 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{25 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{26 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{27 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{28 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{29 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{30 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{31 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{32 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{33 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ * Author: Simon Goldschmidt <goldsimon@gmx.de>}}
+\DoxyCodeLine{38 \textcolor{comment}{ */}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_IP6\_DHCP6\_H}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define LWIP\_HDR\_IP6\_DHCP6\_H}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#if LWIP\_IPV6\_DHCP6  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{51 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define DHCP6\_TIMER\_MSECS   500}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keyword}{struct }dhcp6}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{60   u32\_t xid;}
+\DoxyCodeLine{62   u8\_t pcb\_allocated;}
+\DoxyCodeLine{64   u8\_t state;}
+\DoxyCodeLine{66   u8\_t tries;}
+\DoxyCodeLine{68   u8\_t request\_config\_pending;}
+\DoxyCodeLine{70   u16\_t request\_timeout;}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#if LWIP\_IPV6\_DHCP6\_STATEFUL}}
+\DoxyCodeLine{72   \textcolor{comment}{/* @todo: add more members here to keep track of stateful DHCPv6 data, like lease times */}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_DHCP6\_STATEFUL */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 \};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keywordtype}{void} dhcp6\_set\_struct(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{struct} dhcp6 *dhcp6);}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define dhcp6\_remove\_struct(netif) netif\_set\_client\_data(netif, LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_DHCP6, NULL)}}
+\DoxyCodeLine{79 \textcolor{keywordtype}{void} dhcp6\_cleanup(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} dhcp6\_enable\_stateful(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{82 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} dhcp6\_enable\_stateless(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{83 \textcolor{keywordtype}{void} dhcp6\_disable(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{keywordtype}{void} dhcp6\_tmr(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{keywordtype}{void} dhcp6\_nd6\_ra\_trigger(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, u8\_t managed\_addr\_config, u8\_t other\_config);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#if LWIP\_DHCP6\_GET\_NTP\_SRV}}
+\DoxyCodeLine{93 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} dhcp6\_set\_ntp\_servers(u8\_t num\_ntp\_servers, \textcolor{keyword}{const} ip\_addr\_t* ntp\_server\_addrs);}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DHCP6\_GET\_NTP\_SRV */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define netif\_dhcp6\_data(netif) ((struct dhcp6*)netif\_get\_client\_data(netif, LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_DHCP6))}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{99 \}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_DHCP6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_IP6\_DHCP6\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

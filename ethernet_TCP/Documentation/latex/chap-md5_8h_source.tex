@@ -1,0 +1,42 @@
+\hypertarget{chap-md5_8h_source}{}\doxysection{chap-\/md5.h}
+\label{chap-md5_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/chap-\/md5.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/chap-\/md5.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * chap-\/md5.h -\/ New CHAP/MD5 implementation.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 2003 Paul Mackerras. All rights reserved.}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{7 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{8 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. The name(s) of the authors of this software must not be used to}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    prior written permission.}}
+\DoxyCodeLine{16 \textcolor{comment}{ *}}
+\DoxyCodeLine{17 \textcolor{comment}{ * 3. Redistributions of any form whatsoever must retain the following}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    acknowledgment:}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    "{}This product includes software developed by Paul Mackerras}}
+\DoxyCodeLine{20 \textcolor{comment}{ *     <paulus@samba.org>"{}.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * THE AUTHORS OF THIS SOFTWARE DISCLAIM ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{23 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{24 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY}}
+\DoxyCodeLine{25 \textcolor{comment}{ * SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{26 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{27 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{28 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{29 \textcolor{comment}{ */}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& CHAP\_SUPPORT  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }chap\_digest\_type md5\_digest;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& CHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

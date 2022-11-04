@@ -1,0 +1,469 @@
+\hypertarget{group___e_x_t_i___event___input___config}{}\doxysection{Event Input Config}
+\label{group___e_x_t_i___event___input___config}\index{Event Input Config@{Event Input Config}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaa5d28190b1340a2f05609db6cf460908}\label{group___e_x_t_i___event___input___config_gaa5d28190b1340a2f05609db6cf460908}} 
+\#define {\bfseries EXTI\+\_\+\+MODE\+\_\+\+IT}~((uint32\+\_\+t)0x00010000)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga9e22a6f11a7718f403fb3e25cb888765}\label{group___e_x_t_i___event___input___config_ga9e22a6f11a7718f403fb3e25cb888765}} 
+\#define {\bfseries EXTI\+\_\+\+MODE\+\_\+\+EVT}~((uint32\+\_\+t)0x00020000)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga4f9b3602d9889f5ce8b50543f9ba06a7}\label{group___e_x_t_i___event___input___config_ga4f9b3602d9889f5ce8b50543f9ba06a7}} 
+\#define {\bfseries EXTI\+\_\+\+RISING\+\_\+\+EDGE}~((uint32\+\_\+t)0x00100000)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gadfdfc1c1f85b661cc7142bf30de6944e}\label{group___e_x_t_i___event___input___config_gadfdfc1c1f85b661cc7142bf30de6944e}} 
+\#define {\bfseries EXTI\+\_\+\+FALLING\+\_\+\+EDGE}~((uint32\+\_\+t)0x00200000)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga1abc189bacfe43c14189f1ae3ad7203e}\label{group___e_x_t_i___event___input___config_ga1abc189bacfe43c14189f1ae3ad7203e}} 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+EDGE\+\_\+\+LINE}(EDGE)~(((EDGE) == EXTI\+\_\+\+RISING\+\_\+\+EDGE) $\vert$$\vert$ ((EDGE) == EXTI\+\_\+\+FALLING\+\_\+\+EDGE))
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga8272de335e5bb6c7ad3b7f629b9f7016}\label{group___e_x_t_i___event___input___config_ga8272de335e5bb6c7ad3b7f629b9f7016}} 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+MODE\+\_\+\+LINE}(MODE)~(((MODE) == EXTI\+\_\+\+MODE\+\_\+\+IT) $\vert$$\vert$ ((MODE) == EXTI\+\_\+\+MODE\+\_\+\+EVT))
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga5d9011faf4106bf40c74ff617b1e4973}{EXTI\+\_\+\+LINE0}}~((uint32\+\_\+t)0x00)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaaba6df92e2a71ffd93baec85cd0f9e89}{EXTI\+\_\+\+LINE1}}~((uint32\+\_\+t)0x01)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaa2510982e59ba9c313eada9cdc76aa08}{EXTI\+\_\+\+LINE2}}~((uint32\+\_\+t)0x02)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga9534db63b2c5e59646d415e13325c028}{EXTI\+\_\+\+LINE3}}~((uint32\+\_\+t)0x03)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga148019fb5e5bbf3dbb6cc5eb74541df0}{EXTI\+\_\+\+LINE4}}~((uint32\+\_\+t)0x04)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga11145270abb9a3d184bb9d8b00014cec}{EXTI\+\_\+\+LINE5}}~((uint32\+\_\+t)0x05)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gafc75ecdd4cf7265d434f18320fb874ad}{EXTI\+\_\+\+LINE6}}~((uint32\+\_\+t)0x06)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga0d7c89e4fe627f9dc4e59d08820906d4}{EXTI\+\_\+\+LINE7}}~((uint32\+\_\+t)0x07)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga7c137e2f2a8f478cbad351fa412694ad}{EXTI\+\_\+\+LINE8}}~((uint32\+\_\+t)0x08)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gab01e9777448076d5db8b9e3a02681f8a}{EXTI\+\_\+\+LINE9}}~((uint32\+\_\+t)0x09)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga62fc344e22f30467a6dcdeab42908fd3}{EXTI\+\_\+\+LINE10}}~((uint32\+\_\+t)0x0A)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga8d4c2f6a70a983e971c933f507e3309d}{EXTI\+\_\+\+LINE11}}~((uint32\+\_\+t)0x0B)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga36a546d69360530ca0345f0d0a15e7ae}{EXTI\+\_\+\+LINE12}}~((uint32\+\_\+t)0x0C)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaa8ef9ed6d2e5b5fd2eb5aad1e89bcfb3}{EXTI\+\_\+\+LINE13}}~((uint32\+\_\+t)0x0D)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga6b1c5fb1dac595296b9aeed7744d486c}{EXTI\+\_\+\+LINE14}}~((uint32\+\_\+t)0x0E)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga373c9155ecf4572de295940c612b2f49}{EXTI\+\_\+\+LINE15}}~((uint32\+\_\+t)0x0F)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga13ffe2c1ae74ac59c6aee48e931dabc3}\label{group___e_x_t_i___event___input___config_ga13ffe2c1ae74ac59c6aee48e931dabc3}} 
+\#define {\bfseries EXTI\+\_\+\+LINE16}~((uint32\+\_\+t)0x10)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga4a7c449f1a1e4d6636c84eefc14e2f06}\label{group___e_x_t_i___event___input___config_ga4a7c449f1a1e4d6636c84eefc14e2f06}} 
+\#define {\bfseries EXTI\+\_\+\+LINE17}~((uint32\+\_\+t)0x11)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga96b2056ea1fb12ff7d61615c65b4ce3d}\label{group___e_x_t_i___event___input___config_ga96b2056ea1fb12ff7d61615c65b4ce3d}} 
+\#define {\bfseries EXTI\+\_\+\+LINE18}~((uint32\+\_\+t)0x12)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gad313d85ee4e25e72965bb55fb11888f3}\label{group___e_x_t_i___event___input___config_gad313d85ee4e25e72965bb55fb11888f3}} 
+\#define {\bfseries EXTI\+\_\+\+LINE19}~((uint32\+\_\+t)0x13)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga1174787c87d0fb7f328a9e17176607e9}\label{group___e_x_t_i___event___input___config_ga1174787c87d0fb7f328a9e17176607e9}} 
+\#define {\bfseries EXTI\+\_\+\+LINE20}~((uint32\+\_\+t)0x14)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gae428edcd494701a43d5abb06dfe4d66c}\label{group___e_x_t_i___event___input___config_gae428edcd494701a43d5abb06dfe4d66c}} 
+\#define {\bfseries EXTI\+\_\+\+LINE21}~((uint32\+\_\+t)0x15)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga4ac57abf4a67af70f5e9ed1a10c13458}\label{group___e_x_t_i___event___input___config_ga4ac57abf4a67af70f5e9ed1a10c13458}} 
+\#define {\bfseries EXTI\+\_\+\+LINE22}~((uint32\+\_\+t)0x16)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga3620a3735cfddf0c9563df10fbde3468}\label{group___e_x_t_i___event___input___config_ga3620a3735cfddf0c9563df10fbde3468}} 
+\#define {\bfseries EXTI\+\_\+\+LINE23}~((uint32\+\_\+t)0x17)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga8ba78ffcfa83b3fa9bff2c7a8a89a969}\label{group___e_x_t_i___event___input___config_ga8ba78ffcfa83b3fa9bff2c7a8a89a969}} 
+\#define {\bfseries EXTI\+\_\+\+LINE24}~((uint32\+\_\+t)0x18)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga1865a788380971dab5c07eec53732dd8}\label{group___e_x_t_i___event___input___config_ga1865a788380971dab5c07eec53732dd8}} 
+\#define {\bfseries EXTI\+\_\+\+LINE25}~((uint32\+\_\+t)0x19)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gabc559e3296a1dbfc5680f235fc8c0964}\label{group___e_x_t_i___event___input___config_gabc559e3296a1dbfc5680f235fc8c0964}} 
+\#define {\bfseries EXTI\+\_\+\+LINE26}~((uint32\+\_\+t)0x1A)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga59e051aa28a00c72753695e89cd1046a}\label{group___e_x_t_i___event___input___config_ga59e051aa28a00c72753695e89cd1046a}} 
+\#define {\bfseries EXTI\+\_\+\+LINE27}~((uint32\+\_\+t)0x1B)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga8274d113265fd257185e8d7fbabb0f66}\label{group___e_x_t_i___event___input___config_ga8274d113265fd257185e8d7fbabb0f66}} 
+\#define {\bfseries EXTI\+\_\+\+LINE28}~((uint32\+\_\+t)0x1C)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga4ef7633212e9ed1898f8c6adacf18437}\label{group___e_x_t_i___event___input___config_ga4ef7633212e9ed1898f8c6adacf18437}} 
+\#define {\bfseries EXTI\+\_\+\+LINE29}~((uint32\+\_\+t)0x1D)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga3c01e232463ee9568978e729d2e8f535}\label{group___e_x_t_i___event___input___config_ga3c01e232463ee9568978e729d2e8f535}} 
+\#define {\bfseries EXTI\+\_\+\+LINE30}~((uint32\+\_\+t)0x1E)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga023617939b9f36b4432eed43eade9457}\label{group___e_x_t_i___event___input___config_ga023617939b9f36b4432eed43eade9457}} 
+\#define {\bfseries EXTI\+\_\+\+LINE31}~((uint32\+\_\+t)0x1F)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga63a30c2a96ec2aad0544859cf837184f}\label{group___e_x_t_i___event___input___config_ga63a30c2a96ec2aad0544859cf837184f}} 
+\#define {\bfseries EXTI\+\_\+\+LINE32}~((uint32\+\_\+t)0x20)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaff1546cdf8ffffb0332178b4f9f120f9}\label{group___e_x_t_i___event___input___config_gaff1546cdf8ffffb0332178b4f9f120f9}} 
+\#define {\bfseries EXTI\+\_\+\+LINE33}~((uint32\+\_\+t)0x21)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga3e7dbee975ec17899c29b931e49c5f8f}\label{group___e_x_t_i___event___input___config_ga3e7dbee975ec17899c29b931e49c5f8f}} 
+\#define {\bfseries EXTI\+\_\+\+LINE34}~((uint32\+\_\+t)0x22)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga74271b7896a771f49445295f6b25c4be}\label{group___e_x_t_i___event___input___config_ga74271b7896a771f49445295f6b25c4be}} 
+\#define {\bfseries EXTI\+\_\+\+LINE35}~((uint32\+\_\+t)0x23)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaefb7d7785a67417173300371a62fc349}\label{group___e_x_t_i___event___input___config_gaefb7d7785a67417173300371a62fc349}} 
+\#define {\bfseries EXTI\+\_\+\+LINE36}~((uint32\+\_\+t)0x24)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gacfc6054f29c7a29556a4bb06c6841eef}\label{group___e_x_t_i___event___input___config_gacfc6054f29c7a29556a4bb06c6841eef}} 
+\#define {\bfseries EXTI\+\_\+\+LINE37}~((uint32\+\_\+t)0x25)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga8c7f2e95cde56a7b49f0ad873ae82f83}\label{group___e_x_t_i___event___input___config_ga8c7f2e95cde56a7b49f0ad873ae82f83}} 
+\#define {\bfseries EXTI\+\_\+\+LINE38}~((uint32\+\_\+t)0x26)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga55fc8eced07068f75ea34eae8f048dbf}\label{group___e_x_t_i___event___input___config_ga55fc8eced07068f75ea34eae8f048dbf}} 
+\#define {\bfseries EXTI\+\_\+\+LINE39}~((uint32\+\_\+t)0x27)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gac4c44801efdcf5041ff9f73ff16ad9f5}\label{group___e_x_t_i___event___input___config_gac4c44801efdcf5041ff9f73ff16ad9f5}} 
+\#define {\bfseries EXTI\+\_\+\+LINE40}~((uint32\+\_\+t)0x28)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gac00c103d8248ae23a0d748ee83492484}\label{group___e_x_t_i___event___input___config_gac00c103d8248ae23a0d748ee83492484}} 
+\#define {\bfseries EXTI\+\_\+\+LINE41}~((uint32\+\_\+t)0x29)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga192dae39944c4aa23317082c865b00fa}\label{group___e_x_t_i___event___input___config_ga192dae39944c4aa23317082c865b00fa}} 
+\#define {\bfseries EXTI\+\_\+\+LINE42}~((uint32\+\_\+t)0x2A)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaf52147856474ddf13a00e3fe7c88e0f8}\label{group___e_x_t_i___event___input___config_gaf52147856474ddf13a00e3fe7c88e0f8}} 
+\#define {\bfseries EXTI\+\_\+\+LINE43}~((uint32\+\_\+t)0x2B)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga69bf1ed16e1587f1bc8e6069114f3d3a}\label{group___e_x_t_i___event___input___config_ga69bf1ed16e1587f1bc8e6069114f3d3a}} 
+\#define {\bfseries EXTI\+\_\+\+LINE44}~((uint32\+\_\+t)0x2C)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gad2b5776aa0ff18b85ea0460df2e3b71a}\label{group___e_x_t_i___event___input___config_gad2b5776aa0ff18b85ea0460df2e3b71a}} 
+\#define {\bfseries EXTI\+\_\+\+LINE47}~((uint32\+\_\+t)0x2F)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga46c3d1c455c207dd35a2a46c73bbf695}\label{group___e_x_t_i___event___input___config_ga46c3d1c455c207dd35a2a46c73bbf695}} 
+\#define {\bfseries EXTI\+\_\+\+LINE48}~((uint32\+\_\+t)0x30)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga440732bb62197d2e12bda2d3dd409ec2}\label{group___e_x_t_i___event___input___config_ga440732bb62197d2e12bda2d3dd409ec2}} 
+\#define {\bfseries EXTI\+\_\+\+LINE49}~((uint32\+\_\+t)0x31)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga3066ae48b0d54acd3f540a19c3371c2a}\label{group___e_x_t_i___event___input___config_ga3066ae48b0d54acd3f540a19c3371c2a}} 
+\#define {\bfseries EXTI\+\_\+\+LINE50}~((uint32\+\_\+t)0x32)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga6ab06d8d743f966a5ef5dde1993bf83a}\label{group___e_x_t_i___event___input___config_ga6ab06d8d743f966a5ef5dde1993bf83a}} 
+\#define {\bfseries EXTI\+\_\+\+LINE51}~((uint32\+\_\+t)0x33)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga5ea07b2dbd7492ff6c48b04f951de3e0}\label{group___e_x_t_i___event___input___config_ga5ea07b2dbd7492ff6c48b04f951de3e0}} 
+\#define {\bfseries EXTI\+\_\+\+LINE52}~((uint32\+\_\+t)0x34)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga409735c78e1d1ec5e0de354d83e97f02}\label{group___e_x_t_i___event___input___config_ga409735c78e1d1ec5e0de354d83e97f02}} 
+\#define {\bfseries EXTI\+\_\+\+LINE53}~((uint32\+\_\+t)0x35)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaadc16ea39b108f6292a14211e56bc6c3}\label{group___e_x_t_i___event___input___config_gaadc16ea39b108f6292a14211e56bc6c3}} 
+\#define {\bfseries EXTI\+\_\+\+LINE54}~((uint32\+\_\+t)0x36)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga4159d7a3a7a474cc2b23025aca600f7b}\label{group___e_x_t_i___event___input___config_ga4159d7a3a7a474cc2b23025aca600f7b}} 
+\#define {\bfseries EXTI\+\_\+\+LINE55}~((uint32\+\_\+t)0x37)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gac23ddab2b14ed31a4df4e24cd2781aa4}\label{group___e_x_t_i___event___input___config_gac23ddab2b14ed31a4df4e24cd2781aa4}} 
+\#define {\bfseries EXTI\+\_\+\+LINE56}~((uint32\+\_\+t)0x38)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga1780faac8d4c14aecd36000a323cf682}\label{group___e_x_t_i___event___input___config_ga1780faac8d4c14aecd36000a323cf682}} 
+\#define {\bfseries EXTI\+\_\+\+LINE57}~((uint32\+\_\+t)0x39)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga8d3bc00ba001cebcf84fe5b9c5519759}\label{group___e_x_t_i___event___input___config_ga8d3bc00ba001cebcf84fe5b9c5519759}} 
+\#define {\bfseries EXTI\+\_\+\+LINE58}~((uint32\+\_\+t)0x3A)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga717e3c30b6f904c0950af137c7b1503e}\label{group___e_x_t_i___event___input___config_ga717e3c30b6f904c0950af137c7b1503e}} 
+\#define {\bfseries EXTI\+\_\+\+LINE59}~((uint32\+\_\+t)0x3B)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaec4d9cfd56c6f8e1b0382b9cb827a81e}\label{group___e_x_t_i___event___input___config_gaec4d9cfd56c6f8e1b0382b9cb827a81e}} 
+\#define {\bfseries EXTI\+\_\+\+LINE60}~((uint32\+\_\+t)0x3C)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga059be9b1d06c852fa1af73da28dbea3b}\label{group___e_x_t_i___event___input___config_ga059be9b1d06c852fa1af73da28dbea3b}} 
+\#define {\bfseries EXTI\+\_\+\+LINE61}~((uint32\+\_\+t)0x3D)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga69564e9e7af1db5575e8f62acb326f55}\label{group___e_x_t_i___event___input___config_ga69564e9e7af1db5575e8f62acb326f55}} 
+\#define {\bfseries EXTI\+\_\+\+LINE62}~((uint32\+\_\+t)0x3E)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga023c08f49af0f21216c6dedf4ef2d273}\label{group___e_x_t_i___event___input___config_ga023c08f49af0f21216c6dedf4ef2d273}} 
+\#define {\bfseries EXTI\+\_\+\+LINE63}~((uint32\+\_\+t)0x3F)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga5953381b3d9ff3043a3ae51168e38e5a}\label{group___e_x_t_i___event___input___config_ga5953381b3d9ff3043a3ae51168e38e5a}} 
+\#define {\bfseries EXTI\+\_\+\+LINE64}~((uint32\+\_\+t)0x40)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga72ce6dad94ab5acd542ccae7a6221447}\label{group___e_x_t_i___event___input___config_ga72ce6dad94ab5acd542ccae7a6221447}} 
+\#define {\bfseries EXTI\+\_\+\+LINE65}~((uint32\+\_\+t)0x41)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga76d94789a98336a38998e393c143b181}\label{group___e_x_t_i___event___input___config_ga76d94789a98336a38998e393c143b181}} 
+\#define {\bfseries EXTI\+\_\+\+LINE66}~((uint32\+\_\+t)0x42)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga0c3e3daa62abdc6bb2834bc43e938221}\label{group___e_x_t_i___event___input___config_ga0c3e3daa62abdc6bb2834bc43e938221}} 
+\#define {\bfseries EXTI\+\_\+\+LINE67}~((uint32\+\_\+t)0x43)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaef3dd522c4d2a46205e02671e5cd8226}\label{group___e_x_t_i___event___input___config_gaef3dd522c4d2a46205e02671e5cd8226}} 
+\#define {\bfseries EXTI\+\_\+\+LINE68}~((uint32\+\_\+t)0x44)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gac4e771442e9dc92d2e362765f0d9dc35}\label{group___e_x_t_i___event___input___config_gac4e771442e9dc92d2e362765f0d9dc35}} 
+\#define {\bfseries EXTI\+\_\+\+LINE69}~((uint32\+\_\+t)0x45)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga6d4c0bc440a13b760eee9adab6cb8f48}\label{group___e_x_t_i___event___input___config_ga6d4c0bc440a13b760eee9adab6cb8f48}} 
+\#define {\bfseries EXTI\+\_\+\+LINE70}~((uint32\+\_\+t)0x46)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga78e048bbae6ccad9146d30c3d7257389}\label{group___e_x_t_i___event___input___config_ga78e048bbae6ccad9146d30c3d7257389}} 
+\#define {\bfseries EXTI\+\_\+\+LINE71}~((uint32\+\_\+t)0x47)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gab119b45805b05e5b6ca4d50c4ff34c5c}\label{group___e_x_t_i___event___input___config_gab119b45805b05e5b6ca4d50c4ff34c5c}} 
+\#define {\bfseries EXTI\+\_\+\+LINE72}~((uint32\+\_\+t)0x48)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gada30f2f7d65fba2ecfbdec4c38c2fbee}\label{group___e_x_t_i___event___input___config_gada30f2f7d65fba2ecfbdec4c38c2fbee}} 
+\#define {\bfseries EXTI\+\_\+\+LINE73}~((uint32\+\_\+t)0x49)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gab6404809f1777f26a5bfeb98febab687}\label{group___e_x_t_i___event___input___config_gab6404809f1777f26a5bfeb98febab687}} 
+\#define {\bfseries EXTI\+\_\+\+LINE74}~((uint32\+\_\+t)0x4A)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga76b60f6d499170a6afd648c3fd484d09}\label{group___e_x_t_i___event___input___config_ga76b60f6d499170a6afd648c3fd484d09}} 
+\#define {\bfseries EXTI\+\_\+\+LINE75}~((uint32\+\_\+t)0x4B)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga7c2bc935e0f57e20861ed67e78846ff9}\label{group___e_x_t_i___event___input___config_ga7c2bc935e0f57e20861ed67e78846ff9}} 
+\#define {\bfseries EXTI\+\_\+\+LINE76}~((uint32\+\_\+t)0x4C)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga4016630b7671bb76dbe88b0890e9f8a4}\label{group___e_x_t_i___event___input___config_ga4016630b7671bb76dbe88b0890e9f8a4}} 
+\#define {\bfseries EXTI\+\_\+\+LINE85}~((uint32\+\_\+t)0x55)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga1af7f3992910a82b70d4faff6a307bc7}\label{group___e_x_t_i___event___input___config_ga1af7f3992910a82b70d4faff6a307bc7}} 
+\#define {\bfseries EXTI\+\_\+\+LINE86}~((uint32\+\_\+t)0x56)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga6df9b0e3cfb5dc017506f916e43a2141}\label{group___e_x_t_i___event___input___config_ga6df9b0e3cfb5dc017506f916e43a2141}} 
+\#define {\bfseries EXTI\+\_\+\+LINE87}~((uint32\+\_\+t)0x57)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga558d355e79932ef34ea76babb6096337}\label{group___e_x_t_i___event___input___config_ga558d355e79932ef34ea76babb6096337}} 
+\#define {\bfseries EXTI\+\_\+\+LINE88}~((uint32\+\_\+t)0x58)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gab65c2137e20d09c2428ffdc3a45df8c7}\label{group___e_x_t_i___event___input___config_gab65c2137e20d09c2428ffdc3a45df8c7}} 
+\#define {\bfseries EXTI\+\_\+\+LINE89}~((uint32\+\_\+t)0x59)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga590d2f25de9c465fd6cbcba42ac0a968}\label{group___e_x_t_i___event___input___config_ga590d2f25de9c465fd6cbcba42ac0a968}} 
+\#define {\bfseries EXTI\+\_\+\+LINE90}~((uint32\+\_\+t)0x5A)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gafbd20ff7bf24c5d4d615ae437fde9f83}\label{group___e_x_t_i___event___input___config_gafbd20ff7bf24c5d4d615ae437fde9f83}} 
+\#define {\bfseries EXTI\+\_\+\+LINE91}~((uint32\+\_\+t)0x5B)  /$\ast$ Not available in all family lines $\ast$/
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaf7213c46b003f5966e1d10dfffc55339}{IS\+\_\+\+HAL\+\_\+\+EXTI\+\_\+\+CONFIG\+\_\+\+LINE}}(LINE)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gac44ce904b7719bb63aded813e3610358}\label{group___e_x_t_i___event___input___config_gac44ce904b7719bb63aded813e3610358}} 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+ALL\+\_\+\+LINE}(LINE)
+\item 
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga99c4d996c1715d75011fd50a31da141a}\label{group___e_x_t_i___event___input___config_ga99c4d996c1715d75011fd50a31da141a}} 
+\#define {\bfseries IS\+\_\+\+EXTI\+\_\+\+D1\+\_\+\+LINE}(LINE)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gadeacd4c0966ebee676a18f2e88edeae7}{IS\+\_\+\+EXTI\+\_\+\+D3\+\_\+\+LINE}}(LINE)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaf89fcc18dbe54bc8166a5597501bf720}{BDMA\+\_\+\+CH6\+\_\+\+CLEAR}}~((uint32\+\_\+t)0x00000000)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gab0764eb109a9aaedd285e7c031916f24}{BDMA\+\_\+\+CH7\+\_\+\+CLEAR}}~((uint32\+\_\+t)0x00000001)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga8cecf2d7f91730fda9dffe045605ab41}{LPTIM2\+\_\+\+OUT\+\_\+\+CLEAR}}~((uint32\+\_\+t)0x00000002)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga7a6ceec4a16af9561ea136908ce82f44}{LPTIM3\+\_\+\+OUT\+\_\+\+CLEAR}}~((uint32\+\_\+t)0x00000003)
+\item 
+\#define \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaf07f2d39e3110756ed1090836df33254}{IS\+\_\+\+EXTI\+\_\+\+D3\+\_\+\+CLEAR}}(SOURCE)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaf89fcc18dbe54bc8166a5597501bf720}\label{group___e_x_t_i___event___input___config_gaf89fcc18dbe54bc8166a5597501bf720}} 
+\index{Event Input Config@{Event Input Config}!BDMA\_CH6\_CLEAR@{BDMA\_CH6\_CLEAR}}
+\index{BDMA\_CH6\_CLEAR@{BDMA\_CH6\_CLEAR}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{BDMA\_CH6\_CLEAR}{BDMA\_CH6\_CLEAR}}
+{\footnotesize\ttfamily \#define BDMA\+\_\+\+CH6\+\_\+\+CLEAR~((uint32\+\_\+t)0x00000000)}
+
+BDMA ch6 event selected as D3 domain pendclear source \mbox{\Hypertarget{group___e_x_t_i___event___input___config_gab0764eb109a9aaedd285e7c031916f24}\label{group___e_x_t_i___event___input___config_gab0764eb109a9aaedd285e7c031916f24}} 
+\index{Event Input Config@{Event Input Config}!BDMA\_CH7\_CLEAR@{BDMA\_CH7\_CLEAR}}
+\index{BDMA\_CH7\_CLEAR@{BDMA\_CH7\_CLEAR}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{BDMA\_CH7\_CLEAR}{BDMA\_CH7\_CLEAR}}
+{\footnotesize\ttfamily \#define BDMA\+\_\+\+CH7\+\_\+\+CLEAR~((uint32\+\_\+t)0x00000001)}
+
+BDMA ch7 event selected as D3 domain pendclear source \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga5d9011faf4106bf40c74ff617b1e4973}\label{group___e_x_t_i___event___input___config_ga5d9011faf4106bf40c74ff617b1e4973}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE0@{EXTI\_LINE0}}
+\index{EXTI\_LINE0@{EXTI\_LINE0}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE0}{EXTI\_LINE0}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE0~((uint32\+\_\+t)0x00)}
+
+External interrupt LINE 0 ~\newline
+ \mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaaba6df92e2a71ffd93baec85cd0f9e89}\label{group___e_x_t_i___event___input___config_gaaba6df92e2a71ffd93baec85cd0f9e89}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE1@{EXTI\_LINE1}}
+\index{EXTI\_LINE1@{EXTI\_LINE1}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE1}{EXTI\_LINE1}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE1~((uint32\+\_\+t)0x01)}
+
+External interrupt LINE 1 ~\newline
+ \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga62fc344e22f30467a6dcdeab42908fd3}\label{group___e_x_t_i___event___input___config_ga62fc344e22f30467a6dcdeab42908fd3}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE10@{EXTI\_LINE10}}
+\index{EXTI\_LINE10@{EXTI\_LINE10}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE10}{EXTI\_LINE10}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE10~((uint32\+\_\+t)0x0A)}
+
+External interrupt LINE 10 \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga8d4c2f6a70a983e971c933f507e3309d}\label{group___e_x_t_i___event___input___config_ga8d4c2f6a70a983e971c933f507e3309d}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE11@{EXTI\_LINE11}}
+\index{EXTI\_LINE11@{EXTI\_LINE11}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE11}{EXTI\_LINE11}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE11~((uint32\+\_\+t)0x0B)}
+
+External interrupt LINE 11 \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga36a546d69360530ca0345f0d0a15e7ae}\label{group___e_x_t_i___event___input___config_ga36a546d69360530ca0345f0d0a15e7ae}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE12@{EXTI\_LINE12}}
+\index{EXTI\_LINE12@{EXTI\_LINE12}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE12}{EXTI\_LINE12}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE12~((uint32\+\_\+t)0x0C)}
+
+External interrupt LINE 12 \mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaa8ef9ed6d2e5b5fd2eb5aad1e89bcfb3}\label{group___e_x_t_i___event___input___config_gaa8ef9ed6d2e5b5fd2eb5aad1e89bcfb3}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE13@{EXTI\_LINE13}}
+\index{EXTI\_LINE13@{EXTI\_LINE13}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE13}{EXTI\_LINE13}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE13~((uint32\+\_\+t)0x0D)}
+
+External interrupt LINE 13 \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga6b1c5fb1dac595296b9aeed7744d486c}\label{group___e_x_t_i___event___input___config_ga6b1c5fb1dac595296b9aeed7744d486c}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE14@{EXTI\_LINE14}}
+\index{EXTI\_LINE14@{EXTI\_LINE14}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE14}{EXTI\_LINE14}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE14~((uint32\+\_\+t)0x0E)}
+
+External interrupt LINE 14 \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga373c9155ecf4572de295940c612b2f49}\label{group___e_x_t_i___event___input___config_ga373c9155ecf4572de295940c612b2f49}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE15@{EXTI\_LINE15}}
+\index{EXTI\_LINE15@{EXTI\_LINE15}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE15}{EXTI\_LINE15}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE15~((uint32\+\_\+t)0x0F)}
+
+External interrupt LINE 15 \mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaa2510982e59ba9c313eada9cdc76aa08}\label{group___e_x_t_i___event___input___config_gaa2510982e59ba9c313eada9cdc76aa08}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE2@{EXTI\_LINE2}}
+\index{EXTI\_LINE2@{EXTI\_LINE2}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE2}{EXTI\_LINE2}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE2~((uint32\+\_\+t)0x02)}
+
+External interrupt LINE 2 ~\newline
+ \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga9534db63b2c5e59646d415e13325c028}\label{group___e_x_t_i___event___input___config_ga9534db63b2c5e59646d415e13325c028}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE3@{EXTI\_LINE3}}
+\index{EXTI\_LINE3@{EXTI\_LINE3}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE3}{EXTI\_LINE3}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE3~((uint32\+\_\+t)0x03)}
+
+External interrupt LINE 3 ~\newline
+ \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga148019fb5e5bbf3dbb6cc5eb74541df0}\label{group___e_x_t_i___event___input___config_ga148019fb5e5bbf3dbb6cc5eb74541df0}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE4@{EXTI\_LINE4}}
+\index{EXTI\_LINE4@{EXTI\_LINE4}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE4}{EXTI\_LINE4}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE4~((uint32\+\_\+t)0x04)}
+
+External interrupt LINE 4 ~\newline
+ \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga11145270abb9a3d184bb9d8b00014cec}\label{group___e_x_t_i___event___input___config_ga11145270abb9a3d184bb9d8b00014cec}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE5@{EXTI\_LINE5}}
+\index{EXTI\_LINE5@{EXTI\_LINE5}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE5}{EXTI\_LINE5}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE5~((uint32\+\_\+t)0x05)}
+
+External interrupt LINE 5 ~\newline
+ \mbox{\Hypertarget{group___e_x_t_i___event___input___config_gafc75ecdd4cf7265d434f18320fb874ad}\label{group___e_x_t_i___event___input___config_gafc75ecdd4cf7265d434f18320fb874ad}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE6@{EXTI\_LINE6}}
+\index{EXTI\_LINE6@{EXTI\_LINE6}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE6}{EXTI\_LINE6}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE6~((uint32\+\_\+t)0x06)}
+
+External interrupt LINE 6 ~\newline
+ \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga0d7c89e4fe627f9dc4e59d08820906d4}\label{group___e_x_t_i___event___input___config_ga0d7c89e4fe627f9dc4e59d08820906d4}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE7@{EXTI\_LINE7}}
+\index{EXTI\_LINE7@{EXTI\_LINE7}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE7}{EXTI\_LINE7}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE7~((uint32\+\_\+t)0x07)}
+
+External interrupt LINE 7 ~\newline
+ \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga7c137e2f2a8f478cbad351fa412694ad}\label{group___e_x_t_i___event___input___config_ga7c137e2f2a8f478cbad351fa412694ad}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE8@{EXTI\_LINE8}}
+\index{EXTI\_LINE8@{EXTI\_LINE8}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE8}{EXTI\_LINE8}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE8~((uint32\+\_\+t)0x08)}
+
+External interrupt LINE 8 ~\newline
+ \mbox{\Hypertarget{group___e_x_t_i___event___input___config_gab01e9777448076d5db8b9e3a02681f8a}\label{group___e_x_t_i___event___input___config_gab01e9777448076d5db8b9e3a02681f8a}} 
+\index{Event Input Config@{Event Input Config}!EXTI\_LINE9@{EXTI\_LINE9}}
+\index{EXTI\_LINE9@{EXTI\_LINE9}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{EXTI\_LINE9}{EXTI\_LINE9}}
+{\footnotesize\ttfamily \#define EXTI\+\_\+\+LINE9~((uint32\+\_\+t)0x09)}
+
+External interrupt LINE 9 ~\newline
+ \mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaf07f2d39e3110756ed1090836df33254}\label{group___e_x_t_i___event___input___config_gaf07f2d39e3110756ed1090836df33254}} 
+\index{Event Input Config@{Event Input Config}!IS\_EXTI\_D3\_CLEAR@{IS\_EXTI\_D3\_CLEAR}}
+\index{IS\_EXTI\_D3\_CLEAR@{IS\_EXTI\_D3\_CLEAR}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{IS\_EXTI\_D3\_CLEAR}{IS\_EXTI\_D3\_CLEAR}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+EXTI\+\_\+\+D3\+\_\+\+CLEAR(\begin{DoxyParamCaption}\item[{}]{SOURCE }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                 (((SOURCE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaf89fcc18dbe54bc8166a5597501bf720}{BDMA\_CH6\_CLEAR}}) || ((SOURCE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gab0764eb109a9aaedd285e7c031916f24}{BDMA\_CH7\_CLEAR}})    || \(\backslash\)}
+\DoxyCodeLine{                                 ((SOURCE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga8cecf2d7f91730fda9dffe045605ab41}{LPTIM2\_OUT\_CLEAR}}) || ((SOURCE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga7a6ceec4a16af9561ea136908ce82f44}{LPTIM3\_OUT\_CLEAR}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gadeacd4c0966ebee676a18f2e88edeae7}\label{group___e_x_t_i___event___input___config_gadeacd4c0966ebee676a18f2e88edeae7}} 
+\index{Event Input Config@{Event Input Config}!IS\_EXTI\_D3\_LINE@{IS\_EXTI\_D3\_LINE}}
+\index{IS\_EXTI\_D3\_LINE@{IS\_EXTI\_D3\_LINE}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{IS\_EXTI\_D3\_LINE}{IS\_EXTI\_D3\_LINE}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+EXTI\+\_\+\+D3\+\_\+\+LINE(\begin{DoxyParamCaption}\item[{}]{LINE }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                (((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga5d9011faf4106bf40c74ff617b1e4973}{EXTI\_LINE0}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaaba6df92e2a71ffd93baec85cd0f9e89}{EXTI\_LINE1}})    || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaa2510982e59ba9c313eada9cdc76aa08}{EXTI\_LINE2}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga9534db63b2c5e59646d415e13325c028}{EXTI\_LINE3}})   || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga148019fb5e5bbf3dbb6cc5eb74541df0}{EXTI\_LINE4}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga11145270abb9a3d184bb9d8b00014cec}{EXTI\_LINE5}})   || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gafc75ecdd4cf7265d434f18320fb874ad}{EXTI\_LINE6}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga0d7c89e4fe627f9dc4e59d08820906d4}{EXTI\_LINE7}})   || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga7c137e2f2a8f478cbad351fa412694ad}{EXTI\_LINE8}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gab01e9777448076d5db8b9e3a02681f8a}{EXTI\_LINE9}})   || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga62fc344e22f30467a6dcdeab42908fd3}{EXTI\_LINE10}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga8d4c2f6a70a983e971c933f507e3309d}{EXTI\_LINE11}}) || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga36a546d69360530ca0345f0d0a15e7ae}{EXTI\_LINE12}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaa8ef9ed6d2e5b5fd2eb5aad1e89bcfb3}{EXTI\_LINE13}}) || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga6b1c5fb1dac595296b9aeed7744d486c}{EXTI\_LINE14}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga373c9155ecf4572de295940c612b2f49}{EXTI\_LINE15}}) || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE19) || ((LINE) == EXTI\_LINE20) || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE21) || ((LINE) == EXTI\_LINE25) || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE34) || ((LINE) == EXTI\_LINE35) || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE41) || ((LINE) == EXTI\_LINE48) || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE50) || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE51) || ((LINE) == EXTI\_LINE88))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_gaf7213c46b003f5966e1d10dfffc55339}\label{group___e_x_t_i___event___input___config_gaf7213c46b003f5966e1d10dfffc55339}} 
+\index{Event Input Config@{Event Input Config}!IS\_HAL\_EXTI\_CONFIG\_LINE@{IS\_HAL\_EXTI\_CONFIG\_LINE}}
+\index{IS\_HAL\_EXTI\_CONFIG\_LINE@{IS\_HAL\_EXTI\_CONFIG\_LINE}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{IS\_HAL\_EXTI\_CONFIG\_LINE}{IS\_HAL\_EXTI\_CONFIG\_LINE}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+HAL\+\_\+\+EXTI\+\_\+\+CONFIG\+\_\+\+LINE(\begin{DoxyParamCaption}\item[{}]{LINE }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                (((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga5d9011faf4106bf40c74ff617b1e4973}{EXTI\_LINE0}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaaba6df92e2a71ffd93baec85cd0f9e89}{EXTI\_LINE1}})|| \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaa2510982e59ba9c313eada9cdc76aa08}{EXTI\_LINE2}})  || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga9534db63b2c5e59646d415e13325c028}{EXTI\_LINE3}})   || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga148019fb5e5bbf3dbb6cc5eb74541df0}{EXTI\_LINE4}})  || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga11145270abb9a3d184bb9d8b00014cec}{EXTI\_LINE5}})   || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gafc75ecdd4cf7265d434f18320fb874ad}{EXTI\_LINE6}})  || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga0d7c89e4fe627f9dc4e59d08820906d4}{EXTI\_LINE7}})   || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga7c137e2f2a8f478cbad351fa412694ad}{EXTI\_LINE8}})  || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gab01e9777448076d5db8b9e3a02681f8a}{EXTI\_LINE9}})   || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga62fc344e22f30467a6dcdeab42908fd3}{EXTI\_LINE10}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga8d4c2f6a70a983e971c933f507e3309d}{EXTI\_LINE11}})  || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga36a546d69360530ca0345f0d0a15e7ae}{EXTI\_LINE12}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_gaa8ef9ed6d2e5b5fd2eb5aad1e89bcfb3}{EXTI\_LINE13}})  || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga6b1c5fb1dac595296b9aeed7744d486c}{EXTI\_LINE14}}) || ((LINE) == \mbox{\hyperlink{group___e_x_t_i___event___input___config_ga373c9155ecf4572de295940c612b2f49}{EXTI\_LINE15}})  || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE16) || ((LINE) == EXTI\_LINE17)  || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE18) || ((LINE) == EXTI\_LINE19)  || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE20) || ((LINE) == EXTI\_LINE21)  || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE49) || ((LINE) == EXTI\_LINE51)  || \(\backslash\)}
+\DoxyCodeLine{                                ((LINE) == EXTI\_LINE85) || ((LINE) == EXTI\_LINE86))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga8cecf2d7f91730fda9dffe045605ab41}\label{group___e_x_t_i___event___input___config_ga8cecf2d7f91730fda9dffe045605ab41}} 
+\index{Event Input Config@{Event Input Config}!LPTIM2\_OUT\_CLEAR@{LPTIM2\_OUT\_CLEAR}}
+\index{LPTIM2\_OUT\_CLEAR@{LPTIM2\_OUT\_CLEAR}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{LPTIM2\_OUT\_CLEAR}{LPTIM2\_OUT\_CLEAR}}
+{\footnotesize\ttfamily \#define LPTIM2\+\_\+\+OUT\+\_\+\+CLEAR~((uint32\+\_\+t)0x00000002)}
+
+LPTIM2 out selected as D3 domain pendclear source \mbox{\Hypertarget{group___e_x_t_i___event___input___config_ga7a6ceec4a16af9561ea136908ce82f44}\label{group___e_x_t_i___event___input___config_ga7a6ceec4a16af9561ea136908ce82f44}} 
+\index{Event Input Config@{Event Input Config}!LPTIM3\_OUT\_CLEAR@{LPTIM3\_OUT\_CLEAR}}
+\index{LPTIM3\_OUT\_CLEAR@{LPTIM3\_OUT\_CLEAR}!Event Input Config@{Event Input Config}}
+\doxysubsubsection{\texorpdfstring{LPTIM3\_OUT\_CLEAR}{LPTIM3\_OUT\_CLEAR}}
+{\footnotesize\ttfamily \#define LPTIM3\+\_\+\+OUT\+\_\+\+CLEAR~((uint32\+\_\+t)0x00000003)}
+
+LPTIM3 out selected as D3 domain pendclear source 

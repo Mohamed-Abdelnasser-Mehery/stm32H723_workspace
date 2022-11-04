@@ -1,0 +1,30 @@
+\hypertarget{tcp__out_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/core/tcp\+\_\+out.c File Reference}
+\label{tcp__out_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/core/tcp\_out.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/core/tcp\_out.c}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+Transmission Control Protocol, outgoing traffic
+
+The output functions of TCP.
+
+There are two distinct ways for TCP segments to get sent\+:
+\begin{DoxyItemize}
+\item queued data\+: these are segments transferring data or segments containing SYN or FIN (which both count as one sequence number). They are created as struct \mbox{\hyperlink{group__pbuf}{Packet buffers (PBUF)}} together with a struct tcp\+\_\+seg and enqueue to the unsent list of the pcb. They are sent by tcp\+\_\+output\+:
+\begin{DoxyItemize}
+\item tcp\+\_\+write \+: creates data segments
+\item tcp\+\_\+split\+\_\+unsent\+\_\+seg \+: splits a data segment
+\item tcp\+\_\+enqueue\+\_\+flags \+: creates SYN-\/only or FIN-\/only segments
+\item tcp\+\_\+output / tcp\+\_\+output\+\_\+segment \+: finalize the tcp header (e.\+g. sequence numbers, options, checksum) and output to IP
+\item the various tcp\+\_\+rexmit functions shuffle around segments between the unsent an unacked lists to retransmit them
+\item tcp\+\_\+create\+\_\+segment and tcp\+\_\+pbuf\+\_\+prealloc allocate pbuf and segment for these functions
+\end{DoxyItemize}
+\item direct send\+: these segments don\textquotesingle{}t contain data but control the connection behaviour. They are created as pbuf only and sent directly without enqueueing them\+:
+\begin{DoxyItemize}
+\item tcp\+\_\+send\+\_\+empty\+\_\+ack sends an ACK-\/only segment
+\item tcp\+\_\+rst sends a RST segment
+\item tcp\+\_\+keepalive sends a keepalive segment
+\item tcp\+\_\+zero\+\_\+window\+\_\+probe sends a window probe segment
+\item tcp\+\_\+output\+\_\+alloc\+\_\+header allocates a header-\/only pbuf for these functions 
+\end{DoxyItemize}
+\end{DoxyItemize}

@@ -1,0 +1,52 @@
+\hypertarget{structbridgeif__initdata__s}{}\doxysection{bridgeif\+\_\+initdata\+\_\+s Struct Reference}
+\label{structbridgeif__initdata__s}\index{bridgeif\_initdata\_s@{bridgeif\_initdata\_s}}
+
+
+{\ttfamily \#include $<$bridgeif.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} \mbox{\hyperlink{structbridgeif__initdata__s_aac38833907e8c39ce908589d100cba4b}{ethaddr}}
+\item 
+u8\+\_\+t \mbox{\hyperlink{structbridgeif__initdata__s_a0235adf03c9279b55d98fc42a8d55bf2}{max\+\_\+ports}}
+\item 
+u16\+\_\+t \mbox{\hyperlink{structbridgeif__initdata__s_acb63442a7681a030fef3fdf5b0e0e038}{max\+\_\+fdb\+\_\+dynamic\+\_\+entries}}
+\item 
+u16\+\_\+t \mbox{\hyperlink{structbridgeif__initdata__s_a806ecee826e24d57b52ff2dbfc289720}{max\+\_\+fdb\+\_\+static\+\_\+entries}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Initialisation data for bridgeif\+\_\+init. An instance of this type must be passed as parameter \textquotesingle{}state\textquotesingle{} to \mbox{\hyperlink{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}{netif\+\_\+add}} when the bridge is added. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{structbridgeif__initdata__s_aac38833907e8c39ce908589d100cba4b}\label{structbridgeif__initdata__s_aac38833907e8c39ce908589d100cba4b}} 
+\index{bridgeif\_initdata\_s@{bridgeif\_initdata\_s}!ethaddr@{ethaddr}}
+\index{ethaddr@{ethaddr}!bridgeif\_initdata\_s@{bridgeif\_initdata\_s}}
+\doxysubsubsection{\texorpdfstring{ethaddr}{ethaddr}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} ethaddr}
+
+MAC address of the bridge (cannot use the netif\textquotesingle{}s addresses) \mbox{\Hypertarget{structbridgeif__initdata__s_acb63442a7681a030fef3fdf5b0e0e038}\label{structbridgeif__initdata__s_acb63442a7681a030fef3fdf5b0e0e038}} 
+\index{bridgeif\_initdata\_s@{bridgeif\_initdata\_s}!max\_fdb\_dynamic\_entries@{max\_fdb\_dynamic\_entries}}
+\index{max\_fdb\_dynamic\_entries@{max\_fdb\_dynamic\_entries}!bridgeif\_initdata\_s@{bridgeif\_initdata\_s}}
+\doxysubsubsection{\texorpdfstring{max\_fdb\_dynamic\_entries}{max\_fdb\_dynamic\_entries}}
+{\footnotesize\ttfamily u16\+\_\+t max\+\_\+fdb\+\_\+dynamic\+\_\+entries}
+
+Maximum number of dynamic/learning entries in the bridge\textquotesingle{}s forwarding database. In the default implementation, this controls memory consumption only. \mbox{\Hypertarget{structbridgeif__initdata__s_a806ecee826e24d57b52ff2dbfc289720}\label{structbridgeif__initdata__s_a806ecee826e24d57b52ff2dbfc289720}} 
+\index{bridgeif\_initdata\_s@{bridgeif\_initdata\_s}!max\_fdb\_static\_entries@{max\_fdb\_static\_entries}}
+\index{max\_fdb\_static\_entries@{max\_fdb\_static\_entries}!bridgeif\_initdata\_s@{bridgeif\_initdata\_s}}
+\doxysubsubsection{\texorpdfstring{max\_fdb\_static\_entries}{max\_fdb\_static\_entries}}
+{\footnotesize\ttfamily u16\+\_\+t max\+\_\+fdb\+\_\+static\+\_\+entries}
+
+Maximum number of static forwarding entries. Influences memory consumption! \mbox{\Hypertarget{structbridgeif__initdata__s_a0235adf03c9279b55d98fc42a8d55bf2}\label{structbridgeif__initdata__s_a0235adf03c9279b55d98fc42a8d55bf2}} 
+\index{bridgeif\_initdata\_s@{bridgeif\_initdata\_s}!max\_ports@{max\_ports}}
+\index{max\_ports@{max\_ports}!bridgeif\_initdata\_s@{bridgeif\_initdata\_s}}
+\doxysubsubsection{\texorpdfstring{max\_ports}{max\_ports}}
+{\footnotesize\ttfamily u8\+\_\+t max\+\_\+ports}
+
+Maximum number of ports in the bridge (ports are stored in an array, this influences memory allocated for netif-\/\texorpdfstring{$>$}{>}state of the bridge netif). 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/netif/\mbox{\hyperlink{bridgeif_8h}{bridgeif.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,131 @@
+\hypertarget{prot_2icmp6_8h_source}{}\doxysection{icmp6.\+h}
+\label{prot_2icmp6_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/icmp6.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/icmp6.h}}
+\mbox{\hyperlink{prot_2icmp6_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_PROT\_ICMP6\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_PROT\_ICMP6\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{arch_8h}{lwip/arch.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{43 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{47 \textcolor{keyword}{enum} \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858}{icmp6\_type}} \{}
+\DoxyCodeLine{49   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858aad9d4f207459e4bbd0c33a25adf6fdd7}{ICMP6\_TYPE\_DUR}} = 1,}
+\DoxyCodeLine{51   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a1d52ef5024a5822bd622bcb0b9da323d}{ICMP6\_TYPE\_PTB}} = 2,}
+\DoxyCodeLine{53   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858afae9848904bc4b4b4aa716a7a9a2d7fe}{ICMP6\_TYPE\_TE}} = 3,}
+\DoxyCodeLine{55   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a63114feac8140031b74424d4a7cf6b26}{ICMP6\_TYPE\_PP}} = 4,}
+\DoxyCodeLine{57   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ac7020c08a7b03ae2a198e4a8dcd31bd4}{ICMP6\_TYPE\_PE1}} = 100,}
+\DoxyCodeLine{59   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858aed14d280e5911098af914a94bd3ab22b}{ICMP6\_TYPE\_PE2}} = 101,}
+\DoxyCodeLine{61   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858abe61415e020b996220337f0cd002a28f}{ICMP6\_TYPE\_RSV\_ERR}} = 127,}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{64   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ae649aa45c97b885f28771688957528a3}{ICMP6\_TYPE\_EREQ}} = 128,}
+\DoxyCodeLine{66   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ac6b91695c06bfc7fb2360310d7b8e78a}{ICMP6\_TYPE\_EREP}} = 129,}
+\DoxyCodeLine{68   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ad9794ae12b9ca196cc4fafaf6d834375}{ICMP6\_TYPE\_MLQ}} = 130,}
+\DoxyCodeLine{70   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a906dd689f0aa9b4796f49f299d4e3eb0}{ICMP6\_TYPE\_MLR}} = 131,}
+\DoxyCodeLine{72   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a04228a1d11f9f88bd165f3430188bfe7}{ICMP6\_TYPE\_MLD}} = 132,}
+\DoxyCodeLine{74   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a670d95494c9282f646ac442d81d9a780}{ICMP6\_TYPE\_RS}} = 133,}
+\DoxyCodeLine{76   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858ae4ae04be7df3a2cce614af0a5cdae951}{ICMP6\_TYPE\_RA}} = 134,}
+\DoxyCodeLine{78   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a0d8d8717c6c34053d1101932c23929fe}{ICMP6\_TYPE\_NS}} = 135,}
+\DoxyCodeLine{80   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a1f99d333f425c28d3840e029cc9c46f3}{ICMP6\_TYPE\_NA}} = 136,}
+\DoxyCodeLine{82   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a0f6702d62de5f873e0afe7431d878207}{ICMP6\_TYPE\_RD}} = 137,}
+\DoxyCodeLine{84   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a29281016d3bb58e3bfd90417bbce7aa0}{ICMP6\_TYPE\_MRA}} = 151,}
+\DoxyCodeLine{86   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a425f4e64a7d1570228adbbe450650ab4}{ICMP6\_TYPE\_MRS}} = 152,}
+\DoxyCodeLine{88   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858afb12a9d774f53deb15ec23041548f6fc}{ICMP6\_TYPE\_MRT}} = 153,}
+\DoxyCodeLine{90   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a9c9c358ebd5eb683a66819fd9ecf98c6}{ICMP6\_TYPE\_PE3}} = 200,}
+\DoxyCodeLine{92   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858af8ebe97c4f68b54c9ef0c43e98211df5}{ICMP6\_TYPE\_PE4}} = 201,}
+\DoxyCodeLine{94   \mbox{\hyperlink{prot_2icmp6_8h_a6e10428d8f6102013b30013065716858a2c12d3244d837bd243ea647ec530600d}{ICMP6\_TYPE\_RSV\_INF}} = 255}
+\DoxyCodeLine{95 \};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{98 \textcolor{keyword}{enum} \mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccf}{icmp6\_dur\_code}} \{}
+\DoxyCodeLine{100   \mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa695bb4d92f32b504a9483ff137235a78}{ICMP6\_DUR\_NO\_ROUTE}} = 0,}
+\DoxyCodeLine{102   \mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa251961b990d0fbaf2c643f047c4f2532}{ICMP6\_DUR\_PROHIBITED}} = 1,}
+\DoxyCodeLine{104   \mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfabdb01a67c61da588872f5799ef75aa6e}{ICMP6\_DUR\_SCOPE}} = 2,}
+\DoxyCodeLine{106   \mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa789ef8158d8750b0fa5a14ec9ecaa23a}{ICMP6\_DUR\_ADDRESS}} = 3,}
+\DoxyCodeLine{108   \mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa28cc924ec6eaa761acb76ccef4adcba0}{ICMP6\_DUR\_PORT}} = 4,}
+\DoxyCodeLine{110   \mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfac3c255282e0b49b5bbb3cd8f435bb763}{ICMP6\_DUR\_POLICY}} = 5,}
+\DoxyCodeLine{112   \mbox{\hyperlink{prot_2icmp6_8h_a11fe21b0a8c1bc73ee887a96bf416ccfa2aeed278149fb071a34beec89df03b5c}{ICMP6\_DUR\_REJECT\_ROUTE}} = 6}
+\DoxyCodeLine{113 \};}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{116 \textcolor{keyword}{enum} \mbox{\hyperlink{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869e}{icmp6\_te\_code}} \{}
+\DoxyCodeLine{118   \mbox{\hyperlink{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869eacccbb5e776df1b35af4149e593240880}{ICMP6\_TE\_HL}} = 0,}
+\DoxyCodeLine{120   \mbox{\hyperlink{prot_2icmp6_8h_ad06bbf4ee72635ece968db41cbe6869eaec493420d61c80a21981b1aa32befe1f}{ICMP6\_TE\_FRAG}} = 1}
+\DoxyCodeLine{121 \};}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{124 \textcolor{keyword}{enum} \mbox{\hyperlink{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023}{icmp6\_pp\_code}} \{}
+\DoxyCodeLine{126   \mbox{\hyperlink{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023a4aa4a79306a69fd4f60ad445cde4c2a9}{ICMP6\_PP\_FIELD}} = 0,}
+\DoxyCodeLine{128   \mbox{\hyperlink{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023acbcc58901e2345ffc31df4098de60ff8}{ICMP6\_PP\_HEADER}} = 1,}
+\DoxyCodeLine{130   \mbox{\hyperlink{prot_2icmp6_8h_a3a817e777ebcfd705e8e5a1b4c5ae023a53884832d00d3c8f8de62cfdb4646932}{ICMP6\_PP\_OPTION}} = 2}
+\DoxyCodeLine{131 \};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{137 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{138 \textcolor{keyword}{struct }\mbox{\hyperlink{structicmp6__hdr}{icmp6\_hdr}} \{}
+\DoxyCodeLine{139   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t type);}
+\DoxyCodeLine{140   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t code);}
+\DoxyCodeLine{141   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t chksum);}
+\DoxyCodeLine{142   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u32\_t data);}
+\DoxyCodeLine{143 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{144 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{153 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{154 \textcolor{keyword}{struct }\mbox{\hyperlink{structicmp6__echo__hdr}{icmp6\_echo\_hdr}} \{}
+\DoxyCodeLine{155   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t type);}
+\DoxyCodeLine{156   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t code);}
+\DoxyCodeLine{157   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t chksum);}
+\DoxyCodeLine{158   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t \textcolor{keywordtype}{id});}
+\DoxyCodeLine{159   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t seqno);}
+\DoxyCodeLine{160 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{161 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{167 \}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_PROT\_ICMP6\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,82 @@
+\hypertarget{sntp_8h_source}{}\doxysection{sntp.\+h}
+\label{sntp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/sntp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/sntp.h}}
+\mbox{\hyperlink{sntp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2007-\/2009 Frédéric Bernon, Simon Goldschmidt}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Frédéric Bernon, Simon Goldschmidt}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_SNTP\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_SNTP\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{sntp__opts_8h}{lwip/apps/sntp\_opts.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/* SNTP operating modes: default is to poll using unicast.}}
+\DoxyCodeLine{48 \textcolor{comment}{   The mode has to be set before calling sntp\_init(). */}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define SNTP\_OPMODE\_POLL            0}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define SNTP\_OPMODE\_LISTENONLY      1}}
+\DoxyCodeLine{51 \textcolor{keywordtype}{void} sntp\_setoperatingmode(u8\_t operating\_mode);}
+\DoxyCodeLine{52 u8\_t sntp\_getoperatingmode(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keywordtype}{void} sntp\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{55 \textcolor{keywordtype}{void} sntp\_stop(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{56 u8\_t sntp\_enabled(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keywordtype}{void} sntp\_setserver(u8\_t idx, \textcolor{keyword}{const} ip\_addr\_t *addr);}
+\DoxyCodeLine{59 \textcolor{keyword}{const} ip\_addr\_t* sntp\_getserver(u8\_t idx);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#if SNTP\_MONITOR\_SERVER\_REACHABILITY}}
+\DoxyCodeLine{62 u8\_t sntp\_getreachability(u8\_t idx);}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SNTP\_MONITOR\_SERVER\_REACHABILITY */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#if SNTP\_SERVER\_DNS}}
+\DoxyCodeLine{66 \textcolor{keywordtype}{void} sntp\_setservername(u8\_t idx, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *server);}
+\DoxyCodeLine{67 \textcolor{keyword}{const} \textcolor{keywordtype}{char} *sntp\_getservername(u8\_t idx);}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SNTP\_SERVER\_DNS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#if SNTP\_GET\_SERVERS\_FROM\_DHCP}}
+\DoxyCodeLine{71 \textcolor{keywordtype}{void} sntp\_servermode\_dhcp(\textcolor{keywordtype}{int} set\_servers\_from\_dhcp);}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* SNTP\_GET\_SERVERS\_FROM\_DHCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define sntp\_servermode\_dhcp(x)}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SNTP\_GET\_SERVERS\_FROM\_DHCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{77 \}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_SNTP\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

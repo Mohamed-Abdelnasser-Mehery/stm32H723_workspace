@@ -1,0 +1,137 @@
+\hypertarget{prot_2dhcp6_8h_source}{}\doxysection{dhcp6.\+h}
+\label{prot_2dhcp6_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/dhcp6.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/dhcp6.h}}
+\mbox{\hyperlink{prot_2dhcp6_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2017 Simon Goldschmidt <goldsimon@gmx.de>}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Simon Goldschmidt <goldsimon@gmx.de>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_PROT\_DHCP6\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_PROT\_DHCP6\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{43 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define DHCP6\_CLIENT\_PORT  546}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define DHCP6\_SERVER\_PORT  547}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50  \textcolor{comment}{/* DHCPv6 message item offsets and length */}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define DHCP6\_TRANSACTION\_ID\_LEN   3}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{56 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{58 \textcolor{keyword}{struct }\mbox{\hyperlink{structdhcp6__msg}{dhcp6\_msg}}}
+\DoxyCodeLine{59 \{}
+\DoxyCodeLine{60   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t msgtype);}
+\DoxyCodeLine{61   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t transaction\_id[DHCP6\_TRANSACTION\_ID\_LEN]);}
+\DoxyCodeLine{62   \textcolor{comment}{/* options follow */}}
+\DoxyCodeLine{63 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{64 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{comment}{/* DHCP6 client states */}}
+\DoxyCodeLine{71 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{72   DHCP6\_STATE\_OFF               = 0,}
+\DoxyCodeLine{73   DHCP6\_STATE\_STATELESS\_IDLE    = 1,}
+\DoxyCodeLine{74   DHCP6\_STATE\_REQUESTING\_CONFIG = 2}
+\DoxyCodeLine{75 \} dhcp6\_state\_enum\_t;}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{comment}{/* DHCPv6 message types */}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define DHCP6\_SOLICIT               1}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define DHCP6\_ADVERTISE             2}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define DHCP6\_REQUEST               3}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define DHCP6\_CONFIRM               4}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define DHCP6\_RENEW                 5}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define DHCP6\_REBIND                6}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define DHCP6\_REPLY                 7}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define DHCP6\_RELEASE               8}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define DHCP6\_DECLINE               9}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define DHCP6\_RECONFIGURE           10}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define DHCP6\_INFOREQUEST           11}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define DHCP6\_RELAYFORW             12}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define DHCP6\_RELAYREPL             13}}
+\DoxyCodeLine{91 \textcolor{comment}{/* More message types see https://www.iana.org/assignments/dhcpv6-\/parameters/dhcpv6-\/parameters.xhtml */}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define DHCP6\_STATUS\_SUCCESS        0 }\textcolor{comment}{/* Success. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define DHCP6\_STATUS\_UNSPECFAIL     1 }\textcolor{comment}{/* Failure, reason unspecified; this status code is sent by either a client or a server to indicate a failure not explicitly specified in this document. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define DHCP6\_STATUS\_NOADDRSAVAIL   2 }\textcolor{comment}{/* Server has no addresses available to assign to the IA(s). */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define DHCP6\_STATUS\_NOBINDING      3 }\textcolor{comment}{/* Client record (binding) unavailable. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define DHCP6\_STATUS\_NOTONLINK      4 }\textcolor{comment}{/* The prefix for the address is not appropriate for the link to which the client is attached. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define DHCP6\_STATUS\_USEMULTICAST   5 }\textcolor{comment}{/* Sent by a server to a client to force the client to send messages to the server using the All\_DHCP\_Relay\_Agents\_and\_Servers address. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 \textcolor{comment}{/* More status codes see https://www.iana.org/assignments/dhcpv6-\/parameters/dhcpv6-\/parameters.xhtml */}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define DHCP6\_DUID\_LLT              1 }\textcolor{comment}{/* LLT: Link-\/layer Address Plus Time */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define DHCP6\_DUID\_EN               2 }\textcolor{comment}{/* EN: Enterprise number */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define DHCP6\_DUID\_LL               3 }\textcolor{comment}{/* LL: Link-\/layer Address */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define DHCP6\_DUID\_UUID             4 }\textcolor{comment}{/* UUID (RFC 6355) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{comment}{/* DHCPv6 options */}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_CLIENTID       1}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_SERVERID       2}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_IA\_NA          3}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_IA\_TA          4}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_IAADDR         5}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_ORO            6}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_PREFERENCE     7}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_ELAPSED\_TIME   8}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_RELAY\_MSG      9}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_AUTH           11}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_UNICAST        12}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_STATUS\_CODE    13}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_RAPID\_COMMIT   14}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_USER\_CLASS     15}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_VENDOR\_CLASS   16}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_VENDOR\_OPTS    17}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_INTERFACE\_ID   18}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_RECONF\_MSG     19}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_RECONF\_ACCEPT  20}}
+\DoxyCodeLine{128 \textcolor{comment}{/* More options see https://www.iana.org/assignments/dhcpv6-\/parameters/dhcpv6-\/parameters.xhtml */}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_DNS\_SERVERS    23 }\textcolor{comment}{/* RFC 3646 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_DOMAIN\_LIST    24 }\textcolor{comment}{/* RFC 3646 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define DHCP6\_OPTION\_SNTP\_SERVERS   31 }\textcolor{comment}{/* RFC 4075 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{135 \}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_PROT\_DHCP6\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

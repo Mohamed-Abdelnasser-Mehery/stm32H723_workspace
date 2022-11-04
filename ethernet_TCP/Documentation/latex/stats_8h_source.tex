@@ -1,0 +1,432 @@
+\hypertarget{stats_8h_source}{}\doxysection{stats.\+h}
+\label{stats_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/stats.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/stats.h}}
+\mbox{\hyperlink{stats_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_STATS\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_STATS\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mem_8h}{lwip/mem.h}}"{}}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memp_8h}{lwip/memp.h}}"{}}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{46 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#if LWIP\_STATS}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifndef LWIP\_STATS\_LARGE}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define LWIP\_STATS\_LARGE 0}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#if LWIP\_STATS\_LARGE}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define STAT\_COUNTER     u32\_t}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define STAT\_COUNTER\_F   U32\_F}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define STAT\_COUNTER     u16\_t}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define STAT\_COUNTER\_F   U16\_F}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{64 \textcolor{keyword}{struct }stats\_proto \{}
+\DoxyCodeLine{65   STAT\_COUNTER xmit;             \textcolor{comment}{/* Transmitted packets. */}}
+\DoxyCodeLine{66   STAT\_COUNTER recv;             \textcolor{comment}{/* Received packets. */}}
+\DoxyCodeLine{67   STAT\_COUNTER fw;               \textcolor{comment}{/* Forwarded packets. */}}
+\DoxyCodeLine{68   STAT\_COUNTER drop;             \textcolor{comment}{/* Dropped packets. */}}
+\DoxyCodeLine{69   STAT\_COUNTER chkerr;           \textcolor{comment}{/* Checksum error. */}}
+\DoxyCodeLine{70   STAT\_COUNTER lenerr;           \textcolor{comment}{/* Invalid length error. */}}
+\DoxyCodeLine{71   STAT\_COUNTER memerr;           \textcolor{comment}{/* Out of memory error. */}}
+\DoxyCodeLine{72   STAT\_COUNTER rterr;            \textcolor{comment}{/* Routing error. */}}
+\DoxyCodeLine{73   STAT\_COUNTER proterr;          \textcolor{comment}{/* Protocol error. */}}
+\DoxyCodeLine{74   STAT\_COUNTER opterr;           \textcolor{comment}{/* Error in options. */}}
+\DoxyCodeLine{75   STAT\_COUNTER err;              \textcolor{comment}{/* Misc error. */}}
+\DoxyCodeLine{76   STAT\_COUNTER cachehit;}
+\DoxyCodeLine{77 \};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{80 \textcolor{keyword}{struct }stats\_igmp \{}
+\DoxyCodeLine{81   STAT\_COUNTER xmit;             \textcolor{comment}{/* Transmitted packets. */}}
+\DoxyCodeLine{82   STAT\_COUNTER recv;             \textcolor{comment}{/* Received packets. */}}
+\DoxyCodeLine{83   STAT\_COUNTER drop;             \textcolor{comment}{/* Dropped packets. */}}
+\DoxyCodeLine{84   STAT\_COUNTER chkerr;           \textcolor{comment}{/* Checksum error. */}}
+\DoxyCodeLine{85   STAT\_COUNTER lenerr;           \textcolor{comment}{/* Invalid length error. */}}
+\DoxyCodeLine{86   STAT\_COUNTER memerr;           \textcolor{comment}{/* Out of memory error. */}}
+\DoxyCodeLine{87   STAT\_COUNTER proterr;          \textcolor{comment}{/* Protocol error. */}}
+\DoxyCodeLine{88   STAT\_COUNTER rx\_v1;            \textcolor{comment}{/* Received v1 frames. */}}
+\DoxyCodeLine{89   STAT\_COUNTER rx\_group;         \textcolor{comment}{/* Received group-\/specific queries. */}}
+\DoxyCodeLine{90   STAT\_COUNTER rx\_general;       \textcolor{comment}{/* Received general queries. */}}
+\DoxyCodeLine{91   STAT\_COUNTER rx\_report;        \textcolor{comment}{/* Received reports. */}}
+\DoxyCodeLine{92   STAT\_COUNTER tx\_join;          \textcolor{comment}{/* Sent joins. */}}
+\DoxyCodeLine{93   STAT\_COUNTER tx\_leave;         \textcolor{comment}{/* Sent leaves. */}}
+\DoxyCodeLine{94   STAT\_COUNTER tx\_report;        \textcolor{comment}{/* Sent reports. */}}
+\DoxyCodeLine{95 \};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{98 \textcolor{keyword}{struct }stats\_mem \{}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#if defined(LWIP\_DEBUG) || LWIP\_STATS\_DISPLAY}}
+\DoxyCodeLine{100   \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name;}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* defined(LWIP\_DEBUG) || LWIP\_STATS\_DISPLAY */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{102   STAT\_COUNTER err;}
+\DoxyCodeLine{103   mem\_size\_t avail;}
+\DoxyCodeLine{104   mem\_size\_t used;}
+\DoxyCodeLine{105   mem\_size\_t max;}
+\DoxyCodeLine{106   STAT\_COUNTER illegal;}
+\DoxyCodeLine{107 \};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{110 \textcolor{keyword}{struct }stats\_syselem \{}
+\DoxyCodeLine{111   STAT\_COUNTER used;}
+\DoxyCodeLine{112   STAT\_COUNTER max;}
+\DoxyCodeLine{113   STAT\_COUNTER err;}
+\DoxyCodeLine{114 \};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{117 \textcolor{keyword}{struct }stats\_sys \{}
+\DoxyCodeLine{118   \textcolor{keyword}{struct }stats\_syselem sem;}
+\DoxyCodeLine{119   \textcolor{keyword}{struct }stats\_syselem mutex;}
+\DoxyCodeLine{120   \textcolor{keyword}{struct }stats\_syselem mbox;}
+\DoxyCodeLine{121 \};}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{124 \textcolor{keyword}{struct }stats\_mib2 \{}
+\DoxyCodeLine{125   \textcolor{comment}{/* IP */}}
+\DoxyCodeLine{126   u32\_t ipinhdrerrors;}
+\DoxyCodeLine{127   u32\_t ipinaddrerrors;}
+\DoxyCodeLine{128   u32\_t ipinunknownprotos;}
+\DoxyCodeLine{129   u32\_t ipindiscards;}
+\DoxyCodeLine{130   u32\_t ipindelivers;}
+\DoxyCodeLine{131   u32\_t ipoutrequests;}
+\DoxyCodeLine{132   u32\_t ipoutdiscards;}
+\DoxyCodeLine{133   u32\_t ipoutnoroutes;}
+\DoxyCodeLine{134   u32\_t ipreasmoks;}
+\DoxyCodeLine{135   u32\_t ipreasmfails;}
+\DoxyCodeLine{136   u32\_t ipfragoks;}
+\DoxyCodeLine{137   u32\_t ipfragfails;}
+\DoxyCodeLine{138   u32\_t ipfragcreates;}
+\DoxyCodeLine{139   u32\_t ipreasmreqds;}
+\DoxyCodeLine{140   u32\_t ipforwdatagrams;}
+\DoxyCodeLine{141   u32\_t ipinreceives;}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143   \textcolor{comment}{/* TCP */}}
+\DoxyCodeLine{144   u32\_t tcpactiveopens;}
+\DoxyCodeLine{145   u32\_t tcppassiveopens;}
+\DoxyCodeLine{146   u32\_t tcpattemptfails;}
+\DoxyCodeLine{147   u32\_t tcpestabresets;}
+\DoxyCodeLine{148   u32\_t tcpoutsegs;}
+\DoxyCodeLine{149   u32\_t tcpretranssegs;}
+\DoxyCodeLine{150   u32\_t tcpinsegs;}
+\DoxyCodeLine{151   u32\_t tcpinerrs;}
+\DoxyCodeLine{152   u32\_t tcpoutrsts;}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154   \textcolor{comment}{/* UDP */}}
+\DoxyCodeLine{155   u32\_t udpindatagrams;}
+\DoxyCodeLine{156   u32\_t udpnoports;}
+\DoxyCodeLine{157   u32\_t udpinerrors;}
+\DoxyCodeLine{158   u32\_t udpoutdatagrams;}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160   \textcolor{comment}{/* ICMP */}}
+\DoxyCodeLine{161   u32\_t icmpinmsgs;}
+\DoxyCodeLine{162   u32\_t icmpinerrors;}
+\DoxyCodeLine{163   u32\_t icmpindestunreachs;}
+\DoxyCodeLine{164   u32\_t icmpintimeexcds;}
+\DoxyCodeLine{165   u32\_t icmpinparmprobs;}
+\DoxyCodeLine{166   u32\_t icmpinsrcquenchs;}
+\DoxyCodeLine{167   u32\_t icmpinredirects;}
+\DoxyCodeLine{168   u32\_t icmpinechos;}
+\DoxyCodeLine{169   u32\_t icmpinechoreps;}
+\DoxyCodeLine{170   u32\_t icmpintimestamps;}
+\DoxyCodeLine{171   u32\_t icmpintimestampreps;}
+\DoxyCodeLine{172   u32\_t icmpinaddrmasks;}
+\DoxyCodeLine{173   u32\_t icmpinaddrmaskreps;}
+\DoxyCodeLine{174   u32\_t icmpoutmsgs;}
+\DoxyCodeLine{175   u32\_t icmpouterrors;}
+\DoxyCodeLine{176   u32\_t icmpoutdestunreachs;}
+\DoxyCodeLine{177   u32\_t icmpouttimeexcds;}
+\DoxyCodeLine{178   u32\_t icmpoutechos; \textcolor{comment}{/* can be incremented by user application ('ping') */}}
+\DoxyCodeLine{179   u32\_t icmpoutechoreps;}
+\DoxyCodeLine{180 \};}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{186 \textcolor{keyword}{struct }stats\_mib2\_netif\_ctrs \{}
+\DoxyCodeLine{188   u32\_t ifinoctets;}
+\DoxyCodeLine{191   u32\_t ifinucastpkts;}
+\DoxyCodeLine{194   u32\_t ifinnucastpkts;}
+\DoxyCodeLine{198   u32\_t ifindiscards;}
+\DoxyCodeLine{203   u32\_t ifinerrors;}
+\DoxyCodeLine{210   u32\_t ifinunknownprotos;}
+\DoxyCodeLine{212   u32\_t ifoutoctets;}
+\DoxyCodeLine{216   u32\_t ifoutucastpkts;}
+\DoxyCodeLine{220   u32\_t ifoutnucastpkts;}
+\DoxyCodeLine{224   u32\_t ifoutdiscards;}
+\DoxyCodeLine{228   u32\_t ifouterrors;}
+\DoxyCodeLine{229 \};}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{232 \textcolor{keyword}{struct }stats\_ \{}
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#if LINK\_STATS}}
+\DoxyCodeLine{235   \textcolor{keyword}{struct }stats\_proto link;}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#if ETHARP\_STATS}}
+\DoxyCodeLine{239   \textcolor{keyword}{struct }stats\_proto etharp;}
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#if IPFRAG\_STATS}}
+\DoxyCodeLine{243   \textcolor{keyword}{struct }stats\_proto ip\_frag;}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#if IP\_STATS}}
+\DoxyCodeLine{247   \textcolor{keyword}{struct }stats\_proto ip;}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#if ICMP\_STATS}}
+\DoxyCodeLine{251   \textcolor{keyword}{struct }stats\_proto icmp;}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#if IGMP\_STATS}}
+\DoxyCodeLine{255   \textcolor{keyword}{struct }stats\_igmp igmp;}
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#if UDP\_STATS}}
+\DoxyCodeLine{259   \textcolor{keyword}{struct }stats\_proto udp;}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#if TCP\_STATS}}
+\DoxyCodeLine{263   \textcolor{keyword}{struct }stats\_proto tcp;}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#if MEM\_STATS}}
+\DoxyCodeLine{267   \textcolor{keyword}{struct }stats\_mem mem;}
+\DoxyCodeLine{268 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#if MEMP\_STATS}}
+\DoxyCodeLine{271   \textcolor{keyword}{struct }stats\_mem *\mbox{\hyperlink{structmemp}{memp}}[MEMP\_MAX];}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{\#if SYS\_STATS}}
+\DoxyCodeLine{275   \textcolor{keyword}{struct }stats\_sys sys;}
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{277 \textcolor{preprocessor}{\#if IP6\_STATS}}
+\DoxyCodeLine{279   \textcolor{keyword}{struct }stats\_proto ip6;}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#if ICMP6\_STATS}}
+\DoxyCodeLine{283   \textcolor{keyword}{struct }stats\_proto icmp6;}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#if IP6\_FRAG\_STATS}}
+\DoxyCodeLine{287   \textcolor{keyword}{struct }stats\_proto ip6\_frag;}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#if MLD6\_STATS}}
+\DoxyCodeLine{291   \textcolor{keyword}{struct }stats\_igmp mld6;}
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#if ND6\_STATS}}
+\DoxyCodeLine{295   \textcolor{keyword}{struct }stats\_proto nd6;}
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#if MIB2\_STATS}}
+\DoxyCodeLine{299   \textcolor{keyword}{struct }stats\_mib2 mib2;}
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{301 \};}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{304 \textcolor{keyword}{extern} \textcolor{keyword}{struct }stats\_ lwip\_stats;}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{307 \textcolor{keywordtype}{void} stats\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#define STATS\_INC(x) ++lwip\_stats.x}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#define STATS\_DEC(x) -\/-\/lwip\_stats.x}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#define STATS\_INC\_USED(x, y, type) do \{ lwip\_stats.x.used = (type)(lwip\_stats.x.used + y); \(\backslash\)}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{                                if (lwip\_stats.x.max < lwip\_stats.x.used) \{ \(\backslash\)}}
+\DoxyCodeLine{313 \textcolor{preprocessor}{                                    lwip\_stats.x.max = lwip\_stats.x.used; \(\backslash\)}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{                                \} \(\backslash\)}}
+\DoxyCodeLine{315 \textcolor{preprocessor}{                             \} while(0)}}
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#define STATS\_GET(x) lwip\_stats.x}}
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_STATS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#define stats\_init()}}
+\DoxyCodeLine{319 \textcolor{preprocessor}{\#define STATS\_INC(x)}}
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#define STATS\_DEC(x)}}
+\DoxyCodeLine{321 \textcolor{preprocessor}{\#define STATS\_INC\_USED(x, y, type)}}
+\DoxyCodeLine{322 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_STATS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#if TCP\_STATS}}
+\DoxyCodeLine{325 \textcolor{preprocessor}{\#define TCP\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{326 \textcolor{preprocessor}{\#define TCP\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.tcp, "{}TCP"{}})}
+\DoxyCodeLine{327 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{328 \textcolor{preprocessor}{\#define TCP\_STATS\_INC(x)}}
+\DoxyCodeLine{329 \textcolor{preprocessor}{\#define TCP\_STATS\_DISPLAY()}}
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{331 }
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#if UDP\_STATS}}
+\DoxyCodeLine{333 \textcolor{preprocessor}{\#define UDP\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{334 \textcolor{preprocessor}{\#define UDP\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.udp, "{}UDP"{}})}
+\DoxyCodeLine{335 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{336 \textcolor{preprocessor}{\#define UDP\_STATS\_INC(x)}}
+\DoxyCodeLine{337 \textcolor{preprocessor}{\#define UDP\_STATS\_DISPLAY()}}
+\DoxyCodeLine{338 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340 \textcolor{preprocessor}{\#if ICMP\_STATS}}
+\DoxyCodeLine{341 \textcolor{preprocessor}{\#define ICMP\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{342 \textcolor{preprocessor}{\#define ICMP\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.icmp, "{}ICMP"{}})}
+\DoxyCodeLine{343 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{344 \textcolor{preprocessor}{\#define ICMP\_STATS\_INC(x)}}
+\DoxyCodeLine{345 \textcolor{preprocessor}{\#define ICMP\_STATS\_DISPLAY()}}
+\DoxyCodeLine{346 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#if IGMP\_STATS}}
+\DoxyCodeLine{349 \textcolor{preprocessor}{\#define IGMP\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#define IGMP\_STATS\_DISPLAY() stats\_display\_igmp(\&lwip\_stats.igmp, "{}IGMP"{}})}
+\DoxyCodeLine{351 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{352 \textcolor{preprocessor}{\#define IGMP\_STATS\_INC(x)}}
+\DoxyCodeLine{353 \textcolor{preprocessor}{\#define IGMP\_STATS\_DISPLAY()}}
+\DoxyCodeLine{354 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356 \textcolor{preprocessor}{\#if IP\_STATS}}
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#define IP\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#define IP\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.ip, "{}IP"{}})}
+\DoxyCodeLine{359 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{360 \textcolor{preprocessor}{\#define IP\_STATS\_INC(x)}}
+\DoxyCodeLine{361 \textcolor{preprocessor}{\#define IP\_STATS\_DISPLAY()}}
+\DoxyCodeLine{362 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364 \textcolor{preprocessor}{\#if IPFRAG\_STATS}}
+\DoxyCodeLine{365 \textcolor{preprocessor}{\#define IPFRAG\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{366 \textcolor{preprocessor}{\#define IPFRAG\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.ip\_frag, "{}IP\_FRAG"{}})}
+\DoxyCodeLine{367 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{368 \textcolor{preprocessor}{\#define IPFRAG\_STATS\_INC(x)}}
+\DoxyCodeLine{369 \textcolor{preprocessor}{\#define IPFRAG\_STATS\_DISPLAY()}}
+\DoxyCodeLine{370 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372 \textcolor{preprocessor}{\#if ETHARP\_STATS}}
+\DoxyCodeLine{373 \textcolor{preprocessor}{\#define ETHARP\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{374 \textcolor{preprocessor}{\#define ETHARP\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.etharp, "{}ETHARP"{}})}
+\DoxyCodeLine{375 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{376 \textcolor{preprocessor}{\#define ETHARP\_STATS\_INC(x)}}
+\DoxyCodeLine{377 \textcolor{preprocessor}{\#define ETHARP\_STATS\_DISPLAY()}}
+\DoxyCodeLine{378 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380 \textcolor{preprocessor}{\#if LINK\_STATS}}
+\DoxyCodeLine{381 \textcolor{preprocessor}{\#define LINK\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{382 \textcolor{preprocessor}{\#define LINK\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.link, "{}LINK"{}})}
+\DoxyCodeLine{383 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{384 \textcolor{preprocessor}{\#define LINK\_STATS\_INC(x)}}
+\DoxyCodeLine{385 \textcolor{preprocessor}{\#define LINK\_STATS\_DISPLAY()}}
+\DoxyCodeLine{386 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{388 \textcolor{preprocessor}{\#if MEM\_STATS}}
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#define MEM\_STATS\_AVAIL(x, y) lwip\_stats.mem.x = y}}
+\DoxyCodeLine{390 \textcolor{preprocessor}{\#define MEM\_STATS\_INC(x) STATS\_INC(mem.x)}}
+\DoxyCodeLine{391 \textcolor{preprocessor}{\#define MEM\_STATS\_INC\_USED(x, y) STATS\_INC\_USED(mem, y, mem\_size\_t)}}
+\DoxyCodeLine{392 \textcolor{preprocessor}{\#define MEM\_STATS\_DEC\_USED(x, y) lwip\_stats.mem.x = (mem\_size\_t)((lwip\_stats.mem.x) -\/ (y))}}
+\DoxyCodeLine{393 \textcolor{preprocessor}{\#define MEM\_STATS\_DISPLAY() stats\_display\_mem(\&lwip\_stats.mem, "{}HEAP"{}})}
+\DoxyCodeLine{394 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{395 \textcolor{preprocessor}{\#define MEM\_STATS\_AVAIL(x, y)}}
+\DoxyCodeLine{396 \textcolor{preprocessor}{\#define MEM\_STATS\_INC(x)}}
+\DoxyCodeLine{397 \textcolor{preprocessor}{\#define MEM\_STATS\_INC\_USED(x, y)}}
+\DoxyCodeLine{398 \textcolor{preprocessor}{\#define MEM\_STATS\_DEC\_USED(x, y)}}
+\DoxyCodeLine{399 \textcolor{preprocessor}{\#define MEM\_STATS\_DISPLAY()}}
+\DoxyCodeLine{400 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{401 }
+\DoxyCodeLine{402 \textcolor{preprocessor}{ \#if MEMP\_STATS}}
+\DoxyCodeLine{403 \textcolor{preprocessor}{\#define MEMP\_STATS\_DEC(x, i) STATS\_DEC(memp[i]-\/>x)}}
+\DoxyCodeLine{404 \textcolor{preprocessor}{\#define MEMP\_STATS\_DISPLAY(i) stats\_display\_memp(lwip\_stats.memp[i], i)}}
+\DoxyCodeLine{405 \textcolor{preprocessor}{\#define MEMP\_STATS\_GET(x, i) STATS\_GET(memp[i]-\/>x)}}
+\DoxyCodeLine{406 \textcolor{preprocessor}{ \#else}}
+\DoxyCodeLine{407 \textcolor{preprocessor}{\#define MEMP\_STATS\_DEC(x, i)}}
+\DoxyCodeLine{408 \textcolor{preprocessor}{\#define MEMP\_STATS\_DISPLAY(i)}}
+\DoxyCodeLine{409 \textcolor{preprocessor}{\#define MEMP\_STATS\_GET(x, i) 0}}
+\DoxyCodeLine{410 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412 \textcolor{preprocessor}{\#if SYS\_STATS}}
+\DoxyCodeLine{413 \textcolor{preprocessor}{\#define SYS\_STATS\_INC(x) STATS\_INC(sys.x)}}
+\DoxyCodeLine{414 \textcolor{preprocessor}{\#define SYS\_STATS\_DEC(x) STATS\_DEC(sys.x)}}
+\DoxyCodeLine{415 \textcolor{preprocessor}{\#define SYS\_STATS\_INC\_USED(x) STATS\_INC\_USED(sys.x, 1, STAT\_COUNTER)}}
+\DoxyCodeLine{416 \textcolor{preprocessor}{\#define SYS\_STATS\_DISPLAY() stats\_display\_sys(\&lwip\_stats.sys)}}
+\DoxyCodeLine{417 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{418 \textcolor{preprocessor}{\#define SYS\_STATS\_INC(x)}}
+\DoxyCodeLine{419 \textcolor{preprocessor}{\#define SYS\_STATS\_DEC(x)}}
+\DoxyCodeLine{420 \textcolor{preprocessor}{\#define SYS\_STATS\_INC\_USED(x)}}
+\DoxyCodeLine{421 \textcolor{preprocessor}{\#define SYS\_STATS\_DISPLAY()}}
+\DoxyCodeLine{422 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424 \textcolor{preprocessor}{\#if IP6\_STATS}}
+\DoxyCodeLine{425 \textcolor{preprocessor}{\#define IP6\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{426 \textcolor{preprocessor}{\#define IP6\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.ip6, "{}IPv6"{}})}
+\DoxyCodeLine{427 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{428 \textcolor{preprocessor}{\#define IP6\_STATS\_INC(x)}}
+\DoxyCodeLine{429 \textcolor{preprocessor}{\#define IP6\_STATS\_DISPLAY()}}
+\DoxyCodeLine{430 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432 \textcolor{preprocessor}{\#if ICMP6\_STATS}}
+\DoxyCodeLine{433 \textcolor{preprocessor}{\#define ICMP6\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{434 \textcolor{preprocessor}{\#define ICMP6\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.icmp6, "{}ICMPv6"{}})}
+\DoxyCodeLine{435 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{436 \textcolor{preprocessor}{\#define ICMP6\_STATS\_INC(x)}}
+\DoxyCodeLine{437 \textcolor{preprocessor}{\#define ICMP6\_STATS\_DISPLAY()}}
+\DoxyCodeLine{438 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440 \textcolor{preprocessor}{\#if IP6\_FRAG\_STATS}}
+\DoxyCodeLine{441 \textcolor{preprocessor}{\#define IP6\_FRAG\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{442 \textcolor{preprocessor}{\#define IP6\_FRAG\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.ip6\_frag, "{}IPv6 FRAG"{}})}
+\DoxyCodeLine{443 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{444 \textcolor{preprocessor}{\#define IP6\_FRAG\_STATS\_INC(x)}}
+\DoxyCodeLine{445 \textcolor{preprocessor}{\#define IP6\_FRAG\_STATS\_DISPLAY()}}
+\DoxyCodeLine{446 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448 \textcolor{preprocessor}{\#if MLD6\_STATS}}
+\DoxyCodeLine{449 \textcolor{preprocessor}{\#define MLD6\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{450 \textcolor{preprocessor}{\#define MLD6\_STATS\_DISPLAY() stats\_display\_igmp(\&lwip\_stats.mld6, "{}MLDv1"{}})}
+\DoxyCodeLine{451 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{452 \textcolor{preprocessor}{\#define MLD6\_STATS\_INC(x)}}
+\DoxyCodeLine{453 \textcolor{preprocessor}{\#define MLD6\_STATS\_DISPLAY()}}
+\DoxyCodeLine{454 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456 \textcolor{preprocessor}{\#if ND6\_STATS}}
+\DoxyCodeLine{457 \textcolor{preprocessor}{\#define ND6\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{458 \textcolor{preprocessor}{\#define ND6\_STATS\_DISPLAY() stats\_display\_proto(\&lwip\_stats.nd6, "{}ND"{}})}
+\DoxyCodeLine{459 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{460 \textcolor{preprocessor}{\#define ND6\_STATS\_INC(x)}}
+\DoxyCodeLine{461 \textcolor{preprocessor}{\#define ND6\_STATS\_DISPLAY()}}
+\DoxyCodeLine{462 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464 \textcolor{preprocessor}{\#if MIB2\_STATS}}
+\DoxyCodeLine{465 \textcolor{preprocessor}{\#define MIB2\_STATS\_INC(x) STATS\_INC(x)}}
+\DoxyCodeLine{466 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{467 \textcolor{preprocessor}{\#define MIB2\_STATS\_INC(x)}}
+\DoxyCodeLine{468 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470 \textcolor{comment}{/* Display of statistics */}}
+\DoxyCodeLine{471 \textcolor{preprocessor}{\#if LWIP\_STATS\_DISPLAY}}
+\DoxyCodeLine{472 \textcolor{keywordtype}{void} stats\_display(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{473 \textcolor{keywordtype}{void} stats\_display\_proto(\textcolor{keyword}{struct} stats\_proto *proto, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name);}
+\DoxyCodeLine{474 \textcolor{keywordtype}{void} stats\_display\_igmp(\textcolor{keyword}{struct} stats\_igmp *igmp, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name);}
+\DoxyCodeLine{475 \textcolor{keywordtype}{void} stats\_display\_mem(\textcolor{keyword}{struct} stats\_mem *mem, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name);}
+\DoxyCodeLine{476 \textcolor{keywordtype}{void} stats\_display\_memp(\textcolor{keyword}{struct} stats\_mem *mem, \textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{477 \textcolor{keywordtype}{void} stats\_display\_sys(\textcolor{keyword}{struct} stats\_sys *sys);}
+\DoxyCodeLine{478 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_STATS\_DISPLAY */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{479 \textcolor{preprocessor}{\#define stats\_display()}}
+\DoxyCodeLine{480 \textcolor{preprocessor}{\#define stats\_display\_proto(proto, name)}}
+\DoxyCodeLine{481 \textcolor{preprocessor}{\#define stats\_display\_igmp(igmp, name)}}
+\DoxyCodeLine{482 \textcolor{preprocessor}{\#define stats\_display\_mem(mem, name)}}
+\DoxyCodeLine{483 \textcolor{preprocessor}{\#define stats\_display\_memp(mem, index)}}
+\DoxyCodeLine{484 \textcolor{preprocessor}{\#define stats\_display\_sys(sys)}}
+\DoxyCodeLine{485 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_STATS\_DISPLAY */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{486 }
+\DoxyCodeLine{487 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{488 \}}
+\DoxyCodeLine{489 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{490 }
+\DoxyCodeLine{491 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_STATS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,78 @@
+\hypertarget{prot_2tcp_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/prot/tcp.h File Reference}
+\label{prot_2tcp_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/tcp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/tcp.h}}
+{\ttfamily \#include \char`\"{}lwip/arch.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtcp__hdr}{tcp\+\_\+hdr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a5758db371d6daa394d178429b7c94c2a}\label{prot_2tcp_8h_a5758db371d6daa394d178429b7c94c2a}} 
+\#define {\bfseries TCP\+\_\+\+HLEN}~20
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a88e60aa2cf23e1c65d630701db08c743}\label{prot_2tcp_8h_a88e60aa2cf23e1c65d630701db08c743}} 
+\#define {\bfseries TCP\+\_\+\+FIN}~0x01U
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a6020613f5062417d9811cfa837215c83}\label{prot_2tcp_8h_a6020613f5062417d9811cfa837215c83}} 
+\#define {\bfseries TCP\+\_\+\+SYN}~0x02U
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a5ca559def464ef20d8b1f7d32f2f160d}\label{prot_2tcp_8h_a5ca559def464ef20d8b1f7d32f2f160d}} 
+\#define {\bfseries TCP\+\_\+\+RST}~0x04U
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a1320fd0006a2f70138bc2d0018dda829}\label{prot_2tcp_8h_a1320fd0006a2f70138bc2d0018dda829}} 
+\#define {\bfseries TCP\+\_\+\+PSH}~0x08U
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a44b3b1ab31a403ba28ec135adfcbefef}\label{prot_2tcp_8h_a44b3b1ab31a403ba28ec135adfcbefef}} 
+\#define {\bfseries TCP\+\_\+\+ACK}~0x10U
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_ac84f499cba8a02fc0e306c10b2acabf0}\label{prot_2tcp_8h_ac84f499cba8a02fc0e306c10b2acabf0}} 
+\#define {\bfseries TCP\+\_\+\+URG}~0x20U
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_ae6ba06711820fc4365ad0d78f70171dd}\label{prot_2tcp_8h_ae6ba06711820fc4365ad0d78f70171dd}} 
+\#define {\bfseries TCP\+\_\+\+ECE}~0x40U
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a6f441228e74f83c026c48360667beb48}\label{prot_2tcp_8h_a6f441228e74f83c026c48360667beb48}} 
+\#define {\bfseries TCP\+\_\+\+CWR}~0x80U
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a75dbc3ac2d65c23a60dbe2f96a874501}\label{prot_2tcp_8h_a75dbc3ac2d65c23a60dbe2f96a874501}} 
+\#define {\bfseries TCP\+\_\+\+FLAGS}~0x3fU
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_afc349cad69f305423a0e8d9a5f22ceb8}\label{prot_2tcp_8h_afc349cad69f305423a0e8d9a5f22ceb8}} 
+\#define {\bfseries TCP\+\_\+\+MAX\+\_\+\+OPTION\+\_\+\+BYTES}~40
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a5b97d3b7e68c20eb3eab87a61d779223}\label{prot_2tcp_8h_a5b97d3b7e68c20eb3eab87a61d779223}} 
+\#define {\bfseries TCPH\+\_\+\+HDRLEN}(phdr)~((u16\+\_\+t)(lwip\+\_\+ntohs((phdr)-\/$>$\+\_\+hdrlen\+\_\+rsvd\+\_\+flags) $>$$>$ 12))
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a3ba6db2085d38f4e9b0898f2d2594608}\label{prot_2tcp_8h_a3ba6db2085d38f4e9b0898f2d2594608}} 
+\#define {\bfseries TCPH\+\_\+\+HDRLEN\+\_\+\+BYTES}(phdr)~((u8\+\_\+t)(TCPH\+\_\+\+HDRLEN(phdr) $<$$<$ 2))
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_ad5de3cf876b2c7f6835f44132fe0e9d5}\label{prot_2tcp_8h_ad5de3cf876b2c7f6835f44132fe0e9d5}} 
+\#define {\bfseries TCPH\+\_\+\+FLAGS}(phdr)~((u8\+\_\+t)((lwip\+\_\+ntohs((phdr)-\/$>$\+\_\+hdrlen\+\_\+rsvd\+\_\+flags) \& TCP\+\_\+\+FLAGS)))
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a8c29d17957680854699ac2e5dab9aca4}\label{prot_2tcp_8h_a8c29d17957680854699ac2e5dab9aca4}} 
+\#define {\bfseries TCPH\+\_\+\+HDRLEN\+\_\+\+SET}(phdr,  len)~(phdr)-\/$>$\+\_\+hdrlen\+\_\+rsvd\+\_\+flags = lwip\+\_\+htons(((len) $<$$<$ 12) $\vert$ TCPH\+\_\+\+FLAGS(phdr))
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_afe7c917080459557c65071c4b13c8e12}\label{prot_2tcp_8h_afe7c917080459557c65071c4b13c8e12}} 
+\#define {\bfseries TCPH\+\_\+\+FLAGS\+\_\+\+SET}(phdr,  flags)~(phdr)-\/$>$\+\_\+hdrlen\+\_\+rsvd\+\_\+flags = (((phdr)-\/$>$\+\_\+hdrlen\+\_\+rsvd\+\_\+flags \& PP\+\_\+\+HTONS($\sim$TCP\+\_\+\+FLAGS)) $\vert$ lwip\+\_\+htons(flags))
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a57fb29aed8df21ccff4481612ee40407}\label{prot_2tcp_8h_a57fb29aed8df21ccff4481612ee40407}} 
+\#define {\bfseries TCPH\+\_\+\+HDRLEN\+\_\+\+FLAGS\+\_\+\+SET}(phdr,  len,  flags)~(phdr)-\/$>$\+\_\+hdrlen\+\_\+rsvd\+\_\+flags = (u16\+\_\+t)(lwip\+\_\+htons((u16\+\_\+t)((len) $<$$<$ 12) $\vert$ (flags)))
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_a42432f2dde6716ecb0087ccbc47cc75b}\label{prot_2tcp_8h_a42432f2dde6716ecb0087ccbc47cc75b}} 
+\#define {\bfseries TCPH\+\_\+\+SET\+\_\+\+FLAG}(phdr,  flags)~(phdr)-\/$>$\+\_\+hdrlen\+\_\+rsvd\+\_\+flags = ((phdr)-\/$>$\+\_\+hdrlen\+\_\+rsvd\+\_\+flags $\vert$ lwip\+\_\+htons(flags))
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_adc07c9186474e45d2fc40e9efc76d2ba}\label{prot_2tcp_8h_adc07c9186474e45d2fc40e9efc76d2ba}} 
+\#define {\bfseries TCPH\+\_\+\+UNSET\+\_\+\+FLAG}(phdr,  flags)~(phdr)-\/$>$\+\_\+hdrlen\+\_\+rsvd\+\_\+flags = ((phdr)-\/$>$\+\_\+hdrlen\+\_\+rsvd\+\_\+flags \& $\sim$lwip\+\_\+htons(flags))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{prot_2tcp_8h_ad49e3bb308fe3863327645afb2171b4a}\label{prot_2tcp_8h_ad49e3bb308fe3863327645afb2171b4a}} 
+\mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\+\_\+\+STRUCT\+\_\+\+BEGIN}} struct \mbox{\hyperlink{structtcp__hdr}{tcp\+\_\+hdr}} {\bfseries PACK\+\_\+\+STRUCT\+\_\+\+STRUCT}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+TCP protocol definitions 

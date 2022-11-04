@@ -1,0 +1,102 @@
+\hypertarget{group__lwip__opts__netif}{}\doxysection{NETIF}
+\label{group__lwip__opts__netif}\index{NETIF@{NETIF}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__lwip__opts__loop}{Loopback interface}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netif_ga943063b053eeac76b0b1bcef2ddd93be}{LWIP\+\_\+\+SINGLE\+\_\+\+NETIF}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netif_gaa714dbfa66822ec4c6111bdb8cf753c1}{LWIP\+\_\+\+NETIF\+\_\+\+HOSTNAME}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netif_gadd45fb65f2d0e6de5a0d14ff9e101b77}{LWIP\+\_\+\+NETIF\+\_\+\+API}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netif_gaffb97d89516c38d3fcb9e44e5d707f36}{LWIP\+\_\+\+NETIF\+\_\+\+STATUS\+\_\+\+CALLBACK}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netif_ga090482867ba04d442ab5b8ad745c0e1e}{LWIP\+\_\+\+NETIF\+\_\+\+EXT\+\_\+\+STATUS\+\_\+\+CALLBACK}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netif_ga1a446932dd927cc4136ba654c13bb97b}{LWIP\+\_\+\+NETIF\+\_\+\+LINK\+\_\+\+CALLBACK}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netif_ga9c942c2e9655b06d4f73c630d30f60bf}{LWIP\+\_\+\+NETIF\+\_\+\+REMOVE\+\_\+\+CALLBACK}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netif_gad1d5e878d94b56ba687cef69be936ad9}{LWIP\+\_\+\+NETIF\+\_\+\+HWADDRHINT}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netif_gabafb9f64a80e51b56c0abbcfc1f7e04e}{LWIP\+\_\+\+NETIF\+\_\+\+TX\+\_\+\+SINGLE\+\_\+\+PBUF}}~0
+\item 
+\#define \mbox{\hyperlink{group__lwip__opts__netif_ga94a35212616f9a9aae5c98741612b936}{LWIP\+\_\+\+NUM\+\_\+\+NETIF\+\_\+\+CLIENT\+\_\+\+DATA}}~0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__lwip__opts__netif_gadd45fb65f2d0e6de5a0d14ff9e101b77}\label{group__lwip__opts__netif_gadd45fb65f2d0e6de5a0d14ff9e101b77}} 
+\index{NETIF@{NETIF}!LWIP\_NETIF\_API@{LWIP\_NETIF\_API}}
+\index{LWIP\_NETIF\_API@{LWIP\_NETIF\_API}!NETIF@{NETIF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETIF\_API}{LWIP\_NETIF\_API}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETIF\+\_\+\+API~0}
+
+LWIP\+\_\+\+NETIF\+\_\+\+API==1\+: Support netif api (in \mbox{\hyperlink{netifapi_8c}{netifapi.\+c}}) \mbox{\Hypertarget{group__lwip__opts__netif_ga090482867ba04d442ab5b8ad745c0e1e}\label{group__lwip__opts__netif_ga090482867ba04d442ab5b8ad745c0e1e}} 
+\index{NETIF@{NETIF}!LWIP\_NETIF\_EXT\_STATUS\_CALLBACK@{LWIP\_NETIF\_EXT\_STATUS\_CALLBACK}}
+\index{LWIP\_NETIF\_EXT\_STATUS\_CALLBACK@{LWIP\_NETIF\_EXT\_STATUS\_CALLBACK}!NETIF@{NETIF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETIF\_EXT\_STATUS\_CALLBACK}{LWIP\_NETIF\_EXT\_STATUS\_CALLBACK}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETIF\+\_\+\+EXT\+\_\+\+STATUS\+\_\+\+CALLBACK~0}
+
+LWIP\+\_\+\+NETIF\+\_\+\+EXT\+\_\+\+STATUS\+\_\+\+CALLBACK==1\+: Support an extended callback function for several netif related event that supports multiple subscribers. \begin{DoxySeeAlso}{See also}
+netif\+\_\+ext\+\_\+status\+\_\+callback 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{group__lwip__opts__netif_gaa714dbfa66822ec4c6111bdb8cf753c1}\label{group__lwip__opts__netif_gaa714dbfa66822ec4c6111bdb8cf753c1}} 
+\index{NETIF@{NETIF}!LWIP\_NETIF\_HOSTNAME@{LWIP\_NETIF\_HOSTNAME}}
+\index{LWIP\_NETIF\_HOSTNAME@{LWIP\_NETIF\_HOSTNAME}!NETIF@{NETIF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETIF\_HOSTNAME}{LWIP\_NETIF\_HOSTNAME}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETIF\+\_\+\+HOSTNAME~0}
+
+LWIP\+\_\+\+NETIF\+\_\+\+HOSTNAME==1\+: use DHCP\+\_\+\+OPTION\+\_\+\+HOSTNAME with netif\textquotesingle{}s hostname field. \mbox{\Hypertarget{group__lwip__opts__netif_gad1d5e878d94b56ba687cef69be936ad9}\label{group__lwip__opts__netif_gad1d5e878d94b56ba687cef69be936ad9}} 
+\index{NETIF@{NETIF}!LWIP\_NETIF\_HWADDRHINT@{LWIP\_NETIF\_HWADDRHINT}}
+\index{LWIP\_NETIF\_HWADDRHINT@{LWIP\_NETIF\_HWADDRHINT}!NETIF@{NETIF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETIF\_HWADDRHINT}{LWIP\_NETIF\_HWADDRHINT}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETIF\+\_\+\+HWADDRHINT~0}
+
+LWIP\+\_\+\+NETIF\+\_\+\+HWADDRHINT==1\+: Cache link-\/layer-\/address hints (e.\+g. table indices) in struct netif. TCP and UDP can make use of this to prevent scanning the ARP table for every sent packet. While this is faster for big ARP tables or many concurrent connections, it might be counterproductive if you have a tiny ARP table or if there never are concurrent connections. \mbox{\Hypertarget{group__lwip__opts__netif_ga1a446932dd927cc4136ba654c13bb97b}\label{group__lwip__opts__netif_ga1a446932dd927cc4136ba654c13bb97b}} 
+\index{NETIF@{NETIF}!LWIP\_NETIF\_LINK\_CALLBACK@{LWIP\_NETIF\_LINK\_CALLBACK}}
+\index{LWIP\_NETIF\_LINK\_CALLBACK@{LWIP\_NETIF\_LINK\_CALLBACK}!NETIF@{NETIF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETIF\_LINK\_CALLBACK}{LWIP\_NETIF\_LINK\_CALLBACK}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETIF\+\_\+\+LINK\+\_\+\+CALLBACK~0}
+
+LWIP\+\_\+\+NETIF\+\_\+\+LINK\+\_\+\+CALLBACK==1\+: Support a callback function from an interface whenever the link changes (i.\+e., link down) \mbox{\Hypertarget{group__lwip__opts__netif_ga9c942c2e9655b06d4f73c630d30f60bf}\label{group__lwip__opts__netif_ga9c942c2e9655b06d4f73c630d30f60bf}} 
+\index{NETIF@{NETIF}!LWIP\_NETIF\_REMOVE\_CALLBACK@{LWIP\_NETIF\_REMOVE\_CALLBACK}}
+\index{LWIP\_NETIF\_REMOVE\_CALLBACK@{LWIP\_NETIF\_REMOVE\_CALLBACK}!NETIF@{NETIF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETIF\_REMOVE\_CALLBACK}{LWIP\_NETIF\_REMOVE\_CALLBACK}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETIF\+\_\+\+REMOVE\+\_\+\+CALLBACK~0}
+
+LWIP\+\_\+\+NETIF\+\_\+\+REMOVE\+\_\+\+CALLBACK==1\+: Support a callback function that is called when a netif has been removed \mbox{\Hypertarget{group__lwip__opts__netif_gaffb97d89516c38d3fcb9e44e5d707f36}\label{group__lwip__opts__netif_gaffb97d89516c38d3fcb9e44e5d707f36}} 
+\index{NETIF@{NETIF}!LWIP\_NETIF\_STATUS\_CALLBACK@{LWIP\_NETIF\_STATUS\_CALLBACK}}
+\index{LWIP\_NETIF\_STATUS\_CALLBACK@{LWIP\_NETIF\_STATUS\_CALLBACK}!NETIF@{NETIF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETIF\_STATUS\_CALLBACK}{LWIP\_NETIF\_STATUS\_CALLBACK}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETIF\+\_\+\+STATUS\+\_\+\+CALLBACK~0}
+
+LWIP\+\_\+\+NETIF\+\_\+\+STATUS\+\_\+\+CALLBACK==1\+: Support a callback function whenever an interface changes its up/down status (i.\+e., due to DHCP IP acquisition) \mbox{\Hypertarget{group__lwip__opts__netif_gabafb9f64a80e51b56c0abbcfc1f7e04e}\label{group__lwip__opts__netif_gabafb9f64a80e51b56c0abbcfc1f7e04e}} 
+\index{NETIF@{NETIF}!LWIP\_NETIF\_TX\_SINGLE\_PBUF@{LWIP\_NETIF\_TX\_SINGLE\_PBUF}}
+\index{LWIP\_NETIF\_TX\_SINGLE\_PBUF@{LWIP\_NETIF\_TX\_SINGLE\_PBUF}!NETIF@{NETIF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NETIF\_TX\_SINGLE\_PBUF}{LWIP\_NETIF\_TX\_SINGLE\_PBUF}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NETIF\+\_\+\+TX\+\_\+\+SINGLE\+\_\+\+PBUF~0}
+
+LWIP\+\_\+\+NETIF\+\_\+\+TX\+\_\+\+SINGLE\+\_\+\+PBUF\+: if this is set to 1, lw\+IP {\itshape tries} to put all data to be sent into one single pbuf. This is for compatibility with DMA-\/enabled MACs that do not support scatter-\/gather. Beware that this might involve CPU-\/memcpy before transmitting that would not be needed without this flag! Use this only if you need to!
+
+ATTENTION\+: a driver should {\itshape NOT} rely on getting single pbufs but check TX pbufs for being in one piece. If not, \mbox{\hyperlink{group__pbuf_gac6842a5d8268606f9608bae15d652a22}{pbuf\+\_\+clone}} can be used to get a single pbuf\+: if (p-\/\texorpdfstring{$>$}{>}next != NULL) \{ struct pbuf $\ast$q = pbuf\+\_\+clone(\+PBUF\+\_\+\+RAW, PBUF\+\_\+\+RAM, p); if (q == NULL) \{ return ERR\+\_\+\+MEM; \} p = q; ATTENTION\+: do NOT free the old \textquotesingle{}p\textquotesingle{} as the ref belongs to the caller! \} \mbox{\Hypertarget{group__lwip__opts__netif_ga94a35212616f9a9aae5c98741612b936}\label{group__lwip__opts__netif_ga94a35212616f9a9aae5c98741612b936}} 
+\index{NETIF@{NETIF}!LWIP\_NUM\_NETIF\_CLIENT\_DATA@{LWIP\_NUM\_NETIF\_CLIENT\_DATA}}
+\index{LWIP\_NUM\_NETIF\_CLIENT\_DATA@{LWIP\_NUM\_NETIF\_CLIENT\_DATA}!NETIF@{NETIF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_NUM\_NETIF\_CLIENT\_DATA}{LWIP\_NUM\_NETIF\_CLIENT\_DATA}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+NUM\+\_\+\+NETIF\+\_\+\+CLIENT\+\_\+\+DATA~0}
+
+LWIP\+\_\+\+NUM\+\_\+\+NETIF\+\_\+\+CLIENT\+\_\+\+DATA\+: Number of clients that may store data in client\+\_\+data member array of struct netif (max. 256). \mbox{\Hypertarget{group__lwip__opts__netif_ga943063b053eeac76b0b1bcef2ddd93be}\label{group__lwip__opts__netif_ga943063b053eeac76b0b1bcef2ddd93be}} 
+\index{NETIF@{NETIF}!LWIP\_SINGLE\_NETIF@{LWIP\_SINGLE\_NETIF}}
+\index{LWIP\_SINGLE\_NETIF@{LWIP\_SINGLE\_NETIF}!NETIF@{NETIF}}
+\doxysubsubsection{\texorpdfstring{LWIP\_SINGLE\_NETIF}{LWIP\_SINGLE\_NETIF}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+SINGLE\+\_\+\+NETIF~0}
+
+LWIP\+\_\+\+SINGLE\+\_\+\+NETIF==1\+: use a single netif only. This is the common case for small real-\/life targets. Some code like routing etc. can be left out. 

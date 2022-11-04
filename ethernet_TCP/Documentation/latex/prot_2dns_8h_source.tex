@@ -1,0 +1,139 @@
+\hypertarget{prot_2dns_8h_source}{}\doxysection{dns.\+h}
+\label{prot_2dns_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/dns.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/prot/dns.h}}
+\mbox{\hyperlink{prot_2dns_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Port to lwIP from uIP}}
+\DoxyCodeLine{8 \textcolor{comment}{ * by Jim Pettinato April 2007}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * security fixes and more by Simon Goldschmidt}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * uIP version Copyright (c) 2002-\/2003, Adam Dunkels.}}
+\DoxyCodeLine{13 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{14 \textcolor{comment}{ *}}
+\DoxyCodeLine{15 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{16 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{17 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{20 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{21 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in the}}
+\DoxyCodeLine{22 \textcolor{comment}{ *    documentation and/or other materials provided with the distribution.}}
+\DoxyCodeLine{23 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote}}
+\DoxyCodeLine{24 \textcolor{comment}{ *    products derived from this software without specific prior}}
+\DoxyCodeLine{25 \textcolor{comment}{ *    written permission.}}
+\DoxyCodeLine{26 \textcolor{comment}{ *}}
+\DoxyCodeLine{27 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS}}
+\DoxyCodeLine{28 \textcolor{comment}{ * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED}}
+\DoxyCodeLine{29 \textcolor{comment}{ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{30 \textcolor{comment}{ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY}}
+\DoxyCodeLine{31 \textcolor{comment}{ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL}}
+\DoxyCodeLine{32 \textcolor{comment}{ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE}}
+\DoxyCodeLine{33 \textcolor{comment}{ * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{34 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,}}
+\DoxyCodeLine{35 \textcolor{comment}{ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING}}
+\DoxyCodeLine{36 \textcolor{comment}{ * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS}}
+\DoxyCodeLine{37 \textcolor{comment}{ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{38 \textcolor{comment}{ */}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_PROT\_DNS\_H}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define LWIP\_HDR\_PROT\_DNS\_H}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{arch_8h}{lwip/arch.h}}"{}}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{46 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#ifndef DNS\_SERVER\_PORT}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define DNS\_SERVER\_PORT           53}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{comment}{/* DNS field TYPE used for "{}Resource Records"{} */}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_A              1     }\textcolor{comment}{/* a host address */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_NS             2     }\textcolor{comment}{/* an authoritative name server */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_MD             3     }\textcolor{comment}{/* a mail destination (Obsolete -\/ use MX) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_MF             4     }\textcolor{comment}{/* a mail forwarder (Obsolete -\/ use MX) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_CNAME          5     }\textcolor{comment}{/* the canonical name for an alias */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_SOA            6     }\textcolor{comment}{/* marks the start of a zone of authority */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_MB             7     }\textcolor{comment}{/* a mailbox domain name (EXPERIMENTAL) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_MG             8     }\textcolor{comment}{/* a mail group member (EXPERIMENTAL) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_MR             9     }\textcolor{comment}{/* a mail rename domain name (EXPERIMENTAL) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_NULL           10    }\textcolor{comment}{/* a null RR (EXPERIMENTAL) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_WKS            11    }\textcolor{comment}{/* a well known service description */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_PTR            12    }\textcolor{comment}{/* a domain name pointer */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_HINFO          13    }\textcolor{comment}{/* host information */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_MINFO          14    }\textcolor{comment}{/* mailbox or mail list information */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_MX             15    }\textcolor{comment}{/* mail exchange */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_TXT            16    }\textcolor{comment}{/* text strings */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_AAAA           28    }\textcolor{comment}{/* IPv6 address */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_SRV            33    }\textcolor{comment}{/* service location */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define DNS\_RRTYPE\_ANY            255   }\textcolor{comment}{/* any type */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{comment}{/* DNS field CLASS used for "{}Resource Records"{} */}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define DNS\_RRCLASS\_IN            1     }\textcolor{comment}{/* the Internet */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define DNS\_RRCLASS\_CS            2     }\textcolor{comment}{/* the CSNET class (Obsolete -\/ used only for examples in some obsolete RFCs) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define DNS\_RRCLASS\_CH            3     }\textcolor{comment}{/* the CHAOS class */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define DNS\_RRCLASS\_HS            4     }\textcolor{comment}{/* Hesiod [Dyer 87] */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define DNS\_RRCLASS\_ANY           255   }\textcolor{comment}{/* any class */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define DNS\_RRCLASS\_FLUSH         0x800 }\textcolor{comment}{/* Flush bit */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{comment}{/* DNS protocol flags */}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define DNS\_FLAG1\_RESPONSE        0x80}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define DNS\_FLAG1\_OPCODE\_STATUS   0x10}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define DNS\_FLAG1\_OPCODE\_INVERSE  0x08}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define DNS\_FLAG1\_OPCODE\_STANDARD 0x00}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define DNS\_FLAG1\_AUTHORATIVE     0x04}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define DNS\_FLAG1\_TRUNC           0x02}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define DNS\_FLAG1\_RD              0x01}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define DNS\_FLAG2\_RA              0x80}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define DNS\_FLAG2\_ERR\_MASK        0x0f}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define DNS\_FLAG2\_ERR\_NONE        0x00}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define DNS\_FLAG2\_ERR\_NAME        0x03}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define DNS\_HDR\_GET\_OPCODE(hdr) ((((hdr)-\/>flags1) >> 3) \& 0xF)}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{101 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{103 \textcolor{keyword}{struct }\mbox{\hyperlink{structdns__hdr}{dns\_hdr}} \{}
+\DoxyCodeLine{104   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t \textcolor{keywordtype}{id});}
+\DoxyCodeLine{105   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t flags1);}
+\DoxyCodeLine{106   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t flags2);}
+\DoxyCodeLine{107   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t numquestions);}
+\DoxyCodeLine{108   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t numanswers);}
+\DoxyCodeLine{109   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t numauthrr);}
+\DoxyCodeLine{110   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t numextrarr);}
+\DoxyCodeLine{111 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{112 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define SIZEOF\_DNS\_HDR 12}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{comment}{/* Multicast DNS definitions */}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#ifndef DNS\_MQUERY\_PORT}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define DNS\_MQUERY\_PORT             5353}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{comment}{/* IPv4 group for multicast DNS queries: 224.0.0.251 */}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#ifndef DNS\_MQUERY\_IPV4\_GROUP\_INIT}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define DNS\_MQUERY\_IPV4\_GROUP\_INIT  IPADDR4\_INIT\_BYTES(224,0,0,251)}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{comment}{/* IPv6 group for multicast DNS queries: FF02::FB */}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#ifndef DNS\_MQUERY\_IPV6\_GROUP\_INIT}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define DNS\_MQUERY\_IPV6\_GROUP\_INIT  IPADDR6\_INIT\_HOST(0xFF020000,0,0,0xFB)}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{137 \}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_PROT\_DNS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,170 @@
+\hypertarget{ccp_8h_source}{}\doxysection{ccp.\+h}
+\label{ccp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ccp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ccp.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * ccp.h -\/ Definitions for PPP Compression Control Protocol.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 1994-\/2002 Paul Mackerras. All rights reserved.}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{7 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{8 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. The name(s) of the authors of this software must not be used to}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    prior written permission.}}
+\DoxyCodeLine{16 \textcolor{comment}{ *}}
+\DoxyCodeLine{17 \textcolor{comment}{ * 3. Redistributions of any form whatsoever must retain the following}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    acknowledgment:}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    "{}This product includes software developed by Paul Mackerras}}
+\DoxyCodeLine{20 \textcolor{comment}{ *     <paulus@samba.org>"{}.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * THE AUTHORS OF THIS SOFTWARE DISCLAIM ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{23 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{24 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY}}
+\DoxyCodeLine{25 \textcolor{comment}{ * SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{26 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{27 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{28 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{29 \textcolor{comment}{ *}}
+\DoxyCodeLine{30 \textcolor{comment}{ * \$Id: ccp.h,v 1.12 2004/11/04 10:02:26 paulus Exp \$}}
+\DoxyCodeLine{31 \textcolor{comment}{ */}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& CCP\_SUPPORT  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifndef CCP\_H}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define CCP\_H}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{40 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{comment}{/*}}
+\DoxyCodeLine{44 \textcolor{comment}{ * CCP codes.}}
+\DoxyCodeLine{45 \textcolor{comment}{ */}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define CCP\_CONFREQ 1}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define CCP\_CONFACK 2}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define CCP\_TERMREQ 5}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define CCP\_TERMACK 6}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define CCP\_RESETREQ    14}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define CCP\_RESETACK    15}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{comment}{/*}}
+\DoxyCodeLine{55 \textcolor{comment}{ * Max \# bytes for a CCP option}}
+\DoxyCodeLine{56 \textcolor{comment}{ */}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define CCP\_MAX\_OPTION\_LENGTH   32}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{comment}{/*}}
+\DoxyCodeLine{61 \textcolor{comment}{ * Parts of a CCP packet.}}
+\DoxyCodeLine{62 \textcolor{comment}{ */}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define CCP\_CODE(dp)        ((dp)[0])}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define CCP\_ID(dp)      ((dp)[1])}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define CCP\_LENGTH(dp)      (((dp)[2] << 8) + (dp)[3])}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define CCP\_HDRLEN      4}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define CCP\_OPT\_CODE(dp)    ((dp)[0])}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define CCP\_OPT\_LENGTH(dp)  ((dp)[1])}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define CCP\_OPT\_MINLEN      2}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#if BSDCOMPRESS\_SUPPORT}}
+\DoxyCodeLine{74 \textcolor{comment}{/*}}
+\DoxyCodeLine{75 \textcolor{comment}{ * Definitions for BSD-\/Compress.}}
+\DoxyCodeLine{76 \textcolor{comment}{ */}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define CI\_BSD\_COMPRESS     21  }\textcolor{comment}{/* config. option for BSD-\/Compress */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define CILEN\_BSD\_COMPRESS  3   }\textcolor{comment}{/* length of config. option */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{comment}{/* Macros for handling the 3rd byte of the BSD-\/Compress config option. */}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define BSD\_NBITS(x)        ((x) \& 0x1F)    }\textcolor{comment}{/* number of bits requested */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define BSD\_VERSION(x)      ((x) >> 5)  }\textcolor{comment}{/* version of option format */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define BSD\_CURRENT\_VERSION 1       }\textcolor{comment}{/* current version number */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define BSD\_MAKE\_OPT(v, n)  (((v) << 5) | (n))}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define BSD\_MIN\_BITS        9   }\textcolor{comment}{/* smallest code size supported */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define BSD\_MAX\_BITS        15  }\textcolor{comment}{/* largest code size supported */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BSDCOMPRESS\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#if DEFLATE\_SUPPORT}}
+\DoxyCodeLine{92 \textcolor{comment}{/*}}
+\DoxyCodeLine{93 \textcolor{comment}{ * Definitions for Deflate.}}
+\DoxyCodeLine{94 \textcolor{comment}{ */}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define CI\_DEFLATE      26  }\textcolor{comment}{/* config option for Deflate */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define CI\_DEFLATE\_DRAFT    24  }\textcolor{comment}{/* value used in original draft RFC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define CILEN\_DEFLATE       4   }\textcolor{comment}{/* length of its config option */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define DEFLATE\_MIN\_SIZE    9}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define DEFLATE\_MAX\_SIZE    15}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define DEFLATE\_METHOD\_VAL  8}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define DEFLATE\_SIZE(x)     (((x) >> 4) + 8)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define DEFLATE\_METHOD(x)   ((x) \& 0x0F)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define DEFLATE\_MAKE\_OPT(w) ((((w) -\/ 8) << 4) + DEFLATE\_METHOD\_VAL)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define DEFLATE\_CHK\_SEQUENCE    0}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DEFLATE\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#if MPPE\_SUPPORT}}
+\DoxyCodeLine{110 \textcolor{comment}{/*}}
+\DoxyCodeLine{111 \textcolor{comment}{ * Definitions for MPPE.}}
+\DoxyCodeLine{112 \textcolor{comment}{ */}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define CI\_MPPE                18      }\textcolor{comment}{/* config option for MPPE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define CILEN\_MPPE              6      }\textcolor{comment}{/* length of config option */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MPPE\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#if PREDICTOR\_SUPPORT}}
+\DoxyCodeLine{119 \textcolor{comment}{/*}}
+\DoxyCodeLine{120 \textcolor{comment}{ * Definitions for other, as yet unsupported, compression methods.}}
+\DoxyCodeLine{121 \textcolor{comment}{ */}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define CI\_PREDICTOR\_1      1   }\textcolor{comment}{/* config option for Predictor-\/1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define CILEN\_PREDICTOR\_1   2   }\textcolor{comment}{/* length of its config option */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define CI\_PREDICTOR\_2      2   }\textcolor{comment}{/* config option for Predictor-\/2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define CILEN\_PREDICTOR\_2   2   }\textcolor{comment}{/* length of its config option */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PREDICTOR\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ccp\_options \{}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#if DEFLATE\_SUPPORT}}
+\DoxyCodeLine{131     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} deflate          :1; \textcolor{comment}{/* do Deflate? */}}
+\DoxyCodeLine{132     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} deflate\_correct  :1; \textcolor{comment}{/* use correct code for deflate? */}}
+\DoxyCodeLine{133     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} deflate\_draft    :1; \textcolor{comment}{/* use draft RFC code for deflate? */}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DEFLATE\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#if BSDCOMPRESS\_SUPPORT}}
+\DoxyCodeLine{136     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} bsd\_compress     :1; \textcolor{comment}{/* do BSD Compress? */}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BSDCOMPRESS\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#if PREDICTOR\_SUPPORT}}
+\DoxyCodeLine{139     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} predictor\_1      :1; \textcolor{comment}{/* do Predictor-\/1? */}}
+\DoxyCodeLine{140     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} predictor\_2      :1; \textcolor{comment}{/* do Predictor-\/2? */}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PREDICTOR\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#if MPPE\_SUPPORT}}
+\DoxyCodeLine{144     u8\_t mppe;          \textcolor{comment}{/* MPPE bitfield */}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MPPE\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#if BSDCOMPRESS\_SUPPORT}}
+\DoxyCodeLine{147     u\_short bsd\_bits;       \textcolor{comment}{/* \# bits/code for BSD Compress */}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BSDCOMPRESS\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#if DEFLATE\_SUPPORT}}
+\DoxyCodeLine{150     u\_short deflate\_size;   \textcolor{comment}{/* lg(window size) for Deflate */}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DEFLATE\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{152     u8\_t method;        \textcolor{comment}{/* code for chosen compression method */}}
+\DoxyCodeLine{153 \} ccp\_options;}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }protent ccp\_protent;}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{keywordtype}{void} ccp\_resetrequest(ppp\_pcb *pcb);  \textcolor{comment}{/* Issue a reset-\/request. */}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{160 \}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CCP\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& CCP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

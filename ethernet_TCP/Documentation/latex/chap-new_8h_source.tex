@@ -1,0 +1,206 @@
+\hypertarget{chap-new_8h_source}{}\doxysection{chap-\/new.h}
+\label{chap-new_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/chap-\/new.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/chap-\/new.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * chap-\/new.c -\/ New CHAP implementation.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 2003 Paul Mackerras. All rights reserved.}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{7 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{8 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. The name(s) of the authors of this software must not be used to}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    prior written permission.}}
+\DoxyCodeLine{16 \textcolor{comment}{ *}}
+\DoxyCodeLine{17 \textcolor{comment}{ * 3. Redistributions of any form whatsoever must retain the following}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    acknowledgment:}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    "{}This product includes software developed by Paul Mackerras}}
+\DoxyCodeLine{20 \textcolor{comment}{ *     <paulus@samba.org>"{}.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * THE AUTHORS OF THIS SOFTWARE DISCLAIM ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{23 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{24 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY}}
+\DoxyCodeLine{25 \textcolor{comment}{ * SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{26 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{27 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{28 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{29 \textcolor{comment}{ */}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& CHAP\_SUPPORT  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#ifndef CHAP\_H}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define CHAP\_H}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include "{}ppp.h"{}}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{40 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{comment}{/*}}
+\DoxyCodeLine{44 \textcolor{comment}{ * CHAP packets begin with a standard header with code, id, len (2 bytes).}}
+\DoxyCodeLine{45 \textcolor{comment}{ */}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define CHAP\_HDRLEN 4}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{comment}{/*}}
+\DoxyCodeLine{49 \textcolor{comment}{ * Values for the code field.}}
+\DoxyCodeLine{50 \textcolor{comment}{ */}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define CHAP\_CHALLENGE  1}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define CHAP\_RESPONSE   2}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define CHAP\_SUCCESS    3}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define CHAP\_FAILURE    4}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{comment}{/*}}
+\DoxyCodeLine{57 \textcolor{comment}{ * CHAP digest codes.}}
+\DoxyCodeLine{58 \textcolor{comment}{ */}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define CHAP\_MD5        5}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#if MSCHAP\_SUPPORT}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define CHAP\_MICROSOFT      0x80}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define CHAP\_MICROSOFT\_V2   0x81}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{comment}{/*}}
+\DoxyCodeLine{66 \textcolor{comment}{ * Semi-\/arbitrary limits on challenge and response fields.}}
+\DoxyCodeLine{67 \textcolor{comment}{ */}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define MAX\_CHALLENGE\_LEN   64}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define MAX\_RESPONSE\_LEN    64}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{comment}{/*}}
+\DoxyCodeLine{72 \textcolor{comment}{ * These limits apply to challenge and response packets we send.}}
+\DoxyCodeLine{73 \textcolor{comment}{ * The +4 is the +1 that we actually need rounded up.}}
+\DoxyCodeLine{74 \textcolor{comment}{ */}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define CHAL\_MAX\_PKTLEN (PPP\_HDRLEN + CHAP\_HDRLEN + 4 + MAX\_CHALLENGE\_LEN + MAXNAMELEN)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define RESP\_MAX\_PKTLEN (PPP\_HDRLEN + CHAP\_HDRLEN + 4 + MAX\_RESPONSE\_LEN + MAXNAMELEN)}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{comment}{/* bitmask of supported algorithms */}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#if MSCHAP\_SUPPORT}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define MDTYPE\_MICROSOFT\_V2 0x1}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define MDTYPE\_MICROSOFT    0x2}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define MDTYPE\_MD5      0x4}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define MDTYPE\_NONE     0}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#if MSCHAP\_SUPPORT}}
+\DoxyCodeLine{87 \textcolor{comment}{/* Return the digest alg. ID for the most preferred digest type. */}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define CHAP\_DIGEST(mdtype) \(\backslash\)}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{    ((mdtype) \& MDTYPE\_MD5)? CHAP\_MD5: \(\backslash\)}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{    ((mdtype) \& MDTYPE\_MICROSOFT\_V2)? CHAP\_MICROSOFT\_V2: \(\backslash\)}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{    ((mdtype) \& MDTYPE\_MICROSOFT)? CHAP\_MICROSOFT: \(\backslash\)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{    0}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* !MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define CHAP\_DIGEST(mdtype) \(\backslash\)}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{    ((mdtype) \& MDTYPE\_MD5)? CHAP\_MD5: \(\backslash\)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{    0}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{comment}{/* Return the bit flag (lsb set) for our most preferred digest type. */}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define CHAP\_MDTYPE(mdtype) ((mdtype) \string^ ((mdtype) -\/ 1)) \& (mdtype)}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{comment}{/* Return the bit flag for a given digest algorithm ID. */}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#if MSCHAP\_SUPPORT}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define CHAP\_MDTYPE\_D(digest) \(\backslash\)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{    ((digest) == CHAP\_MICROSOFT\_V2)? MDTYPE\_MICROSOFT\_V2: \(\backslash\)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{    ((digest) == CHAP\_MICROSOFT)? MDTYPE\_MICROSOFT: \(\backslash\)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{    ((digest) == CHAP\_MD5)? MDTYPE\_MD5: \(\backslash\)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{    0}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* !MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define CHAP\_MDTYPE\_D(digest) \(\backslash\)}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{    ((digest) == CHAP\_MD5)? MDTYPE\_MD5: \(\backslash\)}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{    0}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{comment}{/* Can we do the requested digest? */}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#if MSCHAP\_SUPPORT}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define CHAP\_CANDIGEST(mdtype, digest) \(\backslash\)}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{    ((digest) == CHAP\_MICROSOFT\_V2)? (mdtype) \& MDTYPE\_MICROSOFT\_V2: \(\backslash\)}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{    ((digest) == CHAP\_MICROSOFT)? (mdtype) \& MDTYPE\_MICROSOFT: \(\backslash\)}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{    ((digest) == CHAP\_MD5)? (mdtype) \& MDTYPE\_MD5: \(\backslash\)}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{    0}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* !MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define CHAP\_CANDIGEST(mdtype, digest) \(\backslash\)}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{    ((digest) == CHAP\_MD5)? (mdtype) \& MDTYPE\_MD5: \(\backslash\)}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{    0}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MSCHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{comment}{/*}}
+\DoxyCodeLine{129 \textcolor{comment}{ * The code for each digest type has to supply one of these.}}
+\DoxyCodeLine{130 \textcolor{comment}{ */}}
+\DoxyCodeLine{131 \textcolor{keyword}{struct }chap\_digest\_type \{}
+\DoxyCodeLine{132     \textcolor{keywordtype}{int} code;}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{135     \textcolor{comment}{/*}}
+\DoxyCodeLine{136 \textcolor{comment}{     * Note: challenge and response arguments below are formatted as}}
+\DoxyCodeLine{137 \textcolor{comment}{     * a length byte followed by the actual challenge/response data.}}
+\DoxyCodeLine{138 \textcolor{comment}{     */}}
+\DoxyCodeLine{139     void (*generate\_challenge)(ppp\_pcb *pcb, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *challenge);}
+\DoxyCodeLine{140     int (*verify\_response)(ppp\_pcb *pcb, \textcolor{keywordtype}{int} id, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name,}
+\DoxyCodeLine{141         \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *secret, \textcolor{keywordtype}{int} secret\_len,}
+\DoxyCodeLine{142         \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *challenge, \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *response,}
+\DoxyCodeLine{143         \textcolor{keywordtype}{char} *message, \textcolor{keywordtype}{int} message\_space);}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{145     void (*make\_response)(ppp\_pcb *pcb, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *response, \textcolor{keywordtype}{int} id, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *our\_name,}
+\DoxyCodeLine{146         \textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *challenge, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *secret, \textcolor{keywordtype}{int} secret\_len,}
+\DoxyCodeLine{147         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *priv);}
+\DoxyCodeLine{148     int (*check\_success)(ppp\_pcb *pcb, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *pkt, \textcolor{keywordtype}{int} len, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *priv);}
+\DoxyCodeLine{149     void (*handle\_failure)(ppp\_pcb *pcb, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *pkt, \textcolor{keywordtype}{int} len);}
+\DoxyCodeLine{150 \};}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152 \textcolor{comment}{/*}}
+\DoxyCodeLine{153 \textcolor{comment}{ * Each interface is described by chap structure.}}
+\DoxyCodeLine{154 \textcolor{comment}{ */}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#if CHAP\_SUPPORT}}
+\DoxyCodeLine{156 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }chap\_client\_state \{}
+\DoxyCodeLine{157     u8\_t flags;}
+\DoxyCodeLine{158     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name;}
+\DoxyCodeLine{159     \textcolor{keyword}{const} \textcolor{keyword}{struct }chap\_digest\_type *digest;}
+\DoxyCodeLine{160     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} priv[64];     \textcolor{comment}{/* private area for digest's use */}}
+\DoxyCodeLine{161 \} chap\_client\_state;}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{164 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }chap\_server\_state \{}
+\DoxyCodeLine{165     u8\_t flags;}
+\DoxyCodeLine{166     u8\_t id;}
+\DoxyCodeLine{167     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *name;}
+\DoxyCodeLine{168     \textcolor{keyword}{const} \textcolor{keyword}{struct }chap\_digest\_type *digest;}
+\DoxyCodeLine{169     \textcolor{keywordtype}{int} challenge\_xmits;}
+\DoxyCodeLine{170     \textcolor{keywordtype}{int} challenge\_pktlen;}
+\DoxyCodeLine{171     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} challenge[CHAL\_MAX\_PKTLEN];}
+\DoxyCodeLine{172 \} chap\_server\_state;}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* UNUSED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{177 \textcolor{comment}{/* Hook for a plugin to validate CHAP challenge */}}
+\DoxyCodeLine{178 \textcolor{keyword}{extern} int (*chap\_verify\_hook)(\textcolor{keywordtype}{char} *name, \textcolor{keywordtype}{char} *ourname, \textcolor{keywordtype}{int} id,}
+\DoxyCodeLine{179             \textcolor{keyword}{const} \textcolor{keyword}{struct }chap\_digest\_type *digest,}
+\DoxyCodeLine{180             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *challenge, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} *response,}
+\DoxyCodeLine{181             \textcolor{keywordtype}{char} *message, \textcolor{keywordtype}{int} message\_space);}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UNUSED */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{185 \textcolor{comment}{/* Called by authentication code to start authenticating the peer. */}}
+\DoxyCodeLine{186 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} chap\_auth\_peer(ppp\_pcb *pcb, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *our\_name, \textcolor{keywordtype}{int} digest\_code);}
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189 \textcolor{comment}{/* Called by auth. code to start authenticating us to the peer. */}}
+\DoxyCodeLine{190 \textcolor{keyword}{extern} \textcolor{keywordtype}{void} chap\_auth\_with\_peer(ppp\_pcb *pcb, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *our\_name, \textcolor{keywordtype}{int} digest\_code);}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{comment}{/* Represents the CHAP protocol to the main pppd code */}}
+\DoxyCodeLine{193 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }protent chap\_protent;}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{196 \}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CHAP\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& CHAP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

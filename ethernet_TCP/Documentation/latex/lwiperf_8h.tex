@@ -1,0 +1,123 @@
+\hypertarget{lwiperf_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/apps/lwiperf.h File Reference}
+\label{lwiperf_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/lwiperf.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/lwiperf.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip\+\_\+addr.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lwiperf_8h_a911cc7e298ab38433bd4a4980cdcad15}\label{lwiperf_8h_a911cc7e298ab38433bd4a4980cdcad15}} 
+\#define {\bfseries LWIPERF\+\_\+\+TCP\+\_\+\+PORT\+\_\+\+DEFAULT}~5001
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}{lwiperf\+\_\+report\+\_\+fn}}) (void $\ast$arg, enum \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6}{lwiperf\+\_\+report\+\_\+type}} report\+\_\+type, const ip\+\_\+addr\+\_\+t $\ast$local\+\_\+addr, u16\+\_\+t local\+\_\+port, const ip\+\_\+addr\+\_\+t $\ast$remote\+\_\+addr, u16\+\_\+t remote\+\_\+port, u32\+\_\+t bytes\+\_\+transferred, u32\+\_\+t ms\+\_\+duration, u32\+\_\+t bandwidth\+\_\+kbitpsec)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6}{lwiperf\+\_\+report\+\_\+type}} \{ \newline
+\mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6aa52255236ad2983346311ce7f28210e5}{LWIPERF\+\_\+\+TCP\+\_\+\+DONE\+\_\+\+SERVER}}
+, \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6a4f9bde0cad305eaab25d2c1d0196677b}{LWIPERF\+\_\+\+TCP\+\_\+\+DONE\+\_\+\+CLIENT}}
+, \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6abee2bf6da51a0845c15ac52b280203cb}{LWIPERF\+\_\+\+TCP\+\_\+\+ABORTED\+\_\+\+LOCAL}}
+, \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6adda7e5dbaf1e04eb04ec0fd2b05584a5}{LWIPERF\+\_\+\+TCP\+\_\+\+ABORTED\+\_\+\+LOCAL\+\_\+\+DATAERROR}}
+, \newline
+\mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6a3d4e1f5742d80aeafb6b22aa74d93e40}{LWIPERF\+\_\+\+TCP\+\_\+\+ABORTED\+\_\+\+LOCAL\+\_\+\+TXERROR}}
+, \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6ae664c0f987584f07fb0f6f8896aada0d}{LWIPERF\+\_\+\+TCP\+\_\+\+ABORTED\+\_\+\+REMOTE}}
+ \}
+\item 
+enum \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76c}{lwiperf\+\_\+client\+\_\+type}} \{ \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76cae1862655ebaaea2e7e0261dff0173110}{LWIPERF\+\_\+\+CLIENT}}
+, \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76cab0381feca6655968e7380622e7a63ede}{LWIPERF\+\_\+\+DUAL}}
+, \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76caccdab7ee6e1b0981861e66f0755f7964}{LWIPERF\+\_\+\+TRADEOFF}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lwiperf_8h_a6932fe36fa6fbc7081ad317b71d87bec}\label{lwiperf_8h_a6932fe36fa6fbc7081ad317b71d87bec}} 
+void $\ast$ {\bfseries lwiperf\+\_\+start\+\_\+tcp\+\_\+server} (const ip\+\_\+addr\+\_\+t $\ast$local\+\_\+addr, u16\+\_\+t local\+\_\+port, \mbox{\hyperlink{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}{lwiperf\+\_\+report\+\_\+fn}} report\+\_\+fn, void $\ast$report\+\_\+arg)
+\item 
+\mbox{\Hypertarget{lwiperf_8h_ad4c93f3e77140ef2966a291e564d67c5}\label{lwiperf_8h_ad4c93f3e77140ef2966a291e564d67c5}} 
+void $\ast$ {\bfseries lwiperf\+\_\+start\+\_\+tcp\+\_\+server\+\_\+default} (\mbox{\hyperlink{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}{lwiperf\+\_\+report\+\_\+fn}} report\+\_\+fn, void $\ast$report\+\_\+arg)
+\item 
+\mbox{\Hypertarget{lwiperf_8h_a1088722d967f0f465d45fd3b15dde445}\label{lwiperf_8h_a1088722d967f0f465d45fd3b15dde445}} 
+void $\ast$ {\bfseries lwiperf\+\_\+start\+\_\+tcp\+\_\+client} (const ip\+\_\+addr\+\_\+t $\ast$remote\+\_\+addr, u16\+\_\+t remote\+\_\+port, enum \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76c}{lwiperf\+\_\+client\+\_\+type}} type, \mbox{\hyperlink{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}{lwiperf\+\_\+report\+\_\+fn}} report\+\_\+fn, void $\ast$report\+\_\+arg)
+\item 
+\mbox{\Hypertarget{lwiperf_8h_a8106ed0805f2dc2b1d92e2f5b420f456}\label{lwiperf_8h_a8106ed0805f2dc2b1d92e2f5b420f456}} 
+void $\ast$ {\bfseries lwiperf\+\_\+start\+\_\+tcp\+\_\+client\+\_\+default} (const ip\+\_\+addr\+\_\+t $\ast$remote\+\_\+addr, \mbox{\hyperlink{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}{lwiperf\+\_\+report\+\_\+fn}} report\+\_\+fn, void $\ast$report\+\_\+arg)
+\item 
+\mbox{\Hypertarget{lwiperf_8h_ac51c9c44a38bfa1140bd44b793a0a004}\label{lwiperf_8h_ac51c9c44a38bfa1140bd44b793a0a004}} 
+void {\bfseries lwiperf\+\_\+abort} (void $\ast$lwiperf\+\_\+session)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+lw\+IP i\+Perf server implementation 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}\label{lwiperf_8h_a248ea47a58a14c6aecf6525217a812fd}} 
+\index{lwiperf.h@{lwiperf.h}!lwiperf\_report\_fn@{lwiperf\_report\_fn}}
+\index{lwiperf\_report\_fn@{lwiperf\_report\_fn}!lwiperf.h@{lwiperf.h}}
+\doxysubsubsection{\texorpdfstring{lwiperf\_report\_fn}{lwiperf\_report\_fn}}
+{\footnotesize\ttfamily typedef void($\ast$ lwiperf\+\_\+report\+\_\+fn) (void $\ast$arg, enum \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6}{lwiperf\+\_\+report\+\_\+type}} report\+\_\+type, const ip\+\_\+addr\+\_\+t $\ast$local\+\_\+addr, u16\+\_\+t local\+\_\+port, const ip\+\_\+addr\+\_\+t $\ast$remote\+\_\+addr, u16\+\_\+t remote\+\_\+port, u32\+\_\+t bytes\+\_\+transferred, u32\+\_\+t ms\+\_\+duration, u32\+\_\+t bandwidth\+\_\+kbitpsec)}
+
+Prototype of a report function that is called when a session is finished. This report function can show the test results. 
+\begin{DoxyParams}{Parameters}
+{\em report\+\_\+type} & contains the test result \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76c}\label{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76c}} 
+\index{lwiperf.h@{lwiperf.h}!lwiperf\_client\_type@{lwiperf\_client\_type}}
+\index{lwiperf\_client\_type@{lwiperf\_client\_type}!lwiperf.h@{lwiperf.h}}
+\doxysubsubsection{\texorpdfstring{lwiperf\_client\_type}{lwiperf\_client\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76c}{lwiperf\+\_\+client\+\_\+type}}}
+
+Control \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LWIPERF\_CLIENT@{LWIPERF\_CLIENT}!lwiperf.h@{lwiperf.h}}\index{lwiperf.h@{lwiperf.h}!LWIPERF\_CLIENT@{LWIPERF\_CLIENT}}}\mbox{\Hypertarget{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76cae1862655ebaaea2e7e0261dff0173110}\label{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76cae1862655ebaaea2e7e0261dff0173110}} 
+LWIPERF\+\_\+\+CLIENT&Unidirectional tx only test \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LWIPERF\_DUAL@{LWIPERF\_DUAL}!lwiperf.h@{lwiperf.h}}\index{lwiperf.h@{lwiperf.h}!LWIPERF\_DUAL@{LWIPERF\_DUAL}}}\mbox{\Hypertarget{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76cab0381feca6655968e7380622e7a63ede}\label{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76cab0381feca6655968e7380622e7a63ede}} 
+LWIPERF\+\_\+\+DUAL&Do a bidirectional test simultaneously \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LWIPERF\_TRADEOFF@{LWIPERF\_TRADEOFF}!lwiperf.h@{lwiperf.h}}\index{lwiperf.h@{lwiperf.h}!LWIPERF\_TRADEOFF@{LWIPERF\_TRADEOFF}}}\mbox{\Hypertarget{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76caccdab7ee6e1b0981861e66f0755f7964}\label{lwiperf_8h_ab3280e56eb41bd6f698a20843573f76caccdab7ee6e1b0981861e66f0755f7964}} 
+LWIPERF\+\_\+\+TRADEOFF&Do a bidirectional test individually \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6}\label{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6}} 
+\index{lwiperf.h@{lwiperf.h}!lwiperf\_report\_type@{lwiperf\_report\_type}}
+\index{lwiperf\_report\_type@{lwiperf\_report\_type}!lwiperf.h@{lwiperf.h}}
+\doxysubsubsection{\texorpdfstring{lwiperf\_report\_type}{lwiperf\_report\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6}{lwiperf\+\_\+report\+\_\+type}}}
+
+lw\+IPerf test results \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LWIPERF\_TCP\_DONE\_SERVER@{LWIPERF\_TCP\_DONE\_SERVER}!lwiperf.h@{lwiperf.h}}\index{lwiperf.h@{lwiperf.h}!LWIPERF\_TCP\_DONE\_SERVER@{LWIPERF\_TCP\_DONE\_SERVER}}}\mbox{\Hypertarget{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6aa52255236ad2983346311ce7f28210e5}\label{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6aa52255236ad2983346311ce7f28210e5}} 
+LWIPERF\+\_\+\+TCP\+\_\+\+DONE\+\_\+\+SERVER&The server side test is done \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LWIPERF\_TCP\_DONE\_CLIENT@{LWIPERF\_TCP\_DONE\_CLIENT}!lwiperf.h@{lwiperf.h}}\index{lwiperf.h@{lwiperf.h}!LWIPERF\_TCP\_DONE\_CLIENT@{LWIPERF\_TCP\_DONE\_CLIENT}}}\mbox{\Hypertarget{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6a4f9bde0cad305eaab25d2c1d0196677b}\label{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6a4f9bde0cad305eaab25d2c1d0196677b}} 
+LWIPERF\+\_\+\+TCP\+\_\+\+DONE\+\_\+\+CLIENT&The client side test is done \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LWIPERF\_TCP\_ABORTED\_LOCAL@{LWIPERF\_TCP\_ABORTED\_LOCAL}!lwiperf.h@{lwiperf.h}}\index{lwiperf.h@{lwiperf.h}!LWIPERF\_TCP\_ABORTED\_LOCAL@{LWIPERF\_TCP\_ABORTED\_LOCAL}}}\mbox{\Hypertarget{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6abee2bf6da51a0845c15ac52b280203cb}\label{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6abee2bf6da51a0845c15ac52b280203cb}} 
+LWIPERF\+\_\+\+TCP\+\_\+\+ABORTED\+\_\+\+LOCAL&Local error lead to test abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LWIPERF\_TCP\_ABORTED\_LOCAL\_DATAERROR@{LWIPERF\_TCP\_ABORTED\_LOCAL\_DATAERROR}!lwiperf.h@{lwiperf.h}}\index{lwiperf.h@{lwiperf.h}!LWIPERF\_TCP\_ABORTED\_LOCAL\_DATAERROR@{LWIPERF\_TCP\_ABORTED\_LOCAL\_DATAERROR}}}\mbox{\Hypertarget{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6adda7e5dbaf1e04eb04ec0fd2b05584a5}\label{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6adda7e5dbaf1e04eb04ec0fd2b05584a5}} 
+LWIPERF\+\_\+\+TCP\+\_\+\+ABORTED\+\_\+\+LOCAL\+\_\+\+DATAERROR&Data check error lead to test abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LWIPERF\_TCP\_ABORTED\_LOCAL\_TXERROR@{LWIPERF\_TCP\_ABORTED\_LOCAL\_TXERROR}!lwiperf.h@{lwiperf.h}}\index{lwiperf.h@{lwiperf.h}!LWIPERF\_TCP\_ABORTED\_LOCAL\_TXERROR@{LWIPERF\_TCP\_ABORTED\_LOCAL\_TXERROR}}}\mbox{\Hypertarget{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6a3d4e1f5742d80aeafb6b22aa74d93e40}\label{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6a3d4e1f5742d80aeafb6b22aa74d93e40}} 
+LWIPERF\+\_\+\+TCP\+\_\+\+ABORTED\+\_\+\+LOCAL\+\_\+\+TXERROR&Transmit error lead to test abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LWIPERF\_TCP\_ABORTED\_REMOTE@{LWIPERF\_TCP\_ABORTED\_REMOTE}!lwiperf.h@{lwiperf.h}}\index{lwiperf.h@{lwiperf.h}!LWIPERF\_TCP\_ABORTED\_REMOTE@{LWIPERF\_TCP\_ABORTED\_REMOTE}}}\mbox{\Hypertarget{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6ae664c0f987584f07fb0f6f8896aada0d}\label{lwiperf_8h_ab72a2d205e43d5243a291f937bbc24d6ae664c0f987584f07fb0f6f8896aada0d}} 
+LWIPERF\+\_\+\+TCP\+\_\+\+ABORTED\+\_\+\+REMOTE&Remote side aborted the test \\
+\hline
+
+\end{DoxyEnumFields}

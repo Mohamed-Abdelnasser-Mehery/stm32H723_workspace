@@ -1,0 +1,188 @@
+\hypertarget{ip4__addr_8h_source}{}\doxysection{ip4\+\_\+addr.\+h}
+\label{ip4__addr_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip4\_addr.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip4\_addr.h}}
+\mbox{\hyperlink{ip4__addr_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_IP4\_ADDR\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_IP4\_ADDR\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{def_8h}{lwip/def.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{46 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{51 \textcolor{keyword}{struct }ip4\_addr \{}
+\DoxyCodeLine{52   u32\_t addr;}
+\DoxyCodeLine{53 \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{57 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ip4\_addr ip4\_addr\_t;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{comment}{/* Forward declaration to not include netif.h */}}
+\DoxyCodeLine{60 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define IPADDR\_NONE         ((u32\_t)0xffffffffUL)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define IPADDR\_LOOPBACK     ((u32\_t)0x7f000001UL)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define IPADDR\_ANY          ((u32\_t)0x00000000UL)}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define IPADDR\_BROADCAST    ((u32\_t)0xffffffffUL)}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{comment}{/* Definitions of the bits in an Internet address integer.}}
+\DoxyCodeLine{72 \textcolor{comment}{}}
+\DoxyCodeLine{73 \textcolor{comment}{   On subnets, host and network parts are found according to}}
+\DoxyCodeLine{74 \textcolor{comment}{   the subnet mask, not these masks.  */}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define IP\_CLASSA(a)        ((((u32\_t)(a)) \& 0x80000000UL) == 0)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define IP\_CLASSA\_NET       0xff000000}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define IP\_CLASSA\_NSHIFT    24}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define IP\_CLASSA\_HOST      (0xffffffff \& \string~IP\_CLASSA\_NET)}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define IP\_CLASSA\_MAX       128}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define IP\_CLASSB(a)        ((((u32\_t)(a)) \& 0xc0000000UL) == 0x80000000UL)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define IP\_CLASSB\_NET       0xffff0000}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define IP\_CLASSB\_NSHIFT    16}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define IP\_CLASSB\_HOST      (0xffffffff \& \string~IP\_CLASSB\_NET)}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define IP\_CLASSB\_MAX       65536}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define IP\_CLASSC(a)        ((((u32\_t)(a)) \& 0xe0000000UL) == 0xc0000000UL)}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define IP\_CLASSC\_NET       0xffffff00}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define IP\_CLASSC\_NSHIFT    8}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define IP\_CLASSC\_HOST      (0xffffffff \& \string~IP\_CLASSC\_NET)}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define IP\_CLASSD(a)        (((u32\_t)(a) \& 0xf0000000UL) == 0xe0000000UL)}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define IP\_CLASSD\_NET       0xf0000000          }\textcolor{comment}{/* These ones aren't really */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define IP\_CLASSD\_NSHIFT    28                  }\textcolor{comment}{/*   net and host fields, but */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define IP\_CLASSD\_HOST      0x0fffffff          }\textcolor{comment}{/*   routing needn't know. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define IP\_MULTICAST(a)     IP\_CLASSD(a)}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define IP\_EXPERIMENTAL(a)  (((u32\_t)(a) \& 0xf0000000UL) == 0xf0000000UL)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define IP\_BADCLASS(a)      (((u32\_t)(a) \& 0xf0000000UL) == 0xf0000000UL)}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define IP\_LOOPBACKNET      127                 }\textcolor{comment}{/* official! */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define IP4\_ADDR(ipaddr, a,b,c,d)  (ipaddr)-\/>addr = PP\_HTONL(LWIP\_MAKEU32(a,b,c,d))}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define ip4\_addr\_copy(dest, src) ((dest).addr = (src).addr)}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define ip4\_addr\_set(dest, src) ((dest)-\/>addr = \(\backslash\)}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{                                    ((src) == NULL ? 0 : \(\backslash\)}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{                                    (src)-\/>addr))}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define ip4\_addr\_set\_zero(ipaddr)     ((ipaddr)-\/>addr = 0)}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define ip4\_addr\_set\_any(ipaddr)      ((ipaddr)-\/>addr = IPADDR\_ANY)}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define ip4\_addr\_set\_loopback(ipaddr) ((ipaddr)-\/>addr = PP\_HTONL(IPADDR\_LOOPBACK))}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define ip4\_addr\_isloopback(ipaddr)    (((ipaddr)-\/>addr \& PP\_HTONL(IP\_CLASSA\_NET)) == PP\_HTONL(((u32\_t)IP\_LOOPBACKNET) << 24))}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define ip4\_addr\_set\_hton(dest, src) ((dest)-\/>addr = \(\backslash\)}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{                               ((src) == NULL ? 0:\(\backslash\)}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{                               lwip\_htonl((src)-\/>addr)))}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define ip4\_addr\_set\_u32(dest\_ipaddr, src\_u32) ((dest\_ipaddr)-\/>addr = (src\_u32))}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define ip4\_addr\_get\_u32(src\_ipaddr) ((src\_ipaddr)-\/>addr)}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define ip4\_addr\_get\_network(target, host, netmask) do \{ ((target)-\/>addr = ((host)-\/>addr) \& ((netmask)-\/>addr)); \} while(0)}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#define ip4\_addr\_netcmp(addr1, addr2, mask) (((addr1)-\/>addr \& \(\backslash\)}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{                                              (mask)-\/>addr) == \(\backslash\)}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{                                             ((addr2)-\/>addr \& \(\backslash\)}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{                                              (mask)-\/>addr))}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define ip4\_addr\_cmp(addr1, addr2) ((addr1)-\/>addr == (addr2)-\/>addr)}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#define ip4\_addr\_isany\_val(addr1)   ((addr1).addr == IPADDR\_ANY)}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#define ip4\_addr\_isany(addr1) ((addr1) == NULL || ip4\_addr\_isany\_val(*(addr1)))}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define ip4\_addr\_isbroadcast(addr1, netif) ip4\_addr\_isbroadcast\_u32((addr1)-\/>addr, netif)}}
+\DoxyCodeLine{151 u8\_t ip4\_addr\_isbroadcast\_u32(u32\_t addr, \textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define ip\_addr\_netmask\_valid(netmask) ip4\_addr\_netmask\_valid((netmask)-\/>addr)}}
+\DoxyCodeLine{154 u8\_t ip4\_addr\_netmask\_valid(u32\_t netmask);}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define ip4\_addr\_ismulticast(addr1) (((addr1)-\/>addr \& PP\_HTONL(0xf0000000UL)) == PP\_HTONL(0xe0000000UL))}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define ip4\_addr\_islinklocal(addr1) (((addr1)-\/>addr \& PP\_HTONL(0xffff0000UL)) == PP\_HTONL(0xa9fe0000UL))}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define ip4\_addr\_debug\_print\_parts(debug, a, b, c, d) \(\backslash\)}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{  LWIP\_DEBUGF(debug, ("{}\%"{}} U16\_F "{}.\%"{} U16\_F "{}.\%"{} U16\_F "{}.\%"{} U16\_F, a, b, c, d))}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define ip4\_addr\_debug\_print(debug, ipaddr) \(\backslash\)}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{  ip4\_addr\_debug\_print\_parts(debug, \(\backslash\)}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? ip4\_addr1\_16(ipaddr) : 0),       \(\backslash\)}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? ip4\_addr2\_16(ipaddr) : 0),       \(\backslash\)}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? ip4\_addr3\_16(ipaddr) : 0),       \(\backslash\)}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{                      (u16\_t)((ipaddr) != NULL ? ip4\_addr4\_16(ipaddr) : 0))}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define ip4\_addr\_debug\_print\_val(debug, ipaddr) \(\backslash\)}}
+\DoxyCodeLine{169 \textcolor{preprocessor}{  ip4\_addr\_debug\_print\_parts(debug, \(\backslash\)}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{                      ip4\_addr1\_16\_val(ipaddr),       \(\backslash\)}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{                      ip4\_addr2\_16\_val(ipaddr),       \(\backslash\)}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{                      ip4\_addr3\_16\_val(ipaddr),       \(\backslash\)}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{                      ip4\_addr4\_16\_val(ipaddr))}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{comment}{/* Get one byte from the 4-\/byte address */}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#define ip4\_addr\_get\_byte(ipaddr, idx) (((const u8\_t*)(\&(ipaddr)-\/>addr))[idx])}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define ip4\_addr1(ipaddr) ip4\_addr\_get\_byte(ipaddr, 0)}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define ip4\_addr2(ipaddr) ip4\_addr\_get\_byte(ipaddr, 1)}}
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#define ip4\_addr3(ipaddr) ip4\_addr\_get\_byte(ipaddr, 2)}}
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#define ip4\_addr4(ipaddr) ip4\_addr\_get\_byte(ipaddr, 3)}}
+\DoxyCodeLine{181 \textcolor{comment}{/* Get one byte from the 4-\/byte address, but argument is 'ip4\_addr\_t',}}
+\DoxyCodeLine{182 \textcolor{comment}{ * not a pointer */}}
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#define ip4\_addr\_get\_byte\_val(ipaddr, idx) ((u8\_t)(((ipaddr).addr >> (idx * 8)) \& 0xff))}}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#define ip4\_addr1\_val(ipaddr) ip4\_addr\_get\_byte\_val(ipaddr, 0)}}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#define ip4\_addr2\_val(ipaddr) ip4\_addr\_get\_byte\_val(ipaddr, 1)}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define ip4\_addr3\_val(ipaddr) ip4\_addr\_get\_byte\_val(ipaddr, 2)}}
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#define ip4\_addr4\_val(ipaddr) ip4\_addr\_get\_byte\_val(ipaddr, 3)}}
+\DoxyCodeLine{188 \textcolor{comment}{/* These are cast to u16\_t, with the intent that they are often arguments}}
+\DoxyCodeLine{189 \textcolor{comment}{ * to printf using the U16\_F format from cc.h. */}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define ip4\_addr1\_16(ipaddr) ((u16\_t)ip4\_addr1(ipaddr))}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#define ip4\_addr2\_16(ipaddr) ((u16\_t)ip4\_addr2(ipaddr))}}
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#define ip4\_addr3\_16(ipaddr) ((u16\_t)ip4\_addr3(ipaddr))}}
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#define ip4\_addr4\_16(ipaddr) ((u16\_t)ip4\_addr4(ipaddr))}}
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#define ip4\_addr1\_16\_val(ipaddr) ((u16\_t)ip4\_addr1\_val(ipaddr))}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#define ip4\_addr2\_16\_val(ipaddr) ((u16\_t)ip4\_addr2\_val(ipaddr))}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#define ip4\_addr3\_16\_val(ipaddr) ((u16\_t)ip4\_addr3\_val(ipaddr))}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#define ip4\_addr4\_16\_val(ipaddr) ((u16\_t)ip4\_addr4\_val(ipaddr))}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define IP4ADDR\_STRLEN\_MAX  16}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define ip\_ntoa(ipaddr)  ipaddr\_ntoa(ipaddr)}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 u32\_t ipaddr\_addr(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *cp);}
+\DoxyCodeLine{205 \textcolor{keywordtype}{int} ip4addr\_aton(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *cp, ip4\_addr\_t *addr);}
+\DoxyCodeLine{207 \textcolor{keywordtype}{char} *ip4addr\_ntoa(\textcolor{keyword}{const} ip4\_addr\_t *addr);}
+\DoxyCodeLine{208 \textcolor{keywordtype}{char} *ip4addr\_ntoa\_r(\textcolor{keyword}{const} ip4\_addr\_t *addr, \textcolor{keywordtype}{char} *buf, \textcolor{keywordtype}{int} buflen);}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{211 \}}
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_IP\_ADDR\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

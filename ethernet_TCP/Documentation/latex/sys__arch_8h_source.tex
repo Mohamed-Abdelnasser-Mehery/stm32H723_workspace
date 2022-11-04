@@ -1,0 +1,78 @@
+\hypertarget{sys__arch_8h_source}{}\doxysection{sys\+\_\+arch.\+h}
+\label{sys__arch_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/system/arch/sys\_arch.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/system/arch/sys\_arch.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * Copyright (c) 2001-\/2003 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{3 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{4 \textcolor{comment}{ *}}
+\DoxyCodeLine{5 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{6 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{7 \textcolor{comment}{ *}}
+\DoxyCodeLine{8 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{9 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{12 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{17 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{18 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{19 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{20 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{21 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{22 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{23 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{24 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{25 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{26 \textcolor{comment}{ *}}
+\DoxyCodeLine{27 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{28 \textcolor{comment}{ *}}
+\DoxyCodeLine{29 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{30 \textcolor{comment}{ *}}
+\DoxyCodeLine{31 \textcolor{comment}{ */}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifndef \_\_SYS\_ARCH\_H\_\_}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define \_\_SYS\_ARCH\_H\_\_}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#if (NO\_SYS != 0)}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#error "{}NO\_SYS need to be set to 0 to use threaded API"{}}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}cmsis\_os.h"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef  \_\_cplusplus}}
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#if (osCMSIS < 0x20000U)}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define SYS\_MBOX\_NULL (osMessageQId)0}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define SYS\_SEM\_NULL  (osSemaphoreId)0}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{typedef} osSemaphoreId sys\_sem\_t;}
+\DoxyCodeLine{53 \textcolor{keyword}{typedef} osSemaphoreId sys\_mutex\_t;}
+\DoxyCodeLine{54 \textcolor{keyword}{typedef} osMessageQId  sys\_mbox\_t;}
+\DoxyCodeLine{55 \textcolor{keyword}{typedef} osThreadId    sys\_thread\_t;}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define SYS\_MBOX\_NULL (osMessageQueueId\_t)0}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define SYS\_SEM\_NULL  (osSemaphoreId\_t)0}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \textcolor{keyword}{typedef} osSemaphoreId\_t     sys\_sem\_t;}
+\DoxyCodeLine{62 \textcolor{keyword}{typedef} osSemaphoreId\_t     sys\_mutex\_t;}
+\DoxyCodeLine{63 \textcolor{keyword}{typedef} osMessageQueueId\_t  sys\_mbox\_t;}
+\DoxyCodeLine{64 \textcolor{keyword}{typedef} osThreadId\_t        sys\_thread\_t;}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#ifdef  \_\_cplusplus}}
+\DoxyCodeLine{68 \}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* \_\_SYS\_ARCH\_H\_\_ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{72 }
+
+\end{DoxyCode}

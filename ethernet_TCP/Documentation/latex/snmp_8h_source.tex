@@ -1,0 +1,190 @@
+\hypertarget{snmp_8h_source}{}\doxysection{snmp.\+h}
+\label{snmp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/snmp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/snmp.h}}
+\mbox{\hyperlink{snmp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Dirk Ziegelmeier <dziegel@gmx.de>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_SNMP\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_SNMP\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{struct }udp\_pcb;}
+\DoxyCodeLine{48 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{55 \textcolor{comment}{/* MIB2 statistics functions */}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#if MIB2\_STATS  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{61 \textcolor{keyword}{enum} snmp\_ifType \{}
+\DoxyCodeLine{62   snmp\_ifType\_other=1,                \textcolor{comment}{/* none of the following */}}
+\DoxyCodeLine{63   snmp\_ifType\_regular1822,}
+\DoxyCodeLine{64   snmp\_ifType\_hdh1822,}
+\DoxyCodeLine{65   snmp\_ifType\_ddn\_x25,}
+\DoxyCodeLine{66   snmp\_ifType\_rfc877\_x25,}
+\DoxyCodeLine{67   snmp\_ifType\_ethernet\_csmacd,}
+\DoxyCodeLine{68   snmp\_ifType\_iso88023\_csmacd,}
+\DoxyCodeLine{69   snmp\_ifType\_iso88024\_tokenBus,}
+\DoxyCodeLine{70   snmp\_ifType\_iso88025\_tokenRing,}
+\DoxyCodeLine{71   snmp\_ifType\_iso88026\_man,}
+\DoxyCodeLine{72   snmp\_ifType\_starLan,}
+\DoxyCodeLine{73   snmp\_ifType\_proteon\_10Mbit,}
+\DoxyCodeLine{74   snmp\_ifType\_proteon\_80Mbit,}
+\DoxyCodeLine{75   snmp\_ifType\_hyperchannel,}
+\DoxyCodeLine{76   snmp\_ifType\_fddi,}
+\DoxyCodeLine{77   snmp\_ifType\_lapb,}
+\DoxyCodeLine{78   snmp\_ifType\_sdlc,}
+\DoxyCodeLine{79   snmp\_ifType\_ds1,                    \textcolor{comment}{/* T-\/1 */}}
+\DoxyCodeLine{80   snmp\_ifType\_e1,                     \textcolor{comment}{/* european equiv. of T-\/1 */}}
+\DoxyCodeLine{81   snmp\_ifType\_basicISDN,}
+\DoxyCodeLine{82   snmp\_ifType\_primaryISDN,            \textcolor{comment}{/* proprietary serial */}}
+\DoxyCodeLine{83   snmp\_ifType\_propPointToPointSerial,}
+\DoxyCodeLine{84   snmp\_ifType\_ppp,}
+\DoxyCodeLine{85   snmp\_ifType\_softwareLoopback,}
+\DoxyCodeLine{86   snmp\_ifType\_eon,                    \textcolor{comment}{/* CLNP over IP [11] */}}
+\DoxyCodeLine{87   snmp\_ifType\_ethernet\_3Mbit,}
+\DoxyCodeLine{88   snmp\_ifType\_nsip,                   \textcolor{comment}{/* XNS over IP */}}
+\DoxyCodeLine{89   snmp\_ifType\_slip,                   \textcolor{comment}{/* generic SLIP */}}
+\DoxyCodeLine{90   snmp\_ifType\_ultra,                  \textcolor{comment}{/* ULTRA technologies */}}
+\DoxyCodeLine{91   snmp\_ifType\_ds3,                    \textcolor{comment}{/* T-\/3 */}}
+\DoxyCodeLine{92   snmp\_ifType\_sip,                    \textcolor{comment}{/* SMDS */}}
+\DoxyCodeLine{93   snmp\_ifType\_frame\_relay}
+\DoxyCodeLine{94 \};}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#ifndef MIB2\_COPY\_SYSUPTIME\_TO}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define MIB2\_COPY\_SYSUPTIME\_TO(ptrToVal) (*(ptrToVal) = (sys\_now() / 10))}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define MIB2\_STATS\_NETIF\_INC(n, x)      do \{ ++(n)-\/>mib2\_counters.x; \} while(0)}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define MIB2\_STATS\_NETIF\_ADD(n, x, val) do \{ (n)-\/>mib2\_counters.x += (val); \} while(0)}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define MIB2\_INIT\_NETIF(netif, type, speed) do \{ \(\backslash\)}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{  (netif)-\/>link\_type = (type);  \(\backslash\)}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{  (netif)-\/>link\_speed = (speed);\(\backslash\)}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{  (netif)-\/>ts = 0;              \(\backslash\)}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifinoctets = 0;      \(\backslash\)}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifinucastpkts = 0;   \(\backslash\)}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifinnucastpkts = 0;  \(\backslash\)}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifindiscards = 0;    \(\backslash\)}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifinerrors = 0;    \(\backslash\)}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifinunknownprotos = 0;    \(\backslash\)}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifoutoctets = 0;     \(\backslash\)}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifoutucastpkts = 0;  \(\backslash\)}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifoutnucastpkts = 0; \(\backslash\)}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifoutdiscards = 0; \(\backslash\)}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{  (netif)-\/>mib2\_counters.ifouterrors = 0; \} while(0)}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* MIB2\_STATS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#ifndef MIB2\_COPY\_SYSUPTIME\_TO}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define MIB2\_COPY\_SYSUPTIME\_TO(ptrToVal)}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#define MIB2\_INIT\_NETIF(netif, type, speed)}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define MIB2\_STATS\_NETIF\_INC(n, x)}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define MIB2\_STATS\_NETIF\_ADD(n, x, val)}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MIB2\_STATS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{comment}{/* LWIP MIB2 callbacks */}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#if LWIP\_MIB2\_CALLBACKS }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{145 \textcolor{comment}{/* network interface */}}
+\DoxyCodeLine{146 \textcolor{keywordtype}{void} mib2\_netif\_added(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ni);}
+\DoxyCodeLine{147 \textcolor{keywordtype}{void} mib2\_netif\_removed(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ni);}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_ARP}}
+\DoxyCodeLine{150 \textcolor{comment}{/* ARP (for atTable and ipNetToMediaTable) */}}
+\DoxyCodeLine{151 \textcolor{keywordtype}{void} mib2\_add\_arp\_entry(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ni, ip4\_addr\_t *ip);}
+\DoxyCodeLine{152 \textcolor{keywordtype}{void} mib2\_remove\_arp\_entry(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ni, ip4\_addr\_t *ip);}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_ARP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define mib2\_add\_arp\_entry(ni,ip)}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define mib2\_remove\_arp\_entry(ni,ip)}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_ARP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{comment}{/* IP */}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{160 \textcolor{keywordtype}{void} mib2\_add\_ip4(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ni);}
+\DoxyCodeLine{161 \textcolor{keywordtype}{void} mib2\_remove\_ip4(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ni);}
+\DoxyCodeLine{162 \textcolor{keywordtype}{void} mib2\_add\_route\_ip4(u8\_t dflt, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ni);}
+\DoxyCodeLine{163 \textcolor{keywordtype}{void} mib2\_remove\_route\_ip4(u8\_t dflt, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ni);}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{comment}{/* UDP */}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#if LWIP\_UDP}}
+\DoxyCodeLine{168 \textcolor{keywordtype}{void} mib2\_udp\_bind(\textcolor{keyword}{struct} udp\_pcb *pcb);}
+\DoxyCodeLine{169 \textcolor{keywordtype}{void} mib2\_udp\_unbind(\textcolor{keyword}{struct} udp\_pcb *pcb);}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_UDP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_MIB2\_CALLBACKS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{173 \textcolor{comment}{/* LWIP\_MIB2\_CALLBACKS support not available */}}
+\DoxyCodeLine{174 \textcolor{comment}{/* define everything to be empty */}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{comment}{/* network interface */}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define mib2\_netif\_added(ni)}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define mib2\_netif\_removed(ni)}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{comment}{/* ARP */}}
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#define mib2\_add\_arp\_entry(ni,ip)}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#define mib2\_remove\_arp\_entry(ni,ip)}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{comment}{/* IP */}}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#define mib2\_add\_ip4(ni)}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define mib2\_remove\_ip4(ni)}}
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#define mib2\_add\_route\_ip4(dflt, ni)}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#define mib2\_remove\_route\_ip4(dflt, ni)}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 \textcolor{comment}{/* UDP */}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#define mib2\_udp\_bind(pcb)}}
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#define mib2\_udp\_unbind(pcb)}}
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MIB2\_CALLBACKS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195 \textcolor{comment}{/* for source-\/code compatibility reasons only, can be removed (not used internally) */}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#define NETIF\_INIT\_SNMP                MIB2\_INIT\_NETIF}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#define snmp\_add\_ifinoctets(ni,value)  MIB2\_STATS\_NETIF\_ADD(ni, ifinoctets, value)}}
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#define snmp\_inc\_ifinucastpkts(ni)     MIB2\_STATS\_NETIF\_INC(ni, ifinucastpkts)}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define snmp\_inc\_ifinnucastpkts(ni)    MIB2\_STATS\_NETIF\_INC(ni, ifinnucastpkts)}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#define snmp\_inc\_ifindiscards(ni)      MIB2\_STATS\_NETIF\_INC(ni, ifindiscards)}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#define snmp\_inc\_ifinerrors(ni)        MIB2\_STATS\_NETIF\_INC(ni, ifinerrors)}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define snmp\_inc\_ifinunknownprotos(ni) MIB2\_STATS\_NETIF\_INC(ni, ifinunknownprotos)}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define snmp\_add\_ifoutoctets(ni,value) MIB2\_STATS\_NETIF\_ADD(ni, ifoutoctets, value)}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#define snmp\_inc\_ifoutucastpkts(ni)    MIB2\_STATS\_NETIF\_INC(ni, ifoutucastpkts)}}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#define snmp\_inc\_ifoutnucastpkts(ni)   MIB2\_STATS\_NETIF\_INC(ni, ifoutnucastpkts)}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#define snmp\_inc\_ifoutdiscards(ni)     MIB2\_STATS\_NETIF\_INC(ni, ifoutdiscards)}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#define snmp\_inc\_ifouterrors(ni)       MIB2\_STATS\_NETIF\_INC(ni, ifouterrors)}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{210 \}}
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_SNMP\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

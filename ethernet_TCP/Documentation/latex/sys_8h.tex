@@ -1,0 +1,272 @@
+\hypertarget{sys_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/sys.h File Reference}
+\label{sys_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/sys.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/sys.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arch/sys\+\_\+arch.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{sys_8h_ac1495030a8ab5e1f3c89e42ced527c5b}{SYS\+\_\+\+ARCH\+\_\+\+TIMEOUT}}~0xffffffff\+UL
+\item 
+\#define \mbox{\hyperlink{sys_8h_ab0571e67edca0132b144106e9b319ef9}{SYS\+\_\+\+MBOX\+\_\+\+EMPTY}}~\mbox{\hyperlink{sys_8h_ac1495030a8ab5e1f3c89e42ced527c5b}{SYS\+\_\+\+ARCH\+\_\+\+TIMEOUT}}
+\item 
+\#define \mbox{\hyperlink{sys_8h_a7bada49634cd3b28b28bdcedd763a1e6}{LWIP\+\_\+\+COMPAT\+\_\+\+MUTEX}}~0
+\item 
+\#define \mbox{\hyperlink{sys_8h_a84e7e4bc00255aee84e6e7289a985703}{sys\+\_\+sem\+\_\+wait}}(sem)~\mbox{\hyperlink{group__sys__sem_ga8d364c5037778acb21c3df675db81b4f}{sys\+\_\+arch\+\_\+sem\+\_\+wait}}(sem, 0)
+\item 
+\#define \mbox{\hyperlink{sys_8h_a9e8ad541356786936f23ab83b8f550cc}{sys\+\_\+sem\+\_\+valid\+\_\+val}}(sem)~\mbox{\hyperlink{group__sys__sem_ga09a6c052ddaf799139efc56adfa087e4}{sys\+\_\+sem\+\_\+valid}}(\&(sem))
+\item 
+\#define \mbox{\hyperlink{sys_8h_a2556e570f6973a6f4d57d0e76ef190d8}{sys\+\_\+sem\+\_\+set\+\_\+invalid\+\_\+val}}(sem)~\mbox{\hyperlink{group__sys__sem_ga42a2ab32afbf41a4146a9d135224ef33}{sys\+\_\+sem\+\_\+set\+\_\+invalid}}(\&(sem))
+\item 
+\#define \mbox{\hyperlink{sys_8h_ab7841780b31ba9c0a39a440aad1fca13}{sys\+\_\+mbox\+\_\+tryfetch}}(mbox,  msg)~\mbox{\hyperlink{group__sys__mbox_gafab441b130b4ec417012835dbe1e497c}{sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch}}(mbox, msg)
+\item 
+\mbox{\Hypertarget{sys_8h_a5bae9efa9c945dc810665dc4a7e60117}\label{sys_8h_a5bae9efa9c945dc810665dc4a7e60117}} 
+\#define {\bfseries sys\+\_\+mbox\+\_\+fetch}(mbox,  msg)~\mbox{\hyperlink{group__sys__mbox_ga6464cd77cf6799bd8b3d6c840166a2e8}{sys\+\_\+arch\+\_\+mbox\+\_\+fetch}}(mbox, msg, 0)
+\item 
+\#define \mbox{\hyperlink{sys_8h_aae82640d0bdbeec7b9b6511b3f8d99cb}{sys\+\_\+mbox\+\_\+valid\+\_\+val}}(mbox)~\mbox{\hyperlink{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid}}(\&(mbox))
+\item 
+\#define \mbox{\hyperlink{sys_8h_ae293feebb61d36f2db99be53702b8203}{sys\+\_\+mbox\+\_\+set\+\_\+invalid\+\_\+val}}(mbox)~\mbox{\hyperlink{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}{sys\+\_\+mbox\+\_\+set\+\_\+invalid}}(\&(mbox))
+\item 
+\#define \mbox{\hyperlink{sys_8h_a945395fa326214fc9736487242710a90}{SYS\+\_\+\+ARCH\+\_\+\+DECL\+\_\+\+PROTECT}}(lev)
+\item 
+\mbox{\Hypertarget{sys_8h_a3d0e48feafd378e9c26c64567ecd8bab}\label{sys_8h_a3d0e48feafd378e9c26c64567ecd8bab}} 
+\#define {\bfseries SYS\+\_\+\+ARCH\+\_\+\+PROTECT}(lev)
+\item 
+\mbox{\Hypertarget{sys_8h_a2f48e97047945642ddeb27e65bf4ffe2}\label{sys_8h_a2f48e97047945642ddeb27e65bf4ffe2}} 
+\#define {\bfseries SYS\+\_\+\+ARCH\+\_\+\+UNPROTECT}(lev)
+\item 
+\#define \mbox{\hyperlink{sys_8h_acc5f7f8cbd020de628d1e9a0443da4c7}{SYS\+\_\+\+ARCH\+\_\+\+INC}}(var,  val)
+\item 
+\#define \mbox{\hyperlink{sys_8h_aa9a585faa63acdd5d59ac5e7759a07c5}{SYS\+\_\+\+ARCH\+\_\+\+DEC}}(var,  val)
+\item 
+\#define \mbox{\hyperlink{sys_8h_a0da95147531964d619be7744c7169986}{SYS\+\_\+\+ARCH\+\_\+\+GET}}(var,  ret)
+\item 
+\#define \mbox{\hyperlink{sys_8h_a24ff55288a4d9fa28100c78b2f4612f6}{SYS\+\_\+\+ARCH\+\_\+\+SET}}(var,  val)
+\item 
+\#define \mbox{\hyperlink{sys_8h_a854fba67c29e6075184e5b093d470e39}{SYS\+\_\+\+ARCH\+\_\+\+LOCKED}}(code)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}{lwip\+\_\+thread\+\_\+fn}}) (void $\ast$arg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__mutex_ga38e7dae1fd88b338eb1cd97f110f3897}{sys\+\_\+mutex\+\_\+new}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{group__sys__mutex_ga4d4eb9afe5965fa2661dd54ff55d616a}{sys\+\_\+mutex\+\_\+lock}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{group__sys__mutex_ga5568f68898fe9d5735f9ce2f665624fb}{sys\+\_\+mutex\+\_\+unlock}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{group__sys__mutex_ga16336ce68b741e98204102ca4bc84dd9}{sys\+\_\+mutex\+\_\+free}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+int \mbox{\hyperlink{group__sys__mutex_gaebe83ba90a6d9c23cdb3eb5d49562c4a}{sys\+\_\+mutex\+\_\+valid}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+void \mbox{\hyperlink{group__sys__mutex_ga3f392725971dc837aa56dd7e45fa7ca8}{sys\+\_\+mutex\+\_\+set\+\_\+invalid}} (sys\+\_\+mutex\+\_\+t $\ast$mutex)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__sem_gaf99da9e34a71855285c535183133dfde}{sys\+\_\+sem\+\_\+new}} (sys\+\_\+sem\+\_\+t $\ast$sem, u8\+\_\+t count)
+\item 
+void \mbox{\hyperlink{group__sys__sem_gaaf800273061fcc3f8200fd4e1b9ca875}{sys\+\_\+sem\+\_\+signal}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+u32\+\_\+t \mbox{\hyperlink{group__sys__sem_ga8d364c5037778acb21c3df675db81b4f}{sys\+\_\+arch\+\_\+sem\+\_\+wait}} (sys\+\_\+sem\+\_\+t $\ast$sem, u32\+\_\+t timeout)
+\item 
+void \mbox{\hyperlink{group__sys__sem_ga83b781f96c30e915c752065a757da283}{sys\+\_\+sem\+\_\+free}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+int \mbox{\hyperlink{group__sys__sem_ga09a6c052ddaf799139efc56adfa087e4}{sys\+\_\+sem\+\_\+valid}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+void \mbox{\hyperlink{group__sys__sem_ga42a2ab32afbf41a4146a9d135224ef33}{sys\+\_\+sem\+\_\+set\+\_\+invalid}} (sys\+\_\+sem\+\_\+t $\ast$sem)
+\item 
+void \mbox{\hyperlink{group__sys__misc_ga6b8786f43e779953e8b74e983c88682e}{sys\+\_\+msleep}} (u32\+\_\+t ms)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__mbox_gab9793f30642de06ce87827e9adbe30cc}{sys\+\_\+mbox\+\_\+new}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, int size)
+\item 
+void \mbox{\hyperlink{group__sys__mbox_ga9d068386a3c53dd01b8af99c3ef77555}{sys\+\_\+mbox\+\_\+post}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$msg)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__mbox_gaa36345e48a49d67cbb0878cd4cbd2195}{sys\+\_\+mbox\+\_\+trypost}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$msg)
+\item 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} \mbox{\hyperlink{group__sys__mbox_gaf677a6e76adb7650a3020fdb3cb8429a}{sys\+\_\+mbox\+\_\+trypost\+\_\+fromisr}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$msg)
+\item 
+u32\+\_\+t \mbox{\hyperlink{group__sys__mbox_ga6464cd77cf6799bd8b3d6c840166a2e8}{sys\+\_\+arch\+\_\+mbox\+\_\+fetch}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$$\ast$msg, u32\+\_\+t timeout)
+\item 
+u32\+\_\+t \mbox{\hyperlink{group__sys__mbox_gafab441b130b4ec417012835dbe1e497c}{sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch}} (sys\+\_\+mbox\+\_\+t $\ast$mbox, void $\ast$$\ast$msg)
+\item 
+void \mbox{\hyperlink{group__sys__mbox_gac641a45812155d2234ef80dd6412882f}{sys\+\_\+mbox\+\_\+free}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\item 
+int \mbox{\hyperlink{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\item 
+void \mbox{\hyperlink{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}{sys\+\_\+mbox\+\_\+set\+\_\+invalid}} (sys\+\_\+mbox\+\_\+t $\ast$mbox)
+\item 
+sys\+\_\+thread\+\_\+t \mbox{\hyperlink{group__sys__misc_ga0d596afdd8dbcfad320172d39b0f607a}{sys\+\_\+thread\+\_\+new}} (const char $\ast$name, \mbox{\hyperlink{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}{lwip\+\_\+thread\+\_\+fn}} thread, void $\ast$arg, int stacksize, int prio)
+\item 
+void \mbox{\hyperlink{group__sys__misc_gaf411a8bc6b7ed4b0af9114e10c959448}{sys\+\_\+init}} (void)
+\item 
+u32\+\_\+t \mbox{\hyperlink{sys_8h_ac89f307e8b360eaf821b461a4f26753a}{sys\+\_\+jiffies}} (void)
+\item 
+u32\+\_\+t \mbox{\hyperlink{group__sys__time_ga11316ac1e77418c6fa4ab8869e3fa199}{sys\+\_\+now}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current time in milliseconds when LWIP\+\_\+\+TIMERS == 1 and NO\+\_\+\+SYS == 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+OS abstraction layer 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{sys_8h_a7bada49634cd3b28b28bdcedd763a1e6}\label{sys_8h_a7bada49634cd3b28b28bdcedd763a1e6}} 
+\index{sys.h@{sys.h}!LWIP\_COMPAT\_MUTEX@{LWIP\_COMPAT\_MUTEX}}
+\index{LWIP\_COMPAT\_MUTEX@{LWIP\_COMPAT\_MUTEX}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{LWIP\_COMPAT\_MUTEX}{LWIP\_COMPAT\_MUTEX}}
+{\footnotesize\ttfamily \#define LWIP\+\_\+\+COMPAT\+\_\+\+MUTEX~0}
+
+Define LWIP\+\_\+\+COMPAT\+\_\+\+MUTEX if the port has no mutexes and binary semaphores should be used instead \mbox{\Hypertarget{sys_8h_aa9a585faa63acdd5d59ac5e7759a07c5}\label{sys_8h_aa9a585faa63acdd5d59ac5e7759a07c5}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_DEC@{SYS\_ARCH\_DEC}}
+\index{SYS\_ARCH\_DEC@{SYS\_ARCH\_DEC}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_DEC}{SYS\_ARCH\_DEC}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+ARCH\+\_\+\+DEC(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{val }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                var -\/= val; \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                              \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys_8h_a945395fa326214fc9736487242710a90}\label{sys_8h_a945395fa326214fc9736487242710a90}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_DECL\_PROTECT@{SYS\_ARCH\_DECL\_PROTECT}}
+\index{SYS\_ARCH\_DECL\_PROTECT@{SYS\_ARCH\_DECL\_PROTECT}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_DECL\_PROTECT}{SYS\_ARCH\_DECL\_PROTECT}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+ARCH\+\_\+\+DECL\+\_\+\+PROTECT(\begin{DoxyParamCaption}\item[{}]{lev }\end{DoxyParamCaption})}
+
+SYS\+\_\+\+LIGHTWEIGHT\+\_\+\+PROT define SYS\+\_\+\+LIGHTWEIGHT\+\_\+\+PROT in \mbox{\hyperlink{lwipopts_8h_source}{lwipopts.\+h}} if you want inter-\/task protection for certain critical regions during buffer allocation, deallocation and memory allocation and deallocation. \mbox{\Hypertarget{sys_8h_a0da95147531964d619be7744c7169986}\label{sys_8h_a0da95147531964d619be7744c7169986}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_GET@{SYS\_ARCH\_GET}}
+\index{SYS\_ARCH\_GET@{SYS\_ARCH\_GET}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_GET}{SYS\_ARCH\_GET}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+ARCH\+\_\+\+GET(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{ret }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                ret = var; \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                              \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys_8h_acc5f7f8cbd020de628d1e9a0443da4c7}\label{sys_8h_acc5f7f8cbd020de628d1e9a0443da4c7}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_INC@{SYS\_ARCH\_INC}}
+\index{SYS\_ARCH\_INC@{SYS\_ARCH\_INC}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_INC}{SYS\_ARCH\_INC}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+ARCH\+\_\+\+INC(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{val }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                var += val; \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                              \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys_8h_a854fba67c29e6075184e5b093d470e39}\label{sys_8h_a854fba67c29e6075184e5b093d470e39}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_LOCKED@{SYS\_ARCH\_LOCKED}}
+\index{SYS\_ARCH\_LOCKED@{SYS\_ARCH\_LOCKED}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_LOCKED}{SYS\_ARCH\_LOCKED}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+ARCH\+\_\+\+LOCKED(\begin{DoxyParamCaption}\item[{}]{code }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                code; \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                              \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys_8h_a24ff55288a4d9fa28100c78b2f4612f6}\label{sys_8h_a24ff55288a4d9fa28100c78b2f4612f6}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_SET@{SYS\_ARCH\_SET}}
+\index{SYS\_ARCH\_SET@{SYS\_ARCH\_SET}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_SET}{SYS\_ARCH\_SET}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+ARCH\+\_\+\+SET(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{val }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_DECL\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_PROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                                var = val; \(\backslash\)}
+\DoxyCodeLine{                                SYS\_ARCH\_UNPROTECT(old\_level); \(\backslash\)}
+\DoxyCodeLine{                              \} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sys_8h_ac1495030a8ab5e1f3c89e42ced527c5b}\label{sys_8h_ac1495030a8ab5e1f3c89e42ced527c5b}} 
+\index{sys.h@{sys.h}!SYS\_ARCH\_TIMEOUT@{SYS\_ARCH\_TIMEOUT}}
+\index{SYS\_ARCH\_TIMEOUT@{SYS\_ARCH\_TIMEOUT}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_ARCH\_TIMEOUT}{SYS\_ARCH\_TIMEOUT}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+ARCH\+\_\+\+TIMEOUT~0xffffffff\+UL}
+
+Return code for timeouts from sys\+\_\+arch\+\_\+mbox\+\_\+fetch and sys\+\_\+arch\+\_\+sem\+\_\+wait \mbox{\Hypertarget{sys_8h_ab0571e67edca0132b144106e9b319ef9}\label{sys_8h_ab0571e67edca0132b144106e9b319ef9}} 
+\index{sys.h@{sys.h}!SYS\_MBOX\_EMPTY@{SYS\_MBOX\_EMPTY}}
+\index{SYS\_MBOX\_EMPTY@{SYS\_MBOX\_EMPTY}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{SYS\_MBOX\_EMPTY}{SYS\_MBOX\_EMPTY}}
+{\footnotesize\ttfamily \#define SYS\+\_\+\+MBOX\+\_\+\+EMPTY~\mbox{\hyperlink{sys_8h_ac1495030a8ab5e1f3c89e42ced527c5b}{SYS\+\_\+\+ARCH\+\_\+\+TIMEOUT}}}
+
+\mbox{\hyperlink{sys_8h_ab7841780b31ba9c0a39a440aad1fca13}{sys\+\_\+mbox\+\_\+tryfetch()}} returns SYS\+\_\+\+MBOX\+\_\+\+EMPTY if appropriate. For now we use the same magic value, but we allow this to change in future. \mbox{\Hypertarget{sys_8h_ae293feebb61d36f2db99be53702b8203}\label{sys_8h_ae293feebb61d36f2db99be53702b8203}} 
+\index{sys.h@{sys.h}!sys\_mbox\_set\_invalid\_val@{sys\_mbox\_set\_invalid\_val}}
+\index{sys\_mbox\_set\_invalid\_val@{sys\_mbox\_set\_invalid\_val}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_set\_invalid\_val}{sys\_mbox\_set\_invalid\_val}}
+{\footnotesize\ttfamily \#define sys\+\_\+mbox\+\_\+set\+\_\+invalid\+\_\+val(\begin{DoxyParamCaption}\item[{}]{mbox }\end{DoxyParamCaption})~\mbox{\hyperlink{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}{sys\+\_\+mbox\+\_\+set\+\_\+invalid}}(\&(mbox))}
+
+Same as \mbox{\hyperlink{group__sys__mbox_ga53ddec9d7f5500c5b1d982cd17493172}{sys\+\_\+mbox\+\_\+set\+\_\+invalid()}} but taking a value, not a pointer \mbox{\Hypertarget{sys_8h_ab7841780b31ba9c0a39a440aad1fca13}\label{sys_8h_ab7841780b31ba9c0a39a440aad1fca13}} 
+\index{sys.h@{sys.h}!sys\_mbox\_tryfetch@{sys\_mbox\_tryfetch}}
+\index{sys\_mbox\_tryfetch@{sys\_mbox\_tryfetch}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_tryfetch}{sys\_mbox\_tryfetch}}
+{\footnotesize\ttfamily \#define sys\+\_\+mbox\+\_\+tryfetch(\begin{DoxyParamCaption}\item[{}]{mbox,  }\item[{}]{msg }\end{DoxyParamCaption})~\mbox{\hyperlink{group__sys__mbox_gafab441b130b4ec417012835dbe1e497c}{sys\+\_\+arch\+\_\+mbox\+\_\+tryfetch}}(mbox, msg)}
+
+For now, we map straight to sys\+\_\+arch implementation. \mbox{\Hypertarget{sys_8h_aae82640d0bdbeec7b9b6511b3f8d99cb}\label{sys_8h_aae82640d0bdbeec7b9b6511b3f8d99cb}} 
+\index{sys.h@{sys.h}!sys\_mbox\_valid\_val@{sys\_mbox\_valid\_val}}
+\index{sys\_mbox\_valid\_val@{sys\_mbox\_valid\_val}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_mbox\_valid\_val}{sys\_mbox\_valid\_val}}
+{\footnotesize\ttfamily \#define sys\+\_\+mbox\+\_\+valid\+\_\+val(\begin{DoxyParamCaption}\item[{}]{mbox }\end{DoxyParamCaption})~\mbox{\hyperlink{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid}}(\&(mbox))}
+
+Same as \mbox{\hyperlink{group__sys__mbox_ga8bcfab4bd791dd33f69a778e7585275d}{sys\+\_\+mbox\+\_\+valid()}} but taking a value, not a pointer \mbox{\Hypertarget{sys_8h_a2556e570f6973a6f4d57d0e76ef190d8}\label{sys_8h_a2556e570f6973a6f4d57d0e76ef190d8}} 
+\index{sys.h@{sys.h}!sys\_sem\_set\_invalid\_val@{sys\_sem\_set\_invalid\_val}}
+\index{sys\_sem\_set\_invalid\_val@{sys\_sem\_set\_invalid\_val}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_set\_invalid\_val}{sys\_sem\_set\_invalid\_val}}
+{\footnotesize\ttfamily \#define sys\+\_\+sem\+\_\+set\+\_\+invalid\+\_\+val(\begin{DoxyParamCaption}\item[{}]{sem }\end{DoxyParamCaption})~\mbox{\hyperlink{group__sys__sem_ga42a2ab32afbf41a4146a9d135224ef33}{sys\+\_\+sem\+\_\+set\+\_\+invalid}}(\&(sem))}
+
+Same as \mbox{\hyperlink{group__sys__sem_ga42a2ab32afbf41a4146a9d135224ef33}{sys\+\_\+sem\+\_\+set\+\_\+invalid()}} but taking a value, not a pointer \mbox{\Hypertarget{sys_8h_a9e8ad541356786936f23ab83b8f550cc}\label{sys_8h_a9e8ad541356786936f23ab83b8f550cc}} 
+\index{sys.h@{sys.h}!sys\_sem\_valid\_val@{sys\_sem\_valid\_val}}
+\index{sys\_sem\_valid\_val@{sys\_sem\_valid\_val}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_valid\_val}{sys\_sem\_valid\_val}}
+{\footnotesize\ttfamily \#define sys\+\_\+sem\+\_\+valid\+\_\+val(\begin{DoxyParamCaption}\item[{}]{sem }\end{DoxyParamCaption})~\mbox{\hyperlink{group__sys__sem_ga09a6c052ddaf799139efc56adfa087e4}{sys\+\_\+sem\+\_\+valid}}(\&(sem))}
+
+Same as \mbox{\hyperlink{group__sys__sem_ga09a6c052ddaf799139efc56adfa087e4}{sys\+\_\+sem\+\_\+valid()}} but taking a value, not a pointer \mbox{\Hypertarget{sys_8h_a84e7e4bc00255aee84e6e7289a985703}\label{sys_8h_a84e7e4bc00255aee84e6e7289a985703}} 
+\index{sys.h@{sys.h}!sys\_sem\_wait@{sys\_sem\_wait}}
+\index{sys\_sem\_wait@{sys\_sem\_wait}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_sem\_wait}{sys\_sem\_wait}}
+{\footnotesize\ttfamily \#define sys\+\_\+sem\+\_\+wait(\begin{DoxyParamCaption}\item[{}]{sem }\end{DoxyParamCaption})~\mbox{\hyperlink{group__sys__sem_ga8d364c5037778acb21c3df675db81b4f}{sys\+\_\+arch\+\_\+sem\+\_\+wait}}(sem, 0)}
+
+Wait for a semaphore -\/ forever/no timeout 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}\label{sys_8h_ae30a77bf6bd69bfcc5f235eaad54f2b9}} 
+\index{sys.h@{sys.h}!lwip\_thread\_fn@{lwip\_thread\_fn}}
+\index{lwip\_thread\_fn@{lwip\_thread\_fn}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{lwip\_thread\_fn}{lwip\_thread\_fn}}
+{\footnotesize\ttfamily typedef void($\ast$ lwip\+\_\+thread\+\_\+fn) (void $\ast$arg)}
+
+Function prototype for thread functions 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sys_8h_ac89f307e8b360eaf821b461a4f26753a}\label{sys_8h_ac89f307e8b360eaf821b461a4f26753a}} 
+\index{sys.h@{sys.h}!sys\_jiffies@{sys\_jiffies}}
+\index{sys\_jiffies@{sys\_jiffies}!sys.h@{sys.h}}
+\doxysubsubsection{\texorpdfstring{sys\_jiffies()}{sys\_jiffies()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+jiffies (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Ticks/jiffies since power up. 

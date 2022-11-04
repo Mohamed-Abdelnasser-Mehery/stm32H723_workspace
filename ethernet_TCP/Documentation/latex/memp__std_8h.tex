@@ -1,0 +1,21 @@
+\hypertarget{memp__std_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/priv/memp\+\_\+std.h File Reference}
+\label{memp__std_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/memp\_std.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/memp\_std.h}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{memp__std_8h_a2a2ee070ed2e841bdf67f9379780e03d}\label{memp__std_8h_a2a2ee070ed2e841bdf67f9379780e03d}} 
+\#define {\bfseries LWIP\+\_\+\+MALLOC\+\_\+\+MEMPOOL}(num,  size)~LWIP\+\_\+\+MEMPOOL(POOL\+\_\+\#\#size, num, (size + \mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(sizeof(struct memp\+\_\+malloc\+\_\+helper))), \char`\"{}MALLOC\+\_\+\char`\"{}\#size)
+\item 
+\mbox{\Hypertarget{memp__std_8h_a0bc6a0d68500481012310ae5e44f4735}\label{memp__std_8h_a0bc6a0d68500481012310ae5e44f4735}} 
+\#define {\bfseries LWIP\+\_\+\+MALLOC\+\_\+\+MEMPOOL\+\_\+\+START}
+\item 
+\mbox{\Hypertarget{memp__std_8h_aa28365e96383d5262b08f8113b7f7c6d}\label{memp__std_8h_aa28365e96383d5262b08f8113b7f7c6d}} 
+\#define {\bfseries LWIP\+\_\+\+MALLOC\+\_\+\+MEMPOOL\+\_\+\+END}
+\item 
+\mbox{\Hypertarget{memp__std_8h_a4ed41263feeda39be71d3aa9440494ad}\label{memp__std_8h_a4ed41263feeda39be71d3aa9440494ad}} 
+\#define {\bfseries LWIP\+\_\+\+PBUF\+\_\+\+MEMPOOL}(name,  num,  payload,  desc)~LWIP\+\_\+\+MEMPOOL(name, num, (\mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(sizeof(struct \mbox{\hyperlink{structpbuf}{pbuf}})) + \mbox{\hyperlink{group__compiler__abstraction_gaef204be511fd32f681b55abc08e9ae18}{LWIP\+\_\+\+MEM\+\_\+\+ALIGN\+\_\+\+SIZE}}(payload)), desc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+lw\+IP internal memory pools (do not use in application code) This file is deliberately included multiple times\+: once with empty definition of LWIP\+\_\+\+MEMPOOL() to handle all includes and multiple times to build up various lists of mem pools. 

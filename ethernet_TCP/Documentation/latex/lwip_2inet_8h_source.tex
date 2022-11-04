@@ -1,0 +1,159 @@
+\hypertarget{lwip_2inet_8h_source}{}\doxysection{inet.\+h}
+\label{lwip_2inet_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/inet.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/inet.h}}
+\mbox{\hyperlink{lwip_2inet_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{11 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{14 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{21 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{22 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{23 \textcolor{comment}{ *}}
+\DoxyCodeLine{24 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{25 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{26 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{27 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{28 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{29 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{30 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{31 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{32 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{33 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ */}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_INET\_H}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define LWIP\_HDR\_INET\_H}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{def_8h}{lwip/def.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip6__addr_8h}{lwip/ip6\_addr.h}}"{}}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{49 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{comment}{/* If your port already typedef's in\_addr\_t, define IN\_ADDR\_T\_DEFINED}}
+\DoxyCodeLine{53 \textcolor{comment}{   to prevent this code from redefining it. */}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#if !defined(in\_addr\_t) \&\& !defined(IN\_ADDR\_T\_DEFINED)}}
+\DoxyCodeLine{55 \textcolor{keyword}{typedef} u32\_t in\_addr\_t;}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{struct }\mbox{\hyperlink{structin__addr}{in\_addr}} \{}
+\DoxyCodeLine{59   in\_addr\_t s\_addr;}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{struct }\mbox{\hyperlink{structin6__addr}{in6\_addr}} \{}
+\DoxyCodeLine{63   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{64     u32\_t u32\_addr[4];}
+\DoxyCodeLine{65     u8\_t  u8\_addr[16];}
+\DoxyCodeLine{66   \} un;}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define s6\_addr  un.u8\_addr}}
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define INADDR\_NONE         IPADDR\_NONE}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define INADDR\_LOOPBACK     IPADDR\_LOOPBACK}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define INADDR\_ANY          IPADDR\_ANY}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define INADDR\_BROADCAST    IPADDR\_BROADCAST}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define IN6ADDR\_ANY\_INIT \{\{\{0,0,0,0\}\}\}}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define IN6ADDR\_LOOPBACK\_INIT \{\{\{0,0,0,PP\_HTONL(1)\}\}\}}}
+\DoxyCodeLine{86 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }\mbox{\hyperlink{structin6__addr}{in6\_addr}} \mbox{\hyperlink{lwip_2inet_8h_af8c97553060738d9edd6bfeab13ef7c3}{in6addr\_any}};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{comment}{/* Definitions of the bits in an (IPv4) Internet address integer.}}
+\DoxyCodeLine{89 \textcolor{comment}{}}
+\DoxyCodeLine{90 \textcolor{comment}{   On subnets, host and network parts are found according to}}
+\DoxyCodeLine{91 \textcolor{comment}{   the subnet mask, not these masks.  */}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define IN\_CLASSA(a)        IP\_CLASSA(a)}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define IN\_CLASSA\_NET       IP\_CLASSA\_NET}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define IN\_CLASSA\_NSHIFT    IP\_CLASSA\_NSHIFT}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define IN\_CLASSA\_HOST      IP\_CLASSA\_HOST}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define IN\_CLASSA\_MAX       IP\_CLASSA\_MAX}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define IN\_CLASSB(b)        IP\_CLASSB(b)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define IN\_CLASSB\_NET       IP\_CLASSB\_NET}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define IN\_CLASSB\_NSHIFT    IP\_CLASSB\_NSHIFT}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define IN\_CLASSB\_HOST      IP\_CLASSB\_HOST}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define IN\_CLASSB\_MAX       IP\_CLASSB\_MAX}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define IN\_CLASSC(c)        IP\_CLASSC(c)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define IN\_CLASSC\_NET       IP\_CLASSC\_NET}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define IN\_CLASSC\_NSHIFT    IP\_CLASSC\_NSHIFT}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define IN\_CLASSC\_HOST      IP\_CLASSC\_HOST}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define IN\_CLASSC\_MAX       IP\_CLASSC\_MAX}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define IN\_CLASSD(d)        IP\_CLASSD(d)}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define IN\_CLASSD\_NET       IP\_CLASSD\_NET     }\textcolor{comment}{/* These ones aren't really */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define IN\_CLASSD\_NSHIFT    IP\_CLASSD\_NSHIFT  }\textcolor{comment}{/*   net and host fields, but */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define IN\_CLASSD\_HOST      IP\_CLASSD\_HOST    }\textcolor{comment}{/*   routing needn't know. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define IN\_CLASSD\_MAX       IP\_CLASSD\_MAX}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define IN\_MULTICAST(a)     IP\_MULTICAST(a)}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define IN\_EXPERIMENTAL(a)  IP\_EXPERIMENTAL(a)}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define IN\_BADCLASS(a)      IP\_BADCLASS(a)}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#define IN\_LOOPBACKNET      IP\_LOOPBACKNET}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#ifndef INET\_ADDRSTRLEN}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define INET\_ADDRSTRLEN     IP4ADDR\_STRLEN\_MAX}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#ifndef INET6\_ADDRSTRLEN}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define INET6\_ADDRSTRLEN    IP6ADDR\_STRLEN\_MAX}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define inet\_addr\_from\_ip4addr(target\_inaddr, source\_ipaddr) ((target\_inaddr)-\/>s\_addr = ip4\_addr\_get\_u32(source\_ipaddr))}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define inet\_addr\_to\_ip4addr(target\_ipaddr, source\_inaddr)   (ip4\_addr\_set\_u32(target\_ipaddr, (source\_inaddr)-\/>s\_addr))}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{comment}{/* directly map this to the lwip internal functions */}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define inet\_addr(cp)                   ipaddr\_addr(cp)}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define inet\_aton(cp, addr)             ip4addr\_aton(cp, (ip4\_addr\_t*)addr)}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#define inet\_ntoa(addr)                 ip4addr\_ntoa((const ip4\_addr\_t*)\&(addr))}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define inet\_ntoa\_r(addr, buf, buflen)  ip4addr\_ntoa\_r((const ip4\_addr\_t*)\&(addr), buf, buflen)}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#define inet6\_addr\_from\_ip6addr(target\_in6addr, source\_ip6addr) \{(target\_in6addr)-\/>un.u32\_addr[0] = (source\_ip6addr)-\/>addr[0]; \(\backslash\)}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{                                                                 (target\_in6addr)-\/>un.u32\_addr[1] = (source\_ip6addr)-\/>addr[1]; \(\backslash\)}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{                                                                 (target\_in6addr)-\/>un.u32\_addr[2] = (source\_ip6addr)-\/>addr[2]; \(\backslash\)}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{                                                                 (target\_in6addr)-\/>un.u32\_addr[3] = (source\_ip6addr)-\/>addr[3];\}}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define inet6\_addr\_to\_ip6addr(target\_ip6addr, source\_in6addr)   \{(target\_ip6addr)-\/>addr[0] = (source\_in6addr)-\/>un.u32\_addr[0]; \(\backslash\)}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{                                                                 (target\_ip6addr)-\/>addr[1] = (source\_in6addr)-\/>un.u32\_addr[1]; \(\backslash\)}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{                                                                 (target\_ip6addr)-\/>addr[2] = (source\_in6addr)-\/>un.u32\_addr[2]; \(\backslash\)}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{                                                                 (target\_ip6addr)-\/>addr[3] = (source\_in6addr)-\/>un.u32\_addr[3]; \(\backslash\)}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{                                                                 ip6\_addr\_clear\_zone(target\_ip6addr);\}}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{comment}{/* directly map this to the lwip internal functions */}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define inet6\_aton(cp, addr)            ip6addr\_aton(cp, (ip6\_addr\_t*)addr)}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define inet6\_ntoa(addr)                ip6addr\_ntoa((const ip6\_addr\_t*)\&(addr))}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define inet6\_ntoa\_r(addr, buf, buflen) ip6addr\_ntoa\_r((const ip6\_addr\_t*)\&(addr), buf, buflen)}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{166 \}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_INET\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

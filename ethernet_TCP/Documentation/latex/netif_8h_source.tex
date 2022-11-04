@@ -1,0 +1,474 @@
+\hypertarget{netif_8h_source}{}\doxysection{netif.\+h}
+\label{netif_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/netif.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/netif.h}}
+\mbox{\hyperlink{netif_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_NETIF\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_NETIF\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define ENABLE\_LOOPBACK (LWIP\_NETIF\_LOOPBACK || LWIP\_HAVE\_LOOPIF)}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{def_8h}{lwip/def.h}}"{}}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pbuf_8h}{lwip/pbuf.h}}"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stats_8h}{lwip/stats.h}}"{}}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{53 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{comment}{/* Throughout this file, IP addresses are expected to be in}}
+\DoxyCodeLine{57 \textcolor{comment}{ * the same byte order as in IP\_PCB. */}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#ifndef NETIF\_MAX\_HWADDR\_LEN}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define NETIF\_MAX\_HWADDR\_LEN 6U}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define NETIF\_NAMESIZE 6}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define NETIF\_FLAG\_UP           0x01U}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define NETIF\_FLAG\_BROADCAST    0x02U}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define NETIF\_FLAG\_LINK\_UP      0x04U}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define NETIF\_FLAG\_ETHARP       0x08U}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define NETIF\_FLAG\_ETHERNET     0x10U}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define NETIF\_FLAG\_IGMP         0x20U}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define NETIF\_FLAG\_MLD6         0x40U}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{113 \textcolor{keyword}{enum} lwip\_internal\_netif\_client\_data\_index}
+\DoxyCodeLine{114 \{}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#if LWIP\_DHCP}}
+\DoxyCodeLine{117    LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_DHCP,}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#if LWIP\_AUTOIP}}
+\DoxyCodeLine{120    LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_AUTOIP,}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#if LWIP\_IGMP}}
+\DoxyCodeLine{123    LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_IGMP,}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#if LWIP\_IPV6\_DHCP6}}
+\DoxyCodeLine{128    LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_DHCP6,}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#if LWIP\_IPV6\_MLD}}
+\DoxyCodeLine{131    LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_MLD6,}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{134    LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_MAX}
+\DoxyCodeLine{135 \};}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#if LWIP\_CHECKSUM\_CTRL\_PER\_NETIF}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_GEN\_IP       0x0001}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_GEN\_UDP      0x0002}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_GEN\_TCP      0x0004}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_GEN\_ICMP     0x0008}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_GEN\_ICMP6    0x0010}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_CHECK\_IP     0x0100}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_CHECK\_UDP    0x0200}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_CHECK\_TCP    0x0400}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_CHECK\_ICMP   0x0800}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_CHECK\_ICMP6  0x1000}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_ENABLE\_ALL   0xFFFF}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#define NETIF\_CHECKSUM\_DISABLE\_ALL  0x0000}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_CHECKSUM\_CTRL\_PER\_NETIF */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}};}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{156 \textcolor{keyword}{enum} \mbox{\hyperlink{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0}{netif\_mac\_filter\_action}} \{}
+\DoxyCodeLine{158   \mbox{\hyperlink{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0a7ad3406353906deb4e64ebeed349e07e}{NETIF\_DEL\_MAC\_FILTER}} = 0,}
+\DoxyCodeLine{160   \mbox{\hyperlink{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0a4186fbaf94be956ea1a3b02cd1cccb1f}{NETIF\_ADD\_MAC\_FILTER}} = 1}
+\DoxyCodeLine{161 \};}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{168 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*\mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\_init\_fn}})(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{178 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*\mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\_input\_fn}})(\textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *inp);}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{189 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*netif\_output\_fn)(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p,}
+\DoxyCodeLine{190        \textcolor{keyword}{const} ip4\_addr\_t *ipaddr);}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{202 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*netif\_output\_ip6\_fn)(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p,}
+\DoxyCodeLine{203        \textcolor{keyword}{const} ip6\_addr\_t *ipaddr);}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{212 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*\mbox{\hyperlink{netif_8h_ab75e9d808bc1b788bea84213e6a111ed}{netif\_linkoutput\_fn}})(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{214 \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{netif_8h_a447d0a7e7c6e2396557c287b8b8c9436}{netif\_status\_callback\_fn}})(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_IGMP}}
+\DoxyCodeLine{217 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*netif\_igmp\_mac\_filter\_fn)(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}},}
+\DoxyCodeLine{218        \textcolor{keyword}{const} ip4\_addr\_t *group, \textcolor{keyword}{enum} \mbox{\hyperlink{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0}{netif\_mac\_filter\_action}} action);}
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IGMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#if LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD}}
+\DoxyCodeLine{222 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*netif\_mld\_mac\_filter\_fn)(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}},}
+\DoxyCodeLine{223        \textcolor{keyword}{const} ip6\_addr\_t *group, \textcolor{keyword}{enum} \mbox{\hyperlink{netif_8h_ab194ec4241fad8b6e9aac51e3ec23de0}{netif\_mac\_filter\_action}} action);}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#if LWIP\_DHCP || LWIP\_AUTOIP || LWIP\_IGMP || LWIP\_IPV6\_MLD || LWIP\_IPV6\_DHCP6 || (LWIP\_NUM\_NETIF\_CLIENT\_DATA > 0)}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#if LWIP\_NUM\_NETIF\_CLIENT\_DATA > 0}}
+\DoxyCodeLine{228 u8\_t netif\_alloc\_client\_data\_id(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#define netif\_set\_client\_data(netif, id, data) netif\_get\_client\_data(netif, id) = (data)}}
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#define netif\_get\_client\_data(netif, id)       (netif)-\/>client\_data[(id)]}}
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#if (LWIP\_IPV4 \&\& LWIP\_ARP \&\& (ARP\_TABLE\_SIZE > 0x7f)) || (LWIP\_IPV6 \&\& (LWIP\_ND6\_NUM\_DESTINATIONS > 0x7f))}}
+\DoxyCodeLine{241 \textcolor{keyword}{typedef} u16\_t netif\_addr\_idx\_t;}
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#define NETIF\_ADDR\_IDX\_MAX 0x7FFF}}
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{244 \textcolor{keyword}{typedef} u8\_t netif\_addr\_idx\_t;}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#define NETIF\_ADDR\_IDX\_MAX 0x7F}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#if LWIP\_NETIF\_HWADDRHINT}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#define LWIP\_NETIF\_USE\_HINTS              1}}
+\DoxyCodeLine{250 \textcolor{keyword}{struct }netif\_hint \{}
+\DoxyCodeLine{251   netif\_addr\_idx\_t addr\_hint;}
+\DoxyCodeLine{252 \};}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_NETIF\_HWADDRHINT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#define LWIP\_NETIF\_USE\_HINTS              0}}
+\DoxyCodeLine{255 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_HWADDRHINT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{260 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} \{}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#if !LWIP\_SINGLE\_NETIF}}
+\DoxyCodeLine{263   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif_a72608bc752fe6268d382e5624ba4381d}{next}};}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{268   ip\_addr\_t ip\_addr;}
+\DoxyCodeLine{269   ip\_addr\_t netmask;}
+\DoxyCodeLine{270   ip\_addr\_t gw;}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{274   ip\_addr\_t ip6\_addr[\mbox{\hyperlink{group__lwip__opts__ipv6_ga16c1b672604bfb0a66a6aeeb854589d3}{LWIP\_IPV6\_NUM\_ADDRESSES}}];}
+\DoxyCodeLine{277   u8\_t ip6\_addr\_state[\mbox{\hyperlink{group__lwip__opts__ipv6_ga16c1b672604bfb0a66a6aeeb854589d3}{LWIP\_IPV6\_NUM\_ADDRESSES}}];}
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#if LWIP\_IPV6\_ADDRESS\_LIFETIMES}}
+\DoxyCodeLine{282   u32\_t ip6\_addr\_valid\_life[\mbox{\hyperlink{group__lwip__opts__ipv6_ga16c1b672604bfb0a66a6aeeb854589d3}{LWIP\_IPV6\_NUM\_ADDRESSES}}];}
+\DoxyCodeLine{283   u32\_t ip6\_addr\_pref\_life[\mbox{\hyperlink{group__lwip__opts__ipv6_ga16c1b672604bfb0a66a6aeeb854589d3}{LWIP\_IPV6\_NUM\_ADDRESSES}}];}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_ADDRESS\_LIFETIMES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{288   \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\_input\_fn}} \mbox{\hyperlink{structnetif_a8aaf0d8a095fbd84aa1a38998f039190}{input}};}
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{294   netif\_output\_fn output;}
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{299   \mbox{\hyperlink{netif_8h_ab75e9d808bc1b788bea84213e6a111ed}{netif\_linkoutput\_fn}} \mbox{\hyperlink{structnetif_a4a758a6b98ec0ba0225d5cd120bbf1ba}{linkoutput}};}
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{305   netif\_output\_ip6\_fn output\_ip6;}
+\DoxyCodeLine{306 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#if LWIP\_NETIF\_STATUS\_CALLBACK}}
+\DoxyCodeLine{310   \mbox{\hyperlink{netif_8h_a447d0a7e7c6e2396557c287b8b8c9436}{netif\_status\_callback\_fn}} status\_callback;}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_STATUS\_CALLBACK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{\#if LWIP\_NETIF\_LINK\_CALLBACK}}
+\DoxyCodeLine{315   \mbox{\hyperlink{netif_8h_a447d0a7e7c6e2396557c287b8b8c9436}{netif\_status\_callback\_fn}} link\_callback;}
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_LINK\_CALLBACK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#if LWIP\_NETIF\_REMOVE\_CALLBACK}}
+\DoxyCodeLine{319   \mbox{\hyperlink{netif_8h_a447d0a7e7c6e2396557c287b8b8c9436}{netif\_status\_callback\_fn}} remove\_callback;}
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_REMOVE\_CALLBACK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{323   \textcolor{keywordtype}{void} *\mbox{\hyperlink{structnetif_a441a9214dea76f74bf9d8b392cf4d355}{state}};}
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#ifdef netif\_get\_client\_data}}
+\DoxyCodeLine{325   \textcolor{keywordtype}{void}* client\_data[LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_MAX + \mbox{\hyperlink{group__lwip__opts__netif_ga94a35212616f9a9aae5c98741612b936}{LWIP\_NUM\_NETIF\_CLIENT\_DATA}}];}
+\DoxyCodeLine{326 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{327 \textcolor{preprocessor}{\#if LWIP\_NETIF\_HOSTNAME}}
+\DoxyCodeLine{328   \textcolor{comment}{/* the hostname for this netif, NULL is a valid value */}}
+\DoxyCodeLine{329   \textcolor{keyword}{const} \textcolor{keywordtype}{char}*  hostname;}
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_HOSTNAME */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{331 \textcolor{preprocessor}{\#if LWIP\_CHECKSUM\_CTRL\_PER\_NETIF}}
+\DoxyCodeLine{332   u16\_t chksum\_flags;}
+\DoxyCodeLine{333 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_CHECKSUM\_CTRL\_PER\_NETIF*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{335   u16\_t \mbox{\hyperlink{structnetif_a30008eb1b9281853f44e3212ed8d54eb}{mtu}};}
+\DoxyCodeLine{336 \textcolor{preprocessor}{\#if LWIP\_IPV6 \&\& LWIP\_ND6\_ALLOW\_RA\_UPDATES}}
+\DoxyCodeLine{338   u16\_t mtu6;}
+\DoxyCodeLine{339 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 \&\& LWIP\_ND6\_ALLOW\_RA\_UPDATES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{341   u8\_t \mbox{\hyperlink{structnetif_a51fe41429f305697adfd9d07f56107b9}{hwaddr}}[\mbox{\hyperlink{netif_8h_ab887a8ec553de1be1d04cf2961c63c41}{NETIF\_MAX\_HWADDR\_LEN}}];}
+\DoxyCodeLine{343   u8\_t \mbox{\hyperlink{structnetif_a70a871553a056d9bb835e8e72ec07de9}{hwaddr\_len}};}
+\DoxyCodeLine{345   u8\_t \mbox{\hyperlink{structnetif_acdbb1031079f6bcd67096ea22e82edb4}{flags}};}
+\DoxyCodeLine{347   \textcolor{keywordtype}{char} \mbox{\hyperlink{structnetif_ab2726dd451e7676f553e96d5620bdfe3}{name}}[2];}
+\DoxyCodeLine{350   u8\_t \mbox{\hyperlink{structnetif_af8ffb2c1c1d08fafe1d0845d5296c9a8}{num}};}
+\DoxyCodeLine{351 \textcolor{preprocessor}{\#if LWIP\_IPV6\_AUTOCONFIG}}
+\DoxyCodeLine{353   u8\_t ip6\_autoconfig\_enabled;}
+\DoxyCodeLine{354 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_AUTOCONFIG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{355 \textcolor{preprocessor}{\#if LWIP\_IPV6\_SEND\_ROUTER\_SOLICIT}}
+\DoxyCodeLine{357   u8\_t rs\_count;}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6\_SEND\_ROUTER\_SOLICIT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{359 \textcolor{preprocessor}{\#if MIB2\_STATS}}
+\DoxyCodeLine{361   u8\_t link\_type;}
+\DoxyCodeLine{363   u32\_t link\_speed;}
+\DoxyCodeLine{365   u32\_t ts;}
+\DoxyCodeLine{367   \textcolor{keyword}{struct }stats\_mib2\_netif\_ctrs mib2\_counters;}
+\DoxyCodeLine{368 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* MIB2\_STATS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{369 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_IGMP}}
+\DoxyCodeLine{372   netif\_igmp\_mac\_filter\_fn igmp\_mac\_filter;}
+\DoxyCodeLine{373 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IGMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{374 \textcolor{preprocessor}{\#if LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD}}
+\DoxyCodeLine{377   netif\_mld\_mac\_filter\_fn mld\_mac\_filter;}
+\DoxyCodeLine{378 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{379 \textcolor{preprocessor}{\#if LWIP\_NETIF\_USE\_HINTS}}
+\DoxyCodeLine{380   \textcolor{keyword}{struct }netif\_hint *hints;}
+\DoxyCodeLine{381 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_USE\_HINTS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{382 \textcolor{preprocessor}{\#if ENABLE\_LOOPBACK}}
+\DoxyCodeLine{383   \textcolor{comment}{/* List of packets to be queued for ourselves. */}}
+\DoxyCodeLine{384   \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *loop\_first;}
+\DoxyCodeLine{385   \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *loop\_last;}
+\DoxyCodeLine{386 \textcolor{preprocessor}{\#if LWIP\_LOOPBACK\_MAX\_PBUFS}}
+\DoxyCodeLine{387   u16\_t loop\_cnt\_current;}
+\DoxyCodeLine{388 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_LOOPBACK\_MAX\_PBUFS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{389 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ENABLE\_LOOPBACK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{390 \};}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392 \textcolor{preprocessor}{\#if LWIP\_CHECKSUM\_CTRL\_PER\_NETIF}}
+\DoxyCodeLine{393 \textcolor{preprocessor}{\#define NETIF\_SET\_CHECKSUM\_CTRL(netif, chksumflags) do \{ \(\backslash\)}}
+\DoxyCodeLine{394 \textcolor{preprocessor}{  (netif)-\/>chksum\_flags = chksumflags; \} while(0)}}
+\DoxyCodeLine{395 \textcolor{preprocessor}{\#define IF\_\_NETIF\_CHECKSUM\_ENABLED(netif, chksumflag) if (((netif) == NULL) || (((netif)-\/>chksum\_flags \& (chksumflag)) != 0))}}
+\DoxyCodeLine{396 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_CHECKSUM\_CTRL\_PER\_NETIF */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{397 \textcolor{preprocessor}{\#define NETIF\_SET\_CHECKSUM\_CTRL(netif, chksumflags)}}
+\DoxyCodeLine{398 \textcolor{preprocessor}{\#define IF\_\_NETIF\_CHECKSUM\_ENABLED(netif, chksumflag)}}
+\DoxyCodeLine{399 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_CHECKSUM\_CTRL\_PER\_NETIF */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401 \textcolor{preprocessor}{\#if LWIP\_SINGLE\_NETIF}}
+\DoxyCodeLine{402 \textcolor{preprocessor}{\#define NETIF\_FOREACH(netif) if (((netif) = netif\_default) != NULL)}}
+\DoxyCodeLine{403 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_SINGLE\_NETIF */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{405 \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{netif_8h_a1c8141eaa98f6dc6dfddbb23a706656c}{netif\_list}};}
+\DoxyCodeLine{406 \textcolor{preprocessor}{\#define NETIF\_FOREACH(netif) for ((netif) = netif\_list; (netif) != NULL; (netif) = (netif)-\/>next)}}
+\DoxyCodeLine{407 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_SINGLE\_NETIF */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{409 \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{netif_8h_a3d0925cbce550ed461907aee816713ba}{netif\_default}};}
+\DoxyCodeLine{410 }
+\DoxyCodeLine{411 \textcolor{keywordtype}{void} netif\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{group__netif_gafcb3925fb117375739abf97f3a856bcd}{netif\_add\_noaddr}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keywordtype}{void} *\mbox{\hyperlink{structnetif_a441a9214dea76f74bf9d8b392cf4d355}{state}}, \mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\_init\_fn}} init, \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\_input\_fn}} \mbox{\hyperlink{structnetif_a8aaf0d8a095fbd84aa1a38998f039190}{input}});}
+\DoxyCodeLine{414 }
+\DoxyCodeLine{415 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{416 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}{netif\_add}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}},}
+\DoxyCodeLine{417                             \textcolor{keyword}{const} ip4\_addr\_t *ipaddr, \textcolor{keyword}{const} ip4\_addr\_t *netmask, \textcolor{keyword}{const} ip4\_addr\_t *gw,}
+\DoxyCodeLine{418                             \textcolor{keywordtype}{void} *\mbox{\hyperlink{structnetif_a441a9214dea76f74bf9d8b392cf4d355}{state}}, \mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\_init\_fn}} init, \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\_input\_fn}} \mbox{\hyperlink{structnetif_a8aaf0d8a095fbd84aa1a38998f039190}{input}});}
+\DoxyCodeLine{419 \textcolor{keywordtype}{void} netif\_set\_addr(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip4\_addr\_t *ipaddr, \textcolor{keyword}{const} ip4\_addr\_t *netmask,}
+\DoxyCodeLine{420                     \textcolor{keyword}{const} ip4\_addr\_t *gw);}
+\DoxyCodeLine{421 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{422 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{group__netif_gabde72af134ae7047a46ad7719d2a1ee9}{netif\_add}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keywordtype}{void} *\mbox{\hyperlink{structnetif_a441a9214dea76f74bf9d8b392cf4d355}{state}}, \mbox{\hyperlink{netif_8h_a2b02a78a8769925ff8e4f83d34e5e1f5}{netif\_init\_fn}} init, \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\_input\_fn}} \mbox{\hyperlink{structnetif_a8aaf0d8a095fbd84aa1a38998f039190}{input}});}
+\DoxyCodeLine{423 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{424 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__netif_ga9c6e541f0c184e1ea61a5cd8afe3e979}{netif\_remove}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} * \mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{426 \textcolor{comment}{/* Returns a network interface given its name. The name is of the form}}
+\DoxyCodeLine{427 \textcolor{comment}{   "{}et0"{}, where the first two letters are the "{}name"{} field in the}}
+\DoxyCodeLine{428 \textcolor{comment}{   netif structure, and the digit is in the num field in the same}}
+\DoxyCodeLine{429 \textcolor{comment}{   structure. */}}
+\DoxyCodeLine{430 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{group__netif_ga3c82d1c742338828b2f4349a75bb84de}{netif\_find}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{structnetif_ab2726dd451e7676f553e96d5620bdfe3}{name}});}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__netif_gac90f290edd005238d62aa94c4ac9dea3}{netif\_set\_default}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{433 }
+\DoxyCodeLine{434 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{435 \textcolor{keywordtype}{void} netif\_set\_ipaddr(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip4\_addr\_t *ipaddr);}
+\DoxyCodeLine{436 \textcolor{keywordtype}{void} netif\_set\_netmask(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip4\_addr\_t *netmask);}
+\DoxyCodeLine{437 \textcolor{keywordtype}{void} netif\_set\_gw(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip4\_addr\_t *gw);}
+\DoxyCodeLine{439 \textcolor{preprocessor}{\#define netif\_ip4\_addr(netif)    ((const ip4\_addr\_t*)ip\_2\_ip4(\&((netif)-\/>ip\_addr)))}}
+\DoxyCodeLine{441 \textcolor{preprocessor}{\#define netif\_ip4\_netmask(netif) ((const ip4\_addr\_t*)ip\_2\_ip4(\&((netif)-\/>netmask)))}}
+\DoxyCodeLine{443 \textcolor{preprocessor}{\#define netif\_ip4\_gw(netif)      ((const ip4\_addr\_t*)ip\_2\_ip4(\&((netif)-\/>gw)))}}
+\DoxyCodeLine{445 \textcolor{preprocessor}{\#define netif\_ip\_addr4(netif)    ((const ip\_addr\_t*)\&((netif)-\/>ip\_addr))}}
+\DoxyCodeLine{447 \textcolor{preprocessor}{\#define netif\_ip\_netmask4(netif) ((const ip\_addr\_t*)\&((netif)-\/>netmask))}}
+\DoxyCodeLine{449 \textcolor{preprocessor}{\#define netif\_ip\_gw4(netif)      ((const ip\_addr\_t*)\&((netif)-\/>gw))}}
+\DoxyCodeLine{450 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{451 }
+\DoxyCodeLine{452 \textcolor{preprocessor}{\#define netif\_set\_flags(netif, set\_flags)     do \{ (netif)-\/>flags = (u8\_t)((netif)-\/>flags |  (set\_flags)); \} while(0)}}
+\DoxyCodeLine{453 \textcolor{preprocessor}{\#define netif\_clear\_flags(netif, clr\_flags)   do \{ (netif)-\/>flags = (u8\_t)((netif)-\/>flags \& (u8\_t)(\string~(clr\_flags) \& 0xff)); \} while(0)}}
+\DoxyCodeLine{454 \textcolor{preprocessor}{\#define netif\_is\_flag\_set(nefif, flag)        (((netif)-\/>flags \& (flag)) != 0)}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__netif_gaf19693be401a265a52d2a56c65753121}{netif\_set\_up}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{457 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__netif_ga641d07ed8c31fe5306bc01605a6790cf}{netif\_set\_down}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{461 \textcolor{preprocessor}{\#define netif\_is\_up(netif) (((netif)-\/>flags \& NETIF\_FLAG\_UP) ? (u8\_t)1 : (u8\_t)0)}}
+\DoxyCodeLine{462 }
+\DoxyCodeLine{463 \textcolor{preprocessor}{\#if LWIP\_NETIF\_STATUS\_CALLBACK}}
+\DoxyCodeLine{464 \textcolor{keywordtype}{void} netif\_set\_status\_callback(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \mbox{\hyperlink{netif_8h_a447d0a7e7c6e2396557c287b8b8c9436}{netif\_status\_callback\_fn}} status\_callback);}
+\DoxyCodeLine{465 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_STATUS\_CALLBACK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{466 \textcolor{preprocessor}{\#if LWIP\_NETIF\_REMOVE\_CALLBACK}}
+\DoxyCodeLine{467 \textcolor{keywordtype}{void} netif\_set\_remove\_callback(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \mbox{\hyperlink{netif_8h_a447d0a7e7c6e2396557c287b8b8c9436}{netif\_status\_callback\_fn}} remove\_callback);}
+\DoxyCodeLine{468 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_REMOVE\_CALLBACK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{469 }
+\DoxyCodeLine{470 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__netif_gae0d2975f189277990e9d5276fdd9e9ea}{netif\_set\_link\_up}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{471 \textcolor{keywordtype}{void} \mbox{\hyperlink{group__netif_ga34e37a1e8e358760dc1c43887922c7db}{netif\_set\_link\_down}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{473 \textcolor{preprocessor}{\#define netif\_is\_link\_up(netif) (((netif)-\/>flags \& NETIF\_FLAG\_LINK\_UP) ? (u8\_t)1 : (u8\_t)0)}}
+\DoxyCodeLine{474 }
+\DoxyCodeLine{475 \textcolor{preprocessor}{\#if LWIP\_NETIF\_LINK\_CALLBACK}}
+\DoxyCodeLine{476 \textcolor{keywordtype}{void} netif\_set\_link\_callback(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \mbox{\hyperlink{netif_8h_a447d0a7e7c6e2396557c287b8b8c9436}{netif\_status\_callback\_fn}} link\_callback);}
+\DoxyCodeLine{477 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_LINK\_CALLBACK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479 \textcolor{preprocessor}{\#if LWIP\_NETIF\_HOSTNAME}}
+\DoxyCodeLine{481 \textcolor{preprocessor}{\#define netif\_set\_hostname(netif, name) do \{ if((netif) != NULL) \{ (netif)-\/>hostname = name; \}\}while(0)}}
+\DoxyCodeLine{483 \textcolor{preprocessor}{\#define netif\_get\_hostname(netif) (((netif) != NULL) ? ((netif)-\/>hostname) : NULL)}}
+\DoxyCodeLine{484 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_HOSTNAME */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{485 }
+\DoxyCodeLine{486 \textcolor{preprocessor}{\#if LWIP\_IGMP}}
+\DoxyCodeLine{488 \textcolor{preprocessor}{\#define netif\_set\_igmp\_mac\_filter(netif, function) do \{ if((netif) != NULL) \{ (netif)-\/>igmp\_mac\_filter = function; \}\}while(0)}}
+\DoxyCodeLine{489 \textcolor{preprocessor}{\#define netif\_get\_igmp\_mac\_filter(netif) (((netif) != NULL) ? ((netif)-\/>igmp\_mac\_filter) : NULL)}}
+\DoxyCodeLine{490 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IGMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{491 }
+\DoxyCodeLine{492 \textcolor{preprocessor}{\#if LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD}}
+\DoxyCodeLine{494 \textcolor{preprocessor}{\#define netif\_set\_mld\_mac\_filter(netif, function) do \{ if((netif) != NULL) \{ (netif)-\/>mld\_mac\_filter = function; \}\}while(0)}}
+\DoxyCodeLine{495 \textcolor{preprocessor}{\#define netif\_get\_mld\_mac\_filter(netif) (((netif) != NULL) ? ((netif)-\/>mld\_mac\_filter) : NULL)}}
+\DoxyCodeLine{496 \textcolor{preprocessor}{\#define netif\_mld\_mac\_filter(netif, addr, action) do \{ if((netif) \&\& (netif)-\/>mld\_mac\_filter) \{ (netif)-\/>mld\_mac\_filter((netif), (addr), (action)); \}\}while(0)}}
+\DoxyCodeLine{497 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 \&\& LWIP\_IPV6\_MLD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{498 }
+\DoxyCodeLine{499 \textcolor{preprocessor}{\#if ENABLE\_LOOPBACK}}
+\DoxyCodeLine{500 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} netif\_loop\_output(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{501 \textcolor{keywordtype}{void} netif\_poll(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{502 \textcolor{preprocessor}{\#if !LWIP\_NETIF\_LOOPBACK\_MULTITHREADING}}
+\DoxyCodeLine{503 \textcolor{keywordtype}{void} netif\_poll\_all(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{504 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_NETIF\_LOOPBACK\_MULTITHREADING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{505 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ENABLE\_LOOPBACK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{506 }
+\DoxyCodeLine{507 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{netif_8h_a5532f93d68c874fb99c681bff2165385}{netif\_input}}(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *inp);}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{509 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{511 \textcolor{preprocessor}{\#define netif\_ip\_addr6(netif, i)  ((const ip\_addr\_t*)(\&((netif)-\/>ip6\_addr[i])))}}
+\DoxyCodeLine{513 \textcolor{preprocessor}{\#define netif\_ip6\_addr(netif, i)  ((const ip6\_addr\_t*)ip\_2\_ip6(\&((netif)-\/>ip6\_addr[i])))}}
+\DoxyCodeLine{514 \textcolor{keywordtype}{void} netif\_ip6\_addr\_set(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, s8\_t addr\_idx, \textcolor{keyword}{const} ip6\_addr\_t *addr6);}
+\DoxyCodeLine{515 \textcolor{keywordtype}{void} netif\_ip6\_addr\_set\_parts(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, s8\_t addr\_idx, u32\_t i0, u32\_t i1, u32\_t i2, u32\_t i3);}
+\DoxyCodeLine{516 \textcolor{preprocessor}{\#define netif\_ip6\_addr\_state(netif, i)  ((netif)-\/>ip6\_addr\_state[i])}}
+\DoxyCodeLine{517 \textcolor{keywordtype}{void} netif\_ip6\_addr\_set\_state(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}}* \mbox{\hyperlink{structnetif}{netif}}, s8\_t addr\_idx, u8\_t \mbox{\hyperlink{structnetif_a441a9214dea76f74bf9d8b392cf4d355}{state}});}
+\DoxyCodeLine{518 s8\_t netif\_get\_ip6\_addr\_match(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip6\_addr\_t *ip6addr);}
+\DoxyCodeLine{519 \textcolor{keywordtype}{void} netif\_create\_ip6\_linklocal\_address(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, u8\_t from\_mac\_48bit);}
+\DoxyCodeLine{520 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} netif\_add\_ip6\_address(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip6\_addr\_t *ip6addr, s8\_t *chosen\_idx);}
+\DoxyCodeLine{521 \textcolor{preprocessor}{\#define netif\_set\_ip6\_autoconfig\_enabled(netif, action) do \{ if(netif) \{ (netif)-\/>ip6\_autoconfig\_enabled = (action); \}\}while(0)}}
+\DoxyCodeLine{522 \textcolor{preprocessor}{\#if LWIP\_IPV6\_ADDRESS\_LIFETIMES}}
+\DoxyCodeLine{523 \textcolor{preprocessor}{\#define netif\_ip6\_addr\_valid\_life(netif, i)  \(\backslash\)}}
+\DoxyCodeLine{524 \textcolor{preprocessor}{    (((netif) != NULL) ? ((netif)-\/>ip6\_addr\_valid\_life[i]) : IP6\_ADDR\_LIFE\_STATIC)}}
+\DoxyCodeLine{525 \textcolor{preprocessor}{\#define netif\_ip6\_addr\_set\_valid\_life(netif, i, secs) \(\backslash\)}}
+\DoxyCodeLine{526 \textcolor{preprocessor}{    do \{ if (netif != NULL) \{ (netif)-\/>ip6\_addr\_valid\_life[i] = (secs); \}\} while (0)}}
+\DoxyCodeLine{527 \textcolor{preprocessor}{\#define netif\_ip6\_addr\_pref\_life(netif, i)  \(\backslash\)}}
+\DoxyCodeLine{528 \textcolor{preprocessor}{    (((netif) != NULL) ? ((netif)-\/>ip6\_addr\_pref\_life[i]) : IP6\_ADDR\_LIFE\_STATIC)}}
+\DoxyCodeLine{529 \textcolor{preprocessor}{\#define netif\_ip6\_addr\_set\_pref\_life(netif, i, secs) \(\backslash\)}}
+\DoxyCodeLine{530 \textcolor{preprocessor}{    do \{ if (netif != NULL) \{ (netif)-\/>ip6\_addr\_pref\_life[i] = (secs); \}\} while (0)}}
+\DoxyCodeLine{531 \textcolor{preprocessor}{\#define netif\_ip6\_addr\_isstatic(netif, i)  \(\backslash\)}}
+\DoxyCodeLine{532 \textcolor{preprocessor}{    (netif\_ip6\_addr\_valid\_life((netif), (i)) == IP6\_ADDR\_LIFE\_STATIC)}}
+\DoxyCodeLine{533 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* !LWIP\_IPV6\_ADDRESS\_LIFETIMES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{534 \textcolor{preprocessor}{\#define netif\_ip6\_addr\_isstatic(netif, i)  (1) }\textcolor{comment}{/* all addresses are static */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{535 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_IPV6\_ADDRESS\_LIFETIMES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{536 \textcolor{preprocessor}{\#if LWIP\_ND6\_ALLOW\_RA\_UPDATES}}
+\DoxyCodeLine{537 \textcolor{preprocessor}{\#define netif\_mtu6(netif) ((netif)-\/>mtu6)}}
+\DoxyCodeLine{538 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_ND6\_ALLOW\_RA\_UPDATES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{539 \textcolor{preprocessor}{\#define netif\_mtu6(netif) ((netif)-\/>mtu)}}
+\DoxyCodeLine{540 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_ND6\_ALLOW\_RA\_UPDATES */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{541 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{543 \textcolor{preprocessor}{\#if LWIP\_NETIF\_USE\_HINTS}}
+\DoxyCodeLine{544 \textcolor{preprocessor}{\#define NETIF\_SET\_HINTS(netif, netifhint)  (netif)-\/>hints = (netifhint)}}
+\DoxyCodeLine{545 \textcolor{preprocessor}{\#define NETIF\_RESET\_HINTS(netif)      (netif)-\/>hints = NULL}}
+\DoxyCodeLine{546 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_NETIF\_USE\_HINTS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{547 \textcolor{preprocessor}{\#define NETIF\_SET\_HINTS(netif, netifhint)}}
+\DoxyCodeLine{548 \textcolor{preprocessor}{\#define NETIF\_RESET\_HINTS(netif)}}
+\DoxyCodeLine{549 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_USE\_HINTS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{550 }
+\DoxyCodeLine{551 u8\_t \mbox{\hyperlink{group__netif_gac763a1f647fb9e8af4254418e813a6ae}{netif\_name\_to\_index}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{structnetif_ab2726dd451e7676f553e96d5620bdfe3}{name}});}
+\DoxyCodeLine{552 \textcolor{keywordtype}{char} * \mbox{\hyperlink{group__netif_ga0e755cb6624d3365551eeed5430fa226}{netif\_index\_to\_name}}(u8\_t idx, \textcolor{keywordtype}{char} *\mbox{\hyperlink{structnetif_ab2726dd451e7676f553e96d5620bdfe3}{name}});}
+\DoxyCodeLine{553 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}}* \mbox{\hyperlink{group__netif_gaa934434420c0dea7b5cfe6df67f8c77a}{netif\_get\_by\_index}}(u8\_t idx);}
+\DoxyCodeLine{554 }
+\DoxyCodeLine{555 \textcolor{comment}{/* Interface indexes always start at 1 per RFC 3493, section 4, num starts at 0 (internal index is 0..254)*/}}
+\DoxyCodeLine{556 \textcolor{preprocessor}{\#define netif\_get\_index(netif)      ((u8\_t)((netif)-\/>num + 1))}}
+\DoxyCodeLine{557 \textcolor{preprocessor}{\#define NETIF\_NO\_INDEX              (0)}}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{564 \textcolor{keyword}{typedef} u16\_t \mbox{\hyperlink{group__netif_gab2b9387389513a02027c62e246723808}{netif\_nsc\_reason\_t}};}
+\DoxyCodeLine{565 }
+\DoxyCodeLine{566 \textcolor{comment}{/* used for initialization only */}}
+\DoxyCodeLine{567 \textcolor{preprocessor}{\#define LWIP\_NSC\_NONE                     0x0000}}
+\DoxyCodeLine{569 \textcolor{preprocessor}{\#define LWIP\_NSC\_NETIF\_ADDED              0x0001}}
+\DoxyCodeLine{571 \textcolor{preprocessor}{\#define LWIP\_NSC\_NETIF\_REMOVED            0x0002}}
+\DoxyCodeLine{573 \textcolor{preprocessor}{\#define LWIP\_NSC\_LINK\_CHANGED             0x0004}}
+\DoxyCodeLine{577 \textcolor{preprocessor}{\#define LWIP\_NSC\_STATUS\_CHANGED           0x0008}}
+\DoxyCodeLine{579 \textcolor{preprocessor}{\#define LWIP\_NSC\_IPV4\_ADDRESS\_CHANGED     0x0010}}
+\DoxyCodeLine{581 \textcolor{preprocessor}{\#define LWIP\_NSC\_IPV4\_GATEWAY\_CHANGED     0x0020}}
+\DoxyCodeLine{583 \textcolor{preprocessor}{\#define LWIP\_NSC\_IPV4\_NETMASK\_CHANGED     0x0040}}
+\DoxyCodeLine{585 \textcolor{preprocessor}{\#define LWIP\_NSC\_IPV4\_SETTINGS\_CHANGED    0x0080}}
+\DoxyCodeLine{587 \textcolor{preprocessor}{\#define LWIP\_NSC\_IPV6\_SET                 0x0100}}
+\DoxyCodeLine{589 \textcolor{preprocessor}{\#define LWIP\_NSC\_IPV6\_ADDR\_STATE\_CHANGED  0x0200}}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{594 \textcolor{keyword}{typedef} \textcolor{keyword}{union}}
+\DoxyCodeLine{595 \{}
+\DoxyCodeLine{597   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif__ext__callback__args__t_1_1link__changed__s}{link\_changed\_s}}}
+\DoxyCodeLine{598   \{}
+\DoxyCodeLine{600     u8\_t \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1link__changed__s_aecb3c6c2beee29d4a3628ac13232226e}{state}};}
+\DoxyCodeLine{601   \} link\_changed;}
+\DoxyCodeLine{603   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif__ext__callback__args__t_1_1status__changed__s}{status\_changed\_s}}}
+\DoxyCodeLine{604   \{}
+\DoxyCodeLine{606     u8\_t \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1status__changed__s_aecb3c6c2beee29d4a3628ac13232226e}{state}};}
+\DoxyCodeLine{607   \} status\_changed;}
+\DoxyCodeLine{609   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv4__changed__s}{ipv4\_changed\_s}}}
+\DoxyCodeLine{610   \{}
+\DoxyCodeLine{612     \textcolor{keyword}{const} ip\_addr\_t* \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv4__changed__s_a267cfe35af68b1311921e5e29403c015}{old\_address}};}
+\DoxyCodeLine{613     \textcolor{keyword}{const} ip\_addr\_t* old\_netmask;}
+\DoxyCodeLine{614     \textcolor{keyword}{const} ip\_addr\_t* old\_gw;}
+\DoxyCodeLine{615   \} ipv4\_changed;}
+\DoxyCodeLine{617   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv6__set__s}{ipv6\_set\_s}}}
+\DoxyCodeLine{618   \{}
+\DoxyCodeLine{620     s8\_t \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv6__set__s_af3ee7e4fb8fcf0ebfda5efc9375a7eb2}{addr\_index}};}
+\DoxyCodeLine{622     \textcolor{keyword}{const} ip\_addr\_t* \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv6__set__s_a267cfe35af68b1311921e5e29403c015}{old\_address}};}
+\DoxyCodeLine{623   \} ipv6\_set;}
+\DoxyCodeLine{625   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv6__addr__state__changed__s}{ipv6\_addr\_state\_changed\_s}}}
+\DoxyCodeLine{626   \{}
+\DoxyCodeLine{628     s8\_t \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv6__addr__state__changed__s_af3ee7e4fb8fcf0ebfda5efc9375a7eb2}{addr\_index}};}
+\DoxyCodeLine{630     u8\_t \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv6__addr__state__changed__s_ae46f9ee27587aa3269af44b213b2d72f}{old\_state}};}
+\DoxyCodeLine{632     \textcolor{keyword}{const} ip\_addr\_t* \mbox{\hyperlink{structnetif__ext__callback__args__t_1_1ipv6__addr__state__changed__s_aa37a6250643ac2126a97c3924a7e17fd}{address}};}
+\DoxyCodeLine{633   \} ipv6\_addr\_state\_changed;}
+\DoxyCodeLine{634 \} \mbox{\hyperlink{unionnetif__ext__callback__args__t}{netif\_ext\_callback\_args\_t}};}
+\DoxyCodeLine{635 }
+\DoxyCodeLine{644 \textcolor{keyword}{typedef} void (*\mbox{\hyperlink{group__netif_ga5ee213cea065424c89c66f138c008da1}{netif\_ext\_callback\_fn}})(\textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}}* \mbox{\hyperlink{structnetif}{netif}}, \mbox{\hyperlink{group__netif_gab2b9387389513a02027c62e246723808}{netif\_nsc\_reason\_t}} reason, \textcolor{keyword}{const} \mbox{\hyperlink{unionnetif__ext__callback__args__t}{netif\_ext\_callback\_args\_t}}* args);}
+\DoxyCodeLine{645 }
+\DoxyCodeLine{646 \textcolor{preprocessor}{\#if LWIP\_NETIF\_EXT\_STATUS\_CALLBACK}}
+\DoxyCodeLine{647 \textcolor{keyword}{struct }netif\_ext\_callback;}
+\DoxyCodeLine{648 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }netif\_ext\_callback}
+\DoxyCodeLine{649 \{}
+\DoxyCodeLine{650   \mbox{\hyperlink{group__netif_ga5ee213cea065424c89c66f138c008da1}{netif\_ext\_callback\_fn}} callback\_fn;}
+\DoxyCodeLine{651   \textcolor{keyword}{struct }netif\_ext\_callback* next;}
+\DoxyCodeLine{652 \} netif\_ext\_callback\_t;}
+\DoxyCodeLine{653 }
+\DoxyCodeLine{654 \textcolor{preprocessor}{\#define NETIF\_DECLARE\_EXT\_CALLBACK(name) static netif\_ext\_callback\_t name;}}
+\DoxyCodeLine{655 \textcolor{keywordtype}{void} netif\_add\_ext\_callback(netif\_ext\_callback\_t* callback, \mbox{\hyperlink{group__netif_ga5ee213cea065424c89c66f138c008da1}{netif\_ext\_callback\_fn}} fn);}
+\DoxyCodeLine{656 \textcolor{keywordtype}{void} netif\_remove\_ext\_callback(netif\_ext\_callback\_t* callback);}
+\DoxyCodeLine{657 \textcolor{keywordtype}{void} netif\_invoke\_ext\_callback(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}}* \mbox{\hyperlink{structnetif}{netif}}, \mbox{\hyperlink{group__netif_gab2b9387389513a02027c62e246723808}{netif\_nsc\_reason\_t}} reason, \textcolor{keyword}{const} \mbox{\hyperlink{unionnetif__ext__callback__args__t}{netif\_ext\_callback\_args\_t}}* args);}
+\DoxyCodeLine{658 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{659 \textcolor{preprocessor}{\#define NETIF\_DECLARE\_EXT\_CALLBACK(name)}}
+\DoxyCodeLine{660 \textcolor{preprocessor}{\#define netif\_add\_ext\_callback(callback, fn)}}
+\DoxyCodeLine{661 \textcolor{preprocessor}{\#define netif\_remove\_ext\_callback(callback)}}
+\DoxyCodeLine{662 \textcolor{preprocessor}{\#define netif\_invoke\_ext\_callback(netif, reason, args)}}
+\DoxyCodeLine{663 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{664 }
+\DoxyCodeLine{665 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{666 \}}
+\DoxyCodeLine{667 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{668 }
+\DoxyCodeLine{669 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_NETIF\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,150 @@
+\hypertarget{pppcrypt_8h_source}{}\doxysection{pppcrypt.\+h}
+\label{pppcrypt_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/pppcrypt.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/pppcrypt.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * pppcrypt.c -\/ PPP/DES linkage for MS-\/CHAP and EAP SRP-\/SHA1}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Extracted from chap\_ms.c by James Carlson.}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Copyright (c) 1995 Eric Rosenquist.  All rights reserved.}}
+\DoxyCodeLine{7 \textcolor{comment}{ *}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{9 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{10 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{13 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{14 \textcolor{comment}{ *}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    the documentation and/or other materials provided with the}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    distribution.}}
+\DoxyCodeLine{19 \textcolor{comment}{ *}}
+\DoxyCodeLine{20 \textcolor{comment}{ * 3. The name(s) of the authors of this software must not be used to}}
+\DoxyCodeLine{21 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{22 \textcolor{comment}{ *    prior written permission.}}
+\DoxyCodeLine{23 \textcolor{comment}{ *}}
+\DoxyCodeLine{24 \textcolor{comment}{ * THE AUTHORS OF THIS SOFTWARE DISCLAIM ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{25 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{26 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY}}
+\DoxyCodeLine{27 \textcolor{comment}{ * SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{28 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{29 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ */}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#if PPP\_SUPPORT }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{comment}{/* This header file is included in all PPP modules needing hashes and/or ciphers */}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#ifndef PPPCRYPT\_H}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define PPPCRYPT\_H}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{/*}}
+\DoxyCodeLine{42 \textcolor{comment}{ * If included PolarSSL copy is not used, user is expected to include}}
+\DoxyCodeLine{43 \textcolor{comment}{ * external libraries in arch/cc.h (which is included by lwip/arch.h).}}
+\DoxyCodeLine{44 \textcolor{comment}{ */}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{arch_8h}{lwip/arch.h}}"{}}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{48 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{comment}{/*}}
+\DoxyCodeLine{52 \textcolor{comment}{ * Map hashes and ciphers functions to PolarSSL}}
+\DoxyCodeLine{53 \textcolor{comment}{ */}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#if !LWIP\_USE\_EXTERNAL\_MBEDTLS}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#include "{}netif/ppp/polarssl/md4.h"{}}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define lwip\_md4\_context md4\_context}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define lwip\_md4\_init(context)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define lwip\_md4\_starts md4\_starts}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define lwip\_md4\_update md4\_update}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define lwip\_md4\_finish md4\_finish}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define lwip\_md4\_free(context)}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#include "{}netif/ppp/polarssl/md5.h"{}}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define lwip\_md5\_context md5\_context}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define lwip\_md5\_init(context)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define lwip\_md5\_starts md5\_starts}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define lwip\_md5\_update md5\_update}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define lwip\_md5\_finish md5\_finish}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define lwip\_md5\_free(context)}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#include "{}netif/ppp/polarssl/sha1.h"{}}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define lwip\_sha1\_context sha1\_context}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define lwip\_sha1\_init(context)}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define lwip\_sha1\_starts sha1\_starts}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define lwip\_sha1\_update sha1\_update}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define lwip\_sha1\_finish sha1\_finish}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define lwip\_sha1\_free(context)}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#include "{}netif/ppp/polarssl/des.h"{}}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define lwip\_des\_context des\_context}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define lwip\_des\_init(context)}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define lwip\_des\_setkey\_enc des\_setkey\_enc}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define lwip\_des\_crypt\_ecb des\_crypt\_ecb}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define lwip\_des\_free(context)}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#include "{}netif/ppp/polarssl/arc4.h"{}}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define lwip\_arc4\_context arc4\_context}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define lwip\_arc4\_init(context)}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define lwip\_arc4\_setup arc4\_setup}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define lwip\_arc4\_crypt arc4\_crypt}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define lwip\_arc4\_free(context)}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_USE\_EXTERNAL\_MBEDTLS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{comment}{/*}}
+\DoxyCodeLine{97 \textcolor{comment}{ * Map hashes and ciphers functions to mbed TLS}}
+\DoxyCodeLine{98 \textcolor{comment}{ */}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#if LWIP\_USE\_EXTERNAL\_MBEDTLS}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define lwip\_md4\_context mbedtls\_md4\_context}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define lwip\_md4\_init mbedtls\_md4\_init}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define lwip\_md4\_starts mbedtls\_md4\_starts}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define lwip\_md4\_update mbedtls\_md4\_update}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define lwip\_md4\_finish mbedtls\_md4\_finish}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define lwip\_md4\_free mbedtls\_md4\_free}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define lwip\_md5\_context mbedtls\_md5\_context}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define lwip\_md5\_init mbedtls\_md5\_init}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define lwip\_md5\_starts mbedtls\_md5\_starts}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define lwip\_md5\_update mbedtls\_md5\_update}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define lwip\_md5\_finish mbedtls\_md5\_finish}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define lwip\_md5\_free mbedtls\_md5\_free}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define lwip\_sha1\_context mbedtls\_sha1\_context}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define lwip\_sha1\_init mbedtls\_sha1\_init}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define lwip\_sha1\_starts mbedtls\_sha1\_starts}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#define lwip\_sha1\_update mbedtls\_sha1\_update}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define lwip\_sha1\_finish mbedtls\_sha1\_finish}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define lwip\_sha1\_free mbedtls\_sha1\_free}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define lwip\_des\_context mbedtls\_des\_context}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define lwip\_des\_init mbedtls\_des\_init}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define lwip\_des\_setkey\_enc mbedtls\_des\_setkey\_enc}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define lwip\_des\_crypt\_ecb mbedtls\_des\_crypt\_ecb}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define lwip\_des\_free mbedtls\_des\_free}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define lwip\_arc4\_context mbedtls\_arc4\_context}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define lwip\_arc4\_init mbedtls\_arc4\_init}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#define lwip\_arc4\_setup mbedtls\_arc4\_setup}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define lwip\_arc4\_crypt(context, buffer, length) mbedtls\_arc4\_crypt(context, length, buffer, buffer)}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define lwip\_arc4\_free mbedtls\_arc4\_free}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_USE\_EXTERNAL\_MBEDTLS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{keywordtype}{void} pppcrypt\_56\_to\_64\_bit\_key(u\_char *key, u\_char *des\_key);}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{139 \}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPPCRYPT\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

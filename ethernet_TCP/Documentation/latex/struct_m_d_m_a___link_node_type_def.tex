@@ -1,0 +1,119 @@
+\hypertarget{struct_m_d_m_a___link_node_type_def}{}\doxysection{MDMA\+\_\+\+Link\+Node\+Type\+Def Struct Reference}
+\label{struct_m_d_m_a___link_node_type_def}\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+
+
+HAL MDMA linked list node structure definition.  
+
+
+
+
+{\ttfamily \#include $<$stm32h7xx\+\_\+hal\+\_\+mdma.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def_a5cde523b810fab496eb0619abc06764d}{CTCR}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def_af72706f74d982d4aa25bcf77661dcb84}{CBNDTR}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def_af9ab99d74989193a551ecdde079dc3dd}{CSAR}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def_a71e8f327c2b32c5be85ed81c45cb63a1}{CDAR}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def_ad7ce6e0c749889b748c178a5a6620192}{CBRUR}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def_aef6e53be48d41df2ca64fbdda99295b0}{CLAR}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def_a86258fe5b0e7c64535b693d7f9d5fdcf}{CTBR}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def_ac81caa0e624a3abf4996e32c0693a3e5}{Reserved}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def_ab51edd49cb9294ebe2db18fb5cf399dd}{CMAR}}
+\item 
+\mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{struct_m_d_m_a___link_node_type_def_ac7162389c2b9f86cafe32624ff6d619b}{CMDR}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+HAL MDMA linked list node structure definition. 
+
+\begin{DoxyNote}{Note}
+The Linked list node allows to define a new MDMA configuration (CTCR ,CBNDTR ,CSAR ,CDAR ,CBRUR, CLAR, CTBR, CMAR and CMDR registers). When CLAR register is configured to a non NULL value , each time a transfer ends, a new configuration (linked list node) is automatically loaded from the address given in CLAR register. 
+\end{DoxyNote}
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_m_d_m_a___link_node_type_def_af72706f74d982d4aa25bcf77661dcb84}\label{struct_m_d_m_a___link_node_type_def_af72706f74d982d4aa25bcf77661dcb84}} 
+\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}!CBNDTR@{CBNDTR}}
+\index{CBNDTR@{CBNDTR}!MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+\doxysubsubsection{\texorpdfstring{CBNDTR}{CBNDTR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t CBNDTR}
+
+New CBNDTR register configuration for the given MDMA linked list node \mbox{\Hypertarget{struct_m_d_m_a___link_node_type_def_ad7ce6e0c749889b748c178a5a6620192}\label{struct_m_d_m_a___link_node_type_def_ad7ce6e0c749889b748c178a5a6620192}} 
+\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}!CBRUR@{CBRUR}}
+\index{CBRUR@{CBRUR}!MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+\doxysubsubsection{\texorpdfstring{CBRUR}{CBRUR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t CBRUR}
+
+New CBRUR register configuration for the given MDMA linked list node ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_type_def_a71e8f327c2b32c5be85ed81c45cb63a1}\label{struct_m_d_m_a___link_node_type_def_a71e8f327c2b32c5be85ed81c45cb63a1}} 
+\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}!CDAR@{CDAR}}
+\index{CDAR@{CDAR}!MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+\doxysubsubsection{\texorpdfstring{CDAR}{CDAR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t CDAR}
+
+New CDAR register configuration for the given MDMA linked list node ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_type_def_aef6e53be48d41df2ca64fbdda99295b0}\label{struct_m_d_m_a___link_node_type_def_aef6e53be48d41df2ca64fbdda99295b0}} 
+\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}!CLAR@{CLAR}}
+\index{CLAR@{CLAR}!MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+\doxysubsubsection{\texorpdfstring{CLAR}{CLAR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t CLAR}
+
+New CLAR register configuration for the given MDMA linked list node ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_type_def_ab51edd49cb9294ebe2db18fb5cf399dd}\label{struct_m_d_m_a___link_node_type_def_ab51edd49cb9294ebe2db18fb5cf399dd}} 
+\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}!CMAR@{CMAR}}
+\index{CMAR@{CMAR}!MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+\doxysubsubsection{\texorpdfstring{CMAR}{CMAR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t CMAR}
+
+New CMAR register configuration for the given MDMA linked list node ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_type_def_ac7162389c2b9f86cafe32624ff6d619b}\label{struct_m_d_m_a___link_node_type_def_ac7162389c2b9f86cafe32624ff6d619b}} 
+\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}!CMDR@{CMDR}}
+\index{CMDR@{CMDR}!MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+\doxysubsubsection{\texorpdfstring{CMDR}{CMDR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t CMDR}
+
+New CMDR register configuration for the given MDMA linked list node ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_type_def_af9ab99d74989193a551ecdde079dc3dd}\label{struct_m_d_m_a___link_node_type_def_af9ab99d74989193a551ecdde079dc3dd}} 
+\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}!CSAR@{CSAR}}
+\index{CSAR@{CSAR}!MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+\doxysubsubsection{\texorpdfstring{CSAR}{CSAR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t CSAR}
+
+New CSAR register configuration for the given MDMA linked list node ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_type_def_a86258fe5b0e7c64535b693d7f9d5fdcf}\label{struct_m_d_m_a___link_node_type_def_a86258fe5b0e7c64535b693d7f9d5fdcf}} 
+\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}!CTBR@{CTBR}}
+\index{CTBR@{CTBR}!MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+\doxysubsubsection{\texorpdfstring{CTBR}{CTBR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t CTBR}
+
+New CTBR register configuration for the given MDMA linked list node ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_type_def_a5cde523b810fab496eb0619abc06764d}\label{struct_m_d_m_a___link_node_type_def_a5cde523b810fab496eb0619abc06764d}} 
+\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}!CTCR@{CTCR}}
+\index{CTCR@{CTCR}!MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+\doxysubsubsection{\texorpdfstring{CTCR}{CTCR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t CTCR}
+
+New CTCR register configuration for the given MDMA linked list node ~\newline
+ \mbox{\Hypertarget{struct_m_d_m_a___link_node_type_def_ac81caa0e624a3abf4996e32c0693a3e5}\label{struct_m_d_m_a___link_node_type_def_ac81caa0e624a3abf4996e32c0693a3e5}} 
+\index{MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}!Reserved@{Reserved}}
+\index{Reserved@{Reserved}!MDMA\_LinkNodeTypeDef@{MDMA\_LinkNodeTypeDef}}
+\doxysubsubsection{\texorpdfstring{Reserved}{Reserved}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t Reserved}
+
+Reserved register ~\newline
+ 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.\+10.\+1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/\mbox{\hyperlink{stm32h7xx__hal__mdma_8h}{stm32h7xx\+\_\+hal\+\_\+mdma.\+h}}\end{DoxyCompactItemize}

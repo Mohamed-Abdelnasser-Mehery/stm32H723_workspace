@@ -1,0 +1,509 @@
+\hypertarget{tcp__priv_8h_source}{}\doxysection{tcp\+\_\+priv.\+h}
+\label{tcp__priv_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/tcp\_priv.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/tcp\_priv.h}}
+\mbox{\hyperlink{tcp__priv_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_TCP\_PRIV\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_TCP\_PRIV\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#if LWIP\_TCP }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{tcp_8h}{lwip/tcp.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mem_8h}{lwip/mem.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pbuf_8h}{lwip/pbuf.h}}"{}}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip_8h}{lwip/ip.h}}"{}}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{icmp_8h}{lwip/icmp.h}}"{}}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip6_8h}{lwip/ip6.h}}"{}}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip6__addr_8h}{lwip/ip6\_addr.h}}"{}}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{prot_2tcp_8h}{lwip/prot/tcp.h}}"{}}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{55 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{comment}{/* Functions for interfacing with TCP: */}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{comment}{/* Lower layer interface to TCP: */}}
+\DoxyCodeLine{61 \textcolor{keywordtype}{void}             tcp\_init    (\textcolor{keywordtype}{void});  \textcolor{comment}{/* Initialize this module. */}}
+\DoxyCodeLine{62 \textcolor{keywordtype}{void}             tcp\_tmr     (\textcolor{keywordtype}{void});  \textcolor{comment}{/* Must be called every}}
+\DoxyCodeLine{63 \textcolor{comment}{                                         TCP\_TMR\_INTERVAL}}
+\DoxyCodeLine{64 \textcolor{comment}{                                         ms. (Typically 250 ms). */}}
+\DoxyCodeLine{65 \textcolor{comment}{/* It is also possible to call these two functions at the right}}
+\DoxyCodeLine{66 \textcolor{comment}{   intervals (instead of calling tcp\_tmr()). */}}
+\DoxyCodeLine{67 \textcolor{keywordtype}{void}             tcp\_slowtmr (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{68 \textcolor{keywordtype}{void}             tcp\_fasttmr (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{comment}{/* Call this from a netif driver (watch out for threading issues!) that has}}
+\DoxyCodeLine{71 \textcolor{comment}{   returned a memory error on transmit and now has free buffers to send more.}}
+\DoxyCodeLine{72 \textcolor{comment}{   This iterates all active pcbs that had an error and tries to call}}
+\DoxyCodeLine{73 \textcolor{comment}{   tcp\_output, so use this with care as it might slow down the system. */}}
+\DoxyCodeLine{74 \textcolor{keywordtype}{void}             tcp\_txnow   (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{comment}{/* Only used by IP to pass a TCP segment to TCP: */}}
+\DoxyCodeLine{77 \textcolor{keywordtype}{void}             tcp\_input   (\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *inp);}
+\DoxyCodeLine{78 \textcolor{comment}{/* Used within the TCP code only: */}}
+\DoxyCodeLine{79 \textcolor{keyword}{struct }tcp\_pcb * tcp\_alloc   (u8\_t prio);}
+\DoxyCodeLine{80 \textcolor{keywordtype}{void}             tcp\_free    (\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{81 \textcolor{keywordtype}{void}             tcp\_abandon (\textcolor{keyword}{struct} tcp\_pcb *pcb, \textcolor{keywordtype}{int} reset);}
+\DoxyCodeLine{82 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            tcp\_send\_empty\_ack(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{83 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            tcp\_rexmit  (\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{84 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            tcp\_rexmit\_rto\_prepare(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{85 \textcolor{keywordtype}{void}             tcp\_rexmit\_rto\_commit(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{86 \textcolor{keywordtype}{void}             tcp\_rexmit\_rto  (\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{87 \textcolor{keywordtype}{void}             tcp\_rexmit\_fast (\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{88 u32\_t            tcp\_update\_rcv\_ann\_wnd(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{89 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}}            tcp\_process\_refused\_data(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define tcp\_do\_output\_nagle(tpcb) ((((tpcb)-\/>unacked == NULL) || \(\backslash\)}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{                            ((tpcb)-\/>flags \& (TF\_NODELAY | TF\_INFR)) || \(\backslash\)}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{                            (((tpcb)-\/>unsent != NULL) \&\& (((tpcb)-\/>unsent-\/>next != NULL) || \(\backslash\)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{                              ((tpcb)-\/>unsent-\/>len >= (tpcb)-\/>mss))) || \(\backslash\)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{                            ((tcp\_sndbuf(tpcb) == 0) || (tcp\_sndqueuelen(tpcb) >= TCP\_SND\_QUEUELEN)) \(\backslash\)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{                            ) ? 1 : 0)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define tcp\_output\_nagle(tpcb) (tcp\_do\_output\_nagle(tpcb) ? tcp\_output(tpcb) : ERR\_OK)}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#define TCP\_SEQ\_LT(a,b)     ((s32\_t)((u32\_t)(a) -\/ (u32\_t)(b)) < 0)}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define TCP\_SEQ\_LEQ(a,b)    ((s32\_t)((u32\_t)(a) -\/ (u32\_t)(b)) <= 0)}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define TCP\_SEQ\_GT(a,b)     ((s32\_t)((u32\_t)(a) -\/ (u32\_t)(b)) > 0)}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define TCP\_SEQ\_GEQ(a,b)    ((s32\_t)((u32\_t)(a) -\/ (u32\_t)(b)) >= 0)}}
+\DoxyCodeLine{113 \textcolor{comment}{/* is b<=a<=c? */}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* see bug \#10548 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define TCP\_SEQ\_BETWEEN(a,b,c) ((c)-\/(b) >= (a)-\/(b))}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define TCP\_SEQ\_BETWEEN(a,b,c) (TCP\_SEQ\_GEQ(a,b) \&\& TCP\_SEQ\_LEQ(a,c))}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#ifndef TCP\_TMR\_INTERVAL}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define TCP\_TMR\_INTERVAL       250  }\textcolor{comment}{/* The TCP timer interval in milliseconds. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TCP\_TMR\_INTERVAL */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#ifndef TCP\_FAST\_INTERVAL}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define TCP\_FAST\_INTERVAL      TCP\_TMR\_INTERVAL }\textcolor{comment}{/* the fine grained timeout in milliseconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TCP\_FAST\_INTERVAL */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#ifndef TCP\_SLOW\_INTERVAL}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define TCP\_SLOW\_INTERVAL      (2*TCP\_TMR\_INTERVAL)  }\textcolor{comment}{/* the coarse grained timeout in milliseconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TCP\_SLOW\_INTERVAL */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define TCP\_FIN\_WAIT\_TIMEOUT 20000 }\textcolor{comment}{/* milliseconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define TCP\_SYN\_RCVD\_TIMEOUT 20000 }\textcolor{comment}{/* milliseconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define TCP\_OOSEQ\_TIMEOUT        6U }\textcolor{comment}{/* x RTO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#ifndef TCP\_MSL}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define TCP\_MSL 60000UL }\textcolor{comment}{/* The maximum segment lifetime in milliseconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{comment}{/* Keepalive values, compliant with RFC 1122. Don't change this unless you know what you're doing */}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#ifndef  TCP\_KEEPIDLE\_DEFAULT}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define  TCP\_KEEPIDLE\_DEFAULT     7200000UL }\textcolor{comment}{/* Default KEEPALIVE timer in milliseconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#ifndef  TCP\_KEEPINTVL\_DEFAULT}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#define  TCP\_KEEPINTVL\_DEFAULT    75000UL   }\textcolor{comment}{/* Default Time between KEEPALIVE probes in milliseconds */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#ifndef  TCP\_KEEPCNT\_DEFAULT}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define  TCP\_KEEPCNT\_DEFAULT      9U        }\textcolor{comment}{/* Default Counter for KEEPALIVE probes */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define  TCP\_MAXIDLE              TCP\_KEEPCNT\_DEFAULT * TCP\_KEEPINTVL\_DEFAULT  }\textcolor{comment}{/* Maximum KEEPALIVE probe time */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define TCP\_TCPLEN(seg) ((seg)-\/>len + (((TCPH\_FLAGS((seg)-\/>tcphdr) \& (TCP\_FIN | TCP\_SYN)) != 0) ? 1U : 0U))}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define TF\_RESET     (u8\_t)0x08U   }\textcolor{comment}{/* Connection was reset. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define TF\_CLOSED    (u8\_t)0x10U   }\textcolor{comment}{/* Connection was successfully closed. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#define TF\_GOT\_FIN   (u8\_t)0x20U   }\textcolor{comment}{/* Connection was closed by the remote end. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#if LWIP\_EVENT\_API}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#define TCP\_EVENT\_ACCEPT(lpcb,pcb,arg,err,ret) ret = lwip\_tcp\_event(arg, (pcb),\(\backslash\)}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{                LWIP\_EVENT\_ACCEPT, NULL, 0, err)}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define TCP\_EVENT\_SENT(pcb,space,ret) ret = lwip\_tcp\_event((pcb)-\/>callback\_arg, (pcb),\(\backslash\)}}
+\DoxyCodeLine{169 \textcolor{preprocessor}{                   LWIP\_EVENT\_SENT, NULL, space, ERR\_OK)}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#define TCP\_EVENT\_RECV(pcb,p,err,ret) ret = lwip\_tcp\_event((pcb)-\/>callback\_arg, (pcb),\(\backslash\)}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{                LWIP\_EVENT\_RECV, (p), 0, (err))}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#define TCP\_EVENT\_CLOSED(pcb,ret) ret = lwip\_tcp\_event((pcb)-\/>callback\_arg, (pcb),\(\backslash\)}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{                LWIP\_EVENT\_RECV, NULL, 0, ERR\_OK)}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define TCP\_EVENT\_CONNECTED(pcb,err,ret) ret = lwip\_tcp\_event((pcb)-\/>callback\_arg, (pcb),\(\backslash\)}}
+\DoxyCodeLine{175 \textcolor{preprocessor}{                LWIP\_EVENT\_CONNECTED, NULL, 0, (err))}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#define TCP\_EVENT\_POLL(pcb,ret)       do \{ if ((pcb)-\/>state != SYN\_RCVD) \{                          \(\backslash\)}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{                ret = lwip\_tcp\_event((pcb)-\/>callback\_arg, (pcb), LWIP\_EVENT\_POLL, NULL, 0, ERR\_OK); \(\backslash\)}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{                \} else \{                                                                            \(\backslash\)}}
+\DoxyCodeLine{179 \textcolor{preprocessor}{                ret = ERR\_ARG; \} \} while(0)}}
+\DoxyCodeLine{180 \textcolor{comment}{/* For event API, last state SYN\_RCVD must be excluded here: the application}}
+\DoxyCodeLine{181 \textcolor{comment}{   has not seen this pcb, yet! */}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#define TCP\_EVENT\_ERR(last\_state,errf,arg,err)  do \{ if (last\_state != SYN\_RCVD) \{                \(\backslash\)}}
+\DoxyCodeLine{183 \textcolor{preprocessor}{                lwip\_tcp\_event((arg), NULL, LWIP\_EVENT\_ERR, NULL, 0, (err)); \} \} while(0)}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_EVENT\_API */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#define TCP\_EVENT\_ACCEPT(lpcb,pcb,arg,err,ret)                 \(\backslash\)}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{  do \{                                                         \(\backslash\)}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{    if((lpcb)-\/>accept != NULL)                                 \(\backslash\)}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{      (ret) = (lpcb)-\/>accept((arg),(pcb),(err));               \(\backslash\)}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{    else (ret) = ERR\_ARG;                                      \(\backslash\)}}
+\DoxyCodeLine{192 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#define TCP\_EVENT\_SENT(pcb,space,ret)                          \(\backslash\)}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{  do \{                                                         \(\backslash\)}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{    if((pcb)-\/>sent != NULL)                                    \(\backslash\)}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{      (ret) = (pcb)-\/>sent((pcb)-\/>callback\_arg,(pcb),(space));  \(\backslash\)}}
+\DoxyCodeLine{198 \textcolor{preprocessor}{    else (ret) = ERR\_OK;                                       \(\backslash\)}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#define TCP\_EVENT\_RECV(pcb,p,err,ret)                          \(\backslash\)}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{  do \{                                                         \(\backslash\)}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{    if((pcb)-\/>recv != NULL) \{                                  \(\backslash\)}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{      (ret) = (pcb)-\/>recv((pcb)-\/>callback\_arg,(pcb),(p),(err));\(\backslash\)}}
+\DoxyCodeLine{205 \textcolor{preprocessor}{    \} else \{                                                   \(\backslash\)}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{      (ret) = tcp\_recv\_null(NULL, (pcb), (p), (err));          \(\backslash\)}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{    \}                                                          \(\backslash\)}}
+\DoxyCodeLine{208 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#define TCP\_EVENT\_CLOSED(pcb,ret)                                \(\backslash\)}}
+\DoxyCodeLine{211 \textcolor{preprocessor}{  do \{                                                           \(\backslash\)}}
+\DoxyCodeLine{212 \textcolor{preprocessor}{    if(((pcb)-\/>recv != NULL)) \{                                  \(\backslash\)}}
+\DoxyCodeLine{213 \textcolor{preprocessor}{      (ret) = (pcb)-\/>recv((pcb)-\/>callback\_arg,(pcb),NULL,ERR\_OK);\(\backslash\)}}
+\DoxyCodeLine{214 \textcolor{preprocessor}{    \} else \{                                                     \(\backslash\)}}
+\DoxyCodeLine{215 \textcolor{preprocessor}{      (ret) = ERR\_OK;                                            \(\backslash\)}}
+\DoxyCodeLine{216 \textcolor{preprocessor}{    \}                                                            \(\backslash\)}}
+\DoxyCodeLine{217 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#define TCP\_EVENT\_CONNECTED(pcb,err,ret)                         \(\backslash\)}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{  do \{                                                           \(\backslash\)}}
+\DoxyCodeLine{221 \textcolor{preprocessor}{    if((pcb)-\/>connected != NULL)                                 \(\backslash\)}}
+\DoxyCodeLine{222 \textcolor{preprocessor}{      (ret) = (pcb)-\/>connected((pcb)-\/>callback\_arg,(pcb),(err)); \(\backslash\)}}
+\DoxyCodeLine{223 \textcolor{preprocessor}{    else (ret) = ERR\_OK;                                         \(\backslash\)}}
+\DoxyCodeLine{224 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#define TCP\_EVENT\_POLL(pcb,ret)                                \(\backslash\)}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{  do \{                                                         \(\backslash\)}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{    if((pcb)-\/>poll != NULL)                                    \(\backslash\)}}
+\DoxyCodeLine{229 \textcolor{preprocessor}{      (ret) = (pcb)-\/>poll((pcb)-\/>callback\_arg,(pcb));          \(\backslash\)}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{    else (ret) = ERR\_OK;                                       \(\backslash\)}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#define TCP\_EVENT\_ERR(last\_state,errf,arg,err)                 \(\backslash\)}}
+\DoxyCodeLine{234 \textcolor{preprocessor}{  do \{                                                         \(\backslash\)}}
+\DoxyCodeLine{235 \textcolor{preprocessor}{    LWIP\_UNUSED\_ARG(last\_state);                               \(\backslash\)}}
+\DoxyCodeLine{236 \textcolor{preprocessor}{    if((errf) != NULL)                                         \(\backslash\)}}
+\DoxyCodeLine{237 \textcolor{preprocessor}{      (errf)((arg),(err));                                     \(\backslash\)}}
+\DoxyCodeLine{238 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_EVENT\_API */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#if TCP\_OVERSIZE \&\& defined(LWIP\_DEBUG)}}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#define TCP\_OVERSIZE\_DBGCHECK 1}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#define TCP\_OVERSIZE\_DBGCHECK 0}}
+\DoxyCodeLine{247 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{250 \textcolor{preprocessor}{\#define TCP\_CHECKSUM\_ON\_COPY  (LWIP\_CHECKSUM\_ON\_COPY \&\& CHECKSUM\_GEN\_TCP)}}
+\DoxyCodeLine{251 }
+\DoxyCodeLine{252 \textcolor{comment}{/* This structure represents a TCP segment on the unsent, unacked and ooseq queues */}}
+\DoxyCodeLine{253 \textcolor{keyword}{struct }tcp\_seg \{}
+\DoxyCodeLine{254   \textcolor{keyword}{struct }tcp\_seg *next;    \textcolor{comment}{/* used when putting segments on a queue */}}
+\DoxyCodeLine{255   \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p;          \textcolor{comment}{/* buffer containing data + TCP header */}}
+\DoxyCodeLine{256   u16\_t len;               \textcolor{comment}{/* the TCP length of this segment */}}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#if TCP\_OVERSIZE\_DBGCHECK}}
+\DoxyCodeLine{258   u16\_t oversize\_left;     \textcolor{comment}{/* Extra bytes available at the end of the last}}
+\DoxyCodeLine{259 \textcolor{comment}{                              pbuf in unsent (used for asserting vs.}}
+\DoxyCodeLine{260 \textcolor{comment}{                              tcp\_pcb.unsent\_oversize only) */}}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TCP\_OVERSIZE\_DBGCHECK */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#if TCP\_CHECKSUM\_ON\_COPY}}
+\DoxyCodeLine{263   u16\_t chksum;}
+\DoxyCodeLine{264   u8\_t  chksum\_swapped;}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TCP\_CHECKSUM\_ON\_COPY */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{266   u8\_t  flags;}
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#define TF\_SEG\_OPTS\_MSS         (u8\_t)0x01U }\textcolor{comment}{/* Include MSS option (only used in SYN segments) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{268 \textcolor{preprocessor}{\#define TF\_SEG\_OPTS\_TS          (u8\_t)0x02U }\textcolor{comment}{/* Include timestamp option. */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#define TF\_SEG\_DATA\_CHECKSUMMED (u8\_t)0x04U }\textcolor{comment}{/* ALL data (not the header) is}}
+\DoxyCodeLine{270 \textcolor{comment}{                                               checksummed into 'chksum' */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define TF\_SEG\_OPTS\_WND\_SCALE   (u8\_t)0x08U }\textcolor{comment}{/* Include WND SCALE option (only used in SYN segments) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#define TF\_SEG\_OPTS\_SACK\_PERM   (u8\_t)0x10U }\textcolor{comment}{/* Include SACK Permitted option (only used in SYN segments) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{273   \textcolor{keyword}{struct }\mbox{\hyperlink{structtcp__hdr}{tcp\_hdr}} *tcphdr;  \textcolor{comment}{/* the TCP header */}}
+\DoxyCodeLine{274 \};}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_EOL        0}}
+\DoxyCodeLine{277 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_NOP        1}}
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_MSS        2}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_WS         3}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_SACK\_PERM  4}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_TS         8}}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LEN\_MSS    4}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#if LWIP\_TCP\_TIMESTAMPS}}
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LEN\_TS     10}}
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LEN\_TS\_OUT 12 }\textcolor{comment}{/* aligned for output (includes NOP padding) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{287 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LEN\_TS\_OUT 0}}
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#if LWIP\_WND\_SCALE}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LEN\_WS     3}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LEN\_WS\_OUT 4 }\textcolor{comment}{/* aligned for output (includes NOP padding) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LEN\_WS\_OUT 0}}
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#if LWIP\_TCP\_SACK\_OUT}}
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LEN\_SACK\_PERM     2}}
+\DoxyCodeLine{299 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LEN\_SACK\_PERM\_OUT 4 }\textcolor{comment}{/* aligned for output (includes NOP padding) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{301 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LEN\_SACK\_PERM\_OUT 0}}
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304 \textcolor{preprocessor}{\#define LWIP\_TCP\_OPT\_LENGTH(flags) \(\backslash\)}}
+\DoxyCodeLine{305 \textcolor{preprocessor}{  ((flags) \& TF\_SEG\_OPTS\_MSS       ? LWIP\_TCP\_OPT\_LEN\_MSS           : 0) + \(\backslash\)}}
+\DoxyCodeLine{306 \textcolor{preprocessor}{  ((flags) \& TF\_SEG\_OPTS\_TS        ? LWIP\_TCP\_OPT\_LEN\_TS\_OUT        : 0) + \(\backslash\)}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{  ((flags) \& TF\_SEG\_OPTS\_WND\_SCALE ? LWIP\_TCP\_OPT\_LEN\_WS\_OUT        : 0) + \(\backslash\)}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{  ((flags) \& TF\_SEG\_OPTS\_SACK\_PERM ? LWIP\_TCP\_OPT\_LEN\_SACK\_PERM\_OUT : 0)}}
+\DoxyCodeLine{309 }
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#define TCP\_BUILD\_MSS\_OPTION(mss) lwip\_htonl(0x02040000 | ((mss) \& 0xFFFF))}}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313 \textcolor{preprocessor}{\#if LWIP\_WND\_SCALE}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{\#define TCPWNDSIZE\_F       U32\_F}}
+\DoxyCodeLine{315 \textcolor{preprocessor}{\#define TCPWND\_MAX         0xFFFFFFFFU}}
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#define TCPWND\_CHECK16(x)  LWIP\_ASSERT("{}window size > 0xFFFF"{}}, (x) <= 0xFFFF)}
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#define TCPWND\_MIN16(x)    ((u16\_t)LWIP\_MIN((x), 0xFFFF))}}
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_WND\_SCALE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{319 \textcolor{preprocessor}{\#define TCPWNDSIZE\_F       U16\_F}}
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#define TCPWND\_MAX         0xFFFFU}}
+\DoxyCodeLine{321 \textcolor{preprocessor}{\#define TCPWND\_CHECK16(x)}}
+\DoxyCodeLine{322 \textcolor{preprocessor}{\#define TCPWND\_MIN16(x)    x}}
+\DoxyCodeLine{323 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_WND\_SCALE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325 \textcolor{comment}{/* Global variables: */}}
+\DoxyCodeLine{326 \textcolor{keyword}{extern} \textcolor{keyword}{struct }tcp\_pcb *tcp\_input\_pcb;}
+\DoxyCodeLine{327 \textcolor{keyword}{extern} u32\_t tcp\_ticks;}
+\DoxyCodeLine{328 \textcolor{keyword}{extern} u8\_t tcp\_active\_pcbs\_changed;}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 \textcolor{comment}{/* The TCP PCB lists. */}}
+\DoxyCodeLine{331 \textcolor{keyword}{union }tcp\_listen\_pcbs\_t \{ \textcolor{comment}{/* List of all TCP PCBs in LISTEN state. */}}
+\DoxyCodeLine{332   \textcolor{keyword}{struct }tcp\_pcb\_listen *listen\_pcbs;}
+\DoxyCodeLine{333   \textcolor{keyword}{struct }tcp\_pcb *pcbs;}
+\DoxyCodeLine{334 \};}
+\DoxyCodeLine{335 \textcolor{keyword}{extern} \textcolor{keyword}{struct }tcp\_pcb *tcp\_bound\_pcbs;}
+\DoxyCodeLine{336 \textcolor{keyword}{extern} \textcolor{keyword}{union }tcp\_listen\_pcbs\_t tcp\_listen\_pcbs;}
+\DoxyCodeLine{337 \textcolor{keyword}{extern} \textcolor{keyword}{struct }tcp\_pcb *tcp\_active\_pcbs;  \textcolor{comment}{/* List of all TCP PCBs that are in a}}
+\DoxyCodeLine{338 \textcolor{comment}{              state in which they accept or send}}
+\DoxyCodeLine{339 \textcolor{comment}{              data. */}}
+\DoxyCodeLine{340 \textcolor{keyword}{extern} \textcolor{keyword}{struct }tcp\_pcb *tcp\_tw\_pcbs;      \textcolor{comment}{/* List of all TCP PCBs in TIME-\/WAIT. */}}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342 \textcolor{preprocessor}{\#define NUM\_TCP\_PCB\_LISTS\_NO\_TIME\_WAIT  3}}
+\DoxyCodeLine{343 \textcolor{preprocessor}{\#define NUM\_TCP\_PCB\_LISTS               4}}
+\DoxyCodeLine{344 \textcolor{keyword}{extern} \textcolor{keyword}{struct }tcp\_pcb ** \textcolor{keyword}{const} tcp\_pcb\_lists[NUM\_TCP\_PCB\_LISTS];}
+\DoxyCodeLine{345 }
+\DoxyCodeLine{346 \textcolor{comment}{/* Axioms about the above lists:}}
+\DoxyCodeLine{347 \textcolor{comment}{   1) Every TCP PCB that is not CLOSED is in one of the lists.}}
+\DoxyCodeLine{348 \textcolor{comment}{   2) A PCB is only in one of the lists.}}
+\DoxyCodeLine{349 \textcolor{comment}{   3) All PCBs in the tcp\_listen\_pcbs list is in LISTEN state.}}
+\DoxyCodeLine{350 \textcolor{comment}{   4) All PCBs in the tcp\_tw\_pcbs list is in TIME-\/WAIT state.}}
+\DoxyCodeLine{351 \textcolor{comment}{*/}}
+\DoxyCodeLine{352 \textcolor{comment}{/* Define two macros, TCP\_REG and TCP\_RMV that registers a TCP PCB}}
+\DoxyCodeLine{353 \textcolor{comment}{   with a PCB list or removes a PCB from a list, respectively. */}}
+\DoxyCodeLine{354 \textcolor{preprocessor}{\#ifndef TCP\_DEBUG\_PCB\_LISTS}}
+\DoxyCodeLine{355 \textcolor{preprocessor}{\#define TCP\_DEBUG\_PCB\_LISTS 0}}
+\DoxyCodeLine{356 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#if TCP\_DEBUG\_PCB\_LISTS}}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#define TCP\_REG(pcbs, npcb) do \{\(\backslash\)}}
+\DoxyCodeLine{359 \textcolor{preprocessor}{                            struct tcp\_pcb *tcp\_tmp\_pcb; \(\backslash\)}}
+\DoxyCodeLine{360 \textcolor{preprocessor}{                            LWIP\_DEBUGF(TCP\_DEBUG, ("{}TCP\_REG \%p local port \%"{}}U16\_F"{}\(\backslash\)n"{}, (void *)(npcb), (npcb)-\/>local\_port)); \(\backslash\)}
+\DoxyCodeLine{361                             for (tcp\_tmp\_pcb = *(pcbs); \(\backslash\)}
+\DoxyCodeLine{362           tcp\_tmp\_pcb != NULL; \(\backslash\)}
+\DoxyCodeLine{363         tcp\_tmp\_pcb = tcp\_tmp\_pcb-\/>next) \{ \(\backslash\)}
+\DoxyCodeLine{364                                 LWIP\_ASSERT("{}TCP\_REG: already registered\(\backslash\)n"{}, tcp\_tmp\_pcb != (npcb)); \(\backslash\)}
+\DoxyCodeLine{365                             \} \(\backslash\)}
+\DoxyCodeLine{366                             LWIP\_ASSERT("{}TCP\_REG: pcb-\/>state != CLOSED"{}, ((pcbs) == \&tcp\_bound\_pcbs) || ((npcb)-\/>state != CLOSED)); \(\backslash\)}
+\DoxyCodeLine{367                             (npcb)-\/>next = *(pcbs); \(\backslash\)}
+\DoxyCodeLine{368                             LWIP\_ASSERT("{}TCP\_REG: npcb-\/>next != npcb"{}, (npcb)-\/>next != (npcb)); \(\backslash\)}
+\DoxyCodeLine{369                             *(pcbs) = (npcb); \(\backslash\)}
+\DoxyCodeLine{370                             LWIP\_ASSERT("{}TCP\_REG: tcp\_pcbs sane"{}, tcp\_pcbs\_sane()); \(\backslash\)}
+\DoxyCodeLine{371               tcp\_timer\_needed(); \(\backslash\)}
+\DoxyCodeLine{372                             \} while(0)}
+\DoxyCodeLine{373 \textcolor{preprocessor}{\#define TCP\_RMV(pcbs, npcb) do \{ \(\backslash\)}}
+\DoxyCodeLine{374 \textcolor{preprocessor}{                            struct tcp\_pcb *tcp\_tmp\_pcb; \(\backslash\)}}
+\DoxyCodeLine{375 \textcolor{preprocessor}{                            LWIP\_ASSERT("{}TCP\_RMV: pcbs != NULL"{}}, *(pcbs) != NULL); \(\backslash\)}
+\DoxyCodeLine{376                             LWIP\_DEBUGF(TCP\_DEBUG, ("{}TCP\_RMV: removing \%p from \%p\(\backslash\)n"{}, (void *)(npcb), (void *)(*(pcbs)))); \(\backslash\)}
+\DoxyCodeLine{377                             if(*(pcbs) == (npcb)) \{ \(\backslash\)}
+\DoxyCodeLine{378                                *(pcbs) = (*pcbs)-\/>next; \(\backslash\)}
+\DoxyCodeLine{379                             \} else for (tcp\_tmp\_pcb = *(pcbs); tcp\_tmp\_pcb != NULL; tcp\_tmp\_pcb = tcp\_tmp\_pcb-\/>next) \{ \(\backslash\)}
+\DoxyCodeLine{380                                if(tcp\_tmp\_pcb-\/>next == (npcb)) \{ \(\backslash\)}
+\DoxyCodeLine{381                                   tcp\_tmp\_pcb-\/>next = (npcb)-\/>next; \(\backslash\)}
+\DoxyCodeLine{382                                   break; \(\backslash\)}
+\DoxyCodeLine{383                                \} \(\backslash\)}
+\DoxyCodeLine{384                             \} \(\backslash\)}
+\DoxyCodeLine{385                             (npcb)-\/>next = NULL; \(\backslash\)}
+\DoxyCodeLine{386                             LWIP\_ASSERT("{}TCP\_RMV: tcp\_pcbs sane"{}, tcp\_pcbs\_sane()); \(\backslash\)}
+\DoxyCodeLine{387                             LWIP\_DEBUGF(TCP\_DEBUG, ("{}TCP\_RMV: removed \%p from \%p\(\backslash\)n"{}, (void *)(npcb), (void *)(*(pcbs)))); \(\backslash\)}
+\DoxyCodeLine{388                             \} while(0)}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{390 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_DEBUG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392 \textcolor{preprocessor}{\#define TCP\_REG(pcbs, npcb)                        \(\backslash\)}}
+\DoxyCodeLine{393 \textcolor{preprocessor}{  do \{                                             \(\backslash\)}}
+\DoxyCodeLine{394 \textcolor{preprocessor}{    (npcb)-\/>next = *pcbs;                          \(\backslash\)}}
+\DoxyCodeLine{395 \textcolor{preprocessor}{    *(pcbs) = (npcb);                              \(\backslash\)}}
+\DoxyCodeLine{396 \textcolor{preprocessor}{    tcp\_timer\_needed();                            \(\backslash\)}}
+\DoxyCodeLine{397 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{398 }
+\DoxyCodeLine{399 \textcolor{preprocessor}{\#define TCP\_RMV(pcbs, npcb)                        \(\backslash\)}}
+\DoxyCodeLine{400 \textcolor{preprocessor}{  do \{                                             \(\backslash\)}}
+\DoxyCodeLine{401 \textcolor{preprocessor}{    if(*(pcbs) == (npcb)) \{                        \(\backslash\)}}
+\DoxyCodeLine{402 \textcolor{preprocessor}{      (*(pcbs)) = (*pcbs)-\/>next;                   \(\backslash\)}}
+\DoxyCodeLine{403 \textcolor{preprocessor}{    \}                                              \(\backslash\)}}
+\DoxyCodeLine{404 \textcolor{preprocessor}{    else \{                                         \(\backslash\)}}
+\DoxyCodeLine{405 \textcolor{preprocessor}{      struct tcp\_pcb *tcp\_tmp\_pcb;                 \(\backslash\)}}
+\DoxyCodeLine{406 \textcolor{preprocessor}{      for (tcp\_tmp\_pcb = *pcbs;                    \(\backslash\)}}
+\DoxyCodeLine{407 \textcolor{preprocessor}{          tcp\_tmp\_pcb != NULL;                     \(\backslash\)}}
+\DoxyCodeLine{408 \textcolor{preprocessor}{          tcp\_tmp\_pcb = tcp\_tmp\_pcb-\/>next) \{       \(\backslash\)}}
+\DoxyCodeLine{409 \textcolor{preprocessor}{        if(tcp\_tmp\_pcb-\/>next == (npcb)) \{          \(\backslash\)}}
+\DoxyCodeLine{410 \textcolor{preprocessor}{          tcp\_tmp\_pcb-\/>next = (npcb)-\/>next;        \(\backslash\)}}
+\DoxyCodeLine{411 \textcolor{preprocessor}{          break;                                   \(\backslash\)}}
+\DoxyCodeLine{412 \textcolor{preprocessor}{        \}                                          \(\backslash\)}}
+\DoxyCodeLine{413 \textcolor{preprocessor}{      \}                                            \(\backslash\)}}
+\DoxyCodeLine{414 \textcolor{preprocessor}{    \}                                              \(\backslash\)}}
+\DoxyCodeLine{415 \textcolor{preprocessor}{    (npcb)-\/>next = NULL;                           \(\backslash\)}}
+\DoxyCodeLine{416 \textcolor{preprocessor}{  \} while(0)}}
+\DoxyCodeLine{417 }
+\DoxyCodeLine{418 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_DEBUG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420 \textcolor{preprocessor}{\#define TCP\_REG\_ACTIVE(npcb)                       \(\backslash\)}}
+\DoxyCodeLine{421 \textcolor{preprocessor}{  do \{                                             \(\backslash\)}}
+\DoxyCodeLine{422 \textcolor{preprocessor}{    TCP\_REG(\&tcp\_active\_pcbs, npcb);               \(\backslash\)}}
+\DoxyCodeLine{423 \textcolor{preprocessor}{    tcp\_active\_pcbs\_changed = 1;                   \(\backslash\)}}
+\DoxyCodeLine{424 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{425 }
+\DoxyCodeLine{426 \textcolor{preprocessor}{\#define TCP\_RMV\_ACTIVE(npcb)                       \(\backslash\)}}
+\DoxyCodeLine{427 \textcolor{preprocessor}{  do \{                                             \(\backslash\)}}
+\DoxyCodeLine{428 \textcolor{preprocessor}{    TCP\_RMV(\&tcp\_active\_pcbs, npcb);               \(\backslash\)}}
+\DoxyCodeLine{429 \textcolor{preprocessor}{    tcp\_active\_pcbs\_changed = 1;                   \(\backslash\)}}
+\DoxyCodeLine{430 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432 \textcolor{preprocessor}{\#define TCP\_PCB\_REMOVE\_ACTIVE(pcb)                 \(\backslash\)}}
+\DoxyCodeLine{433 \textcolor{preprocessor}{  do \{                                             \(\backslash\)}}
+\DoxyCodeLine{434 \textcolor{preprocessor}{    tcp\_pcb\_remove(\&tcp\_active\_pcbs, pcb);         \(\backslash\)}}
+\DoxyCodeLine{435 \textcolor{preprocessor}{    tcp\_active\_pcbs\_changed = 1;                   \(\backslash\)}}
+\DoxyCodeLine{436 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438 }
+\DoxyCodeLine{439 \textcolor{comment}{/* Internal functions: */}}
+\DoxyCodeLine{440 \textcolor{keyword}{struct }tcp\_pcb *tcp\_pcb\_copy(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{441 \textcolor{keywordtype}{void} tcp\_pcb\_purge(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{442 \textcolor{keywordtype}{void} tcp\_pcb\_remove(\textcolor{keyword}{struct} tcp\_pcb **pcblist, \textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{443 }
+\DoxyCodeLine{444 \textcolor{keywordtype}{void} tcp\_segs\_free(\textcolor{keyword}{struct} tcp\_seg *seg);}
+\DoxyCodeLine{445 \textcolor{keywordtype}{void} tcp\_seg\_free(\textcolor{keyword}{struct} tcp\_seg *seg);}
+\DoxyCodeLine{446 \textcolor{keyword}{struct }tcp\_seg *tcp\_seg\_copy(\textcolor{keyword}{struct} tcp\_seg *seg);}
+\DoxyCodeLine{447 }
+\DoxyCodeLine{448 \textcolor{preprocessor}{\#define tcp\_ack(pcb)                               \(\backslash\)}}
+\DoxyCodeLine{449 \textcolor{preprocessor}{  do \{                                             \(\backslash\)}}
+\DoxyCodeLine{450 \textcolor{preprocessor}{    if((pcb)-\/>flags \& TF\_ACK\_DELAY) \{              \(\backslash\)}}
+\DoxyCodeLine{451 \textcolor{preprocessor}{      tcp\_clear\_flags(pcb, TF\_ACK\_DELAY);          \(\backslash\)}}
+\DoxyCodeLine{452 \textcolor{preprocessor}{      tcp\_ack\_now(pcb);                            \(\backslash\)}}
+\DoxyCodeLine{453 \textcolor{preprocessor}{    \}                                              \(\backslash\)}}
+\DoxyCodeLine{454 \textcolor{preprocessor}{    else \{                                         \(\backslash\)}}
+\DoxyCodeLine{455 \textcolor{preprocessor}{      tcp\_set\_flags(pcb, TF\_ACK\_DELAY);            \(\backslash\)}}
+\DoxyCodeLine{456 \textcolor{preprocessor}{    \}                                              \(\backslash\)}}
+\DoxyCodeLine{457 \textcolor{preprocessor}{  \} while (0)}}
+\DoxyCodeLine{458 }
+\DoxyCodeLine{459 \textcolor{preprocessor}{\#define tcp\_ack\_now(pcb)                           \(\backslash\)}}
+\DoxyCodeLine{460 \textcolor{preprocessor}{  tcp\_set\_flags(pcb, TF\_ACK\_NOW)}}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} tcp\_send\_fin(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{463 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} tcp\_enqueue\_flags(\textcolor{keyword}{struct} tcp\_pcb *pcb, u8\_t flags);}
+\DoxyCodeLine{464 }
+\DoxyCodeLine{465 \textcolor{keywordtype}{void} tcp\_rexmit\_seg(\textcolor{keyword}{struct} tcp\_pcb *pcb, \textcolor{keyword}{struct} tcp\_seg *seg);}
+\DoxyCodeLine{466 }
+\DoxyCodeLine{467 \textcolor{keywordtype}{void} tcp\_rst(\textcolor{keyword}{const} \textcolor{keyword}{struct} tcp\_pcb* pcb, u32\_t seqno, u32\_t ackno,}
+\DoxyCodeLine{468        \textcolor{keyword}{const} ip\_addr\_t *local\_ip, \textcolor{keyword}{const} ip\_addr\_t *remote\_ip,}
+\DoxyCodeLine{469        u16\_t local\_port, u16\_t remote\_port);}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471 u32\_t tcp\_next\_iss(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{472 }
+\DoxyCodeLine{473 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} tcp\_keepalive(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{474 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} tcp\_split\_unsent\_seg(\textcolor{keyword}{struct} tcp\_pcb *pcb, u16\_t split);}
+\DoxyCodeLine{475 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} tcp\_zero\_window\_probe(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{476 \textcolor{keywordtype}{void}  tcp\_trigger\_input\_pcb\_close(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{477 }
+\DoxyCodeLine{478 \textcolor{preprocessor}{\#if TCP\_CALCULATE\_EFF\_SEND\_MSS}}
+\DoxyCodeLine{479 u16\_t tcp\_eff\_send\_mss\_netif(u16\_t sendmss, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *outif,}
+\DoxyCodeLine{480                              \textcolor{keyword}{const} ip\_addr\_t *dest);}
+\DoxyCodeLine{481 \textcolor{preprocessor}{\#define tcp\_eff\_send\_mss(sendmss, src, dest) \(\backslash\)}}
+\DoxyCodeLine{482 \textcolor{preprocessor}{    tcp\_eff\_send\_mss\_netif(sendmss, ip\_route(src, dest), dest)}}
+\DoxyCodeLine{483 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TCP\_CALCULATE\_EFF\_SEND\_MSS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485 \textcolor{preprocessor}{\#if LWIP\_CALLBACK\_API}}
+\DoxyCodeLine{486 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} tcp\_recv\_null(\textcolor{keywordtype}{void} *arg, \textcolor{keyword}{struct} tcp\_pcb *pcb, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err);}
+\DoxyCodeLine{487 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_CALLBACK\_API */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{488 }
+\DoxyCodeLine{489 \textcolor{preprocessor}{\#if TCP\_DEBUG || TCP\_INPUT\_DEBUG || TCP\_OUTPUT\_DEBUG}}
+\DoxyCodeLine{490 \textcolor{keywordtype}{void} tcp\_debug\_print(\textcolor{keyword}{struct} \mbox{\hyperlink{structtcp__hdr}{tcp\_hdr}} *tcphdr);}
+\DoxyCodeLine{491 \textcolor{keywordtype}{void} tcp\_debug\_print\_flags(u8\_t flags);}
+\DoxyCodeLine{492 \textcolor{keywordtype}{void} tcp\_debug\_print\_state(\textcolor{keyword}{enum} tcp\_state s);}
+\DoxyCodeLine{493 \textcolor{keywordtype}{void} tcp\_debug\_print\_pcbs(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{494 s16\_t tcp\_pcbs\_sane(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{495 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{496 \textcolor{preprocessor}{\#  define tcp\_debug\_print(tcphdr)}}
+\DoxyCodeLine{497 \textcolor{preprocessor}{\#  define tcp\_debug\_print\_flags(flags)}}
+\DoxyCodeLine{498 \textcolor{preprocessor}{\#  define tcp\_debug\_print\_state(s)}}
+\DoxyCodeLine{499 \textcolor{preprocessor}{\#  define tcp\_debug\_print\_pcbs()}}
+\DoxyCodeLine{500 \textcolor{preprocessor}{\#  define tcp\_pcbs\_sane() 1}}
+\DoxyCodeLine{501 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TCP\_DEBUG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{505 \textcolor{keywordtype}{void} tcp\_timer\_needed(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{506 }
+\DoxyCodeLine{507 \textcolor{keywordtype}{void} tcp\_netif\_ip\_addr\_changed(\textcolor{keyword}{const} ip\_addr\_t* old\_addr, \textcolor{keyword}{const} ip\_addr\_t* new\_addr);}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{509 \textcolor{preprocessor}{\#if TCP\_QUEUE\_OOSEQ}}
+\DoxyCodeLine{510 \textcolor{keywordtype}{void} tcp\_free\_ooseq(\textcolor{keyword}{struct} tcp\_pcb *pcb);}
+\DoxyCodeLine{511 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{512 }
+\DoxyCodeLine{513 \textcolor{preprocessor}{\#if LWIP\_TCP\_PCB\_NUM\_EXT\_ARGS}}
+\DoxyCodeLine{514 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} tcp\_ext\_arg\_invoke\_callbacks\_passive\_open(\textcolor{keyword}{struct} tcp\_pcb\_listen *lpcb, \textcolor{keyword}{struct} tcp\_pcb *cpcb);}
+\DoxyCodeLine{515 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{517 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{518 \}}
+\DoxyCodeLine{519 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{520 }
+\DoxyCodeLine{521 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{522 }
+\DoxyCodeLine{523 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_TCP\_PRIV\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

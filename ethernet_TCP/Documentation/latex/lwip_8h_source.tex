@@ -1,0 +1,57 @@
+\hypertarget{lwip_8h_source}{}\doxysection{lwip.\+h}
+\label{lwip_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/LWIP/App/lwip.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/LWIP/App/lwip.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* USER CODE BEGIN Header */}}
+\DoxyCodeLine{20 \textcolor{comment}{/* USER CODE END Header */}}
+\DoxyCodeLine{21 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifndef \_\_mx\_lwip\_H}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define \_\_mx\_lwip\_H}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{25  \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mem_8h}{lwip/mem.h}}"{}}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{memp_8h}{lwip/memp.h}}"{}}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include "{}netif/etharp.h"{}}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{dhcp_8h}{lwip/dhcp.h}}"{}}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{timeouts_8h}{lwip/timeouts.h}}"{}}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include "{}ethernetif.h"{}}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{comment}{/* Includes for RTOS -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#if WITH\_RTOS}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{tcpip_8h}{lwip/tcpip.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* WITH\_RTOS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{comment}{/* USER CODE BEGIN 0 */}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{comment}{/* USER CODE END 0 */}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/* Global Variables -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{48 \textcolor{keyword}{extern} ETH\_HandleTypeDef heth;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{/* LWIP init function */}}
+\DoxyCodeLine{51 \textcolor{keywordtype}{void} MX\_LWIP\_Init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#if !WITH\_RTOS}}
+\DoxyCodeLine{54 \textcolor{comment}{/* USER CODE BEGIN 1 */}}
+\DoxyCodeLine{55 \textcolor{comment}{/* Function defined in lwip.c to:}}
+\DoxyCodeLine{56 \textcolor{comment}{ *   -\/ Read a received packet from the Ethernet buffers}}
+\DoxyCodeLine{57 \textcolor{comment}{ *   -\/ Send it to the lwIP stack for handling}}
+\DoxyCodeLine{58 \textcolor{comment}{ *   -\/ Handle timeouts if NO\_SYS\_NO\_TIMERS not set}}
+\DoxyCodeLine{59 \textcolor{comment}{ */}}
+\DoxyCodeLine{60 \textcolor{keywordtype}{void} MX\_LWIP\_Process(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{comment}{/* USER CODE END 1 */}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* WITH\_RTOS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{66 \}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*\_\_ mx\_lwip\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{69 }
+
+\end{DoxyCode}

@@ -1,0 +1,196 @@
+\hypertarget{altcp_8h_source}{}\doxysection{altcp.\+h}
+\label{altcp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/altcp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/altcp.h}}
+\mbox{\hyperlink{altcp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{9 \textcolor{comment}{/*}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Copyright (c) 2017 Simon Goldschmidt}}
+\DoxyCodeLine{11 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{14 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{15 \textcolor{comment}{ *}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{21 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{22 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{23 \textcolor{comment}{ *}}
+\DoxyCodeLine{24 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{25 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{26 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{27 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{28 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{29 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{30 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{31 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{32 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{33 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ * Author: Simon Goldschmidt <goldsimon@gmx.de>}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ */}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_ALTCP\_H}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define LWIP\_HDR\_ALTCP\_H}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#if LWIP\_ALTCP }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{tcpbase_8h}{lwip/tcpbase.h}}"{}}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pbuf_8h}{lwip/pbuf.h}}"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{53 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{struct }altcp\_pcb;}
+\DoxyCodeLine{57 \textcolor{keyword}{struct }altcp\_functions;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*altcp\_accept\_fn)(\textcolor{keywordtype}{void} *arg, \textcolor{keyword}{struct }altcp\_pcb *new\_conn, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err);}
+\DoxyCodeLine{60 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*altcp\_connected\_fn)(\textcolor{keywordtype}{void} *arg, \textcolor{keyword}{struct }altcp\_pcb *conn, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err);}
+\DoxyCodeLine{61 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*altcp\_recv\_fn)(\textcolor{keywordtype}{void} *arg, \textcolor{keyword}{struct }altcp\_pcb *conn, \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err);}
+\DoxyCodeLine{62 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*altcp\_sent\_fn)(\textcolor{keywordtype}{void} *arg, \textcolor{keyword}{struct }altcp\_pcb *conn, u16\_t len);}
+\DoxyCodeLine{63 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*altcp\_poll\_fn)(\textcolor{keywordtype}{void} *arg, \textcolor{keyword}{struct }altcp\_pcb *conn);}
+\DoxyCodeLine{64 \textcolor{keyword}{typedef} void  (*altcp\_err\_fn)(\textcolor{keywordtype}{void} *arg, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }altcp\_pcb* (*altcp\_new\_fn)(\textcolor{keywordtype}{void} *arg, u8\_t ip\_type);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{struct }altcp\_pcb \{}
+\DoxyCodeLine{69   \textcolor{keyword}{const} \textcolor{keyword}{struct }altcp\_functions *fns;}
+\DoxyCodeLine{70   \textcolor{keyword}{struct }altcp\_pcb *inner\_conn;}
+\DoxyCodeLine{71   \textcolor{keywordtype}{void} *arg;}
+\DoxyCodeLine{72   \textcolor{keywordtype}{void} *state;}
+\DoxyCodeLine{73   \textcolor{comment}{/* application callbacks */}}
+\DoxyCodeLine{74   altcp\_accept\_fn     accept;}
+\DoxyCodeLine{75   altcp\_connected\_fn  connected;}
+\DoxyCodeLine{76   altcp\_recv\_fn       recv;}
+\DoxyCodeLine{77   altcp\_sent\_fn       sent;}
+\DoxyCodeLine{78   altcp\_poll\_fn       poll;}
+\DoxyCodeLine{79   altcp\_err\_fn        err;}
+\DoxyCodeLine{80   u8\_t pollinterval;}
+\DoxyCodeLine{81 \};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{84 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }altcp\_allocator\_s \{}
+\DoxyCodeLine{86   altcp\_new\_fn  alloc;}
+\DoxyCodeLine{88   \textcolor{keywordtype}{void}         *arg;}
+\DoxyCodeLine{89 \} altcp\_allocator\_t;}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{keyword}{struct }altcp\_pcb *altcp\_new(altcp\_allocator\_t *allocator);}
+\DoxyCodeLine{92 \textcolor{keyword}{struct }altcp\_pcb *altcp\_new\_ip6(altcp\_allocator\_t *allocator);}
+\DoxyCodeLine{93 \textcolor{keyword}{struct }altcp\_pcb *altcp\_new\_ip\_type(altcp\_allocator\_t *allocator, u8\_t ip\_type);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{keywordtype}{void} altcp\_arg(\textcolor{keyword}{struct} altcp\_pcb *conn, \textcolor{keywordtype}{void} *arg);}
+\DoxyCodeLine{96 \textcolor{keywordtype}{void} altcp\_accept(\textcolor{keyword}{struct} altcp\_pcb *conn, altcp\_accept\_fn accept);}
+\DoxyCodeLine{97 \textcolor{keywordtype}{void} altcp\_recv(\textcolor{keyword}{struct} altcp\_pcb *conn, altcp\_recv\_fn recv);}
+\DoxyCodeLine{98 \textcolor{keywordtype}{void} altcp\_sent(\textcolor{keyword}{struct} altcp\_pcb *conn, altcp\_sent\_fn sent);}
+\DoxyCodeLine{99 \textcolor{keywordtype}{void} altcp\_poll(\textcolor{keyword}{struct} altcp\_pcb *conn, altcp\_poll\_fn poll, u8\_t interval);}
+\DoxyCodeLine{100 \textcolor{keywordtype}{void} altcp\_err(\textcolor{keyword}{struct} altcp\_pcb *conn, altcp\_err\_fn err);}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keywordtype}{void}  altcp\_recved(\textcolor{keyword}{struct} altcp\_pcb *conn, u16\_t len);}
+\DoxyCodeLine{103 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} altcp\_bind(\textcolor{keyword}{struct} altcp\_pcb *conn, \textcolor{keyword}{const} ip\_addr\_t *ipaddr, u16\_t port);}
+\DoxyCodeLine{104 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} altcp\_connect(\textcolor{keyword}{struct} altcp\_pcb *conn, \textcolor{keyword}{const} ip\_addr\_t *ipaddr, u16\_t port, altcp\_connected\_fn connected);}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{comment}{/* return conn for source code compatibility to tcp callback API only */}}
+\DoxyCodeLine{107 \textcolor{keyword}{struct }altcp\_pcb *altcp\_listen\_with\_backlog\_and\_err(\textcolor{keyword}{struct} altcp\_pcb *conn, u8\_t backlog, \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} *err);}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define altcp\_listen\_with\_backlog(conn, backlog) altcp\_listen\_with\_backlog\_and\_err(conn, backlog, NULL)}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define altcp\_listen(conn) altcp\_listen\_with\_backlog\_and\_err(conn, TCP\_DEFAULT\_LISTEN\_BACKLOG, NULL)}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{keywordtype}{void} altcp\_abort(\textcolor{keyword}{struct} altcp\_pcb *conn);}
+\DoxyCodeLine{113 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} altcp\_close(\textcolor{keyword}{struct} altcp\_pcb *conn);}
+\DoxyCodeLine{114 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} altcp\_shutdown(\textcolor{keyword}{struct} altcp\_pcb *conn, \textcolor{keywordtype}{int} shut\_rx, \textcolor{keywordtype}{int} shut\_tx);}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} altcp\_write(\textcolor{keyword}{struct} altcp\_pcb *conn, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *dataptr, u16\_t len, u8\_t apiflags);}
+\DoxyCodeLine{117 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} altcp\_output(\textcolor{keyword}{struct} altcp\_pcb *conn);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 u16\_t altcp\_mss(\textcolor{keyword}{struct} altcp\_pcb *conn);}
+\DoxyCodeLine{120 u16\_t altcp\_sndbuf(\textcolor{keyword}{struct} altcp\_pcb *conn);}
+\DoxyCodeLine{121 u16\_t altcp\_sndqueuelen(\textcolor{keyword}{struct} altcp\_pcb *conn);}
+\DoxyCodeLine{122 \textcolor{keywordtype}{void}  altcp\_nagle\_disable(\textcolor{keyword}{struct} altcp\_pcb *conn);}
+\DoxyCodeLine{123 \textcolor{keywordtype}{void}  altcp\_nagle\_enable(\textcolor{keyword}{struct} altcp\_pcb *conn);}
+\DoxyCodeLine{124 \textcolor{keywordtype}{int}   altcp\_nagle\_disabled(\textcolor{keyword}{struct} altcp\_pcb *conn);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{keywordtype}{void}  altcp\_setprio(\textcolor{keyword}{struct} altcp\_pcb *conn, u8\_t prio);}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} altcp\_get\_tcp\_addrinfo(\textcolor{keyword}{struct} altcp\_pcb *conn, \textcolor{keywordtype}{int} local, ip\_addr\_t *addr, u16\_t *port);}
+\DoxyCodeLine{129 ip\_addr\_t *altcp\_get\_ip(\textcolor{keyword}{struct} altcp\_pcb *conn, \textcolor{keywordtype}{int} local);}
+\DoxyCodeLine{130 u16\_t altcp\_get\_port(\textcolor{keyword}{struct} altcp\_pcb *conn, \textcolor{keywordtype}{int} local);}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#ifdef LWIP\_DEBUG}}
+\DoxyCodeLine{133 \textcolor{keyword}{enum} tcp\_state altcp\_dbg\_get\_tcp\_state(\textcolor{keyword}{struct} altcp\_pcb *conn);}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{137 \}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_ALTCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142 \textcolor{comment}{/* ALTCP disabled, define everything to link against tcp callback API (e.g. to get a small non-\/ssl httpd) */}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{tcp_8h}{lwip/tcp.h}}"{}}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#define altcp\_accept\_fn tcp\_accept\_fn}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#define altcp\_connected\_fn tcp\_connected\_fn}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#define altcp\_recv\_fn tcp\_recv\_fn}}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#define altcp\_sent\_fn tcp\_sent\_fn}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define altcp\_poll\_fn tcp\_poll\_fn}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define altcp\_err\_fn tcp\_err\_fn}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define altcp\_pcb tcp\_pcb}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define altcp\_tcp\_new\_ip\_type tcp\_new\_ip\_type}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define altcp\_tcp\_new tcp\_new}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define altcp\_tcp\_new\_ip6 tcp\_new\_ip6}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define altcp\_new(allocator) tcp\_new()}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define altcp\_new\_ip6(allocator) tcp\_new\_ip6()}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define altcp\_new\_ip\_type(allocator, ip\_type) tcp\_new\_ip\_type(ip\_type)}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define altcp\_arg tcp\_arg}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define altcp\_accept tcp\_accept}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define altcp\_recv tcp\_recv}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define altcp\_sent tcp\_sent}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#define altcp\_poll tcp\_poll}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define altcp\_err tcp\_err}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#define altcp\_recved tcp\_recved}}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#define altcp\_bind tcp\_bind}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define altcp\_connect tcp\_connect}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define altcp\_listen\_with\_backlog\_and\_err tcp\_listen\_with\_backlog\_and\_err}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define altcp\_listen\_with\_backlog tcp\_listen\_with\_backlog}}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#define altcp\_listen tcp\_listen}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define altcp\_abort tcp\_abort}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define altcp\_close tcp\_close}}
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#define altcp\_shutdown tcp\_shutdown}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#define altcp\_write tcp\_write}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#define altcp\_output tcp\_output}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#define altcp\_mss tcp\_mss}}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#define altcp\_sndbuf tcp\_sndbuf}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define altcp\_sndqueuelen tcp\_sndqueuelen}}
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#define altcp\_nagle\_disable tcp\_nagle\_disable}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#define altcp\_nagle\_enable tcp\_nagle\_enable}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#define altcp\_nagle\_disabled tcp\_nagle\_disabled}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define altcp\_setprio tcp\_setprio}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#define altcp\_get\_tcp\_addrinfo tcp\_get\_tcp\_addrinfo}}
+\DoxyCodeLine{193 \textcolor{preprocessor}{\#define altcp\_get\_ip(pcb, local) ((local) ? (\&(pcb)-\/>local\_ip) : (\&(pcb)-\/>remote\_ip))}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#ifdef LWIP\_DEBUG}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#define altcp\_dbg\_get\_tcp\_state tcp\_dbg\_get\_tcp\_state}}
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_ALTCP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_ALTCP\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

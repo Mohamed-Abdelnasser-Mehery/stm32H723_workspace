@@ -1,0 +1,70 @@
+\hypertarget{stm32h7xx__hal__hsem_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Inc/stm32h7xx\+\_\+hal\+\_\+hsem.h File Reference}
+\label{stm32h7xx__hal__hsem_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_hsem.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_hsem.h}}
+
+
+Header file of HSEM HAL module.  
+
+
+{\ttfamily \#include \char`\"{}stm32h7xx\+\_\+hal\+\_\+def.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_gabadef2e6fddb0bb11e9e9c6930b12ffa}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+SEMID\+\_\+\+TO\+\_\+\+MASK}}(\+\_\+\+\_\+\+SEMID\+\_\+\+\_\+)~(1 $<$$<$ (\+\_\+\+\_\+\+SEMID\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Sem\+ID to mask helper Macro. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_gaa21d53e6c4d6d35e9047b5c74fb78c8f}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+ENABLE\+\_\+\+IT}}(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+)~(HSEM-\/$>$IER $\vert$= (\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Enables the specified HSEM interrupts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_ga36496851508be9cace265482a7d18e53}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+DISABLE\+\_\+\+IT}}(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+)~(HSEM-\/$>$IER \&= $\sim$(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Disables the specified HSEM interrupts. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_gacba979398283173d1ee412b5edbdd108}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+GET\+\_\+\+IT}}(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+)~((\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+) \& HSEM-\/$>$MISR)
+\begin{DoxyCompactList}\small\item\em Checks whether interrupt has occurred or not for semaphores specified by a mask. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_gadb48c4b1d695a3dc4f3b72fdfc11d807}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+GET\+\_\+\+FLAG}}(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+)~((\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+) \& HSEM-\/$>$ISR)
+\begin{DoxyCompactList}\small\item\em Get the semaphores release status flags. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group___h_s_e_m___exported___macros_ga0b123be50de8a360f3eb103b56cf3c39}{\+\_\+\+\_\+\+HAL\+\_\+\+HSEM\+\_\+\+CLEAR\+\_\+\+FLAG}}(\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+)~(HSEM-\/$>$ICR $\vert$= (\+\_\+\+\_\+\+SEM\+\_\+\+MASK\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em Clears the HSEM Interrupt flags. \end{DoxyCompactList}\item 
+\#define {\bfseries IS\+\_\+\+HSEM\+\_\+\+SEMID}(\+\_\+\+\_\+\+SEMID\+\_\+\+\_\+)~((\+\_\+\+\_\+\+SEMID\+\_\+\+\_\+) $<$= HSEM\+\_\+\+SEMID\+\_\+\+MAX )
+\item 
+\#define {\bfseries IS\+\_\+\+HSEM\+\_\+\+PROCESSID}(\+\_\+\+\_\+\+PROCESSID\+\_\+\+\_\+)~((\+\_\+\+\_\+\+PROCESSID\+\_\+\+\_\+) $<$= HSEM\+\_\+\+PROCESSID\+\_\+\+MAX )
+\item 
+\#define {\bfseries IS\+\_\+\+HSEM\+\_\+\+KEY}(\+\_\+\+\_\+\+KEY\+\_\+\+\_\+)~((\+\_\+\+\_\+\+KEY\+\_\+\+\_\+) $<$= HSEM\+\_\+\+CLEAR\+\_\+\+KEY\+\_\+\+MAX )
+\item 
+\#define {\bfseries IS\+\_\+\+HSEM\+\_\+\+COREID}(\+\_\+\+\_\+\+COREID\+\_\+\+\_\+)~((\+\_\+\+\_\+\+COREID\+\_\+\+\_\+) == HSEM\+\_\+\+CPU1\+\_\+\+COREID)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+HSEM\+\_\+\+Take} (uint32\+\_\+t Sem\+ID, uint32\+\_\+t Process\+ID)
+\item 
+\mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+HSEM\+\_\+\+Fast\+Take} (uint32\+\_\+t Sem\+ID)
+\item 
+void {\bfseries HAL\+\_\+\+HSEM\+\_\+\+Release} (uint32\+\_\+t Sem\+ID, uint32\+\_\+t Process\+ID)
+\item 
+void {\bfseries HAL\+\_\+\+HSEM\+\_\+\+Release\+All} (uint32\+\_\+t Key, uint32\+\_\+t Core\+ID)
+\item 
+uint32\+\_\+t {\bfseries HAL\+\_\+\+HSEM\+\_\+\+Is\+Sem\+Taken} (uint32\+\_\+t Sem\+ID)
+\item 
+void {\bfseries HAL\+\_\+\+HSEM\+\_\+\+Set\+Clear\+Key} (uint32\+\_\+t Key)
+\item 
+uint32\+\_\+t {\bfseries HAL\+\_\+\+HSEM\+\_\+\+Get\+Clear\+Key} (void)
+\item 
+void {\bfseries HAL\+\_\+\+HSEM\+\_\+\+Activate\+Notification} (uint32\+\_\+t Sem\+Mask)
+\item 
+void {\bfseries HAL\+\_\+\+HSEM\+\_\+\+Deactivate\+Notification} (uint32\+\_\+t Sem\+Mask)
+\item 
+void {\bfseries HAL\+\_\+\+HSEM\+\_\+\+Free\+Callback} (uint32\+\_\+t Sem\+Mask)
+\item 
+void {\bfseries HAL\+\_\+\+HSEM\+\_\+\+IRQHandler} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of HSEM HAL module. 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2017 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 

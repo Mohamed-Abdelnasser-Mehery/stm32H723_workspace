@@ -1,0 +1,175 @@
+\hypertarget{eap_8h_source}{}\doxysection{eap.\+h}
+\label{eap_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/eap.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/eap.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * eap.h -\/ Extensible Authentication Protocol for PPP (RFC 2284)}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 2001 by Sun Microsystems, Inc.}}
+\DoxyCodeLine{5 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{6 \textcolor{comment}{ *}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Non-\/exclusive rights to redistribute, modify, translate, and use}}
+\DoxyCodeLine{8 \textcolor{comment}{ * this software in source and binary forms, in whole or in part, is}}
+\DoxyCodeLine{9 \textcolor{comment}{ * hereby granted, provided that the above copyright notice is}}
+\DoxyCodeLine{10 \textcolor{comment}{ * duplicated in any source form, and that neither the name of the}}
+\DoxyCodeLine{11 \textcolor{comment}{ * copyright holder nor the author is used to endorse or promote}}
+\DoxyCodeLine{12 \textcolor{comment}{ * products derived from this software.}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR}}
+\DoxyCodeLine{15 \textcolor{comment}{ * IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED}}
+\DoxyCodeLine{16 \textcolor{comment}{ * WARRANTIES OF MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.}}
+\DoxyCodeLine{17 \textcolor{comment}{ *}}
+\DoxyCodeLine{18 \textcolor{comment}{ * Original version by James Carlson}}
+\DoxyCodeLine{19 \textcolor{comment}{ *}}
+\DoxyCodeLine{20 \textcolor{comment}{ * \$Id: eap.h,v 1.2 2003/06/11 23:56:26 paulus Exp \$}}
+\DoxyCodeLine{21 \textcolor{comment}{ */}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& EAP\_SUPPORT  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#ifndef PPP\_EAP\_H}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define PPP\_EAP\_H}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}ppp.h"{}}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#ifdef  \_\_cplusplus}}
+\DoxyCodeLine{32 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{comment}{/*}}
+\DoxyCodeLine{36 \textcolor{comment}{ * Packet header = Code, id, length.}}
+\DoxyCodeLine{37 \textcolor{comment}{ */}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define EAP\_HEADERLEN   4}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{/* EAP message codes. */}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define EAP\_REQUEST 1}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define EAP\_RESPONSE    2}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define EAP\_SUCCESS 3}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define EAP\_FAILURE 4}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/* EAP types */}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define EAPT\_IDENTITY       1}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define EAPT\_NOTIFICATION   2}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define EAPT\_NAK        3   }\textcolor{comment}{/* (response only) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define EAPT\_MD5CHAP        4}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define EAPT\_OTP        5   }\textcolor{comment}{/* One-\/Time Password; RFC 1938 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define EAPT\_TOKEN      6   }\textcolor{comment}{/* Generic Token Card */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{54 \textcolor{comment}{/* 7 and 8 are unassigned. */}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define EAPT\_RSA        9   }\textcolor{comment}{/* RSA Public Key Authentication */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define EAPT\_DSS        10  }\textcolor{comment}{/* DSS Unilateral */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define EAPT\_KEA        11  }\textcolor{comment}{/* KEA */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define EAPT\_KEA\_VALIDATE   12  }\textcolor{comment}{/* KEA-\/VALIDATE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define EAPT\_TLS        13  }\textcolor{comment}{/* EAP-\/TLS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define EAPT\_DEFENDER       14  }\textcolor{comment}{/* Defender Token (AXENT) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define EAPT\_W2K        15  }\textcolor{comment}{/* Windows 2000 EAP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define EAPT\_ARCOT      16  }\textcolor{comment}{/* Arcot Systems */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define EAPT\_CISCOWIRELESS  17  }\textcolor{comment}{/* Cisco Wireless */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define EAPT\_NOKIACARD      18  }\textcolor{comment}{/* Nokia IP smart card */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define EAPT\_SRP        19  }\textcolor{comment}{/* Secure Remote Password */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{66 \textcolor{comment}{/* 20 is deprecated */}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{comment}{/* EAP SRP-\/SHA1 Subtypes */}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define EAPSRP\_CHALLENGE    1   }\textcolor{comment}{/* Request 1 -\/ Challenge */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define EAPSRP\_CKEY     1   }\textcolor{comment}{/* Response 1 -\/ Client Key */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define EAPSRP\_SKEY     2   }\textcolor{comment}{/* Request 2 -\/ Server Key */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define EAPSRP\_CVALIDATOR   2   }\textcolor{comment}{/* Response 2 -\/ Client Validator */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define EAPSRP\_SVALIDATOR   3   }\textcolor{comment}{/* Request 3 -\/ Server Validator */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define EAPSRP\_ACK      3   }\textcolor{comment}{/* Response 3 -\/ final ack */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define EAPSRP\_LWRECHALLENGE    4   }\textcolor{comment}{/* Req/resp 4 -\/ Lightweight rechal */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define SRPVAL\_EBIT 0x00000001  }\textcolor{comment}{/* Use shared key for ECP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define SRP\_PSEUDO\_ID   "{}pseudo\_"{}}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define SRP\_PSEUDO\_LEN  7}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define MD5\_SIGNATURE\_SIZE  16}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define EAP\_MIN\_CHALLENGE\_LENGTH    17}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define EAP\_MAX\_CHALLENGE\_LENGTH    24}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define EAP\_MIN\_MAX\_POWER\_OF\_TWO\_CHALLENGE\_LENGTH     3   }\textcolor{comment}{/* 2\string^3-\/1 = 7, 17+7 = 24 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define EAP\_STATES  \(\backslash\)}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{    "{}Initial"{}}, "{}Pending"{}, "{}Closed"{}, "{}Listen"{}, "{}Identify"{}, \(\backslash\)}
+\DoxyCodeLine{89     "{}SRP1"{}, "{}SRP2"{}, "{}SRP3"{}, "{}MD5Chall"{}, "{}Open"{}, "{}SRP4"{}, "{}BadAuth"{}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define eap\_client\_active(pcb)  ((pcb)-\/>eap.es\_client.ea\_state == eapListen)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define eap\_server\_active(pcb)  \(\backslash\)}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{    ((pcb)-\/>eap.es\_server.ea\_state >= eapIdentify \&\& \(\backslash\)}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{     (pcb)-\/>eap.es\_server.ea\_state <= eapMD5Chall)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{comment}{/*}}
+\DoxyCodeLine{99 \textcolor{comment}{ * Complete EAP state for one PPP session.}}
+\DoxyCodeLine{100 \textcolor{comment}{ */}}
+\DoxyCodeLine{101 \textcolor{keyword}{enum} eap\_state\_code \{}
+\DoxyCodeLine{102     eapInitial = 0, \textcolor{comment}{/* No EAP authentication yet requested */}}
+\DoxyCodeLine{103     eapPending, \textcolor{comment}{/* Waiting for LCP (no timer) */}}
+\DoxyCodeLine{104     eapClosed,  \textcolor{comment}{/* Authentication not in use */}}
+\DoxyCodeLine{105     eapListen,  \textcolor{comment}{/* Client ready (and timer running) */}}
+\DoxyCodeLine{106     eapIdentify,    \textcolor{comment}{/* EAP Identify sent */}}
+\DoxyCodeLine{107     eapSRP1,    \textcolor{comment}{/* Sent EAP SRP-\/SHA1 Subtype 1 */}}
+\DoxyCodeLine{108     eapSRP2,    \textcolor{comment}{/* Sent EAP SRP-\/SHA1 Subtype 2 */}}
+\DoxyCodeLine{109     eapSRP3,    \textcolor{comment}{/* Sent EAP SRP-\/SHA1 Subtype 3 */}}
+\DoxyCodeLine{110     eapMD5Chall,    \textcolor{comment}{/* Sent MD5-\/Challenge */}}
+\DoxyCodeLine{111     eapOpen,    \textcolor{comment}{/* Completed authentication */}}
+\DoxyCodeLine{112     eapSRP4,    \textcolor{comment}{/* Sent EAP SRP-\/SHA1 Subtype 4 */}}
+\DoxyCodeLine{113     eapBadAuth  \textcolor{comment}{/* Failed authentication */}}
+\DoxyCodeLine{114 \};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{keyword}{struct }eap\_auth \{}
+\DoxyCodeLine{117     \textcolor{keyword}{const} \textcolor{keywordtype}{char} *ea\_name;    \textcolor{comment}{/* Our name */}}
+\DoxyCodeLine{118     \textcolor{keywordtype}{char} ea\_peer[MAXNAMELEN +1];    \textcolor{comment}{/* Peer's name */}}
+\DoxyCodeLine{119     \textcolor{keywordtype}{void} *ea\_session;   \textcolor{comment}{/* Authentication library linkage */}}
+\DoxyCodeLine{120     u\_char *ea\_skey;    \textcolor{comment}{/* Shared encryption key */}}
+\DoxyCodeLine{121     u\_short ea\_namelen; \textcolor{comment}{/* Length of our name */}}
+\DoxyCodeLine{122     u\_short ea\_peerlen; \textcolor{comment}{/* Length of peer's name */}}
+\DoxyCodeLine{123     \textcolor{keyword}{enum} eap\_state\_code ea\_state;}
+\DoxyCodeLine{124     u\_char ea\_id;       \textcolor{comment}{/* Current id */}}
+\DoxyCodeLine{125     u\_char ea\_requests; \textcolor{comment}{/* Number of Requests sent/received */}}
+\DoxyCodeLine{126     u\_char ea\_responses;    \textcolor{comment}{/* Number of Responses */}}
+\DoxyCodeLine{127     u\_char ea\_type;     \textcolor{comment}{/* One of EAPT\_* */}}
+\DoxyCodeLine{128     u32\_t ea\_keyflags;  \textcolor{comment}{/* SRP shared key usage flags */}}
+\DoxyCodeLine{129 \};}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#ifndef EAP\_MAX\_CHALLENGE\_LENGTH}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#define EAP\_MAX\_CHALLENGE\_LENGTH    24}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{134 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }eap\_state \{}
+\DoxyCodeLine{135     \textcolor{keyword}{struct }eap\_auth es\_client;  \textcolor{comment}{/* Client (authenticatee) data */}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#if PPP\_SERVER}}
+\DoxyCodeLine{137     \textcolor{keyword}{struct }eap\_auth es\_server;  \textcolor{comment}{/* Server (authenticator) data */}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SERVER */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{139     \textcolor{keywordtype}{int} es\_savedtime;       \textcolor{comment}{/* Saved timeout */}}
+\DoxyCodeLine{140     \textcolor{keywordtype}{int} es\_rechallenge;     \textcolor{comment}{/* EAP rechallenge interval */}}
+\DoxyCodeLine{141     \textcolor{keywordtype}{int} es\_lwrechallenge;       \textcolor{comment}{/* SRP lightweight rechallenge inter */}}
+\DoxyCodeLine{142     u8\_t es\_usepseudo;      \textcolor{comment}{/* Use SRP Pseudonym if offered one */}}
+\DoxyCodeLine{143     \textcolor{keywordtype}{int} es\_usedpseudo;      \textcolor{comment}{/* Set if we already sent PN */}}
+\DoxyCodeLine{144     \textcolor{keywordtype}{int} es\_challen;         \textcolor{comment}{/* Length of challenge string */}}
+\DoxyCodeLine{145     u\_char es\_challenge[EAP\_MAX\_CHALLENGE\_LENGTH];}
+\DoxyCodeLine{146 \} eap\_state;}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{comment}{/*}}
+\DoxyCodeLine{149 \textcolor{comment}{ * Timeouts.}}
+\DoxyCodeLine{150 \textcolor{comment}{ */}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#if 0 }\textcolor{comment}{/* moved to ppp\_opts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#define EAP\_DEFTIMEOUT      3   }\textcolor{comment}{/* Timeout (seconds) for rexmit */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define EAP\_DEFTRANSMITS    10  }\textcolor{comment}{/* max \# times to transmit */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define EAP\_DEFREQTIME      20  }\textcolor{comment}{/* Time to wait for peer request */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define EAP\_DEFALLOWREQ     20  }\textcolor{comment}{/* max \# times to accept requests */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* moved to ppp\_opts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{keywordtype}{void} eap\_authwithpeer(ppp\_pcb *pcb, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *localname);}
+\DoxyCodeLine{159 \textcolor{keywordtype}{void} eap\_authpeer(ppp\_pcb *pcb, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *localname);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }protent eap\_protent;}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#ifdef  \_\_cplusplus}}
+\DoxyCodeLine{164 \}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_EAP\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& EAP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

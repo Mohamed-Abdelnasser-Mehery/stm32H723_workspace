@@ -1,0 +1,17 @@
+\hypertarget{group__netconn}{}\doxysection{Netconn API}
+\label{group__netconn}\index{Netconn API@{Netconn API}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__netconn__common}{Common functions}}
+\item 
+\mbox{\hyperlink{group__netconn__tcp}{TCP only}}
+\item 
+\mbox{\hyperlink{group__netconn__udp}{UDP only}}
+\item 
+\mbox{\hyperlink{group__netbuf}{Network buffers}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thread-\/safe, to be called from non-\/\+TCPIP threads only. TX/\+RX handling based on \mbox{\hyperlink{group__netbuf}{Network buffers}} (containing \mbox{\hyperlink{group__pbuf}{Packet buffers (PBUF)}}) to avoid copying data around. 

@@ -1,0 +1,117 @@
+\hypertarget{sntp__opts_8h_source}{}\doxysection{sntp\+\_\+opts.\+h}
+\label{sntp__opts_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/sntp\_opts.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/apps/sntp\_opts.h}}
+\mbox{\hyperlink{sntp__opts_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2007-\/2009 Frédéric Bernon, Simon Goldschmidt}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Frédéric Bernon, Simon Goldschmidt}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_APPS\_SNTP\_OPTS\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_APPS\_SNTP\_OPTS\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{iana_8h}{lwip/prot/iana.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#if !defined SNTP\_SET\_SYSTEM\_TIME || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define SNTP\_SET\_SYSTEM\_TIME(sec)   LWIP\_UNUSED\_ARG(sec)}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#if !defined SNTP\_MAX\_SERVERS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define SNTP\_MAX\_SERVERS           LWIP\_DHCP\_MAX\_NTP\_SERVERS}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#if !defined SNTP\_GET\_SERVERS\_FROM\_DHCP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define SNTP\_GET\_SERVERS\_FROM\_DHCP LWIP\_DHCP\_GET\_NTP\_SRV}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#if !defined SNTP\_SERVER\_DNS || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define SNTP\_SERVER\_DNS            0}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#if !defined SNTP\_DEBUG || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define SNTP\_DEBUG                  LWIP\_DBG\_OFF}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#if !defined SNTP\_PORT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define SNTP\_PORT                   LWIP\_IANA\_PORT\_SNTP}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#if !defined SNTP\_CHECK\_RESPONSE || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define SNTP\_CHECK\_RESPONSE         0}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#if !defined SNTP\_COMP\_ROUNDTRIP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define SNTP\_COMP\_ROUNDTRIP         0}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#if !defined SNTP\_STARTUP\_DELAY || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#ifdef LWIP\_RAND}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define SNTP\_STARTUP\_DELAY          1}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define SNTP\_STARTUP\_DELAY          0}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#if !defined SNTP\_STARTUP\_DELAY\_FUNC || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define SNTP\_STARTUP\_DELAY\_FUNC     (LWIP\_RAND() \% 5000)}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#if !defined SNTP\_RECV\_TIMEOUT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define SNTP\_RECV\_TIMEOUT           15000}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#if !defined SNTP\_UPDATE\_DELAY || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define SNTP\_UPDATE\_DELAY           3600000}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#if !defined SNTP\_GET\_SYSTEM\_TIME || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#define SNTP\_GET\_SYSTEM\_TIME(sec, us)     do \{ (sec) = 0; (us) = 0; \} while(0)}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#if !defined SNTP\_RETRY\_TIMEOUT || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#define SNTP\_RETRY\_TIMEOUT          SNTP\_RECV\_TIMEOUT}}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#if !defined SNTP\_RETRY\_TIMEOUT\_MAX || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#define SNTP\_RETRY\_TIMEOUT\_MAX      (SNTP\_RETRY\_TIMEOUT * 10)}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#if !defined SNTP\_RETRY\_TIMEOUT\_EXP || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#define SNTP\_RETRY\_TIMEOUT\_EXP      1}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#if !defined SNTP\_MONITOR\_SERVER\_REACHABILITY || defined \_\_DOXYGEN\_\_}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define SNTP\_MONITOR\_SERVER\_REACHABILITY 1}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_APPS\_SNTP\_OPTS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

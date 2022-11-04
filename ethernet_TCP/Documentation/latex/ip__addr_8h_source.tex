@@ -1,0 +1,344 @@
+\hypertarget{ip__addr_8h_source}{}\doxysection{ip\+\_\+addr.\+h}
+\label{ip__addr_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip\_addr.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip\_addr.h}}
+\mbox{\hyperlink{ip__addr_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_IP\_ADDR\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_IP\_ADDR\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{def_8h}{lwip/def.h}}"{}}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip4__addr_8h}{lwip/ip4\_addr.h}}"{}}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip6__addr_8h}{lwip/ip6\_addr.h}}"{}}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{47 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{54 \textcolor{keyword}{enum} \mbox{\hyperlink{group__ipaddr_gaf2142f0dfdcc938e2db16aa745ed585c}{lwip\_ip\_addr\_type}} \{}
+\DoxyCodeLine{56   \mbox{\hyperlink{group__ipaddr_ggaf2142f0dfdcc938e2db16aa745ed585cace47fa82608deeb1c1c7c2c891eb5049}{IPADDR\_TYPE\_V4}} =   0U,}
+\DoxyCodeLine{58   \mbox{\hyperlink{group__ipaddr_ggaf2142f0dfdcc938e2db16aa745ed585caae510fd8ec7fe405b594b57af61f9a02}{IPADDR\_TYPE\_V6}} =   6U,}
+\DoxyCodeLine{60   \mbox{\hyperlink{group__ipaddr_ggaf2142f0dfdcc938e2db16aa745ed585cac6b2c99cf920e08efcb55dc40e42944e}{IPADDR\_TYPE\_ANY}} = 46U}
+\DoxyCodeLine{61 \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_IPV6}}
+\DoxyCodeLine{69 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ip\_addr \{}
+\DoxyCodeLine{70   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{71     ip6\_addr\_t ip6;}
+\DoxyCodeLine{72     ip4\_addr\_t ip4;}
+\DoxyCodeLine{73   \} u\_addr;}
+\DoxyCodeLine{75   u8\_t type;}
+\DoxyCodeLine{76 \} ip\_addr\_t;}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{keyword}{extern} \textcolor{keyword}{const} ip\_addr\_t ip\_addr\_any\_type;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define IPADDR4\_INIT(u32val)          \{ \{ \{ \{ u32val, 0ul, 0ul, 0ul \} IPADDR6\_ZONE\_INIT \} \}, IPADDR\_TYPE\_V4 \}}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define IPADDR4\_INIT\_BYTES(a,b,c,d)   IPADDR4\_INIT(PP\_HTONL(LWIP\_MAKEU32(a,b,c,d)))}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define IPADDR6\_INIT(a, b, c, d)      \{ \{ \{ \{ a, b, c, d \} IPADDR6\_ZONE\_INIT \} \}, IPADDR\_TYPE\_V6 \}}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define IPADDR6\_INIT\_HOST(a, b, c, d) \{ \{ \{ \{ PP\_HTONL(a), PP\_HTONL(b), PP\_HTONL(c), PP\_HTONL(d) \} IPADDR6\_ZONE\_INIT \} \}, IPADDR\_TYPE\_V6 \}}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define IP\_IS\_ANY\_TYPE\_VAL(ipaddr)    (IP\_GET\_TYPE(\&ipaddr) == IPADDR\_TYPE\_ANY)}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define IPADDR\_ANY\_TYPE\_INIT          \{ \{ \{ \{ 0ul, 0ul, 0ul, 0ul \} IPADDR6\_ZONE\_INIT \} \}, IPADDR\_TYPE\_ANY \}}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define IP\_IS\_V4\_VAL(ipaddr)          (IP\_GET\_TYPE(\&ipaddr) == IPADDR\_TYPE\_V4)}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define IP\_IS\_V6\_VAL(ipaddr)          (IP\_GET\_TYPE(\&ipaddr) == IPADDR\_TYPE\_V6)}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define IP\_IS\_V4(ipaddr)              (((ipaddr) == NULL) || IP\_IS\_V4\_VAL(*(ipaddr)))}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define IP\_IS\_V6(ipaddr)              (((ipaddr) != NULL) \&\& IP\_IS\_V6\_VAL(*(ipaddr)))}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define IP\_SET\_TYPE\_VAL(ipaddr, iptype) do \{ (ipaddr).type = (iptype); \}while(0)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define IP\_SET\_TYPE(ipaddr, iptype)     do \{ if((ipaddr) != NULL) \{ IP\_SET\_TYPE\_VAL(*(ipaddr), iptype); \}\}while(0)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define IP\_GET\_TYPE(ipaddr)           ((ipaddr)-\/>type)}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define IP\_ADDR\_RAW\_SIZE(ipaddr)      (IP\_GET\_TYPE(\&ipaddr) == IPADDR\_TYPE\_V4 ? sizeof(ip4\_addr\_t) : sizeof(ip6\_addr\_t))}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#define IP\_ADDR\_PCB\_VERSION\_MATCH\_EXACT(pcb, ipaddr) (IP\_GET\_TYPE(\&pcb-\/>local\_ip) == IP\_GET\_TYPE(ipaddr))}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define IP\_ADDR\_PCB\_VERSION\_MATCH(pcb, ipaddr) (IP\_IS\_ANY\_TYPE\_VAL(pcb-\/>local\_ip) || IP\_ADDR\_PCB\_VERSION\_MATCH\_EXACT(pcb, ipaddr))}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define ip\_2\_ip6(ipaddr)   (\&((ipaddr)-\/>u\_addr.ip6))}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define ip\_2\_ip4(ipaddr)   (\&((ipaddr)-\/>u\_addr.ip4))}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define IP\_ADDR4(ipaddr,a,b,c,d)      do \{ IP4\_ADDR(ip\_2\_ip4(ipaddr),a,b,c,d); \(\backslash\)}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{                                           IP\_SET\_TYPE\_VAL(*(ipaddr), IPADDR\_TYPE\_V4); \} while(0)}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define IP\_ADDR6(ipaddr,i0,i1,i2,i3)  do \{ IP6\_ADDR(ip\_2\_ip6(ipaddr),i0,i1,i2,i3); \(\backslash\)}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{                                           IP\_SET\_TYPE\_VAL(*(ipaddr), IPADDR\_TYPE\_V6); \} while(0)}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define IP\_ADDR6\_HOST(ipaddr,i0,i1,i2,i3)  IP\_ADDR6(ipaddr,PP\_HTONL(i0),PP\_HTONL(i1),PP\_HTONL(i2),PP\_HTONL(i3))}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define ip\_clear\_no4(ipaddr)  do \{ ip\_2\_ip6(ipaddr)-\/>addr[1] = \(\backslash\)}}
+\DoxyCodeLine{132 \textcolor{preprocessor}{                                   ip\_2\_ip6(ipaddr)-\/>addr[2] = \(\backslash\)}}
+\DoxyCodeLine{133 \textcolor{preprocessor}{                                   ip\_2\_ip6(ipaddr)-\/>addr[3] = 0; \(\backslash\)}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{                                   ip6\_addr\_clear\_zone(ip\_2\_ip6(ipaddr)); \}while(0)}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define ip\_addr\_copy(dest, src)      do\{ IP\_SET\_TYPE\_VAL(dest, IP\_GET\_TYPE(\&src)); if(IP\_IS\_V6\_VAL(src))\{ \(\backslash\)}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{  ip6\_addr\_copy(*ip\_2\_ip6(\&(dest)), *ip\_2\_ip6(\&(src))); \}else\{ \(\backslash\)}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{  ip4\_addr\_copy(*ip\_2\_ip4(\&(dest)), *ip\_2\_ip4(\&(src))); ip\_clear\_no4(\&dest); \}\}while(0)}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#define ip\_addr\_copy\_from\_ip6(dest, src)      do\{ \(\backslash\)}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{  ip6\_addr\_copy(*ip\_2\_ip6(\&(dest)), src); IP\_SET\_TYPE\_VAL(dest, IPADDR\_TYPE\_V6); \}while(0)}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#define ip\_addr\_copy\_from\_ip6\_packed(dest, src)      do\{ \(\backslash\)}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{  ip6\_addr\_copy\_from\_packed(*ip\_2\_ip6(\&(dest)), src); IP\_SET\_TYPE\_VAL(dest, IPADDR\_TYPE\_V6); \}while(0)}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#define ip\_addr\_copy\_from\_ip4(dest, src)      do\{ \(\backslash\)}}
+\DoxyCodeLine{148 \textcolor{preprocessor}{  ip4\_addr\_copy(*ip\_2\_ip4(\&(dest)), src); IP\_SET\_TYPE\_VAL(dest, IPADDR\_TYPE\_V4); ip\_clear\_no4(\&dest); \}while(0)}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#define ip\_addr\_set\_ip4\_u32(ipaddr, val)  do\{if(ipaddr)\{ip4\_addr\_set\_u32(ip\_2\_ip4(ipaddr), val); \(\backslash\)}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{  IP\_SET\_TYPE(ipaddr, IPADDR\_TYPE\_V4); ip\_clear\_no4(ipaddr); \}\}while(0)}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define ip\_addr\_set\_ip4\_u32\_val(ipaddr, val)  do\{ ip4\_addr\_set\_u32(ip\_2\_ip4(\&(ipaddr)), val); \(\backslash\)}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{  IP\_SET\_TYPE\_VAL(ipaddr, IPADDR\_TYPE\_V4); ip\_clear\_no4(\&ipaddr); \}while(0)}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define ip\_addr\_get\_ip4\_u32(ipaddr)  (((ipaddr) \&\& IP\_IS\_V4(ipaddr)) ? \(\backslash\)}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{  ip4\_addr\_get\_u32(ip\_2\_ip4(ipaddr)) : 0)}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define ip\_addr\_set(dest, src) do\{ IP\_SET\_TYPE(dest, IP\_GET\_TYPE(src)); if(IP\_IS\_V6(src))\{ \(\backslash\)}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{  ip6\_addr\_set(ip\_2\_ip6(dest), ip\_2\_ip6(src)); \}else\{ \(\backslash\)}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{  ip4\_addr\_set(ip\_2\_ip4(dest), ip\_2\_ip4(src)); ip\_clear\_no4(dest); \}\}while(0)}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define ip\_addr\_set\_ipaddr(dest, src) ip\_addr\_set(dest, src)}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{\#define ip\_addr\_set\_zero(ipaddr)     do\{ \(\backslash\)}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{  ip6\_addr\_set\_zero(ip\_2\_ip6(ipaddr)); IP\_SET\_TYPE(ipaddr, 0); \}while(0)}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#define ip\_addr\_set\_zero\_ip4(ipaddr)     do\{ \(\backslash\)}}
+\DoxyCodeLine{169 \textcolor{preprocessor}{  ip6\_addr\_set\_zero(ip\_2\_ip6(ipaddr)); IP\_SET\_TYPE(ipaddr, IPADDR\_TYPE\_V4); \}while(0)}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define ip\_addr\_set\_zero\_ip6(ipaddr)     do\{ \(\backslash\)}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{  ip6\_addr\_set\_zero(ip\_2\_ip6(ipaddr)); IP\_SET\_TYPE(ipaddr, IPADDR\_TYPE\_V6); \}while(0)}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define ip\_addr\_set\_any(is\_ipv6, ipaddr)      do\{if(is\_ipv6)\{ \(\backslash\)}}
+\DoxyCodeLine{175 \textcolor{preprocessor}{  ip6\_addr\_set\_any(ip\_2\_ip6(ipaddr)); IP\_SET\_TYPE(ipaddr, IPADDR\_TYPE\_V6); \}else\{ \(\backslash\)}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{  ip4\_addr\_set\_any(ip\_2\_ip4(ipaddr)); IP\_SET\_TYPE(ipaddr, IPADDR\_TYPE\_V4); ip\_clear\_no4(ipaddr); \}\}while(0)}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define ip\_addr\_set\_any\_val(is\_ipv6, ipaddr)      do\{if(is\_ipv6)\{ \(\backslash\)}}
+\DoxyCodeLine{179 \textcolor{preprocessor}{  ip6\_addr\_set\_any(ip\_2\_ip6(\&(ipaddr))); IP\_SET\_TYPE\_VAL(ipaddr, IPADDR\_TYPE\_V6); \}else\{ \(\backslash\)}}
+\DoxyCodeLine{180 \textcolor{preprocessor}{  ip4\_addr\_set\_any(ip\_2\_ip4(\&(ipaddr))); IP\_SET\_TYPE\_VAL(ipaddr, IPADDR\_TYPE\_V4); ip\_clear\_no4(\&ipaddr); \}\}while(0)}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#define ip\_addr\_set\_loopback(is\_ipv6, ipaddr) do\{if(is\_ipv6)\{ \(\backslash\)}}
+\DoxyCodeLine{183 \textcolor{preprocessor}{  ip6\_addr\_set\_loopback(ip\_2\_ip6(ipaddr)); IP\_SET\_TYPE(ipaddr, IPADDR\_TYPE\_V6); \}else\{ \(\backslash\)}}
+\DoxyCodeLine{184 \textcolor{preprocessor}{  ip4\_addr\_set\_loopback(ip\_2\_ip4(ipaddr)); IP\_SET\_TYPE(ipaddr, IPADDR\_TYPE\_V4); ip\_clear\_no4(ipaddr); \}\}while(0)}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define ip\_addr\_set\_loopback\_val(is\_ipv6, ipaddr) do\{if(is\_ipv6)\{ \(\backslash\)}}
+\DoxyCodeLine{187 \textcolor{preprocessor}{  ip6\_addr\_set\_loopback(ip\_2\_ip6(\&(ipaddr))); IP\_SET\_TYPE\_VAL(ipaddr, IPADDR\_TYPE\_V6); \}else\{ \(\backslash\)}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{  ip4\_addr\_set\_loopback(ip\_2\_ip4(\&(ipaddr))); IP\_SET\_TYPE\_VAL(ipaddr, IPADDR\_TYPE\_V4); ip\_clear\_no4(\&ipaddr); \}\}while(0)}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define ip\_addr\_set\_hton(dest, src)  do\{if(IP\_IS\_V6(src))\{ \(\backslash\)}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{  ip6\_addr\_set\_hton(ip\_2\_ip6(dest), ip\_2\_ip6(src)); IP\_SET\_TYPE(dest, IPADDR\_TYPE\_V6); \}else\{ \(\backslash\)}}
+\DoxyCodeLine{192 \textcolor{preprocessor}{  ip4\_addr\_set\_hton(ip\_2\_ip4(dest), ip\_2\_ip4(src)); IP\_SET\_TYPE(dest, IPADDR\_TYPE\_V4); ip\_clear\_no4(ipaddr); \}\}while(0)}}
+\DoxyCodeLine{194 \textcolor{preprocessor}{\#define ip\_addr\_get\_network(target, host, netmask) do\{if(IP\_IS\_V6(host))\{ \(\backslash\)}}
+\DoxyCodeLine{195 \textcolor{preprocessor}{  ip4\_addr\_set\_zero(ip\_2\_ip4(target)); IP\_SET\_TYPE(target, IPADDR\_TYPE\_V6); \} else \{ \(\backslash\)}}
+\DoxyCodeLine{196 \textcolor{preprocessor}{  ip4\_addr\_get\_network(ip\_2\_ip4(target), ip\_2\_ip4(host), ip\_2\_ip4(netmask)); IP\_SET\_TYPE(target, IPADDR\_TYPE\_V4); \}\}while(0)}}
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#define ip\_addr\_netcmp(addr1, addr2, mask) ((IP\_IS\_V6(addr1) \&\& IP\_IS\_V6(addr2)) ? \(\backslash\)}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{  0 : \(\backslash\)}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{  ip4\_addr\_netcmp(ip\_2\_ip4(addr1), ip\_2\_ip4(addr2), mask))}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define ip\_addr\_cmp(addr1, addr2)    ((IP\_GET\_TYPE(addr1) != IP\_GET\_TYPE(addr2)) ? 0 : (IP\_IS\_V6\_VAL(*(addr1)) ? \(\backslash\)}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{  ip6\_addr\_cmp(ip\_2\_ip6(addr1), ip\_2\_ip6(addr2)) : \(\backslash\)}}
+\DoxyCodeLine{204 \textcolor{preprocessor}{  ip4\_addr\_cmp(ip\_2\_ip4(addr1), ip\_2\_ip4(addr2))))}}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#define ip\_addr\_cmp\_zoneless(addr1, addr2)    ((IP\_GET\_TYPE(addr1) != IP\_GET\_TYPE(addr2)) ? 0 : (IP\_IS\_V6\_VAL(*(addr1)) ? \(\backslash\)}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{  ip6\_addr\_cmp\_zoneless(ip\_2\_ip6(addr1), ip\_2\_ip6(addr2)) : \(\backslash\)}}
+\DoxyCodeLine{208 \textcolor{preprocessor}{  ip4\_addr\_cmp(ip\_2\_ip4(addr1), ip\_2\_ip4(addr2))))}}
+\DoxyCodeLine{210 \textcolor{preprocessor}{\#define ip\_addr\_isany(ipaddr)        (((ipaddr) == NULL) ? 1 : ((IP\_IS\_V6(ipaddr)) ? \(\backslash\)}}
+\DoxyCodeLine{211 \textcolor{preprocessor}{  ip6\_addr\_isany(ip\_2\_ip6(ipaddr)) : \(\backslash\)}}
+\DoxyCodeLine{212 \textcolor{preprocessor}{  ip4\_addr\_isany(ip\_2\_ip4(ipaddr))))}}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#define ip\_addr\_isany\_val(ipaddr)        ((IP\_IS\_V6\_VAL(ipaddr)) ? \(\backslash\)}}
+\DoxyCodeLine{215 \textcolor{preprocessor}{  ip6\_addr\_isany\_val(*ip\_2\_ip6(\&(ipaddr))) : \(\backslash\)}}
+\DoxyCodeLine{216 \textcolor{preprocessor}{  ip4\_addr\_isany\_val(*ip\_2\_ip4(\&(ipaddr))))}}
+\DoxyCodeLine{218 \textcolor{preprocessor}{\#define ip\_addr\_isbroadcast(ipaddr, netif) ((IP\_IS\_V6(ipaddr)) ? \(\backslash\)}}
+\DoxyCodeLine{219 \textcolor{preprocessor}{  0 : \(\backslash\)}}
+\DoxyCodeLine{220 \textcolor{preprocessor}{  ip4\_addr\_isbroadcast(ip\_2\_ip4(ipaddr), netif))}}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#define ip\_addr\_ismulticast(ipaddr)  ((IP\_IS\_V6(ipaddr)) ? \(\backslash\)}}
+\DoxyCodeLine{223 \textcolor{preprocessor}{  ip6\_addr\_ismulticast(ip\_2\_ip6(ipaddr)) : \(\backslash\)}}
+\DoxyCodeLine{224 \textcolor{preprocessor}{  ip4\_addr\_ismulticast(ip\_2\_ip4(ipaddr)))}}
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#define ip\_addr\_isloopback(ipaddr)  ((IP\_IS\_V6(ipaddr)) ? \(\backslash\)}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{  ip6\_addr\_isloopback(ip\_2\_ip6(ipaddr)) : \(\backslash\)}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{  ip4\_addr\_isloopback(ip\_2\_ip4(ipaddr)))}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#define ip\_addr\_islinklocal(ipaddr)  ((IP\_IS\_V6(ipaddr)) ? \(\backslash\)}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{  ip6\_addr\_islinklocal(ip\_2\_ip6(ipaddr)) : \(\backslash\)}}
+\DoxyCodeLine{232 \textcolor{preprocessor}{  ip4\_addr\_islinklocal(ip\_2\_ip4(ipaddr)))}}
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#define ip\_addr\_debug\_print(debug, ipaddr) do \{ if(IP\_IS\_V6(ipaddr)) \{ \(\backslash\)}}
+\DoxyCodeLine{234 \textcolor{preprocessor}{  ip6\_addr\_debug\_print(debug, ip\_2\_ip6(ipaddr)); \} else \{ \(\backslash\)}}
+\DoxyCodeLine{235 \textcolor{preprocessor}{  ip4\_addr\_debug\_print(debug, ip\_2\_ip4(ipaddr)); \}\}while(0)}}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#define ip\_addr\_debug\_print\_val(debug, ipaddr) do \{ if(IP\_IS\_V6\_VAL(ipaddr)) \{ \(\backslash\)}}
+\DoxyCodeLine{237 \textcolor{preprocessor}{  ip6\_addr\_debug\_print\_val(debug, *ip\_2\_ip6(\&(ipaddr))); \} else \{ \(\backslash\)}}
+\DoxyCodeLine{238 \textcolor{preprocessor}{  ip4\_addr\_debug\_print\_val(debug, *ip\_2\_ip4(\&(ipaddr))); \}\}while(0)}}
+\DoxyCodeLine{239 \textcolor{keywordtype}{char} *ipaddr\_ntoa(\textcolor{keyword}{const} ip\_addr\_t *addr);}
+\DoxyCodeLine{240 \textcolor{keywordtype}{char} *ipaddr\_ntoa\_r(\textcolor{keyword}{const} ip\_addr\_t *addr, \textcolor{keywordtype}{char} *buf, \textcolor{keywordtype}{int} buflen);}
+\DoxyCodeLine{241 \textcolor{keywordtype}{int} ipaddr\_aton(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *cp, ip\_addr\_t *addr);}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#define IPADDR\_STRLEN\_MAX   IP6ADDR\_STRLEN\_MAX}}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{247 \textcolor{preprocessor}{\#define ip4\_2\_ipv4\_mapped\_ipv6(ip6addr, ip4addr) do \{ \(\backslash\)}}
+\DoxyCodeLine{248 \textcolor{preprocessor}{  (ip6addr)-\/>addr[3] = (ip4addr)-\/>addr; \(\backslash\)}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{  (ip6addr)-\/>addr[2] = PP\_HTONL(0x0000FFFFUL); \(\backslash\)}}
+\DoxyCodeLine{250 \textcolor{preprocessor}{  (ip6addr)-\/>addr[1] = 0; \(\backslash\)}}
+\DoxyCodeLine{251 \textcolor{preprocessor}{  (ip6addr)-\/>addr[0] = 0; \(\backslash\)}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{  ip6\_addr\_clear\_zone(ip6addr); \} while(0);}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{255 \textcolor{preprocessor}{\#define unmap\_ipv4\_mapped\_ipv6(ip4addr, ip6addr) \(\backslash\)}}
+\DoxyCodeLine{256 \textcolor{preprocessor}{  (ip4addr)-\/>addr = (ip6addr)-\/>addr[3];}}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258 \textcolor{preprocessor}{\#define IP46\_ADDR\_ANY(type) (((type) == IPADDR\_TYPE\_V6)? IP6\_ADDR\_ANY : IP4\_ADDR\_ANY)}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#define IP\_ADDR\_PCB\_VERSION\_MATCH(addr, pcb)          1}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#define IP\_ADDR\_PCB\_VERSION\_MATCH\_EXACT(pcb, ipaddr)  1}}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#define ip\_addr\_set\_any\_val(is\_ipv6, ipaddr)          ip\_addr\_set\_any(is\_ipv6, \&(ipaddr))}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#define ip\_addr\_set\_loopback\_val(is\_ipv6, ipaddr)     ip\_addr\_set\_loopback(is\_ipv6, \&(ipaddr))}}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270 \textcolor{keyword}{typedef} ip4\_addr\_t ip\_addr\_t;}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define IPADDR4\_INIT(u32val)                    \{ u32val \}}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#define IPADDR4\_INIT\_BYTES(a,b,c,d)             IPADDR4\_INIT(PP\_HTONL(LWIP\_MAKEU32(a,b,c,d)))}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{\#define IP\_IS\_V4\_VAL(ipaddr)                    1}}
+\DoxyCodeLine{274 \textcolor{preprocessor}{\#define IP\_IS\_V6\_VAL(ipaddr)                    0}}
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#define IP\_IS\_V4(ipaddr)                        1}}
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#define IP\_IS\_V6(ipaddr)                        0}}
+\DoxyCodeLine{277 \textcolor{preprocessor}{\#define IP\_IS\_ANY\_TYPE\_VAL(ipaddr)              0}}
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#define IP\_SET\_TYPE\_VAL(ipaddr, iptype)}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#define IP\_SET\_TYPE(ipaddr, iptype)}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#define IP\_GET\_TYPE(ipaddr)                     IPADDR\_TYPE\_V4}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#define IP\_ADDR\_RAW\_SIZE(ipaddr)                sizeof(ip4\_addr\_t)}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{\#define ip\_2\_ip4(ipaddr)                        (ipaddr)}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#define IP\_ADDR4(ipaddr,a,b,c,d)                IP4\_ADDR(ipaddr,a,b,c,d)}}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#define ip\_addr\_copy(dest, src)                 ip4\_addr\_copy(dest, src)}}
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#define ip\_addr\_copy\_from\_ip4(dest, src)        ip4\_addr\_copy(dest, src)}}
+\DoxyCodeLine{287 \textcolor{preprocessor}{\#define ip\_addr\_set\_ip4\_u32(ipaddr, val)        ip4\_addr\_set\_u32(ip\_2\_ip4(ipaddr), val)}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#define ip\_addr\_set\_ip4\_u32\_val(ipaddr, val)    ip\_addr\_set\_ip4\_u32(\&(ipaddr), val)}}
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#define ip\_addr\_get\_ip4\_u32(ipaddr)             ip4\_addr\_get\_u32(ip\_2\_ip4(ipaddr))}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#define ip\_addr\_set(dest, src)                  ip4\_addr\_set(dest, src)}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#define ip\_addr\_set\_ipaddr(dest, src)           ip4\_addr\_set(dest, src)}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#define ip\_addr\_set\_zero(ipaddr)                ip4\_addr\_set\_zero(ipaddr)}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#define ip\_addr\_set\_zero\_ip4(ipaddr)            ip4\_addr\_set\_zero(ipaddr)}}
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#define ip\_addr\_set\_any(is\_ipv6, ipaddr)        ip4\_addr\_set\_any(ipaddr)}}
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#define ip\_addr\_set\_loopback(is\_ipv6, ipaddr)   ip4\_addr\_set\_loopback(ipaddr)}}
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#define ip\_addr\_set\_hton(dest, src)             ip4\_addr\_set\_hton(dest, src)}}
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#define ip\_addr\_get\_network(target, host, mask) ip4\_addr\_get\_network(target, host, mask)}}
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#define ip\_addr\_netcmp(addr1, addr2, mask)      ip4\_addr\_netcmp(addr1, addr2, mask)}}
+\DoxyCodeLine{299 \textcolor{preprocessor}{\#define ip\_addr\_cmp(addr1, addr2)               ip4\_addr\_cmp(addr1, addr2)}}
+\DoxyCodeLine{300 \textcolor{preprocessor}{\#define ip\_addr\_isany(ipaddr)                   ip4\_addr\_isany(ipaddr)}}
+\DoxyCodeLine{301 \textcolor{preprocessor}{\#define ip\_addr\_isany\_val(ipaddr)               ip4\_addr\_isany\_val(ipaddr)}}
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#define ip\_addr\_isloopback(ipaddr)              ip4\_addr\_isloopback(ipaddr)}}
+\DoxyCodeLine{303 \textcolor{preprocessor}{\#define ip\_addr\_islinklocal(ipaddr)             ip4\_addr\_islinklocal(ipaddr)}}
+\DoxyCodeLine{304 \textcolor{preprocessor}{\#define ip\_addr\_isbroadcast(addr, netif)        ip4\_addr\_isbroadcast(addr, netif)}}
+\DoxyCodeLine{305 \textcolor{preprocessor}{\#define ip\_addr\_ismulticast(ipaddr)             ip4\_addr\_ismulticast(ipaddr)}}
+\DoxyCodeLine{306 \textcolor{preprocessor}{\#define ip\_addr\_debug\_print(debug, ipaddr)      ip4\_addr\_debug\_print(debug, ipaddr)}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#define ip\_addr\_debug\_print\_val(debug, ipaddr)  ip4\_addr\_debug\_print\_val(debug, ipaddr)}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{\#define ipaddr\_ntoa(ipaddr)                     ip4addr\_ntoa(ipaddr)}}
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#define ipaddr\_ntoa\_r(ipaddr, buf, buflen)      ip4addr\_ntoa\_r(ipaddr, buf, buflen)}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#define ipaddr\_aton(cp, addr)                   ip4addr\_aton(cp, addr)}}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312 \textcolor{preprocessor}{\#define IPADDR\_STRLEN\_MAX   IP4ADDR\_STRLEN\_MAX}}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314 \textcolor{preprocessor}{\#define IP46\_ADDR\_ANY(type) (IP4\_ADDR\_ANY)}}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318 \textcolor{keyword}{typedef} ip6\_addr\_t ip\_addr\_t;}
+\DoxyCodeLine{319 \textcolor{preprocessor}{\#define IPADDR6\_INIT(a, b, c, d)                \{ \{ a, b, c, d \} IPADDR6\_ZONE\_INIT \}}}
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#define IPADDR6\_INIT\_HOST(a, b, c, d)           \{ \{ PP\_HTONL(a), PP\_HTONL(b), PP\_HTONL(c), PP\_HTONL(d) \} IPADDR6\_ZONE\_INIT \}}}
+\DoxyCodeLine{321 \textcolor{preprocessor}{\#define IP\_IS\_V4\_VAL(ipaddr)                    0}}
+\DoxyCodeLine{322 \textcolor{preprocessor}{\#define IP\_IS\_V6\_VAL(ipaddr)                    1}}
+\DoxyCodeLine{323 \textcolor{preprocessor}{\#define IP\_IS\_V4(ipaddr)                        0}}
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#define IP\_IS\_V6(ipaddr)                        1}}
+\DoxyCodeLine{325 \textcolor{preprocessor}{\#define IP\_IS\_ANY\_TYPE\_VAL(ipaddr)              0}}
+\DoxyCodeLine{326 \textcolor{preprocessor}{\#define IP\_SET\_TYPE\_VAL(ipaddr, iptype)}}
+\DoxyCodeLine{327 \textcolor{preprocessor}{\#define IP\_SET\_TYPE(ipaddr, iptype)}}
+\DoxyCodeLine{328 \textcolor{preprocessor}{\#define IP\_GET\_TYPE(ipaddr)                     IPADDR\_TYPE\_V6}}
+\DoxyCodeLine{329 \textcolor{preprocessor}{\#define IP\_ADDR\_RAW\_SIZE(ipaddr)                sizeof(ip6\_addr\_t)}}
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#define ip\_2\_ip6(ipaddr)                        (ipaddr)}}
+\DoxyCodeLine{331 \textcolor{preprocessor}{\#define IP\_ADDR6(ipaddr,i0,i1,i2,i3)            IP6\_ADDR(ipaddr,i0,i1,i2,i3)}}
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#define IP\_ADDR6\_HOST(ipaddr,i0,i1,i2,i3)       IP\_ADDR6(ipaddr,PP\_HTONL(i0),PP\_HTONL(i1),PP\_HTONL(i2),PP\_HTONL(i3))}}
+\DoxyCodeLine{333 }
+\DoxyCodeLine{334 \textcolor{preprocessor}{\#define ip\_addr\_copy(dest, src)                 ip6\_addr\_copy(dest, src)}}
+\DoxyCodeLine{335 \textcolor{preprocessor}{\#define ip\_addr\_copy\_from\_ip6(dest, src)        ip6\_addr\_copy(dest, src)}}
+\DoxyCodeLine{336 \textcolor{preprocessor}{\#define ip\_addr\_copy\_from\_ip6\_packed(dest, src) ip6\_addr\_copy\_from\_packed(dest, src)}}
+\DoxyCodeLine{337 \textcolor{preprocessor}{\#define ip\_addr\_set(dest, src)                  ip6\_addr\_set(dest, src)}}
+\DoxyCodeLine{338 \textcolor{preprocessor}{\#define ip\_addr\_set\_ipaddr(dest, src)           ip6\_addr\_set(dest, src)}}
+\DoxyCodeLine{339 \textcolor{preprocessor}{\#define ip\_addr\_set\_zero(ipaddr)                ip6\_addr\_set\_zero(ipaddr)}}
+\DoxyCodeLine{340 \textcolor{preprocessor}{\#define ip\_addr\_set\_zero\_ip6(ipaddr)            ip6\_addr\_set\_zero(ipaddr)}}
+\DoxyCodeLine{341 \textcolor{preprocessor}{\#define ip\_addr\_set\_any(is\_ipv6, ipaddr)        ip6\_addr\_set\_any(ipaddr)}}
+\DoxyCodeLine{342 \textcolor{preprocessor}{\#define ip\_addr\_set\_loopback(is\_ipv6, ipaddr)   ip6\_addr\_set\_loopback(ipaddr)}}
+\DoxyCodeLine{343 \textcolor{preprocessor}{\#define ip\_addr\_set\_hton(dest, src)             ip6\_addr\_set\_hton(dest, src)}}
+\DoxyCodeLine{344 \textcolor{preprocessor}{\#define ip\_addr\_get\_network(target, host, mask) ip6\_addr\_set\_zero(target)}}
+\DoxyCodeLine{345 \textcolor{preprocessor}{\#define ip\_addr\_netcmp(addr1, addr2, mask)      0}}
+\DoxyCodeLine{346 \textcolor{preprocessor}{\#define ip\_addr\_cmp(addr1, addr2)               ip6\_addr\_cmp(addr1, addr2)}}
+\DoxyCodeLine{347 \textcolor{preprocessor}{\#define ip\_addr\_cmp\_zoneless(addr1, addr2)      ip6\_addr\_cmp\_zoneless(addr1, addr2)}}
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#define ip\_addr\_isany(ipaddr)                   ip6\_addr\_isany(ipaddr)}}
+\DoxyCodeLine{349 \textcolor{preprocessor}{\#define ip\_addr\_isany\_val(ipaddr)               ip6\_addr\_isany\_val(ipaddr)}}
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#define ip\_addr\_isloopback(ipaddr)              ip6\_addr\_isloopback(ipaddr)}}
+\DoxyCodeLine{351 \textcolor{preprocessor}{\#define ip\_addr\_islinklocal(ipaddr)             ip6\_addr\_islinklocal(ipaddr)}}
+\DoxyCodeLine{352 \textcolor{preprocessor}{\#define ip\_addr\_isbroadcast(addr, netif)        0}}
+\DoxyCodeLine{353 \textcolor{preprocessor}{\#define ip\_addr\_ismulticast(ipaddr)             ip6\_addr\_ismulticast(ipaddr)}}
+\DoxyCodeLine{354 \textcolor{preprocessor}{\#define ip\_addr\_debug\_print(debug, ipaddr)      ip6\_addr\_debug\_print(debug, ipaddr)}}
+\DoxyCodeLine{355 \textcolor{preprocessor}{\#define ip\_addr\_debug\_print\_val(debug, ipaddr)  ip6\_addr\_debug\_print\_val(debug, ipaddr)}}
+\DoxyCodeLine{356 \textcolor{preprocessor}{\#define ipaddr\_ntoa(ipaddr)                     ip6addr\_ntoa(ipaddr)}}
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#define ipaddr\_ntoa\_r(ipaddr, buf, buflen)      ip6addr\_ntoa\_r(ipaddr, buf, buflen)}}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#define ipaddr\_aton(cp, addr)                   ip6addr\_aton(cp, addr)}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360 \textcolor{preprocessor}{\#define IPADDR\_STRLEN\_MAX   IP6ADDR\_STRLEN\_MAX}}
+\DoxyCodeLine{361 }
+\DoxyCodeLine{362 \textcolor{preprocessor}{\#define IP46\_ADDR\_ANY(type) (IP6\_ADDR\_ANY)}}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{365 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{366 }
+\DoxyCodeLine{367 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369 \textcolor{keyword}{extern} \textcolor{keyword}{const} ip\_addr\_t ip\_addr\_any;}
+\DoxyCodeLine{370 \textcolor{keyword}{extern} \textcolor{keyword}{const} ip\_addr\_t ip\_addr\_broadcast;}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{382 \textcolor{preprocessor}{\#define IP\_ADDR\_ANY         IP4\_ADDR\_ANY}}
+\DoxyCodeLine{388 \textcolor{preprocessor}{\#define IP4\_ADDR\_ANY        (\&ip\_addr\_any)}}
+\DoxyCodeLine{394 \textcolor{preprocessor}{\#define IP4\_ADDR\_ANY4       (ip\_2\_ip4(\&ip\_addr\_any))}}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{397 \textcolor{preprocessor}{\#define IP\_ADDR\_BROADCAST   (\&ip\_addr\_broadcast)}}
+\DoxyCodeLine{399 \textcolor{preprocessor}{\#define IP4\_ADDR\_BROADCAST  (ip\_2\_ip4(\&ip\_addr\_broadcast))}}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405 \textcolor{keyword}{extern} \textcolor{keyword}{const} ip\_addr\_t ip6\_addr\_any;}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{412 \textcolor{preprocessor}{\#define IP6\_ADDR\_ANY   (\&ip6\_addr\_any)}}
+\DoxyCodeLine{418 \textcolor{preprocessor}{\#define IP6\_ADDR\_ANY6  (ip\_2\_ip6(\&ip6\_addr\_any))}}
+\DoxyCodeLine{419 }
+\DoxyCodeLine{420 \textcolor{preprocessor}{\#if !LWIP\_IPV4}}
+\DoxyCodeLine{422 \textcolor{preprocessor}{\#define IP\_ADDR\_ANY IP6\_ADDR\_ANY}}
+\DoxyCodeLine{423 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{424 }
+\DoxyCodeLine{425 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{426 }
+\DoxyCodeLine{427 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_IPV6}}
+\DoxyCodeLine{429 \textcolor{preprocessor}{\#define IP\_ANY\_TYPE    (\&ip\_addr\_any\_type)}}
+\DoxyCodeLine{430 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{431 \textcolor{preprocessor}{\#define IP\_ANY\_TYPE    IP\_ADDR\_ANY}}
+\DoxyCodeLine{432 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{433 }
+\DoxyCodeLine{434 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{435 \}}
+\DoxyCodeLine{436 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_IP\_ADDR\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

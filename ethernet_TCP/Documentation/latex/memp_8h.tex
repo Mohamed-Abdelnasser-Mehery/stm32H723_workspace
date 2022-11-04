@@ -1,0 +1,100 @@
+\hypertarget{memp_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/memp.h File Reference}
+\label{memp_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/memp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/memp.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/priv/memp\+\_\+std.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/priv/memp\+\_\+priv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/stats.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{memp_8h_a5f75b6e9cf0c6df9e70b08b8e05a1835}\label{memp_8h_a5f75b6e9cf0c6df9e70b08b8e05a1835}} 
+\#define {\bfseries LWIP\+\_\+\+MEMPOOL}(name,  num,  size,  desc)
+\item 
+\mbox{\Hypertarget{memp_8h_a5f75b6e9cf0c6df9e70b08b8e05a1835}\label{memp_8h_a5f75b6e9cf0c6df9e70b08b8e05a1835}} 
+\#define {\bfseries LWIP\+\_\+\+MEMPOOL}(name,  num,  size,  desc)~MEMP\+\_\+\#\#name,
+\item 
+\#define \mbox{\hyperlink{group__mempool_ga92fc8c29d0e2654f2a2ecc43b2b7fb13}{LWIP\+\_\+\+MEMPOOL\+\_\+\+PROTOTYPE}}(name)~extern const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} memp\+\_\+ \#\# name
+\item 
+\#define \mbox{\hyperlink{group__mempool_ga5b1fb3ce7942432d87cc948b1c5ed6cb}{LWIP\+\_\+\+MEMPOOL\+\_\+\+DECLARE}}(name,  num,  size,  desc)
+\item 
+\#define \mbox{\hyperlink{group__mempool_ga60b51c06d276f525b35d8b7abd4dcb41}{LWIP\+\_\+\+MEMPOOL\+\_\+\+INIT}}(name)~\mbox{\hyperlink{memp_8c_a6416303426d05526bed33f241fa6ecd7}{memp\+\_\+init\+\_\+pool}}(\&memp\+\_\+ \#\# name)
+\item 
+\#define \mbox{\hyperlink{group__mempool_ga5e2498f6c17746c1fe7153de5f7f275a}{LWIP\+\_\+\+MEMPOOL\+\_\+\+ALLOC}}(name)~\mbox{\hyperlink{memp_8c_ab6bfb9562c3a77e329a888e59ef0ace3}{memp\+\_\+malloc\+\_\+pool}}(\&memp\+\_\+ \#\# name)
+\item 
+\#define \mbox{\hyperlink{group__mempool_gaa43d114dd702fbd8f1db18474ea93a04}{LWIP\+\_\+\+MEMPOOL\+\_\+\+FREE}}(name,  x)~\mbox{\hyperlink{memp_8c_a62f8c3c907743e34eee3cdac7fa1eaa5}{memp\+\_\+free\+\_\+pool}}(\&memp\+\_\+ \#\# name, (x))
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\+\_\+t}} \{ {\bfseries MEMP\+\_\+\+MAX}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{memp_8h_a9693e5b1ac2c6b9c0e7870522d45efa2}{memp\+\_\+init}} (void)
+\item 
+void $\ast$ \mbox{\hyperlink{memp_8h_ac49689457203bfb872adf5428f96a3e7}{memp\+\_\+malloc}} (\mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\+\_\+t}} type)
+\item 
+void \mbox{\hyperlink{memp_8h_aecd94926b7c2a0e23ae195f4ae97581f}{memp\+\_\+free}} (\mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\+\_\+t}} type, void $\ast$mem)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{memp_8h_ad78a1f656a766f2c6341aa466762b883}\label{memp_8h_ad78a1f656a766f2c6341aa466762b883}} 
+const struct \mbox{\hyperlink{structmemp__desc}{memp\+\_\+desc}} $\ast$const {\bfseries memp\+\_\+pools} \mbox{[}MEMP\+\_\+\+MAX\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Memory pool API 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{memp_8h_a85a164b1f7764951cc685ea525114e57}\label{memp_8h_a85a164b1f7764951cc685ea525114e57}} 
+\index{memp.h@{memp.h}!memp\_t@{memp\_t}}
+\index{memp\_t@{memp\_t}!memp.h@{memp.h}}
+\doxysubsubsection{\texorpdfstring{memp\_t}{memp\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\+\_\+t}}}
+
+Create the list of all memory pools managed by memp. MEMP\+\_\+\+MAX represents a NULL pool at the end 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{memp_8h_aecd94926b7c2a0e23ae195f4ae97581f}\label{memp_8h_aecd94926b7c2a0e23ae195f4ae97581f}} 
+\index{memp.h@{memp.h}!memp\_free@{memp\_free}}
+\index{memp\_free@{memp\_free}!memp.h@{memp.h}}
+\doxysubsubsection{\texorpdfstring{memp\_free()}{memp\_free()}}
+{\footnotesize\ttfamily void memp\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\+\_\+t}}}]{type,  }\item[{void $\ast$}]{mem }\end{DoxyParamCaption})}
+
+Put an element back into its pool.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & the pool where to put mem \\
+\hline
+{\em mem} & the memp element to free \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{memp_8h_a9693e5b1ac2c6b9c0e7870522d45efa2}\label{memp_8h_a9693e5b1ac2c6b9c0e7870522d45efa2}} 
+\index{memp.h@{memp.h}!memp\_init@{memp\_init}}
+\index{memp\_init@{memp\_init}!memp.h@{memp.h}}
+\doxysubsubsection{\texorpdfstring{memp\_init()}{memp\_init()}}
+{\footnotesize\ttfamily void memp\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initializes lw\+IP built-\/in pools. Related functions\+: memp\+\_\+malloc, memp\+\_\+free
+
+Carves out memp\+\_\+memory into linked lists for each pool-\/type. \mbox{\Hypertarget{memp_8h_ac49689457203bfb872adf5428f96a3e7}\label{memp_8h_ac49689457203bfb872adf5428f96a3e7}} 
+\index{memp.h@{memp.h}!memp\_malloc@{memp\_malloc}}
+\index{memp\_malloc@{memp\_malloc}!memp.h@{memp.h}}
+\doxysubsubsection{\texorpdfstring{memp\_malloc()}{memp\_malloc()}}
+{\footnotesize\ttfamily void $\ast$ memp\+\_\+malloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{memp_8h_a85a164b1f7764951cc685ea525114e57}{memp\+\_\+t}}}]{type }\end{DoxyParamCaption})}
+
+Get an element from a specific pool.
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & the pool to get an element from\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated memory or a NULL pointer on error 
+\end{DoxyReturn}

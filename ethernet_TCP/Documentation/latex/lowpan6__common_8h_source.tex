@@ -1,0 +1,82 @@
+\hypertarget{lowpan6__common_8h_source}{}\doxysection{lowpan6\+\_\+common.\+h}
+\label{lowpan6__common_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/lowpan6\_common.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/lowpan6\_common.h}}
+\mbox{\hyperlink{lowpan6__common_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{comment}{/*}}
+\DoxyCodeLine{8 \textcolor{comment}{ * Copyright (c) 2015 Inico Technologies Ltd.}}
+\DoxyCodeLine{9 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{10 \textcolor{comment}{ *}}
+\DoxyCodeLine{11 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{12 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{13 \textcolor{comment}{ *}}
+\DoxyCodeLine{14 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{16 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{19 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{23 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{24 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{25 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{26 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{27 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{28 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{29 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{30 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{31 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{32 \textcolor{comment}{ *}}
+\DoxyCodeLine{33 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ * Author: Ivan Delamer <delamer@inicotech.com>}}
+\DoxyCodeLine{36 \textcolor{comment}{ *}}
+\DoxyCodeLine{37 \textcolor{comment}{ *}}
+\DoxyCodeLine{38 \textcolor{comment}{ * Please coordinate changes and requests with Ivan Delamer}}
+\DoxyCodeLine{39 \textcolor{comment}{ * <delamer@inicotech.com>}}
+\DoxyCodeLine{40 \textcolor{comment}{ */}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_LOWPAN6\_COMMON\_H}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define LWIP\_HDR\_LOWPAN6\_COMMON\_H}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lowpan6__opts_8h}{netif/lowpan6\_opts.h}}"{}}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#if LWIP\_IPV6 }\textcolor{comment}{/* don't build if IPv6 is disabled in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pbuf_8h}{lwip/pbuf.h}}"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip_8h}{lwip/ip.h}}"{}}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip6__addr_8h}{lwip/ip6\_addr.h}}"{}}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{55 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{59 \textcolor{keyword}{struct }lowpan6\_link\_addr \{}
+\DoxyCodeLine{60   \textcolor{comment}{/* encoded length of the address */}}
+\DoxyCodeLine{61   u8\_t addr\_len;}
+\DoxyCodeLine{62   \textcolor{comment}{/* address bytes */}}
+\DoxyCodeLine{63   u8\_t addr[8];}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 s8\_t lowpan6\_get\_address\_mode(\textcolor{keyword}{const} ip6\_addr\_t *ip6addr, \textcolor{keyword}{const} \textcolor{keyword}{struct} lowpan6\_link\_addr *mac\_addr);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#if LWIP\_6LOWPAN\_IPHC}}
+\DoxyCodeLine{69 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} lowpan6\_compress\_headers(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, u8\_t *inbuf, \textcolor{keywordtype}{size\_t} inbuf\_size, u8\_t *outbuf, \textcolor{keywordtype}{size\_t} outbuf\_size,}
+\DoxyCodeLine{70                                u8\_t *lowpan6\_header\_len\_out, u8\_t *hidden\_header\_len\_out, ip6\_addr\_t *lowpan6\_contexts,}
+\DoxyCodeLine{71                                \textcolor{keyword}{const} \textcolor{keyword}{struct} lowpan6\_link\_addr *src, \textcolor{keyword}{const} \textcolor{keyword}{struct} lowpan6\_link\_addr *dst);}
+\DoxyCodeLine{72 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *lowpan6\_decompress(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, u16\_t datagram\_size, ip6\_addr\_t *lowpan6\_contexts,}
+\DoxyCodeLine{73                                 \textcolor{keyword}{struct} lowpan6\_link\_addr *src, \textcolor{keyword}{struct} lowpan6\_link\_addr *dest);}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_6LOWPAN\_IPHC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{77 \}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_LOWPAN6\_COMMON\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

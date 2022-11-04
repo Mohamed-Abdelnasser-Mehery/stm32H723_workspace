@@ -1,0 +1,846 @@
+\hypertarget{stm32h7xx__hal__dma_8h_source}{}\doxysection{stm32h7xx\+\_\+hal\+\_\+dma.\+h}
+\label{stm32h7xx__hal__dma_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_dma.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Inc/stm32h7xx\_hal\_dma.h}}
+\mbox{\hyperlink{stm32h7xx__hal__dma_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{19 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef STM32H7xx\_HAL\_DMA\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define STM32H7xx\_HAL\_DMA\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{24  \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32h7xx__hal__def_8h}{stm32h7xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{38 \textcolor{comment}{/* Exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{48 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_a59f46df02cf1237d6888518fe2100209}{Request}};               }
+\DoxyCodeLine{53   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_ab94410c1333b512e271b1c135fe50916}{Direction}};            }
+\DoxyCodeLine{57   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_a4925ca3ceb52340daddc92817dc304d9}{PeriphInc}};            }
+\DoxyCodeLine{60   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_a831756fbcd64feb1e570a9bf743b5b8d}{MemInc}};               }
+\DoxyCodeLine{63   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_aca5b89241171c093fd0fc6dacf72683c}{PeriphDataAlignment}};  }
+\DoxyCodeLine{66   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_afe3adac32f5411b1a744c030f398aa5e}{MemDataAlignment}};     }
+\DoxyCodeLine{69   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_a0ffc93ec511ed9cf1663f6939bd3e839}{Mode}};                 }
+\DoxyCodeLine{74   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_a72acf77c0b19359eb70764505ae4bd70}{Priority}};             }
+\DoxyCodeLine{77   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_a8dc149e98014264da61675f6a0e18b88}{FIFOMode}};             }
+\DoxyCodeLine{82   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_a28732ef5d9eae23dbd77e3034cc1bdb3}{FIFOThreshold}};        }
+\DoxyCodeLine{85   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_a4e6e9f06e5c7903879ed29df299e4df1}{MemBurst}};             }
+\DoxyCodeLine{91   uint32\_t \mbox{\hyperlink{struct_d_m_a___init_type_def_ae95b14383c9d0c86405939f4bfe2882d}{PeriphBurst}};          }
+\DoxyCodeLine{96 \}\mbox{\hyperlink{struct_d_m_a___init_type_def}{DMA\_InitTypeDef}};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{101 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{102 \{}
+\DoxyCodeLine{103   \mbox{\hyperlink{group___d_m_a___exported___types_gga9c012af359987a240826f29073bbe463a9e7be73da32b8c837cde0318e0d5eed2}{HAL\_DMA\_STATE\_RESET}}             = 0x00U,  }
+\DoxyCodeLine{104   \mbox{\hyperlink{group___d_m_a___exported___types_gga9c012af359987a240826f29073bbe463ad497944e6e72bc3ca904694b1098105a}{HAL\_DMA\_STATE\_READY}}             = 0x01U,  }
+\DoxyCodeLine{105   \mbox{\hyperlink{group___d_m_a___exported___types_gga9c012af359987a240826f29073bbe463af7a0a2ca8de4e5be9e85b6a9073476ef}{HAL\_DMA\_STATE\_BUSY}}              = 0x02U,  }
+\DoxyCodeLine{106   \mbox{\hyperlink{group___d_m_a___exported___types_gga9c012af359987a240826f29073bbe463ac2ce65c7cb2410c143b14e309ba83742}{HAL\_DMA\_STATE\_ERROR}}             = 0x03U,  }
+\DoxyCodeLine{107   \mbox{\hyperlink{group___d_m_a___exported___types_gga9c012af359987a240826f29073bbe463af199cdb868cfd96fa97decb285643755}{HAL\_DMA\_STATE\_ABORT}}             = 0x04U,  }
+\DoxyCodeLine{108 \}\mbox{\hyperlink{group___d_m_a___exported___types_ga9c012af359987a240826f29073bbe463}{HAL\_DMA\_StateTypeDef}};}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{113 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{114 \{}
+\DoxyCodeLine{115   \mbox{\hyperlink{group___d_m_a___exported___types_ggaee3245eea8fa938edeb35a6c9596fd86a5314147c8ba21548763bf89446b78468}{HAL\_DMA\_FULL\_TRANSFER}}      = 0x00U,    }
+\DoxyCodeLine{116   \mbox{\hyperlink{group___d_m_a___exported___types_ggaee3245eea8fa938edeb35a6c9596fd86ad0ba8bc74a2ae6dcdc3e316e8be0d5d8}{HAL\_DMA\_HALF\_TRANSFER}}      = 0x01U,    }
+\DoxyCodeLine{117 \}\mbox{\hyperlink{group___d_m_a___exported___types_gaee3245eea8fa938edeb35a6c9596fd86}{HAL\_DMA\_LevelCompleteTypeDef}};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{122 \textcolor{keyword}{typedef} \textcolor{keyword}{enum}}
+\DoxyCodeLine{123 \{}
+\DoxyCodeLine{124   \mbox{\hyperlink{group___d_m_a___exported___types_ggafbe8b2bd9ce2128de6cdc08ccde7e8ada7d4463d9db2e6d15282128b44ae08e12}{HAL\_DMA\_XFER\_CPLT\_CB\_ID}}          = 0x00U,    }
+\DoxyCodeLine{125   \mbox{\hyperlink{group___d_m_a___exported___types_ggafbe8b2bd9ce2128de6cdc08ccde7e8ada4b1606f39a4eec41d958bc878719f046}{HAL\_DMA\_XFER\_HALFCPLT\_CB\_ID}}      = 0x01U,    }
+\DoxyCodeLine{126   \mbox{\hyperlink{group___d_m_a___exported___types_ggafbe8b2bd9ce2128de6cdc08ccde7e8ada09feb1bab1c32b35afd27b9316958051}{HAL\_DMA\_XFER\_M1CPLT\_CB\_ID}}        = 0x02U,    }
+\DoxyCodeLine{127   \mbox{\hyperlink{group___d_m_a___exported___types_ggafbe8b2bd9ce2128de6cdc08ccde7e8adac2e68a660d9830fa1e965482b9befbb9}{HAL\_DMA\_XFER\_M1HALFCPLT\_CB\_ID}}    = 0x03U,    }
+\DoxyCodeLine{128   \mbox{\hyperlink{group___d_m_a___exported___types_ggafbe8b2bd9ce2128de6cdc08ccde7e8ada3e76bc89154e0b50333cc551bf0337a6}{HAL\_DMA\_XFER\_ERROR\_CB\_ID}}         = 0x04U,    }
+\DoxyCodeLine{129   \mbox{\hyperlink{group___d_m_a___exported___types_ggafbe8b2bd9ce2128de6cdc08ccde7e8ada3059a9412e0624699e9123ba2bccdf3e}{HAL\_DMA\_XFER\_ABORT\_CB\_ID}}         = 0x05U,    }
+\DoxyCodeLine{130   \mbox{\hyperlink{group___d_m_a___exported___types_ggafbe8b2bd9ce2128de6cdc08ccde7e8adac9935fd906719942d6b09cfd55e837f0}{HAL\_DMA\_XFER\_ALL\_CB\_ID}}           = 0x06U     }
+\DoxyCodeLine{131 \}\mbox{\hyperlink{group___d_m_a___exported___types_gafbe8b2bd9ce2128de6cdc08ccde7e8ad}{HAL\_DMA\_CallbackIDTypeDef}};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{136 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{\_\_DMA\_HandleTypeDef}}}
+\DoxyCodeLine{137 \{}
+\DoxyCodeLine{138   \textcolor{keywordtype}{void}                            *\mbox{\hyperlink{struct_____d_m_a___handle_type_def_a87e0ffa82129f6f1062cb521defa8724}{Instance}};                                                        }
+\DoxyCodeLine{140   \mbox{\hyperlink{struct_d_m_a___init_type_def}{DMA\_InitTypeDef}}                 \mbox{\hyperlink{struct_____d_m_a___handle_type_def_a4352c7144ad5e1e4ab54a87d3be6eb62}{Init}};                                                             }
+\DoxyCodeLine{142   \mbox{\hyperlink{stm32h7xx__hal__def_8h_ab367482e943333a1299294eadaad284b}{HAL\_LockTypeDef}}                 \mbox{\hyperlink{struct_____d_m_a___handle_type_def_ad4cf225029dbefe8d3fe660c33b8bb6b}{Lock}};                                                             }
+\DoxyCodeLine{144   \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} \mbox{\hyperlink{group___d_m_a___exported___types_ga9c012af359987a240826f29073bbe463}{HAL\_DMA\_StateTypeDef}}       \mbox{\hyperlink{struct_____d_m_a___handle_type_def_a2263083d2bfa96222f3d7b8339c6faf8}{State}};                                                            }
+\DoxyCodeLine{146   \textcolor{keywordtype}{void}                            *\mbox{\hyperlink{struct_____d_m_a___handle_type_def_a6ee5f2130887847bbc051932ea43b73d}{Parent}};                                                          }
+\DoxyCodeLine{148   void                            (* \mbox{\hyperlink{struct_____d_m_a___handle_type_def_a3d7716d1d7a5717f09525efd19334864}{XferCpltCallback}})( \textcolor{keyword}{struct }\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{\_\_DMA\_HandleTypeDef}} * hdma);         }
+\DoxyCodeLine{150   void                            (* \mbox{\hyperlink{struct_____d_m_a___handle_type_def_aea6af14bab20d3f9a82f08df1abea01a}{XferHalfCpltCallback}})( \textcolor{keyword}{struct }\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{\_\_DMA\_HandleTypeDef}} * hdma);     }
+\DoxyCodeLine{152   void                            (* \mbox{\hyperlink{struct_____d_m_a___handle_type_def_a7055720d00fe66e27f3910087cb6524a}{XferM1CpltCallback}})( \textcolor{keyword}{struct }\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{\_\_DMA\_HandleTypeDef}} * hdma);       }
+\DoxyCodeLine{154   void                            (* \mbox{\hyperlink{struct_____d_m_a___handle_type_def_a5f01e4cd22742ea0ae056adc50b68ed3}{XferM1HalfCpltCallback}})( \textcolor{keyword}{struct }\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{\_\_DMA\_HandleTypeDef}} * hdma);   }
+\DoxyCodeLine{156   void                            (* \mbox{\hyperlink{struct_____d_m_a___handle_type_def_a695c6fe664a7baf827e461652ebdb9e0}{XferErrorCallback}})( \textcolor{keyword}{struct }\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{\_\_DMA\_HandleTypeDef}} * hdma);        }
+\DoxyCodeLine{158   void                            (* \mbox{\hyperlink{struct_____d_m_a___handle_type_def_a6253dc8680e566bbc244228374dd647d}{XferAbortCallback}})( \textcolor{keyword}{struct }\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{\_\_DMA\_HandleTypeDef}} * hdma);        }
+\DoxyCodeLine{160  \mbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t                    \mbox{\hyperlink{struct_____d_m_a___handle_type_def_a123c5063e6a3b1901b2fbe5f88c53a7e}{ErrorCode}};                                                        }
+\DoxyCodeLine{162  uint32\_t                         \mbox{\hyperlink{struct_____d_m_a___handle_type_def_a053ff68722cdf5ac37aa305e04e2b1c8}{StreamBaseAddress}};                                                }
+\DoxyCodeLine{164  uint32\_t                         \mbox{\hyperlink{struct_____d_m_a___handle_type_def_aa3ca4a9a3d300e05d7ff46613f43fd54}{StreamIndex}};                                                      }
+\DoxyCodeLine{166  \mbox{\hyperlink{struct_d_m_a_m_u_x___channel___type_def}{DMAMUX\_Channel\_TypeDef}}           *\mbox{\hyperlink{struct_____d_m_a___handle_type_def_a63aa7a453f14433a93bfc300db7e8eeb}{DMAmuxChannel}};                                                   }
+\DoxyCodeLine{168  \mbox{\hyperlink{struct_d_m_a_m_u_x___channel_status___type_def}{DMAMUX\_ChannelStatus\_TypeDef}}     *\mbox{\hyperlink{struct_____d_m_a___handle_type_def_a382fc8a5a3c3eb587b7c75ece3448c93}{DMAmuxChannelStatus}};                                             }
+\DoxyCodeLine{170  uint32\_t                         \mbox{\hyperlink{struct_____d_m_a___handle_type_def_aa96798fa1c9d4cb63d4f80835de42984}{DMAmuxChannelStatusMask}};                                          }
+\DoxyCodeLine{173  \mbox{\hyperlink{struct_d_m_a_m_u_x___request_gen___type_def}{DMAMUX\_RequestGen\_TypeDef}}        *\mbox{\hyperlink{struct_____d_m_a___handle_type_def_a7a9b5a2cdc6c1f7adbba53d8e4d86b83}{DMAmuxRequestGen}};                                                }
+\DoxyCodeLine{175  \mbox{\hyperlink{struct_d_m_a_m_u_x___request_gen_status___type_def}{DMAMUX\_RequestGenStatus\_TypeDef}}  *\mbox{\hyperlink{struct_____d_m_a___handle_type_def_ad3f4a59882ebacecb280c8569c9e9010}{DMAmuxRequestGenStatus}};                                          }
+\DoxyCodeLine{177  uint32\_t                         \mbox{\hyperlink{struct_____d_m_a___handle_type_def_a38f76cde279730ad689ac03a85fffc02}{DMAmuxRequestGenStatusMask}};                                       }
+\DoxyCodeLine{179 \}\mbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}};}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{186 \textcolor{comment}{/* Exported constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_NONE            (0x00000000U)    }}
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_TE              (0x00000001U)    }}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_FE              (0x00000002U)    }}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_DME             (0x00000004U)    }}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_TIMEOUT         (0x00000020U)    }}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_PARAM           (0x00000040U)    }}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_NO\_XFER         (0x00000080U)    }}
+\DoxyCodeLine{204 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_NOT\_SUPPORTED   (0x00000100U)    }}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_SYNC            (0x00000200U)    }}
+\DoxyCodeLine{206 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_REQGEN          (0x00000400U)    }}
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#define HAL\_DMA\_ERROR\_BUSY            (0x00000800U)    }}
+\DoxyCodeLine{217 \textcolor{comment}{/* DMAMUX1 requests */}}
+\DoxyCodeLine{218 \textcolor{preprocessor}{\#define DMA\_REQUEST\_MEM2MEM          0U  }}
+\DoxyCodeLine{220 \textcolor{preprocessor}{\#define DMA\_REQUEST\_GENERATOR0       1U  }}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#define DMA\_REQUEST\_GENERATOR1       2U  }}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#define DMA\_REQUEST\_GENERATOR2       3U  }}
+\DoxyCodeLine{223 \textcolor{preprocessor}{\#define DMA\_REQUEST\_GENERATOR3       4U  }}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#define DMA\_REQUEST\_GENERATOR4       5U  }}
+\DoxyCodeLine{225 \textcolor{preprocessor}{\#define DMA\_REQUEST\_GENERATOR5       6U  }}
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#define DMA\_REQUEST\_GENERATOR6       7U  }}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#define DMA\_REQUEST\_GENERATOR7       8U  }}
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#define DMA\_REQUEST\_ADC1             9U  }}
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#define DMA\_REQUEST\_ADC2             10U }}
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM1\_CH1         11U  }}
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM1\_CH2         12U  }}
+\DoxyCodeLine{234 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM1\_CH3         13U  }}
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM1\_CH4         14U  }}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM1\_UP          15U  }}
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM1\_TRIG        16U  }}
+\DoxyCodeLine{238 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM1\_COM         17U  }}
+\DoxyCodeLine{240 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM2\_CH1         18U  }}
+\DoxyCodeLine{241 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM2\_CH2         19U  }}
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM2\_CH3         20U  }}
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM2\_CH4         21U  }}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM2\_UP          22U  }}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM3\_CH1         23U  }}
+\DoxyCodeLine{247 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM3\_CH2         24U  }}
+\DoxyCodeLine{248 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM3\_CH3         25U  }}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM3\_CH4         26U  }}
+\DoxyCodeLine{250 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM3\_UP          27U  }}
+\DoxyCodeLine{251 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM3\_TRIG        28U  }}
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM4\_CH1         29U  }}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM4\_CH2         30U  }}
+\DoxyCodeLine{255 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM4\_CH3         31U  }}
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM4\_UP          32U  }}
+\DoxyCodeLine{258 \textcolor{preprocessor}{\#define DMA\_REQUEST\_I2C1\_RX          33U  }}
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#define DMA\_REQUEST\_I2C1\_TX          34U  }}
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#define DMA\_REQUEST\_I2C2\_RX          35U  }}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#define DMA\_REQUEST\_I2C2\_TX          36U  }}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPI1\_RX          37U  }}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPI1\_TX          38U  }}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPI2\_RX          39U  }}
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPI2\_TX          40U  }}
+\DoxyCodeLine{268 \textcolor{preprocessor}{\#define DMA\_REQUEST\_USART1\_RX        41U  }}
+\DoxyCodeLine{269 \textcolor{preprocessor}{\#define DMA\_REQUEST\_USART1\_TX        42U  }}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#define DMA\_REQUEST\_USART2\_RX        43U  }}
+\DoxyCodeLine{271 \textcolor{preprocessor}{\#define DMA\_REQUEST\_USART2\_TX        44U  }}
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#define DMA\_REQUEST\_USART3\_RX        45U  }}
+\DoxyCodeLine{273 \textcolor{preprocessor}{\#define DMA\_REQUEST\_USART3\_TX        46U  }}
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM8\_CH1         47U  }}
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM8\_CH2         48U  }}
+\DoxyCodeLine{277 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM8\_CH3         49U  }}
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM8\_CH4         50U  }}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM8\_UP          51U  }}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM8\_TRIG        52U  }}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM8\_COM         53U  }}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM5\_CH1         55U  }}
+\DoxyCodeLine{284 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM5\_CH2         56U  }}
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM5\_CH3         57U  }}
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM5\_CH4         58U  }}
+\DoxyCodeLine{287 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM5\_UP          59U  }}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM5\_TRIG        60U  }}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPI3\_RX          61U  }}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPI3\_TX          62U  }}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#define DMA\_REQUEST\_UART4\_RX         63U  }}
+\DoxyCodeLine{294 \textcolor{preprocessor}{\#define DMA\_REQUEST\_UART4\_TX         64U  }}
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#define DMA\_REQUEST\_UART5\_RX         65U  }}
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#define DMA\_REQUEST\_UART5\_TX         66U  }}
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#define DMA\_REQUEST\_DAC1\_CH1         67U  }}
+\DoxyCodeLine{299 \textcolor{preprocessor}{\#define DMA\_REQUEST\_DAC1\_CH2         68U  }}
+\DoxyCodeLine{301 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM6\_UP          69U  }}
+\DoxyCodeLine{302 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM7\_UP          70U  }}
+\DoxyCodeLine{304 \textcolor{preprocessor}{\#define DMA\_REQUEST\_USART6\_RX        71U  }}
+\DoxyCodeLine{305 \textcolor{preprocessor}{\#define DMA\_REQUEST\_USART6\_TX        72U  }}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#define DMA\_REQUEST\_I2C3\_RX          73U  }}
+\DoxyCodeLine{308 \textcolor{preprocessor}{\#define DMA\_REQUEST\_I2C3\_TX          74U  }}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#if defined (PSSI)}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#define DMA\_REQUEST\_DCMI\_PSSI        75U  }}
+\DoxyCodeLine{312 \textcolor{preprocessor}{\#define DMA\_REQUEST\_DCMI             DMA\_REQUEST\_DCMI\_PSSI }\textcolor{comment}{/* Legacy define */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{313 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{\#define DMA\_REQUEST\_DCMI             75U  }}
+\DoxyCodeLine{315 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PSSI */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#define DMA\_REQUEST\_CRYP\_IN          76U  }}
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#define DMA\_REQUEST\_CRYP\_OUT         77U  }}
+\DoxyCodeLine{320 \textcolor{preprocessor}{\#define DMA\_REQUEST\_HASH\_IN          78U  }}
+\DoxyCodeLine{322 \textcolor{preprocessor}{\#define DMA\_REQUEST\_UART7\_RX         79U  }}
+\DoxyCodeLine{323 \textcolor{preprocessor}{\#define DMA\_REQUEST\_UART7\_TX         80U  }}
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#define DMA\_REQUEST\_UART8\_RX         81U  }}
+\DoxyCodeLine{325 \textcolor{preprocessor}{\#define DMA\_REQUEST\_UART8\_TX         82U  }}
+\DoxyCodeLine{327 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPI4\_RX          83U  }}
+\DoxyCodeLine{328 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPI4\_TX          84U  }}
+\DoxyCodeLine{329 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPI5\_RX          85U  }}
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPI5\_TX          86U  }}
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SAI1\_A           87U  }}
+\DoxyCodeLine{333 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SAI1\_B           88U  }}
+\DoxyCodeLine{335 \textcolor{preprocessor}{\#if defined(SAI2)}}
+\DoxyCodeLine{336 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SAI2\_A           89U  }}
+\DoxyCodeLine{337 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SAI2\_B           90U  }}
+\DoxyCodeLine{338 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SAI2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SWPMI\_RX         91U  }}
+\DoxyCodeLine{341 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SWPMI\_TX         92U  }}
+\DoxyCodeLine{343 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPDIF\_RX\_DT      93U  }}
+\DoxyCodeLine{344 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SPDIF\_RX\_CS      94U  }}
+\DoxyCodeLine{346 \textcolor{preprocessor}{\#if defined(HRTIM1)}}
+\DoxyCodeLine{347 \textcolor{preprocessor}{\#define DMA\_REQUEST\_HRTIM\_MASTER     95U  }}
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#define DMA\_REQUEST\_HRTIM\_TIMER\_A    96U  }}
+\DoxyCodeLine{349 \textcolor{preprocessor}{\#define DMA\_REQUEST\_HRTIM\_TIMER\_B    97U  }}
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#define DMA\_REQUEST\_HRTIM\_TIMER\_C    98U  }}
+\DoxyCodeLine{351 \textcolor{preprocessor}{\#define DMA\_REQUEST\_HRTIM\_TIMER\_D    99U  }}
+\DoxyCodeLine{352 \textcolor{preprocessor}{\#define DMA\_REQUEST\_HRTIM\_TIMER\_E   100U  }}
+\DoxyCodeLine{353 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* HRTIM1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355 \textcolor{preprocessor}{\#define DMA\_REQUEST\_DFSDM1\_FLT0     101U  }}
+\DoxyCodeLine{356 \textcolor{preprocessor}{\#define DMA\_REQUEST\_DFSDM1\_FLT1     102U  }}
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#define DMA\_REQUEST\_DFSDM1\_FLT2     103U  }}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#define DMA\_REQUEST\_DFSDM1\_FLT3     104U  }}
+\DoxyCodeLine{360 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM15\_CH1       105U  }}
+\DoxyCodeLine{361 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM15\_UP        106U  }}
+\DoxyCodeLine{362 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM15\_TRIG      107U  }}
+\DoxyCodeLine{363 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM15\_COM       108U  }}
+\DoxyCodeLine{365 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM16\_CH1       109U  }}
+\DoxyCodeLine{366 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM16\_UP        110U  }}
+\DoxyCodeLine{368 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM17\_CH1       111U  }}
+\DoxyCodeLine{369 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM17\_UP        112U  }}
+\DoxyCodeLine{371 \textcolor{preprocessor}{\#if defined(SAI3)}}
+\DoxyCodeLine{372 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SAI3\_A          113U  }}
+\DoxyCodeLine{373 \textcolor{preprocessor}{\#define DMA\_REQUEST\_SAI3\_B          114U  }}
+\DoxyCodeLine{374 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SAI3 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376 \textcolor{preprocessor}{\#if defined(ADC3)}}
+\DoxyCodeLine{377 \textcolor{preprocessor}{\#define DMA\_REQUEST\_ADC3            115U  }}
+\DoxyCodeLine{378 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ADC3 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380 \textcolor{preprocessor}{\#if defined(UART9)}}
+\DoxyCodeLine{381 \textcolor{preprocessor}{\#define DMA\_REQUEST\_UART9\_RX        116U  }}
+\DoxyCodeLine{382 \textcolor{preprocessor}{\#define DMA\_REQUEST\_UART9\_TX        117U  }}
+\DoxyCodeLine{383 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* UART9 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{384 }
+\DoxyCodeLine{385 \textcolor{preprocessor}{\#if defined(USART10)}}
+\DoxyCodeLine{386 \textcolor{preprocessor}{\#define DMA\_REQUEST\_USART10\_RX      118U  }}
+\DoxyCodeLine{387 \textcolor{preprocessor}{\#define DMA\_REQUEST\_USART10\_TX      119U  }}
+\DoxyCodeLine{388 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* USART10 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{389 }
+\DoxyCodeLine{390 \textcolor{preprocessor}{\#if defined(FMAC)}}
+\DoxyCodeLine{391 \textcolor{preprocessor}{\#define DMA\_REQUEST\_FMAC\_READ       120U  }}
+\DoxyCodeLine{392 \textcolor{preprocessor}{\#define DMA\_REQUEST\_FMAC\_WRITE      121U  }}
+\DoxyCodeLine{393 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* FMAC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395 \textcolor{preprocessor}{\#if defined(CORDIC)}}
+\DoxyCodeLine{396 \textcolor{preprocessor}{\#define DMA\_REQUEST\_CORDIC\_READ     122U  }}
+\DoxyCodeLine{397 \textcolor{preprocessor}{\#define DMA\_REQUEST\_CORDIC\_WRITE    123U  }}
+\DoxyCodeLine{398 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CORDIC */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{399 }
+\DoxyCodeLine{400 \textcolor{preprocessor}{\#if defined(I2C5)}}
+\DoxyCodeLine{401 \textcolor{preprocessor}{\#define DMA\_REQUEST\_I2C5\_RX         124U  }}
+\DoxyCodeLine{402 \textcolor{preprocessor}{\#define DMA\_REQUEST\_I2C5\_TX         125U  }}
+\DoxyCodeLine{403 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* I2C5 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405 \textcolor{preprocessor}{\#if defined(TIM23)}}
+\DoxyCodeLine{406 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM23\_CH1        126U  }}
+\DoxyCodeLine{407 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM23\_CH2        127U  }}
+\DoxyCodeLine{408 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM23\_CH3        128U  }}
+\DoxyCodeLine{409 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM23\_CH4        129U  }}
+\DoxyCodeLine{410 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM23\_UP         130U  }}
+\DoxyCodeLine{411 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM23\_TRIG       131U  }}
+\DoxyCodeLine{412 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TIM23 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{414 \textcolor{preprocessor}{\#if defined(TIM24)}}
+\DoxyCodeLine{415 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM24\_CH1        132U  }}
+\DoxyCodeLine{416 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM24\_CH2        133U  }}
+\DoxyCodeLine{417 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM24\_CH3        134U  }}
+\DoxyCodeLine{418 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM24\_CH4        135U  }}
+\DoxyCodeLine{419 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM24\_UP         136U  }}
+\DoxyCodeLine{420 \textcolor{preprocessor}{\#define DMA\_REQUEST\_TIM24\_TRIG       137U  }}
+\DoxyCodeLine{421 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TIM24 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{422 }
+\DoxyCodeLine{423 \textcolor{comment}{/* DMAMUX2 requests */}}
+\DoxyCodeLine{424 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_MEM2MEM          0U  }}
+\DoxyCodeLine{425 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_GENERATOR0       1U  }}
+\DoxyCodeLine{426 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_GENERATOR1       2U  }}
+\DoxyCodeLine{427 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_GENERATOR2       3U  }}
+\DoxyCodeLine{428 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_GENERATOR3       4U  }}
+\DoxyCodeLine{429 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_GENERATOR4       5U  }}
+\DoxyCodeLine{430 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_GENERATOR5       6U  }}
+\DoxyCodeLine{431 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_GENERATOR6       7U  }}
+\DoxyCodeLine{432 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_GENERATOR7       8U  }}
+\DoxyCodeLine{433 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_LPUART1\_RX       9U  }}
+\DoxyCodeLine{434 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_LPUART1\_TX      10U  }}
+\DoxyCodeLine{435 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_SPI6\_RX         11U  }}
+\DoxyCodeLine{436 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_SPI6\_TX         12U  }}
+\DoxyCodeLine{437 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_I2C4\_RX         13U  }}
+\DoxyCodeLine{438 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_I2C4\_TX         14U  }}
+\DoxyCodeLine{439 \textcolor{preprocessor}{\#if defined(SAI4)}}
+\DoxyCodeLine{440 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_SAI4\_A          15U  }}
+\DoxyCodeLine{441 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_SAI4\_B          16U  }}
+\DoxyCodeLine{442 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* SAI4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{443 \textcolor{preprocessor}{\#if defined(ADC3)}}
+\DoxyCodeLine{444 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_ADC3            17U  }}
+\DoxyCodeLine{445 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ADC3 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{446 \textcolor{preprocessor}{\#if defined(DAC2)}}
+\DoxyCodeLine{447 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_DAC2\_CH1        17U  }}
+\DoxyCodeLine{448 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DAC2 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{449 \textcolor{preprocessor}{\#if defined(DFSDM2\_Channel0)}}
+\DoxyCodeLine{450 \textcolor{preprocessor}{\#define BDMA\_REQUEST\_DFSDM2\_FLT0     18U  }}
+\DoxyCodeLine{451 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* DFSDM1\_Channel0 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{452 }
+\DoxyCodeLine{461 \textcolor{preprocessor}{\#define DMA\_PERIPH\_TO\_MEMORY         ((uint32\_t)0x00000000U)      }}
+\DoxyCodeLine{462 \textcolor{preprocessor}{\#define DMA\_MEMORY\_TO\_PERIPH         ((uint32\_t)DMA\_SxCR\_DIR\_0)  }}
+\DoxyCodeLine{463 \textcolor{preprocessor}{\#define DMA\_MEMORY\_TO\_MEMORY         ((uint32\_t)DMA\_SxCR\_DIR\_1)  }}
+\DoxyCodeLine{472 \textcolor{preprocessor}{\#define DMA\_PINC\_ENABLE        ((uint32\_t)DMA\_SxCR\_PINC)  }}
+\DoxyCodeLine{473 \textcolor{preprocessor}{\#define DMA\_PINC\_DISABLE       ((uint32\_t)0x00000000U)     }}
+\DoxyCodeLine{482 \textcolor{preprocessor}{\#define DMA\_MINC\_ENABLE         ((uint32\_t)DMA\_SxCR\_MINC)  }}
+\DoxyCodeLine{483 \textcolor{preprocessor}{\#define DMA\_MINC\_DISABLE        ((uint32\_t)0x00000000U)     }}
+\DoxyCodeLine{492 \textcolor{preprocessor}{\#define DMA\_PDATAALIGN\_BYTE          ((uint32\_t)0x00000000U)       }}
+\DoxyCodeLine{493 \textcolor{preprocessor}{\#define DMA\_PDATAALIGN\_HALFWORD      ((uint32\_t)DMA\_SxCR\_PSIZE\_0)  }}
+\DoxyCodeLine{494 \textcolor{preprocessor}{\#define DMA\_PDATAALIGN\_WORD          ((uint32\_t)DMA\_SxCR\_PSIZE\_1)  }}
+\DoxyCodeLine{503 \textcolor{preprocessor}{\#define DMA\_MDATAALIGN\_BYTE          ((uint32\_t)0x00000000U)       }}
+\DoxyCodeLine{504 \textcolor{preprocessor}{\#define DMA\_MDATAALIGN\_HALFWORD      ((uint32\_t)DMA\_SxCR\_MSIZE\_0)  }}
+\DoxyCodeLine{505 \textcolor{preprocessor}{\#define DMA\_MDATAALIGN\_WORD          ((uint32\_t)DMA\_SxCR\_MSIZE\_1)  }}
+\DoxyCodeLine{514 \textcolor{preprocessor}{\#define DMA\_NORMAL              ((uint32\_t)0x00000000U)                  }}
+\DoxyCodeLine{515 \textcolor{preprocessor}{\#define DMA\_CIRCULAR            ((uint32\_t)DMA\_SxCR\_CIRC)                }}
+\DoxyCodeLine{516 \textcolor{preprocessor}{\#define DMA\_PFCTRL              ((uint32\_t)DMA\_SxCR\_PFCTRL)              }}
+\DoxyCodeLine{517 \textcolor{preprocessor}{\#define DMA\_DOUBLE\_BUFFER\_M0    ((uint32\_t)DMA\_SxCR\_DBM)                 }}
+\DoxyCodeLine{518 \textcolor{preprocessor}{\#define DMA\_DOUBLE\_BUFFER\_M1    ((uint32\_t)(DMA\_SxCR\_DBM | DMA\_SxCR\_CT)) }}
+\DoxyCodeLine{527 \textcolor{preprocessor}{\#define DMA\_PRIORITY\_LOW             ((uint32\_t)0x00000000U)    }}
+\DoxyCodeLine{528 \textcolor{preprocessor}{\#define DMA\_PRIORITY\_MEDIUM          ((uint32\_t)DMA\_SxCR\_PL\_0)  }}
+\DoxyCodeLine{529 \textcolor{preprocessor}{\#define DMA\_PRIORITY\_HIGH            ((uint32\_t)DMA\_SxCR\_PL\_1)  }}
+\DoxyCodeLine{530 \textcolor{preprocessor}{\#define DMA\_PRIORITY\_VERY\_HIGH       ((uint32\_t)DMA\_SxCR\_PL)    }}
+\DoxyCodeLine{539 \textcolor{preprocessor}{\#define DMA\_FIFOMODE\_DISABLE        ((uint32\_t)0x00000000U)       }}
+\DoxyCodeLine{540 \textcolor{preprocessor}{\#define DMA\_FIFOMODE\_ENABLE         ((uint32\_t)DMA\_SxFCR\_DMDIS)  }}
+\DoxyCodeLine{549 \textcolor{preprocessor}{\#define DMA\_FIFO\_THRESHOLD\_1QUARTERFULL       ((uint32\_t)0x00000000U)       }}
+\DoxyCodeLine{550 \textcolor{preprocessor}{\#define DMA\_FIFO\_THRESHOLD\_HALFFULL           ((uint32\_t)DMA\_SxFCR\_FTH\_0)  }}
+\DoxyCodeLine{551 \textcolor{preprocessor}{\#define DMA\_FIFO\_THRESHOLD\_3QUARTERSFULL      ((uint32\_t)DMA\_SxFCR\_FTH\_1)  }}
+\DoxyCodeLine{552 \textcolor{preprocessor}{\#define DMA\_FIFO\_THRESHOLD\_FULL               ((uint32\_t)DMA\_SxFCR\_FTH)    }}
+\DoxyCodeLine{561 \textcolor{preprocessor}{\#define DMA\_MBURST\_SINGLE       ((uint32\_t)0x00000000U)}}
+\DoxyCodeLine{562 \textcolor{preprocessor}{\#define DMA\_MBURST\_INC4         ((uint32\_t)DMA\_SxCR\_MBURST\_0)}}
+\DoxyCodeLine{563 \textcolor{preprocessor}{\#define DMA\_MBURST\_INC8         ((uint32\_t)DMA\_SxCR\_MBURST\_1)}}
+\DoxyCodeLine{564 \textcolor{preprocessor}{\#define DMA\_MBURST\_INC16        ((uint32\_t)DMA\_SxCR\_MBURST)}}
+\DoxyCodeLine{573 \textcolor{preprocessor}{\#define DMA\_PBURST\_SINGLE       ((uint32\_t)0x00000000U)}}
+\DoxyCodeLine{574 \textcolor{preprocessor}{\#define DMA\_PBURST\_INC4         ((uint32\_t)DMA\_SxCR\_PBURST\_0)}}
+\DoxyCodeLine{575 \textcolor{preprocessor}{\#define DMA\_PBURST\_INC8         ((uint32\_t)DMA\_SxCR\_PBURST\_1)}}
+\DoxyCodeLine{576 \textcolor{preprocessor}{\#define DMA\_PBURST\_INC16        ((uint32\_t)DMA\_SxCR\_PBURST)}}
+\DoxyCodeLine{585 \textcolor{preprocessor}{\#define DMA\_IT\_TC                         ((uint32\_t)DMA\_SxCR\_TCIE)}}
+\DoxyCodeLine{586 \textcolor{preprocessor}{\#define DMA\_IT\_HT                         ((uint32\_t)DMA\_SxCR\_HTIE)}}
+\DoxyCodeLine{587 \textcolor{preprocessor}{\#define DMA\_IT\_TE                         ((uint32\_t)DMA\_SxCR\_TEIE)}}
+\DoxyCodeLine{588 \textcolor{preprocessor}{\#define DMA\_IT\_DME                        ((uint32\_t)DMA\_SxCR\_DMEIE)}}
+\DoxyCodeLine{589 \textcolor{preprocessor}{\#define DMA\_IT\_FE                         ((uint32\_t)0x00000080U)}}
+\DoxyCodeLine{598 \textcolor{preprocessor}{\#define DMA\_FLAG\_FEIF0\_4                    ((uint32\_t)0x00000001U)}}
+\DoxyCodeLine{599 \textcolor{preprocessor}{\#define DMA\_FLAG\_DMEIF0\_4                   ((uint32\_t)0x00000004U)}}
+\DoxyCodeLine{600 \textcolor{preprocessor}{\#define DMA\_FLAG\_TEIF0\_4                    ((uint32\_t)0x00000008U)}}
+\DoxyCodeLine{601 \textcolor{preprocessor}{\#define DMA\_FLAG\_HTIF0\_4                    ((uint32\_t)0x00000010U)}}
+\DoxyCodeLine{602 \textcolor{preprocessor}{\#define DMA\_FLAG\_TCIF0\_4                    ((uint32\_t)0x00000020U)}}
+\DoxyCodeLine{603 \textcolor{preprocessor}{\#define DMA\_FLAG\_FEIF1\_5                    ((uint32\_t)0x00000040U)}}
+\DoxyCodeLine{604 \textcolor{preprocessor}{\#define DMA\_FLAG\_DMEIF1\_5                   ((uint32\_t)0x00000100U)}}
+\DoxyCodeLine{605 \textcolor{preprocessor}{\#define DMA\_FLAG\_TEIF1\_5                    ((uint32\_t)0x00000200U)}}
+\DoxyCodeLine{606 \textcolor{preprocessor}{\#define DMA\_FLAG\_HTIF1\_5                    ((uint32\_t)0x00000400U)}}
+\DoxyCodeLine{607 \textcolor{preprocessor}{\#define DMA\_FLAG\_TCIF1\_5                    ((uint32\_t)0x00000800U)}}
+\DoxyCodeLine{608 \textcolor{preprocessor}{\#define DMA\_FLAG\_FEIF2\_6                    ((uint32\_t)0x00010000U)}}
+\DoxyCodeLine{609 \textcolor{preprocessor}{\#define DMA\_FLAG\_DMEIF2\_6                   ((uint32\_t)0x00040000U)}}
+\DoxyCodeLine{610 \textcolor{preprocessor}{\#define DMA\_FLAG\_TEIF2\_6                    ((uint32\_t)0x00080000U)}}
+\DoxyCodeLine{611 \textcolor{preprocessor}{\#define DMA\_FLAG\_HTIF2\_6                    ((uint32\_t)0x00100000U)}}
+\DoxyCodeLine{612 \textcolor{preprocessor}{\#define DMA\_FLAG\_TCIF2\_6                    ((uint32\_t)0x00200000U)}}
+\DoxyCodeLine{613 \textcolor{preprocessor}{\#define DMA\_FLAG\_FEIF3\_7                    ((uint32\_t)0x00400000U)}}
+\DoxyCodeLine{614 \textcolor{preprocessor}{\#define DMA\_FLAG\_DMEIF3\_7                   ((uint32\_t)0x01000000U)}}
+\DoxyCodeLine{615 \textcolor{preprocessor}{\#define DMA\_FLAG\_TEIF3\_7                    ((uint32\_t)0x02000000U)}}
+\DoxyCodeLine{616 \textcolor{preprocessor}{\#define DMA\_FLAG\_HTIF3\_7                    ((uint32\_t)0x04000000U)}}
+\DoxyCodeLine{617 \textcolor{preprocessor}{\#define DMA\_FLAG\_TCIF3\_7                    ((uint32\_t)0x08000000U)}}
+\DoxyCodeLine{626 \textcolor{preprocessor}{\#define BDMA\_FLAG\_GL0                      ((uint32\_t)0x00000001)}}
+\DoxyCodeLine{627 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TC0                      ((uint32\_t)0x00000002)}}
+\DoxyCodeLine{628 \textcolor{preprocessor}{\#define BDMA\_FLAG\_HT0                      ((uint32\_t)0x00000004)}}
+\DoxyCodeLine{629 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TE0                      ((uint32\_t)0x00000008)}}
+\DoxyCodeLine{630 \textcolor{preprocessor}{\#define BDMA\_FLAG\_GL1                      ((uint32\_t)0x00000010)}}
+\DoxyCodeLine{631 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TC1                      ((uint32\_t)0x00000020)}}
+\DoxyCodeLine{632 \textcolor{preprocessor}{\#define BDMA\_FLAG\_HT1                      ((uint32\_t)0x00000040)}}
+\DoxyCodeLine{633 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TE1                      ((uint32\_t)0x00000080)}}
+\DoxyCodeLine{634 \textcolor{preprocessor}{\#define BDMA\_FLAG\_GL2                      ((uint32\_t)0x00000100)}}
+\DoxyCodeLine{635 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TC2                      ((uint32\_t)0x00000200)}}
+\DoxyCodeLine{636 \textcolor{preprocessor}{\#define BDMA\_FLAG\_HT2                      ((uint32\_t)0x00000400)}}
+\DoxyCodeLine{637 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TE2                      ((uint32\_t)0x00000800)}}
+\DoxyCodeLine{638 \textcolor{preprocessor}{\#define BDMA\_FLAG\_GL3                      ((uint32\_t)0x00001000)}}
+\DoxyCodeLine{639 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TC3                      ((uint32\_t)0x00002000)}}
+\DoxyCodeLine{640 \textcolor{preprocessor}{\#define BDMA\_FLAG\_HT3                      ((uint32\_t)0x00004000)}}
+\DoxyCodeLine{641 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TE3                      ((uint32\_t)0x00008000)}}
+\DoxyCodeLine{642 \textcolor{preprocessor}{\#define BDMA\_FLAG\_GL4                      ((uint32\_t)0x00010000)}}
+\DoxyCodeLine{643 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TC4                      ((uint32\_t)0x00020000)}}
+\DoxyCodeLine{644 \textcolor{preprocessor}{\#define BDMA\_FLAG\_HT4                      ((uint32\_t)0x00040000)}}
+\DoxyCodeLine{645 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TE4                      ((uint32\_t)0x00080000)}}
+\DoxyCodeLine{646 \textcolor{preprocessor}{\#define BDMA\_FLAG\_GL5                      ((uint32\_t)0x00100000)}}
+\DoxyCodeLine{647 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TC5                      ((uint32\_t)0x00200000)}}
+\DoxyCodeLine{648 \textcolor{preprocessor}{\#define BDMA\_FLAG\_HT5                      ((uint32\_t)0x00400000)}}
+\DoxyCodeLine{649 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TE5                      ((uint32\_t)0x00800000)}}
+\DoxyCodeLine{650 \textcolor{preprocessor}{\#define BDMA\_FLAG\_GL6                      ((uint32\_t)0x01000000)}}
+\DoxyCodeLine{651 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TC6                      ((uint32\_t)0x02000000)}}
+\DoxyCodeLine{652 \textcolor{preprocessor}{\#define BDMA\_FLAG\_HT6                      ((uint32\_t)0x04000000)}}
+\DoxyCodeLine{653 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TE6                      ((uint32\_t)0x08000000)}}
+\DoxyCodeLine{654 \textcolor{preprocessor}{\#define BDMA\_FLAG\_GL7                      ((uint32\_t)0x10000000)}}
+\DoxyCodeLine{655 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TC7                      ((uint32\_t)0x20000000)}}
+\DoxyCodeLine{656 \textcolor{preprocessor}{\#define BDMA\_FLAG\_HT7                      ((uint32\_t)0x40000000)}}
+\DoxyCodeLine{657 \textcolor{preprocessor}{\#define BDMA\_FLAG\_TE7                      ((uint32\_t)0x80000000)}}
+\DoxyCodeLine{658 }
+\DoxyCodeLine{667 \textcolor{comment}{/* Exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{676 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_RESET\_HANDLE\_STATE(\_\_HANDLE\_\_) ((\_\_HANDLE\_\_)-\/>State = HAL\_DMA\_STATE\_RESET)}}
+\DoxyCodeLine{677 }
+\DoxyCodeLine{690 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_FS(\_\_HANDLE\_\_) ((IS\_DMA\_STREAM\_INSTANCE((\_\_HANDLE\_\_)-\/>Instance))? (((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>FCR \& (DMA\_SxFCR\_FS)) : 0)}}
+\DoxyCodeLine{691 }
+\DoxyCodeLine{697 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_ENABLE(\_\_HANDLE\_\_) \(\backslash\)}}
+\DoxyCodeLine{698 \textcolor{preprocessor}{((IS\_DMA\_STREAM\_INSTANCE((\_\_HANDLE\_\_)-\/>Instance))? (((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CR |=  DMA\_SxCR\_EN) : \(\backslash\)}}
+\DoxyCodeLine{699 \textcolor{preprocessor}{(((BDMA\_Channel\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CCR |=  BDMA\_CCR\_EN))}}
+\DoxyCodeLine{700 }
+\DoxyCodeLine{706 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_DISABLE(\_\_HANDLE\_\_) \(\backslash\)}}
+\DoxyCodeLine{707 \textcolor{preprocessor}{((IS\_DMA\_STREAM\_INSTANCE((\_\_HANDLE\_\_)-\/>Instance))? (((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CR \&=  \string~DMA\_SxCR\_EN) : \(\backslash\)}}
+\DoxyCodeLine{708 \textcolor{preprocessor}{(((BDMA\_Channel\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CCR \&=  \string~BDMA\_CCR\_EN))}}
+\DoxyCodeLine{709 }
+\DoxyCodeLine{710 \textcolor{comment}{/* Interrupt \& Flag management */}}
+\DoxyCodeLine{711 }
+\DoxyCodeLine{717 \textcolor{preprocessor}{\#if defined(BDMA1)}}
+\DoxyCodeLine{718 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_TC\_FLAG\_INDEX(\_\_HANDLE\_\_) \(\backslash\)}}
+\DoxyCodeLine{719 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream0))? DMA\_FLAG\_TCIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{720 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream0))? DMA\_FLAG\_TCIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{721 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream4))? DMA\_FLAG\_TCIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{722 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream4))? DMA\_FLAG\_TCIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{723 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream1))? DMA\_FLAG\_TCIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{724 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream1))? DMA\_FLAG\_TCIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{725 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream5))? DMA\_FLAG\_TCIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{726 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream5))? DMA\_FLAG\_TCIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{727 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream2))? DMA\_FLAG\_TCIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{728 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream2))? DMA\_FLAG\_TCIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{729 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream6))? DMA\_FLAG\_TCIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{730 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream6))? DMA\_FLAG\_TCIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{731 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream3))? DMA\_FLAG\_TCIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{732 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream3))? DMA\_FLAG\_TCIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{733 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream7))? DMA\_FLAG\_TCIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{734 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream7))? DMA\_FLAG\_TCIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{735 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel0))? BDMA\_FLAG\_TC0  :\(\backslash\)}}
+\DoxyCodeLine{736 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel0))? BDMA\_FLAG\_TC0  :\(\backslash\)}}
+\DoxyCodeLine{737 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel1))? BDMA\_FLAG\_TC1  :\(\backslash\)}}
+\DoxyCodeLine{738 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel1))? BDMA\_FLAG\_TC1  :\(\backslash\)}}
+\DoxyCodeLine{739 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel2))? BDMA\_FLAG\_TC2  :\(\backslash\)}}
+\DoxyCodeLine{740 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel2))? BDMA\_FLAG\_TC2  :\(\backslash\)}}
+\DoxyCodeLine{741 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel3))? BDMA\_FLAG\_TC3  :\(\backslash\)}}
+\DoxyCodeLine{742 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel3))? BDMA\_FLAG\_TC3  :\(\backslash\)}}
+\DoxyCodeLine{743 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel4))? BDMA\_FLAG\_TC4  :\(\backslash\)}}
+\DoxyCodeLine{744 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel4))? BDMA\_FLAG\_TC4  :\(\backslash\)}}
+\DoxyCodeLine{745 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel5))? BDMA\_FLAG\_TC5  :\(\backslash\)}}
+\DoxyCodeLine{746 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel5))? BDMA\_FLAG\_TC5  :\(\backslash\)}}
+\DoxyCodeLine{747 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel6))? BDMA\_FLAG\_TC6  :\(\backslash\)}}
+\DoxyCodeLine{748 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel6))? BDMA\_FLAG\_TC6  :\(\backslash\)}}
+\DoxyCodeLine{749 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel7))? BDMA\_FLAG\_TC7  :\(\backslash\)}}
+\DoxyCodeLine{750 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel7))? BDMA\_FLAG\_TC7  :\(\backslash\)}}
+\DoxyCodeLine{751 \textcolor{preprocessor}{ (uint32\_t)0x00000000)}}
+\DoxyCodeLine{752 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{753 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_TC\_FLAG\_INDEX(\_\_HANDLE\_\_) \(\backslash\)}}
+\DoxyCodeLine{754 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream0))? DMA\_FLAG\_TCIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{755 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream0))? DMA\_FLAG\_TCIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{756 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream4))? DMA\_FLAG\_TCIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{757 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream4))? DMA\_FLAG\_TCIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{758 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream1))? DMA\_FLAG\_TCIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{759 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream1))? DMA\_FLAG\_TCIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{760 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream5))? DMA\_FLAG\_TCIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{761 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream5))? DMA\_FLAG\_TCIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{762 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream2))? DMA\_FLAG\_TCIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{763 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream2))? DMA\_FLAG\_TCIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{764 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream6))? DMA\_FLAG\_TCIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{765 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream6))? DMA\_FLAG\_TCIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{766 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream3))? DMA\_FLAG\_TCIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{767 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream3))? DMA\_FLAG\_TCIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{768 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream7))? DMA\_FLAG\_TCIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{769 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream7))? DMA\_FLAG\_TCIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{770 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel0))? BDMA\_FLAG\_TC0   :\(\backslash\)}}
+\DoxyCodeLine{771 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel1))? BDMA\_FLAG\_TC1   :\(\backslash\)}}
+\DoxyCodeLine{772 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel2))? BDMA\_FLAG\_TC2   :\(\backslash\)}}
+\DoxyCodeLine{773 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel3))? BDMA\_FLAG\_TC3   :\(\backslash\)}}
+\DoxyCodeLine{774 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel4))? BDMA\_FLAG\_TC4   :\(\backslash\)}}
+\DoxyCodeLine{775 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel5))? BDMA\_FLAG\_TC5   :\(\backslash\)}}
+\DoxyCodeLine{776 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel6))? BDMA\_FLAG\_TC6   :\(\backslash\)}}
+\DoxyCodeLine{777 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel7))? BDMA\_FLAG\_TC7   :\(\backslash\)}}
+\DoxyCodeLine{778 \textcolor{preprocessor}{ (uint32\_t)0x00000000)}}
+\DoxyCodeLine{779 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BDMA1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{780 }
+\DoxyCodeLine{786 \textcolor{preprocessor}{\#if defined(BDMA1)}}
+\DoxyCodeLine{787 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_HT\_FLAG\_INDEX(\_\_HANDLE\_\_)\(\backslash\)}}
+\DoxyCodeLine{788 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream0))? DMA\_FLAG\_HTIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{789 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream0))? DMA\_FLAG\_HTIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{790 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream4))? DMA\_FLAG\_HTIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{791 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream4))? DMA\_FLAG\_HTIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{792 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream1))? DMA\_FLAG\_HTIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{793 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream1))? DMA\_FLAG\_HTIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{794 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream5))? DMA\_FLAG\_HTIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{795 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream5))? DMA\_FLAG\_HTIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{796 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream2))? DMA\_FLAG\_HTIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{797 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream2))? DMA\_FLAG\_HTIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{798 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream6))? DMA\_FLAG\_HTIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{799 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream6))? DMA\_FLAG\_HTIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{800 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream3))? DMA\_FLAG\_HTIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{801 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream3))? DMA\_FLAG\_HTIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{802 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream7))? DMA\_FLAG\_HTIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{803 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream7))? DMA\_FLAG\_HTIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{804 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel0))? BDMA\_FLAG\_HT0  :\(\backslash\)}}
+\DoxyCodeLine{805 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel0))? BDMA\_FLAG\_HT0  :\(\backslash\)}}
+\DoxyCodeLine{806 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel1))? BDMA\_FLAG\_HT1  :\(\backslash\)}}
+\DoxyCodeLine{807 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel1))? BDMA\_FLAG\_HT1  :\(\backslash\)}}
+\DoxyCodeLine{808 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel2))? BDMA\_FLAG\_HT2  :\(\backslash\)}}
+\DoxyCodeLine{809 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel2))? BDMA\_FLAG\_HT2  :\(\backslash\)}}
+\DoxyCodeLine{810 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel3))? BDMA\_FLAG\_HT3  :\(\backslash\)}}
+\DoxyCodeLine{811 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel3))? BDMA\_FLAG\_HT3  :\(\backslash\)}}
+\DoxyCodeLine{812 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel4))? BDMA\_FLAG\_HT4  :\(\backslash\)}}
+\DoxyCodeLine{813 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel4))? BDMA\_FLAG\_HT4  :\(\backslash\)}}
+\DoxyCodeLine{814 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel5))? BDMA\_FLAG\_HT5  :\(\backslash\)}}
+\DoxyCodeLine{815 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel5))? BDMA\_FLAG\_HT5  :\(\backslash\)}}
+\DoxyCodeLine{816 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel6))? BDMA\_FLAG\_HT6  :\(\backslash\)}}
+\DoxyCodeLine{817 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel6))? BDMA\_FLAG\_HT6  :\(\backslash\)}}
+\DoxyCodeLine{818 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel7))? BDMA\_FLAG\_HT7  :\(\backslash\)}}
+\DoxyCodeLine{819 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel7))? BDMA\_FLAG\_HT7  :\(\backslash\)}}
+\DoxyCodeLine{820 \textcolor{preprocessor}{ (uint32\_t)0x00000000)}}
+\DoxyCodeLine{821 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{822 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_HT\_FLAG\_INDEX(\_\_HANDLE\_\_)\(\backslash\)}}
+\DoxyCodeLine{823 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream0))? DMA\_FLAG\_HTIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{824 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream0))? DMA\_FLAG\_HTIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{825 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream4))? DMA\_FLAG\_HTIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{826 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream4))? DMA\_FLAG\_HTIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{827 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream1))? DMA\_FLAG\_HTIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{828 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream1))? DMA\_FLAG\_HTIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{829 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream5))? DMA\_FLAG\_HTIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{830 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream5))? DMA\_FLAG\_HTIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{831 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream2))? DMA\_FLAG\_HTIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{832 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream2))? DMA\_FLAG\_HTIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{833 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream6))? DMA\_FLAG\_HTIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{834 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream6))? DMA\_FLAG\_HTIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{835 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream3))? DMA\_FLAG\_HTIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{836 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream3))? DMA\_FLAG\_HTIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{837 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream7))? DMA\_FLAG\_HTIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{838 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream7))? DMA\_FLAG\_HTIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{839 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel0))? BDMA\_FLAG\_HT0   :\(\backslash\)}}
+\DoxyCodeLine{840 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel1))? BDMA\_FLAG\_HT1   :\(\backslash\)}}
+\DoxyCodeLine{841 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel2))? BDMA\_FLAG\_HT2   :\(\backslash\)}}
+\DoxyCodeLine{842 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel3))? BDMA\_FLAG\_HT3   :\(\backslash\)}}
+\DoxyCodeLine{843 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel4))? BDMA\_FLAG\_HT4   :\(\backslash\)}}
+\DoxyCodeLine{844 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel5))? BDMA\_FLAG\_HT5   :\(\backslash\)}}
+\DoxyCodeLine{845 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel6))? BDMA\_FLAG\_HT6   :\(\backslash\)}}
+\DoxyCodeLine{846 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel7))? BDMA\_FLAG\_HT7   :\(\backslash\)}}
+\DoxyCodeLine{847 \textcolor{preprocessor}{ (uint32\_t)0x00000000)}}
+\DoxyCodeLine{848 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BDMA1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{849 }
+\DoxyCodeLine{855 \textcolor{preprocessor}{\#if defined(BDMA1)}}
+\DoxyCodeLine{856 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_TE\_FLAG\_INDEX(\_\_HANDLE\_\_)\(\backslash\)}}
+\DoxyCodeLine{857 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream0))? DMA\_FLAG\_TEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{858 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream0))? DMA\_FLAG\_TEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{859 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream4))? DMA\_FLAG\_TEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{860 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream4))? DMA\_FLAG\_TEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{861 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream1))? DMA\_FLAG\_TEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{862 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream1))? DMA\_FLAG\_TEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{863 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream5))? DMA\_FLAG\_TEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{864 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream5))? DMA\_FLAG\_TEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{865 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream2))? DMA\_FLAG\_TEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{866 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream2))? DMA\_FLAG\_TEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{867 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream6))? DMA\_FLAG\_TEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{868 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream6))? DMA\_FLAG\_TEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{869 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream3))? DMA\_FLAG\_TEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{870 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream3))? DMA\_FLAG\_TEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{871 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream7))? DMA\_FLAG\_TEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{872 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream7))? DMA\_FLAG\_TEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{873 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel0))? BDMA\_FLAG\_TE0  :\(\backslash\)}}
+\DoxyCodeLine{874 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel0))? BDMA\_FLAG\_TE0  :\(\backslash\)}}
+\DoxyCodeLine{875 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel1))? BDMA\_FLAG\_TE1  :\(\backslash\)}}
+\DoxyCodeLine{876 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel1))? BDMA\_FLAG\_TE1  :\(\backslash\)}}
+\DoxyCodeLine{877 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel2))? BDMA\_FLAG\_TE2  :\(\backslash\)}}
+\DoxyCodeLine{878 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel2))? BDMA\_FLAG\_TE2  :\(\backslash\)}}
+\DoxyCodeLine{879 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel3))? BDMA\_FLAG\_TE3  :\(\backslash\)}}
+\DoxyCodeLine{880 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel3))? BDMA\_FLAG\_TE3  :\(\backslash\)}}
+\DoxyCodeLine{881 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel4))? BDMA\_FLAG\_TE4  :\(\backslash\)}}
+\DoxyCodeLine{882 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel4))? BDMA\_FLAG\_TE4  :\(\backslash\)}}
+\DoxyCodeLine{883 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel5))? BDMA\_FLAG\_TE5  :\(\backslash\)}}
+\DoxyCodeLine{884 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel5))? BDMA\_FLAG\_TE5  :\(\backslash\)}}
+\DoxyCodeLine{885 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel6))? BDMA\_FLAG\_TE6  :\(\backslash\)}}
+\DoxyCodeLine{886 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel6))? BDMA\_FLAG\_TE6  :\(\backslash\)}}
+\DoxyCodeLine{887 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel7))? BDMA\_FLAG\_TE7  :\(\backslash\)}}
+\DoxyCodeLine{888 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel7))? BDMA\_FLAG\_TE7  :\(\backslash\)}}
+\DoxyCodeLine{889 \textcolor{preprocessor}{ (uint32\_t)0x00000000)}}
+\DoxyCodeLine{890 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{891 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_TE\_FLAG\_INDEX(\_\_HANDLE\_\_)\(\backslash\)}}
+\DoxyCodeLine{892 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream0))? DMA\_FLAG\_TEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{893 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream0))? DMA\_FLAG\_TEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{894 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream4))? DMA\_FLAG\_TEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{895 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream4))? DMA\_FLAG\_TEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{896 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream1))? DMA\_FLAG\_TEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{897 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream1))? DMA\_FLAG\_TEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{898 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream5))? DMA\_FLAG\_TEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{899 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream5))? DMA\_FLAG\_TEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{900 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream2))? DMA\_FLAG\_TEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{901 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream2))? DMA\_FLAG\_TEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{902 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream6))? DMA\_FLAG\_TEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{903 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream6))? DMA\_FLAG\_TEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{904 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream3))? DMA\_FLAG\_TEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{905 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream3))? DMA\_FLAG\_TEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{906 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream7))? DMA\_FLAG\_TEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{907 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream7))? DMA\_FLAG\_TEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{908 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel0))? BDMA\_FLAG\_TE0   :\(\backslash\)}}
+\DoxyCodeLine{909 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel1))? BDMA\_FLAG\_TE1   :\(\backslash\)}}
+\DoxyCodeLine{910 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel2))? BDMA\_FLAG\_TE2   :\(\backslash\)}}
+\DoxyCodeLine{911 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel3))? BDMA\_FLAG\_TE3   :\(\backslash\)}}
+\DoxyCodeLine{912 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel4))? BDMA\_FLAG\_TE4   :\(\backslash\)}}
+\DoxyCodeLine{913 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel5))? BDMA\_FLAG\_TE5   :\(\backslash\)}}
+\DoxyCodeLine{914 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel6))? BDMA\_FLAG\_TE6   :\(\backslash\)}}
+\DoxyCodeLine{915 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel7))? BDMA\_FLAG\_TE7   :\(\backslash\)}}
+\DoxyCodeLine{916 \textcolor{preprocessor}{ (uint32\_t)0x00000000)}}
+\DoxyCodeLine{917 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BDMA1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{918 }
+\DoxyCodeLine{924 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_FE\_FLAG\_INDEX(\_\_HANDLE\_\_)\(\backslash\)}}
+\DoxyCodeLine{925 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream0))? DMA\_FLAG\_FEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{926 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream0))? DMA\_FLAG\_FEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{927 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream4))? DMA\_FLAG\_FEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{928 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream4))? DMA\_FLAG\_FEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{929 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream1))? DMA\_FLAG\_FEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{930 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream1))? DMA\_FLAG\_FEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{931 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream5))? DMA\_FLAG\_FEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{932 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream5))? DMA\_FLAG\_FEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{933 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream2))? DMA\_FLAG\_FEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{934 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream2))? DMA\_FLAG\_FEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{935 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream6))? DMA\_FLAG\_FEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{936 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream6))? DMA\_FLAG\_FEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{937 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream3))? DMA\_FLAG\_FEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{938 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream3))? DMA\_FLAG\_FEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{939 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream7))? DMA\_FLAG\_FEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{940 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream7))? DMA\_FLAG\_FEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{941 \textcolor{preprocessor}{  (uint32\_t)0x00000000)}}
+\DoxyCodeLine{942 }
+\DoxyCodeLine{948 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_DME\_FLAG\_INDEX(\_\_HANDLE\_\_)\(\backslash\)}}
+\DoxyCodeLine{949 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream0))? DMA\_FLAG\_DMEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{950 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream0))? DMA\_FLAG\_DMEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{951 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream4))? DMA\_FLAG\_DMEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{952 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream4))? DMA\_FLAG\_DMEIF0\_4 :\(\backslash\)}}
+\DoxyCodeLine{953 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream1))? DMA\_FLAG\_DMEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{954 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream1))? DMA\_FLAG\_DMEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{955 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream5))? DMA\_FLAG\_DMEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{956 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream5))? DMA\_FLAG\_DMEIF1\_5 :\(\backslash\)}}
+\DoxyCodeLine{957 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream2))? DMA\_FLAG\_DMEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{958 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream2))? DMA\_FLAG\_DMEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{959 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream6))? DMA\_FLAG\_DMEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{960 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream6))? DMA\_FLAG\_DMEIF2\_6 :\(\backslash\)}}
+\DoxyCodeLine{961 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream3))? DMA\_FLAG\_DMEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{962 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream3))? DMA\_FLAG\_DMEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{963 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA1\_Stream7))? DMA\_FLAG\_DMEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{964 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)DMA2\_Stream7))? DMA\_FLAG\_DMEIF3\_7 :\(\backslash\)}}
+\DoxyCodeLine{965 \textcolor{preprocessor}{  (uint32\_t)0x00000000)}}
+\DoxyCodeLine{966 }
+\DoxyCodeLine{972 \textcolor{preprocessor}{\#if defined(BDMA1)}}
+\DoxyCodeLine{973 \textcolor{preprocessor}{\#define \_\_HAL\_BDMA\_GET\_GI\_FLAG\_INDEX(\_\_HANDLE\_\_)\(\backslash\)}}
+\DoxyCodeLine{974 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel0))? BDMA\_ISR\_GIF0 :\(\backslash\)}}
+\DoxyCodeLine{975 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel0))? BDMA\_ISR\_GIF0 :\(\backslash\)}}
+\DoxyCodeLine{976 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel1))? BDMA\_ISR\_GIF1 :\(\backslash\)}}
+\DoxyCodeLine{977 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel1))? BDMA\_ISR\_GIF1 :\(\backslash\)}}
+\DoxyCodeLine{978 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel2))? BDMA\_ISR\_GIF2 :\(\backslash\)}}
+\DoxyCodeLine{979 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel2))? BDMA\_ISR\_GIF2 :\(\backslash\)}}
+\DoxyCodeLine{980 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel3))? BDMA\_ISR\_GIF3 :\(\backslash\)}}
+\DoxyCodeLine{981 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel3))? BDMA\_ISR\_GIF3 :\(\backslash\)}}
+\DoxyCodeLine{982 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel4))? BDMA\_ISR\_GIF4 :\(\backslash\)}}
+\DoxyCodeLine{983 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel4))? BDMA\_ISR\_GIF4 :\(\backslash\)}}
+\DoxyCodeLine{984 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel5))? BDMA\_ISR\_GIF5 :\(\backslash\)}}
+\DoxyCodeLine{985 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel5))? BDMA\_ISR\_GIF5 :\(\backslash\)}}
+\DoxyCodeLine{986 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel6))? BDMA\_ISR\_GIF6 :\(\backslash\)}}
+\DoxyCodeLine{987 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel6))? BDMA\_ISR\_GIF6 :\(\backslash\)}}
+\DoxyCodeLine{988 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA1\_Channel7))? BDMA\_ISR\_GIF7 :\(\backslash\)}}
+\DoxyCodeLine{989 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA2\_Channel7))? BDMA\_ISR\_GIF7 :\(\backslash\)}}
+\DoxyCodeLine{990 \textcolor{preprocessor}{ (uint32\_t)0x00000000)}}
+\DoxyCodeLine{991 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{992 \textcolor{preprocessor}{\#define \_\_HAL\_BDMA\_GET\_GI\_FLAG\_INDEX(\_\_HANDLE\_\_)\(\backslash\)}}
+\DoxyCodeLine{993 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel0))? BDMA\_ISR\_GIF0 :\(\backslash\)}}
+\DoxyCodeLine{994 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel1))? BDMA\_ISR\_GIF1 :\(\backslash\)}}
+\DoxyCodeLine{995 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel2))? BDMA\_ISR\_GIF2 :\(\backslash\)}}
+\DoxyCodeLine{996 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel3))? BDMA\_ISR\_GIF3 :\(\backslash\)}}
+\DoxyCodeLine{997 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel4))? BDMA\_ISR\_GIF4 :\(\backslash\)}}
+\DoxyCodeLine{998 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel5))? BDMA\_ISR\_GIF5 :\(\backslash\)}}
+\DoxyCodeLine{999 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel6))? BDMA\_ISR\_GIF6 :\(\backslash\)}}
+\DoxyCodeLine{1000 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) == ((uint32\_t)BDMA\_Channel7))? BDMA\_ISR\_GIF7 :\(\backslash\)}}
+\DoxyCodeLine{1001 \textcolor{preprocessor}{  (uint32\_t)0x00000000)}}
+\DoxyCodeLine{1002 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BDMA1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1003 }
+\DoxyCodeLine{1017 \textcolor{preprocessor}{\#if defined(BDMA1)}}
+\DoxyCodeLine{1018 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_FLAG(\_\_HANDLE\_\_, \_\_FLAG\_\_)\(\backslash\)}}
+\DoxyCodeLine{1019 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)BDMA1\_Channel7)?  (BDMA2-\/>ISR \& (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1020 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA2\_Stream7  )?  (BDMA1-\/>ISR \& (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1021 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA2\_Stream3  )?  (DMA2-\/>HISR \& (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1022 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA1\_Stream7  )?  (DMA2-\/>LISR \& (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1023 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA1\_Stream3  )?  (DMA1-\/>HISR \& (\_\_FLAG\_\_)) : (DMA1-\/>LISR \& (\_\_FLAG\_\_)))}}
+\DoxyCodeLine{1024 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{1025 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_FLAG(\_\_HANDLE\_\_, \_\_FLAG\_\_)\(\backslash\)}}
+\DoxyCodeLine{1026 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA2\_Stream7)? (BDMA-\/>ISR \& (\_\_FLAG\_\_))  :\(\backslash\)}}
+\DoxyCodeLine{1027 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA2\_Stream3)? (DMA2-\/>HISR \& (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1028 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA1\_Stream7)? (DMA2-\/>LISR \& (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1029 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA1\_Stream3)? (DMA1-\/>HISR \& (\_\_FLAG\_\_)) : (DMA1-\/>LISR \& (\_\_FLAG\_\_)))}}
+\DoxyCodeLine{1030 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BDMA1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1031 }
+\DoxyCodeLine{1045 \textcolor{preprocessor}{\#if defined(BDMA1)}}
+\DoxyCodeLine{1046 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_CLEAR\_FLAG(\_\_HANDLE\_\_, \_\_FLAG\_\_) \(\backslash\)}}
+\DoxyCodeLine{1047 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)BDMA1\_Channel7)? (BDMA2-\/>IFCR = (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1048 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA2\_Stream7)?  (BDMA1-\/>IFCR = (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1049 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA2\_Stream3)?  (DMA2-\/>HIFCR = (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1050 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA1\_Stream7)?  (DMA2-\/>LIFCR = (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1051 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA1\_Stream3)?  (DMA1-\/>HIFCR = (\_\_FLAG\_\_)) : (DMA1-\/>LIFCR = (\_\_FLAG\_\_)))}}
+\DoxyCodeLine{1052 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{1053 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_CLEAR\_FLAG(\_\_HANDLE\_\_, \_\_FLAG\_\_) \(\backslash\)}}
+\DoxyCodeLine{1054 \textcolor{preprocessor}{(((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA2\_Stream7)? (BDMA-\/>IFCR = (\_\_FLAG\_\_))  :\(\backslash\)}}
+\DoxyCodeLine{1055 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA2\_Stream3)? (DMA2-\/>HIFCR = (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1056 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA1\_Stream7)? (DMA2-\/>LIFCR = (\_\_FLAG\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1057 \textcolor{preprocessor}{ ((uint32\_t)((\_\_HANDLE\_\_)-\/>Instance) > (uint32\_t)DMA1\_Stream3)? (DMA1-\/>HIFCR = (\_\_FLAG\_\_)) : (DMA1-\/>LIFCR = (\_\_FLAG\_\_)))}}
+\DoxyCodeLine{1058 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* BDMA1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1059 }
+\DoxyCodeLine{1060 \textcolor{preprocessor}{\#define DMA\_TO\_BDMA\_IT(\_\_DMA\_IT\_\_) \(\backslash\)}}
+\DoxyCodeLine{1061 \textcolor{preprocessor}{((((\_\_DMA\_IT\_\_) \& (DMA\_IT\_TC | DMA\_IT\_HT | DMA\_IT\_TE)) == (DMA\_IT\_TC | DMA\_IT\_HT | DMA\_IT\_TE)) ? (BDMA\_CCR\_TCIE | BDMA\_CCR\_HTIE |BDMA\_CCR\_TEIE) :\(\backslash\)}}
+\DoxyCodeLine{1062 \textcolor{preprocessor}{ (((\_\_DMA\_IT\_\_) \& (DMA\_IT\_TC | DMA\_IT\_HT)) == (DMA\_IT\_TC | DMA\_IT\_HT)) ? (BDMA\_CCR\_TCIE | BDMA\_CCR\_HTIE) :\(\backslash\)}}
+\DoxyCodeLine{1063 \textcolor{preprocessor}{ (((\_\_DMA\_IT\_\_) \& (DMA\_IT\_HT | DMA\_IT\_TE)) == (DMA\_IT\_HT | DMA\_IT\_TE)) ? (BDMA\_CCR\_HTIE |BDMA\_CCR\_TEIE)  :\(\backslash\)}}
+\DoxyCodeLine{1064 \textcolor{preprocessor}{ (((\_\_DMA\_IT\_\_) \& (DMA\_IT\_TC | DMA\_IT\_TE)) == (DMA\_IT\_TC | DMA\_IT\_TE)) ? (BDMA\_CCR\_TCIE |BDMA\_CCR\_TEIE)  :\(\backslash\)}}
+\DoxyCodeLine{1065 \textcolor{preprocessor}{ ((\_\_DMA\_IT\_\_) == DMA\_IT\_TC) ? BDMA\_CCR\_TCIE :\(\backslash\)}}
+\DoxyCodeLine{1066 \textcolor{preprocessor}{ ((\_\_DMA\_IT\_\_) == DMA\_IT\_HT) ? BDMA\_CCR\_HTIE :\(\backslash\)}}
+\DoxyCodeLine{1067 \textcolor{preprocessor}{ ((\_\_DMA\_IT\_\_) == DMA\_IT\_TE) ? BDMA\_CCR\_TEIE :\(\backslash\)}}
+\DoxyCodeLine{1068 \textcolor{preprocessor}{ (uint32\_t)0x00000000)}}
+\DoxyCodeLine{1069 }
+\DoxyCodeLine{1070 }
+\DoxyCodeLine{1071 \textcolor{preprocessor}{\#define \_\_HAL\_BDMA\_CHANNEL\_ENABLE\_IT(\_\_HANDLE\_\_, \_\_INTERRUPT\_\_) \(\backslash\)}}
+\DoxyCodeLine{1072 \textcolor{preprocessor}{(((BDMA\_Channel\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CCR |= (DMA\_TO\_BDMA\_IT(\_\_INTERRUPT\_\_)))}}
+\DoxyCodeLine{1073 }
+\DoxyCodeLine{1074 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_STREAM\_ENABLE\_IT(\_\_HANDLE\_\_, \_\_INTERRUPT\_\_)   (((\_\_INTERRUPT\_\_) != DMA\_IT\_FE)? \(\backslash\)}}
+\DoxyCodeLine{1075 \textcolor{preprocessor}{(((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CR |= (\_\_INTERRUPT\_\_)) : (((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>FCR |= (\_\_INTERRUPT\_\_)))}}
+\DoxyCodeLine{1076 }
+\DoxyCodeLine{1089 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_ENABLE\_IT(\_\_HANDLE\_\_, \_\_INTERRUPT\_\_) ((IS\_DMA\_STREAM\_INSTANCE((\_\_HANDLE\_\_)-\/>Instance))?\(\backslash\)}}
+\DoxyCodeLine{1090 \textcolor{preprocessor}{                                                        (\_\_HAL\_DMA\_STREAM\_ENABLE\_IT((\_\_HANDLE\_\_), (\_\_INTERRUPT\_\_))) :\(\backslash\)}}
+\DoxyCodeLine{1091 \textcolor{preprocessor}{                                                        (\_\_HAL\_BDMA\_CHANNEL\_ENABLE\_IT((\_\_HANDLE\_\_), (\_\_INTERRUPT\_\_))))}}
+\DoxyCodeLine{1092 }
+\DoxyCodeLine{1093 }
+\DoxyCodeLine{1094 \textcolor{preprocessor}{\#define \_\_HAL\_BDMA\_CHANNEL\_DISABLE\_IT(\_\_HANDLE\_\_, \_\_INTERRUPT\_\_)  (((BDMA\_Channel\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CCR \&= \string~(DMA\_TO\_BDMA\_IT(\_\_INTERRUPT\_\_)))}}
+\DoxyCodeLine{1095 }
+\DoxyCodeLine{1096 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_STREAM\_DISABLE\_IT(\_\_HANDLE\_\_, \_\_INTERRUPT\_\_)  (((\_\_INTERRUPT\_\_) != DMA\_IT\_FE)? \(\backslash\)}}
+\DoxyCodeLine{1097 \textcolor{preprocessor}{(((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CR \&= \string~(\_\_INTERRUPT\_\_)) : (((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>FCR \&= \string~(\_\_INTERRUPT\_\_)))}}
+\DoxyCodeLine{1098 }
+\DoxyCodeLine{1111 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_DISABLE\_IT(\_\_HANDLE\_\_, \_\_INTERRUPT\_\_) ((IS\_DMA\_STREAM\_INSTANCE((\_\_HANDLE\_\_)-\/>Instance))?\(\backslash\)}}
+\DoxyCodeLine{1112 \textcolor{preprocessor}{                                                         (\_\_HAL\_DMA\_STREAM\_DISABLE\_IT((\_\_HANDLE\_\_), (\_\_INTERRUPT\_\_))) :\(\backslash\)}}
+\DoxyCodeLine{1113 \textcolor{preprocessor}{                                                         (\_\_HAL\_BDMA\_CHANNEL\_DISABLE\_IT((\_\_HANDLE\_\_), (\_\_INTERRUPT\_\_))))}}
+\DoxyCodeLine{1114 }
+\DoxyCodeLine{1115 }
+\DoxyCodeLine{1116 \textcolor{preprocessor}{\#define \_\_HAL\_BDMA\_CHANNEL\_GET\_IT\_SOURCE(\_\_HANDLE\_\_, \_\_INTERRUPT\_\_)  ((((BDMA\_Channel\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CCR \& (DMA\_TO\_BDMA\_IT(\_\_INTERRUPT\_\_))))}}
+\DoxyCodeLine{1117 }
+\DoxyCodeLine{1118 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_STREAM\_GET\_IT\_SOURCE(\_\_HANDLE\_\_, \_\_INTERRUPT\_\_)  (((\_\_INTERRUPT\_\_) != DMA\_IT\_FE)? \(\backslash\)}}
+\DoxyCodeLine{1119 \textcolor{preprocessor}{                                                        (((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CR \& (\_\_INTERRUPT\_\_)) : \(\backslash\)}}
+\DoxyCodeLine{1120 \textcolor{preprocessor}{                                                        (((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>FCR \& (\_\_INTERRUPT\_\_)))}}
+\DoxyCodeLine{1121 }
+\DoxyCodeLine{1134 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_IT\_SOURCE(\_\_HANDLE\_\_, \_\_INTERRUPT\_\_) ((IS\_DMA\_STREAM\_INSTANCE((\_\_HANDLE\_\_)-\/>Instance))? \(\backslash\)}}
+\DoxyCodeLine{1135 \textcolor{preprocessor}{                                                            (\_\_HAL\_DMA\_STREAM\_GET\_IT\_SOURCE((\_\_HANDLE\_\_), (\_\_INTERRUPT\_\_))) :\(\backslash\)}}
+\DoxyCodeLine{1136 \textcolor{preprocessor}{                                                            (\_\_HAL\_BDMA\_CHANNEL\_GET\_IT\_SOURCE((\_\_HANDLE\_\_), (\_\_INTERRUPT\_\_))))}}
+\DoxyCodeLine{1137 }
+\DoxyCodeLine{1155 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_SET\_COUNTER(\_\_HANDLE\_\_, \_\_COUNTER\_\_) ((IS\_DMA\_STREAM\_INSTANCE((\_\_HANDLE\_\_)-\/>Instance))? \(\backslash\)}}
+\DoxyCodeLine{1156 \textcolor{preprocessor}{                                                        (((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>NDTR = (uint16\_t)(\_\_COUNTER\_\_)) :\(\backslash\)}}
+\DoxyCodeLine{1157 \textcolor{preprocessor}{                                                        (((BDMA\_Channel\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CNDTR = (uint16\_t)(\_\_COUNTER\_\_)))}}
+\DoxyCodeLine{1158 }
+\DoxyCodeLine{1165 \textcolor{preprocessor}{\#define \_\_HAL\_DMA\_GET\_COUNTER(\_\_HANDLE\_\_) ((IS\_DMA\_STREAM\_INSTANCE((\_\_HANDLE\_\_)-\/>Instance))? \(\backslash\)}}
+\DoxyCodeLine{1166 \textcolor{preprocessor}{                                           (((DMA\_Stream\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>NDTR) :\(\backslash\)}}
+\DoxyCodeLine{1167 \textcolor{preprocessor}{                                           (((BDMA\_Channel\_TypeDef *)(\_\_HANDLE\_\_)-\/>Instance)-\/>CNDTR))}}
+\DoxyCodeLine{1168 }
+\DoxyCodeLine{1173 \textcolor{comment}{/* Include DMA HAL Extension module */}}
+\DoxyCodeLine{1174 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stm32h7xx__hal__dma__ex_8h}{stm32h7xx\_hal\_dma\_ex.h}}"{}}}
+\DoxyCodeLine{1175 }
+\DoxyCodeLine{1176 \textcolor{comment}{/* Exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{1177 }
+\DoxyCodeLine{1187 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_DMA\_Init(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma);}
+\DoxyCodeLine{1188 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_DMA\_DeInit(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma);}
+\DoxyCodeLine{1197 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_DMA\_Start (\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma, uint32\_t SrcAddress, uint32\_t DstAddress, uint32\_t DataLength);}
+\DoxyCodeLine{1198 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_DMA\_Start\_IT(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma, uint32\_t SrcAddress, uint32\_t DstAddress, uint32\_t DataLength);}
+\DoxyCodeLine{1199 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_DMA\_Abort(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma);}
+\DoxyCodeLine{1200 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_DMA\_Abort\_IT(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma);}
+\DoxyCodeLine{1201 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_DMA\_PollForTransfer(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma, \mbox{\hyperlink{group___d_m_a___exported___types_gaee3245eea8fa938edeb35a6c9596fd86}{HAL\_DMA\_LevelCompleteTypeDef}} CompleteLevel, uint32\_t Timeout);}
+\DoxyCodeLine{1202 \textcolor{keywordtype}{void}              HAL\_DMA\_IRQHandler(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma);}
+\DoxyCodeLine{1203 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_DMA\_RegisterCallback(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma, \mbox{\hyperlink{group___d_m_a___exported___types_gafbe8b2bd9ce2128de6cdc08ccde7e8ad}{HAL\_DMA\_CallbackIDTypeDef}} CallbackID, \textcolor{keywordtype}{void} (* pCallback)(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *\_hdma));}
+\DoxyCodeLine{1204 \mbox{\hyperlink{stm32h7xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}} HAL\_DMA\_UnRegisterCallback(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma, \mbox{\hyperlink{group___d_m_a___exported___types_gafbe8b2bd9ce2128de6cdc08ccde7e8ad}{HAL\_DMA\_CallbackIDTypeDef}} CallbackID);}
+\DoxyCodeLine{1205 }
+\DoxyCodeLine{1214 \mbox{\hyperlink{group___d_m_a___exported___types_ga9c012af359987a240826f29073bbe463}{HAL\_DMA\_StateTypeDef}} HAL\_DMA\_GetState(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma);}
+\DoxyCodeLine{1215 uint32\_t             HAL\_DMA\_GetError(\mbox{\hyperlink{struct_____d_m_a___handle_type_def}{DMA\_HandleTypeDef}} *hdma);}
+\DoxyCodeLine{1222 \textcolor{comment}{/* Private Constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{1231 \textcolor{comment}{/* Private macros -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{1237 \textcolor{preprocessor}{\#if defined(TIM24)}}
+\DoxyCodeLine{1238 \textcolor{preprocessor}{\#define IS\_DMA\_REQUEST(REQUEST) (((REQUEST) <= DMA\_REQUEST\_TIM24\_TRIG))}}
+\DoxyCodeLine{1239 \textcolor{preprocessor}{\#elif defined(ADC3)}}
+\DoxyCodeLine{1240 \textcolor{preprocessor}{\#define IS\_DMA\_REQUEST(REQUEST) (((REQUEST) <= DMA\_REQUEST\_ADC3))}}
+\DoxyCodeLine{1241 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{1242 \textcolor{preprocessor}{\#define IS\_DMA\_REQUEST(REQUEST) (((REQUEST) <= DMA\_REQUEST\_USART10\_TX))}}
+\DoxyCodeLine{1243 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* TIM24 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1244 }
+\DoxyCodeLine{1245 \textcolor{preprocessor}{\#if defined(ADC3)}}
+\DoxyCodeLine{1246 \textcolor{preprocessor}{\#define IS\_BDMA\_REQUEST(REQUEST) (((REQUEST) <= BDMA\_REQUEST\_ADC3))}}
+\DoxyCodeLine{1247 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{1248 \textcolor{preprocessor}{\#define IS\_BDMA\_REQUEST(REQUEST) (((REQUEST) <= BDMA\_REQUEST\_DFSDM2\_FLT0))}}
+\DoxyCodeLine{1249 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* ADC3 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1250 }
+\DoxyCodeLine{1251 \textcolor{preprocessor}{\#define IS\_DMA\_DIRECTION(DIRECTION) (((DIRECTION) == DMA\_PERIPH\_TO\_MEMORY ) || \(\backslash\)}}
+\DoxyCodeLine{1252 \textcolor{preprocessor}{                                     ((DIRECTION) == DMA\_MEMORY\_TO\_PERIPH)  || \(\backslash\)}}
+\DoxyCodeLine{1253 \textcolor{preprocessor}{                                     ((DIRECTION) == DMA\_MEMORY\_TO\_MEMORY))}}
+\DoxyCodeLine{1254 }
+\DoxyCodeLine{1255 \textcolor{preprocessor}{\#define IS\_DMA\_BUFFER\_SIZE(SIZE) (((SIZE) >= 0x01U) \&\& ((SIZE) < 0x10000U))}}
+\DoxyCodeLine{1256 }
+\DoxyCodeLine{1257 \textcolor{preprocessor}{\#define IS\_DMA\_PERIPHERAL\_INC\_STATE(STATE) (((STATE) == DMA\_PINC\_ENABLE) || \(\backslash\)}}
+\DoxyCodeLine{1258 \textcolor{preprocessor}{                                            ((STATE) == DMA\_PINC\_DISABLE))}}
+\DoxyCodeLine{1259 }
+\DoxyCodeLine{1260 \textcolor{preprocessor}{\#define IS\_DMA\_MEMORY\_INC\_STATE(STATE) (((STATE) == DMA\_MINC\_ENABLE)  || \(\backslash\)}}
+\DoxyCodeLine{1261 \textcolor{preprocessor}{                                        ((STATE) == DMA\_MINC\_DISABLE))}}
+\DoxyCodeLine{1262 }
+\DoxyCodeLine{1263 \textcolor{preprocessor}{\#define IS\_DMA\_PERIPHERAL\_DATA\_SIZE(SIZE) (((SIZE) == DMA\_PDATAALIGN\_BYTE)     || \(\backslash\)}}
+\DoxyCodeLine{1264 \textcolor{preprocessor}{                                           ((SIZE) == DMA\_PDATAALIGN\_HALFWORD) || \(\backslash\)}}
+\DoxyCodeLine{1265 \textcolor{preprocessor}{                                           ((SIZE) == DMA\_PDATAALIGN\_WORD))}}
+\DoxyCodeLine{1266 }
+\DoxyCodeLine{1267 \textcolor{preprocessor}{\#define IS\_DMA\_MEMORY\_DATA\_SIZE(SIZE) (((SIZE) == DMA\_MDATAALIGN\_BYTE)     || \(\backslash\)}}
+\DoxyCodeLine{1268 \textcolor{preprocessor}{                                       ((SIZE) == DMA\_MDATAALIGN\_HALFWORD) || \(\backslash\)}}
+\DoxyCodeLine{1269 \textcolor{preprocessor}{                                       ((SIZE) == DMA\_MDATAALIGN\_WORD ))}}
+\DoxyCodeLine{1270 }
+\DoxyCodeLine{1271 \textcolor{preprocessor}{\#define IS\_DMA\_MODE(MODE) (((MODE) == DMA\_NORMAL )           || \(\backslash\)}}
+\DoxyCodeLine{1272 \textcolor{preprocessor}{                           ((MODE) == DMA\_CIRCULAR)          || \(\backslash\)}}
+\DoxyCodeLine{1273 \textcolor{preprocessor}{                           ((MODE) == DMA\_PFCTRL)            || \(\backslash\)}}
+\DoxyCodeLine{1274 \textcolor{preprocessor}{                           ((MODE) == DMA\_DOUBLE\_BUFFER\_M0)  || \(\backslash\)}}
+\DoxyCodeLine{1275 \textcolor{preprocessor}{                           ((MODE) == DMA\_DOUBLE\_BUFFER\_M1))}}
+\DoxyCodeLine{1276 }
+\DoxyCodeLine{1277 \textcolor{preprocessor}{\#define IS\_DMA\_PRIORITY(PRIORITY) (((PRIORITY) == DMA\_PRIORITY\_LOW )   || \(\backslash\)}}
+\DoxyCodeLine{1278 \textcolor{preprocessor}{                                   ((PRIORITY) == DMA\_PRIORITY\_MEDIUM) || \(\backslash\)}}
+\DoxyCodeLine{1279 \textcolor{preprocessor}{                                   ((PRIORITY) == DMA\_PRIORITY\_HIGH)   || \(\backslash\)}}
+\DoxyCodeLine{1280 \textcolor{preprocessor}{                                   ((PRIORITY) == DMA\_PRIORITY\_VERY\_HIGH))}}
+\DoxyCodeLine{1281 }
+\DoxyCodeLine{1282 \textcolor{preprocessor}{\#define IS\_DMA\_FIFO\_MODE\_STATE(STATE) (((STATE) == DMA\_FIFOMODE\_DISABLE ) || \(\backslash\)}}
+\DoxyCodeLine{1283 \textcolor{preprocessor}{                                       ((STATE) == DMA\_FIFOMODE\_ENABLE))}}
+\DoxyCodeLine{1284 }
+\DoxyCodeLine{1285 \textcolor{preprocessor}{\#define IS\_DMA\_FIFO\_THRESHOLD(THRESHOLD) (((THRESHOLD) == DMA\_FIFO\_THRESHOLD\_1QUARTERFULL ) || \(\backslash\)}}
+\DoxyCodeLine{1286 \textcolor{preprocessor}{                                          ((THRESHOLD) == DMA\_FIFO\_THRESHOLD\_HALFFULL)      || \(\backslash\)}}
+\DoxyCodeLine{1287 \textcolor{preprocessor}{                                          ((THRESHOLD) == DMA\_FIFO\_THRESHOLD\_3QUARTERSFULL) || \(\backslash\)}}
+\DoxyCodeLine{1288 \textcolor{preprocessor}{                                          ((THRESHOLD) == DMA\_FIFO\_THRESHOLD\_FULL))}}
+\DoxyCodeLine{1289 }
+\DoxyCodeLine{1290 \textcolor{preprocessor}{\#define IS\_DMA\_MEMORY\_BURST(BURST) (((BURST) == DMA\_MBURST\_SINGLE) || \(\backslash\)}}
+\DoxyCodeLine{1291 \textcolor{preprocessor}{                                    ((BURST) == DMA\_MBURST\_INC4)   || \(\backslash\)}}
+\DoxyCodeLine{1292 \textcolor{preprocessor}{                                    ((BURST) == DMA\_MBURST\_INC8)   || \(\backslash\)}}
+\DoxyCodeLine{1293 \textcolor{preprocessor}{                                    ((BURST) == DMA\_MBURST\_INC16))}}
+\DoxyCodeLine{1294 }
+\DoxyCodeLine{1295 \textcolor{preprocessor}{\#define IS\_DMA\_PERIPHERAL\_BURST(BURST) (((BURST) == DMA\_PBURST\_SINGLE) || \(\backslash\)}}
+\DoxyCodeLine{1296 \textcolor{preprocessor}{                                        ((BURST) == DMA\_PBURST\_INC4)   || \(\backslash\)}}
+\DoxyCodeLine{1297 \textcolor{preprocessor}{                                        ((BURST) == DMA\_PBURST\_INC8)   || \(\backslash\)}}
+\DoxyCodeLine{1298 \textcolor{preprocessor}{                                        ((BURST) == DMA\_PBURST\_INC16))}}
+\DoxyCodeLine{1303 \textcolor{comment}{/* Private functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{1320 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{1321 \}}
+\DoxyCodeLine{1322 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{1323 }
+\DoxyCodeLine{1324 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* STM32H7xx\_HAL\_DMA\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{1325 }
+
+\end{DoxyCode}

@@ -1,0 +1,26 @@
+\hypertarget{group__sys__os}{}\doxysection{OS abstraction layer}
+\label{group__sys__os}\index{OS abstraction layer@{OS abstraction layer}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group__sys__sem}{Semaphores}}
+\item 
+\mbox{\hyperlink{group__sys__mutex}{Mutexes}}
+\item 
+\mbox{\hyperlink{group__sys__mbox}{Mailboxes}}
+\item 
+\mbox{\hyperlink{group__sys__misc}{Misc}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+No need to implement functions in this section in NO\+\_\+\+SYS mode. The OS-\/specific code should be implemented in \mbox{\hyperlink{sys__arch_8h_source}{arch/sys\+\_\+arch.\+h}} and sys\+\_\+arch.\+c of your port.
+
+The operating system emulation layer provides a common interface between the lw\+IP code and the underlying operating system kernel. The general idea is that porting lw\+IP to new architectures requires only small changes to a few header files and a new sys\+\_\+arch implementation. It is also possible to do a sys\+\_\+arch implementation that does not rely on any underlying operating system.
+
+The sys\+\_\+arch provides semaphores, mailboxes and mutexes to lw\+IP. For the full lw\+IP functionality, multiple threads support can be implemented in the sys\+\_\+arch, but this is not required for the basic lw\+IP functionality. Timer scheduling is implemented in lw\+IP, but can be implemented by the sys\+\_\+arch port (LWIP\+\_\+\+TIMERS\+\_\+\+CUSTOM==1).
+
+In addition to the source file providing the functionality of sys\+\_\+arch, the OS emulation layer must provide several header files defining macros used throughout lwip. The files required and the macros they must define are listed below the sys\+\_\+arch description.
+
+Since lw\+IP 1.\+4.\+0, semaphore, mutexes and mailbox functions are prototyped in a way that allows both using pointers or actual OS structures to be used. This way, memory required for such types can be either allocated in place (globally or on the stack) or on the heap (allocated internally in the \char`\"{}$\ast$\+\_\+new()\char`\"{} functions).\hypertarget{group__sys__os_autotoc_md6}{}\doxysubsubsection{Note\+:}\label{group__sys__os_autotoc_md6}
+Be careful with using \mbox{\hyperlink{mem_8c_ae2190f95ae9c46bb99ec0be4f4e4e5e4}{mem\+\_\+malloc()}} in sys\+\_\+arch. When malloc() refers to \mbox{\hyperlink{mem_8c_ae2190f95ae9c46bb99ec0be4f4e4e5e4}{mem\+\_\+malloc()}} you can run into a circular function call problem. In \mbox{\hyperlink{mem_8c}{mem.\+c}} \mbox{\hyperlink{mem_8c_a44a136e3b70c36abb6f8dc060c778113}{mem\+\_\+init()}} tries to allocate a semaphore using mem\+\_\+malloc, which of course can\textquotesingle{}t be performed when sys\+\_\+arch uses mem\+\_\+malloc. 

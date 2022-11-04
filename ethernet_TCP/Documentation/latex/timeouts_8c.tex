@@ -1,0 +1,64 @@
+\hypertarget{timeouts_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/core/timeouts.c File Reference}
+\label{timeouts_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/core/timeouts.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/core/timeouts.c}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/timeouts.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/priv/tcp\+\_\+priv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/def.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/memp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/priv/tcpip\+\_\+priv.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip4\+\_\+frag.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/etharp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/dhcp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/autoip.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/igmp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/dns.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/nd6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/ip6\+\_\+frag.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/mld6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/dhcp6.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/sys.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/pbuf.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{timeouts_8c_a9f8226a5ad45684da350fe29edb1ba7b}\label{timeouts_8c_a9f8226a5ad45684da350fe29edb1ba7b}} 
+\#define {\bfseries HANDLER}(x)~x
+\item 
+\mbox{\Hypertarget{timeouts_8c_a73a9294585fa91e7683805b83600211b}\label{timeouts_8c_a73a9294585fa91e7683805b83600211b}} 
+\#define {\bfseries LWIP\+\_\+\+MAX\+\_\+\+TIMEOUT}~0x7fffffff
+\item 
+\mbox{\Hypertarget{timeouts_8c_ab1514173fbdc1feeaa1c880f936d64f2}\label{timeouts_8c_ab1514173fbdc1feeaa1c880f936d64f2}} 
+\#define {\bfseries TIME\+\_\+\+LESS\+\_\+\+THAN}(t,  compare\+\_\+to)~( (((u32\+\_\+t)((t)-\/(compare\+\_\+to))) $>$ LWIP\+\_\+\+MAX\+\_\+\+TIMEOUT) ? 1 \+: 0 )
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{timeouts_8c_a8181bc316fdf61b85f787c5cadfcd249}\label{timeouts_8c_a8181bc316fdf61b85f787c5cadfcd249}} 
+void {\bfseries tcp\+\_\+timer\+\_\+needed} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const struct \mbox{\hyperlink{structlwip__cyclic__timer}{lwip\+\_\+cyclic\+\_\+timer}} \mbox{\hyperlink{timeouts_8c_addc06ab816f051a0fe6f280972eed142}{lwip\+\_\+cyclic\+\_\+timers}} \mbox{[}$\,$\mbox{]}
+\item 
+const int \mbox{\hyperlink{timeouts_8c_a9d01f287a19f20b073d3a1c306ecbfcd}{lwip\+\_\+num\+\_\+cyclic\+\_\+timers}} = LWIP\+\_\+\+ARRAYSIZE(\mbox{\hyperlink{timeouts_8c_addc06ab816f051a0fe6f280972eed142}{lwip\+\_\+cyclic\+\_\+timers}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Stack-\/internal timers implementation. This file includes timer callbacks for stack-\/internal timers as well as functions to set up or stop timers and check for expired timers. 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{timeouts_8c_addc06ab816f051a0fe6f280972eed142}\label{timeouts_8c_addc06ab816f051a0fe6f280972eed142}} 
+\index{timeouts.c@{timeouts.c}!lwip\_cyclic\_timers@{lwip\_cyclic\_timers}}
+\index{lwip\_cyclic\_timers@{lwip\_cyclic\_timers}!timeouts.c@{timeouts.c}}
+\doxysubsubsection{\texorpdfstring{lwip\_cyclic\_timers}{lwip\_cyclic\_timers}}
+{\footnotesize\ttfamily const struct \mbox{\hyperlink{structlwip__cyclic__timer}{lwip\+\_\+cyclic\+\_\+timer}} lwip\+\_\+cyclic\+\_\+timers\mbox{[}$\,$\mbox{]}}
+
+This array contains all stack-\/internal cyclic timers. To get the number of timers, use LWIP\+\_\+\+ARRAYSIZE() \mbox{\Hypertarget{timeouts_8c_a9d01f287a19f20b073d3a1c306ecbfcd}\label{timeouts_8c_a9d01f287a19f20b073d3a1c306ecbfcd}} 
+\index{timeouts.c@{timeouts.c}!lwip\_num\_cyclic\_timers@{lwip\_num\_cyclic\_timers}}
+\index{lwip\_num\_cyclic\_timers@{lwip\_num\_cyclic\_timers}!timeouts.c@{timeouts.c}}
+\doxysubsubsection{\texorpdfstring{lwip\_num\_cyclic\_timers}{lwip\_num\_cyclic\_timers}}
+{\footnotesize\ttfamily const int lwip\+\_\+num\+\_\+cyclic\+\_\+timers = LWIP\+\_\+\+ARRAYSIZE(\mbox{\hyperlink{timeouts_8c_addc06ab816f051a0fe6f280972eed142}{lwip\+\_\+cyclic\+\_\+timers}})}
+
+Array size of lwip\+\_\+cyclic\+\_\+timers\mbox{[}\mbox{]} 

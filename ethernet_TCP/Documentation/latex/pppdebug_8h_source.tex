@@ -1,0 +1,94 @@
+\hypertarget{pppdebug_8h_source}{}\doxysection{pppdebug.\+h}
+\label{pppdebug_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/pppdebug.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/pppdebug.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{* pppdebug.h -\/ System debugging utilities.}}
+\DoxyCodeLine{3 \textcolor{comment}{*}}
+\DoxyCodeLine{4 \textcolor{comment}{* Copyright (c) 2003 by Marc Boucher, Services Informatiques (MBSI) inc.}}
+\DoxyCodeLine{5 \textcolor{comment}{* portions Copyright (c) 1998 Global Election Systems Inc.}}
+\DoxyCodeLine{6 \textcolor{comment}{* portions Copyright (c) 2001 by Cognizant Pty Ltd.}}
+\DoxyCodeLine{7 \textcolor{comment}{*}}
+\DoxyCodeLine{8 \textcolor{comment}{* The authors hereby grant permission to use, copy, modify, distribute,}}
+\DoxyCodeLine{9 \textcolor{comment}{* and license this software and its documentation for any purpose, provided}}
+\DoxyCodeLine{10 \textcolor{comment}{* that existing copyright notices are retained in all copies and that this}}
+\DoxyCodeLine{11 \textcolor{comment}{* notice and the following disclaimer are included verbatim in any }}
+\DoxyCodeLine{12 \textcolor{comment}{* distributions. No written agreement, license, or royalty fee is required}}
+\DoxyCodeLine{13 \textcolor{comment}{* for any of the authorized uses.}}
+\DoxyCodeLine{14 \textcolor{comment}{*}}
+\DoxyCodeLine{15 \textcolor{comment}{* THIS SOFTWARE IS PROVIDED BY THE CONTRIBUTORS *AS IS* AND ANY EXPRESS OR}}
+\DoxyCodeLine{16 \textcolor{comment}{* IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES}}
+\DoxyCodeLine{17 \textcolor{comment}{* OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. }}
+\DoxyCodeLine{18 \textcolor{comment}{* IN NO EVENT SHALL THE CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,}}
+\DoxyCodeLine{19 \textcolor{comment}{* INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT}}
+\DoxyCodeLine{20 \textcolor{comment}{* NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,}}
+\DoxyCodeLine{21 \textcolor{comment}{* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY}}
+\DoxyCodeLine{22 \textcolor{comment}{* THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT}}
+\DoxyCodeLine{23 \textcolor{comment}{* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF}}
+\DoxyCodeLine{24 \textcolor{comment}{* THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{25 \textcolor{comment}{*}}
+\DoxyCodeLine{26 \textcolor{comment}{******************************************************************************}}
+\DoxyCodeLine{27 \textcolor{comment}{* REVISION HISTORY (please don't use tabs!)}}
+\DoxyCodeLine{28 \textcolor{comment}{*}}
+\DoxyCodeLine{29 \textcolor{comment}{* 03-\/01-\/01 Marc Boucher <marc@mbsi.ca>}}
+\DoxyCodeLine{30 \textcolor{comment}{*   Ported to lwIP.}}
+\DoxyCodeLine{31 \textcolor{comment}{* 98-\/07-\/29 Guy Lancaster <lancasterg@acm.org>, Global Election Systems Inc.}}
+\DoxyCodeLine{32 \textcolor{comment}{*   Original.}}
+\DoxyCodeLine{33 \textcolor{comment}{*}}
+\DoxyCodeLine{34 \textcolor{comment}{*****************************************************************************}}
+\DoxyCodeLine{35 \textcolor{comment}{*/}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#if PPP\_SUPPORT }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#ifndef PPPDEBUG\_H}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define PPPDEBUG\_H}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{44 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{/* Trace levels. */}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define LOG\_CRITICAL  (PPP\_DEBUG | LWIP\_DBG\_LEVEL\_SEVERE)}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define LOG\_ERR       (PPP\_DEBUG | LWIP\_DBG\_LEVEL\_SEVERE)}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define LOG\_NOTICE    (PPP\_DEBUG | LWIP\_DBG\_LEVEL\_WARNING)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define LOG\_WARNING   (PPP\_DEBUG | LWIP\_DBG\_LEVEL\_WARNING)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define LOG\_INFO      (PPP\_DEBUG)}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define LOG\_DETAIL    (PPP\_DEBUG)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define LOG\_DEBUG     (PPP\_DEBUG)}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#if PPP\_DEBUG}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define MAINDEBUG(a)    LWIP\_DEBUGF(LWIP\_DBG\_LEVEL\_WARNING, a)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define SYSDEBUG(a)     LWIP\_DEBUGF(LWIP\_DBG\_LEVEL\_WARNING, a)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define FSMDEBUG(a)     LWIP\_DEBUGF(LWIP\_DBG\_LEVEL\_WARNING, a)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define LCPDEBUG(a)     LWIP\_DEBUGF(LWIP\_DBG\_LEVEL\_WARNING, a)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define IPCPDEBUG(a)    LWIP\_DEBUGF(LWIP\_DBG\_LEVEL\_WARNING, a)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define IPV6CPDEBUG(a)  LWIP\_DEBUGF(LWIP\_DBG\_LEVEL\_WARNING, a)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define UPAPDEBUG(a)    LWIP\_DEBUGF(LWIP\_DBG\_LEVEL\_WARNING, a)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define CHAPDEBUG(a)    LWIP\_DEBUGF(LWIP\_DBG\_LEVEL\_WARNING, a)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define PPPDEBUG(a, b)  LWIP\_DEBUGF(a, b)}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* PPP\_DEBUG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define MAINDEBUG(a)}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define SYSDEBUG(a)}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define FSMDEBUG(a)}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define LCPDEBUG(a)}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define IPCPDEBUG(a)}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define IPV6CPDEBUG(a)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define UPAPDEBUG(a)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define CHAPDEBUG(a)}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#define PPPDEBUG(a, b)}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_DEBUG */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{83 \}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPPDEBUG\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

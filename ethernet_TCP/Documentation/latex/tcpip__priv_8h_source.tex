@@ -1,0 +1,172 @@
+\hypertarget{tcpip__priv_8h_source}{}\doxysection{tcpip\+\_\+priv.\+h}
+\label{tcpip__priv_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/tcpip\_priv.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/priv/tcpip\_priv.h}}
+\mbox{\hyperlink{tcpip__priv_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_TCPIP\_PRIV\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_TCPIP\_PRIV\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#if !NO\_SYS }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{tcpip_8h}{lwip/tcpip.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{sys_8h}{lwip/sys.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{timeouts_8h}{lwip/timeouts.h}}"{}}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{49 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}};}
+\DoxyCodeLine{53 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#if LWIP\_MPU\_COMPATIBLE}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define API\_VAR\_REF(name)               (*(name))}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define API\_VAR\_DECLARE(type, name)     type * name}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define API\_VAR\_ALLOC\_EXT(type, pool, name, errorblock) do \{ \(\backslash\)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{                                          name = (type *)memp\_malloc(pool); \(\backslash\)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{                                          if (name == NULL) \{ \(\backslash\)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{                                            errorblock; \(\backslash\)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{                                          \} \(\backslash\)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{                                        \} while(0)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define API\_VAR\_ALLOC(type, pool, name, errorval) API\_VAR\_ALLOC\_EXT(type, pool, name, return errorval)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define API\_VAR\_ALLOC\_POOL(type, pool, name, errorval) do \{ \(\backslash\)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{                                          name = (type *)LWIP\_MEMPOOL\_ALLOC(pool); \(\backslash\)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{                                          if (name == NULL) \{ \(\backslash\)}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{                                            return errorval; \(\backslash\)}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{                                          \} \(\backslash\)}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{                                        \} while(0)}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define API\_VAR\_FREE(pool, name)        memp\_free(pool, name)}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define API\_VAR\_FREE\_POOL(pool, name)   LWIP\_MEMPOOL\_FREE(pool, name)}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#define API\_EXPR\_REF(expr)              (\&(expr))}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#if LWIP\_NETCONN\_SEM\_PER\_THREAD}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#define API\_EXPR\_REF\_SEM(expr)          (expr)}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#define API\_EXPR\_REF\_SEM(expr)          API\_EXPR\_REF(expr)}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#define API\_EXPR\_DEREF(expr)            expr}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define API\_MSG\_M\_DEF(m)                m}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define API\_MSG\_M\_DEF\_C(t, m)           t m}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define API\_VAR\_REF(name)               name}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define API\_VAR\_DECLARE(type, name)     type name}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define API\_VAR\_ALLOC\_EXT(type, pool, name, errorblock)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define API\_VAR\_ALLOC(type, pool, name, errorval)}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define API\_VAR\_ALLOC\_POOL(type, pool, name, errorval)}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#define API\_VAR\_FREE(pool, name)}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#define API\_VAR\_FREE\_POOL(pool, name)}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define API\_EXPR\_REF(expr)              expr}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define API\_EXPR\_REF\_SEM(expr)          API\_EXPR\_REF(expr)}}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#define API\_EXPR\_DEREF(expr)            (*(expr))}}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define API\_MSG\_M\_DEF(m)                *m}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#define API\_MSG\_M\_DEF\_C(t, m)           const t * m}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_MPU\_COMPATIBLE */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{tcpip__priv_8h_a12bdf37eddcd72c4178e3ea7d370395d}{tcpip\_send\_msg\_wait\_sem}}(\mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\_callback\_fn}} fn, \textcolor{keywordtype}{void} *apimsg, sys\_sem\_t* sem);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{keyword}{struct }\mbox{\hyperlink{structtcpip__api__call__data}{tcpip\_api\_call\_data}}}
+\DoxyCodeLine{100 \{}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#if !LWIP\_TCPIP\_CORE\_LOCKING}}
+\DoxyCodeLine{102   \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} err;}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#if !LWIP\_NETCONN\_SEM\_PER\_THREAD}}
+\DoxyCodeLine{104   sys\_sem\_t sem;}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETCONN\_SEM\_PER\_THREAD */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* !LWIP\_TCPIP\_CORE\_LOCKING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{107   u8\_t dummy; \textcolor{comment}{/* avoid empty struct :-\/( */}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_TCPIP\_CORE\_LOCKING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{109 \};}
+\DoxyCodeLine{110 \textcolor{keyword}{typedef} \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} (*tcpip\_api\_call\_fn)(\textcolor{keyword}{struct }\mbox{\hyperlink{structtcpip__api__call__data}{tcpip\_api\_call\_data}}* call);}
+\DoxyCodeLine{111 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} \mbox{\hyperlink{tcpip__priv_8h_a3d42b0c46607f91aedcc7745ed466b08}{tcpip\_api\_call}}(tcpip\_api\_call\_fn fn, \textcolor{keyword}{struct} \mbox{\hyperlink{structtcpip__api__call__data}{tcpip\_api\_call\_data}} *call);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{keyword}{enum} tcpip\_msg\_type \{}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#if !LWIP\_TCPIP\_CORE\_LOCKING}}
+\DoxyCodeLine{115   TCPIP\_MSG\_API,}
+\DoxyCodeLine{116   TCPIP\_MSG\_API\_CALL,}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_TCPIP\_CORE\_LOCKING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#if !LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}}
+\DoxyCodeLine{119   TCPIP\_MSG\_INPKT,}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_TCPIP\_CORE\_LOCKING\_INPUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#if LWIP\_TCPIP\_TIMEOUT \&\& LWIP\_TIMERS}}
+\DoxyCodeLine{122   TCPIP\_MSG\_TIMEOUT,}
+\DoxyCodeLine{123   TCPIP\_MSG\_UNTIMEOUT,}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCPIP\_TIMEOUT \&\& LWIP\_TIMERS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{125   TCPIP\_MSG\_CALLBACK,}
+\DoxyCodeLine{126   TCPIP\_MSG\_CALLBACK\_STATIC}
+\DoxyCodeLine{127 \};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{keyword}{struct }\mbox{\hyperlink{structtcpip__msg}{tcpip\_msg}} \{}
+\DoxyCodeLine{130   \textcolor{keyword}{enum} tcpip\_msg\_type type;}
+\DoxyCodeLine{131   \textcolor{keyword}{union }\{}
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#if !LWIP\_TCPIP\_CORE\_LOCKING}}
+\DoxyCodeLine{133     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{134       \mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\_callback\_fn}} function;}
+\DoxyCodeLine{135       \textcolor{keywordtype}{void}* msg;}
+\DoxyCodeLine{136     \} api\_msg;}
+\DoxyCodeLine{137     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{138       tcpip\_api\_call\_fn function;}
+\DoxyCodeLine{139       \textcolor{keyword}{struct }\mbox{\hyperlink{structtcpip__api__call__data}{tcpip\_api\_call\_data}} *arg;}
+\DoxyCodeLine{140       sys\_sem\_t *sem;}
+\DoxyCodeLine{141     \} api\_call;}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCPIP\_CORE\_LOCKING */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#if !LWIP\_TCPIP\_CORE\_LOCKING\_INPUT}}
+\DoxyCodeLine{144     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{145       \textcolor{keyword}{struct }\mbox{\hyperlink{structpbuf}{pbuf}} *p;}
+\DoxyCodeLine{146       \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}};}
+\DoxyCodeLine{147       \mbox{\hyperlink{netif_8h_ab2302b1b64ac7b95f24c6bab754a575e}{netif\_input\_fn}} input\_fn;}
+\DoxyCodeLine{148     \} inp;}
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !LWIP\_TCPIP\_CORE\_LOCKING\_INPUT */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{150     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{151       \mbox{\hyperlink{tcpip_8h_a35203296bb838f3b493839ffc6e7285d}{tcpip\_callback\_fn}} function;}
+\DoxyCodeLine{152       \textcolor{keywordtype}{void} *ctx;}
+\DoxyCodeLine{153     \} cb;}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#if LWIP\_TCPIP\_TIMEOUT \&\& LWIP\_TIMERS}}
+\DoxyCodeLine{155     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{156       u32\_t msecs;}
+\DoxyCodeLine{157       sys\_timeout\_handler h;}
+\DoxyCodeLine{158       \textcolor{keywordtype}{void} *arg;}
+\DoxyCodeLine{159     \} tmo;}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_TCPIP\_TIMEOUT \&\& LWIP\_TIMERS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{161   \} msg;}
+\DoxyCodeLine{162 \};}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{165 \}}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* !NO\_SYS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_TCPIP\_PRIV\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

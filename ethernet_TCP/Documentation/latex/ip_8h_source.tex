@@ -1,0 +1,252 @@
+\hypertarget{ip_8h_source}{}\doxysection{ip.\+h}
+\label{ip_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/ip.h}}
+\mbox{\hyperlink{ip_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{comment}{/*}}
+\DoxyCodeLine{7 \textcolor{comment}{ * Copyright (c) 2001-\/2004 Swedish Institute of Computer Science.}}
+\DoxyCodeLine{8 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{11 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{17 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{20 \textcolor{comment}{ *}}
+\DoxyCodeLine{21 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{22 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{23 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{24 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{25 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{27 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{28 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{29 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{31 \textcolor{comment}{ *}}
+\DoxyCodeLine{32 \textcolor{comment}{ * This file is part of the lwIP TCP/IP stack.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Adam Dunkels <adam@sics.se>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ */}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_IP\_H}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define LWIP\_HDR\_IP\_H}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{def_8h}{lwip/def.h}}"{}}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{pbuf_8h}{lwip/pbuf.h}}"{}}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip__addr_8h}{lwip/ip\_addr.h}}"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{err_8h}{lwip/err.h}}"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip4_8h}{lwip/ip4.h}}"{}}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ip6_8h}{lwip/ip6.h}}"{}}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{prot_2ip_8h}{lwip/prot/ip.h}}"{}}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{52 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{comment}{/* This is passed as the destination address to ip\_output\_if (not}}
+\DoxyCodeLine{56 \textcolor{comment}{   to ip\_output), meaning that an IP header already is constructed}}
+\DoxyCodeLine{57 \textcolor{comment}{   in the pbuf. This is used when TCP retransmits. */}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define LWIP\_IP\_HDRINCL  NULL}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#ifndef LWIP\_IP\_CHECK\_PBUF\_REF\_COUNT\_FOR\_TX}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define LWIP\_IP\_CHECK\_PBUF\_REF\_COUNT\_FOR\_TX(p) LWIP\_ASSERT("{}p-\/>ref == 1"{}}, (p)-\/>ref == 1)}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#if LWIP\_NETIF\_USE\_HINTS}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define IP\_PCB\_NETIFHINT ;struct netif\_hint netif\_hints}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#else }\textcolor{comment}{/* LWIP\_NETIF\_USE\_HINTS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define IP\_PCB\_NETIFHINT}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_NETIF\_USE\_HINTS */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#define IP\_PCB                             \(\backslash\)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{  }\textcolor{comment}{/* ip addresses in network byte order */}\textcolor{preprocessor}{ \(\backslash\)}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{  ip\_addr\_t local\_ip;                      \(\backslash\)}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{  ip\_addr\_t remote\_ip;                     \(\backslash\)}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{  }\textcolor{comment}{/* Bound netif index */}\textcolor{preprocessor}{                  \(\backslash\)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{  u8\_t netif\_idx;                          \(\backslash\)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{  }\textcolor{comment}{/* Socket options */}\textcolor{preprocessor}{                     \(\backslash\)}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{  u8\_t so\_options;                         \(\backslash\)}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{  }\textcolor{comment}{/* Type Of Service */}\textcolor{preprocessor}{                    \(\backslash\)}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{  u8\_t tos;                                \(\backslash\)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{  }\textcolor{comment}{/* Time To Live */}\textcolor{preprocessor}{                       \(\backslash\)}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{  u8\_t ttl                                 \(\backslash\)}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{  }\textcolor{comment}{/* link layer address resolution hint */}\textcolor{preprocessor}{ \(\backslash\)}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{  IP\_PCB\_NETIFHINT}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{keyword}{struct }\mbox{\hyperlink{structip__pcb}{ip\_pcb}} \{}
+\DoxyCodeLine{92   \textcolor{comment}{/* Common members of all PCB types */}}
+\DoxyCodeLine{93   IP\_PCB;}
+\DoxyCodeLine{94 \};}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{comment}{/*}}
+\DoxyCodeLine{97 \textcolor{comment}{ * Option flags per-\/socket. These are the same like SO\_XXX in sockets.h}}
+\DoxyCodeLine{98 \textcolor{comment}{ */}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define SOF\_REUSEADDR     0x04U  }\textcolor{comment}{/* allow local address reuse */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define SOF\_KEEPALIVE     0x08U  }\textcolor{comment}{/* keep connections alive */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define SOF\_BROADCAST     0x20U  }\textcolor{comment}{/* permit to send and to receive broadcast messages (see IP\_SOF\_BROADCAST option) */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{comment}{/* These flags are inherited (e.g. from a listen-\/pcb to a connection-\/pcb): */}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define SOF\_INHERITED   (SOF\_REUSEADDR|SOF\_KEEPALIVE)}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{107 \textcolor{keyword}{struct }\mbox{\hyperlink{structip__globals}{ip\_globals}}}
+\DoxyCodeLine{108 \{}
+\DoxyCodeLine{110   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structip__globals_aabce496c19c6ae4000174c8af8a4a913}{current\_netif}};}
+\DoxyCodeLine{112   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structip__globals_a6c88f1e982cd25410d2b7a63b52b3360}{current\_input\_netif}};}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#if LWIP\_IPV4}}
+\DoxyCodeLine{115   \textcolor{keyword}{const} \textcolor{keyword}{struct }\mbox{\hyperlink{structip__hdr}{ip\_hdr}} *current\_ip4\_header;}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#if LWIP\_IPV6}}
+\DoxyCodeLine{119   \textcolor{keyword}{struct }\mbox{\hyperlink{structip6__hdr}{ip6\_hdr}} *current\_ip6\_header;}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{122   u16\_t \mbox{\hyperlink{structip__globals_abed5b6e2fca2ed67a37e699560117e59}{current\_ip\_header\_tot\_len}};}
+\DoxyCodeLine{124   ip\_addr\_t \mbox{\hyperlink{structip__globals_a312380e254b06dd3041065a3ec27264b}{current\_iphdr\_src}};}
+\DoxyCodeLine{126   ip\_addr\_t \mbox{\hyperlink{structip__globals_a63c0914cf407e33af9b47061bd6ae40d}{current\_iphdr\_dest}};}
+\DoxyCodeLine{127 \};}
+\DoxyCodeLine{128 \textcolor{keyword}{extern} \textcolor{keyword}{struct }\mbox{\hyperlink{structip__globals}{ip\_globals}} ip\_data;}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 }
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define ip\_current\_netif()      (ip\_data.current\_netif)}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define ip\_current\_input\_netif() (ip\_data.current\_input\_netif)}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#define ip\_current\_header\_tot\_len() (ip\_data.current\_ip\_header\_tot\_len)}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#define ip\_current\_src\_addr()   (\&ip\_data.current\_iphdr\_src)}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define ip\_current\_dest\_addr()  (\&ip\_data.current\_iphdr\_dest)}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_IPV6}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#define ip4\_current\_header()     ip\_data.current\_ip4\_header}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define ip6\_current\_header()      ((const struct ip6\_hdr*)(ip\_data.current\_ip6\_header))}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define ip\_current\_is\_v6()        (ip6\_current\_header() != NULL)}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define ip6\_current\_src\_addr()    (ip\_2\_ip6(\&ip\_data.current\_iphdr\_src))}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#define ip6\_current\_dest\_addr()   (ip\_2\_ip6(\&ip\_data.current\_iphdr\_dest))}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define ip\_current\_header\_proto() (ip\_current\_is\_v6() ? \(\backslash\)}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{                                   IP6H\_NEXTH(ip6\_current\_header()) :\(\backslash\)}}
+\DoxyCodeLine{165 \textcolor{preprocessor}{                                   IPH\_PROTO(ip4\_current\_header()))}}
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define ip\_next\_header\_ptr()     ((const void*)((ip\_current\_is\_v6() ? \(\backslash\)}}
+\DoxyCodeLine{168 \textcolor{preprocessor}{  (const u8\_t*)ip6\_current\_header() : (const u8\_t*)ip4\_current\_header())  + ip\_current\_header\_tot\_len()))}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#define ip4\_current\_src\_addr()     (ip\_2\_ip4(\&ip\_data.current\_iphdr\_src))}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define ip4\_current\_dest\_addr()    (ip\_2\_ip4(\&ip\_data.current\_iphdr\_dest))}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#elif LWIP\_IPV4 }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#define ip4\_current\_header()     ip\_data.current\_ip4\_header}}
+\DoxyCodeLine{182 \textcolor{preprocessor}{\#define ip\_current\_is\_v6()        0}}
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#define ip\_current\_header\_proto() IPH\_PROTO(ip4\_current\_header())}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define ip\_next\_header\_ptr()     ((const void*)((const u8\_t*)ip4\_current\_header() + ip\_current\_header\_tot\_len()))}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#define ip4\_current\_src\_addr()     (\&ip\_data.current\_iphdr\_src)}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define ip4\_current\_dest\_addr()    (\&ip\_data.current\_iphdr\_dest)}}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{preprocessor}{\#elif LWIP\_IPV6 }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#define ip6\_current\_header()      ((const struct ip6\_hdr*)(ip\_data.current\_ip6\_header))}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define ip\_current\_is\_v6()        1}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#define ip\_current\_header\_proto() IP6H\_NEXTH(ip6\_current\_header())}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define ip\_next\_header\_ptr()     ((const void*)(((const u8\_t*)ip6\_current\_header()) + ip\_current\_header\_tot\_len()))}}
+\DoxyCodeLine{205 \textcolor{preprocessor}{\#define ip6\_current\_src\_addr()    (\&ip\_data.current\_iphdr\_src)}}
+\DoxyCodeLine{207 \textcolor{preprocessor}{\#define ip6\_current\_dest\_addr()   (\&ip\_data.current\_iphdr\_dest)}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#define ip\_current\_src\_addr()    (\&ip\_data.current\_iphdr\_src)}}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#define ip\_current\_dest\_addr()   (\&ip\_data.current\_iphdr\_dest)}}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{217 \textcolor{preprocessor}{\#define ip\_get\_option(pcb, opt)   ((pcb)-\/>so\_options \& (opt))}}
+\DoxyCodeLine{219 \textcolor{preprocessor}{\#define ip\_set\_option(pcb, opt)   ((pcb)-\/>so\_options = (u8\_t)((pcb)-\/>so\_options | (opt)))}}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#define ip\_reset\_option(pcb, opt) ((pcb)-\/>so\_options = (u8\_t)((pcb)-\/>so\_options \& \string~(opt)))}}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_IPV6}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#define ip\_output(p, src, dest, ttl, tos, proto) \(\backslash\)}}
+\DoxyCodeLine{229 \textcolor{preprocessor}{        (IP\_IS\_V6(dest) ? \(\backslash\)}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{        ip6\_output(p, ip\_2\_ip6(src), ip\_2\_ip6(dest), ttl, tos, proto) : \(\backslash\)}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{        ip4\_output(p, ip\_2\_ip4(src), ip\_2\_ip4(dest), ttl, tos, proto))}}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#define ip\_output\_if(p, src, dest, ttl, tos, proto, netif) \(\backslash\)}}
+\DoxyCodeLine{237 \textcolor{preprocessor}{        (IP\_IS\_V6(dest) ? \(\backslash\)}}
+\DoxyCodeLine{238 \textcolor{preprocessor}{        ip6\_output\_if(p, ip\_2\_ip6(src), ip\_2\_ip6(dest), ttl, tos, proto, netif) : \(\backslash\)}}
+\DoxyCodeLine{239 \textcolor{preprocessor}{        ip4\_output\_if(p, ip\_2\_ip4(src), ip\_2\_ip4(dest), ttl, tos, proto, netif))}}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#define ip\_output\_if\_src(p, src, dest, ttl, tos, proto, netif) \(\backslash\)}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{        (IP\_IS\_V6(dest) ? \(\backslash\)}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{        ip6\_output\_if\_src(p, ip\_2\_ip6(src), ip\_2\_ip6(dest), ttl, tos, proto, netif) : \(\backslash\)}}
+\DoxyCodeLine{247 \textcolor{preprocessor}{        ip4\_output\_if\_src(p, ip\_2\_ip4(src), ip\_2\_ip4(dest), ttl, tos, proto, netif))}}
+\DoxyCodeLine{249 \textcolor{preprocessor}{\#define ip\_output\_if\_hdrincl(p, src, dest, netif) \(\backslash\)}}
+\DoxyCodeLine{250 \textcolor{preprocessor}{        (IP\_IS\_V6(dest) ? \(\backslash\)}}
+\DoxyCodeLine{251 \textcolor{preprocessor}{        ip6\_output\_if(p, ip\_2\_ip6(src), LWIP\_IP\_HDRINCL, 0, 0, 0, netif) : \(\backslash\)}}
+\DoxyCodeLine{252 \textcolor{preprocessor}{        ip4\_output\_if(p, ip\_2\_ip4(src), LWIP\_IP\_HDRINCL, 0, 0, 0, netif))}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#define ip\_output\_hinted(p, src, dest, ttl, tos, proto, netif\_hint) \(\backslash\)}}
+\DoxyCodeLine{255 \textcolor{preprocessor}{        (IP\_IS\_V6(dest) ? \(\backslash\)}}
+\DoxyCodeLine{256 \textcolor{preprocessor}{        ip6\_output\_hinted(p, ip\_2\_ip6(src), ip\_2\_ip6(dest), ttl, tos, proto, netif\_hint) : \(\backslash\)}}
+\DoxyCodeLine{257 \textcolor{preprocessor}{        ip4\_output\_hinted(p, ip\_2\_ip4(src), ip\_2\_ip4(dest), ttl, tos, proto, netif\_hint))}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#define ip\_route(src, dest) \(\backslash\)}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{        (IP\_IS\_V6(dest) ? \(\backslash\)}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{        ip6\_route(ip\_2\_ip6(src), ip\_2\_ip6(dest)) : \(\backslash\)}}
+\DoxyCodeLine{265 \textcolor{preprocessor}{        ip4\_route\_src(ip\_2\_ip4(src), ip\_2\_ip4(dest)))}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#define ip\_netif\_get\_local\_ip(netif, dest) (IP\_IS\_V6(dest) ? \(\backslash\)}}
+\DoxyCodeLine{271 \textcolor{preprocessor}{        ip6\_netif\_get\_local\_ip(netif, ip\_2\_ip6(dest)) : \(\backslash\)}}
+\DoxyCodeLine{272 \textcolor{preprocessor}{        ip4\_netif\_get\_local\_ip(netif))}}
+\DoxyCodeLine{273 \textcolor{preprocessor}{\#define ip\_debug\_print(is\_ipv6, p) ((is\_ipv6) ? ip6\_debug\_print(p) : ip4\_debug\_print(p))}}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} ip\_input(\textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p, \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *inp);}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277 \textcolor{preprocessor}{\#elif LWIP\_IPV4 }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{278 }
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#define ip\_output(p, src, dest, ttl, tos, proto) \(\backslash\)}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{        ip4\_output(p, src, dest, ttl, tos, proto)}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#define ip\_output\_if(p, src, dest, ttl, tos, proto, netif) \(\backslash\)}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{        ip4\_output\_if(p, src, dest, ttl, tos, proto, netif)}}
+\DoxyCodeLine{283 \textcolor{preprocessor}{\#define ip\_output\_if\_src(p, src, dest, ttl, tos, proto, netif) \(\backslash\)}}
+\DoxyCodeLine{284 \textcolor{preprocessor}{        ip4\_output\_if\_src(p, src, dest, ttl, tos, proto, netif)}}
+\DoxyCodeLine{285 \textcolor{preprocessor}{\#define ip\_output\_hinted(p, src, dest, ttl, tos, proto, netif\_hint) \(\backslash\)}}
+\DoxyCodeLine{286 \textcolor{preprocessor}{        ip4\_output\_hinted(p, src, dest, ttl, tos, proto, netif\_hint)}}
+\DoxyCodeLine{287 \textcolor{preprocessor}{\#define ip\_output\_if\_hdrincl(p, src, dest, netif) \(\backslash\)}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{        ip4\_output\_if(p, src, LWIP\_IP\_HDRINCL, 0, 0, 0, netif)}}
+\DoxyCodeLine{289 \textcolor{preprocessor}{\#define ip\_route(src, dest) \(\backslash\)}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{        ip4\_route\_src(src, dest)}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#define ip\_netif\_get\_local\_ip(netif, dest) \(\backslash\)}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{        ip4\_netif\_get\_local\_ip(netif)}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#define ip\_debug\_print(is\_ipv6, p) ip4\_debug\_print(p)}}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295 \textcolor{preprocessor}{\#define ip\_input ip4\_input}}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297 \textcolor{preprocessor}{\#elif LWIP\_IPV6 }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299 \textcolor{preprocessor}{\#define ip\_output(p, src, dest, ttl, tos, proto) \(\backslash\)}}
+\DoxyCodeLine{300 \textcolor{preprocessor}{        ip6\_output(p, src, dest, ttl, tos, proto)}}
+\DoxyCodeLine{301 \textcolor{preprocessor}{\#define ip\_output\_if(p, src, dest, ttl, tos, proto, netif) \(\backslash\)}}
+\DoxyCodeLine{302 \textcolor{preprocessor}{        ip6\_output\_if(p, src, dest, ttl, tos, proto, netif)}}
+\DoxyCodeLine{303 \textcolor{preprocessor}{\#define ip\_output\_if\_src(p, src, dest, ttl, tos, proto, netif) \(\backslash\)}}
+\DoxyCodeLine{304 \textcolor{preprocessor}{        ip6\_output\_if\_src(p, src, dest, ttl, tos, proto, netif)}}
+\DoxyCodeLine{305 \textcolor{preprocessor}{\#define ip\_output\_hinted(p, src, dest, ttl, tos, proto, netif\_hint) \(\backslash\)}}
+\DoxyCodeLine{306 \textcolor{preprocessor}{        ip6\_output\_hinted(p, src, dest, ttl, tos, proto, netif\_hint)}}
+\DoxyCodeLine{307 \textcolor{preprocessor}{\#define ip\_output\_if\_hdrincl(p, src, dest, netif) \(\backslash\)}}
+\DoxyCodeLine{308 \textcolor{preprocessor}{        ip6\_output\_if(p, src, LWIP\_IP\_HDRINCL, 0, 0, 0, netif)}}
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#define ip\_route(src, dest) \(\backslash\)}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{        ip6\_route(src, dest)}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#define ip\_netif\_get\_local\_ip(netif, dest) \(\backslash\)}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{        ip6\_netif\_get\_local\_ip(netif, dest)}}
+\DoxyCodeLine{313 \textcolor{preprocessor}{\#define ip\_debug\_print(is\_ipv6, p) ip6\_debug\_print(p)}}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315 \textcolor{preprocessor}{\#define ip\_input ip6\_input}}
+\DoxyCodeLine{316 }
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV6 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{318 }
+\DoxyCodeLine{319 \textcolor{preprocessor}{\#define ip\_route\_get\_local\_ip(src, dest, netif, ipaddr) do \{ \(\backslash\)}}
+\DoxyCodeLine{320 \textcolor{preprocessor}{  (netif) = ip\_route(src, dest); \(\backslash\)}}
+\DoxyCodeLine{321 \textcolor{preprocessor}{  (ipaddr) = ip\_netif\_get\_local\_ip(netif, dest); \(\backslash\)}}
+\DoxyCodeLine{322 \textcolor{preprocessor}{\}while(0)}}
+\DoxyCodeLine{323 }
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{325 \}}
+\DoxyCodeLine{326 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{327 }
+\DoxyCodeLine{328 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_IP\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 }
+
+\end{DoxyCode}

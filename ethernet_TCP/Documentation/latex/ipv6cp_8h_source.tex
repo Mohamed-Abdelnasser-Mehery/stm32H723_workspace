@@ -1,0 +1,197 @@
+\hypertarget{ipv6cp_8h_source}{}\doxysection{ipv6cp.\+h}
+\label{ipv6cp_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ipv6cp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/ipv6cp.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * ipv6cp.h -\/ PPP IPV6 Control Protocol.}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ * Copyright (c) 1999 Tommi Komulainen.  All rights reserved.}}
+\DoxyCodeLine{5 \textcolor{comment}{ *}}
+\DoxyCodeLine{6 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{7 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{8 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{9 \textcolor{comment}{ *}}
+\DoxyCodeLine{10 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{11 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{12 \textcolor{comment}{ *}}
+\DoxyCodeLine{13 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{14 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in}}
+\DoxyCodeLine{15 \textcolor{comment}{ *    the documentation and/or other materials provided with the}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    distribution.}}
+\DoxyCodeLine{17 \textcolor{comment}{ *}}
+\DoxyCodeLine{18 \textcolor{comment}{ * 3. The name(s) of the authors of this software must not be used to}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{20 \textcolor{comment}{ *    prior written permission.}}
+\DoxyCodeLine{21 \textcolor{comment}{ *}}
+\DoxyCodeLine{22 \textcolor{comment}{ * 4. Redistributions of any form whatsoever must retain the following}}
+\DoxyCodeLine{23 \textcolor{comment}{ *    acknowledgment:}}
+\DoxyCodeLine{24 \textcolor{comment}{ *    "{}This product includes software developed by Tommi Komulainen}}
+\DoxyCodeLine{25 \textcolor{comment}{ *     <Tommi.Komulainen@iki.fi>"{}.}}
+\DoxyCodeLine{26 \textcolor{comment}{ *}}
+\DoxyCodeLine{27 \textcolor{comment}{ * THE AUTHORS OF THIS SOFTWARE DISCLAIM ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{28 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{29 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY}}
+\DoxyCodeLine{30 \textcolor{comment}{ * SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{31 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{32 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{33 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{34 \textcolor{comment}{ *}}
+\DoxyCodeLine{35 \textcolor{comment}{ */}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{comment}{/*  Original version, based on RFC2023 :}}
+\DoxyCodeLine{38 \textcolor{comment}{}}
+\DoxyCodeLine{39 \textcolor{comment}{    Copyright (c) 1995, 1996, 1997 Francis.Dupont@inria.fr, INRIA Rocquencourt,}}
+\DoxyCodeLine{40 \textcolor{comment}{    Alain.Durand@imag.fr, IMAG,}}
+\DoxyCodeLine{41 \textcolor{comment}{    Jean-\/Luc.Richier@imag.fr, IMAG-\/LSR.}}
+\DoxyCodeLine{42 \textcolor{comment}{}}
+\DoxyCodeLine{43 \textcolor{comment}{    Copyright (c) 1998, 1999 Francis.Dupont@inria.fr, GIE DYADE,}}
+\DoxyCodeLine{44 \textcolor{comment}{    Alain.Durand@imag.fr, IMAG,}}
+\DoxyCodeLine{45 \textcolor{comment}{    Jean-\/Luc.Richier@imag.fr, IMAG-\/LSR.}}
+\DoxyCodeLine{46 \textcolor{comment}{}}
+\DoxyCodeLine{47 \textcolor{comment}{    Ce travail a été fait au sein du GIE DYADE (Groupement d'Intérêt}}
+\DoxyCodeLine{48 \textcolor{comment}{    Économique ayant pour membres BULL S.A. et l'INRIA).}}
+\DoxyCodeLine{49 \textcolor{comment}{}}
+\DoxyCodeLine{50 \textcolor{comment}{    Ce logiciel informatique est disponible aux conditions}}
+\DoxyCodeLine{51 \textcolor{comment}{    usuelles dans la recherche, c'est-\/à-\/dire qu'il peut}}
+\DoxyCodeLine{52 \textcolor{comment}{    être utilisé, copié, modifié, distribué à l'unique}}
+\DoxyCodeLine{53 \textcolor{comment}{    condition que ce texte soit conservé afin que}}
+\DoxyCodeLine{54 \textcolor{comment}{    l'origine de ce logiciel soit reconnue.}}
+\DoxyCodeLine{55 \textcolor{comment}{}}
+\DoxyCodeLine{56 \textcolor{comment}{    Le nom de l'Institut National de Recherche en Informatique}}
+\DoxyCodeLine{57 \textcolor{comment}{    et en Automatique (INRIA), de l'IMAG, ou d'une personne morale}}
+\DoxyCodeLine{58 \textcolor{comment}{    ou physique ayant participé à l'élaboration de ce logiciel ne peut}}
+\DoxyCodeLine{59 \textcolor{comment}{    être utilisé sans son accord préalable explicite.}}
+\DoxyCodeLine{60 \textcolor{comment}{}}
+\DoxyCodeLine{61 \textcolor{comment}{    Ce logiciel est fourni tel quel sans aucune garantie,}}
+\DoxyCodeLine{62 \textcolor{comment}{    support ou responsabilité d'aucune sorte.}}
+\DoxyCodeLine{63 \textcolor{comment}{    Ce logiciel est dérivé de sources d'origine}}
+\DoxyCodeLine{64 \textcolor{comment}{    "{}University of California at Berkeley"{} et}}
+\DoxyCodeLine{65 \textcolor{comment}{    "{}Digital Equipment Corporation"{} couvertes par des copyrights.}}
+\DoxyCodeLine{66 \textcolor{comment}{}}
+\DoxyCodeLine{67 \textcolor{comment}{    L'Institut d'Informatique et de Mathématiques Appliquées de Grenoble (IMAG)}}
+\DoxyCodeLine{68 \textcolor{comment}{    est une fédération d'unités mixtes de recherche du CNRS, de l'Institut National}}
+\DoxyCodeLine{69 \textcolor{comment}{    Polytechnique de Grenoble et de l'Université Joseph Fourier regroupant}}
+\DoxyCodeLine{70 \textcolor{comment}{    sept laboratoires dont le laboratoire Logiciels, Systèmes, Réseaux (LSR).}}
+\DoxyCodeLine{71 \textcolor{comment}{}}
+\DoxyCodeLine{72 \textcolor{comment}{    This work has been done in the context of GIE DYADE (joint R \& D venture}}
+\DoxyCodeLine{73 \textcolor{comment}{    between BULL S.A. and INRIA).}}
+\DoxyCodeLine{74 \textcolor{comment}{}}
+\DoxyCodeLine{75 \textcolor{comment}{    This software is available with usual "{}research"{} terms}}
+\DoxyCodeLine{76 \textcolor{comment}{    with the aim of retain credits of the software. }}
+\DoxyCodeLine{77 \textcolor{comment}{    Permission to use, copy, modify and distribute this software for any}}
+\DoxyCodeLine{78 \textcolor{comment}{    purpose and without fee is hereby granted, provided that the above}}
+\DoxyCodeLine{79 \textcolor{comment}{    copyright notice and this permission notice appear in all copies,}}
+\DoxyCodeLine{80 \textcolor{comment}{    and the name of INRIA, IMAG, or any contributor not be used in advertising}}
+\DoxyCodeLine{81 \textcolor{comment}{    or publicity pertaining to this material without the prior explicit}}
+\DoxyCodeLine{82 \textcolor{comment}{    permission. The software is provided "{}as is"{} without any}}
+\DoxyCodeLine{83 \textcolor{comment}{    warranties, support or liabilities of any kind.}}
+\DoxyCodeLine{84 \textcolor{comment}{    This software is derived from source code from}}
+\DoxyCodeLine{85 \textcolor{comment}{    "{}University of California at Berkeley"{} and}}
+\DoxyCodeLine{86 \textcolor{comment}{    "{}Digital Equipment Corporation"{} protected by copyrights.}}
+\DoxyCodeLine{87 \textcolor{comment}{}}
+\DoxyCodeLine{88 \textcolor{comment}{    Grenoble's Institute of Computer Science and Applied Mathematics (IMAG)}}
+\DoxyCodeLine{89 \textcolor{comment}{    is a federation of seven research units funded by the CNRS, National}}
+\DoxyCodeLine{90 \textcolor{comment}{    Polytechnic Institute of Grenoble and University Joseph Fourier.}}
+\DoxyCodeLine{91 \textcolor{comment}{    The research unit in Software, Systems, Networks (LSR) is member of IMAG.}}
+\DoxyCodeLine{92 \textcolor{comment}{*/}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{comment}{/*}}
+\DoxyCodeLine{95 \textcolor{comment}{ * Derived from :}}
+\DoxyCodeLine{96 \textcolor{comment}{ *}}
+\DoxyCodeLine{97 \textcolor{comment}{ *}}
+\DoxyCodeLine{98 \textcolor{comment}{ * ipcp.h -\/ IP Control Protocol definitions.}}
+\DoxyCodeLine{99 \textcolor{comment}{ *}}
+\DoxyCodeLine{100 \textcolor{comment}{ * Copyright (c) 1984-\/2000 Carnegie Mellon University. All rights reserved.}}
+\DoxyCodeLine{101 \textcolor{comment}{ *}}
+\DoxyCodeLine{102 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{103 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{104 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{105 \textcolor{comment}{ *}}
+\DoxyCodeLine{106 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{107 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{108 \textcolor{comment}{ *}}
+\DoxyCodeLine{109 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{110 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in}}
+\DoxyCodeLine{111 \textcolor{comment}{ *    the documentation and/or other materials provided with the}}
+\DoxyCodeLine{112 \textcolor{comment}{ *    distribution.}}
+\DoxyCodeLine{113 \textcolor{comment}{ *}}
+\DoxyCodeLine{114 \textcolor{comment}{ * 3. The name "{}Carnegie Mellon University"{} must not be used to}}
+\DoxyCodeLine{115 \textcolor{comment}{ *    endorse or promote products derived from this software without}}
+\DoxyCodeLine{116 \textcolor{comment}{ *    prior written permission. For permission or any legal}}
+\DoxyCodeLine{117 \textcolor{comment}{ *    details, please contact}}
+\DoxyCodeLine{118 \textcolor{comment}{ *      Office of Technology Transfer}}
+\DoxyCodeLine{119 \textcolor{comment}{ *      Carnegie Mellon University}}
+\DoxyCodeLine{120 \textcolor{comment}{ *      5000 Forbes Avenue}}
+\DoxyCodeLine{121 \textcolor{comment}{ *      Pittsburgh, PA  15213-\/3890}}
+\DoxyCodeLine{122 \textcolor{comment}{ *      (412) 268-\/4387, fax: (412) 268-\/7395}}
+\DoxyCodeLine{123 \textcolor{comment}{ *      tech-\/transfer@andrew.cmu.edu}}
+\DoxyCodeLine{124 \textcolor{comment}{ *}}
+\DoxyCodeLine{125 \textcolor{comment}{ * 4. Redistributions of any form whatsoever must retain the following}}
+\DoxyCodeLine{126 \textcolor{comment}{ *    acknowledgment:}}
+\DoxyCodeLine{127 \textcolor{comment}{ *    "{}This product includes software developed by Computing Services}}
+\DoxyCodeLine{128 \textcolor{comment}{ *     at Carnegie Mellon University (http://www.cmu.edu/computing/)."{}}}
+\DoxyCodeLine{129 \textcolor{comment}{ *}}
+\DoxyCodeLine{130 \textcolor{comment}{ * CARNEGIE MELLON UNIVERSITY DISCLAIMS ALL WARRANTIES WITH REGARD TO}}
+\DoxyCodeLine{131 \textcolor{comment}{ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY}}
+\DoxyCodeLine{132 \textcolor{comment}{ * AND FITNESS, IN NO EVENT SHALL CARNEGIE MELLON UNIVERSITY BE LIABLE}}
+\DoxyCodeLine{133 \textcolor{comment}{ * FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES}}
+\DoxyCodeLine{134 \textcolor{comment}{ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN}}
+\DoxyCodeLine{135 \textcolor{comment}{ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING}}
+\DoxyCodeLine{136 \textcolor{comment}{ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.}}
+\DoxyCodeLine{137 \textcolor{comment}{ *}}
+\DoxyCodeLine{138 \textcolor{comment}{ * \$Id: ipv6cp.h,v 1.7 2002/12/04 23:03:32 paulus Exp \$}}
+\DoxyCodeLine{139 \textcolor{comment}{ */}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& PPP\_IPV6\_SUPPORT  }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#ifndef IPV6CP\_H}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define IPV6CP\_H}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#include "{}eui64.h"{}}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{150 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{comment}{/*}}
+\DoxyCodeLine{154 \textcolor{comment}{ * Options.}}
+\DoxyCodeLine{155 \textcolor{comment}{ */}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define CI\_IFACEID  1   }\textcolor{comment}{/* Interface Identifier */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#ifdef IPV6CP\_COMP}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define CI\_COMPRESSTYPE 2   }\textcolor{comment}{/* Compression Type     */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* IPV6CP\_COMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{comment}{/* No compression types yet defined.}}
+\DoxyCodeLine{162 \textcolor{comment}{ *\#define IPV6CP\_COMP   0x004f}}
+\DoxyCodeLine{163 \textcolor{comment}{ */}}
+\DoxyCodeLine{164 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }ipv6cp\_options \{}
+\DoxyCodeLine{165     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_ifaceid    :1;  \textcolor{comment}{/* Negotiate interface identifier? */}}
+\DoxyCodeLine{166     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} req\_ifaceid    :1;  \textcolor{comment}{/* Ask peer to send interface identifier? */}}
+\DoxyCodeLine{167     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} accept\_local   :1;  \textcolor{comment}{/* accept peer's value for iface id? */}}
+\DoxyCodeLine{168     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} opt\_local      :1;  \textcolor{comment}{/* ourtoken set by option */}}
+\DoxyCodeLine{169     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} opt\_remote     :1;  \textcolor{comment}{/* histoken set by option */}}
+\DoxyCodeLine{170     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} use\_ip         :1;  \textcolor{comment}{/* use IP as interface identifier */}}
+\DoxyCodeLine{171 \textcolor{preprocessor}{\#if 0}}
+\DoxyCodeLine{172     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} use\_persistent :1;  \textcolor{comment}{/* use uniquely persistent value for address */}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#ifdef IPV6CP\_COMP}}
+\DoxyCodeLine{175     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} neg\_vj         :1;  \textcolor{comment}{/* Van Jacobson Compression? */}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* IPV6CP\_COMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#ifdef IPV6CP\_COMP}}
+\DoxyCodeLine{179     u\_short vj\_protocol;        \textcolor{comment}{/* protocol value to use in VJ option */}}
+\DoxyCodeLine{180 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* IPV6CP\_COMP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{181     eui64\_t ourid, hisid;       \textcolor{comment}{/* Interface identifiers */}}
+\DoxyCodeLine{182 \} ipv6cp\_options;}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{keyword}{extern} \textcolor{keyword}{const} \textcolor{keyword}{struct }protent ipv6cp\_protent;}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{187 \}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* IPV6CP\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& PPP\_IPV6\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

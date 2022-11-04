@@ -1,0 +1,147 @@
+\hypertarget{stm32h7xx__hal__pwr_8c}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Drivers/\+STM32\+H7xx\+\_\+\+HAL\+\_\+\+Driver/\+Src/stm32h7xx\+\_\+hal\+\_\+pwr.c File Reference}
+\label{stm32h7xx__hal__pwr_8c}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Src/stm32h7xx\_hal\_pwr.c@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/STM32H7xx\_HAL\_Driver/Src/stm32h7xx\_hal\_pwr.c}}
+
+
+PWR HAL module driver. This file provides firmware functions to manage the following functionalities of the Power Controller (PWR) peripheral\+:  
+
+
+{\ttfamily \#include \char`\"{}stm32h7xx\+\_\+hal.\+h\char`\"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+PWR HAL module driver. This file provides firmware functions to manage the following functionalities of the Power Controller (PWR) peripheral\+: 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team
+\begin{DoxyItemize}
+\item Initialization and de-\/initialization functions.
+\item Peripheral Control functions.
+\item Interrupt Handling functions.
+\end{DoxyItemize}
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2017 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS.
+
+\begin{DoxyVerb}==============================================================================
+                      ##### PWR peripheral overview #####
+==============================================================================
+[..]
+ (#) The Power control (PWR) provides an overview of the supply architecture
+     for the different power domains and of the supply configuration
+     controller.
+     In the H7 family, the number of power domains is different between
+     device lines. This difference is due to characteristics of each device.
+
+ (#) Domain architecture overview for the different H7 lines:
+    (+) Dual core lines are STM32H745, STM32H747, STM32H755 and STM32H757.
+        These devices have 3 power domains (D1, D2 and D3).
+        The domain D1 contains a CPU (Cortex-M7), a Flash memory and some
+        peripherals. The D2 domain contains peripherals and a CPU
+        (Cortex-M4). The D3 domain contains the system control, I/O logic
+        and low-power peripherals.
+    (+) STM32H72x, STM32H73x, STM32H742, STM32H743, STM32H750 and STM32H753 
+        devices have 3 power domains (D1, D2 and D3).
+        The domain D1 contains a CPU (Cortex-M7), a Flash memory and some
+        peripherals. The D2 domain contains peripherals. The D3 domains
+        contains the system control, I/O logic and low-power peripherals.
+    (+) STM32H7Axxx and STM32H7Bxxx devices have 2 power domains (CD and SRD).
+        The core domain (CD) contains a CPU (Cortex-M7), a Flash
+        memory and peripherals. The SmartRun domain contains the system
+        control, I/O logic and low-power peripherals.
+
+ (#) Every entity have low power mode as described below :
+ (#) The CPU low power modes are :
+    (+) CPU CRUN.
+    (+) CPU CSLEEP.
+    (+) CPU CSTOP.
+ (#) The domain low power modes are :
+    (+) DRUN.
+    (+) DSTOP.
+    (+) DSTANDBY.
+ (#) The SYSTEM low power modes are :
+    (+) RUN* : The Run* mode is entered after a POR reset and a wakeup from
+               Standby. In Run* mode, the performance is limited and the
+               system supply configuration shall be programmed. The system
+               enters Run mode only when the ACTVOSRDY bit in PWR control
+               status register 1 (PWR_CSR1) is set to 1.
+    (+) RUN.
+    (+) STOP.
+    (+) STANDBY.
+
+==============================================================================
+                      ##### How to use this driver #####
+==============================================================================
+[..]
+ (#) Power management peripheral is active by default at startup level in
+     STM32h7xx lines.
+
+ (#) Call HAL_PWR_EnableBkUpAccess() and HAL_PWR_DisableBkUpAccess() functions
+     to enable/disable access to the backup domain (RTC registers, RTC backup
+     data registers and backup SRAM).
+
+ (#) Call HAL_PWR_ConfigPVD() after setting parameters to be configured (event
+     mode and voltage threshold) in order to set up the Power Voltage Detector,
+     then use HAL_PWR_EnablePVD() and  HAL_PWR_DisablePVD() functions to start
+     and stop the PVD detection.
+     (+) PVD level could be one of the following values :
+           (++) 1V95
+           (++) 2V1
+           (++) 2V25
+           (++) 2V4
+           (++) 2V55
+           (++) 2V7
+           (++) 2V85
+           (++) External voltage level
+
+ (#) Call HAL_PWR_EnableWakeUpPin() and HAL_PWR_DisableWakeUpPin() functions
+     with the right parameter to configure the wake up pin polarity (Low or
+     High) and to enable and disable it.
+
+ (#) Call HAL_PWR_EnterSLEEPMode() function to enter the current Core in SLEEP
+     mode. Wake-up from SLEEP mode could be following to an event or an
+     interrupt according to low power mode intrinsic request called (__WFI()
+     or __WFE()).
+     Please ensure to clear all CPU pending events by calling
+     HAL_PWREx_ClearPendingEvent() function when trying to enter the Cortex-Mx
+     in SLEEP mode with __WFE() entry.
+
+ (#) Call HAL_PWR_EnterSTOPMode() function to enter the whole system to Stop 0
+     mode for single core devices. For dual core devices, this API will enter
+     the domain (containing Cortex-Mx that executing this function) in DSTOP
+     mode. According to the used parameter, user could select the regulator to
+     be kept actif in low power mode and wake-up event type.
+     Please ensure to clear all CPU pending events by calling
+     HAL_PWREx_ClearPendingEvent() function when trying to enter the Cortex-Mx
+     in CSTOP mode with __WFE() entry.
+
+ (#) Call HAL_PWR_EnterSTANDBYMode() function to enter the whole system in
+     STANDBY mode for single core devices. For dual core devices, this API
+     will enter the domain (containing Cortex-Mx that executing this function)
+     in DSTANDBY mode.
+
+ (#) Call HAL_PWR_EnableSleepOnExit() and HAL_PWR_DisableSleepOnExit() APIs to
+     enable and disable the Cortex-Mx re-entring in SLEEP mode after an
+     interruption handling is over.
+
+ (#) Call HAL_PWR_EnableSEVOnPend() and HAL_PWR_DisableSEVOnPend() functions
+     to configure the Cortex-Mx to wake-up after any pending event / interrupt
+     even if it's disabled or has insufficient priority to cause exception
+     entry.
+
+ (#) Call HAL_PWR_PVD_IRQHandler() function to handle the PWR PVD interrupt
+     request.
+
+   *** PWR HAL driver macros list ***
+   =============================================
+   [..]
+     Below the list of most used macros in PWR HAL driver.
+
+    (+) __HAL_PWR_VOLTAGESCALING_CONFIG() : Configure the main internal
+                                            regulator output voltage.
+    (+) __HAL_PWR_GET_FLAG()              : Get the PWR pending flags.
+    (+) __HAL_PWR_CLEAR_FLAG()            : Clear the PWR pending flags.\end{DoxyVerb}
+ 

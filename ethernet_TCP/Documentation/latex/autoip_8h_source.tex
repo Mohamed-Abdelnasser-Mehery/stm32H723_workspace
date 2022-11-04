@@ -1,0 +1,91 @@
+\hypertarget{autoip_8h_source}{}\doxysection{autoip.\+h}
+\label{autoip_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/autoip.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/autoip.h}}
+\mbox{\hyperlink{autoip_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{comment}{/*}}
+\DoxyCodeLine{8 \textcolor{comment}{ *}}
+\DoxyCodeLine{9 \textcolor{comment}{ * Copyright (c) 2007 Dominik Spies <kontakt@dspies.de>}}
+\DoxyCodeLine{10 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{11 \textcolor{comment}{ *}}
+\DoxyCodeLine{12 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without modification,}}
+\DoxyCodeLine{13 \textcolor{comment}{ * are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{14 \textcolor{comment}{ *}}
+\DoxyCodeLine{15 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{16 \textcolor{comment}{ *    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{17 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{18 \textcolor{comment}{ *    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{19 \textcolor{comment}{ *    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{20 \textcolor{comment}{ * 3. The name of the author may not be used to endorse or promote products}}
+\DoxyCodeLine{21 \textcolor{comment}{ *    derived from this software without specific prior written permission.}}
+\DoxyCodeLine{22 \textcolor{comment}{ *}}
+\DoxyCodeLine{23 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED}}
+\DoxyCodeLine{24 \textcolor{comment}{ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF}}
+\DoxyCodeLine{25 \textcolor{comment}{ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT}}
+\DoxyCodeLine{26 \textcolor{comment}{ * SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,}}
+\DoxyCodeLine{27 \textcolor{comment}{ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT}}
+\DoxyCodeLine{28 \textcolor{comment}{ * OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{29 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{30 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING}}
+\DoxyCodeLine{31 \textcolor{comment}{ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY}}
+\DoxyCodeLine{32 \textcolor{comment}{ * OF SUCH DAMAGE.}}
+\DoxyCodeLine{33 \textcolor{comment}{ *}}
+\DoxyCodeLine{34 \textcolor{comment}{ * Author: Dominik Spies <kontakt@dspies.de>}}
+\DoxyCodeLine{35 \textcolor{comment}{ *}}
+\DoxyCodeLine{36 \textcolor{comment}{ * This is a AutoIP implementation for the lwIP TCP/IP stack. It aims to conform}}
+\DoxyCodeLine{37 \textcolor{comment}{ * with RFC 3927.}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ */}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#ifndef LWIP\_HDR\_AUTOIP\_H}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define LWIP\_HDR\_AUTOIP\_H}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{opt_8h}{lwip/opt.h}}"{}}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#if LWIP\_IPV4 \&\& LWIP\_AUTOIP }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{netif_8h}{lwip/netif.h}}"{}}}
+\DoxyCodeLine{49 \textcolor{comment}{/* \#include "{}lwip/udp.h"{} */}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lwip_2etharp_8h}{lwip/etharp.h}}"{}}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{53 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define AUTOIP\_TMR\_INTERVAL      100}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define AUTOIP\_TICKS\_PER\_SECOND (1000 / AUTOIP\_TMR\_INTERVAL)}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{61 \textcolor{keyword}{struct }autoip}
+\DoxyCodeLine{62 \{}
+\DoxyCodeLine{64   ip4\_addr\_t llipaddr;}
+\DoxyCodeLine{66   u8\_t state;}
+\DoxyCodeLine{68   u8\_t sent\_num;}
+\DoxyCodeLine{70   u16\_t ttw;}
+\DoxyCodeLine{72   u8\_t lastconflict;}
+\DoxyCodeLine{74   u8\_t tried\_llipaddr;}
+\DoxyCodeLine{75 \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{keywordtype}{void} autoip\_set\_struct(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{struct} autoip *autoip);}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define autoip\_remove\_struct(netif) do \{ (netif)-\/>autoip = NULL; \} while (0)}}
+\DoxyCodeLine{81 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} autoip\_start(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{82 \mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\_t}} autoip\_stop(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{83 \textcolor{keywordtype}{void} autoip\_arp\_reply(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{struct} \mbox{\hyperlink{structetharp__hdr}{etharp\_hdr}} *hdr);}
+\DoxyCodeLine{84 \textcolor{keywordtype}{void} autoip\_tmr(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{85 \textcolor{keywordtype}{void} autoip\_network\_changed(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{86 u8\_t autoip\_supplied\_address(\textcolor{keyword}{const} \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}});}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{comment}{/* for lwIP internal use by ip4.c */}}
+\DoxyCodeLine{89 u8\_t autoip\_accept\_packet(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{const} ip4\_addr\_t *addr);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#define netif\_autoip\_data(netif) ((struct autoip*)netif\_get\_client\_data(netif, LWIP\_NETIF\_CLIENT\_DATA\_INDEX\_AUTOIP))}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{94 \}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_IPV4 \&\& LWIP\_AUTOIP */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LWIP\_HDR\_AUTOIP\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

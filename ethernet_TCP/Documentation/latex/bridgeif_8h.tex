@@ -1,0 +1,69 @@
+\hypertarget{bridgeif_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/netif/bridgeif.h File Reference}
+\label{bridgeif_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/bridgeif.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/bridgeif.h}}
+{\ttfamily \#include \char`\"{}netif/bridgeif\+\_\+opts.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/err.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/prot/ethernet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lwip/tcpip.\+h\char`\"{}}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbridgeif__initdata__s}{bridgeif\+\_\+initdata\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bridgeif_8h_a0b7eb72517dfd441c4c111d8813e007f}\label{bridgeif_8h_a0b7eb72517dfd441c4c111d8813e007f}} 
+\#define {\bfseries BR\+\_\+\+FLOOD}~((bridgeif\+\_\+portmask\+\_\+t)-\/1)
+\item 
+\#define \mbox{\hyperlink{group__bridgeif_ga3d41c7905b61aef3a3b8c61b3af7879f}{BRIDGEIF\+\_\+\+INITDATA1}}(max\+\_\+ports,  max\+\_\+fdb\+\_\+dynamic\+\_\+entries,  max\+\_\+fdb\+\_\+static\+\_\+entries,  ethaddr)~\{ethaddr, max\+\_\+ports, max\+\_\+fdb\+\_\+dynamic\+\_\+entries, max\+\_\+fdb\+\_\+static\+\_\+entries\}
+\item 
+\#define \mbox{\hyperlink{group__bridgeif_gaaaeb47fbf1dd6c30cb502343fa0d0741}{BRIDGEIF\+\_\+\+INITDATA2}}(max\+\_\+ports,  max\+\_\+fdb\+\_\+dynamic\+\_\+entries,  max\+\_\+fdb\+\_\+static\+\_\+entries,  e0,  e1,  e2,  e3,  e4,  e5)~\{\{e0, e1, e2, e3, e4, e5\}, max\+\_\+ports, max\+\_\+fdb\+\_\+dynamic\+\_\+entries, max\+\_\+fdb\+\_\+static\+\_\+entries\}
+\item 
+\mbox{\Hypertarget{bridgeif_8h_a7671063a9ebab759a2a2958c15906cc7}\label{bridgeif_8h_a7671063a9ebab759a2a2958c15906cc7}} 
+\#define {\bfseries BRIDGEIF\+\_\+\+DECL\+\_\+\+PROTECT}(lev)
+\item 
+\mbox{\Hypertarget{bridgeif_8h_a8d223fc6179cb438f13b6750ad96de5a}\label{bridgeif_8h_a8d223fc6179cb438f13b6750ad96de5a}} 
+\#define {\bfseries BRIDGEIF\+\_\+\+READ\+\_\+\+PROTECT}(lev)
+\item 
+\mbox{\Hypertarget{bridgeif_8h_a2cc6733cab8482d64579e14969803b17}\label{bridgeif_8h_a2cc6733cab8482d64579e14969803b17}} 
+\#define {\bfseries BRIDGEIF\+\_\+\+READ\+\_\+\+UNPROTECT}(lev)
+\item 
+\mbox{\Hypertarget{bridgeif_8h_afe242e32160d3cfe2d241843c2d31108}\label{bridgeif_8h_afe242e32160d3cfe2d241843c2d31108}} 
+\#define {\bfseries BRIDGEIF\+\_\+\+WRITE\+\_\+\+PROTECT}(lev)
+\item 
+\mbox{\Hypertarget{bridgeif_8h_abbd976e6ca94cdcb234b215a075b711d}\label{bridgeif_8h_abbd976e6ca94cdcb234b215a075b711d}} 
+\#define {\bfseries BRIDGEIF\+\_\+\+WRITE\+\_\+\+UNPROTECT}(lev)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bridgeif_8h_a13b45dd1c35f7afd145319d2aa49433e}\label{bridgeif_8h_a13b45dd1c35f7afd145319d2aa49433e}} 
+typedef u8\+\_\+t {\bfseries bridgeif\+\_\+portmask\+\_\+t}
+\item 
+typedef struct \mbox{\hyperlink{structbridgeif__initdata__s}{bridgeif\+\_\+initdata\+\_\+s}} \mbox{\hyperlink{group__bridgeif_ga61c8f232a5907f3662157746e71d35cc}{bridgeif\+\_\+initdata\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bridgeif_8h_a23cc2c5f8fccefc470093840cc53727c}\label{bridgeif_8h_a23cc2c5f8fccefc470093840cc53727c}} 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} {\bfseries bridgeif\+\_\+init} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$\mbox{\hyperlink{structnetif}{netif}})
+\item 
+\mbox{\Hypertarget{bridgeif_8h_a51b7d1af22f7023aabd8502aadf77c77}\label{bridgeif_8h_a51b7d1af22f7023aabd8502aadf77c77}} 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} {\bfseries bridgeif\+\_\+add\+\_\+port} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$bridgeif, struct \mbox{\hyperlink{structnetif}{netif}} $\ast$portif)
+\item 
+\mbox{\Hypertarget{bridgeif_8h_ad20fea2657431d4a0905be80cb0b4666}\label{bridgeif_8h_ad20fea2657431d4a0905be80cb0b4666}} 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} {\bfseries bridgeif\+\_\+fdb\+\_\+add} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$bridgeif, const struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} $\ast$addr, bridgeif\+\_\+portmask\+\_\+t ports)
+\item 
+\mbox{\Hypertarget{bridgeif_8h_a79349b1e9d0f944e8abad5a6cfb1c8e8}\label{bridgeif_8h_a79349b1e9d0f944e8abad5a6cfb1c8e8}} 
+\mbox{\hyperlink{group__infrastructure__errors_gaf02d9da80fd66b4f986d2c53d7231ddb}{err\+\_\+t}} {\bfseries bridgeif\+\_\+fdb\+\_\+remove} (struct \mbox{\hyperlink{structnetif}{netif}} $\ast$bridgeif, const struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} $\ast$addr)
+\item 
+void \mbox{\hyperlink{group__bridgeif__fdb_gad912bfd3ce8e24d0eb48b7dc9de07c39}{bridgeif\+\_\+fdb\+\_\+update\+\_\+src}} (void $\ast$fdb\+\_\+ptr, struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} $\ast$src\+\_\+addr, u8\+\_\+t port\+\_\+idx)
+\item 
+bridgeif\+\_\+portmask\+\_\+t \mbox{\hyperlink{group__bridgeif__fdb_ga616fb7404be5da79d8092b4a14976750}{bridgeif\+\_\+fdb\+\_\+get\+\_\+dst\+\_\+ports}} (void $\ast$fdb\+\_\+ptr, struct \mbox{\hyperlink{structeth__addr}{eth\+\_\+addr}} $\ast$dst\+\_\+addr)
+\item 
+void $\ast$ \mbox{\hyperlink{group__bridgeif__fdb_ga137fdeb4939e8fb889b10a97ea479d3a}{bridgeif\+\_\+fdb\+\_\+init}} (u16\+\_\+t max\+\_\+fdb\+\_\+entries)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+lw\+IP netif implementing an IEEE 802.\+1D MAC Bridge 

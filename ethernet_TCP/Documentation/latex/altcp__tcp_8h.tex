@@ -1,0 +1,10 @@
+\hypertarget{altcp__tcp_8h}{}\doxysection{C\+:/\+Users/\+User\+\_\+4/\+STM32\+Cube\+IDE/workspace\+\_\+1.10.1/ethernet\+\_\+\+UDB/\+Middlewares/\+Third\+\_\+\+Party/\+Lw\+IP/src/include/lwip/altcp\+\_\+tcp.h File Reference}
+\label{altcp__tcp_8h}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/altcp\_tcp.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/lwip/altcp\_tcp.h}}
+{\ttfamily \#include \char`\"{}lwip/opt.\+h\char`\"{}}\newline
+
+
+\doxysubsection{Detailed Description}
+Application layered TCP connection API (to be used from TCPIP thread)~\newline
+This interface mimics the tcp callback API to the application while preventing direct linking (much like virtual functions). This way, an application can make use of other application layer protocols on top of TCP without knowing the details (e.\+g. TLS, proxy connection).
+
+This file contains the base implementation calling into tcp. 

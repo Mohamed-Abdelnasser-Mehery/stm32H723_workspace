@@ -1,0 +1,193 @@
+\hypertarget{pppoe_8h_source}{}\doxysection{pppoe.\+h}
+\label{pppoe_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/pppoe.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Middlewares/Third\_Party/LwIP/src/include/netif/ppp/pppoe.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*****************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{* pppoe.h -\/ PPP Over Ethernet implementation for lwIP.}}
+\DoxyCodeLine{3 \textcolor{comment}{*}}
+\DoxyCodeLine{4 \textcolor{comment}{* Copyright (c) 2006 by Marc Boucher, Services Informatiques (MBSI) inc.}}
+\DoxyCodeLine{5 \textcolor{comment}{*}}
+\DoxyCodeLine{6 \textcolor{comment}{* The authors hereby grant permission to use, copy, modify, distribute,}}
+\DoxyCodeLine{7 \textcolor{comment}{* and license this software and its documentation for any purpose, provided}}
+\DoxyCodeLine{8 \textcolor{comment}{* that existing copyright notices are retained in all copies and that this}}
+\DoxyCodeLine{9 \textcolor{comment}{* notice and the following disclaimer are included verbatim in any }}
+\DoxyCodeLine{10 \textcolor{comment}{* distributions. No written agreement, license, or royalty fee is required}}
+\DoxyCodeLine{11 \textcolor{comment}{* for any of the authorized uses.}}
+\DoxyCodeLine{12 \textcolor{comment}{*}}
+\DoxyCodeLine{13 \textcolor{comment}{* THIS SOFTWARE IS PROVIDED BY THE CONTRIBUTORS *AS IS* AND ANY EXPRESS OR}}
+\DoxyCodeLine{14 \textcolor{comment}{* IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES}}
+\DoxyCodeLine{15 \textcolor{comment}{* OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. }}
+\DoxyCodeLine{16 \textcolor{comment}{* IN NO EVENT SHALL THE CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,}}
+\DoxyCodeLine{17 \textcolor{comment}{* INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT}}
+\DoxyCodeLine{18 \textcolor{comment}{* NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,}}
+\DoxyCodeLine{19 \textcolor{comment}{* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY}}
+\DoxyCodeLine{20 \textcolor{comment}{* THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT}}
+\DoxyCodeLine{21 \textcolor{comment}{* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF}}
+\DoxyCodeLine{22 \textcolor{comment}{* THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{23 \textcolor{comment}{*}}
+\DoxyCodeLine{24 \textcolor{comment}{******************************************************************************}}
+\DoxyCodeLine{25 \textcolor{comment}{* REVISION HISTORY}}
+\DoxyCodeLine{26 \textcolor{comment}{*}}
+\DoxyCodeLine{27 \textcolor{comment}{* 06-\/01-\/01 Marc Boucher <marc@mbsi.ca>}}
+\DoxyCodeLine{28 \textcolor{comment}{*   Ported to lwIP.}}
+\DoxyCodeLine{29 \textcolor{comment}{*****************************************************************************/}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{comment}{/* based on NetBSD: if\_pppoe.c,v 1.64 2006/01/31 23:50:15 martin Exp */}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{comment}{/*-\/}}
+\DoxyCodeLine{36 \textcolor{comment}{ * Copyright (c) 2002 The NetBSD Foundation, Inc.}}
+\DoxyCodeLine{37 \textcolor{comment}{ * All rights reserved.}}
+\DoxyCodeLine{38 \textcolor{comment}{ *}}
+\DoxyCodeLine{39 \textcolor{comment}{ * This code is derived from software contributed to The NetBSD Foundation}}
+\DoxyCodeLine{40 \textcolor{comment}{ * by Martin Husemann <martin@NetBSD.org>.}}
+\DoxyCodeLine{41 \textcolor{comment}{ *}}
+\DoxyCodeLine{42 \textcolor{comment}{ * Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{43 \textcolor{comment}{ * modification, are permitted provided that the following conditions}}
+\DoxyCodeLine{44 \textcolor{comment}{ * are met:}}
+\DoxyCodeLine{45 \textcolor{comment}{ * 1. Redistributions of source code must retain the above copyright}}
+\DoxyCodeLine{46 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{47 \textcolor{comment}{ * 2. Redistributions in binary form must reproduce the above copyright}}
+\DoxyCodeLine{48 \textcolor{comment}{ *    notice, this list of conditions and the following disclaimer in the}}
+\DoxyCodeLine{49 \textcolor{comment}{ *    documentation and/or other materials provided with the distribution.}}
+\DoxyCodeLine{50 \textcolor{comment}{ * 3. All advertising materials mentioning features or use of this software}}
+\DoxyCodeLine{51 \textcolor{comment}{ *    must display the following acknowledgement:}}
+\DoxyCodeLine{52 \textcolor{comment}{ *        This product includes software developed by the NetBSD}}
+\DoxyCodeLine{53 \textcolor{comment}{ *        Foundation, Inc. and its contributors.}}
+\DoxyCodeLine{54 \textcolor{comment}{ * 4. Neither the name of The NetBSD Foundation nor the names of its}}
+\DoxyCodeLine{55 \textcolor{comment}{ *    contributors may be used to endorse or promote products derived}}
+\DoxyCodeLine{56 \textcolor{comment}{ *    from this software without specific prior written permission.}}
+\DoxyCodeLine{57 \textcolor{comment}{ *}}
+\DoxyCodeLine{58 \textcolor{comment}{ * THIS SOFTWARE IS PROVIDED BY THE NETBSD FOUNDATION, INC. AND CONTRIBUTORS}}
+\DoxyCodeLine{59 \textcolor{comment}{ * ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED}}
+\DoxyCodeLine{60 \textcolor{comment}{ * TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR}}
+\DoxyCodeLine{61 \textcolor{comment}{ * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR CONTRIBUTORS}}
+\DoxyCodeLine{62 \textcolor{comment}{ * BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{63 \textcolor{comment}{ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{64 \textcolor{comment}{ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{65 \textcolor{comment}{ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{66 \textcolor{comment}{ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{67 \textcolor{comment}{ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{68 \textcolor{comment}{ * POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{69 \textcolor{comment}{ */}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#include "{}netif/ppp/ppp\_opts.h"{}}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#if PPP\_SUPPORT \&\& PPPOE\_SUPPORT }\textcolor{comment}{/* don't build if not configured for use in lwipopts.h */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#ifndef PPP\_OE\_H}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#define PPP\_OE\_H}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#include "{}ppp.h"{}}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lwip_2etharp_8h}{lwip/etharp.h}}"{}}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{80 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{86 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{87 \textcolor{keyword}{struct }pppoehdr \{}
+\DoxyCodeLine{88   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t vertype);}
+\DoxyCodeLine{89   \mbox{\hyperlink{group__compiler__abstraction_gaa8f75e4117374c2d09fbda5566e40b62}{PACK\_STRUCT\_FLD\_8}}(u8\_t code);}
+\DoxyCodeLine{90   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t session);}
+\DoxyCodeLine{91   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t plen);}
+\DoxyCodeLine{92 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{93 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#  include "{}arch/bpstruct.h"{}}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{101 \mbox{\hyperlink{group__compiler__abstraction_ga73199061891adf1b912d20835c7d5e96}{PACK\_STRUCT\_BEGIN}}}
+\DoxyCodeLine{102 \textcolor{keyword}{struct }pppoetag \{}
+\DoxyCodeLine{103   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t tag);}
+\DoxyCodeLine{104   \mbox{\hyperlink{group__compiler__abstraction_gaab0b988124e37a978d9a88e7c1c778e0}{PACK\_STRUCT\_FIELD}}(u16\_t len);}
+\DoxyCodeLine{105 \} \mbox{\hyperlink{group__compiler__abstraction_ga9ebc500530d0d9e6cd0b81969f48bbc8}{PACK\_STRUCT\_STRUCT}};}
+\DoxyCodeLine{106 \mbox{\hyperlink{group__compiler__abstraction_ga465fef70f294e21cbf4ea51fc342f20e}{PACK\_STRUCT\_END}}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#ifdef PACK\_STRUCT\_USE\_INCLUDES}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#  include "{}arch/epstruct.h"{}}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#define PPPOE\_STATE\_INITIAL   0}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#define PPPOE\_STATE\_PADI\_SENT 1}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{\#define PPPOE\_STATE\_PADR\_SENT 2}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#define PPPOE\_STATE\_SESSION   3}}
+\DoxyCodeLine{116 \textcolor{comment}{/* passive */}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#define PPPOE\_STATE\_PADO\_SENT 1}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#define PPPOE\_HEADERLEN       sizeof(struct pppoehdr)}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#define PPPOE\_VERTYPE         0x11    }\textcolor{comment}{/* VER=1, TYPE = 1 */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#define PPPOE\_TAG\_EOL         0x0000  }\textcolor{comment}{/* end of list */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#define PPPOE\_TAG\_SNAME       0x0101  }\textcolor{comment}{/* service name */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define PPPOE\_TAG\_ACNAME      0x0102  }\textcolor{comment}{/* access concentrator name */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define PPPOE\_TAG\_HUNIQUE     0x0103  }\textcolor{comment}{/* host unique */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define PPPOE\_TAG\_ACCOOKIE    0x0104  }\textcolor{comment}{/* AC cookie */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#define PPPOE\_TAG\_VENDOR      0x0105  }\textcolor{comment}{/* vendor specific */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{128 \textcolor{preprocessor}{\#define PPPOE\_TAG\_RELAYSID    0x0110  }\textcolor{comment}{/* relay session id */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#define PPPOE\_TAG\_SNAME\_ERR   0x0201  }\textcolor{comment}{/* service name error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#define PPPOE\_TAG\_ACSYS\_ERR   0x0202  }\textcolor{comment}{/* AC system error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#define PPPOE\_TAG\_GENERIC\_ERR 0x0203  }\textcolor{comment}{/* gerneric error */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#define PPPOE\_CODE\_PADI       0x09    }\textcolor{comment}{/* Active Discovery Initiation */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define PPPOE\_CODE\_PADO       0x07    }\textcolor{comment}{/* Active Discovery Offer */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define PPPOE\_CODE\_PADR       0x19    }\textcolor{comment}{/* Active Discovery Request */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define PPPOE\_CODE\_PADS       0x65    }\textcolor{comment}{/* Active Discovery Session confirmation */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define PPPOE\_CODE\_PADT       0xA7    }\textcolor{comment}{/* Active Discovery Terminate */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#ifndef PPPOE\_MAX\_AC\_COOKIE\_LEN}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define PPPOE\_MAX\_AC\_COOKIE\_LEN   64}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{keyword}{struct }pppoe\_softc \{}
+\DoxyCodeLine{144   \textcolor{keyword}{struct }pppoe\_softc *next;}
+\DoxyCodeLine{145   \textcolor{keyword}{struct }\mbox{\hyperlink{structnetif}{netif}} *sc\_ethif;      \textcolor{comment}{/* ethernet interface we are using */}}
+\DoxyCodeLine{146   ppp\_pcb *pcb;                \textcolor{comment}{/* PPP PCB */}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148   \textcolor{keyword}{struct }\mbox{\hyperlink{structeth__addr}{eth\_addr}} sc\_dest;     \textcolor{comment}{/* hardware address of concentrator */}}
+\DoxyCodeLine{149   u16\_t sc\_session;            \textcolor{comment}{/* PPPoE session id */}}
+\DoxyCodeLine{150   u8\_t sc\_state;               \textcolor{comment}{/* discovery phase or session connected */}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#ifdef PPPOE\_TODO}}
+\DoxyCodeLine{153   u8\_t *sc\_service\_name;       \textcolor{comment}{/* if != NULL: requested name of service */}}
+\DoxyCodeLine{154   u8\_t *sc\_concentrator\_name;  \textcolor{comment}{/* if != NULL: requested concentrator id */}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPPOE\_TODO */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{156   u8\_t sc\_ac\_cookie[PPPOE\_MAX\_AC\_COOKIE\_LEN]; \textcolor{comment}{/* content of AC cookie we must echo back */}}
+\DoxyCodeLine{157   u8\_t sc\_ac\_cookie\_len;       \textcolor{comment}{/* length of cookie data */}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#ifdef PPPOE\_SERVER}}
+\DoxyCodeLine{159   u8\_t *sc\_hunique;            \textcolor{comment}{/* content of host unique we must echo back */}}
+\DoxyCodeLine{160   u8\_t sc\_hunique\_len;         \textcolor{comment}{/* length of host unique */}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{162   u8\_t sc\_padi\_retried;        \textcolor{comment}{/* number of PADI retries already done */}}
+\DoxyCodeLine{163   u8\_t sc\_padr\_retried;        \textcolor{comment}{/* number of PADR retries already done */}}
+\DoxyCodeLine{164 \};}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167 \textcolor{preprocessor}{\#define pppoe\_init() }\textcolor{comment}{/* compatibility define, no initialization needed */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 ppp\_pcb *pppoe\_create(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *pppif,}
+\DoxyCodeLine{170        \textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *ethif,}
+\DoxyCodeLine{171        \textcolor{keyword}{const} \textcolor{keywordtype}{char} *service\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *concentrator\_name,}
+\DoxyCodeLine{172        ppp\_link\_status\_cb\_fn link\_status\_cb, \textcolor{keywordtype}{void} *ctx\_cb);}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \textcolor{comment}{/*}}
+\DoxyCodeLine{175 \textcolor{comment}{ * Functions called from lwIP}}
+\DoxyCodeLine{176 \textcolor{comment}{ * DO NOT CALL FROM lwIP USER APPLICATION.}}
+\DoxyCodeLine{177 \textcolor{comment}{ */}}
+\DoxyCodeLine{178 \textcolor{keywordtype}{void} pppoe\_disc\_input(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{179 \textcolor{keywordtype}{void} pppoe\_data\_input(\textcolor{keyword}{struct} \mbox{\hyperlink{structnetif}{netif}} *\mbox{\hyperlink{structnetif}{netif}}, \textcolor{keyword}{struct} \mbox{\hyperlink{structpbuf}{pbuf}} *p);}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{182 \}}
+\DoxyCodeLine{183 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_OE\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PPP\_SUPPORT \&\& PPPOE\_SUPPORT */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

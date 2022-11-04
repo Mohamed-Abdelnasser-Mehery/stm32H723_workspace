@@ -1,0 +1,35 @@
+\hypertarget{group__sys__time}{}\doxysection{Time}
+\label{group__sys__time}\index{Time@{Time}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+u32\+\_\+t \mbox{\hyperlink{group__sys__time_ga11316ac1e77418c6fa4ab8869e3fa199}{sys\+\_\+now}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current time in milliseconds when LWIP\+\_\+\+TIMERS == 1 and NO\+\_\+\+SYS == 1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group__sys__time_ga11316ac1e77418c6fa4ab8869e3fa199}\label{group__sys__time_ga11316ac1e77418c6fa4ab8869e3fa199}} 
+\index{Time@{Time}!sys\_now@{sys\_now}}
+\index{sys\_now@{sys\_now}!Time@{Time}}
+\doxysubsubsection{\texorpdfstring{sys\_now()}{sys\_now()}}
+{\footnotesize\ttfamily u32\+\_\+t sys\+\_\+now (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the current time in milliseconds when LWIP\+\_\+\+TIMERS == 1 and NO\+\_\+\+SYS == 1. 
+
+Returns the current time in milliseconds, may be the same as sys\+\_\+jiffies or at least based on it. Don\textquotesingle{}t care for wraparound, this is only used for time diffs. Not implementing this function means you cannot use some modules (e.\+g. TCP timestamps, internal timeouts for NO\+\_\+\+SYS==1).
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Current} & Time value \\
+\hline
+\end{DoxyRetVals}

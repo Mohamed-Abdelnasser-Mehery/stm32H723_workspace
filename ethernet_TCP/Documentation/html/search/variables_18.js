@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['x1bufcfg_0',['X1BUFCFG',['../struct_f_m_a_c___type_def.html#a9730ac0a50a8130a1b39225f6b8fcef2',1,'FMAC_TypeDef']]],
+  ['x2bufcfg_1',['X2BUFCFG',['../struct_f_m_a_c___type_def.html#a61cf42919a775e85905c87824c108253',1,'FMAC_TypeDef']]],
+  ['xferabortcallback_2',['XferAbortCallback',['../struct_____d_m_a___handle_type_def.html#a6253dc8680e566bbc244228374dd647d',1,'__DMA_HandleTypeDef::XferAbortCallback()'],['../struct_____m_d_m_a___handle_type_def.html#a8ad04f2b1fbe4f691327f13cfb4dfb74',1,'__MDMA_HandleTypeDef::XferAbortCallback()']]],
+  ['xferblockcpltcallback_3',['XferBlockCpltCallback',['../struct_____m_d_m_a___handle_type_def.html#ae4064e9d5fe0308094d328c1a15be87f',1,'__MDMA_HandleTypeDef']]],
+  ['xferbuffercpltcallback_4',['XferBufferCpltCallback',['../struct_____m_d_m_a___handle_type_def.html#a27fdeb0e1283e9e97b94cc90dac187d0',1,'__MDMA_HandleTypeDef']]],
+  ['xfercount_5',['XferCount',['../struct_____i2_c___handle_type_def.html#a49bf3cd0e9bcb9f41f161663f513f405',1,'__I2C_HandleTypeDef']]],
+  ['xfercpltcallback_6',['XferCpltCallback',['../struct_____d_m_a___handle_type_def.html#a3d7716d1d7a5717f09525efd19334864',1,'__DMA_HandleTypeDef::XferCpltCallback()'],['../struct_____m_d_m_a___handle_type_def.html#aaa8ed194032bcba37bdcc52e877793ad',1,'__MDMA_HandleTypeDef::XferCpltCallback()']]],
+  ['xfererrorcallback_7',['XferErrorCallback',['../struct_____d_m_a___handle_type_def.html#a695c6fe664a7baf827e461652ebdb9e0',1,'__DMA_HandleTypeDef::XferErrorCallback()'],['../struct_____m_d_m_a___handle_type_def.html#a21eeca41117329639ffb91a3580381ce',1,'__MDMA_HandleTypeDef::XferErrorCallback()']]],
+  ['xferhalfcpltcallback_8',['XferHalfCpltCallback',['../struct_____d_m_a___handle_type_def.html#aea6af14bab20d3f9a82f08df1abea01a',1,'__DMA_HandleTypeDef']]],
+  ['xferisr_9',['XferISR',['../struct_____i2_c___handle_type_def.html#a5e03f08d05d15496797f071858ebed53',1,'__I2C_HandleTypeDef']]],
+  ['xferm1cpltcallback_10',['XferM1CpltCallback',['../struct_____d_m_a___handle_type_def.html#a7055720d00fe66e27f3910087cb6524a',1,'__DMA_HandleTypeDef']]],
+  ['xferm1halfcpltcallback_11',['XferM1HalfCpltCallback',['../struct_____d_m_a___handle_type_def.html#a5f01e4cd22742ea0ae056adc50b68ed3',1,'__DMA_HandleTypeDef']]],
+  ['xferoptions_12',['XferOptions',['../struct_____i2_c___handle_type_def.html#a275aa3c8180a03dbe4bf55fafba3e892',1,'__I2C_HandleTypeDef']]],
+  ['xferrepeatblockcpltcallback_13',['XferRepeatBlockCpltCallback',['../struct_____m_d_m_a___handle_type_def.html#a5d377875065efc533596f7aff89354d3',1,'__MDMA_HandleTypeDef']]],
+  ['xfersize_14',['XferSize',['../struct_____i2_c___handle_type_def.html#a51999331ab800faccdb97383b39819dd',1,'__I2C_HandleTypeDef']]],
+  ['xidam_15',['XIDAM',['../struct_f_d_c_a_n___global_type_def.html#a7676c0a83a28dbab64586a95888c96f9',1,'FDCAN_GlobalTypeDef']]],
+  ['xidfc_16',['XIDFC',['../struct_f_d_c_a_n___global_type_def.html#af9c45f728eb0e1a66755ca6a0864513f',1,'FDCAN_GlobalTypeDef']]]
+];

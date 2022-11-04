@@ -1,0 +1,232 @@
+\hypertarget{lan8742_8h_source}{}\doxysection{lan8742.\+h}
+\label{lan8742_8h_source}\index{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/BSP/Components/lan8742/lan8742.h@{C:/Users/User\_4/STM32CubeIDE/workspace\_1.10.1/ethernet\_UDB/Drivers/BSP/Components/lan8742/lan8742.h}}
+\mbox{\hyperlink{lan8742_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{21 \textcolor{comment}{/* Define to prevent recursive inclusion -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#ifndef LAN8742\_H}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define LAN8742\_H}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{26  \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#endif   }}
+\DoxyCodeLine{28    }
+\DoxyCodeLine{29 \textcolor{comment}{/* Includes -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{43 \textcolor{comment}{/* Exported constants -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define LAN8742\_BCR      ((uint16\_t)0x0000U)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define LAN8742\_BSR      ((uint16\_t)0x0001U)}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define LAN8742\_PHYI1R   ((uint16\_t)0x0002U)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define LAN8742\_PHYI2R   ((uint16\_t)0x0003U)}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define LAN8742\_ANAR     ((uint16\_t)0x0004U)}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR   ((uint16\_t)0x0005U)}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define LAN8742\_ANER     ((uint16\_t)0x0006U)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define LAN8742\_ANNPTR   ((uint16\_t)0x0007U)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define LAN8742\_ANNPRR   ((uint16\_t)0x0008U)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define LAN8742\_MMDACR   ((uint16\_t)0x000DU)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define LAN8742\_MMDAADR  ((uint16\_t)0x000EU)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define LAN8742\_ENCTR    ((uint16\_t)0x0010U)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define LAN8742\_MCSR     ((uint16\_t)0x0011U)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#define LAN8742\_SMR      ((uint16\_t)0x0012U)}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define LAN8742\_TPDCR    ((uint16\_t)0x0018U)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define LAN8742\_TCSR     ((uint16\_t)0x0019U)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#define LAN8742\_SECR     ((uint16\_t)0x001AU)}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#define LAN8742\_SCSIR    ((uint16\_t)0x001BU)}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#define LAN8742\_CLR      ((uint16\_t)0x001CU)}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#define LAN8742\_ISFR     ((uint16\_t)0x001DU)}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#define LAN8742\_IMR      ((uint16\_t)0x001EU)}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#define LAN8742\_PHYSCSR  ((uint16\_t)0x001FU)}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#define LAN8742\_BCR\_SOFT\_RESET         ((uint16\_t)0x8000U)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#define LAN8742\_BCR\_LOOPBACK           ((uint16\_t)0x4000U)}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#define LAN8742\_BCR\_SPEED\_SELECT       ((uint16\_t)0x2000U)}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#define LAN8742\_BCR\_AUTONEGO\_EN        ((uint16\_t)0x1000U)}}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#define LAN8742\_BCR\_POWER\_DOWN         ((uint16\_t)0x0800U)}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#define LAN8742\_BCR\_ISOLATE            ((uint16\_t)0x0400U)}}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#define LAN8742\_BCR\_RESTART\_AUTONEGO   ((uint16\_t)0x0200U)}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define LAN8742\_BCR\_DUPLEX\_MODE        ((uint16\_t)0x0100U) }}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#define LAN8742\_BSR\_100BASE\_T4       ((uint16\_t)0x8000U)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#define LAN8742\_BSR\_100BASE\_TX\_FD    ((uint16\_t)0x4000U)}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#define LAN8742\_BSR\_100BASE\_TX\_HD    ((uint16\_t)0x2000U)}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#define LAN8742\_BSR\_10BASE\_T\_FD      ((uint16\_t)0x1000U)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#define LAN8742\_BSR\_10BASE\_T\_HD      ((uint16\_t)0x0800U)}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#define LAN8742\_BSR\_100BASE\_T2\_FD    ((uint16\_t)0x0400U)}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#define LAN8742\_BSR\_100BASE\_T2\_HD    ((uint16\_t)0x0200U)}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#define LAN8742\_BSR\_EXTENDED\_STATUS  ((uint16\_t)0x0100U)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#define LAN8742\_BSR\_AUTONEGO\_CPLT    ((uint16\_t)0x0020U)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#define LAN8742\_BSR\_REMOTE\_FAULT     ((uint16\_t)0x0010U)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#define LAN8742\_BSR\_AUTONEGO\_ABILITY ((uint16\_t)0x0008U)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#define LAN8742\_BSR\_LINK\_STATUS      ((uint16\_t)0x0004U)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#define LAN8742\_BSR\_JABBER\_DETECT    ((uint16\_t)0x0002U)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#define LAN8742\_BSR\_EXTENDED\_CAP     ((uint16\_t)0x0001U)}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#define LAN8742\_PHYI1R\_OUI\_3\_18           ((uint16\_t)0xFFFFU)}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#define LAN8742\_PHYI2R\_OUI\_19\_24          ((uint16\_t)0xFC00U)}}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#define LAN8742\_PHYI2R\_MODEL\_NBR          ((uint16\_t)0x03F0U)}}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#define LAN8742\_PHYI2R\_REVISION\_NBR       ((uint16\_t)0x000FU)}}
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_NEXT\_PAGE               ((uint16\_t)0x8000U)}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_REMOTE\_FAULT            ((uint16\_t)0x2000U)}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_PAUSE\_OPERATION         ((uint16\_t)0x0C00U)}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_PO\_NOPAUSE              ((uint16\_t)0x0000U)}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_PO\_SYMMETRIC\_PAUSE      ((uint16\_t)0x0400U)}}
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_PO\_ASYMMETRIC\_PAUSE     ((uint16\_t)0x0800U)}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_PO\_ADVERTISE\_SUPPORT    ((uint16\_t)0x0C00U)}}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_100BASE\_TX\_FD           ((uint16\_t)0x0100U)}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_100BASE\_TX              ((uint16\_t)0x0080U)}}
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_10BASE\_T\_FD             ((uint16\_t)0x0040U)}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_10BASE\_T                ((uint16\_t)0x0020U)}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#define LAN8742\_ANAR\_SELECTOR\_FIELD          ((uint16\_t)0x000FU)}}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_NEXT\_PAGE            ((uint16\_t)0x8000U)}}
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_REMOTE\_FAULT         ((uint16\_t)0x2000U)}}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_PAUSE\_OPERATION      ((uint16\_t)0x0C00U)}}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_PO\_NOPAUSE           ((uint16\_t)0x0000U)}}
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_PO\_SYMMETRIC\_PAUSE   ((uint16\_t)0x0400U)}}
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_PO\_ASYMMETRIC\_PAUSE  ((uint16\_t)0x0800U)}}
+\DoxyCodeLine{159 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_PO\_ADVERTISE\_SUPPORT ((uint16\_t)0x0C00U)}}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_100BASE\_TX\_FD        ((uint16\_t)0x0100U)}}
+\DoxyCodeLine{161 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_100BASE\_TX           ((uint16\_t)0x0080U)}}
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_10BASE\_T\_FD          ((uint16\_t)0x0040U)}}
+\DoxyCodeLine{163 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_10BASE\_T             ((uint16\_t)0x0020U)}}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#define LAN8742\_ANLPAR\_SELECTOR\_FIELD       ((uint16\_t)0x000FU)}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#define LAN8742\_ANER\_RX\_NP\_LOCATION\_ABLE    ((uint16\_t)0x0040U)}}
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#define LAN8742\_ANER\_RX\_NP\_STORAGE\_LOCATION ((uint16\_t)0x0020U)}}
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#define LAN8742\_ANER\_PARALLEL\_DETECT\_FAULT  ((uint16\_t)0x0010U)}}
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#define LAN8742\_ANER\_LP\_NP\_ABLE             ((uint16\_t)0x0008U)}}
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#define LAN8742\_ANER\_NP\_ABLE                ((uint16\_t)0x0004U)}}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#define LAN8742\_ANER\_PAGE\_RECEIVED          ((uint16\_t)0x0002U)}}
+\DoxyCodeLine{178 \textcolor{preprocessor}{\#define LAN8742\_ANER\_LP\_AUTONEG\_ABLE        ((uint16\_t)0x0001U)}}
+\DoxyCodeLine{186 \textcolor{preprocessor}{\#define LAN8742\_ANNPTR\_NEXT\_PAGE         ((uint16\_t)0x8000U)}}
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#define LAN8742\_ANNPTR\_MESSAGE\_PAGE      ((uint16\_t)0x2000U)}}
+\DoxyCodeLine{188 \textcolor{preprocessor}{\#define LAN8742\_ANNPTR\_ACK2              ((uint16\_t)0x1000U)}}
+\DoxyCodeLine{189 \textcolor{preprocessor}{\#define LAN8742\_ANNPTR\_TOGGLE            ((uint16\_t)0x0800U)}}
+\DoxyCodeLine{190 \textcolor{preprocessor}{\#define LAN8742\_ANNPTR\_MESSAGGE\_CODE     ((uint16\_t)0x07FFU)}}
+\DoxyCodeLine{198 \textcolor{preprocessor}{\#define LAN8742\_ANNPTR\_NEXT\_PAGE         ((uint16\_t)0x8000U)}}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#define LAN8742\_ANNPRR\_ACK               ((uint16\_t)0x4000U)}}
+\DoxyCodeLine{200 \textcolor{preprocessor}{\#define LAN8742\_ANNPRR\_MESSAGE\_PAGE      ((uint16\_t)0x2000U)}}
+\DoxyCodeLine{201 \textcolor{preprocessor}{\#define LAN8742\_ANNPRR\_ACK2              ((uint16\_t)0x1000U)}}
+\DoxyCodeLine{202 \textcolor{preprocessor}{\#define LAN8742\_ANNPRR\_TOGGLE            ((uint16\_t)0x0800U)}}
+\DoxyCodeLine{203 \textcolor{preprocessor}{\#define LAN8742\_ANNPRR\_MESSAGGE\_CODE     ((uint16\_t)0x07FFU)}}
+\DoxyCodeLine{211 \textcolor{preprocessor}{\#define LAN8742\_MMDACR\_MMD\_FUNCTION       ((uint16\_t)0xC000U) }}
+\DoxyCodeLine{212 \textcolor{preprocessor}{\#define LAN8742\_MMDACR\_MMD\_FUNCTION\_ADDR  ((uint16\_t)0x0000U)}}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#define LAN8742\_MMDACR\_MMD\_FUNCTION\_DATA  ((uint16\_t)0x4000U)}}
+\DoxyCodeLine{214 \textcolor{preprocessor}{\#define LAN8742\_MMDACR\_MMD\_DEV\_ADDR       ((uint16\_t)0x001FU)}}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_TX\_ENABLE             ((uint16\_t)0x8000U)}}
+\DoxyCodeLine{223 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_TX\_TIMER              ((uint16\_t)0x6000U)}}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_TX\_TIMER\_1S           ((uint16\_t)0x0000U)}}
+\DoxyCodeLine{225 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_TX\_TIMER\_768MS        ((uint16\_t)0x2000U)}}
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_TX\_TIMER\_512MS        ((uint16\_t)0x4000U)}}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_TX\_TIMER\_265MS        ((uint16\_t)0x6000U)}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_RX\_ENABLE             ((uint16\_t)0x1000U)}}
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_RX\_MAX\_INTERVAL       ((uint16\_t)0x0C00U)}}
+\DoxyCodeLine{230 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_RX\_MAX\_INTERVAL\_64MS  ((uint16\_t)0x0000U)}}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_RX\_MAX\_INTERVAL\_256MS ((uint16\_t)0x0400U)}}
+\DoxyCodeLine{232 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_RX\_MAX\_INTERVAL\_512MS ((uint16\_t)0x0800U)}}
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_RX\_MAX\_INTERVAL\_1S    ((uint16\_t)0x0C00U)}}
+\DoxyCodeLine{234 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_EX\_CROSS\_OVER         ((uint16\_t)0x0002U)}}
+\DoxyCodeLine{235 \textcolor{preprocessor}{\#define LAN8742\_ENCTR\_EX\_MANUAL\_CROSS\_OVER  ((uint16\_t)0x0001U)}}
+\DoxyCodeLine{243 \textcolor{preprocessor}{\#define LAN8742\_MCSR\_EDPWRDOWN        ((uint16\_t)0x2000U)}}
+\DoxyCodeLine{244 \textcolor{preprocessor}{\#define LAN8742\_MCSR\_FARLOOPBACK      ((uint16\_t)0x0200U)}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#define LAN8742\_MCSR\_ALTINT           ((uint16\_t)0x0040U)}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#define LAN8742\_MCSR\_ENERGYON         ((uint16\_t)0x0002U)}}
+\DoxyCodeLine{254 \textcolor{preprocessor}{\#define LAN8742\_SMR\_MODE       ((uint16\_t)0x00E0U)}}
+\DoxyCodeLine{255 \textcolor{preprocessor}{\#define LAN8742\_SMR\_PHY\_ADDR   ((uint16\_t)0x001FU)}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#define LAN8742\_TPDCR\_DELAY\_IN                 ((uint16\_t)0x8000U)}}
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#define LAN8742\_TPDCR\_LINE\_BREAK\_COUNTER       ((uint16\_t)0x7000U)}}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#define LAN8742\_TPDCR\_PATTERN\_HIGH             ((uint16\_t)0x0FC0U)}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#define LAN8742\_TPDCR\_PATTERN\_LOW              ((uint16\_t)0x003FU)}}
+\DoxyCodeLine{274 \textcolor{preprocessor}{\#define LAN8742\_TCSR\_TDR\_ENABLE           ((uint16\_t)0x8000U)}}
+\DoxyCodeLine{275 \textcolor{preprocessor}{\#define LAN8742\_TCSR\_TDR\_AD\_FILTER\_ENABLE ((uint16\_t)0x4000U)}}
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#define LAN8742\_TCSR\_TDR\_CH\_CABLE\_TYPE    ((uint16\_t)0x0600U)}}
+\DoxyCodeLine{277 \textcolor{preprocessor}{\#define LAN8742\_TCSR\_TDR\_CH\_CABLE\_DEFAULT ((uint16\_t)0x0000U)}}
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#define LAN8742\_TCSR\_TDR\_CH\_CABLE\_SHORTED ((uint16\_t)0x0200U)}}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#define LAN8742\_TCSR\_TDR\_CH\_CABLE\_OPEN    ((uint16\_t)0x0400U)}}
+\DoxyCodeLine{280 \textcolor{preprocessor}{\#define LAN8742\_TCSR\_TDR\_CH\_CABLE\_MATCH   ((uint16\_t)0x0600U)}}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#define LAN8742\_TCSR\_TDR\_CH\_STATUS        ((uint16\_t)0x0100U)}}
+\DoxyCodeLine{282 \textcolor{preprocessor}{\#define LAN8742\_TCSR\_TDR\_CH\_LENGTH        ((uint16\_t)0x00FFU)}}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#define LAN8742\_SCSIR\_AUTO\_MDIX\_ENABLE    ((uint16\_t)0x8000U)}}
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#define LAN8742\_SCSIR\_CHANNEL\_SELECT      ((uint16\_t)0x2000U)}}
+\DoxyCodeLine{292 \textcolor{preprocessor}{\#define LAN8742\_SCSIR\_SQE\_DISABLE         ((uint16\_t)0x0800U)}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#define LAN8742\_SCSIR\_XPOLALITY           ((uint16\_t)0x0010U)}}
+\DoxyCodeLine{301 \textcolor{preprocessor}{\#define LAN8742\_CLR\_CABLE\_LENGTH       ((uint16\_t)0xF000U)}}
+\DoxyCodeLine{309 \textcolor{preprocessor}{\#define LAN8742\_INT\_8       ((uint16\_t)0x0100U)}}
+\DoxyCodeLine{310 \textcolor{preprocessor}{\#define LAN8742\_INT\_7       ((uint16\_t)0x0080U)}}
+\DoxyCodeLine{311 \textcolor{preprocessor}{\#define LAN8742\_INT\_6       ((uint16\_t)0x0040U)}}
+\DoxyCodeLine{312 \textcolor{preprocessor}{\#define LAN8742\_INT\_5       ((uint16\_t)0x0020U)}}
+\DoxyCodeLine{313 \textcolor{preprocessor}{\#define LAN8742\_INT\_4       ((uint16\_t)0x0010U)}}
+\DoxyCodeLine{314 \textcolor{preprocessor}{\#define LAN8742\_INT\_3       ((uint16\_t)0x0008U)}}
+\DoxyCodeLine{315 \textcolor{preprocessor}{\#define LAN8742\_INT\_2       ((uint16\_t)0x0004U)}}
+\DoxyCodeLine{316 \textcolor{preprocessor}{\#define LAN8742\_INT\_1       ((uint16\_t)0x0002U)}}
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#define LAN8742\_PHYSCSR\_AUTONEGO\_DONE   ((uint16\_t)0x1000U)}}
+\DoxyCodeLine{325 \textcolor{preprocessor}{\#define LAN8742\_PHYSCSR\_HCDSPEEDMASK    ((uint16\_t)0x001CU)}}
+\DoxyCodeLine{326 \textcolor{preprocessor}{\#define LAN8742\_PHYSCSR\_10BT\_HD         ((uint16\_t)0x0004U)}}
+\DoxyCodeLine{327 \textcolor{preprocessor}{\#define LAN8742\_PHYSCSR\_10BT\_FD         ((uint16\_t)0x0014U)}}
+\DoxyCodeLine{328 \textcolor{preprocessor}{\#define LAN8742\_PHYSCSR\_100BTX\_HD       ((uint16\_t)0x0008U)}}
+\DoxyCodeLine{329 \textcolor{preprocessor}{\#define LAN8742\_PHYSCSR\_100BTX\_FD       ((uint16\_t)0x0018U) }}
+\DoxyCodeLine{338 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_READ\_ERROR            ((int32\_t)-\/5)}}
+\DoxyCodeLine{339 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_WRITE\_ERROR           ((int32\_t)-\/4)}}
+\DoxyCodeLine{340 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_ADDRESS\_ERROR         ((int32\_t)-\/3)}}
+\DoxyCodeLine{341 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_RESET\_TIMEOUT         ((int32\_t)-\/2)}}
+\DoxyCodeLine{342 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_ERROR                 ((int32\_t)-\/1)}}
+\DoxyCodeLine{343 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_OK                    ((int32\_t) 0)}}
+\DoxyCodeLine{344 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_LINK\_DOWN             ((int32\_t) 1)}}
+\DoxyCodeLine{345 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_100MBITS\_FULLDUPLEX   ((int32\_t) 2)}}
+\DoxyCodeLine{346 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_100MBITS\_HALFDUPLEX   ((int32\_t) 3)}}
+\DoxyCodeLine{347 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_10MBITS\_FULLDUPLEX    ((int32\_t) 4)}}
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_10MBITS\_HALFDUPLEX    ((int32\_t) 5)}}
+\DoxyCodeLine{349 \textcolor{preprocessor}{\#define  LAN8742\_STATUS\_AUTONEGO\_NOTDONE      ((int32\_t) 6)}}
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#define  LAN8742\_WOL\_IT                        LAN8742\_INT\_8}}
+\DoxyCodeLine{358 \textcolor{preprocessor}{\#define  LAN8742\_ENERGYON\_IT                   LAN8742\_INT\_7}}
+\DoxyCodeLine{359 \textcolor{preprocessor}{\#define  LAN8742\_AUTONEGO\_COMPLETE\_IT          LAN8742\_INT\_6}}
+\DoxyCodeLine{360 \textcolor{preprocessor}{\#define  LAN8742\_REMOTE\_FAULT\_IT               LAN8742\_INT\_5}}
+\DoxyCodeLine{361 \textcolor{preprocessor}{\#define  LAN8742\_LINK\_DOWN\_IT                  LAN8742\_INT\_4}}
+\DoxyCodeLine{362 \textcolor{preprocessor}{\#define  LAN8742\_AUTONEGO\_LP\_ACK\_IT            LAN8742\_INT\_3}}
+\DoxyCodeLine{363 \textcolor{preprocessor}{\#define  LAN8742\_PARALLEL\_DETECTION\_FAULT\_IT   LAN8742\_INT\_2}}
+\DoxyCodeLine{364 \textcolor{preprocessor}{\#define  LAN8742\_AUTONEGO\_PAGE\_RECEIVED\_IT     LAN8742\_INT\_1}}
+\DoxyCodeLine{373 \textcolor{comment}{/* Exported types -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/} }
+\DoxyCodeLine{377 \textcolor{keyword}{typedef} int32\_t  (*lan8742\_Init\_Func) (void); }
+\DoxyCodeLine{378 \textcolor{keyword}{typedef} int32\_t  (*lan8742\_DeInit\_Func) (void);}
+\DoxyCodeLine{379 \textcolor{keyword}{typedef} int32\_t  (*lan8742\_ReadReg\_Func)   (uint32\_t, uint32\_t, uint32\_t *);}
+\DoxyCodeLine{380 \textcolor{keyword}{typedef} int32\_t  (*lan8742\_WriteReg\_Func)  (uint32\_t, uint32\_t, uint32\_t);}
+\DoxyCodeLine{381 \textcolor{keyword}{typedef} int32\_t  (*lan8742\_GetTick\_Func)  (void);}
+\DoxyCodeLine{382 }
+\DoxyCodeLine{383 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }}
+\DoxyCodeLine{384 \{                   }
+\DoxyCodeLine{385   lan8742\_Init\_Func      Init; }
+\DoxyCodeLine{386   lan8742\_DeInit\_Func    DeInit;}
+\DoxyCodeLine{387   lan8742\_WriteReg\_Func  WriteReg;}
+\DoxyCodeLine{388   lan8742\_ReadReg\_Func   ReadReg; }
+\DoxyCodeLine{389   lan8742\_GetTick\_Func   GetTick;   }
+\DoxyCodeLine{390 \} \mbox{\hyperlink{structlan8742___i_o_ctx__t}{lan8742\_IOCtx\_t}};  }
+\DoxyCodeLine{391 }
+\DoxyCodeLine{392   }
+\DoxyCodeLine{393 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }}
+\DoxyCodeLine{394 \{}
+\DoxyCodeLine{395   uint32\_t            DevAddr;}
+\DoxyCodeLine{396   uint32\_t            Is\_Initialized;}
+\DoxyCodeLine{397   \mbox{\hyperlink{structlan8742___i_o_ctx__t}{lan8742\_IOCtx\_t}}     IO;}
+\DoxyCodeLine{398   \textcolor{keywordtype}{void}               *pData;}
+\DoxyCodeLine{399 \}\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}};}
+\DoxyCodeLine{404 \textcolor{comment}{/* Exported macro -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{405 \textcolor{comment}{/* Exported functions -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{409 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_gafeca65505e1d55842af42870ce9ce415}{LAN8742\_RegisterBusIO}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj, \mbox{\hyperlink{structlan8742___i_o_ctx__t}{lan8742\_IOCtx\_t}} *ioctx);}
+\DoxyCodeLine{410 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_gaab94fc962bd0e87bee6a0982746294c9}{LAN8742\_Init}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj);}
+\DoxyCodeLine{411 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga64b2e8a9f84fdaf708e2cbba649fd42a}{LAN8742\_DeInit}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj);}
+\DoxyCodeLine{412 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga956e4cce08951849c76ca295419f7de2}{LAN8742\_DisablePowerDownMode}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj);}
+\DoxyCodeLine{413 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga4b3c4b90282412cc8e6c78c2bedd95e7}{LAN8742\_EnablePowerDownMode}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj);}
+\DoxyCodeLine{414 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga6e7011f1fafafe4b4f7fb5749a40c2fd}{LAN8742\_StartAutoNego}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj);}
+\DoxyCodeLine{415 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga62d39c03000882625bf58fb113b4e2ea}{LAN8742\_GetLinkState}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj);}
+\DoxyCodeLine{416 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga8453fd5dc383dc78db8b5ece11c30e15}{LAN8742\_SetLinkState}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj, uint32\_t LinkState);}
+\DoxyCodeLine{417 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_gaf9cc68679bf682461be50a98d3dce213}{LAN8742\_EnableLoopbackMode}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj);}
+\DoxyCodeLine{418 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga0075022dcabad1959e6584b41d3965ba}{LAN8742\_DisableLoopbackMode}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj);}
+\DoxyCodeLine{419 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_gae4c8f24f0acdb4ba7776813eb044afde}{LAN8742\_EnableIT}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj, uint32\_t Interrupt);}
+\DoxyCodeLine{420 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga4be402b5189a70a81fe48f0d17bd8718}{LAN8742\_DisableIT}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj, uint32\_t Interrupt);}
+\DoxyCodeLine{421 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga2b1c58036084c36e643fb72779b90e47}{LAN8742\_ClearIT}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj, uint32\_t Interrupt);}
+\DoxyCodeLine{422 int32\_t \mbox{\hyperlink{group___l_a_n8742___exported___functions_ga2c3d66c4f76ca99aa4b3a8d6feae71ae}{LAN8742\_GetITStatus}}(\mbox{\hyperlink{structlan8742___object__t}{lan8742\_Object\_t}} *pObj, uint32\_t Interrupt);}
+\DoxyCodeLine{427 \textcolor{preprocessor}{\#ifdef \_\_cplusplus}}
+\DoxyCodeLine{428 \}}
+\DoxyCodeLine{429 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{430 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* LAN8742\_H */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432 }
+\DoxyCodeLine{448 \textcolor{comment}{/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/}}
+
+\end{DoxyCode}
