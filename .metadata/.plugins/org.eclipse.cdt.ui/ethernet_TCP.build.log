@@ -1,0 +1,10 @@
+10:12:23 **** Incremental Build of configuration Debug for project ethernet_TCP ****
+make -j8 all 
+arm-none-eabi-size   ethernet_TCP.elf 
+   text	   data	    bss	    dec	    hex	filename
+  92892	    160	  34371	 127423	  1f1bf	ethernet_TCP.elf
+Finished building: default.size.stdout
+ 
+
+10:12:24 Build Finished. 0 errors, 0 warnings. (took 920ms)
+
